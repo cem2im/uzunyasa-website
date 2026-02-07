@@ -101,6 +101,11 @@
             color: var(--text-dark);
         }
 
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
         .nav {
             display: flex;
             align-items: center;
@@ -267,10 +272,37 @@
             margin-bottom: 1.5rem;
         }
 
-        .hero-tagline .rotating-word {
-            display: block;
-            color: rgba(255,255,255,0.9);
+        .hero-tagline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rotating-container {
             position: relative;
+            height: 1.2em;
+            overflow: hidden;
+        }
+
+        .rotating-word {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            opacity: 0;
+            transition: all 0.5s ease;
+            white-space: nowrap;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .rotating-word.active {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .tagline-static {
+            color: var(--accent);
+            display: block;
         }
 
         .hero-description {
@@ -1077,8 +1109,7 @@
     <header class="header">
         <div class="header-inner">
             <a href="/" class="logo">
-                <div class="logo-icon">🌿</div>
-                <span class="logo-text">UzunYaşa</span>
+                <img src="images/logo.png" alt="UzunYaşa" class="logo-img">
             </a>
             <nav class="nav">
                 <ul class="nav-links">
@@ -1110,9 +1141,13 @@
         </video>
         <div class="hero-content">
             <h1 class="hero-tagline animate-fade-in-up">
-                <span class="rotating-word">daha uzun</span>
-                <span class="rotating-word">daha sağlıklı</span>
-                <span class="rotating-word">daha enerjik</span>
+                <div class="rotating-container">
+                    <span class="rotating-word active">daha uzun</span>
+                    <span class="rotating-word">daha sağlıklı</span>
+                    <span class="rotating-word">daha enerjik</span>
+                    <span class="rotating-word">daha güçlü</span>
+                </div>
+                <span class="tagline-static">yaşa</span>
             </h1>
             <p class="hero-description animate-fade-in-up delay-1">
                 Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu. 
@@ -1453,10 +1488,9 @@
         <div class="footer-inner">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <div class="logo" style="margin-bottom: 1rem;">
-                        <div class="logo-icon">🌿</div>
-                        <span class="logo-text">UzunYaşa</span>
-                    </div>
+                    <a href="/" class="logo" style="margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="UzunYaşa" class="logo-img" style="height: 50px;">
+                    </a>
                     <p class="footer-tagline">"Bilimle daha uzun, daha iyi yaşam"</p>
                     <div class="footer-badges">
                         <span>Bağımsız</span>
@@ -1516,23 +1550,13 @@
         
         function rotateWords() {
             rotatingWords.forEach((word, index) => {
-                word.style.opacity = index === currentIndex ? '1' : '0';
-                word.style.transform = index === currentIndex ? 'translateY(0)' : 'translateY(20px)';
+                word.classList.remove('active');
             });
             currentIndex = (currentIndex + 1) % rotatingWords.length;
+            rotatingWords[currentIndex].classList.add('active');
         }
         
-        // Initial setup
-        rotatingWords.forEach((word, index) => {
-            word.style.position = index === 0 ? 'relative' : 'absolute';
-            word.style.top = index === 0 ? 'auto' : '0';
-            word.style.left = index === 0 ? 'auto' : '50%';
-            word.style.transform = index === 0 ? 'translateY(0)' : 'translateX(-50%) translateY(20px)';
-            word.style.opacity = index === 0 ? '1' : '0';
-            word.style.transition = 'all 0.5s ease';
-        });
-        
-        setInterval(rotateWords, 3000);
+        setInterval(rotateWords, 2500);
 
         // Header scroll effect
         const header = document.querySelector('.header');
@@ -1542,6 +1566,24 @@
             } else {
                 header.style.boxShadow = 'none';
             }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
         });
     </script>
 
