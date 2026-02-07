@@ -1164,21 +1164,54 @@
         .guide-card {
             background: white;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 16px;
+            overflow: hidden;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .guide-card:hover {
             border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .guide-card-image {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+        }
+
+        .guide-card-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.2) 100%);
+        }
+
+        .guide-card-image .guide-title {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin: 0;
         }
 
         .guide-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .guide-card-body {
+            padding: 1rem 1.25rem;
         }
 
         .guide-title {
@@ -1893,34 +1926,52 @@
             </div>
             <div class="guides-grid">
                 <a href="/rehber/glp1" class="guide-card">
-                    <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12C8 12 14 10 24 14V38C14 34 8 36 8 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 12C40 12 34 10 24 14V38C34 34 40 36 40 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18L20 20" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M14 24L20 26" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 20L34 18" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 26L34 24" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <div class="guide-title">GLP-1 İlaçları: Bilmeniz Gereken Her Şey</div>
-                    <div class="guide-meta"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><circle cx="24" cy="24" r="16" stroke="#0D7377" stroke-width="2.5"/><path d="M24 14V24L30 28" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2" fill="#0D7377"/></svg> 12 dk okuma</div>
+                    <div class="guide-card-image" style="background-image: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80');">
+                        <div class="guide-title">GLP-1 İlaçları: Bilmeniz Gereken Her Şey</div>
+                    </div>
+                    <div class="guide-card-body">
+                        <div class="guide-meta">⏱️ 12 dk okuma</div>
+                    </div>
                 </a>
                 <a href="/rehber/aralikli-oruc" class="guide-card">
-                    <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12C8 12 14 10 24 14V38C14 34 8 36 8 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 12C40 12 34 10 24 14V38C34 34 40 36 40 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18L20 20" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M14 24L20 26" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 20L34 18" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 26L34 24" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <div class="guide-title">Aralıklı Oruç: Gerçekten İşe Yarıyor mu?</div>
-                    <div class="guide-meta"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><circle cx="24" cy="24" r="16" stroke="#0D7377" stroke-width="2.5"/><path d="M24 14V24L30 28" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2" fill="#0D7377"/></svg> 8 dk okuma</div>
+                    <div class="guide-card-image" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&q=80');">
+                        <div class="guide-title">Aralıklı Oruç: Gerçekten İşe Yarıyor mu?</div>
+                    </div>
+                    <div class="guide-card-body">
+                        <div class="guide-meta">⏱️ 8 dk okuma</div>
+                    </div>
                 </a>
                 <a href="/rehber/egzersiz-kilo" class="guide-card">
-                    <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12C8 12 14 10 24 14V38C14 34 8 36 8 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 12C40 12 34 10 24 14V38C34 34 40 36 40 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18L20 20" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M14 24L20 26" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 20L34 18" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 26L34 24" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <div class="guide-title">Kilo Verdiren Egzersizler: Bilim Ne Diyor</div>
-                    <div class="guide-meta"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><circle cx="24" cy="24" r="16" stroke="#0D7377" stroke-width="2.5"/><path d="M24 14V24L30 28" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2" fill="#0D7377"/></svg> 10 dk okuma</div>
+                    <div class="guide-card-image" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&q=80');">
+                        <div class="guide-title">Kilo Verdiren Egzersizler: Bilim Ne Diyor</div>
+                    </div>
+                    <div class="guide-card-body">
+                        <div class="guide-meta">⏱️ 10 dk okuma</div>
+                    </div>
                 </a>
                 <a href="/rehber/uzun-yasam" class="guide-card">
-                    <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12C8 12 14 10 24 14V38C14 34 8 36 8 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 12C40 12 34 10 24 14V38C34 34 40 36 40 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18L20 20" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M14 24L20 26" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 20L34 18" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 26L34 24" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <div class="guide-title">Uzun Yaşamın Bilimsel Sırları</div>
-                    <div class="guide-meta"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><circle cx="24" cy="24" r="16" stroke="#0D7377" stroke-width="2.5"/><path d="M24 14V24L30 28" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2" fill="#0D7377"/></svg> 15 dk okuma</div>
+                    <div class="guide-card-image" style="background-image: url('https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?w=500&q=80');">
+                        <div class="guide-title">Uzun Yaşamın Bilimsel Sırları</div>
+                    </div>
+                    <div class="guide-card-body">
+                        <div class="guide-meta">⏱️ 15 dk okuma</div>
+                    </div>
                 </a>
                 <a href="/rehber/duygusal-yeme" class="guide-card">
-                    <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12C8 12 14 10 24 14V38C14 34 8 36 8 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 12C40 12 34 10 24 14V38C34 34 40 36 40 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18L20 20" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M14 24L20 26" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 20L34 18" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 26L34 24" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <div class="guide-title">Duygusal Yeme: Nasıl Başa Çıkılır?</div>
-                    <div class="guide-meta"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><circle cx="24" cy="24" r="16" stroke="#0D7377" stroke-width="2.5"/><path d="M24 14V24L30 28" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2" fill="#0D7377"/></svg> 7 dk okuma</div>
+                    <div class="guide-card-image" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80');">
+                        <div class="guide-title">Duygusal Yeme: Nasıl Başa Çıkılır?</div>
+                    </div>
+                    <div class="guide-card-body">
+                        <div class="guide-meta">⏱️ 7 dk okuma</div>
+                    </div>
                 </a>
                 <a href="/rehber/supplement" class="guide-card">
-                    <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12C8 12 14 10 24 14V38C14 34 8 36 8 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 12C40 12 34 10 24 14V38C34 34 40 36 40 36V12Z" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 18L20 20" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M14 24L20 26" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 20L34 18" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/><path d="M28 26L34 24" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <div class="guide-title">Supplement Rehberi: Hangileri İşe Yarıyor?</div>
-                    <div class="guide-meta"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><circle cx="24" cy="24" r="16" stroke="#0D7377" stroke-width="2.5"/><path d="M24 14V24L30 28" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2" fill="#0D7377"/></svg> 12 dk okuma</div>
+                    <div class="guide-card-image" style="background-image: url('https://images.unsplash.com/photo-1550572017-edd951aa8f72?w=500&q=80');">
+                        <div class="guide-title">Supplement Rehberi: Hangileri İşe Yarıyor?</div>
+                    </div>
+                    <div class="guide-card-body">
+                        <div class="guide-meta">⏱️ 12 dk okuma</div>
+                    </div>
                 </a>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
