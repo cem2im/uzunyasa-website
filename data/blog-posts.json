@@ -1,5 +1,25 @@
 [
   {
+    "slug": "blue-zones-dunyanin-en-uzun-yasayan-insanlarinin-9-sirri",
+    "title": "Blue Zones: Dünyanın En Uzun Yaşayan İnsanlarının 9 Sırrı",
+    "description": "Blue Zones araştırması, 100 yaş üstü insanların yoğun yaşadığı bölgelerdeki uzun yaşam sırlarını ortaya çıkarıyor. İşte bilimsel bulgular.",
+    "category": "yasam-tarzi",
+    "categoryName": "Yaşam Tarzı",
+    "categoryIcon": "😴",
+    "categoryColor": "#06B6D4",
+    "date": "2026-02-07",
+    "readTime": 8,
+    "tags": [
+      "uzun-yasam",
+      "blue-zones",
+      "saglikli-yaslanma",
+      "beslenme",
+      "yasam-tarzi",
+      "lonjevite"
+    ],
+    "priority": "normal"
+  },
+  {
     "slug": "glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler",
     "title": "GLP-1 İlaçları ve Kilo Verme: Bilmeniz Gerekenler",
     "description": "GLP-1 reseptör agonistleri nasıl kilo verdirir? Yan etkileri, maliyeti ve Türkiye'deki durumu hakkında bilimsel bilgiler.",
