@@ -188,25 +188,59 @@
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(13, 115, 119, 0.3);
         }
 
         .btn-accent {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, #F4A855 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-accent::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-accent:hover::before {
+            left: 100%;
         }
 
         .btn-accent:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
+            background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 150, 62, 0.3);
         }
 
         .btn-outline {
@@ -252,7 +286,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(13, 115, 119, 0.85), rgba(20, 145, 155, 0.75));
+            background: 
+                linear-gradient(180deg, rgba(13, 115, 119, 0.3) 0%, rgba(13, 115, 119, 0.6) 50%, rgba(10, 92, 95, 0.9) 100%),
+                linear-gradient(135deg, rgba(13, 115, 119, 0.7) 0%, rgba(20, 145, 155, 0.5) 50%, rgba(232, 150, 62, 0.2) 100%),
+                radial-gradient(ellipse at 30% 20%, rgba(20, 145, 155, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(232, 150, 62, 0.15) 0%, transparent 40%);
             z-index: 1;
         }
 
@@ -347,7 +385,10 @@
 
         /* ===== STATS BAR ===== */
         .stats-bar {
-            background: var(--bg-cream);
+            background: 
+                linear-gradient(135deg, var(--bg-cream) 0%, rgba(255,255,255,0.8) 50%, var(--bg-cream) 100%),
+                radial-gradient(ellipse at 20% 50%, rgba(13, 115, 119, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(232, 150, 62, 0.03) 0%, transparent 50%);
             border-bottom: 1px solid var(--border);
             padding: 2rem 0;
         }
@@ -445,6 +486,7 @@
             border-color: var(--primary);
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, white 0%, rgba(13, 115, 119, 0.03) 100%);
         }
 
         .goal-icon {
@@ -471,12 +513,28 @@
         }
 
         .tool-featured {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: 
+                linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--primary) 100%),
+                radial-gradient(ellipse at 20% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(232, 150, 62, 0.15) 0%, transparent 40%);
             border-radius: 20px;
             padding: 3rem;
             color: white;
             text-align: center;
             margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-featured::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .tool-featured-icon {
@@ -546,11 +604,27 @@
         }
 
         .compare-box {
-            background: linear-gradient(135deg, var(--bg-cream), white);
+            background: 
+                linear-gradient(135deg, var(--bg-cream) 0%, white 50%, var(--bg-cream) 100%),
+                radial-gradient(ellipse at 0% 0%, rgba(13, 115, 119, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 100%, rgba(232, 150, 62, 0.05) 0%, transparent 50%);
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 3rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .compare-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            border-radius: 20px 20px 0 0;
         }
 
         .compare-title {
@@ -653,7 +727,9 @@
         .story-video {
             position: relative;
             aspect-ratio: 3/4;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            background: 
+                linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-dark) 100%),
+                radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 50%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -710,8 +786,23 @@
 
         /* ===== SCIENCE SECTION ===== */
         .science-section {
-            background: var(--text-dark);
+            background: 
+                linear-gradient(180deg, #1a2a32 0%, var(--text-dark) 50%, #151f25 100%),
+                radial-gradient(ellipse at 10% 90%, rgba(13, 115, 119, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 10%, rgba(232, 150, 62, 0.1) 0%, transparent 50%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .science-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(13, 115, 119, 0.5), rgba(232, 150, 62, 0.5), transparent);
         }
 
         .science-content {
@@ -843,13 +934,35 @@
         .team-avatar {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            background: 
+                linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-dark) 100%),
+                radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%);
             border-radius: 50%;
             margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
+            box-shadow: 0 10px 30px rgba(13, 115, 119, 0.2);
+            position: relative;
+        }
+
+        .team-avatar::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .team-card:hover .team-avatar::before {
+            opacity: 1;
         }
 
         .team-role {
@@ -866,10 +979,34 @@
 
         /* ===== CTA SECTION ===== */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: 
+                linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--primary) 100%),
+                radial-gradient(ellipse at 0% 100%, rgba(232, 150, 62, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(20, 145, 155, 0.3) 0%, transparent 70%);
             color: white;
             text-align: center;
             padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 100px,
+                    rgba(255,255,255,0.02) 100px,
+                    rgba(255,255,255,0.02) 200px
+                );
+            pointer-events: none;
         }
 
         .cta-title {
