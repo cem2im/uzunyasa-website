@@ -7,10 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* UzunYaşa Orijinal Tema Renkleri */
             --primary: #195157;
-            --primary-dark: #0f3339;
+            --primary-light: #2a7d83;
+            --primary-dark: #0f3d42;
             --accent: #E8963E;
-            --accent-gold: #c4a574;
+            --accent-dark: #D97706;
             --bg: #FAF9F7;
             --bg-card: #ffffff;
             --text: #1f2937;
@@ -20,8 +22,8 @@
             --gradient-accent: linear-gradient(135deg, #E8963E 0%, #D97706 100%);
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
-            --shadow-xl: 0 24px 60px rgba(0,0,0,0.16);
+            --shadow-lg: 0 12px 40px rgba(25,81,87,0.15);
+            --shadow-xl: 0 24px 60px rgba(25,81,87,0.2);
             --radius-sm: 12px;
             --radius-md: 16px;
             --radius-lg: 24px;
@@ -503,7 +505,20 @@
 </head>
 <body>
 
-<section class="ai-experts-section">
+<!-- Header -->
+<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e5e7eb;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;">
+        <a href="../index.html"><img src="../images/logo.svg" alt="UzunYaşa" style="height: 44px;"></a>
+        <nav style="display: flex; gap: 32px; align-items: center;">
+            <a href="../index.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Ana Sayfa</a>
+            <a href="rehberler.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Rehberler</a>
+            <a href="blog.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Blog</a>
+            <a href="test.html" style="padding: 10px 20px; background: linear-gradient(135deg, #195157, #2a7d83); color: white; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">Teste Başla</a>
+        </nav>
+    </div>
+</header>
+
+<section class="ai-experts-section" style="padding-top: 160px;">
     <!-- Dynamic Headline -->
     <div class="dynamic-headline">
         <div class="headline-label">AI Destekli Sağlık Rehberliği</div>
