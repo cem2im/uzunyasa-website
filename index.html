@@ -929,6 +929,22 @@
             border-radius: 20px;
             font-size: 0.9rem;
             color: var(--text-medium);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .compare-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 115, 119, 0.3);
+        }
+
+        .compare-tag.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         .compare-desc {
@@ -951,10 +967,19 @@
 
         .compare-preview-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1rem;
-            padding: 0.75rem 0;
+            padding: 1rem;
             border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin: 0.25rem 0;
+        }
+
+        .compare-preview-item:hover {
+            background: rgba(13, 115, 119, 0.05);
+            transform: translateX(5px);
         }
 
         .compare-preview-item:last-child {
@@ -963,6 +988,7 @@
 
         .compare-preview-icon {
             font-size: 1.5rem;
+            min-width: 40px;
         }
 
         .compare-preview-text {
@@ -973,10 +999,53 @@
             font-weight: 600;
             color: var(--text-dark);
             font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .compare-preview-title::after {
+            content: '▼';
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            transition: transform 0.3s;
+        }
+
+        .compare-preview-item.expanded .compare-preview-title::after {
+            transform: rotate(180deg);
         }
 
         .compare-preview-meta {
             font-size: 0.85rem;
+        }
+
+        .compare-preview-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .compare-preview-item.expanded .compare-preview-details {
+            max-height: 300px;
+            padding-top: 0.75rem;
+            margin-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .compare-preview-details ul {
+            margin: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .compare-preview-details li {
+            margin-bottom: 0.25rem;
+        }
+
+        .compare-preview-details .pros { color: #10B981; }
+        .compare-preview-details .cons { color: #EF4444; }
             color: var(--text-light);
         }
 
@@ -1810,25 +1879,87 @@
                     Hangisi size uygun?
                 </p>
                 <div class="compare-preview">
-                    <div class="compare-preview-item">
-                        <span class="compare-preview-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="18" width="24" height="12" rx="6" stroke="#0D7377" stroke-width="2.5"/><path d="M24 18V30" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/><rect x="24" y="18" width="12" height="12" rx="6" fill="#0D7377" opacity="0.15"/><circle cx="18" cy="24" r="1.5" fill="#0D7377"/><circle cx="30" cy="24" r="1.5" fill="#0D7377" opacity="0.4"/></svg></span>
+                    <div class="compare-preview-item" onclick="this.classList.toggle('expanded')">
+                        <span class="compare-preview-icon">💊</span>
                         <div class="compare-preview-text">
-                            <div class="compare-preview-title">GLP-1 İlaçları</div>
-                            <div class="compare-preview-meta">%15-20 kilo kaybı • Sürekli kullanım gerektirir</div>
+                            <div class="compare-preview-title">GLP-1 İlaçları (Ozempic, Wegovy)</div>
+                            <div class="compare-preview-meta">%15-20 kilo kaybı • Haftalık enjeksiyon</div>
+                            <div class="compare-preview-details">
+                                <p>Semaglutid ve tirzepatid gibi GLP-1 agonistleri, iştahı azaltarak ve mide boşalmasını yavaşlatarak kilo kaybı sağlar.</p>
+                                <ul>
+                                    <li class="pros">✓ Diyabet kontrolünü de iyileştirir</li>
+                                    <li class="pros">✓ Ameliyatsız, haftalık enjeksiyon</li>
+                                    <li class="cons">✗ Sürekli kullanım gerektirir (bırakınca geri alım)</li>
+                                    <li class="cons">✗ Aylık maliyet: 4.000-8.000₺</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="compare-preview-item">
-                        <span class="compare-preview-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="28" r="10" stroke="#0D7377" stroke-width="2.5"/><circle cx="20" cy="28" r="4" stroke="#0D7377" stroke-width="2"/><circle cx="20" cy="28" r="1.5" fill="#0D7377"/><path d="M28 22L40 10" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round"/><path d="M36 10H40V14" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 22L14 16" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3"/></svg></span>
+                    <div class="compare-preview-item" onclick="this.classList.toggle('expanded')">
+                        <span class="compare-preview-icon">🔬</span>
                         <div class="compare-preview-text">
-                            <div class="compare-preview-title">Endoskopik Tüp Mide</div>
+                            <div class="compare-preview-title">Endoskopik Tüp Mide (ESG)</div>
                             <div class="compare-preview-meta">%15-20 kilo kaybı • Tek seferlik prosedür</div>
+                            <div class="compare-preview-details">
+                                <p>Mide hacmi endoskopik olarak dikişlerle küçültülür. Kesi yok, genel anestezi altında 60-90 dakika sürer.</p>
+                                <ul>
+                                    <li class="pros">✓ Ameliyat değil, aynı gün taburcu</li>
+                                    <li class="pros">✓ Geri dönüşümlü (gerekirse)</li>
+                                    <li class="pros">✓ Cerrahiye göre düşük komplikasyon</li>
+                                    <li class="cons">✗ Tek seferlik maliyet: 80.000-150.000₺</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="compare-preview-item">
-                        <span class="compare-preview-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 36L30 14" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round"/><path d="M30 14L34 10C35 9 37 9 38 10C39 11 39 13 38 14L34 18" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 14L34 18" stroke="#0D7377" stroke-width="2.5" stroke-linecap="round"/><path d="M14 36C14 36 10 38 10 36C10 34 14 36 14 36Z" stroke="#0D7377" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#0D7377" opacity="0.2"/></svg></span>
+                    <div class="compare-preview-item" onclick="this.classList.toggle('expanded')">
+                        <span class="compare-preview-icon">🏥</span>
                         <div class="compare-preview-text">
-                            <div class="compare-preview-title">Bariatrik Cerrahi</div>
-                            <div class="compare-preview-meta">%25-35 kilo kaybı • Kalıcı, geri dönüşü yok</div>
+                            <div class="compare-preview-title">Bariatrik Cerrahi (Sleeve, Bypass)</div>
+                            <div class="compare-preview-meta">%25-35 kilo kaybı • Kalıcı anatomik değişiklik</div>
+                            <div class="compare-preview-details">
+                                <p>Tüp mide (sleeve) veya mide bypass ameliyatları kalıcı kilo kaybı sağlar. BMI >35 için önerilir.</p>
+                                <ul>
+                                    <li class="pros">✓ En yüksek ve kalıcı kilo kaybı</li>
+                                    <li class="pros">✓ Diyabet remisyonu %80+</li>
+                                    <li class="cons">✗ Cerrahi riskler, 2-3 gün hastane</li>
+                                    <li class="cons">✗ Geri dönüşü yok</li>
+                                    <li class="cons">✗ Ömür boyu vitamin takibi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compare-preview-item" onclick="this.classList.toggle('expanded')">
+                        <span class="compare-preview-icon">🥗</span>
+                        <div class="compare-preview-text">
+                            <div class="compare-preview-title">Diyet ve Yaşam Tarzı</div>
+                            <div class="compare-preview-meta">%5-10 kilo kaybı • Sürdürülebilir alışkanlıklar</div>
+                            <div class="compare-preview-details">
+                                <p>Kalori açığı, dengeli beslenme ve düzenli egzersiz ile sağlıklı kilo kaybı. Her tedavinin temelidir.</p>
+                                <ul>
+                                    <li class="pros">✓ Risk yok, doğal yöntem</li>
+                                    <li class="pros">✓ Genel sağlığı iyileştirir</li>
+                                    <li class="pros">✓ Maliyetsiz veya düşük maliyet</li>
+                                    <li class="cons">✗ Sonuçlar yavaş (aylar)</li>
+                                    <li class="cons">✗ Yüksek motivasyon gerektirir</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compare-preview-item" onclick="this.classList.toggle('expanded')">
+                        <span class="compare-preview-icon">🏃</span>
+                        <div class="compare-preview-text">
+                            <div class="compare-preview-title">Egzersiz Programları</div>
+                            <div class="compare-preview-meta">%3-5 kilo kaybı • Kas ve metabolizma desteği</div>
+                            <div class="compare-preview-details">
+                                <p>Düzenli egzersiz tek başına sınırlı kilo kaybı sağlar ama diğer yöntemlerle birlikte sonuçları katlıyor.</p>
+                                <ul>
+                                    <li class="pros">✓ Kas kütlesini korur/artırır</li>
+                                    <li class="pros">✓ Metabolizmayı hızlandırır</li>
+                                    <li class="pros">✓ Ruh sağlığını iyileştirir</li>
+                                    <li class="cons">✗ Tek başına yeterli değil</li>
+                                    <li class="cons">✗ Tutarlılık gerektirir</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
