@@ -746,19 +746,7 @@
         }
 
         .story-play {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: transform 0.2s;
-        }
-
-        .story-card:hover .story-play {
-            transform: scale(1.1);
+            display: none;
         }
 
         .story-content {
@@ -1459,10 +1447,9 @@
                 <p class="section-subtitle">Sağlıklı yaşam yolculuklarından ilham alın</p>
             </div>
             <div class="stories-grid">
-                <div class="story-card" onclick="playStoryVideo(this)">
+                <div class="story-card">
                     <div class="story-video">
-                        <video src="videos/story-1.mp4" preload="metadata"></video>
-                        <div class="story-play">▶</div>
+                        <video src="videos/story-1.mp4" autoplay muted loop playsinline></video>
                     </div>
                     <div class="story-content">
                         <div class="story-quote">"Torunlarımla oyun oynayabiliyorum artık"</div>
@@ -1470,10 +1457,9 @@
                         <div class="story-result">32 kg verdi</div>
                     </div>
                 </div>
-                <div class="story-card" onclick="playStoryVideo(this)">
+                <div class="story-card">
                     <div class="story-video">
-                        <video src="videos/story-2.mp4" preload="metadata"></video>
-                        <div class="story-play">▶</div>
+                        <video src="videos/story-2.mp4" autoplay muted loop playsinline></video>
                     </div>
                     <div class="story-content">
                         <div class="story-quote">"Diyabet ilaçlarımı bıraktım"</div>
@@ -1481,10 +1467,9 @@
                         <div class="story-result">28 kg verdi</div>
                     </div>
                 </div>
-                <div class="story-card" onclick="playStoryVideo(this)">
+                <div class="story-card">
                     <div class="story-video">
-                        <video src="videos/story-3.mp4" preload="metadata"></video>
-                        <div class="story-play">▶</div>
+                        <video src="videos/story-3.mp4" autoplay muted loop playsinline></video>
                     </div>
                     <div class="story-content">
                         <div class="story-quote">"Özgüvenim geri geldi"</div>
@@ -1492,10 +1477,9 @@
                         <div class="story-result">24 kg verdi</div>
                     </div>
                 </div>
-                <div class="story-card" onclick="playStoryVideo(this)">
+                <div class="story-card">
                     <div class="story-video">
-                        <video src="videos/story-4.mp4" preload="metadata"></video>
-                        <div class="story-play">▶</div>
+                        <video src="videos/story-4.mp4" autoplay muted loop playsinline></video>
                     </div>
                     <div class="story-content">
                         <div class="story-quote">"Merdiven çıkmak artık zor değil"</div>
