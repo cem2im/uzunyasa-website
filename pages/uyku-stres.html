@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uyku & Stres Rehberi | UzunYaşa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-teal: #195157;
+            --primary-teal-light: #2a6b73;
+            --accent-orange: #E8963E;
+            --accent-orange-light: #f0a854;
+            --accent-purple: #6B5B95;
+            --text-dark: #1a1a1a;
+            --text-gray: #6b7280;
+            --bg-cream: #FAF9F7;
+            --bg-white: #FFFFFF;
+            --border-light: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-cream);
+        }
+
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img { height: 70px; width: auto; }
+
+        .nav { display: flex; align-items: center; gap: 2rem; }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover { background: var(--accent-orange-light); transform: translateY(-1px); }
+
+        .page-hero {
+            position: relative;
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.85) 100%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .page-hero-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .page-hero-icon svg { width: 40px; height: 40px; }
+
+        .page-hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+
+        .page-hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section.alt { background: var(--bg-white); }
+        .content-section.full { max-width: 100%; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .column-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .column-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .column-icon.sleep { background: linear-gradient(135deg, #6B5B95 0%, #8B7BAA 100%); }
+        .column-icon.stress { background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%); }
+
+        .column-icon svg { width: 24px; height: 24px; color: white; }
+
+        .column-title { font-size: 1.5rem; font-weight: 700; }
+
+        .topics-list { display: flex; flex-direction: column; gap: 1rem; }
+
+        .topic-item {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-light);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .topic-item:hover {
+            transform: translateX(5px);
+            border-color: var(--primary-teal);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .topic-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topic-item h4 span { color: var(--primary-teal); font-size: 1.2rem; }
+
+        .topic-item p { color: var(--text-gray); font-size: 0.9rem; }
+
+        /* Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .tip-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .tip-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .tip-card p { color: var(--text-gray); font-size: 0.9rem; }
+
+        /* Sleep Score */
+        .sleep-score-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .sleep-score-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .score-visual {
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 8px solid rgba(255,255,255,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            top: -8px; left: -8px; right: -8px; bottom: -8px;
+            border-radius: 50%;
+            border: 8px solid transparent;
+            border-top-color: var(--accent-orange);
+            border-right-color: var(--accent-orange);
+            transform: rotate(45deg);
+        }
+
+        .score-number { font-size: 4rem; font-weight: 700; line-height: 1; }
+        .score-label { font-size: 1rem; opacity: 0.7; }
+
+        .score-content h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .score-content p { opacity: 0.8; margin-bottom: 1.5rem; line-height: 1.8; }
+
+        .btn-light {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-light:hover { background: rgba(255,255,255,0.25); }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-teal);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p { color: rgba(255, 255, 255, 0.7); margin-top: 1rem; font-size: 0.9rem; }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-logo { height: 50px; }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .page-hero h1 { font-size: 2rem; }
+            .two-column { grid-template-columns: 1fr; }
+            .sleep-score-inner { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Keşfet ▾</a>
+                <a href="#" class="nav-link">Araçlar</a>
+                <a href="#" class="nav-link">Hikayeler</a>
+                <a href="#" class="nav-link">Bilim</a>
+                <a href="#" class="nav-link">Hakkımızda</a>
+                <a href="#" class="btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <video class="page-hero-bg" autoplay muted loop playsinline>
+            <source src="../videos/background-7.mp4" type="video/mp4">
+        </video>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </div>
+            <h1>Uyku & Stres Rehberi</h1>
+            <p>Kaliteli uyku ve etkili stres yönetimi ile zihinsel ve fiziksel sağlığınızı optimize edin.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="two-column">
+            <div>
+                <div class="column-header">
+                    <div class="column-icon sleep">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </div>
+                    <h2 class="column-title">Uyku</h2>
+                </div>
+                <div class="topics-list">
+                    <a href="#" class="topic-item">
+                        <h4>Uyku Hijyeni <span>→</span></h4>
+                        <p>Kaliteli uyku için yatak odası ve uyku öncesi rutinlerinizi düzenleme rehberi.</p>
+                    </a>
+                    <a href="#" class="topic-item">
+                        <h4>Sirkadiyen Ritim <span>→</span></h4>
+                        <p>Vücut saatinizi anlamak ve doğal uyku döngünüzü optimize etmek.</p>
+                    </a>
+                    <a href="#" class="topic-item">
+                        <h4>Uyku Bozuklukları <span>→</span></h4>
+                        <p>İnsomni, uyku apnesi ve diğer uyku problemlerinin belirtileri ve çözümleri.</p>
+                    </a>
+                    <a href="#" class="topic-item">
+                        <h4>Rüya ve Uyku Evreleri <span>→</span></h4>
+                        <p>REM, derin uyku ve uyku döngülerinin sağlık üzerindeki etkileri.</p>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="column-header">
+                    <div class="column-icon stress">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                    </div>
+                    <h2 class="column-title">Stres Yönetimi</h2>
+                </div>
+                <div class="topics-list">
+                    <a href="#" class="topic-item">
+                        <h4>Nefes Teknikleri <span>→</span></h4>
+                        <p>Anında sakinleşme için 4-7-8, kutu nefesi ve diyafram solunumu.</p>
+                    </a>
+                    <a href="#" class="topic-item">
+                        <h4>Meditasyon & Mindfulness <span>→</span></h4>
+                        <p>Başlangıçtan ileriye, farkındalık pratiği ile zihinsel berraklık.</p>
+                    </a>
+                    <a href="#" class="topic-item">
+                        <h4>Kronik Stres <span>→</span></h4>
+                        <p>Uzun süreli stresin vücuttaki etkileri ve kortizol yönetimi.</p>
+                    </a>
+                    <a href="#" class="topic-item">
+                        <h4>İş-Yaşam Dengesi <span>→</span></h4>
+                        <p>Tükenmişlik sendromu önleme ve sürdürülebilir verimlilik stratejileri.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sleep-score-section">
+        <div class="sleep-score-inner">
+            <div class="score-visual">
+                <div class="score-circle">
+                    <span class="score-number">72</span>
+                    <span class="score-label">Uyku Puanı</span>
+                </div>
+            </div>
+            <div class="score-content">
+                <h2>Uyku Kalitenizi Ölçün</h2>
+                <p>Uyku alışkanlıklarınızı analiz edin, kişiselleştirilmiş iyileştirme önerileri alın. Sadece 2 dakikalık test ile uyku puanınızı öğrenin.</p>
+                <a href="#" class="btn-light">Uyku Testini Başlat →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section alt full">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title" style="text-align: center;">Daha İyi Uyku için 7 Altın Kural</h2>
+            <p class="section-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;">Bilimsel araştırmalarla desteklenen, uygulaması kolay öneriler.</p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <h4>Düzenli Uyku Saati</h4>
+                    <p>Her gün aynı saatte yatın ve kalkın, hafta sonları dahil.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <h4>Karanlık Yatak Odası</h4>
+                    <p>Melatonin üretimi için tamamen karanlık bir ortam oluşturun.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <h4>Serin Oda Sıcaklığı</h4>
+                    <p>İdeal uyku sıcaklığı 18-20°C arasındadır.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <h4>Ekran Yasağı</h4>
+                    <p>Yatmadan 1 saat önce mavi ışık yayan cihazları kapatın.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <h4>Kafein Sınırı</h4>
+                    <p>Öğleden sonra 14:00'dan itibaren kafein almayın.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <h4>Gevşeme Rutini</h4>
+                    <p>Yatmadan önce okuma, stretching veya meditasyon yapın.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">7</div>
+                    <h4>Yatak Sadece Uyku İçin</h4>
+                    <p>Yatağı çalışma veya TV izleme için kullanmayın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Uyku ve stres profilinizi keşfedin</h2>
+        <p>Kişiselleştirilmiş öneriler için ücretsiz değerlendirmemizi tamamlayın.</p>
+        <a href="#" class="btn-white">Değerlendirmeye Başla →</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html">
+                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+                    </a>
+                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Keşfet</h4>
+                    <a href="beslenme.html">Beslenme</a>
+                    <a href="egzersiz.html">Egzersiz</a>
+                    <a href="uyku-stres.html">Uyku & Stres</a>
+                    <a href="tedavi.html">Tedavi Seçenekleri</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Araçlar</h4>
+                    <a href="#">Bana Ne Uygun?</a>
+                    <a href="#">BMI Hesaplayıcı</a>
+                    <a href="#">Kalori Hesaplayıcı</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hakkımızda</h4>
+                    <a href="#">Ekibimiz</a>
+                    <a href="#">Bilimsel Yaklaşım</a>
+                    <a href="#">İletişim</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 UzunYaşa. Tüm hakları saklıdır.</span>
+                <span>Gizlilik Politikası | Kullanım Koşulları</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beslenme Rehberi | UzunYaşa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-teal: #195157;
+            --primary-teal-light: #2a6b73;
+            --accent-orange: #E8963E;
+            --accent-orange-light: #f0a854;
+            --text-dark: #1a1a1a;
+            --text-gray: #6b7280;
+            --bg-cream: #FAF9F7;
+            --bg-white: #FFFFFF;
+            --border-light: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-cream);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img {
+            height: 70px;
+            width: auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-teal);
+        }
+
+        .nav-link.active {
+            color: var(--primary-teal);
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-orange-light);
+            transform: translateY(-1px);
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(25, 81, 87, 0.9) 0%, rgba(42, 107, 115, 0.85) 100%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .page-hero-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .page-hero-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section.alt {
+            background: var(--bg-white);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        /* ===== TOPIC CARDS ===== */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-teal);
+        }
+
+        .topic-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .topic-icon svg {
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+
+        .topic-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .topic-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .topic-card .arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-teal);
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* ===== INFO BLOCKS ===== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .info-grid.reverse {
+            direction: rtl;
+        }
+
+        .info-grid.reverse > * {
+            direction: ltr;
+        }
+
+        .info-image {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--primary-teal);
+        }
+
+        .info-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .info-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .info-list li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-orange);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-cream);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            color: var(--primary-teal);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-teal);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-logo {
+            height: 50px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid.reverse {
+                direction: ltr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Keşfet ▾</a>
+                <a href="#" class="nav-link">Araçlar</a>
+                <a href="#" class="nav-link">Hikayeler</a>
+                <a href="#" class="nav-link">Bilim</a>
+                <a href="#" class="nav-link">Hakkımızda</a>
+                <a href="#" class="btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <video class="page-hero-bg" autoplay muted loop playsinline>
+            <source src="../videos/background-5.mp4" type="video/mp4">
+        </video>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+            </div>
+            <h1>Beslenme Rehberi</h1>
+            <p>Bilimsel araştırmalara dayalı, kişiselleştirilmiş beslenme önerileri ile sağlıklı yaşamın temelini atın.</p>
+        </div>
+    </section>
+
+    <!-- TOPICS GRID -->
+    <section class="content-section">
+        <h2 class="section-title">Beslenme Konuları</h2>
+        <p class="section-subtitle">Sağlıklı beslenmenin her yönünü keşfedin. Her konu, güncel bilimsel araştırmalarla desteklenmektedir.</p>
+        
+        <div class="topics-grid">
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>Temel Besin Grupları</h3>
+                <p>Karbonhidratlar, proteinler, yağlar ve mikrobesinlerin vücuttaki rolü ve günlük ihtiyaçlar.</p>
+                <span class="arrow">Devamını Oku →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>Aralıklı Oruç</h3>
+                <p>16:8, 5:2 ve diğer aralıklı oruç yöntemleri, faydaları ve dikkat edilmesi gerekenler.</p>
+                <span class="arrow">Devamını Oku →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <h3>Kalp Sağlığı için Beslenme</h3>
+                <p>Akdeniz diyeti, DASH diyeti ve kalp-damar sağlığını destekleyen beslenme stratejileri.</p>
+                <span class="arrow">Devamını Oku →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                        <line x1="6" y1="1" x2="6" y2="4"/>
+                        <line x1="10" y1="1" x2="10" y2="4"/>
+                        <line x1="14" y1="1" x2="14" y2="4"/>
+                    </svg>
+                </div>
+                <h3>Anti-inflamatuar Beslenme</h3>
+                <p>Kronik iltihabı azaltan, bağışıklık sistemini güçlendiren besinler ve yeme düzeni.</p>
+                <span class="arrow">Devamını Oku →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h3>Kan Şekeri Yönetimi</h3>
+                <p>Glisemik indeks, insülin direnci ve tip 2 diyabet önleme stratejileri.</p>
+                <span class="arrow">Devamını Oku →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    </svg>
+                </div>
+                <h3>Takviye Rehberi</h3>
+                <p>Vitamin, mineral ve diğer takviyelerin bilimsel değerlendirmesi, kime gerekli?</p>
+                <span class="arrow">Devamını Oku →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- INFO SECTION 1 -->
+    <section class="content-section alt">
+        <div class="info-grid">
+            <div class="info-image">
+                <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);display:flex;align-items:center;justify-content:center;">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" opacity="0.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="info-content">
+                <h2>Kişiselleştirilmiş Yaklaşım</h2>
+                <p>Her bireyin metabolizması, genetik yapısı ve yaşam koşulları farklıdır. Bu nedenle "herkese uyan tek bir diyet" yaklaşımı yerine, kişiye özel beslenme planları oluşturuyoruz.</p>
+                <ul class="info-list">
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Yaş, cinsiyet ve aktivite düzeyine göre kalori hesabı
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Sağlık durumuna uygun öneriler
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Besin tercihlerine saygılı alternatifler
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Sürdürülebilir ve uygulanabilir planlar
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO SECTION 2 -->
+    <section class="content-section">
+        <div class="info-grid reverse">
+            <div class="info-image">
+                <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);display:flex;align-items:center;justify-content:center;">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" opacity="0.5">
+                        <path d="M9 12l2 2 4-4"/>
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="info-content">
+                <h2>Bilimsel Temelli İçerik</h2>
+                <p>Tüm beslenme önerilerimiz, hakemli bilimsel dergilerde yayınlanan araştırmalara dayanmaktadır. Popüler diyetlerin iddialarını bilimsel kanıtlarla karşılaştırıyoruz.</p>
+                <ul class="info-list">
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Meta-analiz ve sistematik derlemeler
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Randomize kontrollü çalışmalar
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Uzman danışma kurulu onayı
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Düzenli içerik güncellemeleri
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="content-section alt">
+        <h2 class="section-title">Sık Sorulan Sorular</h2>
+        <p class="section-subtitle">Beslenme hakkında en çok merak edilen konular.</p>
+        
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Hangi diyet en sağlıklısıdır?</span>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Bilimsel araştırmalar, Akdeniz diyeti ve DASH diyetinin uzun vadeli sağlık sonuçları açısından en iyi kanıta sahip olduğunu göstermektedir. Ancak en iyi diyet, sizin sürdürebileceğiniz ve yaşam tarzınıza uygun olandır.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Aralıklı oruç herkes için uygun mudur?</span>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Aralıklı oruç birçok kişi için güvenli olsa da, diyabet hastaları, hamile veya emziren kadınlar, yeme bozukluğu geçmişi olanlar ve bazı kronik hastalığı bulunan kişiler için uygun olmayabilir. Başlamadan önce doktorunuza danışmanızı öneririz.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Takviye vitamin almam gerekir mi?</span>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Dengeli beslenen çoğu kişi için vitamin takviyesi gerekli değildir. Ancak D vitamini (özellikle kış aylarında), B12 (veganlar için) ve folik asit (hamilelik planlayan kadınlar için) özel durumlarda önerilebilir. Kan testleriyle eksiklik tespit edildiyse takviye alınmalıdır.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Karbonhidratları kesmeli miyim?</span>
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <p>Karbonhidratları tamamen kesmek gerekli değildir ve uzun vadede sürdürülebilir olmayabilir. Önemli olan, rafine karbonhidratlar (beyaz ekmek, şeker) yerine kompleks karbonhidratları (tam tahıllar, sebzeler, baklagiller) tercih etmektir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2>Size uygun beslenme planını keşfedin</h2>
+        <p>Ücretsiz testimizi tamamlayın, kişiselleştirilmiş beslenme önerilerinizi alın.</p>
+        <a href="#" class="btn-white">Teste Başla →</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html">
+                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+                    </a>
+                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu. Ticari çıkarlardan bağımsız, bilimsel bilgi.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Keşfet</h4>
+                    <a href="beslenme.html">Beslenme</a>
+                    <a href="egzersiz.html">Egzersiz</a>
+                    <a href="uyku-stres.html">Uyku & Stres</a>
+                    <a href="tedavi.html">Tedavi Seçenekleri</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Araçlar</h4>
+                    <a href="#">Bana Ne Uygun?</a>
+                    <a href="#">BMI Hesaplayıcı</a>
+                    <a href="#">Kalori Hesaplayıcı</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hakkımızda</h4>
+                    <a href="#">Ekibimiz</a>
+                    <a href="#">Bilimsel Yaklaşım</a>
+                    <a href="#">İletişim</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 UzunYaşa. Tüm hakları saklıdır.</span>
+                <span>Gizlilik Politikası | Kullanım Koşulları</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

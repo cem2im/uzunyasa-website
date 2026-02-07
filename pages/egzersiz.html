@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egzersiz Rehberi | UzunYaşa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        :root {
+            --primary-teal: #195157;
+            --primary-teal-light: #2a6b73;
+            --accent-orange: #E8963E;
+            --accent-orange-light: #f0a854;
+            --text-dark: #1a1a1a;
+            --text-gray: #6b7280;
+            --bg-cream: #FAF9F7;
+            --bg-white: #FFFFFF;
+            --border-light: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-cream);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img { height: 70px; width: auto; }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-orange-light);
+            transform: translateY(-1px);
+        }
+
+        .page-hero {
+            position: relative;
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(25, 81, 87, 0.9) 0%, rgba(42, 107, 115, 0.85) 100%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .page-hero-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .page-hero-icon svg { width: 40px; height: 40px; }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section.alt { background: var(--bg-white); }
+        .content-section.full { max-width: 100%; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-teal);
+        }
+
+        .topic-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .topic-icon svg {
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+
+        .topic-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .topic-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .topic-card .arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-teal);
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--primary-teal);
+            padding: 3rem 2rem;
+            color: white;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Program Cards */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 1px solid var(--border-light);
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            color: white;
+        }
+
+        .program-level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .program-body {
+            padding: 1.5rem 2rem;
+        }
+
+        .program-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-body li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .program-body li svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-orange);
+        }
+
+        .btn-outline {
+            display: block;
+            text-align: center;
+            padding: 0.75rem;
+            border: 2px solid var(--primary-teal);
+            color: var(--primary-teal);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-teal);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-logo { height: 50px; }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .page-hero h1 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .programs-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Keşfet ▾</a>
+                <a href="#" class="nav-link">Araçlar</a>
+                <a href="#" class="nav-link">Hikayeler</a>
+                <a href="#" class="nav-link">Bilim</a>
+                <a href="#" class="nav-link">Hakkımızda</a>
+                <a href="#" class="btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <video class="page-hero-bg" autoplay muted loop playsinline>
+            <source src="../videos/background-6.mp4" type="video/mp4">
+        </video>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                    <line x1="6" y1="1" x2="6" y2="4"/>
+                    <line x1="10" y1="1" x2="10" y2="4"/>
+                    <line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+            </div>
+            <h1>Egzersiz Rehberi</h1>
+            <p>Her yaş ve fitness seviyesine uygun, bilimsel olarak kanıtlanmış egzersiz programları ve hareket önerileri.</p>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>150+</h3>
+                <p>dakika/hafta önerilen aktivite</p>
+            </div>
+            <div class="stat-item">
+                <h3>%30</h3>
+                <p>azalan hastalık riski</p>
+            </div>
+            <div class="stat-item">
+                <h3>2-3x</h3>
+                <p>haftalık kuvvet antrenmanı</p>
+            </div>
+            <div class="stat-item">
+                <h3>10K</h3>
+                <p>günlük adım hedefi</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">Egzersiz Türleri</h2>
+        <p class="section-subtitle">Vücudunuzun ihtiyaç duyduğu farklı hareket türlerini keşfedin.</p>
+        
+        <div class="topics-grid">
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>Kardiyovasküler Egzersiz</h3>
+                <p>Yürüyüş, koşu, bisiklet, yüzme. Kalp sağlığı ve dayanıklılık için temel aktiviteler.</p>
+                <span class="arrow">Detaylar →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6.5 6.5L17.5 17.5"/>
+                        <path d="M6.5 17.5L17.5 6.5"/>
+                        <circle cx="12" cy="12" r="9"/>
+                    </svg>
+                </div>
+                <h3>Kuvvet Antrenmanı</h3>
+                <p>Kas kütlesi, kemik yoğunluğu ve metabolizma için direnç egzersizleri.</p>
+                <span class="arrow">Detaylar →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                </div>
+                <h3>Esneklik & Mobilite</h3>
+                <p>Yoga, pilates, stretching. Eklem sağlığı ve hareket kalitesi için.</p>
+                <span class="arrow">Detaylar →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                </div>
+                <h3>HIIT & Tabata</h3>
+                <p>Yüksek yoğunluklu aralıklı antrenman. Kısa sürede maksimum fayda.</p>
+                <span class="arrow">Detaylar →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h3>Grup Egzersizleri</h3>
+                <p>Sosyal motivasyon ve eğlenceli antrenman alternatifleri.</p>
+                <span class="arrow">Detaylar →</span>
+            </a>
+
+            <a href="#" class="topic-card">
+                <div class="topic-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <h3>Rehabilitasyon</h3>
+                <p>Sakatlık sonrası toparlanma ve kronik ağrı yönetimi için egzersizler.</p>
+                <span class="arrow">Detaylar →</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="content-section alt full">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Başlangıç Programları</h2>
+            <p class="section-subtitle">Fitness seviyenize uygun programla başlayın.</p>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <span class="program-level">Başlangıç</span>
+                        <h3>Harekete Geçiş</h3>
+                        <p>4 haftalık yumuşak başlangıç</p>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Haftada 3 gün, 20-30 dakika
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Düşük etkili hareketler
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Ekipman gerektirmez
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Video rehberlik
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-outline">Programa Başla</a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);">
+                        <span class="program-level">Orta Seviye</span>
+                        <h3>Güç & Dayanıklılık</h3>
+                        <p>8 haftalık gelişim programı</p>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Haftada 4-5 gün, 45 dakika
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Kardio + kuvvet kombinasyonu
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Minimal ekipman
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                İlerleme takibi
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-outline">Programa Başla</a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <span class="program-level">İleri Seviye</span>
+                        <h3>Performans</h3>
+                        <p>12 haftalık yoğun program</p>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Haftada 5-6 gün, 60 dakika
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Periodizasyon prensibi
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Salon veya ev seçenekleri
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Beslenme entegrasyonu
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-outline">Programa Başla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Size uygun egzersiz programını bulun</h2>
+        <p>Kısa testimizi tamamlayın, hedeflerinize özel program önerisi alın.</p>
+        <a href="#" class="btn-white">Teste Başla →</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html">
+                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+                    </a>
+                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Keşfet</h4>
+                    <a href="beslenme.html">Beslenme</a>
+                    <a href="egzersiz.html">Egzersiz</a>
+                    <a href="uyku-stres.html">Uyku & Stres</a>
+                    <a href="tedavi.html">Tedavi Seçenekleri</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Araçlar</h4>
+                    <a href="#">Bana Ne Uygun?</a>
+                    <a href="#">BMI Hesaplayıcı</a>
+                    <a href="#">Kalori Hesaplayıcı</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hakkımızda</h4>
+                    <a href="#">Ekibimiz</a>
+                    <a href="#">Bilimsel Yaklaşım</a>
+                    <a href="#">İletişim</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 UzunYaşa. Tüm hakları saklıdır.</span>
+                <span>Gizlilik Politikası | Kullanım Koşulları</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
