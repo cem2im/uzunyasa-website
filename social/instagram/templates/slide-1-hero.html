@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Brand Colors */
+            --brand-primary: #195157;
+            --brand-secondary: #2A7D83;
+            --brand-accent: #D4A574;
+            
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Spacing (8px base) */
+            --space-2: 16px;
+            --space-3: 24px;
+            --space-4: 32px;
+            --space-5: 40px;
+            --space-8: 64px;
+            --space-10: 80px;
+            
+            /* Effects */
+            --shadow-text: 2px 2px 12px rgba(0,0,0,0.4);
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1080px;
+            height: 1080px;
+            font-family: var(--font-body);
+            background: 
+                linear-gradient(135deg, rgba(25, 81, 87, 0.72) 0%, rgba(30, 107, 95, 0.68) 50%, rgba(42, 125, 131, 0.65) 100%),
+                url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=1400') center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle texture overlay */
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        /* Corner accents */
+        .corner {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(255,255,255,0.08);
+        }
+        .corner-tl { top: 40px; left: 40px; border-right: none; border-bottom: none; border-radius: 16px 0 0 0; }
+        .corner-br { bottom: 40px; right: 40px; border-left: none; border-top: none; border-radius: 0 0 16px 0; }
+        
+        /* Logo */
+        .logo {
+            margin-top: var(--space-10);
+            font-family: var(--font-body);
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: var(--shadow-text);
+        }
+        .logo svg {
+            width: 28px;
+            height: 28px;
+        }
+        
+        /* Main content */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 var(--space-10);
+        }
+        
+        /* Icon container */
+        .icon-wrapper {
+            width: 140px;
+            height: 140px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-5);
+            backdrop-filter: blur(20px);
+        }
+        .icon-wrapper svg {
+            width: 72px;
+            height: 72px;
+            stroke: white;
+            stroke-width: 1.5;
+            fill: none;
+        }
+        
+        /* Divider */
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
+            margin-bottom: var(--space-4);
+            border-radius: 2px;
+        }
+        
+        /* Title */
+        h1 {
+            font-family: var(--font-display);
+            font-size: 76px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-3);
+            text-shadow: var(--shadow-text);
+        }
+        h1 .accent {
+            color: var(--brand-accent);
+            display: block;
+        }
+        
+        /* Subtitle */
+        .subtitle {
+            font-size: 30px;
+            font-weight: 500;
+            opacity: 0.9;
+            letter-spacing: 0.01em;
+            margin-bottom: var(--space-5);
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+        }
+        
+        /* Tags */
+        .tags {
+            display: flex;
+            gap: 12px;
+        }
+        .tag {
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Footer */
+        .footer {
+            padding-bottom: var(--space-8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        /* Slide indicators */
+        .indicators {
+            display: flex;
+            gap: 8px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.35);
+        }
+        .dot.active {
+            width: 28px;
+            border-radius: 4px;
+            background: var(--brand-accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-br"></div>
+    
+    <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 3c-1.5 2-3 4-3 7 0 3.5 2 6 3 8m0-15c1.5 2 3 4 3 7 0 3.5-2 6-3 8m-4-9c1 .5 2.5 1 4 1s3-.5 4-1"/>
+        </svg>
+        UzunYaşa
+    </div>
+    
+    <div class="content">
+        <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24">
+                <path d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"/>
+            </svg>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h1>
+            GLP-1 İlaçları
+            <span class="accent">Tam Rehber</span>
+        </h1>
+        
+        <p class="subtitle">Ozempic • Wegovy • Mounjaro</p>
+        
+        <div class="tags">
+            <span class="tag">Kilo Yönetimi</span>
+            <span class="tag">Bilimsel</span>
+            <span class="tag">2026</span>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="indicators">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</body>
+</html>
