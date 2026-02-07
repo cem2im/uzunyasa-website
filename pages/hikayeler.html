@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başarı Hikayeleri | UzunYaşa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-teal: #195157;
+            --primary-teal-light: #2a6b73;
+            --accent-orange: #E8963E;
+            --accent-orange-light: #f0a854;
+            --text-dark: #1a1a1a;
+            --text-gray: #6b7280;
+            --bg-cream: #FAF9F7;
+            --bg-white: #FFFFFF;
+            --border-light: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-cream);
+        }
+
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img { height: 70px; width: auto; }
+
+        .nav { display: flex; align-items: center; gap: 2rem; }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover { background: var(--accent-orange-light); transform: translateY(-1px); }
+
+        /* Hero */
+        .page-hero {
+            position: relative;
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(25, 81, 87, 0.9) 0%, rgba(42, 107, 115, 0.85) 100%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .page-hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .page-hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: var(--bg-white);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .stats-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Content */
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            border: 2px solid var(--border-light);
+            background: white;
+            color: var(--text-gray);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover, .filter-tab.active {
+            border-color: var(--primary-teal);
+            color: var(--primary-teal);
+            background: rgba(25, 81, 87, 0.05);
+        }
+
+        .filter-tab.active {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        /* Story Cards */
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .story-image svg {
+            width: 80px;
+            height: 80px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .story-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .story-content {
+            padding: 2rem;
+        }
+
+        .story-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .story-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .story-author h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .story-author p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        .story-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--bg-cream);
+            border-radius: 10px;
+        }
+
+        .story-stat {
+            text-align: center;
+        }
+
+        .story-stat .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        .story-stat .label {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        .story-quote {
+            font-style: italic;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-orange);
+        }
+
+        .story-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-teal);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: gap 0.2s;
+        }
+
+        .story-link:hover { gap: 0.75rem; }
+
+        /* Featured Story */
+        .featured-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--bg-white);
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .featured-image {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .featured-image svg {
+            width: 120px;
+            height: 120px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .featured-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-content .story-quote {
+            font-size: 1.1rem;
+        }
+
+        .featured-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .featured-stat .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        .featured-stat .label {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-teal);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p { color: rgba(255, 255, 255, 0.7); margin-top: 1rem; font-size: 0.9rem; }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-logo { height: 50px; }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .page-hero h1 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .featured-story { grid-template-columns: 1fr; }
+            .featured-image { min-height: 200px; }
+            .stories-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link">Keşfet ▾</a>
+                <a href="#" class="nav-link">Araçlar</a>
+                <a href="hikayeler.html" class="nav-link active">Hikayeler</a>
+                <a href="#" class="nav-link">Bilim</a>
+                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                <a href="#" class="btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <video class="page-hero-bg" autoplay muted loop playsinline>
+            <source src="../videos/background-4.mp4" type="video/mp4">
+        </video>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <h1>Başarı Hikayeleri</h1>
+            <p>Gerçek insanların, gerçek dönüşümleri. İlham veren yolculuklar ve öğrenilen dersler.</p>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>1,200+</h3>
+                <p>Paylaşılan hikaye</p>
+            </div>
+            <div class="stat-item">
+                <h3>15,000+</h3>
+                <p>kg toplam verilen kilo</p>
+            </div>
+            <div class="stat-item">
+                <h3>%87</h3>
+                <p>Hedefine ulaşan kullanıcı</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <!-- Featured Story -->
+        <div class="featured-story">
+            <div class="featured-image">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </div>
+            <div class="featured-content">
+                <span class="featured-badge">⭐ Haftanın Hikayesi</span>
+                <h2>"45 yaşında hayatımı değiştirdim"</h2>
+                <p class="story-quote">"Tip 2 diyabet teşhisi aldığımda dünyam yıkıldı. Ama bu aslında bir başlangıçtı. 18 ayda 32 kilo verdim, ilaçlarımı bıraktım ve şimdi maraton koşuyorum."</p>
+                <div class="featured-stats">
+                    <div class="featured-stat">
+                        <div class="number">-32kg</div>
+                        <div class="label">Kilo kaybı</div>
+                    </div>
+                    <div class="featured-stat">
+                        <div class="number">18 ay</div>
+                        <div class="label">Süre</div>
+                    </div>
+                    <div class="featured-stat">
+                        <div class="number">Normal</div>
+                        <div class="label">Kan şekeri</div>
+                    </div>
+                </div>
+                <a href="#" class="story-link">Hikayenin tamamını oku →</a>
+            </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab active">Tümü</button>
+            <button class="filter-tab">Kilo Verme</button>
+            <button class="filter-tab">Diyabet Yönetimi</button>
+            <button class="filter-tab">Fitness</button>
+            <button class="filter-tab">Yaşam Tarzı</button>
+        </div>
+
+        <!-- Stories Grid -->
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="story-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="story-badge">Kilo Verme</span>
+                </div>
+                <div class="story-content">
+                    <div class="story-meta">
+                        <div class="story-avatar">EA</div>
+                        <div class="story-author">
+                            <h4>Elif A.</h4>
+                            <p>34 yaş, İstanbul</p>
+                        </div>
+                    </div>
+                    <div class="story-stats">
+                        <div class="story-stat">
+                            <div class="number">-28kg</div>
+                            <div class="label">Kilo</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">12 ay</div>
+                            <div class="label">Süre</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">Beslenme</div>
+                            <div class="label">Yöntem</div>
+                        </div>
+                    </div>
+                    <p class="story-quote">"İki çocuk doğurduktan sonra kendime bakamaz olmuştum. UzunYaşa ile adım adım ilerledim, şimdi çocuklarımla parkta koşabiliyorum."</p>
+                    <a href="#" class="story-link">Devamını oku →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-image" style="background: linear-gradient(135deg, #374151 0%, #4b5563 100%);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="story-badge">Fitness</span>
+                </div>
+                <div class="story-content">
+                    <div class="story-meta">
+                        <div class="story-avatar">MK</div>
+                        <div class="story-author">
+                            <h4>Murat K.</h4>
+                            <p>52 yaş, Ankara</p>
+                        </div>
+                    </div>
+                    <div class="story-stats">
+                        <div class="story-stat">
+                            <div class="number">-18kg</div>
+                            <div class="label">Kilo</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">8 ay</div>
+                            <div class="label">Süre</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">Egzersiz</div>
+                            <div class="label">Yöntem</div>
+                        </div>
+                    </div>
+                    <p class="story-quote">"50 yaşından sonra spor yapmak için çok geç sandım. Yanılmışım. Şimdi haftada 3 gün salon, 2 gün yürüyüş yapıyorum."</p>
+                    <a href="#" class="story-link">Devamını oku →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-image" style="background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="story-badge">Diyabet</span>
+                </div>
+                <div class="story-content">
+                    <div class="story-meta">
+                        <div class="story-avatar">SÖ</div>
+                        <div class="story-author">
+                            <h4>Selin Ö.</h4>
+                            <p>41 yaş, İzmir</p>
+                        </div>
+                    </div>
+                    <div class="story-stats">
+                        <div class="story-stat">
+                            <div class="number">5.8</div>
+                            <div class="label">HbA1c</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">-22kg</div>
+                            <div class="label">Kilo</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">0</div>
+                            <div class="label">İlaç</div>
+                        </div>
+                    </div>
+                    <p class="story-quote">"Diyabet ilaçlarından kurtulmak imkansız görünüyordu. Beslenme değişikliği ve düzenli hareketle 1 yılda başardım."</p>
+                    <a href="#" class="story-link">Devamını oku →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="story-badge">Yaşam Tarzı</span>
+                </div>
+                <div class="story-content">
+                    <div class="story-meta">
+                        <div class="story-avatar">AY</div>
+                        <div class="story-author">
+                            <h4>Ahmet Y.</h4>
+                            <p>38 yaş, Bursa</p>
+                        </div>
+                    </div>
+                    <div class="story-stats">
+                        <div class="story-stat">
+                            <div class="number">7-8</div>
+                            <div class="label">Saat uyku</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">%80</div>
+                            <div class="label">Stres azaldı</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">2x</div>
+                            <div class="label">Enerji arttı</div>
+                        </div>
+                    </div>
+                    <p class="story-quote">"Kronik yorgunluk ve stresle mücadele ediyordum. Uyku düzenim ve stres yönetimim değişince her şey değişti."</p>
+                    <a href="#" class="story-link">Devamını oku →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-image" style="background: linear-gradient(135deg, #6B5B95 0%, #8B7BAA 100%);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="story-badge">Kilo Verme</span>
+                </div>
+                <div class="story-content">
+                    <div class="story-meta">
+                        <div class="story-avatar">ZD</div>
+                        <div class="story-author">
+                            <h4>Zehra D.</h4>
+                            <p>29 yaş, Antalya</p>
+                        </div>
+                    </div>
+                    <div class="story-stats">
+                        <div class="story-stat">
+                            <div class="number">-35kg</div>
+                            <div class="label">Kilo</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">14 ay</div>
+                            <div class="label">Süre</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">GLP-1</div>
+                            <div class="label">Yöntem</div>
+                        </div>
+                    </div>
+                    <p class="story-quote">"Yıllarca diyet yaptım, hep geri aldım. İlaç tedavisi + davranışsal değişim kombinasyonu benim için çözüm oldu."</p>
+                    <a href="#" class="story-link">Devamını oku →</a>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-image" style="background: linear-gradient(135deg, #059669 0%, #10B981 100%);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="story-badge">Cerrahi</span>
+                </div>
+                <div class="story-content">
+                    <div class="story-meta">
+                        <div class="story-avatar">HT</div>
+                        <div class="story-author">
+                            <h4>Hakan T.</h4>
+                            <p>47 yaş, Kayseri</p>
+                        </div>
+                    </div>
+                    <div class="story-stats">
+                        <div class="story-stat">
+                            <div class="number">-65kg</div>
+                            <div class="label">Kilo</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">2 yıl</div>
+                            <div class="label">Süre</div>
+                        </div>
+                        <div class="story-stat">
+                            <div class="number">Sleeve</div>
+                            <div class="label">Yöntem</div>
+                        </div>
+                    </div>
+                    <p class="story-quote">"BMI 48'di, hipertansiyon ve uyku apnem vardı. Ameliyattan 2 yıl sonra tüm hastalıklarım geride kaldı."</p>
+                    <a href="#" class="story-link">Devamını oku →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Siz de hikayenizi paylaşın</h2>
+        <p>Başarınız başkalarına ilham olabilir. Deneyimlerinizi toplulukla paylaşın.</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn-white">Hikayemi Paylaş</a>
+            <a href="#" class="btn-outline-white">Teste Başla</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html">
+                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+                    </a>
+                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Keşfet</h4>
+                    <a href="beslenme.html">Beslenme</a>
+                    <a href="egzersiz.html">Egzersiz</a>
+                    <a href="uyku-stres.html">Uyku & Stres</a>
+                    <a href="tedavi.html">Tedavi Seçenekleri</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Araçlar</h4>
+                    <a href="#">Bana Ne Uygun?</a>
+                    <a href="#">BMI Hesaplayıcı</a>
+                    <a href="#">Kalori Hesaplayıcı</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hakkımızda</h4>
+                    <a href="hakkimizda.html">Ekibimiz</a>
+                    <a href="#">Bilimsel Yaklaşım</a>
+                    <a href="#">İletişim</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 UzunYaşa. Tüm hakları saklıdır.</span>
+                <span>Gizlilik Politikası | Kullanım Koşulları</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter tabs functionality
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
