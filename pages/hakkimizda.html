@@ -532,8 +532,8 @@
         <style>
             .health-wheel {
                 position: relative;
-                width: 400px;
-                height: 400px;
+                width: 500px;
+                height: 500px;
                 margin: 0 auto 3rem;
             }
             .center-circle {
@@ -552,22 +552,10 @@
                 cursor: pointer;
                 z-index: 10;
                 box-shadow: 0 10px 40px rgba(25, 81, 87, 0.4);
-                transition: all 0.4s ease;
+                transition: all 0.6s ease;
             }
-            .center-circle svg {
-                width: 40px;
-                height: 40px;
-                color: white;
-                margin-bottom: 0.25rem;
-            }
-            .center-circle span {
-                color: white;
-                font-size: 0.7rem;
-                font-weight: 600;
-            }
-            .health-wheel:hover .center-circle {
-                transform: translate(-50%, -50%) scale(0.9);
-            }
+            .center-circle svg { width: 44px; height: 44px; color: white; }
+            .health-wheel:hover .center-circle { transform: translate(-50%, -50%) scale(0.8); }
             .specialty {
                 position: absolute;
                 top: 50%;
@@ -581,71 +569,51 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 0.65rem;
+                font-size: 0.55rem;
                 font-weight: 600;
                 color: #195157;
                 text-align: center;
                 padding: 0.3rem;
                 opacity: 0;
                 transform: scale(0);
-                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             }
-            .health-wheel:hover .specialty {
-                opacity: 1;
-                transform: scale(1);
-            }
-            .health-wheel:hover .specialty:nth-child(1) { transform: translate(0, -140px); }
-            .health-wheel:hover .specialty:nth-child(2) { transform: translate(100px, -100px); }
-            .health-wheel:hover .specialty:nth-child(3) { transform: translate(140px, 0); }
-            .health-wheel:hover .specialty:nth-child(4) { transform: translate(100px, 100px); }
-            .health-wheel:hover .specialty:nth-child(5) { transform: translate(0, 140px); }
-            .health-wheel:hover .specialty:nth-child(6) { transform: translate(-100px, 100px); }
-            .health-wheel:hover .specialty:nth-child(7) { transform: translate(-140px, 0); }
-            .health-wheel:hover .specialty:nth-child(8) { transform: translate(-100px, -100px); }
-            
+            .specialty:hover { border-color: #E8963E; color: #E8963E; transform: scale(1.15) !important; z-index: 20; }
+            .health-wheel:hover .specialty { opacity: 1; }
+            .health-wheel:hover .specialty:nth-child(1) { transform: translate(0, -190px); }
+            .health-wheel:hover .specialty:nth-child(2) { transform: translate(100px, -164px); }
+            .health-wheel:hover .specialty:nth-child(3) { transform: translate(164px, -100px); }
+            .health-wheel:hover .specialty:nth-child(4) { transform: translate(190px, 0); }
+            .health-wheel:hover .specialty:nth-child(5) { transform: translate(164px, 100px); }
+            .health-wheel:hover .specialty:nth-child(6) { transform: translate(100px, 164px); }
+            .health-wheel:hover .specialty:nth-child(7) { transform: translate(0, 190px); }
+            .health-wheel:hover .specialty:nth-child(8) { transform: translate(-100px, 164px); }
+            .health-wheel:hover .specialty:nth-child(9) { transform: translate(-164px, 100px); }
+            .health-wheel:hover .specialty:nth-child(10) { transform: translate(-190px, 0); }
+            .health-wheel:hover .specialty:nth-child(11) { transform: translate(-164px, -100px); }
+            .health-wheel:hover .specialty:nth-child(12) { transform: translate(-100px, -164px); }
             .specialty:nth-child(1) { transition-delay: 0s; }
-            .specialty:nth-child(2) { transition-delay: 0.05s; }
-            .specialty:nth-child(3) { transition-delay: 0.1s; }
-            .specialty:nth-child(4) { transition-delay: 0.15s; }
-            .specialty:nth-child(5) { transition-delay: 0.2s; }
-            .specialty:nth-child(6) { transition-delay: 0.25s; }
-            .specialty:nth-child(7) { transition-delay: 0.3s; }
-            .specialty:nth-child(8) { transition-delay: 0.35s; }
-            
-            .specialty:hover {
-                border-color: #E8963E;
-                color: #E8963E;
-                z-index: 20;
-            }
-            
-            .wheel-label {
-                text-align: center;
-                font-size: 1.3rem;
-                font-weight: 700;
-                color: #195157;
-                margin-bottom: 0.5rem;
-            }
-            .wheel-sublabel {
-                text-align: center;
-                color: #6b7280;
-                font-size: 0.9rem;
-                margin-bottom: 2rem;
-            }
-            .advisory-bottom {
-                text-align: center;
-                padding-top: 2rem;
-                border-top: 1px solid #e5e7eb;
-            }
-            .advisory-bottom h3 {
-                font-size: 1.5rem;
-                color: #195157;
-                margin-bottom: 0.5rem;
-            }
-            .advisory-bottom p {
-                color: #6b7280;
-                max-width: 500px;
-                margin: 0 auto;
+            .specialty:nth-child(2) { transition-delay: 0.03s; }
+            .specialty:nth-child(3) { transition-delay: 0.06s; }
+            .specialty:nth-child(4) { transition-delay: 0.09s; }
+            .specialty:nth-child(5) { transition-delay: 0.12s; }
+            .specialty:nth-child(6) { transition-delay: 0.15s; }
+            .specialty:nth-child(7) { transition-delay: 0.18s; }
+            .specialty:nth-child(8) { transition-delay: 0.21s; }
+            .specialty:nth-child(9) { transition-delay: 0.24s; }
+            .specialty:nth-child(10) { transition-delay: 0.27s; }
+            .specialty:nth-child(11) { transition-delay: 0.30s; }
+            .specialty:nth-child(12) { transition-delay: 0.33s; }
+            .wheel-label { text-align: center; font-size: 1.5rem; font-weight: 700; color: #195157; margin-bottom: 0.5rem; }
+            .wheel-sublabel { text-align: center; color: #6b7280; font-size: 0.95rem; margin-bottom: 2rem; }
+            .advisory-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #e5e7eb; }
+            .advisory-bottom h3 { font-size: 1.5rem; color: #195157; margin-bottom: 0.5rem; }
+            .advisory-bottom p { color: #6b7280; max-width: 500px; margin: 0 auto; }
+            @media (max-width: 600px) {
+                .health-wheel { width: 350px; height: 350px; }
+                .center-circle { width: 90px; height: 90px; }
+                .specialty { width: 55px; height: 55px; margin: -27.5px 0 0 -27.5px; font-size: 0.45rem; }
             }
         </style>
         
@@ -655,18 +623,19 @@
         <div class="health-wheel">
             <div class="specialty">Gastro-<br>enteroloji</div>
             <div class="specialty">Endokri-<br>noloji</div>
-            <div class="specialty">İç<br>Hastalıkları</div>
-            <div class="specialty">Kardi-<br>yoloji</div>
+            <div class="specialty">Bariatrik<br>Cerrahi</div>
             <div class="specialty">Beslenme<br>& Diyet</div>
+            <div class="specialty">Kardi-<br>yoloji</div>
+            <div class="specialty">Metabolizma</div>
             <div class="specialty">Egzersiz<br>Fizyolojisi</div>
-            <div class="specialty">Psiki-<br>yatri</div>
+            <div class="specialty">Psikiyatri<br>& Psikoloji</div>
+            <div class="specialty">Uyku<br>Tıbbı</div>
+            <div class="specialty">İç<br>Hastalıkları</div>
+            <div class="specialty">Kadın<br>Hastalıkları</div>
             <div class="specialty">Halk<br>Sağlığı</div>
             
             <div class="center-circle">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
-                <span>Hover</span>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </div>
         </div>
         
