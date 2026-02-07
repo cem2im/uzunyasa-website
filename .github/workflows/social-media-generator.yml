@@ -8,7 +8,8 @@ on:
     inputs:
       blog_file:
         description: 'Blog file to process (e.g., glp1-tam-rehber.html)'
-        required: false
+        required: true
+        default: 'bariatrik-cerrahi-rehberi.html'
 
 jobs:
   generate-social-content:
@@ -17,72 +18,73 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           
-      - name: Install dependencies
-        run: |
-          npm install puppeteer
+      - name: Install Puppeteer
+        working-directory: ./scripts
+        run: npm install puppeteer
           
       - name: Install fonts
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-inter fonts-noto-color-emoji
+          sudo apt-get install -y fonts-noto fonts-noto-color-emoji
           
-      - name: Detect new/changed blog posts
+      - name: Detect blog files to process
         id: detect
         run: |
           if [ "${{ github.event.inputs.blog_file }}" != "" ]; then
             echo "files=${{ github.event.inputs.blog_file }}" >> $GITHUB_OUTPUT
+            echo "Processing manual input: ${{ github.event.inputs.blog_file }}"
           else
-            # Get changed blog files
-            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'pages/blog/*.html' | tr '\n' ' ')
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'pages/blog/*.html' 2>/dev/null | tr '\n' ' ' || echo "")
             echo "files=$CHANGED" >> $GITHUB_OUTPUT
+            echo "Processing changed files: $CHANGED"
           fi
           
       - name: Generate social media images
         if: steps.detect.outputs.files != ''
-        run: node scripts/generate-social-images.js ${{ steps.detect.outputs.files }}
-        
-      - name: Commit generated images
+        working-directory: ./scripts
         run: |
-          git config user.name "GitHub Actions"
+          echo "Generating for: ${{ steps.detect.outputs.files }}"
+          node generate-social-images.js ${{ steps.detect.outputs.files }}
+        
+      - name: Commit and push generated content
+        run: |
+          git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add social/instagram/*.jpg images/blog/*.jpg
-          git diff --staged --quiet || git commit -m "🖼️ Auto-generate social media images"
-          git push
+          git add images/social/ pages/blog/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🖼️ Auto-generate social media content for ${{ steps.detect.outputs.files }}"
+            git push
+          fi
           
-      - name: Send email notification
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "🌿 UzunYaşa - Yeni Blog İçeriği Hazır!"
-          to: ${{ secrets.NOTIFY_EMAIL }}
-          from: UzunYaşa Bot <noreply@uzunyasa.com>
-          html_body: |
-            <h2>📝 Yeni Blog İçeriği</h2>
-            <p>Aşağıdaki blog yazıları için sosyal medya içerikleri oluşturuldu:</p>
-            <ul>
-              ${{ steps.detect.outputs.files }}
-            </ul>
-            
-            <h3>📸 Instagram Post</h3>
-            <p>4 slide carousel hazır. Görseller repository'de:</p>
-            <code>social/instagram/[blog-slug]-slide[1-4].jpg</code>
-            
-            <h3>📋 Caption</h3>
-            <p>Caption dosyası: <code>social/instagram/[blog-slug]-caption.txt</code></p>
-            
-            <h3>🔗 Linkler</h3>
-            <ul>
-              <li><a href="https://github.com/cem2im/uzunyasa-website/tree/main/social/instagram">Instagram Görselleri</a></li>
-              <li><a href="https://uzunyasa.com">Site</a></li>
-            </ul>
-            
-            <p>🤖 Bu email otomatik oluşturulmuştur.</p>
+      - name: Summary
+        run: |
+          echo "## 📱 Social Media Content Generated" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Processed:** ${{ steps.detect.outputs.files }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Generated files:**" >> $GITHUB_STEP_SUMMARY
+          ls -la images/social/ 2>/dev/null || echo "No images yet"
+          
+      # Email notification (optional - enable when secrets are set)
+      # - name: Send email notification
+      #   if: ${{ secrets.EMAIL_USERNAME != '' }}
+      #   uses: dawidd6/action-send-mail@v3
+      #   with:
+      #     server_address: smtp.gmail.com
+      #     server_port: 587
+      #     username: ${{ secrets.EMAIL_USERNAME }}
+      #     password: ${{ secrets.EMAIL_PASSWORD }}
+      #     subject: "🌿 UzunYaşa - Yeni Blog İçeriği Hazır!"
+      #     to: ${{ secrets.NOTIFY_EMAIL }}
+      #     from: UzunYaşa Bot
+      #     body: "Social media content generated for: ${{ steps.detect.outputs.files }}"
