@@ -4,9 +4,17 @@
  * Generates Instagram carousel images AND embeds them as blog visuals
  */
 
-const puppeteer = require('puppeteer');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
+
+// Handle puppeteer from scripts/node_modules
+const scriptDir = path.dirname(__filename);
+const puppeteer = require(path.join(scriptDir, 'node_modules', 'puppeteer'));
+
+// Set working directory to repo root
+const repoRoot = path.resolve(scriptDir, '..');
+process.chdir(repoRoot);
+console.log(`Working directory: ${process.cwd()}`);
 
 // Blog post metadata extractor
 function extractBlogMeta(htmlContent) {

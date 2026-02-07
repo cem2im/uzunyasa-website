@@ -27,8 +27,10 @@ jobs:
           node-version: '20'
           
       - name: Install Puppeteer
-        working-directory: ./scripts
-        run: npm install puppeteer
+        run: |
+          cd scripts
+          npm install puppeteer
+          cd ..
           
       - name: Install fonts
         run: |
@@ -49,10 +51,9 @@ jobs:
           
       - name: Generate social media images
         if: steps.detect.outputs.files != ''
-        working-directory: ./scripts
         run: |
           echo "Generating for: ${{ steps.detect.outputs.files }}"
-          node generate-social-images.js ${{ steps.detect.outputs.files }}
+          node scripts/generate-social-images.js ${{ steps.detect.outputs.files }}
         
       - name: Commit and push generated content
         run: |
