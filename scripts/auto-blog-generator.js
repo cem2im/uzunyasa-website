@@ -11,19 +11,18 @@ const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const OUTPUT_DIR = path.join(__dirname, '../pages/blog');
 const BLOG_INDEX = path.join(__dirname, '../data/blog-posts.json');
 
-// Unsplash for free images (no API key needed for source.unsplash.com)
-const UNSPLASH_KEYWORDS = {
-  'beslenme': 'healthy-food,nutrition,vegetables',
-  'egzersiz': 'fitness,exercise,workout,running',
-  'kilo-yonetimi': 'weight-loss,healthy-lifestyle,diet',
-  'bilim': 'science,research,laboratory,medicine',
-  'tedavi': 'medicine,healthcare,doctor,pills',
-  'yasam-tarzi': 'wellness,lifestyle,meditation,sleep'
+// Direct Unsplash image URLs (more reliable than source.unsplash.com)
+const UNSPLASH_IMAGES = {
+  'beslenme': 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1200&h=600&fit=crop',
+  'egzersiz': 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=600&fit=crop',
+  'kilo-yonetimi': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=600&fit=crop',
+  'bilim': 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&h=600&fit=crop',
+  'tedavi': 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&h=600&fit=crop',
+  'yasam-tarzi': 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1200&h=600&fit=crop'
 };
 
-function getUnsplashImage(category, width = 1200, height = 600) {
-  const keywords = UNSPLASH_KEYWORDS[category] || 'health,wellness';
-  return `https://source.unsplash.com/${width}x${height}/?${keywords}`;
+function getUnsplashImage(category) {
+  return UNSPLASH_IMAGES[category] || UNSPLASH_IMAGES['bilim'];
 }
 
 const CATEGORIES = {
