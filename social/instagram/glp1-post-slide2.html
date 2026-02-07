@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1080px;
+            height: 1080px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: 
+                linear-gradient(135deg, rgba(25, 81, 87, 0.7) 0%, rgba(42, 125, 131, 0.6) 100%),
+                url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            color: white;
+        }
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            font-size: 22px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        h2 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #F5A623;
+            text-shadow: 3px 3px 12px rgba(0,0,0,0.5);
+        }
+        .stat-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+            background: rgba(0,0,0,0.35);
+            padding: 28px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-number {
+            font-size: 68px;
+            font-weight: 800;
+            min-width: 250px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .stat-label {
+            font-size: 28px;
+            line-height: 1.4;
+        }
+        .swipe {
+            position: absolute;
+            bottom: 60px;
+            right: 60px;
+            font-size: 22px;
+            background: rgba(0,0,0,0.3);
+            padding: 12px 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">🌿 UzunYaşa</div>
+    <h2>📊 Klinik Sonuçlar</h2>
+    <div class="stat-row">
+        <div class="stat-number">%15-22</div>
+        <div class="stat-label">Ortalama<br>kilo kaybı</div>
+    </div>
+    <div class="stat-row">
+        <div class="stat-number">%20</div>
+        <div class="stat-label">Kalp hastalığı<br>risk azalması</div>
+    </div>
+    <div class="stat-row">
+        <div class="stat-number">%24</div>
+        <div class="stat-label">Böbrek koruyucu<br>etki</div>
+    </div>
+    <div class="swipe">Kaydır →</div>
+</body>
+</html>

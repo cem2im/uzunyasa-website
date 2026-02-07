@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1080px;
+            height: 1080px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: 
+                linear-gradient(135deg, rgba(124, 58, 237, 0.72) 0%, rgba(91, 33, 182, 0.65) 100%),
+                url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            color: white;
+        }
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            font-size: 22px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        h2 {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 45px;
+            color: #fcd34d;
+            text-shadow: 3px 3px 12px rgba(0,0,0,0.5);
+        }
+        .warning-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            font-size: 26px;
+            line-height: 1.5;
+            background: rgba(0,0,0,0.3);
+            padding: 22px 30px;
+            border-radius: 18px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .warning-icon {
+            font-size: 38px;
+            margin-right: 20px;
+            min-width: 50px;
+        }
+        .sub {
+            opacity: 0.85;
+            font-size: 20px;
+        }
+        .swipe {
+            position: absolute;
+            bottom: 60px;
+            right: 60px;
+            font-size: 22px;
+            background: rgba(0,0,0,0.3);
+            padding: 12px 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">🌿 UzunYaşa</div>
+    <h2>⚠️ Dikkat Edilmesi Gerekenler</h2>
+    <div class="warning-item">
+        <span class="warning-icon">🤢</span>
+        <span>Bulantı, kusma yaygın<br><span class="sub">(İlk haftalarda, genellikle geçer)</span></span>
+    </div>
+    <div class="warning-item">
+        <span class="warning-icon">📈</span>
+        <span>Bırakınca kiloların 2/3'ü<br>geri gelebilir</span>
+    </div>
+    <div class="warning-item">
+        <span class="warning-icon">💪</span>
+        <span>Kas kaybı riski var<br><span class="sub">Protein + direnç egzersizi şart!</span></span>
+    </div>
+    <div class="warning-item">
+        <span class="warning-icon">💰</span>
+        <span>Türkiye'de aylık ~9.000 TL<br><span class="sub">SGK sadece diyabette karşılıyor</span></span>
+    </div>
+    <div class="swipe">Kaydır →</div>
+</body>
+</html>

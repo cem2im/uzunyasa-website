@@ -1,0 +1,11 @@
+{
+  "name": "uzunyasa-scripts",
+  "version": "1.0.0",
+  "description": "UzunYaşa automation scripts",
+  "scripts": {
+    "generate-social": "node generate-social-images.js"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}

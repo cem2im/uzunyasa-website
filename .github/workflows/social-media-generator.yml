@@ -1,0 +1,88 @@
+name: Social Media Content Generator
+
+on:
+  push:
+    paths:
+      - 'pages/blog/*.html'
+  workflow_dispatch:
+    inputs:
+      blog_file:
+        description: 'Blog file to process (e.g., glp1-tam-rehber.html)'
+        required: false
+
+jobs:
+  generate-social-content:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: |
+          npm install puppeteer
+          
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-inter fonts-noto-color-emoji
+          
+      - name: Detect new/changed blog posts
+        id: detect
+        run: |
+          if [ "${{ github.event.inputs.blog_file }}" != "" ]; then
+            echo "files=${{ github.event.inputs.blog_file }}" >> $GITHUB_OUTPUT
+          else
+            # Get changed blog files
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'pages/blog/*.html' | tr '\n' ' ')
+            echo "files=$CHANGED" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Generate social media images
+        if: steps.detect.outputs.files != ''
+        run: node scripts/generate-social-images.js ${{ steps.detect.outputs.files }}
+        
+      - name: Commit generated images
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add social/instagram/*.jpg images/blog/*.jpg
+          git diff --staged --quiet || git commit -m "🖼️ Auto-generate social media images"
+          git push
+          
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "🌿 UzunYaşa - Yeni Blog İçeriği Hazır!"
+          to: ${{ secrets.NOTIFY_EMAIL }}
+          from: UzunYaşa Bot <noreply@uzunyasa.com>
+          html_body: |
+            <h2>📝 Yeni Blog İçeriği</h2>
+            <p>Aşağıdaki blog yazıları için sosyal medya içerikleri oluşturuldu:</p>
+            <ul>
+              ${{ steps.detect.outputs.files }}
+            </ul>
+            
+            <h3>📸 Instagram Post</h3>
+            <p>4 slide carousel hazır. Görseller repository'de:</p>
+            <code>social/instagram/[blog-slug]-slide[1-4].jpg</code>
+            
+            <h3>📋 Caption</h3>
+            <p>Caption dosyası: <code>social/instagram/[blog-slug]-caption.txt</code></p>
+            
+            <h3>🔗 Linkler</h3>
+            <ul>
+              <li><a href="https://github.com/cem2im/uzunyasa-website/tree/main/social/instagram">Instagram Görselleri</a></li>
+              <li><a href="https://uzunyasa.com">Site</a></li>
+            </ul>
+            
+            <p>🤖 Bu email otomatik oluşturulmuştur.</p>
