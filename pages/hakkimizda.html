@@ -625,10 +625,35 @@
         </div>
     </section>
 
+    <section id="iletisim" class="content-section" style="background: white; padding: 4rem 2rem;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <h2 class="section-title" style="text-align: center;">İletişim</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 2rem;">Sorularınız veya önerileriniz için bize yazın.</p>
+            
+            <form action="https://formsubmit.co/uzunyasa.info@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="hidden" name="_subject" value="UzunYaşa İletişim Formu">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://cem2im.github.io/uzunyasa-website/pages/tesekkurler.html">
+                
+                <input type="text" name="isim" placeholder="Adınız Soyadınız" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
+                <input type="email" name="email" placeholder="E-posta Adresiniz" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
+                <select name="konu" style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; background: white;">
+                    <option value="">Konu Seçin</option>
+                    <option value="genel">Genel Soru</option>
+                    <option value="oneri">Öneri / Geri Bildirim</option>
+                    <option value="isbirligi">İş Birliği</option>
+                    <option value="hata">Hata Bildirimi</option>
+                </select>
+                <textarea name="mesaj" placeholder="Mesajınız" rows="5" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical;"></textarea>
+                <button type="submit" style="background: #195157; color: white; padding: 1rem 2rem; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer;">Gönder</button>
+            </form>
+        </div>
+    </section>
+
     <section class="cta-section">
         <h2>Bize Katılın</h2>
         <p>Sağlıklı yaşam yolculuğunuzda size rehberlik etmekten mutluluk duyarız.</p>
-        <a href="#" class="btn-white">Ücretsiz Teste Başla →</a>
+        <a href="test.html" class="btn-white">Ücretsiz Teste Başla →</a>
     </section>
 
     <footer class="footer">

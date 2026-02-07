@@ -540,8 +540,11 @@
         <div class="newsletter-section">
             <h2>📬 Haftalık Bülten</h2>
             <p>En güncel sağlık haberleri ve ipuçları için abone olun</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="E-posta adresiniz">
+            <form class="newsletter-form" action="https://formsubmit.co/uzunyasa.info@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Yeni Blog Abonesi!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://cem2im.github.io/uzunyasa-website/pages/tesekkurler.html">
+                <input type="email" name="email" placeholder="E-posta adresiniz" required>
                 <button type="submit">Abone Ol</button>
             </form>
         </div>

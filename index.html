@@ -2165,8 +2165,11 @@
             </div>
             <div class="cta-divider">veya</div>
             <p style="margin-bottom: 1rem; opacity: 0.9;">Haftalık bültenimize abone olun</p>
-            <form class="cta-newsletter">
-                <input type="email" class="cta-input" placeholder="E-posta adresiniz">
+            <form class="cta-newsletter" action="https://formsubmit.co/uzunyasa.info@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Yeni Newsletter Abonesi!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://cem2im.github.io/uzunyasa-website/pages/tesekkurler.html">
+                <input type="email" name="email" class="cta-input" placeholder="E-posta adresiniz" required>
                 <button type="submit" class="btn">Abone Ol</button>
             </form>
         </div>
