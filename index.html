@@ -487,8 +487,8 @@
 
         /* ===== AI EXPERTS SECTION ===== */
         .ai-experts-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 100%);
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
         }
 
         .ai-experts-inner {
@@ -498,12 +498,12 @@
 
         .ai-experts-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .ai-badge {
             display: inline-block;
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--primary), #14b8a6);
             color: white;
             padding: 0.5rem 1.25rem;
             border-radius: 25px;
@@ -530,55 +530,86 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+            align-items: stretch;
         }
 
         .ai-expert-card {
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
             text-align: center;
-            border: 2px solid var(--border);
-            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            overflow: hidden;
+        }
+
+        .ai-expert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .ai-expert-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: var(--primary);
+            transform: translateY(-12px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.12);
+        }
+
+        .ai-expert-card:hover::before {
+            opacity: 1;
         }
 
         .ai-expert-card.featured {
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(232, 150, 62, 0.2);
+            border: 2px solid var(--accent);
+            box-shadow: 0 8px 32px rgba(232, 150, 62, 0.15);
+        }
+
+        .ai-expert-card.featured::before {
+            opacity: 1;
+            background: var(--accent);
         }
 
         .ai-expert-badge {
             position: absolute;
-            top: -12px;
+            top: -1px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), #f59e0b);
             color: white;
-            padding: 0.35rem 1rem;
-            border-radius: 15px;
+            padding: 0.5rem 1.25rem;
+            border-radius: 0 0 12px 12px;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .ai-expert-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
+            width: 88px;
+            height: 88px;
+            border-radius: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.75rem;
+            position: relative;
+        }
+
+        .ai-expert-icon svg {
+            width: 44px;
+            height: 44px;
+            color: white;
         }
 
         .ai-expert-card h3 {
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
             color: var(--text-dark);
@@ -594,13 +625,28 @@
         .ai-expert-features {
             list-style: none;
             text-align: left;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 12px;
         }
 
         .ai-expert-features li {
-            padding: 0.4rem 0;
+            padding: 0.5rem 0;
             color: var(--text-dark);
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .ai-expert-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .ai-expert-btn {
@@ -1728,17 +1774,17 @@
                 <!-- Sağlık Muayenesi -->
                 <div class="ai-expert-card">
                     <div class="ai-expert-icon" style="background: linear-gradient(135deg, #10B981, #059669);">
-                        🩺
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                     </div>
                     <h3>Sağlık Değerlendirmesi</h3>
                     <p>2 dakikada kişiselleştirilmiş sağlık skoru ve risk analizi alın.</p>
                     <ul class="ai-expert-features">
-                        <li>✓ BMI ve risk hesaplama</li>
-                        <li>✓ Kişiye özel öneriler</li>
-                        <li>✓ Tedavi yönlendirmesi</li>
+                        <li>BMI ve risk hesaplama</li>
+                        <li>Kişiye özel öneriler</li>
+                        <li>Tedavi yönlendirmesi</li>
                     </ul>
                     <a href="pages/test.html" class="ai-expert-btn">
-                        Teste Başla →
+                        Teste Başla
                     </a>
                 </div>
                 
@@ -1746,34 +1792,34 @@
                 <div class="ai-expert-card featured">
                     <div class="ai-expert-badge">En Popüler</div>
                     <div class="ai-expert-icon" style="background: linear-gradient(135deg, #E8963E, #D97706);">
-                        👩‍⚕️
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
                     </div>
                     <h3>Kişisel Diyetisyen</h3>
                     <p>Günlük beslenme takibi, kalori hesaplama ve kişiye özel diyet planı.</p>
                     <ul class="ai-expert-features">
-                        <li>✓ Yemek & kalori takibi</li>
-                        <li>✓ Kişisel diyet planı</li>
-                        <li>✓ Günlük motivasyon</li>
+                        <li>Yemek & kalori takibi</li>
+                        <li>Kişisel diyet planı</li>
+                        <li>Günlük motivasyon</li>
                     </ul>
                     <a href="pages/ecem-app.html" class="ai-expert-btn primary">
-                        Ecem ile Tanış →
+                        Ecem ile Tanış
                     </a>
                 </div>
                 
                 <!-- Kişisel Spor Uzmanı -->
                 <div class="ai-expert-card">
                     <div class="ai-expert-icon" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
-                        💪
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a3.5 3.5 0 1 0 7 0 3.5 3.5 0 1 0-7 0"/><path d="M2 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/><path d="m17 8 4 4-4 4"/><path d="m21 12h-8"/></svg>
                     </div>
                     <h3>Kişisel Spor Uzmanı</h3>
                     <p>Size özel egzersiz programları ve antrenman takibi.</p>
                     <ul class="ai-expert-features">
-                        <li>✓ Kişisel antrenman planı</li>
-                        <li>✓ Video rehberli egzersizler</li>
-                        <li>✓ İlerleme takibi</li>
+                        <li>Kişisel antrenman planı</li>
+                        <li>Video rehberli egzersizler</li>
+                        <li>İlerleme takibi</li>
                     </ul>
                     <a href="#" class="ai-expert-btn disabled">
-                        Yakında →
+                        Yakında
                     </a>
                 </div>
             </div>
