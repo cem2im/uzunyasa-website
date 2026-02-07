@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sağlık Testi | UzunYaşa</title>
+    <title>Ecem - Sağlık Asistanınız | UzunYaşa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -124,8 +124,9 @@
         }
 
         .avatar.bot {
-            background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light));
+            background: linear-gradient(135deg, #E8963E, #f0a854);
             color: white;
+            font-size: 1.5rem;
         }
 
         .avatar.user {
@@ -591,7 +592,7 @@
             {
                 id: 'welcome',
                 type: 'info',
-                message: 'Merhaba! 👋 Ben UzunYaşa sağlık asistanınızım. Size birkaç soru soracağım ve sonunda kişiselleştirilmiş öneriler sunacağım.',
+                message: 'Merhaba! 👋 Ben Ecem, UzunYaşa sağlık asistanınız. Size birkaç soru soracağım ve sonunda size özel öneriler hazırlayacağım.',
                 delay: 1000,
                 auto: true
             },
@@ -1004,7 +1005,7 @@
             msg.className = 'message bot';
             msg.id = 'typing';
             msg.innerHTML = `
-                <div class="avatar bot">🤖</div>
+                <div class="avatar bot">👩‍⚕️</div>
                 <div class="bubble">
                     <div class="typing-indicator">
                         <span></span><span></span><span></span>
@@ -1024,7 +1025,7 @@
             const msg = document.createElement('div');
             msg.className = 'message bot';
             msg.innerHTML = `
-                <div class="avatar bot">🤖</div>
+                <div class="avatar bot">👩‍⚕️</div>
                 <div class="bubble">${text}${extras}</div>
             `;
             messagesContainer.appendChild(msg);
@@ -1397,8 +1398,8 @@
 
             resultsContainer.innerHTML = `
                 <div class="results-header">
-                    <h1>Sonuçlarınız Hazır, ${userData.name}!</h1>
-                    <p>Yanıtlarınıza göre kişiselleştirilmiş değerlendirmeniz</p>
+                    <h1>${userData.name}, sonuçlarınız hazır! 🎉</h1>
+                    <p>Ecem yanıtlarınızı analiz etti ve size özel öneriler hazırladı</p>
                 </div>
 
                 <div class="score-circle" style="--score: ${userData.healthScore}">
