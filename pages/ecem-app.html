@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#E8963E">
+    <title>Ecem - AI Diyetisyen</title>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/ecem-icon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #E8963E;
+            --primary-dark: #d4862f;
+            --bg: #FAF9F7;
+            --white: #FFFFFF;
+            --text: #1a1a1a;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-avatar {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .header-info h1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .header-info p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        
+        .header-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10B981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Chat Area */
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .message {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 85%;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+        
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        .message.bot .message-avatar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+        
+        .message.user .message-avatar {
+            background: #3B82F6;
+        }
+        
+        .message-bubble {
+            padding: 0.875rem 1rem;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .message.bot .message-bubble {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-bottom-left-radius: 4px;
+        }
+        
+        .message.user .message-bubble {
+            background: #3B82F6;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .message-time {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+        
+        .message.user .message-time {
+            text-align: right;
+        }
+        
+        /* Typing Indicator */
+        .typing {
+            display: flex;
+            gap: 4px;
+            padding: 1rem;
+        }
+        
+        .typing span {
+            width: 8px;
+            height: 8px;
+            background: var(--text-light);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        
+        .typing span:nth-child(1) { animation-delay: -0.32s; }
+        .typing span:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        
+        /* Quick Actions */
+        .quick-actions {
+            padding: 0.75rem 1rem;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+        }
+        
+        .quick-btn {
+            padding: 0.5rem 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quick-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Input Area */
+        .input-area {
+            padding: 1rem;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-end;
+        }
+        
+        .input-wrapper {
+            flex: 1;
+            background: var(--bg);
+            border-radius: 24px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .input-wrapper input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .send-btn {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .send-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            padding: 0.75rem 1rem;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        
+        .stat-item {
+            font-size: 0.8rem;
+        }
+        
+        .stat-value {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.7rem;
+        }
+        
+        /* Install Banner */
+        .install-banner {
+            display: none;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: white;
+            font-size: 0.85rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .install-banner.show { display: flex; }
+        
+        .install-btn {
+            background: var(--primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="install-banner" id="installBanner">
+        <span>📱 Ana ekrana ekle</span>
+        <button class="install-btn" onclick="installApp()">Yükle</button>
+    </div>
+
+    <header class="header">
+        <div class="header-avatar">👩‍⚕️</div>
+        <div class="header-info">
+            <h1>Ecem</h1>
+            <p>AI Diyetisyeniniz</p>
+        </div>
+        <div class="header-status">
+            <span class="status-dot"></span>
+            Çevrimiçi
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-value" id="todayCalories">0</div>
+            <div class="stat-label">Bugün (kcal)</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="goalCalories">1800</div>
+            <div class="stat-label">Hedef (kcal)</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="remainingCalories">1800</div>
+            <div class="stat-label">Kalan (kcal)</div>
+        </div>
+    </div>
+
+    <div class="chat-container" id="chatContainer">
+        <!-- Messages will be added here -->
+    </div>
+
+    <div class="quick-actions">
+        <button class="quick-btn" onclick="sendQuick('Kahvaltı yaptım')">🍳 Kahvaltı</button>
+        <button class="quick-btn" onclick="sendQuick('Öğle yemeği yedim')">🍽️ Öğle</button>
+        <button class="quick-btn" onclick="sendQuick('Akşam yemeği yedim')">🌙 Akşam</button>
+        <button class="quick-btn" onclick="sendQuick('Tartıldım')">⚖️ Kilo</button>
+        <button class="quick-btn" onclick="sendQuick('Günlük özet')">📊 Özet</button>
+    </div>
+
+    <div class="input-area">
+        <div class="input-wrapper">
+            <input type="text" id="messageInput" placeholder="Ne yedin bugün?" 
+                   onkeypress="if(event.key==='Enter')sendMessage()">
+        </div>
+        <button class="send-btn" onclick="sendMessage()">➤</button>
+    </div>
+
+    <script>
+        // State
+        let todayCalories = 0;
+        const goalCalories = 1800;
+        let conversationHistory = [];
+        
+        // API Key - in production, this should be server-side
+        const ANTHROPIC_API_KEY = localStorage.getItem('anthropic_key') || '';
+        
+        // Elements
+        const chatContainer = document.getElementById('chatContainer');
+        const messageInput = document.getElementById('messageInput');
+        
+        // Initialize
+        function init() {
+            // Welcome message
+            addMessage('bot', `Merhaba! 👋 Ben Ecem, kişisel AI diyetisyeniniz.
+
+Bugün ne yediğinizi söyleyin, kalori takibi yapalım!
+
+💡 Örnek: "Kahvaltıda 2 yumurta ve peynir yedim"`);
+            
+            // Load saved data
+            const saved = localStorage.getItem('ecem_data');
+            if (saved) {
+                const data = JSON.parse(saved);
+                todayCalories = data.todayCalories || 0;
+                updateStats();
+            }
+            
+            // Check for install prompt
+            checkInstallPrompt();
+        }
+        
+        // Add message to chat
+        function addMessage(type, text) {
+            const time = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${type === 'bot' ? '👩‍⚕️' : '👤'}</div>
+                <div>
+                    <div class="message-bubble">${text.replace(/\n/g, '<br>')}</div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        
+        // Show typing indicator
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typing';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">👩‍⚕️</div>
+                <div class="message-bubble">
+                    <div class="typing"><span></span><span></span><span></span></div>
+                </div>
+            `;
+            chatContainer.appendChild(typingDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        
+        function hideTyping() {
+            const typing = document.getElementById('typing');
+            if (typing) typing.remove();
+        }
+        
+        // Send message
+        async function sendMessage() {
+            const text = messageInput.value.trim();
+            if (!text) return;
+            
+            messageInput.value = '';
+            addMessage('user', text);
+            showTyping();
+            
+            try {
+                const response = await getAIResponse(text);
+                hideTyping();
+                addMessage('bot', response.text);
+                
+                if (response.calories) {
+                    todayCalories += response.calories;
+                    updateStats();
+                    saveData();
+                }
+            } catch (error) {
+                hideTyping();
+                addMessage('bot', 'Bir hata oluştu, tekrar deneyin.');
+                console.error(error);
+            }
+        }
+        
+        // Quick action
+        function sendQuick(text) {
+            messageInput.value = text;
+            sendMessage();
+        }
+        
+        // Get AI response
+        async function getAIResponse(userMessage) {
+            // Simple local response for demo (no API needed)
+            const msg = userMessage.toLowerCase();
+            let response = { text: '', calories: 0 };
+            
+            // Meal detection and calorie estimation
+            const mealPatterns = {
+                'yumurta': { cal: 70, name: 'yumurta' },
+                'peynir': { cal: 100, name: 'peynir' },
+                'ekmek': { cal: 80, name: 'ekmek' },
+                'çay': { cal: 0, name: 'çay' },
+                'kahve': { cal: 5, name: 'kahve' },
+                'süt': { cal: 60, name: 'süt' },
+                'pilav': { cal: 200, name: 'pilav' },
+                'tavuk': { cal: 150, name: 'tavuk' },
+                'salata': { cal: 50, name: 'salata' },
+                'makarna': { cal: 250, name: 'makarna' },
+                'et': { cal: 200, name: 'et' },
+                'balık': { cal: 150, name: 'balık' },
+                'çorba': { cal: 100, name: 'çorba' },
+                'meyve': { cal: 60, name: 'meyve' },
+                'elma': { cal: 50, name: 'elma' },
+                'muz': { cal: 90, name: 'muz' },
+                'yoğurt': { cal: 80, name: 'yoğurt' }
+            };
+            
+            // Check for meal keywords
+            let detectedFoods = [];
+            let totalCal = 0;
+            
+            for (const [food, data] of Object.entries(mealPatterns)) {
+                if (msg.includes(food)) {
+                    // Check for quantity (e.g., "2 yumurta")
+                    const quantityMatch = msg.match(new RegExp(`(\\d+)\\s*${food}`));
+                    const quantity = quantityMatch ? parseInt(quantityMatch[1]) : 1;
+                    const cal = data.cal * quantity;
+                    totalCal += cal;
+                    detectedFoods.push(`${quantity}x ${data.name} (${cal} kcal)`);
+                }
+            }
+            
+            if (detectedFoods.length > 0) {
+                response.calories = totalCal;
+                response.text = `✅ Kaydettim!\n\n${detectedFoods.join('\n')}\n\n📊 Toplam: ~${totalCal} kcal\n\nGünlük toplam: ${todayCalories + totalCal}/${goalCalories} kcal\n\n${todayCalories + totalCal < goalCalories ? '👍 İyi gidiyorsun!' : '⚠️ Hedefe ulaştın, dikkatli ol!'}`;
+            }
+            else if (msg.includes('özet') || msg.includes('ozet') || msg.includes('günlük')) {
+                const percent = Math.round((todayCalories / goalCalories) * 100);
+                const bar = '█'.repeat(Math.min(10, Math.round(percent / 10))) + '░'.repeat(Math.max(0, 10 - Math.round(percent / 10)));
+                response.text = `📊 Günlük Özet\n\n${bar} ${percent}%\n\n🔥 Tüketilen: ${todayCalories} kcal\n🎯 Hedef: ${goalCalories} kcal\n✅ Kalan: ${Math.max(0, goalCalories - todayCalories)} kcal\n\n${percent < 80 ? '💪 Harika gidiyorsun!' : percent <= 100 ? '🎉 Hedefe yaklaştın!' : '⚠️ Bugün biraz fazla kaçırdın.'}`;
+            }
+            else if (msg.includes('tartıl') || msg.includes('kilo')) {
+                response.text = '⚖️ Kilonuzu kaydetmek için lütfen sayıyı yazın.\n\nÖrnek: 75.5';
+            }
+            else if (msg.match(/^\d+([.,]\d+)?$/)) {
+                const weight = parseFloat(msg.replace(',', '.'));
+                if (weight > 30 && weight < 300) {
+                    localStorage.setItem('ecem_weight', weight);
+                    response.text = `✅ Kilo kaydedildi: ${weight} kg\n\n📈 Düzenli tartılmaya devam edin!`;
+                }
+            }
+            else if (msg.includes('merhaba') || msg.includes('selam')) {
+                response.text = 'Merhaba! 😊 Bugün ne yediğinizi söyleyin, birlikte takip edelim!';
+            }
+            else if (msg.includes('kahvaltı')) {
+                response.text = '🍳 Kahvaltıda ne yediniz? Örnek: "2 yumurta, peynir ve çay"';
+            }
+            else if (msg.includes('öğle') || msg.includes('ogle')) {
+                response.text = '🍽️ Öğle yemeğinde ne yediniz? Örnek: "Tavuk, pilav ve salata"';
+            }
+            else if (msg.includes('akşam') || msg.includes('aksam')) {
+                response.text = '🌙 Akşam yemeğinde ne yediniz?';
+            }
+            else if (msg.includes('sıfırla') || msg.includes('reset')) {
+                todayCalories = 0;
+                updateStats();
+                saveData();
+                response.text = '🔄 Günlük sayaç sıfırlandı!';
+            }
+            else {
+                // Default: estimate unknown food
+                response.calories = 200;
+                response.text = `🍽️ "${userMessage}" - kaydettim!\n\n📊 Tahmini: ~200 kcal\n\nDaha detaylı hesaplama için yiyecekleri tek tek yazın.\nÖrnek: "2 yumurta, 1 dilim ekmek"`;
+            }
+            
+            return response;
+        }
+        
+        // Update stats display
+        function updateStats() {
+            document.getElementById('todayCalories').textContent = todayCalories;
+            document.getElementById('remainingCalories').textContent = Math.max(0, goalCalories - todayCalories);
+        }
+        
+        // Save data
+        function saveData() {
+            localStorage.setItem('ecem_data', JSON.stringify({
+                todayCalories: todayCalories,
+                date: new Date().toDateString()
+            }));
+        }
+        
+        // PWA Install
+        let deferredPrompt;
+        
+        function checkInstallPrompt() {
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                document.getElementById('installBanner').classList.add('show');
+            });
+        }
+        
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    document.getElementById('installBanner').classList.remove('show');
+                    deferredPrompt = null;
+                });
+            }
+        }
+        
+        // Daily reset check
+        function checkDailyReset() {
+            const saved = localStorage.getItem('ecem_data');
+            if (saved) {
+                const data = JSON.parse(saved);
+                if (data.date !== new Date().toDateString()) {
+                    todayCalories = 0;
+                    saveData();
+                }
+            }
+        }
+        
+        // Init
+        checkDailyReset();
+        init();
+    </script>
+</body>
+</html>
