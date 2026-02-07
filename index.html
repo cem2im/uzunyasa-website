@@ -908,9 +908,8 @@
         }
 
         .science-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
 
@@ -939,6 +938,11 @@
         .science-play:hover {
             background: rgba(255,255,255,0.3);
             transform: scale(1.05);
+        }
+
+        .science-text {
+            text-align: center;
+            max-width: 700px;
         }
 
         .science-text h2 {
@@ -1621,9 +1625,6 @@
         <div class="section-overlay"></div>
         <div class="section-inner">
             <div class="science-content">
-                <div class="science-video">
-                    <div class="science-play">▶</div>
-                </div>
                 <div class="science-text">
                     <h2>Bilimle daha uzun, daha iyi yaşam</h2>
                     <ul class="science-list">
