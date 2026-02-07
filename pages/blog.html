@@ -274,44 +274,54 @@
         .post-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary-teal);
         }
 
         .post-image {
-            height: 180px;
-            background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light));
+            height: 200px;
+            position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-end;
+            padding: 1.25rem;
+            background-size: cover;
+            background-position: center;
         }
 
-        .post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .post-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.2) 100%);
+        }
+
+        .post-image h3 {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin: 0;
         }
 
         .post-image-placeholder {
-            font-size: 2.5rem;
-            opacity: 0.3;
-            color: white;
+            display: none;
         }
 
         .post-body {
-            padding: 1.5rem;
+            padding: 1.25rem;
         }
 
         .post-body h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
+            display: none;
         }
 
         .post-body p {
             color: var(--text-gray);
             font-size: 0.9rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .post-date {
@@ -439,11 +449,11 @@
         
         
         <article class="featured-post">
-            <div class="featured-image" style="background: linear-gradient(135deg, #06B6D4, #06B6D4aa);">
-                <span class="featured-image-placeholder">😴</span>
+            <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?w=800&q=80');">
+                <img src="https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?w=800&q=80" alt="Blue Zones">
             </div>
             <div class="featured-body">
-                <span class="post-category">Yaşam Tarzı</span>
+                <span class="post-category">🧬 Yaşam Tarzı</span>
                 <h2>Blue Zones: Dünyanın En Uzun Yaşayan İnsanlarının 9 Sırrı</h2>
                 <p>Blue Zones araştırması, 100 yaş üstü insanların yoğun yaşadığı bölgelerdeki uzun yaşam sırlarını ortaya çıkarıyor. İşte bilimsel bulgular.</p>
                 <div class="post-meta">
@@ -460,14 +470,68 @@
         <div class="posts-grid">
 
             <a href="blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html" class="post-card">
-                <div class="post-image" style="background: linear-gradient(135deg, #EC4899, #EC4899aa);">
-                    <span class="post-image-placeholder">💊</span>
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80');">
+                    <h3>GLP-1 İlaçları ve Kilo Verme: Bilmeniz Gerekenler</h3>
                 </div>
                 <div class="post-body">
-                    <span class="post-category">Tedavi</span>
-                    <h3>GLP-1 İlaçları ve Kilo Verme: Bilmeniz Gerekenler</h3>
-                    <p>GLP-1 reseptör agonistleri nasıl kilo verdirir? Yan etkileri, maliyeti ve Türkiye'deki durumu hakkında bilimsel bilgiler.</p>
+                    <span class="post-category">💊 Tedavi</span>
+                    <p>GLP-1 reseptör agonistleri nasıl kilo verdirir? Yan etkileri ve bilimsel bilgiler.</p>
                     <span class="post-date">7 Şubat 2026</span>
+                </div>
+            </a>
+
+            <a href="blog/blue-zones-dunyanin-en-uzun-yasayan-insanlarinin-9-sirri.html" class="post-card">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?w=600&q=80');">
+                    <h3>Blue Zones: Uzun Yaşamın 9 Sırrı</h3>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">🧬 Yaşam Tarzı</span>
+                    <p>Dünyanın en uzun yaşayan insanlarının ortak özellikleri ve yaşam tarzları.</p>
+                    <span class="post-date">7 Şubat 2026</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80');">
+                    <h3>Akdeniz Diyeti ve Kalp Sağlığı</h3>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">🥗 Beslenme</span>
+                    <p>Kalp hastalığı riskini %30 azaltan beslenme tarzı.</p>
+                    <span class="post-date">Yakında</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80');">
+                    <h3>HIIT vs Kardio: Hangisi Daha Etkili?</h3>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">🏃 Egzersiz</span>
+                    <p>Kilo vermek için en etkili egzersiz türü hangisi?</p>
+                    <span class="post-date">Yakında</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80');">
+                    <h3>Uyku ve Kilo: Gizli Bağlantı</h3>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">😴 Yaşam Tarzı</span>
+                    <p>Yetersiz uyku neden kilo almanıza neden oluyor?</p>
+                    <span class="post-date">Yakında</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80');">
+                    <h3>İnsülin Direnci: Belirtiler ve Tedavi</h3>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">🧬 Bilim</span>
+                    <p>Kilo vermeyi zorlaştıran metabolik sorun.</p>
+                    <span class="post-date">Yakında</span>
                 </div>
             </a>
         </div>
