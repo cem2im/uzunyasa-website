@@ -282,25 +282,43 @@
         }
 
         .guide-thumbnail {
-            height: 180px;
+            height: 200px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-end;
+            justify-content: flex-start;
             position: relative;
+            background-size: cover;
+            background-position: center;
+            padding: 1.25rem;
+        }
+
+        .guide-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.2) 100%);
         }
 
         .guide-thumbnail svg {
-            width: 60px;
-            height: 60px;
-            color: rgba(255,255,255,0.5);
+            display: none;
         }
 
-        .guide-thumbnail.teal { background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%); }
-        .guide-thumbnail.orange { background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%); }
-        .guide-thumbnail.purple { background: linear-gradient(135deg, #6B5B95 0%, #8B7BAA 100%); }
-        .guide-thumbnail.green { background: linear-gradient(135deg, #059669 0%, #10B981 100%); }
-        .guide-thumbnail.red { background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%); }
-        .guide-thumbnail.blue { background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%); }
+        .guide-thumbnail h3 {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .guide-thumbnail.teal { background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80'); }
+        .guide-thumbnail.orange { background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80'); }
+        .guide-thumbnail.purple { background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80'); }
+        .guide-thumbnail.green { background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80'); }
+        .guide-thumbnail.red { background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80'); }
+        .guide-thumbnail.blue { background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80'); }
 
         .guide-category-badge {
             position: absolute;
@@ -558,19 +576,16 @@
         <!-- Guides Grid -->
         <div class="guides-grid">
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail teal">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80');">
                     <span class="guide-category-badge">Kilo Yönetimi</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2v20M2 12h20"/>
-                    </svg>
+                    <h3>Kalori Açığı Oluşturma Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>Kalori Açığı Oluşturma Rehberi</h3>
                     <p>Sağlıklı ve sürdürülebilir kalori açığı nasıl hesaplanır? Açlık hissetmeden kilo vermenin yolları.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 20 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 5.2K</span>
+                            <span>⏱️ 20 dk</span>
+                            <span>👁️ 5.2K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
@@ -578,19 +593,16 @@
             </a>
 
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail orange">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80');">
                     <span class="guide-category-badge">Beslenme</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-                    </svg>
+                    <h3>Akdeniz Diyeti Başlangıç Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>Akdeniz Diyeti Başlangıç Rehberi</h3>
                     <p>Dünyanın en sağlıklı beslenme tarzı: ne yemeli, ne kadar yemeli, örnek menüler ve alışveriş listesi.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 35 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 8.1K</span>
+                            <span>⏱️ 35 dk</span>
+                            <span>👁️ 8.1K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
@@ -598,19 +610,16 @@
             </a>
 
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail green">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80');">
                     <span class="guide-category-badge">Egzersiz</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                    </svg>
+                    <h3>Evde Egzersiz Başlangıç Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>Evde Egzersiz Başlangıç Rehberi</h3>
                     <p>Ekipmansız, evde yapılabilecek etkili antrenmanlar. Yeni başlayanlar için 4 haftalık program.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 25 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 6.7K</span>
+                            <span>⏱️ 25 dk</span>
+                            <span>👁️ 6.7K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
@@ -618,19 +627,16 @@
             </a>
 
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail red">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80');">
                     <span class="guide-category-badge">Kronik Hastalıklar</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                    </svg>
+                    <h3>Tip 2 Diyabet Önleme Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>Tip 2 Diyabet Önleme Rehberi</h3>
                     <p>Pre-diyabet veya risk altındaysanız: kan şekerini dengeleme, insülin direncini azaltma stratejileri.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 40 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 4.3K</span>
+                            <span>⏱️ 40 dk</span>
+                            <span>👁️ 4.3K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
@@ -638,19 +644,16 @@
             </a>
 
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail purple">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80');">
                     <span class="guide-category-badge">Zihinsel Sağlık</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
+                    <h3>Uyku Kalitesini Artırma Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>Uyku Kalitesini Artırma Rehberi</h3>
                     <p>Uyku hijyeni, sirkadiyen ritim düzenleme, uyku apnesi belirtileri ve ne zaman doktora gidilmeli.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 30 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 7.9K</span>
+                            <span>⏱️ 30 dk</span>
+                            <span>👁️ 7.9K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
@@ -658,19 +661,16 @@
             </a>
 
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail blue">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80');">
                     <span class="guide-category-badge">Beslenme</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-                    </svg>
+                    <h3>Aralıklı Oruç Başlangıç Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>Aralıklı Oruç Başlangıç Rehberi</h3>
                     <p>16:8, 5:2 ve diğer yöntemler. Kime uygun, nasıl başlanır, dikkat edilmesi gerekenler.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 25 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 9.2K</span>
+                            <span>⏱️ 25 dk</span>
+                            <span>👁️ 9.2K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
@@ -678,19 +678,16 @@
             </a>
 
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail teal">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=600&q=80');">
                     <span class="guide-category-badge">Kilo Yönetimi</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                    </svg>
+                    <h3>Plato Kırma Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>Plato Kırma Rehberi</h3>
                     <p>Kilo verirken takılıp kaldınız mı? Metabolizmayı hızlandırma ve plato dönemini aşma stratejileri.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 15 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 3.8K</span>
+                            <span>⏱️ 15 dk</span>
+                            <span>👁️ 3.8K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
@@ -698,19 +695,16 @@
             </a>
 
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail orange">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80');">
                     <span class="guide-category-badge">Kronik Hastalıklar</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
+                    <h3>Kalp Sağlığı Koruma Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>Kalp Sağlığı Koruma Rehberi</h3>
                     <p>Kolesterol, tansiyon, kalp hastalığı risk faktörleri ve kanıta dayalı koruma stratejileri.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 35 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 5.6K</span>
+                            <span>⏱️ 35 dk</span>
+                            <span>👁️ 5.6K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
@@ -718,19 +712,16 @@
             </a>
 
             <a href="#" class="guide-card">
-                <div class="guide-thumbnail green">
+                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80');">
                     <span class="guide-category-badge">Egzersiz</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-                    </svg>
+                    <h3>50 Yaş Üstü Egzersiz Rehberi</h3>
                 </div>
                 <div class="guide-body">
-                    <h3>50 Yaş Üstü Egzersiz Rehberi</h3>
                     <p>Yaşa uygun, güvenli ve etkili egzersiz önerileri. Kas kaybını önleme, denge ve esneklik.</p>
                     <div class="guide-footer">
                         <div class="guide-meta">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 30 dk</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 4.1K</span>
+                            <span>⏱️ 30 dk</span>
+                            <span>👁️ 4.1K</span>
                         </div>
                         <span class="guide-arrow">→</span>
                     </div>
