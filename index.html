@@ -657,6 +657,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+        }
+
+        .story-video video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .story-play {
@@ -1312,8 +1322,9 @@
                 <p class="section-subtitle">Sağlıklı yaşam yolculuklarından ilham alın</p>
             </div>
             <div class="stories-grid">
-                <div class="story-card">
+                <div class="story-card" onclick="playStoryVideo(this)">
                     <div class="story-video">
+                        <video src="videos/story-1.mp4" preload="metadata"></video>
                         <div class="story-play">▶</div>
                     </div>
                     <div class="story-content">
@@ -1322,8 +1333,9 @@
                         <div class="story-result">22 kg verdi</div>
                     </div>
                 </div>
-                <div class="story-card">
+                <div class="story-card" onclick="playStoryVideo(this)">
                     <div class="story-video">
+                        <video src="videos/story-2.mp4" preload="metadata"></video>
                         <div class="story-play">▶</div>
                     </div>
                     <div class="story-content">
@@ -1332,8 +1344,9 @@
                         <div class="story-result">28 kg verdi</div>
                     </div>
                 </div>
-                <div class="story-card">
+                <div class="story-card" onclick="playStoryVideo(this)">
                     <div class="story-video">
+                        <video src="videos/story-3.mp4" preload="metadata"></video>
                         <div class="story-play">▶</div>
                     </div>
                     <div class="story-content">
@@ -1342,8 +1355,9 @@
                         <div class="story-result">40 kg verdi</div>
                     </div>
                 </div>
-                <div class="story-card">
+                <div class="story-card" onclick="playStoryVideo(this)">
                     <div class="story-video">
+                        <video src="videos/story-4.mp4" preload="metadata"></video>
                         <div class="story-play">▶</div>
                     </div>
                     <div class="story-content">
@@ -1583,6 +1597,33 @@
 
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
+        });
+
+        // Story video playback
+        function playStoryVideo(card) {
+            const video = card.querySelector('video');
+            const playBtn = card.querySelector('.story-play');
+            
+            if (video.paused) {
+                // Pause all other videos first
+                document.querySelectorAll('.story-card video').forEach(v => {
+                    v.pause();
+                    v.closest('.story-card').querySelector('.story-play').style.display = 'flex';
+                });
+                
+                video.play();
+                playBtn.style.display = 'none';
+            } else {
+                video.pause();
+                playBtn.style.display = 'flex';
+            }
+        }
+
+        // Reset play button when video ends
+        document.querySelectorAll('.story-card video').forEach(video => {
+            video.addEventListener('ended', function() {
+                this.closest('.story-card').querySelector('.story-play').style.display = 'flex';
+            });
         });
     </script>
 
