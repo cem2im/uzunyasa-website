@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uyku Kalitesini Artırma Rehberi | UzunYaşa</title>
-    <meta name="description" content="Uyku hijyeni, sirkadiyen ritim düzenleme ve kaliteli uyku için stratejiler">
+    <meta name="description" content="Uyku hijyeni, sirkadiyen ritim düzenleme ve kaliteli uyku için bilimsel stratejiler.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #195157; --accent: #E8963E; --text: #1a1a1a; --bg: #FAF9F7; --white: #FFFFFF; --border: #e5e7eb; }
+        :root { --primary: #195157; --accent: #E8963E; --text: #1a1a1a; --bg: #FAF9F7; --white: #FFFFFF; --border: #e5e7eb; --success: #10B981; --warning: #F59E0B; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; background: var(--bg); }
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
@@ -22,11 +22,23 @@
         .guide-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
         .guide-hero p { font-size: 1.15rem; opacity: 0.95; }
         .guide-content { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
-        .coming-soon { text-align: center; padding: 4rem 2rem; }
-        .coming-soon h2 { color: var(--primary); margin-bottom: 1rem; }
-        .coming-soon p { color: #6b7280; margin-bottom: 2rem; }
+        .guide-content h2 { font-size: 1.6rem; color: var(--primary); margin: 2.5rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        .guide-content h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+        .guide-content p { margin-bottom: 1.25rem; font-size: 1.05rem; }
+        .guide-content ul, .guide-content ol { margin: 1rem 0 1.5rem 1.5rem; }
+        .guide-content li { margin-bottom: 0.75rem; }
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
+        .info-box.tip { background: #ECFDF5; border-left: 4px solid var(--success); }
+        .info-box.warning { background: #FEF3C7; border-left: 4px solid var(--warning); }
+        .info-box h4 { margin-bottom: 0.5rem; }
+        .timeline { background: var(--white); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .time-slot { display: flex; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+        .time-slot:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+        .time-slot .time { font-weight: 700; color: var(--primary); min-width: 80px; }
+        .guide-cta { background: linear-gradient(135deg, var(--primary), #2a6b73); padding: 3rem 2rem; border-radius: 20px; text-align: center; color: white; margin: 3rem 0; }
         .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; }
         footer { background: var(--text); color: white; padding: 2rem; text-align: center; }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
@@ -36,23 +48,145 @@
             <a href="../rehberler.html" class="back-link">← Tüm Rehberler</a>
         </div>
     </header>
+
     <section class="guide-hero">
-        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1400" alt="Uyku Kalitesini Artırma Rehberi" class="guide-hero-bg">
+        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1400" alt="Uyku Kalitesi" class="guide-hero-bg">
         <div class="guide-hero-overlay"></div>
         <div class="guide-hero-content">
             <span class="guide-badge">😴 Yaşam Tarzı</span>
             <h1>Uyku Kalitesini Artırma Rehberi</h1>
-            <p>Uyku hijyeni, sirkadiyen ritim düzenleme ve kaliteli uyku için stratejiler</p>
+            <p>Uyku hijyeni, sirkadiyen ritim düzenleme ve derin, onarıcı uyku için bilimsel stratejiler.</p>
         </div>
     </section>
+
     <main class="guide-content">
-        <div class="coming-soon">
-            <h2>🚧 Bu rehber hazırlanıyor</h2>
-            <p>Uzman ekibimiz bu rehberin içeriğini hazırlıyor. Yakında sizlerle olacak!</p>
-            <p>Bu arada kişiselleştirilmiş sağlık önerileri almak ister misiniz?</p>
-            <a href="../test.html" class="cta-btn">Sağlık Testine Başla →</a>
+        <h2>Uyku Neden Bu Kadar Önemli?</h2>
+        <p>Uyku sadece dinlenme değildir. Uyurken vücudunuz:</p>
+        <ul>
+            <li>Kas ve doku onarımı yapar</li>
+            <li>Hormon dengesini düzenler (büyüme hormonu, leptin, ghrelin)</li>
+            <li>Bağışıklık sistemini güçlendirir</li>
+            <li>Bellek konsolidasyonu yapar (öğrendiklerinizi kalıcı hale getirir)</li>
+            <li>Toksinleri beyin dışına atar (glymfatik sistem)</li>
+        </ul>
+
+        <div class="info-box warning">
+            <h4>⚠️ Yetersiz Uykunun Etkileri</h4>
+            <ul>
+                <li>Kilo alma riski %55 artar</li>
+                <li>Tip 2 diyabet riski %37 artar</li>
+                <li>Kalp hastalığı riski %48 artar</li>
+                <li>Bilişsel performans %25 düşer</li>
+            </ul>
+        </div>
+
+        <h2>İdeal Uyku Süresi</h2>
+        <ul>
+            <li><strong>Yetişkinler (18-64):</strong> 7-9 saat</li>
+            <li><strong>65+ yaş:</strong> 7-8 saat</li>
+            <li><strong>Bireysel farklılıklar:</strong> Kendi optimumunuzu keşfedin</li>
+        </ul>
+        <p>Süre kadar <strong>kalite</strong> de önemli. 8 saat kesintili uyku, 7 saat derin uykudan kötüdür.</p>
+
+        <h2>Uyku Hijyeni: 10 Altın Kural</h2>
+        
+        <h3>1. Düzenli Uyku Saatleri</h3>
+        <p>Her gün aynı saatte yatın ve kalkın - hafta sonları dahil. Vücudunuzun iç saati (sirkadiyen ritim) düzene girer.</p>
+
+        <h3>2. Yatak Odası = Uyku + İntimlık</h3>
+        <p>Yatakta çalışmayın, TV izlemeyin, telefon kullanmayın. Beyin yatağı uyku ile ilişkilendirmeli.</p>
+
+        <h3>3. Karanlık Ortam</h3>
+        <p>Melatonin üretimi için karanlık şart. Karartma perdeleri, uyku maskesi kullanın. LED ışıklarını kapatın.</p>
+
+        <h3>4. Serin Oda</h3>
+        <p>İdeal yatak odası sıcaklığı: 16-19°C. Vücut ısısı düşünce uyku başlar.</p>
+
+        <h3>5. Mavi Işıktan Kaçının</h3>
+        <p>Yatmadan 1-2 saat önce ekranları bırakın veya mavi ışık filtresi kullanın. Mavi ışık melatonin üretimini baskılar.</p>
+
+        <h3>6. Kafein Limiti</h3>
+        <p>Öğleden sonra kafein almayın. Kafein yarılanma ömrü 5-6 saattir - 14:00'da içtiğiniz kahve, gece hâlâ etkili.</p>
+
+        <h3>7. Alkol Tuzağı</h3>
+        <p>Alkol uyumayı kolaylaştırır ama REM uykusunu bozar. Uyandığınızda yorgun hissedersiniz.</p>
+
+        <h3>8. Egzersiz - Ama Erken</h3>
+        <p>Düzenli egzersiz uyku kalitesini artırır, ancak yatmadan 3-4 saat önce tamamlayın.</p>
+
+        <h3>9. Ağır Yemeklerden Kaçının</h3>
+        <p>Yatmadan 2-3 saat önce büyük öğün yemeyin. Hafif bir atıştırmalık (muz, ceviz) olabilir.</p>
+
+        <h3>10. Stres Yönetimi</h3>
+        <p>Yatmadan önce günlük tutun, meditasyon yapın, derin nefes alın. Zihinsel gevşeme fiziksel gevşemeyi tetikler.</p>
+
+        <h2>İdeal Akşam Rutini</h2>
+        
+        <div class="timeline">
+            <div class="time-slot">
+                <div class="time">21:00</div>
+                <div>Ekranları kapat, mavi ışık filtresi aç</div>
+            </div>
+            <div class="time-slot">
+                <div class="time">21:30</div>
+                <div>Hafif germe veya yoga, bitki çayı</div>
+            </div>
+            <div class="time-slot">
+                <div class="time">22:00</div>
+                <div>Duş/banyo (vücut ısısı düşüşü uykuyu tetikler)</div>
+            </div>
+            <div class="time-slot">
+                <div class="time">22:30</div>
+                <div>Kitap okuma, meditasyon</div>
+            </div>
+            <div class="time-slot">
+                <div class="time">23:00</div>
+                <div>Işıkları kapat, uyku</div>
+            </div>
+            <div class="time-slot">
+                <div class="time">07:00</div>
+                <div>Doğal ışıkla uyan, kahve için 90 dk bekle</div>
+            </div>
+        </div>
+
+        <h2>Uyku Bozuklukları</h2>
+        
+        <h3>Uykusuzluk (İnsomnia)</h3>
+        <p>Uykuya dalmak veya sürdürmekte zorluk. Kronik ise bilişsel davranışçı terapi (CBT-I) altın standarttır.</p>
+
+        <h3>Uyku Apnesi</h3>
+        <div class="info-box warning">
+            <h4>🚨 Bu belirtiler varsa doktora gidin:</h4>
+            <ul>
+                <li>Yüksek sesle horlama</li>
+                <li>Uykuda nefes durması (partner fark eder)</li>
+                <li>Sabah baş ağrısı</li>
+                <li>Gündüz aşırı uyuklama</li>
+                <li>Sabah boğazda kuruluk</li>
+            </ul>
+        </div>
+
+        <h3>Huzursuz Bacak Sendromu</h3>
+        <p>Bacaklarda hareket ettirme dürtüsü, özellikle akşamları. Demir eksikliği ile ilişkili olabilir.</p>
+
+        <div class="info-box tip">
+            <h4>💊 Doğal Uyku Destekçileri</h4>
+            <ul>
+                <li><strong>Magnezyum:</strong> 200-400mg (glisin at veya sitrat formu)</li>
+                <li><strong>Melatonin:</strong> 0.5-3mg (kısa süreli kullanım)</li>
+                <li><strong>L-Teanin:</strong> 100-200mg (rahatlama)</li>
+                <li><strong>Pasiflora/Valerian çayı:</strong> Geleneksel kullanım</li>
+            </ul>
+            <p><em>Not: Supplement kullanmadan önce doktorunuza danışın.</em></p>
+        </div>
+
+        <div class="guide-cta">
+            <h3>Uyku kalitenizi değerlendirin</h3>
+            <p>Kişisel sağlık profili oluşturarak uyku önerileri alın.</p>
+            <a href="../test.html" class="cta-btn">Teste Başla →</a>
         </div>
     </main>
+
     <footer><p>© 2025 UzunYaşa. Tüm hakları saklıdır.</p></footer>
 </body>
 </html>

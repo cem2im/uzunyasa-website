@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalp Sağlığı Koruma Rehberi | UzunYaşa</title>
-    <meta name="description" content="Kolesterol, tansiyon ve kalp hastalığı risk faktörleri">
+    <meta name="description" content="Kolesterol, tansiyon ve kalp hastalığı risk faktörleri. Kanıta dayalı koruma stratejileri.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #195157; --accent: #E8963E; --text: #1a1a1a; --bg: #FAF9F7; --white: #FFFFFF; --border: #e5e7eb; }
+        :root { --primary: #195157; --accent: #E8963E; --text: #1a1a1a; --bg: #FAF9F7; --white: #FFFFFF; --border: #e5e7eb; --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; background: var(--bg); }
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
@@ -22,11 +22,24 @@
         .guide-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
         .guide-hero p { font-size: 1.15rem; opacity: 0.95; }
         .guide-content { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
-        .coming-soon { text-align: center; padding: 4rem 2rem; }
-        .coming-soon h2 { color: var(--primary); margin-bottom: 1rem; }
-        .coming-soon p { color: #6b7280; margin-bottom: 2rem; }
+        .guide-content h2 { font-size: 1.6rem; color: var(--primary); margin: 2.5rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        .guide-content h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+        .guide-content p { margin-bottom: 1.25rem; font-size: 1.05rem; }
+        .guide-content ul { margin: 1rem 0 1.5rem 1.5rem; }
+        .guide-content li { margin-bottom: 0.75rem; }
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
+        .info-box.tip { background: #ECFDF5; border-left: 4px solid var(--success); }
+        .info-box.warning { background: #FEF3C7; border-left: 4px solid var(--warning); }
+        .info-box.danger { background: #FEE2E2; border-left: 4px solid var(--danger); }
+        .info-box h4 { margin-bottom: 0.5rem; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .stat-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; text-align: center; }
+        .stat-card .number { font-size: 2rem; font-weight: 800; color: var(--primary); }
+        .stat-card .label { font-size: 0.85rem; color: #6b7280; }
+        .guide-cta { background: linear-gradient(135deg, var(--primary), #2a6b73); padding: 3rem 2rem; border-radius: 20px; text-align: center; color: white; margin: 3rem 0; }
         .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; }
         footer { background: var(--text); color: white; padding: 2rem; text-align: center; }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
@@ -36,23 +49,148 @@
             <a href="../rehberler.html" class="back-link">← Tüm Rehberler</a>
         </div>
     </header>
+
     <section class="guide-hero">
-        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=1400" alt="Kalp Sağlığı Koruma Rehberi" class="guide-hero-bg">
+        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=1400" alt="Kalp Sağlığı" class="guide-hero-bg">
         <div class="guide-hero-overlay"></div>
         <div class="guide-hero-content">
             <span class="guide-badge">❤️ Kronik Hastalıklar</span>
             <h1>Kalp Sağlığı Koruma Rehberi</h1>
-            <p>Kolesterol, tansiyon ve kalp hastalığı risk faktörleri</p>
+            <p>Kolesterol, tansiyon, kalp hastalığı risk faktörleri ve kanıta dayalı koruma stratejileri.</p>
         </div>
     </section>
+
     <main class="guide-content">
-        <div class="coming-soon">
-            <h2>🚧 Bu rehber hazırlanıyor</h2>
-            <p>Uzman ekibimiz bu rehberin içeriğini hazırlıyor. Yakında sizlerle olacak!</p>
-            <p>Bu arada kişiselleştirilmiş sağlık önerileri almak ister misiniz?</p>
-            <a href="../test.html" class="cta-btn">Sağlık Testine Başla →</a>
+        <h2>Kalp Hastalığı: 1 Numaralı Ölüm Nedeni</h2>
+        <p>Kardiyovasküler hastalıklar, dünya genelinde ve Türkiye'de en sık ölüm nedenidir. İyi haber: Risk faktörlerinin %80'i kontrol edilebilir.</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="number">%40</div>
+                <div class="label">Türkiye'de ölümlerin kalp kaynaklı oranı</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">%80</div>
+                <div class="label">Önlenebilir risk faktörleri</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">10 yıl</div>
+                <div class="label">Sağlıklı yaşam ile kazanılan ömür</div>
+            </div>
+        </div>
+
+        <h2>Risk Faktörleri</h2>
+        
+        <h3>Değiştirilemeyenler</h3>
+        <ul>
+            <li><strong>Yaş:</strong> Erkeklerde 45+, kadınlarda 55+ risk artar</li>
+            <li><strong>Cinsiyet:</strong> Erkeklerde daha erken başlar</li>
+            <li><strong>Aile öyküsü:</strong> 1. derece akrabada erken kalp hastalığı</li>
+        </ul>
+
+        <h3>Değiştirilebilir (Hedef Bunlar!)</h3>
+        <ul>
+            <li>Yüksek tansiyon</li>
+            <li>Yüksek kolesterol</li>
+            <li>Sigara</li>
+            <li>Diyabet</li>
+            <li>Obezite</li>
+            <li>Hareketsiz yaşam</li>
+            <li>Sağlıksız beslenme</li>
+            <li>Stres</li>
+        </ul>
+
+        <h2>Hedef Değerler</h2>
+
+        <div class="info-box tip">
+            <h4>🩸 Tansiyon</h4>
+            <ul>
+                <li><strong>Optimal:</strong> < 120/80 mmHg</li>
+                <li><strong>Normal:</strong> < 130/85 mmHg</li>
+                <li><strong>Yüksek:</strong> ≥ 140/90 mmHg (tedavi gerektirir)</li>
+            </ul>
+        </div>
+
+        <div class="info-box warning">
+            <h4>🧪 Kolesterol</h4>
+            <ul>
+                <li><strong>Total kolesterol:</strong> < 200 mg/dL</li>
+                <li><strong>LDL (kötü):</strong> < 100 mg/dL (risk varsa < 70)</li>
+                <li><strong>HDL (iyi):</strong> > 40 mg/dL (erkek), > 50 mg/dL (kadın)</li>
+                <li><strong>Trigliserit:</strong> < 150 mg/dL</li>
+            </ul>
+        </div>
+
+        <h2>Koruma Stratejileri</h2>
+
+        <h3>1. Akdeniz Tipi Beslenme</h3>
+        <ul>
+            <li>Bol sebze ve meyve (günde 5+ porsiyon)</li>
+            <li>Tam tahıllar, baklagiller</li>
+            <li>Zeytinyağı (ana yağ kaynağı)</li>
+            <li>Haftada 2+ balık</li>
+            <li>Az kırmızı et, işlenmiş et sınırlı</li>
+            <li>Tuz < 5g/gün</li>
+        </ul>
+
+        <h3>2. Düzenli Egzersiz</h3>
+        <ul>
+            <li>Haftada 150 dk orta yoğunluk (hızlı yürüyüş)</li>
+            <li>veya 75 dk yüksek yoğunluk (koşu)</li>
+            <li>Haftada 2+ gün direnç egzersizi</li>
+            <li>Uzun oturma sürelerini kırın</li>
+        </ul>
+
+        <h3>3. Sigara Bırakma</h3>
+        <p>Sigara kalp krizi riskini 2-4 kat artırır. Bıraktıktan 1 yıl sonra risk yarıya iner.</p>
+
+        <h3>4. Kilo Kontrolü</h3>
+        <ul>
+            <li>BMI 18.5-24.9 arası tutun</li>
+            <li>Bel çevresi: Erkek < 94 cm, Kadın < 80 cm</li>
+            <li>%5-10 kilo kaybı bile riski önemli ölçüde azaltır</li>
+        </ul>
+
+        <h3>5. Stres Yönetimi</h3>
+        <p>Kronik stres, tansiyon ve kalp hızını artırır. Meditasyon, yoga, doğa yürüyüşleri yardımcı olur.</p>
+
+        <h3>6. Alkol Sınırlaması</h3>
+        <ul>
+            <li>Erkekler: Günde max 2 kadeh</li>
+            <li>Kadınlar: Günde max 1 kadeh</li>
+            <li>Hiç içmiyorsanız, başlamayın</li>
+        </ul>
+
+        <h2>Uyarı İşaretleri</h2>
+        
+        <div class="info-box danger">
+            <h4>🚨 Acil Tıbbi Yardım Gerektiren Durumlar</h4>
+            <ul>
+                <li>Göğüste baskı, sıkışma, ağrı (5 dk+)</li>
+                <li>Ağrının kola, çeneye, sırta yayılması</li>
+                <li>Nefes darlığı</li>
+                <li>Soğuk terleme</li>
+                <li>Bulantı, kusma</li>
+                <li>Baş dönmesi, bayılma hissi</li>
+            </ul>
+            <p><strong>Bu belirtiler varsa 112'yi arayın!</strong></p>
+        </div>
+
+        <h2>Düzenli Kontroller</h2>
+        <ul>
+            <li><strong>Tansiyon:</strong> Yılda en az 1 kez (yüksekse daha sık)</li>
+            <li><strong>Kolesterol:</strong> 20 yaşından itibaren 5 yılda bir (risk varsa daha sık)</li>
+            <li><strong>Kan şekeri:</strong> 45 yaşından itibaren 3 yılda bir</li>
+            <li><strong>EKG:</strong> Doktor önerisiyle</li>
+        </ul>
+
+        <div class="guide-cta">
+            <h3>Kardiyovasküler riskinizi değerlendirin</h3>
+            <p>Kişisel risk analizi ve öneriler için testimizi tamamlayın.</p>
+            <a href="../test.html" class="cta-btn">Teste Başla →</a>
         </div>
     </main>
+
     <footer><p>© 2025 UzunYaşa. Tüm hakları saklıdır.</p></footer>
 </body>
 </html>
