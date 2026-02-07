@@ -473,7 +473,33 @@
 
         /* ===== GOALS SECTION ===== */
         .goals-section {
-            background: var(--bg-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goals-section .section-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .goals-section .section-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 250, 248, 0.95) 100%);
+            z-index: 1;
+        }
+
+        .goals-section .section-inner {
+            position: relative;
+            z-index: 2;
         }
 
         .goals-grid {
@@ -825,23 +851,34 @@
 
         /* ===== SCIENCE SECTION ===== */
         .science-section {
-            background: 
-                linear-gradient(180deg, #1a2a32 0%, var(--text-dark) 50%, #151f25 100%),
-                radial-gradient(ellipse at 10% 90%, rgba(13, 115, 119, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 90% 10%, rgba(232, 150, 62, 0.1) 0%, transparent 50%);
             color: white;
             position: relative;
             overflow: hidden;
         }
 
-        .science-section::before {
-            content: '';
+        .science-section .section-video {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(13, 115, 119, 0.5), rgba(232, 150, 62, 0.5), transparent);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .science-section .section-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(26, 42, 50, 0.9) 0%, rgba(31, 41, 55, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .science-section .section-inner {
+            position: relative;
+            z-index: 2;
         }
 
         .science-content {
@@ -1013,11 +1050,6 @@
 
         /* ===== CTA SECTION ===== */
         .cta-section {
-            background: 
-                linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--primary) 100%),
-                radial-gradient(ellipse at 0% 100%, rgba(232, 150, 62, 0.2) 0%, transparent 50%),
-                radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(20, 145, 155, 0.3) 0%, transparent 70%);
             color: white;
             text-align: center;
             padding: 5rem 2rem;
@@ -1025,22 +1057,29 @@
             overflow: hidden;
         }
 
-        .cta-section::before {
-            content: '';
+        .cta-section .section-video {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 100px,
-                    rgba(255,255,255,0.02) 100px,
-                    rgba(255,255,255,0.02) 200px
-                );
-            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .cta-section .section-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(13, 115, 119, 0.85) 0%, rgba(20, 145, 155, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .cta-section .section-inner {
+            position: relative;
+            z-index: 2;
         }
 
         .cta-title {
@@ -1367,6 +1406,10 @@
 
     <!-- GOALS SECTION -->
     <section class="goals-section" id="kesfet">
+        <video class="section-video" autoplay muted loop playsinline>
+            <source src="videos/background-3.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
         <div class="section-inner">
             <div class="section-header">
                 <h2 class="section-title">Sağlıklı yaşam hedefiniz ne?</h2>
@@ -1542,6 +1585,10 @@
 
     <!-- SCIENCE SECTION -->
     <section class="science-section">
+        <video class="section-video" autoplay muted loop playsinline>
+            <source src="videos/background-2.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
         <div class="section-inner">
             <div class="science-content">
                 <div class="science-video">
@@ -1677,6 +1724,10 @@
 
     <!-- CTA SECTION -->
     <section class="cta-section">
+        <video class="section-video" autoplay muted loop playsinline>
+            <source src="videos/background-1.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
         <div class="section-inner">
             <h2 class="cta-title">Sağlıklı yaşam yolculuğunuza bugün başlayın</h2>
             <div class="cta-buttons">
