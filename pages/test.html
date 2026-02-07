@@ -805,140 +805,373 @@
             }
         ];
 
-        // Recommendation Rules
+        // Comprehensive Recommendation Rules based on ROUTING_RULES.md
         const RECOMMENDATION_RULES = {
+            // URGENT - Always show first
+            urgent: [
+                {
+                    id: 'morbid_obesity_referral',
+                    condition: (d) => d.calculatedBMI >= 40,
+                    title: '🚨 Acil Uzman Konsültasyonu',
+                    description: 'BMI değeriniz çok yüksek. Multidisipliner bir ekiple görüşmenizi öneririz.',
+                    icon: '🏥',
+                    type: 'urgent',
+                    link: 'tedavi.html#uzman',
+                    priority: 'urgent',
+                    reason: 'BMI ≥ 40 (Morbid Obezite)'
+                },
+                {
+                    id: 'high_risk_combo',
+                    condition: (d) => d.calculatedBMI >= 35 && 
+                        (d.existingConditions?.includes('diabetes') || d.existingConditions?.includes('heart_disease')),
+                    title: '🚨 Yüksek Risk - Uzman Değerlendirmesi',
+                    description: 'Obezite ve eşlik eden hastalıklarınız nedeniyle kapsamlı değerlendirme gerekli.',
+                    icon: '⚠️',
+                    type: 'urgent',
+                    link: 'tedavi.html#uzman',
+                    priority: 'urgent',
+                    reason: 'BMI ≥ 35 + Diyabet/Kalp Hastalığı'
+                },
+                {
+                    id: 'quit_smoking_urgent',
+                    condition: (d) => d.smoking === 'yes' && d.calculatedBMI >= 30,
+                    title: '🚭 Sigarayı Bırakma - Öncelikli',
+                    description: 'Obezite + sigara kombinasyonu çok yüksek risk. Bırakma desteği alın.',
+                    icon: '🚭',
+                    type: 'urgent',
+                    link: 'rehberler.html#sigara',
+                    priority: 'urgent',
+                    reason: 'Sigara + Obezite'
+                }
+            ],
+
+            // TREATMENT OPTIONS based on BMI
+            treatments: [
+                // BMI 30-34.9: GLP-1 primary
+                {
+                    id: 'glp1_class1',
+                    condition: (d) => d.calculatedBMI >= 30 && d.calculatedBMI < 35 && 
+                        (d.treatmentInterest?.includes('medication') || d.treatmentInterest?.includes('all')),
+                    title: 'GLP-1 İlaçları (Ozempic, Wegovy)',
+                    description: 'BMI 30+ için etkili medikal tedavi seçeneği. %15-20 kilo kaybı mümkün.',
+                    icon: '💊',
+                    type: 'treatment',
+                    link: 'tedavi.html#glp1',
+                    priority: 'high',
+                    reason: 'BMI 30-35 + İlaç tedavisi tercihi'
+                },
+                // BMI 27-30 with comorbidity
+                {
+                    id: 'glp1_with_comorbidity',
+                    condition: (d) => d.calculatedBMI >= 27 && d.calculatedBMI < 30 &&
+                        (d.existingConditions?.includes('diabetes') || d.existingConditions?.includes('prediabetes') || 
+                         d.existingConditions?.includes('hypertension')),
+                    title: 'GLP-1 İlaçları Değerlendirmesi',
+                    description: 'Eşlik eden hastalığınız nedeniyle BMI 27+ için de uygun olabilir.',
+                    icon: '💊',
+                    type: 'treatment',
+                    link: 'tedavi.html#glp1',
+                    priority: 'high',
+                    reason: 'BMI 27-30 + Komorbidite'
+                },
+                // BMI 30-40: Endoscopic options
+                {
+                    id: 'endoscopic_options',
+                    condition: (d) => d.calculatedBMI >= 30 && d.calculatedBMI < 40 &&
+                        (d.treatmentInterest?.includes('surgery') || d.treatmentInterest?.includes('all')),
+                    title: 'Endoskopik Tedaviler (Balon, ESG)',
+                    description: 'Cerrahisiz, minimal invaziv seçenekler. Mide balonu veya ESG.',
+                    icon: '🔬',
+                    type: 'treatment',
+                    link: 'tedavi.html#endoskopik',
+                    priority: 'medium',
+                    reason: 'BMI 30-40 aralığı'
+                },
+                // BMI 35+: Bariatric surgery
+                {
+                    id: 'bariatric_surgery',
+                    condition: (d) => d.calculatedBMI >= 35 &&
+                        (d.treatmentInterest?.includes('surgery') || d.treatmentInterest?.includes('all')),
+                    title: 'Bariatrik Cerrahi Seçenekleri',
+                    description: 'Sleeve gastrektomi veya gastrik bypass. Kalıcı çözüm arayanlar için.',
+                    icon: '🏥',
+                    type: 'treatment',
+                    link: 'tedavi.html#cerrahi',
+                    priority: 'high',
+                    reason: 'BMI ≥ 35'
+                },
+                // BMI 30-35 with severe comorbidity: Surgery eligible
+                {
+                    id: 'bariatric_with_comorbidity',
+                    condition: (d) => d.calculatedBMI >= 30 && d.calculatedBMI < 35 &&
+                        (d.existingConditions?.includes('diabetes') && d.existingConditions?.includes('hypertension')) &&
+                        d.treatmentInterest?.includes('surgery'),
+                    title: 'Metabolik Cerrahi Değerlendirmesi',
+                    description: 'Diyabet + hipertansiyon kombinasyonunda BMI 30+ için cerrahi düşünülebilir.',
+                    icon: '🏥',
+                    type: 'treatment',
+                    link: 'tedavi.html#metabolik',
+                    priority: 'medium',
+                    reason: 'BMI 30-35 + Ciddi Komorbidite'
+                }
+            ],
+
+            // GUIDES based on conditions
             guides: [
+                // Weight loss
                 {
                     id: 'weight_loss_guide',
-                    condition: (d) => d.primaryGoal === 'lose_weight',
+                    condition: (d) => d.primaryGoal === 'lose_weight' || d.calculatedBMI >= 25,
                     title: 'Kilo Verme Başlangıç Rehberi',
-                    description: 'Adım adım, sürdürülebilir kilo kaybı stratejileri',
+                    description: 'Adım adım, sürdürülebilir kilo kaybı stratejileri.',
                     icon: '📖',
                     type: 'guide',
                     link: 'rehberler.html',
-                    priority: 'high'
+                    priority: 'high',
+                    reason: 'Kilo verme hedefi'
                 },
+                // Diabetes management
+                {
+                    id: 'diabetes_management',
+                    condition: (d) => d.existingConditions?.includes('diabetes'),
+                    title: 'Diyabet Yönetimi Rehberi',
+                    description: 'Kan şekeri kontrolü, beslenme ve egzersiz önerileri.',
+                    icon: '💉',
+                    type: 'guide',
+                    link: 'rehberler.html#diyabet',
+                    priority: 'high',
+                    reason: 'Tip 2 Diyabet tanısı'
+                },
+                // Diabetes prevention
+                {
+                    id: 'diabetes_prevention',
+                    condition: (d) => d.existingConditions?.includes('prediabetes') || 
+                        (d.familyHistory?.includes('diabetes') && d.calculatedBMI >= 25),
+                    title: 'Diyabet Önleme Rehberi',
+                    description: 'Pre-diyabetten diyabete geçişi önleme stratejileri.',
+                    icon: '🛡️',
+                    type: 'guide',
+                    link: 'rehberler.html#diyabet-onleme',
+                    priority: 'high',
+                    reason: 'Pre-diyabet veya aile öyküsü + fazla kilo'
+                },
+                // Heart health
+                {
+                    id: 'heart_health',
+                    condition: (d) => d.existingConditions?.includes('hypertension') || 
+                        d.existingConditions?.includes('high_cholesterol') ||
+                        d.existingConditions?.includes('heart_disease') ||
+                        d.familyHistory?.includes('heart_disease'),
+                    title: 'Kalp Sağlığı Rehberi',
+                    description: 'Kardiyovasküler riski azaltma, DASH diyeti, egzersiz.',
+                    icon: '❤️',
+                    type: 'guide',
+                    link: 'rehberler.html#kalp',
+                    priority: 'high',
+                    reason: 'Kardiyovasküler risk faktörleri'
+                },
+                // Mediterranean diet
                 {
                     id: 'mediterranean_diet',
                     condition: (d) => d.dietQuality === 'poor' || d.dietQuality === 'average',
                     title: 'Akdeniz Diyeti Rehberi',
-                    description: 'Sağlıklı beslenmenin temellerini öğrenin',
+                    description: 'Dünyanın en sağlıklı beslenme tarzına geçiş.',
                     icon: '🥗',
                     type: 'guide',
-                    link: 'rehberler.html',
-                    priority: 'medium'
+                    link: 'rehberler.html#akdeniz',
+                    priority: 'medium',
+                    reason: 'Beslenme kalitesi iyileştirilebilir'
                 },
+                // Intermittent fasting
                 {
-                    id: 'diabetes_prevention',
-                    condition: (d) => d.existingConditions?.includes('prediabetes') || d.familyHistory?.includes('diabetes'),
-                    title: 'Diyabet Önleme Rehberi',
-                    description: 'Kan şekeri kontrolü ve risk azaltma',
-                    icon: '💉',
+                    id: 'intermittent_fasting',
+                    condition: (d) => d.primaryGoal === 'lose_weight' && d.calculatedBMI >= 25 &&
+                        d.existingConditions?.includes('prediabetes'),
+                    title: 'Aralıklı Oruç Rehberi',
+                    description: 'İnsülin direnci ve kilo yönetimi için 16:8 ve 5:2 yöntemleri.',
+                    icon: '⏰',
                     type: 'guide',
-                    link: 'rehberler.html',
-                    priority: 'high'
+                    link: 'rehberler.html#aralikli-oruc',
+                    priority: 'medium',
+                    reason: 'Pre-diyabet + Kilo verme hedefi'
                 },
+                // Exercise for sedentary
                 {
-                    id: 'sleep_guide',
-                    condition: (d) => d.sleepQuality === 'poor' || d.sleepHours < 6,
-                    title: 'Uyku Kalitesi Rehberi',
-                    description: 'Daha iyi uyku için kanıta dayalı stratejiler',
-                    icon: '😴',
-                    type: 'guide',
-                    link: 'rehberler.html',
-                    priority: 'medium'
-                },
-                {
-                    id: 'exercise_guide',
-                    condition: (d) => d.activityLevel === 'sedentary' || d.activityLevel === 'light',
-                    title: 'Evde Egzersiz Rehberi',
-                    description: 'Kolay başlangıç için 4 haftalık program',
+                    id: 'exercise_beginner',
+                    condition: (d) => d.activityLevel === 'sedentary',
+                    title: 'Evde Egzersiz Başlangıç Rehberi',
+                    description: 'Sıfırdan başlayanlar için 4 haftalık program.',
                     icon: '🏃',
                     type: 'guide',
-                    link: 'rehberler.html',
-                    priority: 'medium'
+                    link: 'rehberler.html#egzersiz',
+                    priority: 'high',
+                    reason: 'Hareketsiz yaşam tarzı'
+                },
+                // Exercise for 50+
+                {
+                    id: 'exercise_senior',
+                    condition: (d) => d.ageGroup === '60+',
+                    title: '50 Yaş Üstü Egzersiz Rehberi',
+                    description: 'Güvenli, yaşa uygun egzersiz önerileri.',
+                    icon: '🧓',
+                    type: 'guide',
+                    link: 'rehberler.html#50plus',
+                    priority: 'medium',
+                    reason: 'Yaş grubu 60+'
+                },
+                // Sleep guide
+                {
+                    id: 'sleep_guide',
+                    condition: (d) => d.sleepQuality === 'poor' || d.sleepHours < 6 || 
+                        d.existingConditions?.includes('sleep_apnea'),
+                    title: 'Uyku Kalitesi Rehberi',
+                    description: 'Uyku hijyeni ve uyku bozuklukları hakkında.',
+                    icon: '😴',
+                    type: 'guide',
+                    link: 'uyku-stres.html',
+                    priority: 'medium',
+                    reason: 'Uyku sorunları'
+                },
+                // Stress management
+                {
+                    id: 'stress_management',
+                    condition: (d) => d.stressLevel === 'high',
+                    title: 'Stres Yönetimi Rehberi',
+                    description: 'Kortizol, duygusal yeme ve stres azaltma teknikleri.',
+                    icon: '🧘',
+                    type: 'guide',
+                    link: 'uyku-stres.html#stres',
+                    priority: 'medium',
+                    reason: 'Yüksek stres düzeyi'
+                },
+                // Fatty liver
+                {
+                    id: 'fatty_liver_guide',
+                    condition: (d) => d.existingConditions?.includes('fatty_liver'),
+                    title: 'Karaciğer Sağlığı Rehberi',
+                    description: 'Yağlı karaciğer için beslenme ve yaşam tarzı.',
+                    icon: '🫘',
+                    type: 'guide',
+                    link: 'rehberler.html#karaciger',
+                    priority: 'high',
+                    reason: 'Yağlı karaciğer tanısı'
+                },
+                // PCOS
+                {
+                    id: 'pcos_guide',
+                    condition: (d) => d.existingConditions?.includes('pcos'),
+                    title: 'PCOS Yönetimi Rehberi',
+                    description: 'İnsülin direnci, kilo yönetimi ve hormonal denge.',
+                    icon: '🔬',
+                    type: 'guide',
+                    link: 'rehberler.html#pcos',
+                    priority: 'high',
+                    reason: 'PCOS tanısı'
                 }
             ],
+
+            // TOOLS
             tools: [
                 {
-                    id: 'bmi_calculator',
-                    condition: (d) => true,
-                    title: 'BMI Hesaplayıcı',
-                    description: 'Vücut kitle indeksinizi hesaplayın',
-                    icon: '📊',
-                    type: 'tool',
-                    link: 'araclar.html#bmi'
-                },
-                {
                     id: 'calorie_calculator',
-                    condition: (d) => d.primaryGoal === 'lose_weight',
+                    condition: (d) => d.primaryGoal === 'lose_weight' || d.calculatedBMI >= 25,
                     title: 'Kalori İhtiyacı Hesaplayıcı',
-                    description: 'Günlük kalori hedefinizi belirleyin',
+                    description: 'Günlük kalori hedefinizi ve makro dağılımınızı hesaplayın.',
                     icon: '🔥',
                     type: 'tool',
                     link: 'araclar.html#calorie',
-                    priority: 'high'
+                    priority: 'high',
+                    reason: 'Kilo yönetimi için temel araç'
                 },
                 {
                     id: 'whr_calculator',
                     condition: (d) => !d.waistCircumference || d.calculatedBMI >= 25,
                     title: 'Bel-Kalça Oranı Hesaplayıcı',
-                    description: 'Karın bölgesi riskinizi değerlendirin',
+                    description: 'Karın bölgesi yağlanması riskinizi değerlendirin.',
                     icon: '📏',
                     type: 'tool',
-                    link: 'araclar.html#whr'
+                    link: 'araclar.html#whr',
+                    priority: 'medium',
+                    reason: 'Visseral yağ risk değerlendirmesi'
                 }
             ],
-            treatments: [
-                {
-                    id: 'glp1_info',
-                    condition: (d) => d.calculatedBMI >= 30 && d.treatmentInterest?.includes('medication'),
-                    title: 'GLP-1 İlaçları Hakkında',
-                    description: 'Ozempic, Wegovy gibi yeni nesil ilaçları öğrenin',
-                    icon: '💊',
-                    type: 'treatment',
-                    link: 'tedavi.html',
-                    priority: 'high'
-                },
-                {
-                    id: 'bariatric_info',
-                    condition: (d) => d.calculatedBMI >= 35 && d.treatmentInterest?.includes('surgery'),
-                    title: 'Bariatrik Cerrahi Seçenekleri',
-                    description: 'Mide küçültme operasyonları hakkında bilgi',
-                    icon: '🏥',
-                    type: 'treatment',
-                    link: 'tedavi.html',
-                    priority: 'medium'
-                },
-                {
-                    id: 'endoscopic_options',
-                    condition: (d) => d.calculatedBMI >= 30 && d.calculatedBMI < 40,
-                    title: 'Endoskopik Tedaviler',
-                    description: 'Mide balonu, ESG gibi minimal invaziv seçenekler',
-                    icon: '🔬',
-                    type: 'treatment',
-                    link: 'tedavi.html'
-                }
-            ],
+
+            // LIFESTYLE changes
             lifestyle: [
                 {
                     id: 'quit_smoking',
                     condition: (d) => d.smoking === 'yes',
-                    title: 'Sigarayı Bırakma Desteği',
-                    description: 'En önemli sağlık yatırımınız olabilir',
+                    title: 'Sigarayı Bırakma Programı',
+                    description: 'Sağlığınız için yapabileceğiniz en önemli değişiklik.',
                     icon: '🚭',
                     type: 'lifestyle',
-                    link: '#',
+                    link: 'rehberler.html#sigara',
+                    priority: 'high',
+                    reason: 'Aktif sigara kullanımı'
+                },
+                {
+                    id: 'reduce_alcohol',
+                    condition: (d) => d.alcohol === 'daily' || d.alcohol === 'weekly',
+                    title: 'Alkol Tüketimini Azaltma',
+                    description: 'Alkol ve kilo ilişkisi, karaciğer sağlığı.',
+                    icon: '🍷',
+                    type: 'lifestyle',
+                    link: 'beslenme.html#alkol',
+                    priority: d => d.alcohol === 'daily' ? 'high' : 'medium',
+                    reason: 'Düzenli alkol tüketimi'
+                },
+                {
+                    id: 'increase_activity',
+                    condition: (d) => d.activityLevel === 'sedentary',
+                    title: 'Günlük Hareket Artırma',
+                    description: '10.000 adım hedefi, masa başı molaları.',
+                    icon: '🚶',
+                    type: 'lifestyle',
+                    link: 'egzersiz.html#gunluk',
+                    priority: 'high',
+                    reason: 'Hareketsiz yaşam tarzı'
+                },
+                {
+                    id: 'improve_sleep',
+                    condition: (d) => d.sleepHours < 6 || d.sleepQuality === 'poor',
+                    title: 'Uyku Düzeni İyileştirme',
+                    description: 'Uyku ve kilo ilişkisi, uyku hijyeni.',
+                    icon: '🌙',
+                    type: 'lifestyle',
+                    link: 'uyku-stres.html#uyku',
+                    priority: 'medium',
+                    reason: 'Yetersiz veya kalitesiz uyku'
+                }
+            ],
+
+            // ALERTS (shown as warnings)
+            alerts: [
+                {
+                    id: 'metabolic_syndrome_risk',
+                    condition: (d) => d.waistCircumference && 
+                        ((d.gender === 'male' && d.waistCircumference >= 94) || 
+                         (d.gender === 'female' && d.waistCircumference >= 80)) &&
+                        (d.existingConditions?.includes('hypertension') || 
+                         d.existingConditions?.includes('prediabetes') ||
+                         d.existingConditions?.includes('high_cholesterol')),
+                    type: 'warning',
+                    message: 'Metabolik sendrom riski tespit edildi. Kapsamlı değerlendirme önerilir.',
                     priority: 'high'
                 },
                 {
-                    id: 'stress_management',
-                    condition: (d) => d.stressLevel === 'high',
-                    title: 'Stres Yönetimi',
-                    description: 'Günlük stresi azaltma teknikleri',
-                    icon: '🧘',
-                    type: 'lifestyle',
-                    link: 'uyku-stres.html'
+                    id: 'family_heart_risk',
+                    condition: (d) => d.familyHistory?.includes('heart_disease') && 
+                        (d.smoking === 'yes' || d.calculatedBMI >= 30),
+                    type: 'warning',
+                    message: 'Ailede kalp hastalığı öyküsü + ek risk faktörleri. Kardiyoloji kontrolü düşünün.',
+                    priority: 'medium'
+                },
+                {
+                    id: 'young_obesity',
+                    condition: (d) => (d.ageGroup === '18-29' || d.ageGroup === '30-39') && d.calculatedBMI >= 35,
+                    type: 'info',
+                    message: 'Genç yaşta yüksek BMI - erken müdahale ile kalıcı sonuçlar mümkün.',
+                    priority: 'medium'
                 }
             ]
         };
@@ -1287,19 +1520,47 @@
             setTimeout(() => showQuestion(currentStep), 500);
         }
 
-        // Generate recommendations
+        // Generate recommendations with priority scoring
         function generateRecommendations() {
             const recs = [];
+            const alerts = [];
             
-            Object.values(RECOMMENDATION_RULES).flat().forEach(rule => {
-                if (rule.condition(userData)) {
-                    recs.push(rule);
+            // Process all rule categories
+            ['urgent', 'treatments', 'guides', 'tools', 'lifestyle'].forEach(category => {
+                const rules = RECOMMENDATION_RULES[category] || [];
+                rules.forEach(rule => {
+                    if (rule.condition && rule.condition(userData)) {
+                        // Calculate dynamic priority if function
+                        let priority = typeof rule.priority === 'function' 
+                            ? rule.priority(userData) 
+                            : rule.priority;
+                        
+                        recs.push({
+                            ...rule,
+                            priority: priority,
+                            category: category
+                        });
+                    }
+                });
+            });
+
+            // Process alerts separately
+            (RECOMMENDATION_RULES.alerts || []).forEach(alert => {
+                if (alert.condition && alert.condition(userData)) {
+                    alerts.push(alert);
                 }
             });
 
-            // Sort by priority
-            const priorityOrder = { high: 0, medium: 1, undefined: 2 };
-            recs.sort((a, b) => (priorityOrder[a.priority] || 2) - (priorityOrder[b.priority] || 2));
+            // Store alerts for display
+            userData.alerts = alerts;
+
+            // Sort by priority: urgent > high > medium > low
+            const priorityOrder = { urgent: 0, high: 1, medium: 2, low: 3, undefined: 4 };
+            recs.sort((a, b) => {
+                const pA = priorityOrder[a.priority] ?? 4;
+                const pB = priorityOrder[b.priority] ?? 4;
+                return pA - pB;
+            });
 
             return recs;
         }
@@ -1371,11 +1632,19 @@
                     riskScore: userData.riskScore,
                     riskLevel: getRiskLevel(userData.healthScore).label,
                     bmiCategory: getBMICategory(userData.calculatedBMI).label,
-                    recommendations: recommendations.slice(0, 5).map(r => ({
+                    alerts: (userData.alerts || []).map(a => ({
+                        type: a.type,
+                        message: a.message,
+                        priority: a.priority
+                    })),
+                    recommendations: recommendations.slice(0, 8).map(r => ({
                         id: r.id,
+                        category: r.category,
                         type: r.type,
                         title: r.title,
+                        description: r.description,
                         priority: r.priority || 'normal',
+                        reason: r.reason || null,
                         link: r.link
                     }))
                 },
@@ -1445,14 +1714,35 @@
                     </div>
                 </div>
 
+                ${userData.alerts && userData.alerts.length > 0 ? `
+                <div class="alerts-section" style="margin-bottom: 2rem;">
+                    ${userData.alerts.map(alert => `
+                        <div class="alert-card ${alert.type}" style="
+                            padding: 1rem 1.25rem;
+                            border-radius: 12px;
+                            margin-bottom: 0.75rem;
+                            display: flex;
+                            align-items: flex-start;
+                            gap: 0.75rem;
+                            ${alert.type === 'warning' ? 'background: #FEF3C7; border-left: 4px solid #F59E0B;' : ''}
+                            ${alert.type === 'info' ? 'background: #DBEAFE; border-left: 4px solid #3B82F6;' : ''}
+                        ">
+                            <span style="font-size: 1.25rem;">${alert.type === 'warning' ? '⚠️' : 'ℹ️'}</span>
+                            <p style="margin: 0; color: ${alert.type === 'warning' ? '#92400E' : '#1E40AF'}; font-size: 0.95rem;">${alert.message}</p>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+
                 <div class="recommendations">
                     <h3 class="summary-title">🎯 Size Özel Öneriler</h3>
-                    ${recommendations.slice(0, 5).map(rec => `
-                        <a href="${rec.link}" class="rec-card">
+                    ${recommendations.slice(0, 6).map(rec => `
+                        <a href="${rec.link}" class="rec-card ${rec.priority === 'urgent' ? 'urgent-rec' : ''}" style="${rec.priority === 'urgent' ? 'border: 2px solid #DC2626; background: #FEF2F2;' : ''}">
                             <div class="rec-icon ${rec.type}">${rec.icon}</div>
                             <div class="rec-content">
-                                <h4>${rec.title}${rec.priority === 'high' ? '<span class="priority-tag high">Öncelikli</span>' : ''}</h4>
+                                <h4>${rec.title}${rec.priority === 'urgent' ? '<span class="priority-tag high" style="background:#FEE2E2;color:#991B1B;">Acil</span>' : rec.priority === 'high' ? '<span class="priority-tag high">Öncelikli</span>' : ''}</h4>
                                 <p>${rec.description}</p>
+                                ${rec.reason ? `<small style="color: #9CA3AF; font-size: 0.8rem;">📌 ${rec.reason}</small>` : ''}
                             </div>
                             <span class="rec-arrow">→</span>
                         </a>
