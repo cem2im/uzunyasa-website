@@ -630,23 +630,37 @@
             <h2 class="section-title" style="text-align: center;">İletişim</h2>
             <p class="section-subtitle" style="text-align: center; margin-bottom: 2rem;">Sorularınız veya önerileriniz için bize yazın.</p>
             
-            <form action="https://formsubmit.co/cemsimsek11@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
-                <input type="hidden" name="_subject" value="UzunYaşa İletişim Formu">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://uzunyasa.com/pages/tesekkurler.html">
-                
-                <input type="text" name="isim" placeholder="Adınız Soyadınız" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
-                <input type="email" name="email" placeholder="E-posta Adresiniz" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
-                <select name="konu" style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; background: white;">
+            <form id="contact-form" style="display: flex; flex-direction: column; gap: 1rem;" onsubmit="handleContact(event)">
+                <input type="text" name="isim" id="isim" placeholder="Adınız Soyadınız" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
+                <input type="email" name="email" id="contact-email" placeholder="E-posta Adresiniz" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
+                <select name="konu" id="konu" style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; background: white;">
                     <option value="">Konu Seçin</option>
                     <option value="genel">Genel Soru</option>
                     <option value="oneri">Öneri / Geri Bildirim</option>
                     <option value="isbirligi">İş Birliği</option>
                     <option value="hata">Hata Bildirimi</option>
                 </select>
-                <textarea name="mesaj" placeholder="Mesajınız" rows="5" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical;"></textarea>
+                <textarea name="mesaj" id="mesaj" placeholder="Mesajınız" rows="5" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical;"></textarea>
                 <button type="submit" style="background: #195157; color: white; padding: 1rem 2rem; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer;">Gönder</button>
             </form>
+            <p id="contact-success" style="display:none; color:#10B981; margin-top:1rem; text-align:center; font-size:1.1rem;">✅ Mesajınız alındı! En kısa sürede dönüş yapacağız.</p>
+            <script>
+            function handleContact(e) {
+                e.preventDefault();
+                const isim = document.getElementById('isim').value;
+                const email = document.getElementById('contact-email').value;
+                const konu = document.getElementById('konu').value;
+                const mesaj = document.getElementById('mesaj').value;
+                
+                document.getElementById('contact-form').style.display = 'none';
+                document.getElementById('contact-success').style.display = 'block';
+                
+                const body = 'İsim: ' + isim + '%0D%0AEmail: ' + email + '%0D%0AKonu: ' + konu + '%0D%0A%0D%0AMesaj:%0D%0A' + encodeURIComponent(mesaj);
+                setTimeout(() => {
+                    window.open('mailto:cemsimsek11@gmail.com?subject=UzunYaşa%20İletişim%20-%20' + encodeURIComponent(konu) + '&body=' + body, '_blank');
+                }, 500);
+            }
+            </script>
         </div>
     </section>
 

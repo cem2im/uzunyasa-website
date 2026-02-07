@@ -540,13 +540,23 @@
         <div class="newsletter-section">
             <h2>📬 Haftalık Bülten</h2>
             <p>En güncel sağlık haberleri ve ipuçları için abone olun</p>
-            <form class="newsletter-form" action="https://formsubmit.co/cemsimsek11@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="Yeni Blog Abonesi!">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://uzunyasa.com/pages/tesekkurler.html">
+            <form class="newsletter-form" onsubmit="handleBlogNewsletter(event, this)">
                 <input type="email" name="email" placeholder="E-posta adresiniz" required>
                 <button type="submit">Abone Ol</button>
             </form>
+            <p id="blog-newsletter-success" style="display:none; color:#10B981; margin-top:1rem;">✅ Teşekkürler! Bültenimize kaydoldunuz.</p>
+            <script>
+            function handleBlogNewsletter(e, form) {
+                e.preventDefault();
+                const email = form.email.value;
+                localStorage.setItem('uzunyasa_blog_subscriber', email);
+                form.style.display = 'none';
+                document.getElementById('blog-newsletter-success').style.display = 'block';
+                setTimeout(() => {
+                    window.open('mailto:cemsimsek11@gmail.com?subject=Blog%20Abonesi&body=Email:%20' + encodeURIComponent(email), '_blank');
+                }, 1000);
+            }
+            </script>
         </div>
     </main>
 

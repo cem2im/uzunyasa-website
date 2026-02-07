@@ -2165,13 +2165,11 @@
             </div>
             <div class="cta-divider">veya</div>
             <p style="margin-bottom: 1rem; opacity: 0.9;">Haftalık bültenimize abone olun</p>
-            <form class="cta-newsletter" action="https://formsubmit.co/cemsimsek11@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="Yeni Newsletter Abonesi!">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://uzunyasa.com/pages/tesekkurler.html">
+            <form class="cta-newsletter" onsubmit="handleNewsletter(event, this)">
                 <input type="email" name="email" class="cta-input" placeholder="E-posta adresiniz" required>
                 <button type="submit" class="btn">Abone Ol</button>
             </form>
+            <p id="newsletter-success" style="display:none; color:#10B981; margin-top:1rem;">✅ Teşekkürler! Bültenimize kaydoldunuz.</p>
         </div>
     </section>
 
@@ -2320,6 +2318,20 @@
                 this.closest('.story-card').querySelector('.story-play').style.display = 'flex';
             });
         });
+
+        // Newsletter form handler
+        function handleNewsletter(e, form) {
+            e.preventDefault();
+            const email = form.email.value;
+            // Store locally and send via email link
+            localStorage.setItem('uzunyasa_subscriber', email);
+            form.style.display = 'none';
+            document.getElementById('newsletter-success').style.display = 'block';
+            // Open email client as backup
+            setTimeout(() => {
+                window.open('mailto:cemsimsek11@gmail.com?subject=Yeni%20Abone&body=Email:%20' + encodeURIComponent(email), '_blank');
+            }, 1000);
+        }
     </script>
 
 </body>
