@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1080px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: linear-gradient(135deg, rgba(25,81,87,0.72) 0%, rgba(42,125,131,0.65) 100%), url('https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1400') center/cover;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 80px; color: white; position: relative;
+}
+.corner { position: absolute; width: 60px; height: 60px; border: 2px solid rgba(255,255,255,0.1); }
+.corner-tl { top: 30px; left: 30px; border-right: none; border-bottom: none; border-radius: 12px 0 0 0; }
+.corner-br { bottom: 30px; right: 30px; border-left: none; border-top: none; border-radius: 0 0 12px 0; }
+.logo { position: absolute; top: 60px; font-size: 26px; font-weight: 600; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); }
+.icon { width: 120px; height: 120px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 28px; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; backdrop-filter: blur(20px); font-size: 56px; }
+.divider { width: 60px; height: 3px; background: linear-gradient(90deg, transparent, #D4A574, transparent); margin-bottom: 24px; }
+h1 { font-size: 64px; font-weight: 700; line-height: 1.15; margin-bottom: 24px; text-shadow: 2px 2px 12px rgba(0,0,0,0.4); }
+.accent { color: #D4A574; }
+.subtitle { font-size: 26px; opacity: 0.9; text-shadow: 1px 1px 6px rgba(0,0,0,0.3); margin-bottom: 24px; }
+.tags { display: flex; gap: 12px; }
+.tag { font-size: 16px; padding: 8px 20px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; }
+.dots { position: absolute; bottom: 50px; display: flex; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.35); }
+.dot.active { width: 24px; border-radius: 4px; background: #D4A574; }
+</style></head>
+<body>
+<div class="corner corner-tl"></div><div class="corner corner-br"></div>
+<div class="logo">🌿 UzunYaşa</div>
+<div class="icon">🔬</div>
+<div class="divider"></div>
+<h1>Endoskopik Sleeve<br><span class="accent">Gastroplasti (ESG)</span></h1>
+<p class="subtitle">Cerrahisiz Mide Küçültme</p>
+<div class="tags"><span class="tag">Kilo Yönetimi</span><span class="tag">Endoskopi</span><span class="tag">2026</span></div>
+<div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+</body></html>

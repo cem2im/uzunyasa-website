@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1080px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: linear-gradient(135deg, rgba(124,58,237,0.72) 0%, rgba(91,33,182,0.65) 100%), url('https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1400') center/cover;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px; color: white; position: relative;
+}
+.corner { position: absolute; width: 60px; height: 60px; border: 2px solid rgba(255,255,255,0.1); }
+.corner-tl { top: 30px; left: 30px; border-right: none; border-bottom: none; border-radius: 12px 0 0 0; }
+.corner-br { bottom: 30px; right: 30px; border-left: none; border-top: none; border-radius: 0 0 12px 0; }
+.logo { position: absolute; top: 40px; left: 50px; font-size: 20px; text-shadow: 1px 1px 6px rgba(0,0,0,0.4); }
+.page { position: absolute; top: 40px; right: 50px; font-size: 18px; opacity: 0.7; }
+h2 { font-size: 44px; font-weight: 700; margin-bottom: 36px; color: #fcd34d; text-shadow: 2px 2px 10px rgba(0,0,0,0.4); }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.stat { background: rgba(0,0,0,0.3); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 32px; text-align: center; }
+.stat-num { font-size: 56px; font-weight: 800; color: #fcd34d; margin-bottom: 8px; }
+.stat-label { font-size: 20px; opacity: 0.9; }
+.dots { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.35); }
+.dot.active { width: 24px; border-radius: 4px; background: #fcd34d; }
+</style></head>
+<body>
+<div class="corner corner-tl"></div><div class="corner corner-br"></div>
+<div class="logo">🌿 UzunYaşa</div>
+<div class="page">3/4</div>
+<h2>📊 5 Yıllık Sonuçlar</h2>
+<div class="stat-grid">
+  <div class="stat"><div class="stat-num">%16</div><div class="stat-label">Toplam Kilo<br>Kaybı</div></div>
+  <div class="stat"><div class="stat-num">%49</div><div class="stat-label">Fazla Kilo<br>Kaybı</div></div>
+  <div class="stat"><div class="stat-num">%88</div><div class="stat-label">Hasta<br>Memnuniyeti</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Kesi / İz<br>Yok</div></div>
+</div>
+<div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+</body></html>
