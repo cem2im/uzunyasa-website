@@ -11,6 +11,21 @@ const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const OUTPUT_DIR = path.join(__dirname, '../pages/blog');
 const BLOG_INDEX = path.join(__dirname, '../data/blog-posts.json');
 
+// Unsplash for free images (no API key needed for source.unsplash.com)
+const UNSPLASH_KEYWORDS = {
+  'beslenme': 'healthy-food,nutrition,vegetables',
+  'egzersiz': 'fitness,exercise,workout,running',
+  'kilo-yonetimi': 'weight-loss,healthy-lifestyle,diet',
+  'bilim': 'science,research,laboratory,medicine',
+  'tedavi': 'medicine,healthcare,doctor,pills',
+  'yasam-tarzi': 'wellness,lifestyle,meditation,sleep'
+};
+
+function getUnsplashImage(category, width = 1200, height = 600) {
+  const keywords = UNSPLASH_KEYWORDS[category] || 'health,wellness';
+  return `https://source.unsplash.com/${width}x${height}/?${keywords}`;
+}
+
 const CATEGORIES = {
   'beslenme': { icon: '🥗', color: '#10B981', name: 'Beslenme' },
   'egzersiz': { icon: '🏃', color: '#3B82F6', name: 'Egzersiz' },
@@ -166,7 +181,8 @@ function generateHtml(post) {
         .post-category { display: inline-block; background: ${category.color}20; color: ${category.color}; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
         h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
         .post-meta { color: var(--gray); font-size: 0.9rem; display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-        .featured-image { width: 100%; height: 350px; background: linear-gradient(135deg, ${category.color}, ${category.color}aa); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 5rem; margin-bottom: 2.5rem; }
+        .featured-image { width: 100%; height: 350px; background: linear-gradient(135deg, ${category.color}, ${category.color}aa); border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; }
+        .featured-image img { width: 100%; height: 100%; object-fit: cover; }
         .post-content { font-size: 1.1rem; }
         .post-content h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; color: var(--primary); }
         .post-content h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
@@ -215,7 +231,9 @@ function generateHtml(post) {
             <span>⏱️ ${post.readTime} dk okuma</span>
         </div>
 
-        <div class="featured-image">${category.icon}</div>
+        <div class="featured-image">
+            <img src="${getUnsplashImage(post.category)}" alt="${post.title}" onerror="this.style.display='none'">
+        </div>
 
         <div class="post-content">
             ${htmlContent}
