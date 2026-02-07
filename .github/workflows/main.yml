@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 6 * * *'
 
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -29,4 +32,4 @@ jobs:
           git config user.name "UzunYaşa Bot"
           git add .
           git diff --staged --quiet || git commit -m "New blog post"
-          git push || true
+          git push
