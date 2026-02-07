@@ -21,46 +21,55 @@ process.chdir(repoRoot);
 
 // Extract impactful content from blog
 function extractImpactfulContent(htmlContent, meta) {
+  // Remove style, script, and head tags first
+  const cleanHtml = htmlContent
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<head[^>]*>[\s\S]*?<\/head>/gi, '');
+  
+  // Get just the text content
+  const textContent = cleanHtml
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  
   // Find statistics (numbers with %)
-  const statsRegex = /%\d+|\d+%|\d+\s*milyon|\d+\s*bin|\d+\s*kat/gi;
-  const stats = htmlContent.match(statsRegex) || [];
+  const statsRegex = /%\d+|\d+%/g;
+  const stats = textContent.match(statsRegex) || [];
+  // Filter out CSS-like values
+  const realStats = stats.filter(s => !s.includes('100%'));
   
   // Find sentences with strong words
-  const strongWords = ['önemli', 'kritik', 'tehlikeli', 'etkili', 'önlenebilir', 'şaşırtıcı', 'çarpıcı', 'gerçek', 'bilimsel'];
-  const sentences = htmlContent
-    .replace(/<[^>]+>/g, ' ')
+  const strongWords = ['önemli', 'kritik', 'tehlikeli', 'etkili', 'önlenebilir', 'şaşırtıcı', 'çarpıcı', 'gerçek', 'bilimsel', 'araştırma'];
+  const sentences = textContent
     .split(/[.!?]/)
     .map(s => s.trim())
-    .filter(s => s.length > 20 && s.length < 100);
+    .filter(s => s.length > 30 && s.length < 120 && !s.includes('{') && !s.includes(':'));
   
   const impactful = sentences.filter(s => 
     strongWords.some(w => s.toLowerCase().includes(w)) ||
-    statsRegex.test(s)
+    /\d+%/.test(s)
   ).slice(0, 5);
-  
-  // Find key facts (sentences with numbers)
-  const factsWithNumbers = sentences.filter(s => /\d+/.test(s)).slice(0, 3);
   
   return {
     title: meta.title,
     category: meta.category,
-    stats: stats.slice(0, 3),
-    impactfulSentences: impactful,
-    facts: factsWithNumbers,
+    stats: realStats.slice(0, 3),
+    impactfulSentences: impactful.length > 0 ? impactful : [meta.description],
     description: meta.description
   };
 }
 
-// Generate video prompt based on content type
+// Generate video prompt based on content type - STRUCTURED FORMAT
 function generateVideoPrompt(content, style = 'impact') {
   const backgrounds = {
     health: 'serene nature scene with sunlight through trees, healthy lifestyle imagery',
-    medical: 'clean modern hospital corridor, medical equipment soft focus',
+    medical: 'clean modern hospital corridor, soft medical lighting',
     nutrition: 'fresh colorful vegetables and fruits on wooden table, soft lighting',
     exercise: 'sunrise over mountains, person silhouette doing yoga',
-    turkish: 'Istanbul skyline time-lapse at golden hour, Bosphorus view',
+    turkish: 'Turkish cityscape time-lapse at sunset, Istanbul Bosphorus view',
     science: 'abstract DNA helix visualization, blue medical background',
-    warning: 'dramatic clouds, storm clearing to sunshine'
+    lifestyle: 'cozy morning scene, warm sunlight through window'
   };
   
   // Select background based on category
@@ -68,32 +77,24 @@ function generateVideoPrompt(content, style = 'impact') {
   const cat = content.category.toLowerCase();
   if (cat.includes('beslenme') || cat.includes('diyet')) bg = backgrounds.nutrition;
   if (cat.includes('egzersiz')) bg = backgrounds.exercise;
-  if (cat.includes('tedavi') || cat.includes('ilaç')) bg = backgrounds.medical;
-  if (cat.includes('türkiye') || cat.includes('obezite')) bg = backgrounds.turkish;
+  if (cat.includes('tedavi') || cat.includes('ilaç') || cat.includes('glp')) bg = backgrounds.medical;
+  if (cat.includes('türkiye') || cat.includes('obezite') || cat.includes('epidemiyoloji')) bg = backgrounds.turkish;
+  if (cat.includes('uyku') || cat.includes('yaşam')) bg = backgrounds.lifestyle;
   
-  // Pick the most impactful sentence
-  const mainMessage = content.impactfulSentences[0] || content.description.substring(0, 80);
+  // Extract the most impactful content
   const stat = content.stats[0] || '';
+  const mainMessage = content.impactfulSentences[0]?.substring(0, 60) || content.title.substring(0, 50);
+  const subMessage = content.description.substring(0, 50) + '...';
   
-  // Create structured prompt
-  const prompt = `Cinematic promotional video, 5-8 seconds, smooth motion:
-
-BACKGROUND: ${bg}, slow cinematic movement, dreamy soft focus
-
-TEXT OVERLAY (Turkish, bold modern font, white with subtle shadow):
-- Top small text: "${content.category}" with subtle icon
-- Center LARGE text: "${stat ? stat + ' - ' : ''}${mainMessage.substring(0, 50)}"
-- Bottom small text: "uzunyasa.com"
-
-ANIMATION: 
-- Background slowly zooms in
-- Text fades in line by line (0.5s each)
-- Subtle particle effect
-- Professional, trustworthy medical aesthetic
-
-COLOR SCHEME: Teal (#0D7377) accents, clean whites, soft greens
-
-MOOD: Hopeful, informative, professional healthcare`;
+  // STRUCTURED PROMPT FORMAT (works with Grok!)
+  const prompt = `Duration: 5s
+Background: ${bg}
+Top text: "${content.category} 📊" in white bold font
+Center text large: "${stat ? stat.toUpperCase() + ' - ' : ''}${mainMessage.toUpperCase()}" in white bold uppercase
+Bottom text: "${subMessage}" in white italic
+Footer: "uzunyasa.com" small white text
+Animation: Text fades in line by line, 0.5 seconds each
+Style: Professional, cinematic, healthcare promotional, trustworthy`;
 
   return prompt;
 }
