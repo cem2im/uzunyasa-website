@@ -262,6 +262,9 @@ async function main() {
   
   const browser = await puppeteer.launch({
     headless: 'new',
+    executablePath: process.platform === 'darwin' 
+      ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+      : undefined,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
   });
   
