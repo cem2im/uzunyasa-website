@@ -61,7 +61,7 @@ function extractImpactfulContent(htmlContent, meta) {
 }
 
 // Generate video prompt based on content type - STRUCTURED FORMAT
-function generateVideoPrompt(content, style = 'impact') {
+async function generateVideoPrompt(content, style = 'impact') {
   const backgrounds = {
     health: 'serene nature scene with sunlight through trees, healthy lifestyle imagery',
     medical: 'clean modern hospital corridor, soft medical lighting',
@@ -81,20 +81,57 @@ function generateVideoPrompt(content, style = 'impact') {
   if (cat.includes('türkiye') || cat.includes('obezite') || cat.includes('epidemiyoloji')) bg = backgrounds.turkish;
   if (cat.includes('uyku') || cat.includes('yaşam')) bg = backgrounds.lifestyle;
   
-  // Extract the most impactful content
-  const stat = content.stats[0] || '';
-  const mainMessage = content.impactfulSentences[0]?.substring(0, 60) || content.title.substring(0, 50);
-  const subMessage = content.description.substring(0, 50) + '...';
+  // INFORMATIVE STYLE - Factual, viral-worthy
   
-  // STRUCTURED PROMPT FORMAT (works with Grok!)
-  const prompt = `Duration: 5s
+  // Top: Category/Topic with emoji
+  const categoryEmojis = {
+    beslenme: '🥗',
+    diyet: '🥗', 
+    egzersiz: '🏃',
+    tedavi: '💊',
+    ilaç: '💊',
+    glp: '💉',
+    uyku: '😴',
+    yaşam: '🌿',
+    obezite: '⚖️',
+    kalp: '❤️',
+    default: '📊'
+  };
+  
+  let emoji = categoryEmojis.default;
+  const catLower = content.category.toLowerCase();
+  for (const [key, val] of Object.entries(categoryEmojis)) {
+    if (catLower.includes(key)) { emoji = val; break; }
+  }
+  
+  // Short topic name (max 3 words)
+  const topText = content.title.split(':')[0].split(' ').slice(0, 3).join(' ') + ' ' + emoji;
+  
+  // Main message - AI-generated punchy summary (3-5 words)
+  const keyFacts = content.impactfulSentences.slice(0, 2).join(' ') + 
+                   (content.stats.length > 0 ? ` İstatistikler: ${content.stats.join(', ')}` : '');
+  
+  const mainMsg = await generatePunchySummary(content.title, content.description, keyFacts);
+  console.log(`   💬 AI Özet: "${mainMsg}"`);
+  
+  // Bottom: Credibility statement
+  const credibility = [
+    'Bilim kanıtladı.',
+    'Araştırmalar gösteriyor.',
+    'Uzmanlar öyle diyor.',
+    'Klinik veriler.',
+    'Gerçek bu.'
+  ];
+  const cta = credibility[Math.floor(Math.random() * credibility.length)];
+  
+  // STRUCTURED PROMPT - INFORMATIVE STYLE
+  const prompt = `Vertical video for Instagram Stories.
 Background: ${bg}
-Top text: "${content.category} 📊" in white bold font
-Center text large: "${stat ? stat.toUpperCase() + ' - ' : ''}${mainMessage.toUpperCase()}" in white bold uppercase
-Bottom text: "${subMessage}" in white italic
-Footer: "uzunyasa.com" small white text
-Animation: Text fades in line by line, 0.5 seconds each
-Style: Professional, cinematic, healthcare promotional, trustworthy`;
+Top text: "${topText}" - small white, elegant
+Center text LARGE: "${mainMsg}" - big bold white uppercase, impactful
+Bottom text: "${cta}" - white italic, subtle
+Animation: Smooth fade in, professional
+Style: Educational, trustworthy, clean medical aesthetic`;
 
   return prompt;
 }
@@ -120,12 +157,68 @@ function extractBlogMeta(htmlContent) {
   };
 }
 
-// Generate video with Grok API
-async function generateGrokVideo(prompt) {
+// Generate punchy summary using Grok Chat
+async function generatePunchySummary(title, description, keyFacts) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify({
+      model: 'grok-3-mini',
+      messages: [
+        {
+          role: 'system',
+          content: 'Sen bir viral içerik uzmanısın. Blog içeriğinden EN ÇARPİCI bilgiyi 3-5 kelimeyle özetle. Sadece özeti yaz, başka bir şey yazma. Büyük harf kullan. Örnek: KALP RİSKİ %30 DÜŞÜYOR'
+        },
+        {
+          role: 'user',
+          content: `Blog: ${title}\nAçıklama: ${description}\nÖnemli bilgiler: ${keyFacts}`
+        }
+      ]
+    });
+
+    const options = {
+      hostname: 'api.x.ai',
+      port: 443,
+      path: '/v1/chat/completions',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${XAI_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(data)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        try {
+          const json = JSON.parse(body);
+          const summary = json.choices?.[0]?.message?.content || title.toUpperCase();
+          resolve(summary.trim());
+        } catch (e) {
+          resolve(title.toUpperCase());
+        }
+      });
+    });
+
+    req.on('error', () => resolve(title.toUpperCase()));
+    req.write(data);
+    req.end();
+  });
+}
+
+// Generate video with Grok API - with format options
+async function generateGrokVideo(prompt, options = {}) {
+  const duration = options.duration || 5;
+  const aspectRatio = options.aspectRatio || '9:16'; // Story format default
+  const resolution = options.resolution || '720p';
+  
   return new Promise((resolve, reject) => {
     const data = JSON.stringify({
       model: 'grok-imagine-video',
-      prompt: prompt
+      prompt: prompt,
+      duration: duration,
+      aspect_ratio: aspectRatio,
+      resolution: resolution
     });
 
     const options = {
@@ -280,12 +373,17 @@ async function main() {
     console.log(`   💬 Çarpıcı cümle: "${content.impactfulSentences[0]?.substring(0, 50) || meta.description.substring(0, 50)}..."`);
     
     // Generate prompt
-    const prompt = generateVideoPrompt(content);
+    const prompt = await generateVideoPrompt(content);
     console.log(`\n   🎨 Video Prompt:`);
     console.log(`   ${prompt.substring(0, 200)}...\n`);
     
     try {
-      const result = await generateGrokVideo(prompt);
+      // Story format: 9:16, 5 seconds, 720p
+      const result = await generateGrokVideo(prompt, {
+        duration: 5,
+        aspectRatio: '9:16',
+        resolution: '720p'
+      });
       
       let videoUrl;
       if (result.url) {
