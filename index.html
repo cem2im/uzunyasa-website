@@ -13,7 +13,7 @@
     <meta property="og:locale" content="tr_TR">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -270,7 +270,7 @@
             font-size: 1rem;
         }
 
-        /* ===== HERO SECTION ===== */
+        /* ===== HERO SECTION - PREMIUM ===== */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -297,11 +297,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(180deg, rgba(13, 115, 119, 0.3) 0%, rgba(13, 115, 119, 0.6) 50%, rgba(10, 92, 95, 0.9) 100%),
-                linear-gradient(135deg, rgba(13, 115, 119, 0.7) 0%, rgba(20, 145, 155, 0.5) 50%, rgba(232, 150, 62, 0.2) 100%),
-                radial-gradient(ellipse at 30% 20%, rgba(20, 145, 155, 0.4) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(232, 150, 62, 0.15) 0%, transparent 40%);
+            background: linear-gradient(180deg, 
+                rgba(25, 81, 87, 0.4) 0%, 
+                rgba(25, 81, 87, 0.6) 50%, 
+                rgba(15, 61, 66, 0.85) 100%);
             z-index: 1;
         }
 
@@ -310,24 +309,43 @@
             z-index: 2;
             text-align: center;
             color: white;
-            max-width: 800px;
+            max-width: 900px;
             padding: 2rem;
         }
 
+        /* Premium Staggered Animations */
+        @keyframes heroFadeInUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content > * {
+            opacity: 0;
+            animation: heroFadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+        .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
+
         .hero-tagline {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 500;
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
 
         .hero-tagline {
             display: flex;
             flex-direction: column;
             align-items: center;
-            line-height: 1.2;
+            line-height: 1.15;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .rotating-container {
@@ -347,7 +365,7 @@
             text-align: center;
             transform: translateY(100%);
             opacity: 0;
-            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.4s ease;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
             white-space: nowrap;
             color: rgba(255,255,255,0.95);
         }
@@ -368,44 +386,98 @@
             margin-top: 0.1em;
         }
 
+        .hero-separator {
+            width: 60px;
+            height: 1px;
+            background: rgba(255,255,255,0.3);
+            margin: 2rem auto;
+        }
+
         .hero-description {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 600px;
+            font-size: 1.15rem;
+            font-weight: 400;
+            opacity: 0.85;
+            max-width: 520px;
             margin: 0 auto 2.5rem;
             line-height: 1.7;
+            letter-spacing: 0.01em;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .hero-btn-primary {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
             color: white;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(232, 150, 62, 0.3);
         }
 
         .hero-btn-primary:hover {
-            background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(232, 150, 62, 0.3);
+            box-shadow: 0 8px 30px rgba(232, 150, 62, 0.4);
         }
 
         .hero-btn-secondary {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
             color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
 
         .hero-btn-secondary:hover {
-            background: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: heroFadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .hero-scroll-indicator a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .hero-scroll-indicator a:hover { color: rgba(255,255,255,0.9); }
+
+        .hero-scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
         }
 
         /* ===== STATS BAR ===== */
@@ -1727,28 +1799,35 @@
             <source src="videos/hero.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
-            <img src="images/logo-white.svg" alt="UzunYaşa" class="logo-img-hero animate-fade-in-up">
-            <h1 class="hero-tagline animate-fade-in-up">
+            <img src="images/logo-white.svg" alt="UzunYaşa" class="logo-img-hero">
+            <h1 class="hero-tagline">
                 <div class="rotating-container">
-                    <span class="rotating-word active">daha uzun</span>
-                    <span class="rotating-word">daha sağlıklı</span>
-                    <span class="rotating-word">daha enerjik</span>
-                    <span class="rotating-word">daha güçlü</span>
+                    <span class="rotating-word active">Daha Uzun</span>
+                    <span class="rotating-word">Daha Sağlıklı</span>
+                    <span class="rotating-word">Daha Enerjik</span>
+                    <span class="rotating-word">Daha Güçlü</span>
                 </div>
-                <span class="tagline-static">yaşa</span>
+                <span class="tagline-static">Yaşa</span>
             </h1>
-            <p class="hero-description animate-fade-in-up delay-1">
-                Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu. 
-                Beslenme, egzersiz ve tedavi seçenekleri hakkında güvenilir bilgi.
+            <div class="hero-separator"></div>
+            <p class="hero-description">
+                Kanıta dayalı, bağımsız sağlık rehberliği.<br>
+                Beslenme, egzersiz ve tedavi seçenekleri.
             </p>
-            <div class="hero-buttons animate-fade-in-up delay-2">
+            <div class="hero-buttons">
                 <a href="pages/test.html" class="btn hero-btn-primary">
-                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/></svg> Bana Uygun Ne? — Teste Başla
+                    Teste Başla →
                 </a>
                 <a href="#kesfet" class="btn hero-btn-secondary">
-                    Rehberleri Keşfet
+                    Keşfet
                 </a>
             </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <a href="#kesfet">
+                <span>Aşağı Kaydır</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
         </div>
     </section>
 
