@@ -586,7 +586,33 @@
 
         /* ===== TOOLS SECTION ===== */
         .tools-section {
-            background: var(--bg-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tools-section .section-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .tools-section .section-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(250, 250, 248, 0.93) 0%, rgba(243, 244, 246, 0.95) 100%);
+            z-index: 1;
+        }
+
+        .tools-section .section-inner {
+            position: relative;
+            z-index: 2;
         }
 
         .tool-featured {
@@ -1452,6 +1478,10 @@
 
     <!-- TOOLS SECTION -->
     <section class="tools-section">
+        <video class="section-video" autoplay muted loop playsinline>
+            <source src="videos/background-4.mp4" type="video/mp4">
+        </video>
+        <div class="section-overlay"></div>
         <div class="section-inner">
             <div class="section-header">
                 <h2 class="section-title">Sağlığınızı anlamak için ücretsiz araçlar</h2>
