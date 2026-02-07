@@ -61,6 +61,26 @@ function generateSummarySection(meta, slug) {
             </ul>
         </div>
         
+        <!-- Visual Summary Cards -->
+        <div style="margin: 2rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 16px;">
+            <p style="font-weight: 600; color: #195157; margin-bottom: 1rem; font-size: 0.95rem;">🖼️ Görsel Özet:</p>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                <a href="../../images/social/${slug}-slide1.jpg" target="_blank" style="display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="../../images/social/${slug}-slide1.jpg" alt="Kapak" style="width: 100%; display: block;">
+                </a>
+                <a href="../../images/social/${slug}-slide2.jpg" target="_blank" style="display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="../../images/social/${slug}-slide2.jpg" alt="İçerik" style="width: 100%; display: block;">
+                </a>
+                <a href="../../images/social/${slug}-slide3.jpg" target="_blank" style="display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="../../images/social/${slug}-slide3.jpg" alt="Özet" style="width: 100%; display: block;">
+                </a>
+                <a href="../../images/social/${slug}-slide4.jpg" target="_blank" style="display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <img src="../../images/social/${slug}-slide4.jpg" alt="CTA" style="width: 100%; display: block;">
+                </a>
+            </div>
+            <p style="text-align: center; margin-top: 0.75rem; font-size: 0.8rem; color: #9ca3af;">Büyütmek için tıklayın</p>
+        </div>
+        
         <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
             ${hashtags.split(' ').map(tag => `<span style="font-size: 0.8rem; color: #9ca3af;">${tag}</span>`).join('\n            ')}
         </div>
@@ -69,23 +89,7 @@ function generateSummarySection(meta, slug) {
 `;
 }
 
-// Generate visual info card HTML (for within blog content)
-function generateInfoCard(meta, slug, imageNum) {
-  return `
-    <!-- VISUAL INFO CARD -->
-    <figure class="visual-summary" style="margin: 2rem 0; text-align: center;">
-        <a href="../../images/social/${slug}-slide${imageNum}.jpg" target="_blank" style="display: block;">
-            <img src="../../images/social/${slug}-slide${imageNum}.jpg" 
-                 alt="${meta.title} - Görsel Özet" 
-                 style="width: 100%; max-width: 500px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-        </a>
-        <figcaption style="margin-top: 0.75rem; font-size: 0.85rem; color: #6b7280; font-style: italic;">
-            📊 Görsel özet - büyütmek için tıklayın
-        </figcaption>
-    </figure>
-    <!-- END VISUAL INFO CARD -->
-`;
-}
+// Info card removed - all 4 images now shown in summary section at bottom
 
 // Generate HTML for slides
 function generateSlideHTML(meta, slideNum, slug, bgImages) {
@@ -305,14 +309,11 @@ async function main() {
       await page.close();
     }
     
-    // Generate summary section
+    // Generate summary section (includes all 4 images in grid)
     const summaryHTML = generateSummarySection(meta, slug);
     
-    // Generate info card (using slide 3 - the summary/stats slide)
-    const infoCardHTML = generateInfoCard(meta, slug, 3);
-    
     // Inject into blog post
-    const updatedHTML = injectSummary(htmlContent, summaryHTML, infoCardHTML);
+    const updatedHTML = injectSummary(htmlContent, summaryHTML, null);
     fs.writeFileSync(filePath, updatedHTML);
     console.log(`   ✅ Blog updated with summary section`);
     
