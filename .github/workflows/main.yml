@@ -2,11 +2,6 @@ name: Auto Blog Generator
 
 on:
   workflow_dispatch:
-    inputs:
-      topic:
-        description: 'Blog topic (optional - random if empty)'
-        required: false
-        type: string
   schedule:
     - cron: '0 6 * * *'
 
@@ -20,51 +15,18 @@ jobs:
         with:
           node-version: '20'
       
-      - name: Select topic
-        id: topic
-        run: |
-          if [ -n "${{ github.event.inputs.topic }}" ]; then
-            echo "selected=${{ github.event.inputs.topic }}" >> $GITHUB_OUTPUT
-          else
-            TOPICS=(
-              "GLP-1 ilaçları: Ozempic, Wegovy ve Mounjaro karşılaştırması"
-              "Tirzepatide ile kilo verme: Son araştırmalar"
-              "Aralıklı oruç: 16:8 ve 5:2 yöntemleri"
-              "Akdeniz diyeti ve kalp sağlığı"
-              "Protein alımı ve kas kaybını önleme"
-              "Uyku eksikliği ve kilo alma ilişkisi"
-              "HIIT egzersiz ve metabolizma hızlandırma"
-              "Gut mikrobiyomu ve obezite bağlantısı"
-              "Karbonhidrat kısıtlama diyetleri"
-              "Yürüyüş ve kilo verme: Günde kaç adım"
-              "Stres ve kilo alma mekanizması"
-              "Kahvaltı atlama: Faydalı mı zararlı mı"
-              "İnsülin direnci ve kilo verme zorluğu"
-              "Doğal iştah bastırıcı besinler"
-              "Metabolik sendrom ve yaşam tarzı değişiklikleri"
-            )
-            RANDOM_INDEX=$((RANDOM % ${#TOPICS[@]}))
-            echo "selected=${TOPICS[$RANDOM_INDEX]}" >> $GITHUB_OUTPUT
-          fi
-      
       - name: Generate blog
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          echo "Generating blog for: ${{ steps.topic.outputs.selected }}"
-          node scripts/auto-blog-generator.js --topic "${{ steps.topic.outputs.selected }}"
+        run: node scripts/auto-blog-generator.js --topic "GLP-1 ilaclari ve kilo verme"
       
       - name: Update index
-        run: node scripts/update-blog-index.js
+        run: node scripts/update-blog-index.js || true
       
       - name: Commit and push
         run: |
           git config user.email "bot@uzunyasa.com"
           git config user.name "UzunYaşa Bot"
           git add .
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "📝 Yeni blog: ${{ steps.topic.outputs.selected }}"
-            git push
-          fi
+          git diff --staged --quiet || git commit -m "New blog post"
+          git push || true
