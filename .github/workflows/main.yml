@@ -1,37 +1,32 @@
-⁠yaml
 name: Auto Blog Generator
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 6 * * *'
-  workflow_dispatch:
 
 jobs:
-  generate-blog:
+  generate:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v4
-
+      
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Generate blog post
+      
+      - name: Generate blog
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          TOPICS=("GLP-1 ilaçları ve kilo verme" "Aralıklı oruç faydaları" "Protein ve kas kaybı" "Akdeniz diyeti" "Uyku ve metabolizma" "Egzersiz ve kilo verme")
-          RANDOM_TOPIC=${TOPICS[$RANDOM % ${#TOPICS[@]}]}
-          node scripts/auto-blog-generator.js --topic "$RANDOM_TOPIC"
-
-      - name: Update blog index
+        run: node scripts/auto-blog-generator.js --topic "GLP-1 ilaçları ve kilo verme"
+      
+      - name: Update index
         run: node scripts/update-blog-index.js
-
-      - name: Commit and push
+      
+      - name: Commit
         run: |
           git config user.email "bot@uzunyasa.com"
-          git config user.name "UzunYaşa Bot"
+          git config user.name "Bot"
           git add .
-          git diff --staged --quiet || git commit -m "📝 Yeni blog yazısı"
+          git diff --staged --quiet || git commit -m "New blog post"
           git push
