@@ -314,33 +314,44 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            line-height: 1.2;
         }
 
         .rotating-container {
             position: relative;
-            height: 1.2em;
+            display: inline-block;
+            height: 1.15em;
             overflow: hidden;
+            min-width: 280px;
         }
 
         .rotating-word {
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%) translateY(100%);
+            left: 0;
+            right: 0;
+            text-align: center;
+            transform: translateY(100%);
             opacity: 0;
-            transition: all 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.4s ease;
             white-space: nowrap;
             color: rgba(255,255,255,0.95);
         }
 
         .rotating-word.active {
-            transform: translateX(-50%) translateY(0);
+            transform: translateY(0);
             opacity: 1;
+        }
+
+        .rotating-word.exit {
+            transform: translateY(-100%);
+            opacity: 0;
         }
 
         .tagline-static {
             color: var(--accent);
             display: block;
+            margin-top: 0.1em;
         }
 
         .hero-description {
@@ -1723,14 +1734,27 @@
         let currentIndex = 0;
         
         function rotateWords() {
-            rotatingWords.forEach((word, index) => {
-                word.classList.remove('active');
-            });
-            currentIndex = (currentIndex + 1) % rotatingWords.length;
-            rotatingWords[currentIndex].classList.add('active');
+            const current = rotatingWords[currentIndex];
+            const nextIndex = (currentIndex + 1) % rotatingWords.length;
+            const next = rotatingWords[nextIndex];
+            
+            // Exit current
+            current.classList.remove('active');
+            current.classList.add('exit');
+            
+            // Enter next
+            next.classList.remove('exit');
+            next.classList.add('active');
+            
+            // Clean up exit class after animation
+            setTimeout(() => {
+                current.classList.remove('exit');
+            }, 600);
+            
+            currentIndex = nextIndex;
         }
         
-        setInterval(rotateWords, 2500);
+        setInterval(rotateWords, 3000);
 
         // Header scroll effect
         const header = document.querySelector('.header');
