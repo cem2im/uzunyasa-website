@@ -528,71 +528,132 @@
         </div>
     </section>
 
-    <section class="content-section">
-        <h2 class="section-title" style="text-align: center;">Ekibimiz</h2>
-        <p class="section-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;">Farklı disiplinlerden uzmanlardan oluşan tutkulu bir ekip.</p>
+    <section class="content-section" style="padding: 5rem 2rem; background: linear-gradient(180deg, #f8fafc 0%, white 100%);">
+        <style>
+            .specialties-container {
+                position: relative;
+                width: 100%;
+                max-width: 700px;
+                height: 500px;
+                margin: 0 auto 2rem;
+            }
+            .specialty-circle {
+                position: absolute;
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                background: white;
+                border: 3px solid #195157;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: #195157;
+                text-align: center;
+                padding: 0.5rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                animation: float 6s ease-in-out infinite;
+                transition: all 0.3s ease;
+            }
+            .specialty-circle:hover {
+                transform: scale(1.15);
+                border-color: #E8963E;
+                color: #E8963E;
+                z-index: 10;
+            }
+            .specialty-circle:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
+            .specialty-circle:nth-child(2) { top: 5%; left: 45%; animation-delay: 0.5s; transform: translateX(-50%); }
+            .specialty-circle:nth-child(3) { top: 5%; right: 10%; animation-delay: 1s; }
+            .specialty-circle:nth-child(4) { top: 35%; left: 0%; animation-delay: 1.5s; }
+            .specialty-circle:nth-child(5) { top: 35%; right: 0%; animation-delay: 2s; }
+            .specialty-circle:nth-child(6) { top: 65%; left: 5%; animation-delay: 2.5s; }
+            .specialty-circle:nth-child(7) { top: 65%; right: 5%; animation-delay: 3s; }
+            .specialty-circle:nth-child(8) { bottom: 5%; left: 20%; animation-delay: 3.5s; }
+            .specialty-circle:nth-child(9) { bottom: 5%; right: 20%; animation-delay: 4s; }
+            
+            .center-message {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                z-index: 5;
+            }
+            .center-icon {
+                width: 80px;
+                height: 80px;
+                background: linear-gradient(135deg, #195157, #2a7d83);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 1rem;
+                box-shadow: 0 10px 30px rgba(25, 81, 87, 0.3);
+            }
+            .center-icon svg {
+                width: 40px;
+                height: 40px;
+                color: white;
+            }
+            .center-text {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #195157;
+            }
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            .specialty-circle:nth-child(2) {
+                animation: float2 6s ease-in-out infinite;
+            }
+            @keyframes float2 {
+                0%, 100% { transform: translateX(-50%) translateY(0); }
+                50% { transform: translateX(-50%) translateY(-10px); }
+            }
+            .advisory-bottom {
+                text-align: center;
+                margin-top: 2rem;
+                padding-top: 2rem;
+                border-top: 1px solid #e5e7eb;
+            }
+            .advisory-bottom h3 {
+                font-size: 1.5rem;
+                color: #195157;
+                margin-bottom: 0.5rem;
+            }
+            .advisory-bottom p {
+                color: #6b7280;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        </style>
         
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-photo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
+        <div class="specialties-container">
+            <div class="specialty-circle">Gastro-<br>enteroloji</div>
+            <div class="specialty-circle">Endokri-<br>noloji</div>
+            <div class="specialty-circle">İç<br>Hastalıkları</div>
+            <div class="specialty-circle">Kardi-<br>yoloji</div>
+            <div class="specialty-circle">Nefro-<br>loji</div>
+            <div class="specialty-circle">Beslenme<br>& Diyet</div>
+            <div class="specialty-circle">Egzersiz<br>Fizyolojisi</div>
+            <div class="specialty-circle">Psiki-<br>yatri</div>
+            <div class="specialty-circle">Halk<br>Sağlığı</div>
+            
+            <div class="center-message">
+                <div class="center-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                 </div>
-                <h4>Dr. Ayşe Yılmaz</h4>
-                <p class="role">Kurucu & Baş Editör</p>
-                <p>İç Hastalıkları Uzmanı, 15 yıllık klinik deneyim</p>
-            </div>
-
-            <div class="team-card">
-                <div class="team-photo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </div>
-                <h4>Mehmet Kaya</h4>
-                <p class="role">Beslenme Direktörü</p>
-                <p>Diyetisyen, Klinik Beslenme Uzmanı</p>
-            </div>
-
-            <div class="team-card">
-                <div class="team-photo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </div>
-                <h4>Dr. Zeynep Öztürk</h4>
-                <p class="role">Bilimsel Danışman</p>
-                <p>Epidemiyolog, Halk Sağlığı Doktoru</p>
-            </div>
-
-            <div class="team-card">
-                <div class="team-photo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </div>
-                <h4>Can Demir</h4>
-                <p class="role">Egzersiz Fizyologu</p>
-                <p>Spor Bilimleri Uzmanı, ACSM Sertifikalı</p>
+                <div class="center-text">Sağlık Bir Bütündür</div>
             </div>
         </div>
-    </section>
-
-    <section class="advisory-section">
-        <div class="advisory-inner">
-            <h2>Danışma Kurulumuz</h2>
-            <p>İçeriklerimiz, alanında uzman akademisyenler ve klinisyenlerden oluşan danışma kurulumuz tarafından gözden geçirilmektedir.</p>
-            <div class="advisory-logos">
-                <div class="advisory-logo">Hacettepe Üniversitesi</div>
-                <div class="advisory-logo">İstanbul Tıp Fakültesi</div>
-                <div class="advisory-logo">Ankara Üniversitesi</div>
-                <div class="advisory-logo">Ege Üniversitesi</div>
-            </div>
+        
+        <div class="advisory-bottom">
+            <h3>Danışma Kurulumuz</h3>
+            <p>İçeriklerimiz, farklı branşlardan uzman akademisyenler ve klinisyenlerden oluşan danışma kurulumuz tarafından gözden geçirilmektedir.</p>
         </div>
     </section>
 
