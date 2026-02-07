@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UzunYaşa | Bilimle Daha Uzun, Daha İyi Yaşam</title>
+    <meta name="description" content="Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu. Beslenme, egzersiz, kilo yönetimi ve tedavi seçenekleri hakkında güvenilir bilgi.">
+    <meta name="keywords" content="sağlıklı yaşam, kilo verme, diyet, egzersiz, GLP-1, obezite tedavisi, uzun yaşam">
+    <meta name="author" content="UzunYaşa">
+    <meta property="og:title" content="UzunYaşa | Bilimle Daha Uzun, Daha İyi Yaşam">
+    <meta property="og:description" content="Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0D7377;
+            --primary-light: #14919B;
+            --primary-dark: #0A5C5F;
+            --accent: #E8963E;
+            --accent-hover: #D4862F;
+            --bg-white: #FFFFFF;
+            --bg-cream: #FAFAF8;
+            --bg-light: #F3F4F6;
+            --text-dark: #1F2937;
+            --text-medium: #4B5563;
+            --text-light: #6B7280;
+            --text-muted: #9CA3AF;
+            --success: #10B981;
+            --border: #E5E7EB;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-content {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-dropdown-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-medium);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .nav-dropdown-item:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(13, 115, 119, 0.85), rgba(20, 145, 155, 0.75));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-tagline {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tagline .rotating-word {
+            display: block;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn-primary {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 150, 62, 0.3);
+        }
+
+        .hero-btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--bg-cream);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
+        }
+
+        .stats-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .stat-sublabel {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== GOALS SECTION ===== */
+        .goals-section {
+            background: var(--bg-white);
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .goal-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .goal-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .goal-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .goal-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .goal-link {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* ===== TOOLS SECTION ===== */
+        .tools-section {
+            background: var(--bg-cream);
+        }
+
+        .tool-featured {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tool-featured-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-featured-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .tool-featured-desc {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .tool-featured .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .tool-featured .btn:hover {
+            background: var(--bg-cream);
+            transform: translateY(-2px);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .tool-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tool-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tool-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* ===== COMPARE SECTION ===== */
+        .compare-section {
+            background: var(--bg-white);
+        }
+
+        .compare-box {
+            background: linear-gradient(135deg, var(--bg-cream), white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .compare-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .compare-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .compare-tag {
+            background: var(--bg-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .compare-desc {
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .compare-preview {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .compare-preview-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compare-preview-item:last-child {
+            border-bottom: none;
+        }
+
+        .compare-preview-icon {
+            font-size: 1.5rem;
+        }
+
+        .compare-preview-text {
+            flex: 1;
+        }
+
+        .compare-preview-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .compare-preview-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ===== STORIES SECTION ===== */
+        .stories-section {
+            background: var(--bg-cream);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .story-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .story-video {
+            position: relative;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-play {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .story-card:hover .story-play {
+            transform: scale(1.1);
+        }
+
+        .story-content {
+            padding: 1.25rem;
+        }
+
+        .story-quote {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .story-author {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .story-result {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ===== SCIENCE SECTION ===== */
+        .science-section {
+            background: var(--text-dark);
+            color: white;
+        }
+
+        .science-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .science-video {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .science-play {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .science-play:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .science-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .science-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .science-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .science-list li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        /* ===== GUIDES SECTION ===== */
+        .guides-section {
+            background: var(--bg-white);
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .guide-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .guide-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .guide-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .guide-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .guide-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ===== TEAM SECTION ===== */
+        .team-section {
+            background: var(--bg-cream);
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .team-role {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .team-specialty {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn-primary {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn-primary:hover {
+            background: var(--accent-hover);
+        }
+
+        .cta-divider {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-newsletter {
+            display: flex;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: 0.5rem;
+        }
+
+        .cta-input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .cta-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .cta-newsletter .btn {
+            background: var(--text-dark);
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo-text {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            max-width: 400px;
+            text-align: right;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .stories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .science-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-top {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .goals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-inner {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-disclaimer {
+                text-align: center;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">🌿</div>
+                <span class="logo-text">UzunYaşa</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link">Keşfet ▾</a>
+                        <div class="nav-dropdown-content">
+                            <a href="/beslenme" class="nav-dropdown-item">🥗 Beslenme</a>
+                            <a href="/egzersiz" class="nav-dropdown-item">🏃 Egzersiz</a>
+                            <a href="/tedaviler" class="nav-dropdown-item">⚖️ Kilo Yönetimi</a>
+                            <a href="/zihin" class="nav-dropdown-item">🧠 Zihin & Davranış</a>
+                        </div>
+                    </li>
+                    <li><a href="/araclar" class="nav-link">Araçlar</a></li>
+                    <li><a href="/hikayeler" class="nav-link">Hikayeler</a></li>
+                    <li><a href="/bilim" class="nav-link">Bilim</a></li>
+                    <li><a href="/hakkimizda" class="nav-link">Hakkımızda</a></li>
+                </ul>
+                <a href="/test" class="btn btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <!-- Placeholder for video - replace with actual video -->
+        <div class="hero-overlay"></div>
+        <video class="hero-video" autoplay muted loop playsinline poster="/images/hero-poster.jpg">
+            <source src="/videos/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="hero-tagline animate-fade-in-up">
+                <span class="rotating-word">daha uzun</span>
+                <span class="rotating-word">daha sağlıklı</span>
+                <span class="rotating-word">daha enerjik</span>
+            </h1>
+            <p class="hero-description animate-fade-in-up delay-1">
+                Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu. 
+                Beslenme, egzersiz ve tedavi seçenekleri hakkında güvenilir bilgi.
+            </p>
+            <div class="hero-buttons animate-fade-in-up delay-2">
+                <a href="/test" class="btn hero-btn-primary">
+                    🎯 Bana Uygun Ne? — Teste Başla
+                </a>
+                <a href="#kesfet" class="btn hero-btn-secondary">
+                    Rehberleri Keşfet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-icon">🔬</div>
+                <div class="stat-value">Kanıta Dayalı</div>
+                <div class="stat-label">Her içerik bilimsel kaynaklara dayalı</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value">10,000+</div>
+                <div class="stat-label">Aylık okuyucu</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">📚</div>
+                <div class="stat-value">50+ Rehber</div>
+                <div class="stat-label">Ücretsiz erişim</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOALS SECTION -->
+    <section class="goals-section" id="kesfet">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">Sağlıklı yaşam hedefiniz ne?</h2>
+                <p class="section-subtitle">Size özel rehberlere ulaşmak için hedefinizi seçin</p>
+            </div>
+            <div class="goals-grid">
+                <a href="/hedef/aktif-olmak" class="goal-card">
+                    <div class="goal-icon">🏃</div>
+                    <div class="goal-title">Daha Aktif Olmak</div>
+                    <div class="goal-link">Rehbere git →</div>
+                </a>
+                <a href="/hedef/kilo-vermek" class="goal-card">
+                    <div class="goal-icon">⚖️</div>
+                    <div class="goal-title">Sağlıklı Kiloya Ulaşmak</div>
+                    <div class="goal-link">Rehbere git →</div>
+                </a>
+                <a href="/hedef/guclu-hissetmek" class="goal-card">
+                    <div class="goal-icon">💪</div>
+                    <div class="goal-title">Daha Güçlü Hissetmek</div>
+                    <div class="goal-link">Rehbere git →</div>
+                </a>
+                <a href="/hedef/zihinsel-berraklik" class="goal-card">
+                    <div class="goal-icon">🧠</div>
+                    <div class="goal-title">Zihinsel Berraklık</div>
+                    <div class="goal-link">Rehbere git →</div>
+                </a>
+                <a href="/hedef/beslenme" class="goal-card">
+                    <div class="goal-icon">🍎</div>
+                    <div class="goal-title">Daha İyi Beslenmek</div>
+                    <div class="goal-link">Rehbere git →</div>
+                </a>
+                <a href="/hedef/uyku" class="goal-card">
+                    <div class="goal-icon">😴</div>
+                    <div class="goal-title">Daha İyi Uyumak</div>
+                    <div class="goal-link">Rehbere git →</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOLS SECTION -->
+    <section class="tools-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">Sağlığınızı anlamak için ücretsiz araçlar</h2>
+            </div>
+            <div class="tool-featured">
+                <div class="tool-featured-icon">🎯</div>
+                <h3 class="tool-featured-title">"Bana Ne Uygun?" Testi</h3>
+                <p class="tool-featured-desc">
+                    Kilo yönetimi hedeflerinize göre size en uygun yöntemi bulun. 
+                    Diyet mi? Egzersiz mi? İlaç mı? Prosedür mü? 3 dakikada öğrenin.
+                </p>
+                <a href="/test" class="btn btn-lg">Teste Başla →</a>
+            </div>
+            <div class="tools-grid">
+                <a href="/araclar/bmi" class="tool-card">
+                    <div class="tool-card-icon">📏</div>
+                    <div class="tool-card-title">BMI Hesapla</div>
+                </a>
+                <a href="/araclar/kalori" class="tool-card">
+                    <div class="tool-card-icon">🔥</div>
+                    <div class="tool-card-title">Kalori İhtiyacı</div>
+                </a>
+                <a href="/araclar/bel-boy" class="tool-card">
+                    <div class="tool-card-icon">📐</div>
+                    <div class="tool-card-title">Bel/Boy Oranı</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARE SECTION -->
+    <section class="compare-section">
+        <div class="section-inner">
+            <div class="compare-box">
+                <h2 class="compare-title">Kilo yönetiminde seçeneklerinizi biliyor musunuz?</h2>
+                <div class="compare-tags">
+                    <span class="compare-tag">Diyet</span>
+                    <span class="compare-tag">Egzersiz</span>
+                    <span class="compare-tag">İlaçlar</span>
+                    <span class="compare-tag">Endoskopik</span>
+                    <span class="compare-tag">Cerrahi</span>
+                </div>
+                <p class="compare-desc">
+                    Her yöntemin artıları, eksileri, maliyeti ve kalıcılığı farklıdır. 
+                    Hangisi size uygun?
+                </p>
+                <div class="compare-preview">
+                    <div class="compare-preview-item">
+                        <span class="compare-preview-icon">💊</span>
+                        <div class="compare-preview-text">
+                            <div class="compare-preview-title">GLP-1 İlaçları</div>
+                            <div class="compare-preview-meta">%15-20 kilo kaybı • Sürekli kullanım gerektirir</div>
+                        </div>
+                    </div>
+                    <div class="compare-preview-item">
+                        <span class="compare-preview-icon">🔬</span>
+                        <div class="compare-preview-text">
+                            <div class="compare-preview-title">Endoskopik Tüp Mide</div>
+                            <div class="compare-preview-meta">%15-20 kilo kaybı • Tek seferlik prosedür</div>
+                        </div>
+                    </div>
+                    <div class="compare-preview-item">
+                        <span class="compare-preview-icon">🔪</span>
+                        <div class="compare-preview-text">
+                            <div class="compare-preview-title">Bariatrik Cerrahi</div>
+                            <div class="compare-preview-meta">%25-35 kilo kaybı • Kalıcı, geri dönüşü yok</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/tedaviler/karsilastir" class="btn btn-primary btn-lg">
+                    Tedavi Seçeneklerini Karşılaştır →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORIES SECTION -->
+    <section class="stories-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">Gerçek insanlar, gerçek sonuçlar</h2>
+                <p class="section-subtitle">Sağlıklı yaşam yolculuklarından ilham alın</p>
+            </div>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-video">
+                        <div class="story-play">▶</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-quote">"Artık çocuklarımla koşabiliyorum"</div>
+                        <div class="story-author">Ayşe, 42</div>
+                        <div class="story-result">22 kg verdi</div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-video">
+                        <div class="story-play">▶</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-quote">"Enerji seviyem tamamen değişti"</div>
+                        <div class="story-author">Mehmet, 38</div>
+                        <div class="story-result">28 kg verdi</div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-video">
+                        <div class="story-play">▶</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-quote">"Şeker hastalığımı yendim"</div>
+                        <div class="story-author">Ali, 55</div>
+                        <div class="story-result">40 kg verdi</div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-video">
+                        <div class="story-play">▶</div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-quote">"Hayatım tamamen değişti"</div>
+                        <div class="story-author">Zeynep, 35</div>
+                        <div class="story-result">35 kg verdi</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/hikayeler" class="btn btn-outline btn-lg">Tüm Hikayeleri Gör →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCIENCE SECTION -->
+    <section class="science-section">
+        <div class="section-inner">
+            <div class="science-content">
+                <div class="science-video">
+                    <div class="science-play">▶</div>
+                </div>
+                <div class="science-text">
+                    <h2>Bilimle daha uzun, daha iyi yaşam</h2>
+                    <ul class="science-list">
+                        <li>Hakemli dergilerde yayınlanmış araştırmalara dayanır</li>
+                        <li>Uzman danışma kurulu tarafından gözden geçirilir</li>
+                        <li>Düzenli olarak güncellenir</li>
+                        <li>Ticari çıkarlardan bağımsızdır</li>
+                    </ul>
+                    <a href="/bilim" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">
+                        Bilimsel Yaklaşımımız →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUIDES SECTION -->
+    <section class="guides-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">En Çok Okunan Rehberler</h2>
+            </div>
+            <div class="guides-grid">
+                <a href="/rehber/glp1" class="guide-card">
+                    <div class="guide-icon">📖</div>
+                    <div class="guide-title">GLP-1 İlaçları: Bilmeniz Gereken Her Şey</div>
+                    <div class="guide-meta">⏱ 12 dk okuma</div>
+                </a>
+                <a href="/rehber/aralikli-oruc" class="guide-card">
+                    <div class="guide-icon">📖</div>
+                    <div class="guide-title">Aralıklı Oruç: Gerçekten İşe Yarıyor mu?</div>
+                    <div class="guide-meta">⏱ 8 dk okuma</div>
+                </a>
+                <a href="/rehber/egzersiz-kilo" class="guide-card">
+                    <div class="guide-icon">📖</div>
+                    <div class="guide-title">Kilo Verdiren Egzersizler: Bilim Ne Diyor</div>
+                    <div class="guide-meta">⏱ 10 dk okuma</div>
+                </a>
+                <a href="/rehber/uzun-yasam" class="guide-card">
+                    <div class="guide-icon">📖</div>
+                    <div class="guide-title">Uzun Yaşamın Bilimsel Sırları</div>
+                    <div class="guide-meta">⏱ 15 dk okuma</div>
+                </a>
+                <a href="/rehber/duygusal-yeme" class="guide-card">
+                    <div class="guide-icon">📖</div>
+                    <div class="guide-title">Duygusal Yeme: Nasıl Başa Çıkılır?</div>
+                    <div class="guide-meta">⏱ 7 dk okuma</div>
+                </a>
+                <a href="/rehber/supplement" class="guide-card">
+                    <div class="guide-icon">📖</div>
+                    <div class="guide-title">Supplement Rehberi: Hangileri İşe Yarıyor?</div>
+                    <div class="guide-meta">⏱ 12 dk okuma</div>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/rehberler" class="btn btn-outline btn-lg">Tüm Rehberleri Gör →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">Türkiye'nin önde gelen uzmanlarıyla</h2>
+            </div>
+            <p class="team-intro" style="text-align: center; color: var(--text-medium); margin-bottom: 3rem;">
+                İçeriklerimiz gastroenterolog, endokrinolog, diyetisyen ve egzersiz fizyologlarından 
+                oluşan danışma kurulumuz tarafından gözden geçirilmektedir.
+            </p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍⚕️</div>
+                    <div class="team-role">Gastroenterolog</div>
+                    <div class="team-specialty">Sindirim Sistemi Uzmanı</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍⚕️</div>
+                    <div class="team-role">Endokrinolog</div>
+                    <div class="team-specialty">Hormon & Metabolizma</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">🥗</div>
+                    <div class="team-role">Diyetisyen</div>
+                    <div class="team-specialty">Beslenme Uzmanı</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">🏋️</div>
+                    <div class="team-role">Egzersiz Fizyologu</div>
+                    <div class="team-specialty">Hareket & Performans</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/hakkimizda/kurul" class="btn btn-outline">Danışma Kurulumuz →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="section-inner">
+            <h2 class="cta-title">Sağlıklı yaşam yolculuğunuza bugün başlayın</h2>
+            <div class="cta-buttons">
+                <a href="/test" class="btn cta-btn-primary">
+                    🎯 Bana Uygun Ne? — Teste Başla
+                </a>
+            </div>
+            <div class="cta-divider">veya</div>
+            <p style="margin-bottom: 1rem; opacity: 0.9;">Haftalık bültenimize abone olun</p>
+            <form class="cta-newsletter">
+                <input type="email" class="cta-input" placeholder="E-posta adresiniz">
+                <button type="submit" class="btn">Abone Ol</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <div class="logo-icon">🌿</div>
+                        <span class="logo-text">UzunYaşa</span>
+                    </div>
+                    <p class="footer-tagline">"Bilimle daha uzun, daha iyi yaşam"</p>
+                    <div class="footer-badges">
+                        <span>Bağımsız</span>
+                        <span>•</span>
+                        <span>Kanıta Dayalı</span>
+                        <span>•</span>
+                        <span>Herkese Açık</span>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Keşfet</h4>
+                    <ul class="footer-links">
+                        <li><a href="/beslenme">Beslenme</a></li>
+                        <li><a href="/egzersiz">Egzersiz</a></li>
+                        <li><a href="/tedaviler">Tedaviler</a></li>
+                        <li><a href="/zihin">Zihin & Davranış</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Araçlar</h4>
+                    <ul class="footer-links">
+                        <li><a href="/araclar/bmi">BMI Hesapla</a></li>
+                        <li><a href="/araclar/kalori">Kalori Hesapla</a></li>
+                        <li><a href="/test">Tedavi Testi</a></li>
+                        <li><a href="/araclar/bel-boy">Bel/Boy Oranı</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Hakkımızda</h4>
+                    <ul class="footer-links">
+                        <li><a href="/hakkimizda">Misyonumuz</a></li>
+                        <li><a href="/hakkimizda/kurul">Danışma Kurulu</a></li>
+                        <li><a href="/hakkimizda/editoryal">Editöryal Politika</a></li>
+                        <li><a href="/iletisim">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 UzunYaşa. Tüm hakları saklıdır.</p>
+                <div class="footer-social">
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="YouTube">▶</a>
+                    <a href="#" title="X">𝕏</a>
+                    <a href="#" title="LinkedIn">in</a>
+                </div>
+                <p class="footer-disclaimer">
+                    Bu site tıbbi tavsiye sağlamaz. Kararlarınız için mutlaka bir sağlık uzmanına danışın.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Rotating tagline animation
+        const rotatingWords = document.querySelectorAll('.rotating-word');
+        let currentIndex = 0;
+        
+        function rotateWords() {
+            rotatingWords.forEach((word, index) => {
+                word.style.opacity = index === currentIndex ? '1' : '0';
+                word.style.transform = index === currentIndex ? 'translateY(0)' : 'translateY(20px)';
+            });
+            currentIndex = (currentIndex + 1) % rotatingWords.length;
+        }
+        
+        // Initial setup
+        rotatingWords.forEach((word, index) => {
+            word.style.position = index === 0 ? 'relative' : 'absolute';
+            word.style.top = index === 0 ? 'auto' : '0';
+            word.style.left = index === 0 ? 'auto' : '50%';
+            word.style.transform = index === 0 ? 'translateY(0)' : 'translateX(-50%) translateY(20px)';
+            word.style.opacity = index === 0 ? '1' : '0';
+            word.style.transition = 'all 0.5s ease';
+        });
+        
+        setInterval(rotateWords, 3000);
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
