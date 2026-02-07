@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | UzunYaşa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-teal: #195157;
+            --primary-teal-light: #2a6b73;
+            --accent-orange: #E8963E;
+            --text-dark: #1a1a1a;
+            --text-gray: #6b7280;
+            --bg-cream: #FAF9F7;
+            --bg-white: #FFFFFF;
+            --border-light: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-cream);
+        }
+
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img { height: 70px; width: auto; }
+
+        .nav { display: flex; align-items: center; gap: 2rem; }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .blog-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Categories */
+        .categories {
+            background: var(--bg-white);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 85px;
+            z-index: 100;
+        }
+
+        .categories-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            border: 2px solid var(--border-light);
+            background: white;
+            color: var(--text-gray);
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            border-color: var(--primary-teal);
+            color: var(--primary-teal);
+        }
+
+        .category-btn.active {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        /* Blog Content */
+        .blog-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 2rem;
+            background: var(--bg-white);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .featured-image {
+            height: 400px;
+            background: linear-gradient(135deg, var(--accent-orange), #F4A855);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-image-placeholder {
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .featured-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .post-category {
+            display: inline-block;
+            background: var(--bg-cream);
+            color: var(--primary-teal);
+            padding: 0.3rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .featured-body h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-body p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .post-meta img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-teal);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .read-more:hover { text-decoration: underline; }
+
+        /* Posts Grid */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .post-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .post-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-image-placeholder {
+            font-size: 2.5rem;
+            opacity: 0.3;
+            color: white;
+        }
+
+        .post-body {
+            padding: 1.5rem;
+        }
+
+        .post-body h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .post-body p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .post-date {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light));
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            border-radius: 20px;
+        }
+
+        .newsletter-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .newsletter-section p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo { height: 50px; margin-bottom: 1rem; }
+
+        .footer p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+
+        @media (max-width: 968px) {
+            .featured-post { grid-template-columns: 1fr; }
+            .featured-image { height: 250px; }
+            .posts-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .posts-grid { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+            .nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html">
+                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="rehberler.html" class="nav-link">Rehberler</a>
+                <a href="araclar.html" class="nav-link">Araçlar</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                <a href="test.html" class="btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="blog-hero">
+        <h1>UzunYaşa Blog</h1>
+        <p>Sağlık, beslenme ve yaşam tarzı hakkında güncel bilgiler</p>
+    </section>
+
+    <div class="categories">
+        <div class="categories-inner">
+            <button class="category-btn active">Tümü</button>
+            <button class="category-btn">Beslenme</button>
+            <button class="category-btn">Egzersiz</button>
+            <button class="category-btn">Kilo Yönetimi</button>
+            <button class="category-btn">Bilimsel Araştırmalar</button>
+            <button class="category-btn">Yaşam Tarzı</button>
+            <button class="category-btn">Tedavi</button>
+        </div>
+    </div>
+
+    <main class="blog-content">
+        <!-- Featured Post -->
+        <article class="featured-post">
+            <div class="featured-image">
+                <span class="featured-image-placeholder">📰</span>
+            </div>
+            <div class="featured-body">
+                <span class="post-category">Bilimsel Araştırmalar</span>
+                <h2>GLP-1 İlaçları: 2025'te Obezite Tedavisinde Devrim</h2>
+                <p>Yeni nesil GLP-1 agonistleri, obezite tedavisinde oyunun kurallarını değiştiriyor. Ozempic, Wegovy ve yeni çıkan Mounjaro ile ilgili son araştırmalar ve klinik sonuçlar.</p>
+                <div class="post-meta">
+                    <span>📅 7 Şubat 2025</span>
+                    <span>•</span>
+                    <span>⏱️ 8 dk okuma</span>
+                </div>
+                <a href="#" class="read-more">Devamını Oku →</a>
+            </div>
+        </article>
+
+        <!-- Recent Posts -->
+        <h2 class="section-title">Son Yazılar</h2>
+        <div class="posts-grid">
+            <a href="#" class="post-card">
+                <div class="post-image">
+                    <span class="post-image-placeholder">🥗</span>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">Beslenme</span>
+                    <h3>Akdeniz Diyeti: Kalp Sağlığı İçin Altın Standart</h3>
+                    <p>Yeni meta-analiz, Akdeniz diyetinin kardiyovasküler hastalık riskini %30 azalttığını gösteriyor.</p>
+                    <span class="post-date">6 Şubat 2025</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background: linear-gradient(135deg, #10B981, #059669);">
+                    <span class="post-image-placeholder">🏃</span>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">Egzersiz</span>
+                    <h3>HIIT vs Steady-State Kardio: Hangisi Daha Etkili?</h3>
+                    <p>2025 araştırması, kilo kaybı için en etkili egzersiz türünü ortaya koyuyor.</p>
+                    <span class="post-date">5 Şubat 2025</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background: linear-gradient(135deg, #8B5CF6, #6D28D9);">
+                    <span class="post-image-placeholder">😴</span>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">Yaşam Tarzı</span>
+                    <h3>Uyku ve Kilo: Gizli Bağlantı</h3>
+                    <p>Yetersiz uyku neden kilo almanıza neden oluyor? Bilimin cevabı.</p>
+                    <span class="post-date">4 Şubat 2025</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background: linear-gradient(135deg, #F59E0B, #D97706);">
+                    <span class="post-image-placeholder">💊</span>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">Tedavi</span>
+                    <h3>Tirzepatide (Mounjaro): Yeni Umut</h3>
+                    <p>FDA onaylı yeni ilaç, GLP-1 ve GIP reseptörlerini birlikte hedefliyor.</p>
+                    <span class="post-date">3 Şubat 2025</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background: linear-gradient(135deg, #EC4899, #DB2777);">
+                    <span class="post-image-placeholder">🧬</span>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">Bilimsel Araştırmalar</span>
+                    <h3>Gut Mikrobiyomu ve Obezite</h3>
+                    <p>Bağırsak bakterileriniz kilonuzu nasıl etkiliyor? En son araştırmalar.</p>
+                    <span class="post-date">2 Şubat 2025</span>
+                </div>
+            </a>
+
+            <a href="#" class="post-card">
+                <div class="post-image" style="background: linear-gradient(135deg, #06B6D4, #0891B2);">
+                    <span class="post-image-placeholder">⚖️</span>
+                </div>
+                <div class="post-body">
+                    <span class="post-category">Kilo Yönetimi</span>
+                    <h3>Kalori Saymak Gerekli mi?</h3>
+                    <p>Modern beslenme bilimi, kalori saymanın ötesine geçiyor. İşte bilmeniz gerekenler.</p>
+                    <span class="post-date">1 Şubat 2025</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter-section">
+            <h2>📬 Haftalık Bülten</h2>
+            <p>En güncel sağlık haberleri ve ipuçları için abone olun</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="E-posta adresiniz">
+                <button type="submit">Abone Ol</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+            <p>© 2025 UzunYaşa. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
