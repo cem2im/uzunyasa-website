@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sağlık Testi | UzunYaşa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-teal: #195157;
+            --primary-teal-light: #2a6b73;
+            --accent-orange: #E8963E;
+            --accent-orange-light: #f0a854;
+            --text-dark: #1a1a1a;
+            --text-gray: #6b7280;
+            --bg-cream: #FAF9F7;
+            --bg-white: #FFFFFF;
+            --border-light: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-cream);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img { height: 50px; }
+
+        .progress-container {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 2rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-teal), var(--accent-orange));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 0.25rem;
+            text-align: center;
+        }
+
+        .exit-btn {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 2rem;
+        }
+
+        /* Messages */
+        .message {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .avatar.bot {
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light));
+            color: white;
+        }
+
+        .avatar.user {
+            background: var(--accent-orange);
+            color: white;
+        }
+
+        .bubble {
+            max-width: 85%;
+            padding: 1rem 1.25rem;
+            border-radius: 18px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .message.bot .bubble {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .bubble {
+            background: var(--primary-teal);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 0.5rem 0;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--text-gray);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Options */
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .option-btn {
+            padding: 0.875rem 1.5rem;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary-teal);
+            color: var(--primary-teal);
+            transform: translateY(-2px);
+        }
+
+        .option-btn.selected {
+            background: var(--primary-teal);
+            border-color: var(--primary-teal);
+            color: white;
+        }
+
+        .option-btn.multi-select.selected {
+            background: var(--primary-teal-light);
+        }
+
+        /* Input Types */
+        .input-container {
+            margin-top: 1rem;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+
+        .input-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .input-group {
+            flex: 1;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .slider-container {
+            padding: 1rem 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--border-light);
+            appearance: none;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary-teal);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 0.5rem;
+        }
+
+        .slider-value {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Continue Button */
+        .continue-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-light));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1.5rem;
+            font-family: inherit;
+        }
+
+        .continue-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(232, 150, 62, 0.4);
+        }
+
+        .continue-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Results Screen */
+        .results-container {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-header h1 {
+            font-size: 2rem;
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .results-header p {
+            color: var(--text-gray);
+        }
+
+        .score-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--primary-teal) calc(var(--score) * 3.6deg),
+                var(--border-light) 0deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .score-inner {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--bg-cream);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .risk-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .risk-badge.low { background: #D1FAE5; color: #065F46; }
+        .risk-badge.moderate { background: #FEF3C7; color: #92400E; }
+        .risk-badge.high { background: #FEE2E2; color: #991B1B; }
+
+        /* Summary Cards */
+        .summary-section {
+            margin-top: 2rem;
+        }
+
+        .summary-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .summary-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .summary-card h4 {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .summary-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .summary-card .status {
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .status.good { color: #059669; }
+        .status.warning { color: #D97706; }
+        .status.alert { color: #DC2626; }
+
+        /* Recommendations */
+        .recommendations {
+            margin-top: 2rem;
+        }
+
+        .rec-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+        }
+
+        .rec-card:hover {
+            border-color: var(--primary-teal);
+            transform: translateX(5px);
+        }
+
+        .rec-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .rec-icon.guide { background: #DBEAFE; }
+        .rec-icon.tool { background: #D1FAE5; }
+        .rec-icon.treatment { background: #FEE2E2; }
+        .rec-icon.lifestyle { background: #FEF3C7; }
+
+        .rec-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .rec-content p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .rec-arrow {
+            margin-left: auto;
+            color: var(--primary-teal);
+            font-size: 1.25rem;
+            align-self: center;
+        }
+
+        /* Priority Tags */
+        .priority-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+
+        .priority-tag.high { background: #FEE2E2; color: #991B1B; }
+        .priority-tag.medium { background: #FEF3C7; color: #92400E; }
+
+        /* Actions */
+        .results-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            font-family: inherit;
+        }
+
+        .action-btn.primary {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        .action-btn.secondary {
+            background: var(--bg-white);
+            border: 2px solid var(--border-light);
+            color: var(--text-dark);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* JSON Debug (hidden by default) */
+        .json-debug {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #1a1a1a;
+            border-radius: 12px;
+            display: none;
+        }
+
+        .json-debug pre {
+            color: #10B981;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 768px) {
+            .progress-container { display: none; }
+            .chat-container { padding: 1rem; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .results-actions { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html">
+            <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+        </a>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-text" id="progress-text">Başlangıç</div>
+        </div>
+        <a href="../index.html" class="exit-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Çık
+        </a>
+    </header>
+
+    <div class="chat-container">
+        <div class="messages" id="messages"></div>
+    </div>
+
+    <div class="chat-container results-container" id="results-container">
+        <!-- Results will be injected here -->
+    </div>
+
+    <script>
+        // Witty Turkish - Conversational Health Assessment
+        
+        const QUESTIONS = [
+            {
+                id: 'welcome',
+                type: 'info',
+                message: 'Merhaba! 👋 Ben UzunYaşa sağlık asistanınızım. Size birkaç soru soracağım ve sonunda kişiselleştirilmiş öneriler sunacağım.',
+                delay: 1000,
+                auto: true
+            },
+            {
+                id: 'name',
+                type: 'text',
+                message: 'Önce tanışalım. Adınız nedir?',
+                placeholder: 'Adınızı yazın...',
+                field: 'name'
+            },
+            {
+                id: 'goal',
+                type: 'single',
+                message: 'Güzel tanıştığımıza memnun oldum, {name}! 😊 Bugün buraya hangi amaçla geldiniz?',
+                options: [
+                    { value: 'lose_weight', label: '⚖️ Kilo vermek istiyorum', score: 0 },
+                    { value: 'health_check', label: '🩺 Sağlığımı kontrol etmek', score: 0 },
+                    { value: 'prevent_disease', label: '🛡️ Hastalıklardan korunmak', score: 0 },
+                    { value: 'improve_lifestyle', label: '🌱 Yaşam tarzımı iyileştirmek', score: 0 },
+                    { value: 'manage_condition', label: '💊 Mevcut bir durumu yönetmek', score: 0 }
+                ],
+                field: 'primaryGoal'
+            },
+            {
+                id: 'age',
+                type: 'single',
+                message: 'Yaş grubunuzu öğrenebilir miyim?',
+                options: [
+                    { value: '18-29', label: '18-29', riskScore: 0 },
+                    { value: '30-39', label: '30-39', riskScore: 5 },
+                    { value: '40-49', label: '40-49', riskScore: 10 },
+                    { value: '50-59', label: '50-59', riskScore: 15 },
+                    { value: '60+', label: '60+', riskScore: 20 }
+                ],
+                field: 'ageGroup'
+            },
+            {
+                id: 'gender',
+                type: 'single',
+                message: 'Cinsiyetiniz nedir?',
+                options: [
+                    { value: 'male', label: '👨 Erkek' },
+                    { value: 'female', label: '👩 Kadın' },
+                    { value: 'other', label: '🧑 Belirtmek istemiyorum' }
+                ],
+                field: 'gender'
+            },
+            {
+                id: 'measurements',
+                type: 'measurements',
+                message: 'Şimdi bazı ölçümlerinizi alalım. Boy ve kilonuz nedir?',
+                fields: ['height', 'weight']
+            },
+            {
+                id: 'waist',
+                type: 'number',
+                message: 'Bel çevrenizi biliyor musunuz? (cm cinsinden)',
+                placeholder: 'Örn: 85',
+                field: 'waistCircumference',
+                optional: true,
+                skipLabel: 'Bilmiyorum'
+            },
+            {
+                id: 'activity',
+                type: 'single',
+                message: 'Fiziksel aktivite düzeyinizi nasıl tanımlarsınız?',
+                options: [
+                    { value: 'sedentary', label: '🪑 Hareketsiz (masa başı iş)', riskScore: 15 },
+                    { value: 'light', label: '🚶 Hafif aktif (haftada 1-2 gün)', riskScore: 10 },
+                    { value: 'moderate', label: '🏃 Orta aktif (haftada 3-5 gün)', riskScore: 5 },
+                    { value: 'active', label: '💪 Çok aktif (haftada 6-7 gün)', riskScore: 0 }
+                ],
+                field: 'activityLevel'
+            },
+            {
+                id: 'diet',
+                type: 'single',
+                message: 'Beslenme alışkanlıklarınızı nasıl değerlendirirsiniz?',
+                options: [
+                    { value: 'poor', label: '🍔 Sağlıksız (işlenmiş gıdalar, fast food)', riskScore: 15 },
+                    { value: 'average', label: '🍽️ Orta (karışık, dikkat etmeye çalışıyorum)', riskScore: 8 },
+                    { value: 'good', label: '🥗 İyi (çoğunlukla sağlıklı)', riskScore: 3 },
+                    { value: 'excellent', label: '🥑 Çok iyi (bilinçli besleniyorum)', riskScore: 0 }
+                ],
+                field: 'dietQuality'
+            },
+            {
+                id: 'sleep',
+                type: 'slider',
+                message: 'Ortalama kaç saat uyuyorsunuz?',
+                min: 3,
+                max: 12,
+                default: 7,
+                unit: 'saat',
+                field: 'sleepHours'
+            },
+            {
+                id: 'sleep_quality',
+                type: 'single',
+                message: 'Uyku kalitenizi nasıl değerlendirirsiniz?',
+                options: [
+                    { value: 'poor', label: '😫 Kötü (sürekli yorgun uyanıyorum)', riskScore: 10 },
+                    { value: 'fair', label: '😐 Orta (bazen iyi, bazen kötü)', riskScore: 5 },
+                    { value: 'good', label: '😊 İyi (genellikle dinlenmiş uyanıyorum)', riskScore: 0 }
+                ],
+                field: 'sleepQuality'
+            },
+            {
+                id: 'stress',
+                type: 'single',
+                message: 'Günlük stres düzeyiniz nasıl?',
+                options: [
+                    { value: 'high', label: '🔴 Yüksek (sürekli stres altındayım)', riskScore: 12 },
+                    { value: 'moderate', label: '🟡 Orta (zaman zaman stresli)', riskScore: 6 },
+                    { value: 'low', label: '🟢 Düşük (genel olarak sakinim)', riskScore: 0 }
+                ],
+                field: 'stressLevel'
+            },
+            {
+                id: 'smoking',
+                type: 'single',
+                message: 'Sigara kullanıyor musunuz?',
+                options: [
+                    { value: 'yes', label: '🚬 Evet, aktif içiciyim', riskScore: 20 },
+                    { value: 'former', label: '🚭 Bıraktım', riskScore: 5 },
+                    { value: 'no', label: '❌ Hayır, hiç içmedim', riskScore: 0 }
+                ],
+                field: 'smoking'
+            },
+            {
+                id: 'alcohol',
+                type: 'single',
+                message: 'Alkol tüketim sıklığınız nedir?',
+                options: [
+                    { value: 'daily', label: '🍷 Her gün', riskScore: 15 },
+                    { value: 'weekly', label: '🍺 Haftada birkaç kez', riskScore: 8 },
+                    { value: 'occasional', label: '🥂 Nadiren (ayda birkaç kez)', riskScore: 2 },
+                    { value: 'never', label: '🚫 Hiç içmiyorum', riskScore: 0 }
+                ],
+                field: 'alcohol'
+            },
+            {
+                id: 'conditions',
+                type: 'multi',
+                message: 'Aşağıdakilerden size teşhis konulmuş olanları seçin (varsa):',
+                options: [
+                    { value: 'diabetes', label: '💉 Tip 2 Diyabet', riskScore: 15 },
+                    { value: 'prediabetes', label: '⚠️ Pre-diyabet', riskScore: 10 },
+                    { value: 'hypertension', label: '💓 Hipertansiyon', riskScore: 12 },
+                    { value: 'heart_disease', label: '❤️ Kalp hastalığı', riskScore: 15 },
+                    { value: 'high_cholesterol', label: '🩸 Yüksek kolesterol', riskScore: 8 },
+                    { value: 'sleep_apnea', label: '😴 Uyku apnesi', riskScore: 8 },
+                    { value: 'fatty_liver', label: '🫘 Yağlı karaciğer', riskScore: 7 },
+                    { value: 'pcos', label: '🔬 PCOS', riskScore: 5 },
+                    { value: 'none', label: '✅ Hiçbiri', riskScore: 0, exclusive: true }
+                ],
+                field: 'existingConditions'
+            },
+            {
+                id: 'family_history',
+                type: 'multi',
+                message: 'Ailenizde (anne, baba, kardeş) aşağıdaki hastalıklardan var mı?',
+                options: [
+                    { value: 'diabetes', label: '💉 Diyabet', riskScore: 8 },
+                    { value: 'heart_disease', label: '❤️ Kalp hastalığı', riskScore: 10 },
+                    { value: 'obesity', label: '⚖️ Obezite', riskScore: 5 },
+                    { value: 'cancer', label: '🎗️ Kanser', riskScore: 5 },
+                    { value: 'none', label: '✅ Hiçbiri', riskScore: 0, exclusive: true }
+                ],
+                field: 'familyHistory'
+            },
+            {
+                id: 'previous_attempts',
+                type: 'single',
+                message: 'Daha önce kilo vermeyi denediniz mi?',
+                options: [
+                    { value: 'many_failed', label: '😔 Evet, birçok kez denedim ama başarısız oldum' },
+                    { value: 'some_success', label: '🔄 Evet, verdim ama geri aldım' },
+                    { value: 'first_time', label: '🆕 Hayır, ilk kez ciddi deniyorum' },
+                    { value: 'maintaining', label: '✅ Evet, şu an koruyorum' }
+                ],
+                field: 'previousAttempts',
+                showIf: (data) => data.primaryGoal === 'lose_weight'
+            },
+            {
+                id: 'treatment_interest',
+                type: 'multi',
+                message: 'Hangi yaklaşımları değerlendirmeye açıksınız?',
+                options: [
+                    { value: 'diet_only', label: '🥗 Sadece beslenme değişikliği' },
+                    { value: 'exercise', label: '🏋️ Egzersiz programı' },
+                    { value: 'medication', label: '💊 İlaç tedavisi (GLP-1 vb.)' },
+                    { value: 'surgery', label: '🏥 Cerrahi seçenekler' },
+                    { value: 'all', label: '📋 Hepsini değerlendirmek istiyorum' }
+                ],
+                field: 'treatmentInterest',
+                showIf: (data) => data.primaryGoal === 'lose_weight' || data.primaryGoal === 'manage_condition'
+            },
+            {
+                id: 'motivation',
+                type: 'single',
+                message: 'Son soru! Şu an değişim için ne kadar hazır hissediyorsunuz?',
+                options: [
+                    { value: 'very_ready', label: '🔥 Çok hazırım, hemen başlamak istiyorum', motivationScore: 100 },
+                    { value: 'ready', label: '✅ Hazırım, plan yapmak istiyorum', motivationScore: 80 },
+                    { value: 'considering', label: '🤔 Düşünüyorum, bilgi topluyorum', motivationScore: 50 },
+                    { value: 'not_sure', label: '❓ Emin değilim, sadece merak ediyorum', motivationScore: 30 }
+                ],
+                field: 'motivationLevel'
+            }
+        ];
+
+        // Recommendation Rules
+        const RECOMMENDATION_RULES = {
+            guides: [
+                {
+                    id: 'weight_loss_guide',
+                    condition: (d) => d.primaryGoal === 'lose_weight',
+                    title: 'Kilo Verme Başlangıç Rehberi',
+                    description: 'Adım adım, sürdürülebilir kilo kaybı stratejileri',
+                    icon: '📖',
+                    type: 'guide',
+                    link: 'rehberler.html',
+                    priority: 'high'
+                },
+                {
+                    id: 'mediterranean_diet',
+                    condition: (d) => d.dietQuality === 'poor' || d.dietQuality === 'average',
+                    title: 'Akdeniz Diyeti Rehberi',
+                    description: 'Sağlıklı beslenmenin temellerini öğrenin',
+                    icon: '🥗',
+                    type: 'guide',
+                    link: 'rehberler.html',
+                    priority: 'medium'
+                },
+                {
+                    id: 'diabetes_prevention',
+                    condition: (d) => d.existingConditions?.includes('prediabetes') || d.familyHistory?.includes('diabetes'),
+                    title: 'Diyabet Önleme Rehberi',
+                    description: 'Kan şekeri kontrolü ve risk azaltma',
+                    icon: '💉',
+                    type: 'guide',
+                    link: 'rehberler.html',
+                    priority: 'high'
+                },
+                {
+                    id: 'sleep_guide',
+                    condition: (d) => d.sleepQuality === 'poor' || d.sleepHours < 6,
+                    title: 'Uyku Kalitesi Rehberi',
+                    description: 'Daha iyi uyku için kanıta dayalı stratejiler',
+                    icon: '😴',
+                    type: 'guide',
+                    link: 'rehberler.html',
+                    priority: 'medium'
+                },
+                {
+                    id: 'exercise_guide',
+                    condition: (d) => d.activityLevel === 'sedentary' || d.activityLevel === 'light',
+                    title: 'Evde Egzersiz Rehberi',
+                    description: 'Kolay başlangıç için 4 haftalık program',
+                    icon: '🏃',
+                    type: 'guide',
+                    link: 'rehberler.html',
+                    priority: 'medium'
+                }
+            ],
+            tools: [
+                {
+                    id: 'bmi_calculator',
+                    condition: (d) => true,
+                    title: 'BMI Hesaplayıcı',
+                    description: 'Vücut kitle indeksinizi hesaplayın',
+                    icon: '📊',
+                    type: 'tool',
+                    link: 'araclar.html#bmi'
+                },
+                {
+                    id: 'calorie_calculator',
+                    condition: (d) => d.primaryGoal === 'lose_weight',
+                    title: 'Kalori İhtiyacı Hesaplayıcı',
+                    description: 'Günlük kalori hedefinizi belirleyin',
+                    icon: '🔥',
+                    type: 'tool',
+                    link: 'araclar.html#calorie',
+                    priority: 'high'
+                },
+                {
+                    id: 'whr_calculator',
+                    condition: (d) => !d.waistCircumference || d.calculatedBMI >= 25,
+                    title: 'Bel-Kalça Oranı Hesaplayıcı',
+                    description: 'Karın bölgesi riskinizi değerlendirin',
+                    icon: '📏',
+                    type: 'tool',
+                    link: 'araclar.html#whr'
+                }
+            ],
+            treatments: [
+                {
+                    id: 'glp1_info',
+                    condition: (d) => d.calculatedBMI >= 30 && d.treatmentInterest?.includes('medication'),
+                    title: 'GLP-1 İlaçları Hakkında',
+                    description: 'Ozempic, Wegovy gibi yeni nesil ilaçları öğrenin',
+                    icon: '💊',
+                    type: 'treatment',
+                    link: 'tedavi.html',
+                    priority: 'high'
+                },
+                {
+                    id: 'bariatric_info',
+                    condition: (d) => d.calculatedBMI >= 35 && d.treatmentInterest?.includes('surgery'),
+                    title: 'Bariatrik Cerrahi Seçenekleri',
+                    description: 'Mide küçültme operasyonları hakkında bilgi',
+                    icon: '🏥',
+                    type: 'treatment',
+                    link: 'tedavi.html',
+                    priority: 'medium'
+                },
+                {
+                    id: 'endoscopic_options',
+                    condition: (d) => d.calculatedBMI >= 30 && d.calculatedBMI < 40,
+                    title: 'Endoskopik Tedaviler',
+                    description: 'Mide balonu, ESG gibi minimal invaziv seçenekler',
+                    icon: '🔬',
+                    type: 'treatment',
+                    link: 'tedavi.html'
+                }
+            ],
+            lifestyle: [
+                {
+                    id: 'quit_smoking',
+                    condition: (d) => d.smoking === 'yes',
+                    title: 'Sigarayı Bırakma Desteği',
+                    description: 'En önemli sağlık yatırımınız olabilir',
+                    icon: '🚭',
+                    type: 'lifestyle',
+                    link: '#',
+                    priority: 'high'
+                },
+                {
+                    id: 'stress_management',
+                    condition: (d) => d.stressLevel === 'high',
+                    title: 'Stres Yönetimi',
+                    description: 'Günlük stresi azaltma teknikleri',
+                    icon: '🧘',
+                    type: 'lifestyle',
+                    link: 'uyku-stres.html'
+                }
+            ]
+        };
+
+        // State
+        let currentStep = 0;
+        let userData = {};
+        let selectedOptions = [];
+        
+        const messagesContainer = document.getElementById('messages');
+        const resultsContainer = document.getElementById('results-container');
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+
+        // Start quiz
+        function init() {
+            showQuestion(0);
+        }
+
+        function showQuestion(index) {
+            const question = QUESTIONS[index];
+            if (!question) {
+                showResults();
+                return;
+            }
+
+            // Check showIf condition
+            if (question.showIf && !question.showIf(userData)) {
+                currentStep++;
+                showQuestion(currentStep);
+                return;
+            }
+
+            // Update progress
+            const progress = ((index + 1) / QUESTIONS.length) * 100;
+            progressFill.style.width = progress + '%';
+            progressText.textContent = `Soru ${index + 1}/${QUESTIONS.length}`;
+
+            // Show typing indicator
+            showTyping();
+
+            setTimeout(() => {
+                removeTyping();
+                
+                // Parse message with variables
+                let message = question.message;
+                message = message.replace('{name}', userData.name || '');
+                
+                addBotMessage(message);
+
+                if (question.type === 'info' && question.auto) {
+                    setTimeout(() => {
+                        currentStep++;
+                        showQuestion(currentStep);
+                    }, question.delay || 1500);
+                } else {
+                    showInput(question);
+                }
+            }, 800);
+        }
+
+        function showTyping() {
+            const msg = document.createElement('div');
+            msg.className = 'message bot';
+            msg.id = 'typing';
+            msg.innerHTML = `
+                <div class="avatar bot">🤖</div>
+                <div class="bubble">
+                    <div class="typing-indicator">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            `;
+            messagesContainer.appendChild(msg);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function removeTyping() {
+            const typing = document.getElementById('typing');
+            if (typing) typing.remove();
+        }
+
+        function addBotMessage(text, extras = '') {
+            const msg = document.createElement('div');
+            msg.className = 'message bot';
+            msg.innerHTML = `
+                <div class="avatar bot">🤖</div>
+                <div class="bubble">${text}${extras}</div>
+            `;
+            messagesContainer.appendChild(msg);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const msg = document.createElement('div');
+            msg.className = 'message user';
+            msg.innerHTML = `
+                <div class="avatar user">👤</div>
+                <div class="bubble">${text}</div>
+            `;
+            messagesContainer.appendChild(msg);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function showInput(question) {
+            const container = document.createElement('div');
+            container.className = 'input-container';
+            container.id = 'current-input';
+
+            switch(question.type) {
+                case 'text':
+                    container.innerHTML = `
+                        <input type="text" class="text-input" id="text-input" 
+                            placeholder="${question.placeholder || ''}" autofocus>
+                        <button class="continue-btn" onclick="submitText('${question.field}')">Devam →</button>
+                    `;
+                    break;
+
+                case 'number':
+                    container.innerHTML = `
+                        <input type="number" class="text-input" id="number-input" 
+                            placeholder="${question.placeholder || ''}">
+                        ${question.optional ? `<button class="option-btn" style="margin-top:0.5rem" onclick="skipQuestion()">${question.skipLabel}</button>` : ''}
+                        <button class="continue-btn" onclick="submitNumber('${question.field}')">Devam →</button>
+                    `;
+                    break;
+
+                case 'single':
+                    let optionsHtml = '<div class="options-container">';
+                    question.options.forEach(opt => {
+                        optionsHtml += `<button class="option-btn" data-value="${opt.value}" data-risk="${opt.riskScore || 0}" data-motivation="${opt.motivationScore || 0}" onclick="selectOption(this, '${question.field}')">${opt.label}</button>`;
+                    });
+                    optionsHtml += '</div>';
+                    container.innerHTML = optionsHtml;
+                    break;
+
+                case 'multi':
+                    let multiHtml = '<div class="options-container">';
+                    question.options.forEach(opt => {
+                        multiHtml += `<button class="option-btn multi-select" data-value="${opt.value}" data-risk="${opt.riskScore || 0}" data-exclusive="${opt.exclusive || false}" onclick="toggleMultiOption(this)">${opt.label}</button>`;
+                    });
+                    multiHtml += '</div>';
+                    multiHtml += `<button class="continue-btn" id="multi-continue" onclick="submitMulti('${question.field}')" disabled>Devam →</button>`;
+                    container.innerHTML = multiHtml;
+                    selectedOptions = [];
+                    break;
+
+                case 'measurements':
+                    container.innerHTML = `
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Boy (cm)</label>
+                                <input type="number" class="text-input" id="height-input" placeholder="170">
+                            </div>
+                            <div class="input-group">
+                                <label>Kilo (kg)</label>
+                                <input type="number" class="text-input" id="weight-input" placeholder="70">
+                            </div>
+                        </div>
+                        <button class="continue-btn" onclick="submitMeasurements()">Devam →</button>
+                    `;
+                    break;
+
+                case 'slider':
+                    container.innerHTML = `
+                        <div class="slider-container">
+                            <div class="slider-value" id="slider-value">${question.default} ${question.unit}</div>
+                            <input type="range" class="slider" id="slider-input" 
+                                min="${question.min}" max="${question.max}" value="${question.default}"
+                                oninput="updateSlider(this.value, '${question.unit}')">
+                            <div class="slider-labels">
+                                <span>${question.min} ${question.unit}</span>
+                                <span>${question.max} ${question.unit}</span>
+                            </div>
+                        </div>
+                        <button class="continue-btn" onclick="submitSlider('${question.field}')">Devam →</button>
+                    `;
+                    break;
+            }
+
+            const lastMessage = messagesContainer.lastElementChild;
+            lastMessage.querySelector('.bubble').appendChild(container);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Focus first input
+            const firstInput = container.querySelector('input');
+            if (firstInput) setTimeout(() => firstInput.focus(), 100);
+        }
+
+        function removeCurrentInput() {
+            const input = document.getElementById('current-input');
+            if (input) input.remove();
+        }
+
+        // Input handlers
+        function submitText(field) {
+            const input = document.getElementById('text-input');
+            const value = input.value.trim();
+            if (!value) return;
+
+            userData[field] = value;
+            removeCurrentInput();
+            addUserMessage(value);
+            
+            currentStep++;
+            setTimeout(() => showQuestion(currentStep), 500);
+        }
+
+        function submitNumber(field) {
+            const input = document.getElementById('number-input');
+            const value = parseFloat(input.value);
+            if (!value) return;
+
+            userData[field] = value;
+            removeCurrentInput();
+            addUserMessage(value + ' cm');
+            
+            currentStep++;
+            setTimeout(() => showQuestion(currentStep), 500);
+        }
+
+        function skipQuestion() {
+            removeCurrentInput();
+            addUserMessage('Bilmiyorum');
+            currentStep++;
+            setTimeout(() => showQuestion(currentStep), 500);
+        }
+
+        function selectOption(btn, field) {
+            const value = btn.dataset.value;
+            const risk = parseInt(btn.dataset.risk) || 0;
+            const motivation = parseInt(btn.dataset.motivation) || 0;
+
+            userData[field] = value;
+            userData.riskScore = (userData.riskScore || 0) + risk;
+            if (motivation) userData.motivationScore = motivation;
+
+            removeCurrentInput();
+            addUserMessage(btn.textContent);
+            
+            currentStep++;
+            setTimeout(() => showQuestion(currentStep), 500);
+        }
+
+        function toggleMultiOption(btn) {
+            const value = btn.dataset.value;
+            const isExclusive = btn.dataset.exclusive === 'true';
+
+            if (isExclusive) {
+                // Clear all others
+                document.querySelectorAll('.multi-select').forEach(b => b.classList.remove('selected'));
+                selectedOptions = [value];
+                btn.classList.add('selected');
+            } else {
+                // Remove exclusive option if selected
+                const exclusiveBtn = document.querySelector('.multi-select[data-exclusive="true"]');
+                if (exclusiveBtn) {
+                    exclusiveBtn.classList.remove('selected');
+                    selectedOptions = selectedOptions.filter(v => v !== exclusiveBtn.dataset.value);
+                }
+
+                if (btn.classList.contains('selected')) {
+                    btn.classList.remove('selected');
+                    selectedOptions = selectedOptions.filter(v => v !== value);
+                } else {
+                    btn.classList.add('selected');
+                    selectedOptions.push(value);
+                }
+            }
+
+            document.getElementById('multi-continue').disabled = selectedOptions.length === 0;
+        }
+
+        function submitMulti(field) {
+            if (selectedOptions.length === 0) return;
+
+            // Calculate risk from selections
+            let totalRisk = 0;
+            document.querySelectorAll('.multi-select.selected').forEach(btn => {
+                totalRisk += parseInt(btn.dataset.risk) || 0;
+            });
+            userData.riskScore = (userData.riskScore || 0) + totalRisk;
+
+            userData[field] = selectedOptions.slice();
+            
+            const labels = Array.from(document.querySelectorAll('.multi-select.selected'))
+                .map(b => b.textContent).join(', ');
+            
+            removeCurrentInput();
+            addUserMessage(labels);
+            
+            currentStep++;
+            setTimeout(() => showQuestion(currentStep), 500);
+        }
+
+        function submitMeasurements() {
+            const height = parseFloat(document.getElementById('height-input').value);
+            const weight = parseFloat(document.getElementById('weight-input').value);
+
+            if (!height || !weight) return;
+
+            userData.height = height;
+            userData.weight = weight;
+
+            // Calculate BMI
+            const bmi = weight / Math.pow(height / 100, 2);
+            userData.calculatedBMI = parseFloat(bmi.toFixed(1));
+
+            // Add BMI risk
+            let bmiRisk = 0;
+            if (bmi >= 40) bmiRisk = 25;
+            else if (bmi >= 35) bmiRisk = 20;
+            else if (bmi >= 30) bmiRisk = 15;
+            else if (bmi >= 25) bmiRisk = 8;
+            else if (bmi < 18.5) bmiRisk = 5;
+            userData.riskScore = (userData.riskScore || 0) + bmiRisk;
+
+            removeCurrentInput();
+            addUserMessage(`${height} cm, ${weight} kg`);
+            
+            currentStep++;
+            setTimeout(() => showQuestion(currentStep), 500);
+        }
+
+        function updateSlider(value, unit) {
+            document.getElementById('slider-value').textContent = value + ' ' + unit;
+        }
+
+        function submitSlider(field) {
+            const value = parseInt(document.getElementById('slider-input').value);
+            userData[field] = value;
+
+            // Sleep risk
+            if (field === 'sleepHours') {
+                let sleepRisk = 0;
+                if (value < 5) sleepRisk = 12;
+                else if (value < 6) sleepRisk = 8;
+                else if (value > 9) sleepRisk = 5;
+                userData.riskScore = (userData.riskScore || 0) + sleepRisk;
+            }
+
+            removeCurrentInput();
+            addUserMessage(value + ' saat');
+            
+            currentStep++;
+            setTimeout(() => showQuestion(currentStep), 500);
+        }
+
+        // Generate recommendations
+        function generateRecommendations() {
+            const recs = [];
+            
+            Object.values(RECOMMENDATION_RULES).flat().forEach(rule => {
+                if (rule.condition(userData)) {
+                    recs.push(rule);
+                }
+            });
+
+            // Sort by priority
+            const priorityOrder = { high: 0, medium: 1, undefined: 2 };
+            recs.sort((a, b) => (priorityOrder[a.priority] || 2) - (priorityOrder[b.priority] || 2));
+
+            return recs;
+        }
+
+        // Calculate health score (inverse of risk)
+        function calculateHealthScore() {
+            const maxRisk = 150; // Maximum possible risk score
+            const risk = Math.min(userData.riskScore || 0, maxRisk);
+            return Math.round(100 - (risk / maxRisk) * 100);
+        }
+
+        // Get BMI category
+        function getBMICategory(bmi) {
+            if (bmi < 18.5) return { label: 'Zayıf', class: 'warning' };
+            if (bmi < 25) return { label: 'Normal', class: 'good' };
+            if (bmi < 30) return { label: 'Fazla Kilolu', class: 'warning' };
+            if (bmi < 35) return { label: 'Obez (Sınıf 1)', class: 'alert' };
+            if (bmi < 40) return { label: 'Obez (Sınıf 2)', class: 'alert' };
+            return { label: 'Obez (Sınıf 3)', class: 'alert' };
+        }
+
+        // Get risk level
+        function getRiskLevel(score) {
+            if (score >= 75) return { label: 'Düşük Risk', class: 'low' };
+            if (score >= 50) return { label: 'Orta Risk', class: 'moderate' };
+            return { label: 'Yüksek Risk', class: 'high' };
+        }
+
+        // Show results
+        function showResults() {
+            userData.completedAt = new Date().toISOString();
+            userData.healthScore = calculateHealthScore();
+            
+            const recommendations = generateRecommendations();
+            userData.recommendations = recommendations.map(r => r.id);
+
+            // Build final JSON
+            const outputJSON = {
+                patient: {
+                    name: userData.name,
+                    ageGroup: userData.ageGroup,
+                    gender: userData.gender,
+                    height: userData.height,
+                    weight: userData.weight,
+                    bmi: userData.calculatedBMI,
+                    waistCircumference: userData.waistCircumference || null
+                },
+                lifestyle: {
+                    activityLevel: userData.activityLevel,
+                    dietQuality: userData.dietQuality,
+                    sleepHours: userData.sleepHours,
+                    sleepQuality: userData.sleepQuality,
+                    stressLevel: userData.stressLevel,
+                    smoking: userData.smoking,
+                    alcohol: userData.alcohol
+                },
+                medical: {
+                    existingConditions: userData.existingConditions || [],
+                    familyHistory: userData.familyHistory || []
+                },
+                goals: {
+                    primaryGoal: userData.primaryGoal,
+                    treatmentInterest: userData.treatmentInterest || [],
+                    previousAttempts: userData.previousAttempts,
+                    motivationLevel: userData.motivationLevel
+                },
+                assessment: {
+                    healthScore: userData.healthScore,
+                    riskScore: userData.riskScore,
+                    riskLevel: getRiskLevel(userData.healthScore).label,
+                    bmiCategory: getBMICategory(userData.calculatedBMI).label,
+                    recommendations: recommendations.slice(0, 5).map(r => ({
+                        id: r.id,
+                        type: r.type,
+                        title: r.title,
+                        priority: r.priority || 'normal',
+                        link: r.link
+                    }))
+                },
+                metadata: {
+                    completedAt: userData.completedAt,
+                    version: '1.0'
+                }
+            };
+
+            // Store for API
+            window.assessmentResult = outputJSON;
+            console.log('Assessment JSON:', JSON.stringify(outputJSON, null, 2));
+
+            // Hide chat, show results
+            document.querySelector('.chat-container').style.display = 'none';
+            resultsContainer.style.display = 'block';
+
+            const bmiCat = getBMICategory(userData.calculatedBMI);
+            const riskLevel = getRiskLevel(userData.healthScore);
+
+            resultsContainer.innerHTML = `
+                <div class="results-header">
+                    <h1>Sonuçlarınız Hazır, ${userData.name}!</h1>
+                    <p>Yanıtlarınıza göre kişiselleştirilmiş değerlendirmeniz</p>
+                </div>
+
+                <div class="score-circle" style="--score: ${userData.healthScore}">
+                    <div class="score-inner">
+                        <div class="score-value">${userData.healthScore}</div>
+                        <div class="score-label">Sağlık Skoru</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <span class="risk-badge ${riskLevel.class}">${riskLevel.label}</span>
+                </div>
+
+                <div class="summary-section">
+                    <h3 class="summary-title">📊 Özet</h3>
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <h4>Vücut Kitle İndeksi</h4>
+                            <div class="value">${userData.calculatedBMI}</div>
+                            <div class="status ${bmiCat.class}">${bmiCat.label}</div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Aktivite Düzeyi</h4>
+                            <div class="value">${getActivityLabel(userData.activityLevel)}</div>
+                            <div class="status ${userData.activityLevel === 'sedentary' ? 'warning' : 'good'}">
+                                ${userData.activityLevel === 'sedentary' ? 'Artırılmalı' : 'İyi'}
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Uyku</h4>
+                            <div class="value">${userData.sleepHours} saat</div>
+                            <div class="status ${userData.sleepHours >= 7 ? 'good' : 'warning'}">
+                                ${userData.sleepHours >= 7 ? 'Yeterli' : 'Yetersiz'}
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Motivasyon</h4>
+                            <div class="value">${userData.motivationScore || 50}%</div>
+                            <div class="status ${userData.motivationScore >= 80 ? 'good' : 'warning'}">
+                                ${userData.motivationScore >= 80 ? 'Yüksek' : 'Orta'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    <h3 class="summary-title">🎯 Size Özel Öneriler</h3>
+                    ${recommendations.slice(0, 5).map(rec => `
+                        <a href="${rec.link}" class="rec-card">
+                            <div class="rec-icon ${rec.type}">${rec.icon}</div>
+                            <div class="rec-content">
+                                <h4>${rec.title}${rec.priority === 'high' ? '<span class="priority-tag high">Öncelikli</span>' : ''}</h4>
+                                <p>${rec.description}</p>
+                            </div>
+                            <span class="rec-arrow">→</span>
+                        </a>
+                    `).join('')}
+                </div>
+
+                <div class="results-actions">
+                    <a href="araclar.html" class="action-btn primary">Araçları Kullan</a>
+                    <button class="action-btn secondary" onclick="downloadResults()">Sonuçları İndir</button>
+                </div>
+
+                <div class="json-debug" id="json-debug">
+                    <pre>${JSON.stringify(outputJSON, null, 2)}</pre>
+                </div>
+            `;
+
+            // Send to console/API
+            sendToAPI(outputJSON);
+        }
+
+        function getActivityLabel(level) {
+            const labels = {
+                sedentary: 'Hareketsiz',
+                light: 'Hafif',
+                moderate: 'Orta',
+                active: 'Aktif'
+            };
+            return labels[level] || level;
+        }
+
+        function downloadResults() {
+            const blob = new Blob([JSON.stringify(window.assessmentResult, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `uzunyasa-sonuc-${userData.name?.toLowerCase() || 'anonim'}-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+        }
+
+        function sendToAPI(data) {
+            // Log for now - connect to backend later
+            console.log('📤 Assessment ready for API:', data);
+            
+            // Future: POST to backend
+            // fetch('/api/assessment', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(data)
+            // });
+        }
+
+        // Toggle JSON debug view
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'd' && e.ctrlKey) {
+                const debug = document.getElementById('json-debug');
+                if (debug) debug.style.display = debug.style.display === 'none' ? 'block' : 'none';
+            }
+        });
+
+        // Start
+        init();
+    </script>
+</body>
+</html>
