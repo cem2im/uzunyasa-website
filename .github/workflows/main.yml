@@ -2,7 +2,13 @@ name: Auto Blog Generator
 
 on:
   workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Blog topic (optional - auto-select if empty)'
+        required: false
+        type: string
   schedule:
+    # Her gün 06:00 UTC (09:00 Türkiye)
     - cron: '0 6 * * *'
 
 permissions:
@@ -18,12 +24,19 @@ jobs:
         with:
           node-version: '20'
       
-      - name: Generate blog
+      - name: Generate blog post
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/auto-blog-generator.js --topic "GLP-1 ilaclari ve kilo verme"
+        run: |
+          if [ -n "${{ github.event.inputs.topic }}" ]; then
+            echo "📝 Manuel konu: ${{ github.event.inputs.topic }}"
+            node scripts/auto-blog-generator.js --topic "${{ github.event.inputs.topic }}"
+          else
+            echo "🎲 Otomatik konu seçimi..."
+            node scripts/auto-blog-generator.js
+          fi
       
-      - name: Update index
+      - name: Update blog index page
         run: node scripts/update-blog-index.js || true
       
       - name: Commit and push
@@ -31,5 +44,10 @@ jobs:
           git config user.email "bot@uzunyasa.com"
           git config user.name "UzunYaşa Bot"
           git add .
-          git diff --staged --quiet || git commit -m "New blog post"
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            TITLE=$(ls -t pages/blog/*.html | head -1 | xargs basename | sed 's/.html//' | tr '-' ' ')
+            git commit -m "📝 Yeni blog yazısı"
+            git push
+          fi
