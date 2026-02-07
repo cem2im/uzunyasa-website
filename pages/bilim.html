@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilimsel Yaklaşımımız | UzunYaşa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-teal: #195157;
+            --primary-teal-light: #2a6b73;
+            --accent-orange: #E8963E;
+            --accent-orange-light: #f0a854;
+            --text-dark: #1a1a1a;
+            --text-gray: #6b7280;
+            --bg-cream: #FAF9F7;
+            --bg-white: #FFFFFF;
+            --border-light: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-cream);
+        }
+
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img { height: 70px; width: auto; }
+
+        .nav { display: flex; align-items: center; gap: 2rem; }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover { background: var(--accent-orange-light); transform: translateY(-1px); }
+
+        /* Hero */
+        .page-hero {
+            position: relative;
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(25, 81, 87, 0.9) 0%, rgba(42, 107, 115, 0.85) 100%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .page-hero-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .page-hero-icon svg { width: 40px; height: 40px; }
+
+        .page-hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .page-hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        /* Principles Bar */
+        .principles-bar {
+            background: var(--bg-white);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .principles-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .principle-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .principle-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary-teal);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .principle-icon svg { width: 22px; height: 22px; color: white; }
+
+        .principle-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .principle-item p { font-size: 0.85rem; color: var(--text-gray); }
+
+        /* Content */
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section.alt { background: var(--bg-white); }
+        .content-section.full { max-width: 100%; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .center { text-align: center; }
+        .center .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        /* Evidence Pyramid */
+        .pyramid-section {
+            padding: 5rem 2rem;
+            background: var(--bg-white);
+        }
+
+        .pyramid-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 3rem;
+        }
+
+        .pyramid-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem 2rem;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .pyramid-level:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .pyramid-level.level-1 {
+            width: 30%;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            border-radius: 8px 8px 0 0;
+            clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+        }
+
+        .pyramid-level.level-2 {
+            width: 45%;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+        }
+
+        .pyramid-level.level-3 {
+            width: 60%;
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
+        }
+
+        .pyramid-level.level-4 {
+            width: 75%;
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            clip-path: polygon(6% 0%, 94% 0%, 100% 100%, 0% 100%);
+        }
+
+        .pyramid-level.level-5 {
+            width: 90%;
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+            clip-path: polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%);
+        }
+
+        .pyramid-level.level-6 {
+            width: 100%;
+            background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
+            border-radius: 0 0 8px 8px;
+        }
+
+        .pyramid-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-cream);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        .legend-color {
+            width: 8px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .legend-color.green { background: #10B981; }
+        .legend-color.blue { background: #3B82F6; }
+        .legend-color.purple { background: #8B5CF6; }
+        .legend-color.orange { background: #F59E0B; }
+        .legend-color.red { background: #EF4444; }
+        .legend-color.gray { background: #6B7280; }
+
+        .legend-content h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .legend-content p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.5; }
+
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.25rem;
+            top: 2.5rem;
+            font-size: 1.5rem;
+            color: var(--border-light);
+        }
+
+        .process-step:last-child::after { display: none; }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.25rem;
+        }
+
+        .process-step h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .process-step p { font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; }
+
+        /* Methodology Cards */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .method-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+        }
+
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-teal);
+        }
+
+        .method-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .method-icon svg { width: 28px; height: 28px; color: white; }
+
+        .method-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .method-card p { font-size: 0.95rem; color: var(--text-gray); line-height: 1.7; }
+
+        /* Sources Section */
+        .sources-section {
+            background: var(--primary-teal);
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .sources-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sources-inner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .sources-inner > p {
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .source-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .source-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .source-card p { font-size: 0.9rem; opacity: 0.8; }
+
+        /* Transparency */
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .transparency-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .transparency-content p {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .transparency-list {
+            list-style: none;
+        }
+
+        .transparency-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .transparency-list li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-orange);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .transparency-image {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+            border-radius: 20px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transparency-image svg {
+            width: 120px;
+            height: 120px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Limitations */
+        .limitations-box {
+            background: #FEF3C7;
+            border: 1px solid #F59E0B;
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .limitations-box h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            color: #92400E;
+            margin-bottom: 1rem;
+        }
+
+        .limitations-box h3 svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .limitations-box ul {
+            color: #92400E;
+            padding-left: 1.5rem;
+        }
+
+        .limitations-box li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .btn-white {
+            background: white;
+            color: var(--accent-orange);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p { color: rgba(255, 255, 255, 0.7); margin-top: 1rem; font-size: 0.9rem; }
+
+        .footer-col h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-logo { height: 50px; }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .page-hero h1 { font-size: 2rem; }
+            .principles-grid { grid-template-columns: 1fr 1fr; }
+            .process-grid { grid-template-columns: 1fr 1fr; }
+            .process-step::after { display: none; }
+            .methodology-grid { grid-template-columns: 1fr; }
+            .sources-grid { grid-template-columns: 1fr; }
+            .transparency-grid { grid-template-columns: 1fr; }
+            .pyramid-legend { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link">Keşfet ▾</a>
+                <a href="#" class="nav-link">Araçlar</a>
+                <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+                <a href="bilim.html" class="nav-link active">Bilim</a>
+                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                <a href="#" class="btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <video class="page-hero-bg" autoplay muted loop playsinline>
+            <source src="../videos/background-2.mp4" type="video/mp4">
+        </video>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="10"/>
+                </svg>
+            </div>
+            <h1>Bilimle Daha Uzun, Daha İyi Yaşam</h1>
+            <p>Kanıta dayalı yaklaşımımız, güvenilir kaynaklarımız ve içerik değerlendirme metodolojimiz.</p>
+        </div>
+    </section>
+
+    <section class="principles-bar">
+        <div class="principles-grid">
+            <div class="principle-item">
+                <div class="principle-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4>Hakemli Dergiler</h4>
+                    <p>Yayınlanmış araştırmalara dayanır</p>
+                </div>
+            </div>
+            <div class="principle-item">
+                <div class="principle-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4>Uzman Kurulu</h4>
+                    <p>Danışmanlar tarafından gözden geçirilir</p>
+                </div>
+            </div>
+            <div class="principle-item">
+                <div class="principle-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4>Güncel İçerik</h4>
+                    <p>Düzenli olarak güncellenir</p>
+                </div>
+            </div>
+            <div class="principle-item">
+                <div class="principle-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4>Bağımsızlık</h4>
+                    <p>Ticari çıkarlardan bağımsızdır</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pyramid-section">
+        <div class="pyramid-container">
+            <h2 class="section-title center">Kanıt Piramidi</h2>
+            <p class="section-subtitle center">Tüm bilimsel kanıtlar eşit değildir. İçeriklerimizi değerlendirirken bu hiyerarşiyi kullanırız.</p>
+            
+            <div class="pyramid">
+                <div class="pyramid-level level-1">Sistematik Derleme & Meta-Analiz</div>
+                <div class="pyramid-level level-2">Randomize Kontrollü Çalışmalar (RKÇ)</div>
+                <div class="pyramid-level level-3">Kohort Çalışmaları</div>
+                <div class="pyramid-level level-4">Vaka-Kontrol Çalışmaları</div>
+                <div class="pyramid-level level-5">Vaka Serileri & Raporları</div>
+                <div class="pyramid-level level-6">Uzman Görüşü & Editöryel</div>
+            </div>
+
+            <div class="pyramid-legend">
+                <div class="legend-item">
+                    <div class="legend-color green"></div>
+                    <div class="legend-content">
+                        <h4>Sistematik Derleme & Meta-Analiz</h4>
+                        <p>Birden fazla çalışmanın sistematik olarak değerlendirilmesi ve istatistiksel birleştirilmesi. En güçlü kanıt düzeyi.</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color blue"></div>
+                    <div class="legend-content">
+                        <h4>Randomize Kontrollü Çalışmalar</h4>
+                        <p>Katılımcıların rastgele gruplara atandığı, kontrollü deneysel çalışmalar. Altın standart.</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color purple"></div>
+                    <div class="legend-content">
+                        <h4>Kohort Çalışmaları</h4>
+                        <p>Belirli bir grubu zaman içinde takip eden gözlemsel çalışmalar. Uzun vadeli etkileri gösterir.</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color orange"></div>
+                    <div class="legend-content">
+                        <h4>Vaka-Kontrol Çalışmaları</h4>
+                        <p>Hastalığı olan ve olmayan grupları karşılaştıran retrospektif çalışmalar.</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color red"></div>
+                    <div class="legend-content">
+                        <h4>Vaka Serileri & Raporları</h4>
+                        <p>Bireysel hasta deneyimlerinin tanımlanması. Hipotez oluşturur, kanıtlamaz.</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color gray"></div>
+                    <div class="legend-content">
+                        <h4>Uzman Görüşü</h4>
+                        <p>Klinik deneyime dayalı görüşler. Kanıt yokluğunda başvurulur, tek başına yeterli değildir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title center">İçerik Oluşturma Sürecimiz</h2>
+        <p class="section-subtitle center">Her içeriğimiz, 4 aşamalı titiz bir değerlendirmeden geçer.</p>
+        
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <h4>Literatür Taraması</h4>
+                <p>PubMed, Cochrane ve diğer veri tabanlarında sistematik arama yapılır.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <h4>Kanıt Değerlendirmesi</h4>
+                <p>Çalışmaların kalitesi, örneklem büyüklüğü ve metodolojisi değerlendirilir.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <h4>Uzman İncelemesi</h4>
+                <p>Danışma kurulumuz içeriği doğruluk ve denge açısından gözden geçirir.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <h4>Yayın & Güncelleme</h4>
+                <p>Yayınlanan içerik, yeni kanıtlar ortaya çıktıkça güncellenir.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section alt full">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title center">Metodolojik Standartlarımız</h2>
+            <p class="section-subtitle center">İçeriklerimizi oluştururken uyguladığımız temel prensipler.</p>
+            
+            <div class="methodology-grid">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3>GRADE Sistemi</h3>
+                    <p>Kanıt kalitesini ve önerilerin gücünü değerlendirmek için uluslararası kabul görmüş GRADE (Grading of Recommendations Assessment) sistemini kullanırız.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3>Kılavuz Uyumu</h3>
+                    <p>İçeriklerimiz, ulusal ve uluslararası tıbbi kılavuzlarla (AHA, ESC, WHO, TÜRKİYE ENDO. DER. vb.) uyumlu olacak şekilde hazırlanır.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </div>
+                    <h3>Sistematik Yaklaşım</h3>
+                    <p>Tek bir çalışmaya değil, mevcut literatürün bütününe bakarak sonuç çıkarırız. Tutarsız sonuçları şeffaf şekilde raporlarız.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M2 12h20"/>
+                        </svg>
+                    </div>
+                    <h3>Denge & Nüans</h3>
+                    <p>Faydaları olduğu kadar riskleri de sunarız. "Her derde deva" iddialı yaklaşımlardan kaçınırız.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </div>
+                    <h3>Kaynak Şeffaflığı</h3>
+                    <p>Her önemli iddia için kaynak gösteririz. Okuyucular birincil kaynaklara ulaşabilir.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <h3>Tarih Damgası</h3>
+                    <p>Her içeriğin oluşturulma ve son güncelleme tarihi belirtilir. Güncelliği takip edilebilir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sources-section">
+        <div class="sources-inner">
+            <h2>Güvendiğimiz Kaynaklar</h2>
+            <p>İçeriklerimizi oluştururken başvurduğumuz ana kaynaklar ve veri tabanları.</p>
+            
+            <div class="sources-grid">
+                <div class="source-card">
+                    <h4>📚 Veri Tabanları</h4>
+                    <p>PubMed, Cochrane Library, EMBASE, Web of Science</p>
+                </div>
+                <div class="source-card">
+                    <h4>🏛️ Kılavuzlar</h4>
+                    <p>WHO, AHA, ESC, AACE, Türk Tıp Dernekleri</p>
+                </div>
+                <div class="source-card">
+                    <h4>📖 Dergiler</h4>
+                    <p>NEJM, Lancet, JAMA, BMJ, Nature Medicine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="transparency-grid">
+            <div class="transparency-content">
+                <h2>Şeffaflık Taahhüdümüz</h2>
+                <p>Bilimsel iletişimde şeffaflık, güvenin temelidir. Ne bildiğimizi olduğu kadar, ne bilmediğimizi de açıkça söyleriz.</p>
+                <ul class="transparency-list">
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Çıkar çatışması beyanı: Hiçbir ilaç veya takviye firmasından gelir elde etmiyoruz</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Belirsizlikleri kabul ederiz: "Kesin bilinmiyor" veya "daha fazla araştırma gerekli" demeyi biliriz</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Hata düzeltme politikası: Yanlışlar tespit edildiğinde açıkça düzeltir ve duyururuz</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Görüş ayrılıklarını sunarız: Uzmanlar arasında konsensüs yoksa, farklı görüşleri aktarırız</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="transparency-image">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section alt full">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title center">Sınırlamalarımız</h2>
+            <p class="section-subtitle center">Dürüst olmak, ne yapamadığımızı da söylemek demektir.</p>
+            
+            <div class="limitations-box">
+                <h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    Önemli Uyarılar
+                </h3>
+                <ul>
+                    <li><strong>Tıbbi tavsiye değildir:</strong> İçeriklerimiz eğitim amaçlıdır, doktor muayenesinin yerini alamaz.</li>
+                    <li><strong>Bireysel farklılıklar:</strong> Genel öneriler herkes için geçerli olmayabilir; kişisel sağlık durumunuz değerlendirmeyi gerektirir.</li>
+                    <li><strong>Bilim değişir:</strong> Bugün doğru kabul edilen bilgi, yarın yeni kanıtlarla değişebilir.</li>
+                    <li><strong>Kaynak sınırlamaları:</strong> Tüm dillerdeki tüm çalışmalara erişimimiz olmayabilir.</li>
+                    <li><strong>Yayın yanlılığı:</strong> Pozitif sonuçlu çalışmalar daha fazla yayınlanır; bu durum genel kanıyı etkileyebilir.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Bilimsel yolculuğunuza başlayın</h2>
+        <p>Kanıta dayalı, kişiselleştirilmiş sağlık önerilerimizi keşfedin.</p>
+        <a href="#" class="btn-white">Ücretsiz Teste Başla →</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html">
+                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+                    </a>
+                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Keşfet</h4>
+                    <a href="beslenme.html">Beslenme</a>
+                    <a href="egzersiz.html">Egzersiz</a>
+                    <a href="uyku-stres.html">Uyku & Stres</a>
+                    <a href="tedavi.html">Tedavi Seçenekleri</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Araçlar</h4>
+                    <a href="#">Bana Ne Uygun?</a>
+                    <a href="#">BMI Hesaplayıcı</a>
+                    <a href="#">Kalori Hesaplayıcı</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hakkımızda</h4>
+                    <a href="hakkimizda.html">Ekibimiz</a>
+                    <a href="bilim.html">Bilimsel Yaklaşım</a>
+                    <a href="#">İletişim</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 UzunYaşa. Tüm hakları saklıdır.</span>
+                <span>Gizlilik Politikası | Kullanım Koşulları</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
