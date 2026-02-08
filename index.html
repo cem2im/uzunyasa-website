@@ -2717,11 +2717,29 @@
  UzunYaşa, <a href="https://tyzd.org" target="_blank" rel="noopener">Tıpta Yapay Zeka Derneği</a> girişimidir. Kâr amacı gütmemektedir.
  </p>
  <p class="footer-disclaimer">
- Bu site tıbbi tavsiye sağlamaz. Kararlarınız için mutlaka bir sağlık uzmanına danışın.
+ Bu sitedeki bilgiler genel bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. Sağlık kararlarınız için mutlaka bir sağlık profesyoneline danışın.
+ </p>
+ <p style="margin-top:0.75rem;font-size:0.85rem;opacity:0.7;">
+ <a href="pages/gizlilik-politikasi.html" style="color:rgba(255,255,255,0.7);text-decoration:none;">Gizlilik Politikası</a> | <a href="pages/kullanim-sartlari.html" style="color:rgba(255,255,255,0.7);text-decoration:none;">Kullanım Şartları</a> | <a href="pages/cerez-politikasi.html" style="color:rgba(255,255,255,0.7);text-decoration:none;">Çerez Politikası</a>
  </p>
  </div>
  </div>
  </footer>
+
+ <!-- Cookie Consent Banner -->
+ <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(25,81,87,0.97);color:white;padding:1rem 2rem;z-index:99999;backdrop-filter:blur(10px);box-shadow:0 -4px 20px rgba(0,0,0,0.15);font-size:0.95rem;">
+ <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+ <p style="margin:0;flex:1;min-width:200px;">🍪 Bu site deneyiminizi iyileştirmek için çerezler kullanır. Detaylar için <a href="pages/cerez-politikasi.html" style="color:#E8963E;text-decoration:underline;">Çerez Politikamızı</a> inceleyebilirsiniz.</p>
+ <div style="display:flex;gap:0.75rem;">
+ <button onclick="acceptCookies()" style="background:#E8963E;color:white;border:none;padding:0.6rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;font-size:0.9rem;">Kabul Et</button>
+ <a href="pages/cerez-politikasi.html" style="background:rgba(255,255,255,0.15);color:white;padding:0.6rem 1.5rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Çerez Politikası</a>
+ </div>
+ </div>
+ </div>
+ <script>
+ function acceptCookies(){localStorage.setItem('uzunyasa_cookie_consent','accepted');document.getElementById('cookieConsent').style.display='none';}
+ if(!localStorage.getItem('uzunyasa_cookie_consent')){document.getElementById('cookieConsent').style.display='block';}
+ </script>
 
  <script>
  // ===== LOADING SCREEN =====
