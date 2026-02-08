@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script src="../../scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Kaç Kilo Vermeliyim? Kişisel Hesaplayıcı | UzunYaşa</title>
+ <meta name="description" content="Kişisel bilgilerinize göre ideal kilo hedefinizi, sürenizi ve sağlık etkilerini öğrenin. Bilimsel formüllere dayalı ücretsiz hesaplayıcı.">
+ <meta name="keywords" content="kaç kilo vermeliyim, ideal kilo, BMI hesaplama, kilo verme süresi, kalori hesaplama, TDEE, sağlıklı kilo verme">
+ <meta property="og:title" content="Kaç Kilo Vermeliyim? | UzunYaşa">
+ <meta property="og:description" content="Kişisel bilgilerinize göre ideal kilo hedefinizi, sürenizi ve sağlık etkilerini öğrenin.">
+ <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+ <meta property="og:type" content="website">
+ <meta property="og:locale" content="tr_TR">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../styles/main.css">
+ <style>
+  :root {
+   --teal: #0D7377;
+   --teal-light: #0f8a8f;
+   --teal-bg: #f0fdfa;
+   --orange: #E8963E;
+   --green: #059669;
+   --yellow: #d97706;
+   --red: #dc2626;
+   --gray-50: #f9fafb;
+   --gray-100: #f3f4f6;
+   --gray-200: #e5e7eb;
+   --gray-300: #d1d5db;
+   --gray-500: #6b7280;
+   --gray-700: #374151;
+   --gray-900: #111827;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--gray-700); line-height: 1.6; }
+
+  .quiz-header {
+   background: white;
+   border-bottom: 1px solid var(--gray-200);
+   padding: 1rem 1.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: sticky;
+   top: 0;
+   z-index: 100;
+  }
+  .quiz-header .logo-img { height: 36px; }
+  .quiz-header .back-link { color: var(--gray-500); text-decoration: none; font-size: 0.9rem; }
+  .quiz-header .back-link:hover { color: var(--teal); }
+
+  .disclaimer-banner {
+   background: #fffbeb;
+   border-bottom: 1px solid #fde68a;
+   padding: 0.6rem 1.5rem;
+   text-align: center;
+   font-size: 0.8rem;
+   color: #92400e;
+  }
+
+  .progress-wrapper {
+   background: white;
+   padding: 1rem 1.5rem;
+   border-bottom: 1px solid var(--gray-200);
+  }
+  .progress-bar-track { height: 6px; background: var(--gray-200); border-radius: 3px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--orange)); border-radius: 3px; transition: width 0.4s ease; width: 0%; }
+  .progress-label { font-size: 0.75rem; color: var(--gray-500); margin-top: 0.35rem; text-align: center; }
+
+  .quiz-container { max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+
+  .step { display: none; animation: fadeIn 0.35s ease; }
+  .step.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .step-card {
+   background: white;
+   border-radius: 16px;
+   padding: 2rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+   border: 1px solid var(--gray-200);
+  }
+
+  .step-number { font-size: 0.75rem; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  .step-title { font-size: 1.35rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .step-desc { font-size: 0.9rem; color: var(--gray-500); margin-bottom: 1.5rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--gray-700); margin-bottom: 0.35rem; }
+  .form-group input, .form-group select {
+   width: 100%; padding: 0.7rem 1rem; border: 1.5px solid var(--gray-300); border-radius: 10px;
+   font-size: 1rem; font-family: inherit; transition: border-color 0.2s; background: white;
+  }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,115,119,0.1); }
+
+  .bmi-result { display: none; background: var(--teal-bg); border: 1px solid #99f6e4; border-radius: 12px; padding: 1.25rem; margin-top: 1rem; text-align: center; }
+  .bmi-result.show { display: block; }
+  .bmi-value { font-size: 2.5rem; font-weight: 800; color: var(--teal); }
+  .bmi-category { font-size: 0.9rem; font-weight: 600; margin-top: 0.25rem; }
+
+  .radio-group { display: flex; flex-direction: column; gap: 0.6rem; }
+  .radio-item {
+   display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem;
+   border: 1.5px solid var(--gray-200); border-radius: 10px; cursor: pointer; transition: all 0.2s; user-select: none;
+  }
+  .radio-item:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .radio-item.checked { border-color: var(--teal); background: var(--teal-bg); }
+  .radio-item input[type="radio"] { display: none; }
+  .radio-dot {
+   width: 22px; height: 22px; border: 2px solid var(--gray-300); border-radius: 50%;
+   display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; margin-top: 2px;
+  }
+  .radio-item.checked .radio-dot { border-color: var(--teal); }
+  .radio-item.checked .radio-dot::after { content: ''; width: 10px; height: 10px; background: var(--teal); border-radius: 50%; }
+  .radio-label { font-size: 0.95rem; color: var(--gray-700); }
+  .radio-label .sub { font-size: 0.8rem; color: var(--gray-500); display: block; margin-top: 2px; }
+
+  .btn-row { display: flex; justify-content: space-between; margin-top: 1.5rem; gap: 1rem; }
+  .btn { padding: 0.75rem 2rem; border-radius: 10px; font-size: 0.95rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+  .btn-primary { background: var(--teal); color: white; }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .btn-secondary { background: var(--gray-100); color: var(--gray-700); }
+  .btn-secondary:hover { background: var(--gray-200); }
+
+  /* Intro */
+  .intro-card {
+   background: white; border-radius: 16px; padding: 2.5rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+   border: 1px solid var(--gray-200); text-align: center;
+  }
+  .intro-badge { display: inline-block; background: var(--teal-bg); color: var(--teal); font-size: 0.8rem; font-weight: 700; padding: 0.35rem 1rem; border-radius: 20px; margin-bottom: 1rem; }
+  .intro-title { font-size: 1.75rem; font-weight: 800; color: var(--gray-900); margin-bottom: 0.75rem; }
+  .intro-desc { color: var(--gray-500); font-size: 1rem; margin-bottom: 1.5rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .intro-features { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem; text-align: center; }
+  .intro-feature-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  .intro-feature-text { font-size: 0.8rem; color: var(--gray-500); }
+
+  /* Results */
+  .result-card {
+   background: white; border-radius: 16px; padding: 2.5rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+   border: 1px solid var(--gray-200);
+  }
+  .result-header { text-align: center; margin-bottom: 2rem; }
+  .result-header h2 { font-size: 1.5rem; font-weight: 800; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .result-header p { color: var(--gray-500); }
+
+  .result-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { text-align: center; padding: 1.25rem; background: var(--gray-50); border-radius: 12px; border: 1px solid var(--gray-200); }
+  .stat-value { font-size: 1.75rem; font-weight: 800; color: var(--teal); }
+  .stat-value.orange { color: var(--orange); }
+  .stat-value.green { color: var(--green); }
+  .stat-label { font-size: 0.75rem; color: var(--gray-500); margin-top: 0.25rem; }
+
+  .progress-section { margin-bottom: 2rem; }
+  .progress-section h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.75rem; }
+  .weight-bar-container { position: relative; margin: 1.5rem 0; }
+  .weight-bar { height: 28px; background: var(--gray-200); border-radius: 14px; overflow: hidden; position: relative; }
+  .weight-bar-fill { height: 100%; border-radius: 14px; transition: width 1.5s ease; }
+  .weight-bar-target { height: 100%; background: var(--green); border-radius: 14px; position: absolute; left: 0; top: 0; }
+  .weight-bar-current { height: 100%; background: linear-gradient(90deg, var(--green), var(--orange)); border-radius: 14px; position: absolute; left: 0; top: 0; transition: width 1.5s ease; }
+  .weight-labels { display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.8rem; color: var(--gray-500); }
+  .weight-label-current { color: var(--orange); font-weight: 700; }
+  .weight-label-target { color: var(--green); font-weight: 700; }
+
+  /* Donut chart */
+  .donut-section { text-align: center; margin-bottom: 2rem; }
+  .donut-section h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem; }
+  .donut-container { display: inline-block; position: relative; width: 180px; height: 180px; }
+  .donut-container svg { transform: rotate(-90deg); }
+  .donut-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+  .donut-center .val { font-size: 1.5rem; font-weight: 800; color: var(--gray-900); }
+  .donut-center .lbl { font-size: 0.7rem; color: var(--gray-500); }
+  .donut-legend { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; font-size: 0.8rem; color: var(--gray-500); }
+  .donut-legend span { display: flex; align-items: center; gap: 0.35rem; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+  /* Timeline */
+  .timeline-section { margin-bottom: 2rem; }
+  .timeline-section h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem; }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--gray-200); }
+  .timeline-item { position: relative; margin-bottom: 1.25rem; }
+  .timeline-dot { position: absolute; left: -2rem; top: 4px; width: 18px; height: 18px; border-radius: 50%; border: 3px solid var(--teal); background: white; z-index: 1; }
+  .timeline-item.active .timeline-dot { background: var(--teal); }
+  .timeline-month { font-size: 0.8rem; font-weight: 700; color: var(--teal); margin-bottom: 0.15rem; }
+  .timeline-text { font-size: 0.85rem; color: var(--gray-500); }
+
+  /* Calorie box */
+  .calorie-box { background: var(--teal-bg); border: 1px solid #99f6e4; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; text-align: center; }
+  .calorie-box .big { font-size: 2.5rem; font-weight: 800; color: var(--teal); }
+  .calorie-box .sublabel { font-size: 0.85rem; color: var(--gray-500); margin-top: 0.25rem; }
+  .calorie-details { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem; }
+  .calorie-detail { padding: 0.75rem; background: white; border-radius: 8px; text-align: center; }
+  .calorie-detail .v { font-size: 1.1rem; font-weight: 700; color: var(--gray-900); }
+  .calorie-detail .l { font-size: 0.75rem; color: var(--gray-500); }
+
+  /* CTAs */
+  .result-ctas { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+  .result-cta { display: block; padding: 0.85rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; text-align: center; }
+  .result-cta-primary { background: var(--teal); color: white; }
+  .result-cta-primary:hover { background: var(--teal-light); }
+  .result-cta-secondary { background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-200); }
+  .result-cta-secondary:hover { background: var(--gray-200); }
+  .result-cta-print { background: none; color: var(--teal); border: 1.5px solid var(--teal); }
+  .result-cta-print:hover { background: var(--teal-bg); }
+
+  /* Footer */
+  .quiz-footer { max-width: 640px; margin: 2rem auto 3rem; padding: 0 1rem; }
+  .references { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--gray-200); margin-bottom: 1rem; }
+  .references h4 { font-size: 0.8rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .references p { font-size: 0.75rem; color: var(--gray-500); line-height: 1.6; }
+  .footer-disclaimer { text-align: center; font-size: 0.75rem; color: var(--gray-500); font-style: italic; padding: 1rem 0; }
+  .site-footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: var(--gray-500); border-top: 1px solid var(--gray-200); }
+  .site-footer a { color: inherit; text-decoration: underline; }
+
+  /* Normal weight message */
+  .normal-weight-msg { text-align: center; padding: 2rem; }
+  .normal-weight-msg .icon { font-size: 3rem; margin-bottom: 1rem; }
+  .normal-weight-msg h2 { color: var(--green); font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .normal-weight-msg p { color: var(--gray-500); max-width: 400px; margin: 0 auto; }
+
+  @media (max-width: 640px) {
+   .form-row { grid-template-columns: 1fr; }
+   .intro-features { grid-template-columns: 1fr; gap: 0.5rem; }
+   .intro-title { font-size: 1.4rem; }
+   .step-card, .result-card { padding: 1.5rem; }
+   .result-stats { grid-template-columns: 1fr; }
+   .btn { padding: 0.7rem 1.25rem; font-size: 0.9rem; }
+   .calorie-details { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+   .quiz-header, .progress-wrapper, .disclaimer-banner, .result-ctas, .site-footer { display: none; }
+   .result-card { box-shadow: none; border: 2px solid var(--gray-300); }
+   body { background: white; }
+  }
+
+  @keyframes countUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { animation: countUp 0.5s ease forwards; }
+ </style>
+</head>
+<body>
+
+ <header class="quiz-header">
+  <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
+  <a href="../araclar.html" class="back-link">← Araçlar</a>
+ </header>
+
+ <div class="disclaimer-banner">
+  ⚕️ Bu hesaplayıcı tıbbi tavsiye yerine geçmez. Sonuçlar bilgilendirme amaçlıdır, kesin değerlendirme için bir hekime başvurun.
+ </div>
+
+ <div class="progress-wrapper" id="progressWrapper" style="display:none;">
+  <div class="progress-bar-track">
+   <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+  <div class="progress-label" id="progressLabel">Adım 1 / 3</div>
+ </div>
+
+ <div class="quiz-container">
+
+  <!-- INTRO -->
+  <div class="step active" id="stepIntro">
+   <div class="intro-card">
+    <div class="intro-badge">Ücretsiz Kişisel Hesaplayıcı</div>
+    <h1 class="intro-title">Kaç Kilo Vermeliyim?</h1>
+    <p class="intro-desc">Kişisel bilgilerinize göre ideal kilo hedefinizi, güvenli sürenizi, günlük kalori ihtiyacınızı ve beklenen sağlık etkilerini öğrenin.</p>
+    <div class="intro-features">
+     <div>
+      <div class="intro-feature-icon">⏱</div>
+      <div class="intro-feature-text">2 dakika</div>
+     </div>
+     <div>
+      <div class="intro-feature-icon">🔬</div>
+      <div class="intro-feature-text">Bilimsel formüller</div>
+     </div>
+     <div>
+      <div class="intro-feature-icon">🔒</div>
+      <div class="intro-feature-text">Verileriniz kaydedilmez</div>
+     </div>
+    </div>
+    <button class="btn btn-primary" onclick="startCalc()" style="width:100%;padding:1rem;">Hesaplamaya Başla →</button>
+   </div>
+  </div>
+
+  <!-- STEP 1: Temel Bilgiler -->
+  <div class="step" id="step1">
+   <div class="step-card">
+    <div class="step-number">Adım 1 / 3</div>
+    <h2 class="step-title">Temel Bilgiler</h2>
+    <p class="step-desc">Boy, kilo, yaş ve cinsiyetinizi girerek başlayalım.</p>
+    <div class="form-row">
+     <div class="form-group">
+      <label for="height">Boy (cm)</label>
+      <input type="number" id="height" placeholder="170" min="100" max="250" inputmode="numeric">
+     </div>
+     <div class="form-group">
+      <label for="weight">Mevcut Kilo (kg)</label>
+      <input type="number" id="weight" placeholder="85" min="30" max="300" inputmode="numeric">
+     </div>
+    </div>
+    <div class="form-row">
+     <div class="form-group">
+      <label for="age">Yaş</label>
+      <input type="number" id="age" placeholder="35" min="15" max="100" inputmode="numeric">
+     </div>
+     <div class="form-group">
+      <label for="gender">Cinsiyet</label>
+      <select id="gender">
+       <option value="">Seçiniz</option>
+       <option value="K">Kadın</option>
+       <option value="E">Erkek</option>
+      </select>
+     </div>
+    </div>
+    <div class="bmi-result" id="bmiResult">
+     <div style="font-size:0.75rem;color:var(--gray-500);margin-bottom:0.25rem;">Mevcut BMI Değeriniz</div>
+     <div class="bmi-value" id="bmiValue">--</div>
+     <div class="bmi-category" id="bmiCategory"></div>
+    </div>
+    <div class="btn-row">
+     <span></span>
+     <button class="btn btn-primary" id="btn1" onclick="goStep(2)" disabled>Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- STEP 2: Aktivite Seviyesi -->
+  <div class="step" id="step2">
+   <div class="step-card">
+    <div class="step-number">Adım 2 / 3</div>
+    <h2 class="step-title">Aktivite Seviyeniz</h2>
+    <p class="step-desc">Haftalık fiziksel aktivite düzeyinizi seçin.</p>
+    <div class="radio-group" id="activityGroup">
+     <label class="radio-item" onclick="selectRadio(this)">
+      <input type="radio" name="activity" value="1.2">
+      <span class="radio-dot"></span>
+      <span class="radio-label">Hareketsiz <span class="sub">Masa başı iş, egzersiz yok</span></span>
+     </label>
+     <label class="radio-item" onclick="selectRadio(this)">
+      <input type="radio" name="activity" value="1.375">
+      <span class="radio-dot"></span>
+      <span class="radio-label">Az aktif <span class="sub">Haftada 1-2 gün egzersiz</span></span>
+     </label>
+     <label class="radio-item" onclick="selectRadio(this)">
+      <input type="radio" name="activity" value="1.55">
+      <span class="radio-dot"></span>
+      <span class="radio-label">Orta aktif <span class="sub">Haftada 3-4 gün egzersiz</span></span>
+     </label>
+     <label class="radio-item" onclick="selectRadio(this)">
+      <input type="radio" name="activity" value="1.725">
+      <span class="radio-dot"></span>
+      <span class="radio-label">Aktif <span class="sub">Haftada 5+ gün egzersiz</span></span>
+     </label>
+     <label class="radio-item" onclick="selectRadio(this)">
+      <input type="radio" name="activity" value="1.9">
+      <span class="radio-dot"></span>
+      <span class="radio-label">Çok aktif <span class="sub">Günlük yoğun egzersiz veya fiziksel iş</span></span>
+     </label>
+    </div>
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(1)">← Geri</button>
+     <button class="btn btn-primary" id="btn2" onclick="goStep(3)" disabled>Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- STEP 3: Hedef Seçimi -->
+  <div class="step" id="step3">
+   <div class="step-card">
+    <div class="step-number">Adım 3 / 3</div>
+    <h2 class="step-title">Hedefinizi Seçin</h2>
+    <p class="step-desc">BMI ve kilonuza göre hazırlanan hedef seçenekleri:</p>
+    <div class="radio-group" id="goalGroup">
+     <!-- Filled dynamically -->
+    </div>
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(2)">← Geri</button>
+     <button class="btn btn-primary" id="btn3" onclick="showResults()" disabled>Sonuçları Gör →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="step" id="stepResult"></div>
+
+ </div>
+
+ <div class="quiz-footer">
+  <div class="references">
+   <h4>Kaynaklar & Formüller</h4>
+   <p>
+    • Mifflin-St Jeor Equation — BMR hesaplaması için altın standart formül<br>
+    • WHO (2024) — BMI sınıflandırma kriterleri<br>
+    • AHA/ACC (2024) — Kilo kaybının kardiyovasküler sağlığa etkileri<br>
+    • Diabetes Prevention Program (DPP) — %5-7 kilo kaybının diyabet önleme etkileri<br>
+    • Look AHEAD Trial — Kilo kaybının uzun vadeli sağlık sonuçları
+   </p>
+  </div>
+  <div class="footer-disclaimer">
+   ⚕️ Bu hesaplayıcı tıbbi tavsiye yerine geçmez. Sonuçlar yalnızca bilgilendirme amaçlıdır.<br>
+   Kesin değerlendirme ve tedavi kararları için mutlaka bir hekime danışın.
+  </div>
+ </div>
+
+ <footer class="site-footer">
+  <p style="font-style:italic;opacity:0.7;margin-bottom:0.5rem;">Türkiye uzun yaşasın diye.</p>
+  <p>© 2026 UzunYaşa. <a href="https://tyzd.org" target="_blank">Tıpta Yapay Zeka Derneği</a> girişimidir.</p>
+ </footer>
+
+<script>
+const totalSteps = 3;
+let currentStep = 0;
+let data = {};
+
+function track(evt, params) {
+ if (typeof gtag === 'function') gtag('event', evt, params);
+}
+
+function startCalc() {
+ currentStep = 1;
+ document.getElementById('progressWrapper').style.display = 'block';
+ showStep(1);
+ track('weight_calc_start', {});
+}
+
+function showStep(n) {
+ document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+ const id = n === 0 ? 'stepIntro' : n === 4 ? 'stepResult' : 'step' + n;
+ document.getElementById(id).classList.add('active');
+ if (n >= 1 && n <= 3) {
+  document.getElementById('progressFill').style.width = (n / totalSteps * 100) + '%';
+  document.getElementById('progressLabel').textContent = 'Adım ' + n + ' / ' + totalSteps;
+ }
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goStep(n) {
+ if (n === 3) buildGoalOptions();
+ currentStep = n;
+ showStep(n);
+ track('weight_calc_step', { step: n });
+}
+
+// BMI auto-calc
+const hInput = document.getElementById('height');
+const wInput = document.getElementById('weight');
+const aInput = document.getElementById('age');
+const gInput = document.getElementById('gender');
+
+function validateStep1() {
+ const h = parseFloat(hInput.value), w = parseFloat(wInput.value), a = parseInt(aInput.value), g = gInput.value;
+ if (h >= 100 && h <= 250 && w >= 30 && w <= 300) {
+  const bmi = w / ((h/100)**2);
+  data.bmi = Math.round(bmi*10)/10;
+  data.height = h; data.weight = w;
+  document.getElementById('bmiValue').textContent = data.bmi;
+  let cat = '', color = '';
+  if (bmi < 18.5) { cat = 'Zayıf'; color = '#3b82f6'; }
+  else if (bmi < 25) { cat = 'Normal'; color = '#059669'; }
+  else if (bmi < 30) { cat = 'Fazla Kilolu'; color = '#d97706'; }
+  else if (bmi < 35) { cat = 'Obez (Sınıf I)'; color = '#dc2626'; }
+  else if (bmi < 40) { cat = 'Obez (Sınıf II)'; color = '#b91c1c'; }
+  else { cat = 'Morbid Obez (Sınıf III)'; color = '#7f1d1d'; }
+  const catEl = document.getElementById('bmiCategory');
+  catEl.textContent = cat; catEl.style.color = color;
+  document.getElementById('bmiResult').classList.add('show');
+ } else {
+  document.getElementById('bmiResult').classList.remove('show');
+ }
+ document.getElementById('btn1').disabled = !(h >= 100 && h <= 250 && w >= 30 && w <= 300 && a >= 15 && a <= 100 && g);
+}
+[hInput, wInput, aInput].forEach(el => el.addEventListener('input', validateStep1));
+gInput.addEventListener('change', validateStep1);
+
+function selectRadio(el) {
+ const group = el.closest('.radio-group');
+ group.querySelectorAll('.radio-item').forEach(r => r.classList.remove('checked'));
+ el.classList.add('checked');
+ el.querySelector('input[type="radio"]').checked = true;
+ if (group.id === 'activityGroup') document.getElementById('btn2').disabled = false;
+ if (group.id === 'goalGroup') document.getElementById('btn3').disabled = false;
+}
+
+function buildGoalOptions() {
+ data.age = parseInt(aInput.value);
+ data.gender = gInput.value;
+ data.activity = parseFloat(document.querySelector('input[name="activity"]:checked').value);
+
+ const w = data.weight, h = data.height, bmi = data.bmi;
+ const healthyWeight = Math.round(24.9 * (h/100)**2 * 10) / 10;
+ const options = [];
+
+ if (bmi >= 25) {
+  const toLose = Math.round((w - healthyWeight) * 10) / 10;
+  options.push({
+   value: 'healthy-bmi',
+   title: 'Sağlıklı BMI\'ya ulaşmak',
+   detail: healthyWeight + ' kg → ' + toLose + ' kg vermek',
+   sub: 'BMI 24.9 — normal aralığın üst sınırı'
+  });
+ }
+
+ const p5 = Math.round(w * 0.05 * 10) / 10;
+ options.push({
+  value: 'p5',
+  title: '%5 kilo kaybı',
+  detail: (Math.round((w - p5)*10)/10) + ' kg → ' + p5 + ' kg vermek',
+  sub: 'Kan şekeri ve tansiyon iyileşir (klinik anlamlı eşik)'
+ });
+
+ const p10 = Math.round(w * 0.10 * 10) / 10;
+ options.push({
+  value: 'p10',
+  title: '%10 kilo kaybı',
+  detail: (Math.round((w - p10)*10)/10) + ' kg → ' + p10 + ' kg vermek',
+  sub: 'Kalp hastalığı riski %30 azalır'
+ });
+
+ const p15 = Math.round(w * 0.15 * 10) / 10;
+ if (bmi >= 30) {
+  options.push({
+   value: 'p15',
+   title: '%15 kilo kaybı',
+   detail: (Math.round((w - p15)*10)/10) + ' kg → ' + p15 + ' kg vermek',
+   sub: 'Uyku apnesi ve eklem ağrıları belirgin azalır'
+  });
+ }
+
+ const group = document.getElementById('goalGroup');
+ group.innerHTML = options.map(o => `
+  <label class="radio-item" onclick="selectRadio(this)">
+   <input type="radio" name="goal" value="${o.value}" data-lose="${o.detail.split('→')[1].trim().replace(' kg vermek','')}">
+   <span class="radio-dot"></span>
+   <span class="radio-label"><strong>${o.title}</strong><br><span style="font-size:0.85rem;color:var(--gray-700)">${o.detail}</span><span class="sub">${o.sub}</span></span>
+  </label>
+ `).join('');
+
+ document.getElementById('btn3').disabled = true;
+}
+
+function showResults() {
+ const goalRadio = document.querySelector('input[name="goal"]:checked');
+ const toLose = parseFloat(goalRadio.dataset.lose);
+ const targetWeight = Math.round((data.weight - toLose) * 10) / 10;
+
+ // Mifflin-St Jeor
+ let bmr;
+ if (data.gender === 'E') {
+  bmr = 10 * data.weight + 6.25 * data.height - 5 * data.age + 5;
+ } else {
+  bmr = 10 * data.weight + 6.25 * data.height - 5 * data.age - 161;
+ }
+ const tdee = Math.round(bmr * data.activity);
+ const targetCal = Math.max(Math.round(tdee - 500), data.gender === 'E' ? 1500 : 1200);
+
+ const weeksMin = Math.round(toLose / 1);
+ const weeksMax = Math.round(toLose / 0.5);
+ const monthsMin = Math.max(1, Math.round(weeksMin / 4.33));
+ const monthsMax = Math.max(1, Math.round(weeksMax / 4.33));
+
+ // Check if already normal
+ if (data.bmi < 25) {
+  document.getElementById('stepResult').innerHTML = `
+   <div class="result-card">
+    <div class="normal-weight-msg">
+     <div class="icon">✅</div>
+     <h2>Kilonuz Normal Aralıkta!</h2>
+     <p>BMI değeriniz ${data.bmi} — sağlıklı aralıktasınız. Mevcut yaşam tarzınızı sürdürmeye devam edin.</p>
+    </div>
+    <div class="result-ctas">
+     <a href="../beslenme.html" class="result-cta result-cta-secondary">Sağlıklı Beslenme Rehberi →</a>
+     <a href="../egzersiz.html" class="result-cta result-cta-secondary">Egzersiz Planları →</a>
+    </div>
+   </div>`;
+  document.getElementById('progressWrapper').style.display = 'none';
+  showStep(4);
+  return;
+ }
+
+ // Fat vs lean estimate (rough: BMI-based)
+ const bodyFatPct = data.gender === 'E'
+  ? Math.round(1.20 * data.bmi + 0.23 * data.age - 16.2)
+  : Math.round(1.20 * data.bmi + 0.23 * data.age - 5.4);
+ const fatMass = Math.round(data.weight * bodyFatPct / 100);
+ const leanMass = Math.round(data.weight - fatMass);
+
+ // Progress bar percentage
+ const healthyWeight = Math.round(24.9 * (data.height/100)**2);
+ const maxRange = data.weight - healthyWeight;
+ const progressPct = maxRange > 0 ? Math.min(100, Math.round((toLose / maxRange) * 100)) : 100;
+
+ document.getElementById('stepResult').innerHTML = `
+  <div class="result-card">
+   <div class="result-header">
+    <h2>📊 Kişisel Kilo Hedef Planınız</h2>
+    <p>Bilimsel hesaplamalara dayalı kişiselleştirilmiş sonuçlarınız</p>
+   </div>
+
+   <div class="result-stats">
+    <div class="stat-card">
+     <div class="stat-value" data-count="${targetWeight}">${targetWeight}</div>
+     <div class="stat-label">Hedef Kilo (kg)</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value orange" data-count="${toLose}">${toLose}</div>
+     <div class="stat-label">Vermesi Gereken (kg)</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value green">${monthsMin}-${monthsMax}</div>
+     <div class="stat-label">Tahmini Süre (ay)</div>
+    </div>
+   </div>
+
+   <!-- Progress Bar -->
+   <div class="progress-section">
+    <h3>📍 Neredesiniz?</h3>
+    <div class="weight-bar-container">
+     <div class="weight-bar">
+      <div class="weight-bar-target" style="width:100%"></div>
+      <div class="weight-bar-current" id="weightBarCurrent" style="width:0%"></div>
+     </div>
+     <div class="weight-labels">
+      <span class="weight-label-target">🎯 ${targetWeight} kg</span>
+      <span class="weight-label-current">📍 ${data.weight} kg</span>
+     </div>
+    </div>
+   </div>
+
+   <!-- Donut Chart -->
+   <div class="donut-section">
+    <h3>Vücut Kompozisyonu (Tahmini)</h3>
+    <div class="donut-container">
+     <svg width="180" height="180" viewBox="0 0 180 180">
+      <circle cx="90" cy="90" r="70" fill="none" stroke="#e5e7eb" stroke-width="20"/>
+      <circle cx="90" cy="90" r="70" fill="none" stroke="#0D7377" stroke-width="20"
+       stroke-dasharray="${(leanMass/data.weight*100*4.4).toFixed(1)} 440" stroke-linecap="round"/>
+      <circle cx="90" cy="90" r="70" fill="none" stroke="#E8963E" stroke-width="20"
+       stroke-dasharray="${(fatMass/data.weight*100*4.4).toFixed(1)} 440"
+       stroke-dashoffset="-${(leanMass/data.weight*100*4.4).toFixed(1)}" stroke-linecap="round"/>
+     </svg>
+     <div class="donut-center">
+      <div class="val">${data.weight} kg</div>
+      <div class="lbl">Mevcut</div>
+     </div>
+    </div>
+    <div class="donut-legend">
+     <span><span class="dot" style="background:#0D7377"></span> Yağsız kütle: ${leanMass} kg</span>
+     <span><span class="dot" style="background:#E8963E"></span> Yağ kütlesi: ${fatMass} kg</span>
+    </div>
+   </div>
+
+   <!-- Calorie Target -->
+   <div class="calorie-box">
+    <div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:0.25rem;">Günlük Kalori Hedefi</div>
+    <div class="big" data-count="${targetCal}">${targetCal}</div>
+    <div class="sublabel">kcal/gün (TDEE - 500 kcal açık)</div>
+    <div class="calorie-details">
+     <div class="calorie-detail">
+      <div class="v">${tdee}</div>
+      <div class="l">TDEE (kcal)</div>
+     </div>
+     <div class="calorie-detail">
+      <div class="v">${Math.round(bmr)}</div>
+      <div class="l">BMR (kcal)</div>
+     </div>
+    </div>
+   </div>
+
+   <!-- Health Timeline -->
+   <div class="timeline-section">
+    <h3>🩺 Beklenen Sağlık Etkileri</h3>
+    <div class="timeline">
+     <div class="timeline-item active">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">1. Ay</div>
+      <div class="timeline-text">Enerji artışı, uyku kalitesi iyileşmesi, genel ruh hali düzelmesi</div>
+     </div>
+     <div class="timeline-item active">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">3. Ay</div>
+      <div class="timeline-text">Kan şekeri düzelme, tansiyon düşüşü, ilk kıyafet bedeni değişimi</div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">6. Ay</div>
+      <div class="timeline-text">Kolesterol iyileşme, eklem ağrıları azalma, dayanıklılık artışı</div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-month">12. Ay</div>
+      <div class="timeline-text">Kalp hastalığı riski belirgin azalma, metabolik sağlık normalleşme</div>
+     </div>
+    </div>
+   </div>
+
+   <div class="result-ctas">
+    <a href="../tedavi/karsilastirma.html" class="result-cta result-cta-primary">Bu Hedefe Nasıl Ulaşırım? →</a>
+    <a href="glp1-uygunluk-testi.html" class="result-cta result-cta-secondary">GLP-1 Bana Uygun mu? →</a>
+    <a href="../beslenme.html" class="result-cta result-cta-secondary">Kişisel Beslenme Rehberi →</a>
+    <a href="javascript:window.print()" class="result-cta result-cta-print">🖨 Sonucu Yazdır / Kaydet</a>
+   </div>
+  </div>`;
+
+ document.getElementById('progressWrapper').style.display = 'none';
+ showStep(4);
+
+ // Animate progress bar
+ setTimeout(() => {
+  const bar = document.getElementById('weightBarCurrent');
+  if (bar) bar.style.width = '100%';
+ }, 300);
+
+ // Animate count-up
+ document.querySelectorAll('[data-count]').forEach(el => {
+  const target = parseFloat(el.dataset.count);
+  const duration = 1200;
+  const start = performance.now();
+  const isInt = target === Math.floor(target) && target > 100;
+  function tick(now) {
+   const elapsed = now - start;
+   const progress = Math.min(elapsed / duration, 1);
+   const eased = 1 - Math.pow(1 - progress, 3);
+   const current = eased * target;
+   el.textContent = isInt ? Math.round(current) : (Math.round(current * 10) / 10);
+   if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+ });
+
+ track('weight_calc_complete', { bmi: data.bmi, goal: goalRadio.value, toLose: toLose });
+}
+</script>
+
+</body>
+</html>
