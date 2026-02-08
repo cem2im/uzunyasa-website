@@ -69,10 +69,25 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 </style>
 </head>
 <body>
-<header class="page-header">
-<h1> Türkiye Obezite İstatistikleri</h1>
-<p>TÜİK, WHO ve OECD verilerine dayalı güncel obezite istatistikleri ve analizler</p>
+<header class="header" style="position:relative;z-index:100;">
+<div class="header-inner">
+<a href="../index.html" class="logo">
+<img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+</a>
+<nav class="nav">
+<a href="rehberler.html" class="nav-link">Kesfet</a>
+<a href="araclar.html" class="nav-link">Araclar</a>
+<a href="hikayeler.html" class="nav-link">Hikayeler</a>
+<a href="bilim.html" class="nav-link">Bilim</a>
+<a href="hakkimizda.html" class="nav-link">Hakkimizda</a>
+<a href="test.html" class="btn-primary">Teste Basla</a>
+</nav>
+</div>
 </header>
+<div class="page-header">
+<h1>Turkiye Obezite Istatistikleri</h1>
+<p>TÜİK, WHO ve OECD verilerine dayalı güncel obezite istatistikleri, bölgesel analizler ve uluslararası karşılaştırmalar</p>
+</div>
 
 <div class="container">
 <!-- Key Stats -->
@@ -132,6 +147,36 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 <div class="h-bars" id="countryBars"></div>
 </div>
 
+<!-- Ekonomik Maliyet -->
+<div class="chart-card" data-animate>
+<h2> Obezitenin Ekonomik Maliyeti</h2>
+<p class="source">Kaynak: OECD The Heavy Burden of Obesity, 2019; Sağlık Bakanlığı verileri</p>
+<div class="h-bars" id="costBars"></div>
+<div style="margin-top:1.5rem;padding:1rem;background:var(--bg);border-radius:10px;">
+<p style="font-size:.9rem;color:var(--text-light);line-height:1.7;">Obezite, Türkiye'nin sağlık harcamalarının tahminen <strong style="color:var(--primary)">%3.2'sini</strong> oluşturmaktadır. OECD ortalaması %8.4'tür. Obeziteyle ilişkili kronik hastalıklar (tip 2 diyabet, hipertansiyon, kardiyovasküler hastalıklar) tedavi maliyetlerinin en büyük bileşenidir. Obez bireylerin yıllık sağlık harcaması, normal kilolu bireylere göre ortalama <strong style="color:var(--primary)">%25 daha yüksektir</strong>.</p>
+</div>
+</div>
+
+<!-- Çocuk Obezitesi -->
+<div class="chart-card" data-animate>
+<h2> Çocuk ve Ergen Obezitesi</h2>
+<p class="source">Kaynak: TÜİK, WHO European Childhood Obesity Surveillance, 2022</p>
+<div class="h-bars" id="childBars"></div>
+<div style="margin-top:1.5rem;padding:1rem;background:var(--bg);border-radius:10px;">
+<p style="font-size:.9rem;color:var(--text-light);line-height:1.7;">Türkiye'de 6-9 yaş grubu çocuklarda fazla kilolu olma oranı <strong style="color:var(--primary)">%22.5</strong>, obezite oranı <strong style="color:var(--primary)">%10.4</strong>'tür. Çocukluk çağı obezitesi, yetişkinlikte obez olma riskini 5 kat artırmaktadır. İşlenmiş gıda tüketimi, ekran süresi artışı ve fiziksel aktivite azalması başlıca nedenler arasındadır.</p>
+</div>
+</div>
+
+<!-- Trend Verisi -->
+<div class="chart-card" data-animate>
+<h2> On Yıllık Trend ve Projeksiyon</h2>
+<p class="source">Kaynak: TÜİK, OECD, WHO projeksiyonları</p>
+<div style="padding:1rem;background:var(--bg);border-radius:10px;">
+<p style="font-size:.95rem;color:var(--text);line-height:1.8;margin-bottom:1rem;">Mevcut artış hızı devam ederse, 2030 yılında Türkiye'de yetişkin obezite oranının <strong style="color:var(--accent)">%26-28</strong> aralığına ulaşması beklenmektedir. Bu, yaklaşık <strong style="color:var(--accent)">23 milyon</strong> obez yetişkin demektir.</p>
+<p style="font-size:.9rem;color:var(--text-light);line-height:1.7;">Son 10 yılda obezite oranı %15.2'den %21.1'e yükselerek <strong>%39 artış</strong> gösterdi. Bu artış hızı, OECD ülkeleri arasında en yüksek oranlardan biridir. Kadınlarda obezite oranı (%24.8), erkeklere (%17.3) kıyasla belirgin şekilde yüksek seyretmeye devam etmektedir. Bölgesel eşitsizlikler de dikkat çekicidir: Güneydoğu Anadolu (%26.2) ile Ege (%18.7) arasında 7.5 puanlık fark bulunmaktadır.</p>
+</div>
+</div>
+
 <!-- Share -->
 <div class="share-bar">
 <h3>Bu sayfayı paylaşın</h3>
@@ -180,6 +225,15 @@ return`<div class="h-bar-row"><span class="h-bar-label">${d.l}</span><div class=
 buildHBars('regionalBars',regionalData.sort((a,b)=>b.v-a.v));
 buildHBars('ageBars',ageData);
 buildHBars('countryBars',countryData.sort((a,b)=>b.v-a.v),50);
+
+const costData=[
+{l:'ABD',v:14.3},{l:'Almanya',v:11.2},{l:'İngiltere',v:9.8},{l:'OECD Ort.',v:8.4},{l:'Türkiye',v:3.2,hl:true},{l:'Japonya',v:2.1}
+];
+const childData=[
+{l:'Türkiye (Obez)',v:10.4,hl:true},{l:'Türkiye (Fazla Kilolu)',v:22.5,hl:true},{l:'İtalya',v:21.3},{l:'İspanya',v:18.1},{l:'İngiltere',v:15.4},{l:'Almanya',v:11.2},{l:'Fransa',v:9.6}
+];
+buildHBars('costBars',costData.sort((a,b)=>b.v-a.v),20);
+buildHBars('childBars',childData.sort((a,b)=>b.v-a.v),30);
 
 // Scroll animation
 const observer=new IntersectionObserver((entries)=>{

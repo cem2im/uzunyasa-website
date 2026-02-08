@@ -12,7 +12,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>50 Yaş Üstü Egzersiz Rehberi | UzunYaşa</title>
- <meta name="description" content="Yaşa uygun, güvenli ve etkili egzersiz önerileri. Kas kaybını önleme, denge ve esneklik.">
+ <meta name="description" content="50 yaş üstü için güvenli, etkili ve bilimsel egzersiz rehberi. Kas kaybını önleme, denge, esneklik ve haftalık program.">
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="../../styles/main.css">
  <style>
@@ -32,6 +32,7 @@
  .info-box { padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
  .info-box.tip { background: #ECFDF5; border-left: 4px solid var(--success); }
  .info-box.warning { background: #FEF3C7; border-left: 4px solid var(--warning); }
+ .info-box.danger { background: #FEE2E2; border-left: 4px solid var(--danger); }
  .info-box h4 { margin-bottom: 0.5rem; }
  .exercise-type { background: var(--white); border: 2px solid var(--border); border-radius: 16px; padding: 1.5rem; margin: 1rem 0; }
  .exercise-type h4 { color: var(--primary); margin-bottom: 0.75rem; font-size: 1.1rem; }
@@ -39,8 +40,13 @@
  .day-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
  .day-card .day { font-weight: 700; color: var(--primary); margin-bottom: 0.25rem; }
  .day-card .activity { font-size: 0.85rem; color: #6b7280; }
+ .guide-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .guide-table th, .guide-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+ .guide-table th { background: var(--bg); font-weight: 600; }
  .guide-cta { background: linear-gradient(135deg, var(--primary), #2a6b73); padding: 3rem 2rem; border-radius: 20px; text-align: center; color: white; margin: 3rem 0; }
  .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; }
+ .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+ .faq-item h4 { margin-bottom: 0.5rem; color: var(--primary); }
  
  @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } }
  </style>
@@ -49,7 +55,7 @@
  <header class="header">
  <div class="header-inner">
  <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
- <a href="../rehberler.html" class="back-link">← Tüm Rehberler</a>
+ <a href="../rehberler.html" class="back-link">&larr; Tüm Rehberler</a>
  </div>
  </header>
 
@@ -57,90 +63,178 @@
  <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1400" alt="50+ Egzersiz" class="guide-hero-bg">
  <div class="guide-hero-overlay"></div>
  <div class="guide-hero-content">
- <span class="guide-badge"> Egzersiz</span>
+ <span class="guide-badge">Egzersiz</span>
  <h1>50 Yaş Üstü Egzersiz Rehberi</h1>
- <p>Yaşa uygun, güvenli ve etkili egzersiz önerileri. Kas kaybını önleme, denge ve esneklik için stratejiler.</p>
+ <p>Yaşa uygun, güvenli ve etkili egzersiz önerileri. Kas kaybını önleme, denge ve esneklik için bilimsel stratejiler.</p>
  </div>
  </section>
 
  <main class="guide-content">
+
+ <div class="info-box warning">
+ <h4>Tıbbi Uyarı</h4>
+ <p>Bu rehber genel bilgi amaçlıdır ve tıbbi tavsiye yerine geçmez. Özellikle kronik hastalığınız (kalp rahatsızlığı, diyabet, ortopedik sorunlar vb.) varsa, yeni bir egzersiz programına başlamadan önce mutlaka doktorunuza danışın.</p>
+ </div>
+
  <h2>50'den Sonra Egzersiz Neden Kritik?</h2>
- <p>30 yaşından itibaren her 10 yılda kas kütlesinin %3-8'i kaybolur (sarkopeni). 50'den sonra bu hız artar. Ama iyi haber: <strong>Egzersiz bu süreci yavaşlatır, hatta tersine çevirir!</strong></p>
+ <p>30 yaşından itibaren her 10 yılda kas kütlesinin %3-8'i kaybolur; bu süreç tıpta <strong>sarkopeni</strong> olarak adlandırılır. 50'den sonra bu kayıp hız kazanır ve 70 yaşına gelindiğinde toplam kas kütlesinin %25-30'u yitirilebilir. Ancak bilimin bize söylediği çok cesaret verici bir şey var: <strong>Egzersiz bu süreci yavaşlatır, hatta tersine çevirir.</strong></p>
+
+ <p>2020 yılında <em>British Journal of Sports Medicine</em>'de yayınlanan kapsamlı bir meta-analiz, 50 yaş üstü yetişkinlerde düzenli direnç egzersizinin kas kütlesini ortalama %1.1, kas gücünü ise %3.4 artırdığını göstermiştir. Üstelik bu faydalar 80 yaş üstü bireylerde bile gözlemlenmiştir.</p>
+
+ <p>Türkiye'de 65 yaş üstü nüfus hızla artıyor. TÜİK verilerine göre 2023 itibarıyla bu oran %10.2'ye ulaştı ve 2050'de %20'yi aşması bekleniyor. Aktif ve bağımsız bir yaşlılık geçirmenin anahtarı, bugün atılan egzersiz adımlarında gizli.</p>
 
  <div class="info-box tip">
- <h4> Düzenli Egzersizin 50+ Faydaları</h4>
+ <h4>Düzenli Egzersizin 50+ Faydaları</h4>
  <ul>
- <li>Kas ve kemik yoğunluğunu korur</li>
- <li>Düşme riskini %30-40 azaltır</li>
- <li>Bilişsel fonksiyonları korur</li>
- <li>Depresyon riskini azaltır</li>
- <li>Kronik hastalık yönetimini kolaylaştırır</li>
- <li>Bağımsız yaşam süresini uzatır</li>
+ <li><strong>Kas ve kemik yoğunluğunu korur:</strong> Osteoporoz ve kırık riskini %40-50 oranında azaltır (WHO, 2022)</li>
+ <li><strong>Düşme riskini %30-40 azaltır:</strong> Cochrane sistematik derlemesi, denge egzersizlerinin düşme oranlarını anlamlı ölçüde düşürdüğünü kanıtlamıştır</li>
+ <li><strong>Bilişsel fonksiyonları korur:</strong> Haftada 150 dk aerobik egzersiz, Alzheimer riskini %45 azaltabilir (Erickson ve ark., 2011)</li>
+ <li><strong>Depresyon riskini azaltır:</strong> Egzersiz, hafif-orta depresyonda antidepresan ilaçlar kadar etkili olabilir</li>
+ <li><strong>Kronik hastalık yönetimini kolaylaştırır:</strong> Diyabet, hipertansiyon ve kalp hastalığı kontrolüne katkıda bulunur</li>
+ <li><strong>Bağımsız yaşam süresini uzatır:</strong> Düzenli egzersiz yapan 50+ bireyler, hareketsiz yaşıtlarına göre ortalama 3-5 yıl daha uzun bağımsız yaşar</li>
+ <li><strong>Uyku kalitesini artırır:</strong> Derin uyku süresi ortalama %65 artar</li>
+ <li><strong>Sosyal bağları güçlendirir:</strong> Grup egzersizleri yalnızlık hissini azaltır</li>
  </ul>
  </div>
 
+ <h2>Başlamadan Önce: Sağlık Değerlendirmesi</h2>
+ <p>50 yaşından sonra egzersize başlamak veya yoğunluğu artırmak istiyorsanız, aşağıdaki durumlarda mutlaka bir sağlık profesyonelinden onay alın:</p>
+ <ul>
+ <li>Bilinen kalp hastalığı, diyabet veya hipertansiyon</li>
+ <li>Göğüs ağrısı, nefes darlığı veya baş dönmesi yaşıyorsanız</li>
+ <li>Eklem veya kemik sorunları (artrit, disk hernisi, geçirilmiş ameliyatlar)</li>
+ <li>5 yıldan fazla hareketsiz bir dönem geçirdiyseniz</li>
+ <li>BMI 35 üzerindeyse</li>
+ <li>Kullandığınız ilaçlar varsa (beta-blokerler kalp hızını etkiler)</li>
+ </ul>
+ <p>Doktorunuzdan bir "egzersize katılım onayı" (PAR-Q formu) almanız idealdir. Pek çok aile hekimi bu değerlendirmeyi yapabilir.</p>
+
  <h2>4 Temel Egzersiz Türü</h2>
+ <p>Amerikan Spor Hekimliği Koleji (ACSM) ve Dünya Sağlık Örgütü (WHO), 50 yaş üstü yetişkinler için dört temel egzersiz türünü önermektedir. Bunların hiçbiri diğerinin yerine geçmez; hepsi bir arada uygulanmalıdır.</p>
 
  <div class="exercise-type">
- <h4>1. Aerobik (Kardio)</h4>
- <p>Kalp ve akciğer sağlığı için. Haftada 150 dk orta yoğunluk veya 75 dk yüksek yoğunluk.</p>
+ <h4>1. Aerobik (Kardiyovasküler) Egzersiz</h4>
+ <p>Kalp ve akciğer sağlığınızın temeli. WHO önerisi: <strong>Haftada en az 150 dakika orta yoğunlukta</strong> veya <strong>75 dakika yüksek yoğunlukta</strong> aerobik aktivite.</p>
+ <p><strong>Orta yoğunluk nedir?</strong> Konuşabildiğiniz ama şarkı söyleyemediğiniz tempo. Nabız: Maksimum kalp hızının %50-70'i.</p>
+ <p>Maksimum kalp hızı tahmini: 220 - yaşınız. Orneğin 55 yaşındaysanız: 220-55 = 165 atım/dk. Hedef bölge: 82-115 atım/dk.</p>
+ <p><strong>Önerilen aktiviteler:</strong></p>
  <ul>
- <li>Tempolu yürüyüş (en güvenli)</li>
- <li>Yüzme (eklemlere nazik)</li>
- <li>Bisiklet</li>
- <li>Dans</li>
- <li>Su aerobiği</li>
+ <li><strong>Tempolu yürüyüş:</strong> En güvenli ve en erişilebilir seçenek. Saatte 5-6 km hızla, tercihen düz zeminde başlayın</li>
+ <li><strong>Yüzme:</strong> Eklemlere sıfıra yakın yük bindirir. Özellikle artrit ve bel sorunları olanlara idealdir</li>
+ <li><strong>Bisiklet:</strong> Sabit bisiklet dış mekana göre daha güvenlidir. Diz sorunlarında düşük direnç kullanın</li>
+ <li><strong>Dans:</strong> Hem kardio hem denge eğitimi sağlar. Toplumsal bağ kurma fırsatı sunar</li>
+ <li><strong>Su aerobiği:</strong> Suyun kaldırma kuvveti sayesinde vücut ağırlığının %90'ı elimine edilir</li>
+ <li><strong>Nordic walking:</strong> Bastonlarla yürüyüş; üst vücudu da çalıştırır, kalori harcamasını %20-40 artırır</li>
  </ul>
  </div>
 
  <div class="exercise-type">
  <h4>2. Direnç (Güç) Egzersizi</h4>
- <p>Kas kaybını önlemek için ŞART. Haftada 2-3 gün, tüm büyük kas grupları.</p>
+ <p>Kas kaybını önlemek için <strong>vazgeçilmez</strong>. Haftada 2-3 gün, tüm büyük kas gruplarını çalıştırın. 2017'de <em>Medicine &amp; Science in Sports &amp; Exercise</em> dergisinde yayınlanan bir çalışma, 60-80 yaş arası bireylerde 12 haftalık direnç eğitiminin kas gücünü %25-30 artırdığını göstermiştir.</p>
+ <p><strong>Çalıştırılması gereken kas grupları:</strong></p>
  <ul>
- <li>Vücut ağırlığı: Squat, lunge, şınav (modifiye)</li>
- <li>Direnç bandları</li>
- <li>Hafif dumbell</li>
- <li>Makine ağırlıkları</li>
+ <li>Bacaklar (quadriceps, hamstring, baldır)</li>
+ <li>Kalça ve glute kasları</li>
+ <li>Sırt kasları</li>
+ <li>Göğüs kasları</li>
+ <li>Omuzlar ve kollar</li>
+ <li>Karın ve core bölgesi</li>
  </ul>
- <p><em>Başlangıç: Her hareket 8-12 tekrar, 2 set</em></p>
+ <p><strong>Ekipman seçenekleri (kolaydan zora):</strong></p>
+ <ul>
+ <li><strong>Vücut ağırlığı:</strong> Sandalyede squat, duvarda şınav, modifiye lunge</li>
+ <li><strong>Direnç bandları:</strong> Eklem dostu, taşınabilir, farklı direnç seviyelerinde</li>
+ <li><strong>Hafif dumbell (1-5 kg):</strong> Kontrollü hareket için ideal</li>
+ <li><strong>Makine ağırlıkları:</strong> Sabit hareket yolu sayesinde sakatlanma riski düşüktür</li>
+ </ul>
+ <p><strong>Uygulama ilkeleri:</strong></p>
+ <ul>
+ <li>Her hareket 8-12 tekrar, 2-3 set</li>
+ <li>Setler arasında 60-90 saniye dinlenme</li>
+ <li>Nefes kontrolu: Kaldırırken nefes verin, indirirken nefes alın</li>
+ <li>Ağırlığı her 2-4 haftada %5-10 artırın</li>
+ <li>Ağrı hissederseniz derhal durun</li>
+ </ul>
  </div>
 
  <div class="exercise-type">
  <h4>3. Denge Egzersizleri</h4>
- <p>Düşme önleme için kritik. Her gün veya gün aşırı.</p>
+ <p>65 yaş üstü bireylerin %30'u yılda en az bir kez düşer. Düşmeler, bu yaş grubunda yaralanmaya bağlı ölümlerin bir numaralı nedenidir. Denge egzersizleri bu riski dramatik biçimde azaltır.</p>
+ <p><strong>Her gün veya gün aşırı 10-15 dakika uygulayın:</strong></p>
  <ul>
- <li>Tek ayak üzerinde durma (tezgaha tutunarak)</li>
- <li>Topuk-burun yürüyüşü</li>
- <li>Tai Chi</li>
- <li>Yoga (sandalye destekli olabilir)</li>
+ <li><strong>Tek ayak üzerinde durma:</strong> Mutfak tezgahına veya sandalye sırtına hafifçe tutunarak başlayın. Hedef: Her ayakta 30 saniye, 3 set</li>
+ <li><strong>Topuk-burun yürüyüşü (tandem yürüyüş):</strong> Bir ayağın topuğunu diğerinin burnuna değdirerek düz çizgide yürüyün. 10-15 adım, 3 set</li>
+ <li><strong>Tai Chi:</strong> 2019 BMJ meta-analizi, Tai Chi'nin düşme riskini %19 azalttığını göstermiştir. Haftada 2-3 seans önerilir</li>
+ <li><strong>Yoga:</strong> Sandalye destekli versiyonları mevcuttur. Denge, esneklik ve zihinsel rahatlama bir arada</li>
+ <li><strong>Flamingo duruşu:</strong> Gözler açık, sonra kapalı yaparak progresyon sağlanır</li>
+ <li><strong>Yanlara adım atma:</strong> Direnç bandı ile yapıldığında hem güç hem denge çalışır</li>
  </ul>
  </div>
 
  <div class="exercise-type">
- <h4>4. Esneklik (Germe)</h4>
- <p>Eklem sağlığı ve hareket açıklığı için. Her antrenman sonrası + haftada 2-3 ayrı seans.</p>
+ <h4>4. Esneklik (Germe) Egzersizleri</h4>
+ <p>Yaşla birlikte eklem hareket açıklığı daralır. Bu durum günlük aktiviteleri (ayakkabı giyme, arka koltuğa uzanma, üst rafa erişme) zorlaştırır. Düzenli esneklik çalışmaları bu kaybı yavaşlatır.</p>
+ <p><strong>Her antrenman sonrası + haftada 2-3 ayrı seans uygulayın:</strong></p>
  <ul>
- <li>Statik germeler (30 saniye tutma)</li>
- <li>Yoga</li>
- <li>Pilates</li>
- <li>Sabah germe rutini</li>
+ <li><strong>Statik germeler:</strong> Her pozisyonu 30-60 saniye tutun. Acı değil, hafif gerilim hissedin</li>
+ <li><strong>Yoga:</strong> Hatha yoga, 50+ yaş grubu için en uygun türdür</li>
+ <li><strong>Pilates:</strong> Core güçlendirme ile esnekliği birleştirir</li>
+ <li><strong>Sabah germe rutini:</strong> Uyanır uyanmaz 5-10 dakikalık hafif germe, günü daha rahat başlatır</li>
+ <li><strong>Foam roller:</strong> Miyofasyal gevşeme için etkili; özellikle sırt ve bacak kaslarında</li>
  </ul>
+ <p><strong>Hedef bölgeler:</strong> Hamstring, quadriceps, kalça fleksörleri, omuz kuşağı, boyun, alt sırt ve baldır kasları.</p>
  </div>
 
- <h2>Örnek Haftalık Program</h2>
- 
+ <h2>8 Haftalık Başlangıç Programı</h2>
+ <p>Bu program, egzersize yeni başlayan veya uzun süredir hareketsiz olan 50+ bireyler için tasarlanmıştır. Her iki haftada bir yoğunluk kademeli olarak artırılır.</p>
+
+ <h3>Hafta 1-2: Alışma Dönemi</h3>
+ <p><strong>Hedef:</strong> Vücudu harekete alıştırmak, doğru formu öğrenmek.</p>
  <div class="week-plan">
  <div class="day-card">
  <div class="day">Pazartesi</div>
- <div class="activity">Yürüyüş 30dk + Üst vücut güç</div>
+ <div class="activity">Yürüyüş 20dk + Hafif üst vücut (2 hareket, 2x8)</div>
  </div>
  <div class="day-card">
  <div class="day">Salı</div>
- <div class="activity">Denge + Esneklik (Yoga 30dk)</div>
+ <div class="activity">Dinlenme veya 10dk germe</div>
  </div>
  <div class="day-card">
  <div class="day">Çarşamba</div>
- <div class="activity">Yürüyüş 30dk + Alt vücut güç</div>
+ <div class="activity">Yürüyüş 20dk + Hafif alt vücut (2 hareket, 2x8)</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Perşembe</div>
+ <div class="activity">Denge egzersizleri 10dk + Germe 10dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Cuma</div>
+ <div class="activity">Yürüyüş 20dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Cumartesi</div>
+ <div class="activity">Hafif yürüyüş 15dk + Germe</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Pazar</div>
+ <div class="activity">Tam dinlenme</div>
+ </div>
+ </div>
+
+ <h3>Hafta 3-4: Temel Oluşturma</h3>
+ <p><strong>Hedef:</strong> Süreyi ve hareket sayısını artırmak.</p>
+ <div class="week-plan">
+ <div class="day-card">
+ <div class="day">Pazartesi</div>
+ <div class="activity">Yürüyüş 25dk + Üst vücut güç (3 hareket, 2x10)</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Salı</div>
+ <div class="activity">Denge 15dk + Yoga/Germe 15dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Çarşamba</div>
+ <div class="activity">Yürüyüş 25dk + Alt vücut güç (3 hareket, 2x10)</div>
  </div>
  <div class="day-card">
  <div class="day">Perşembe</div>
@@ -148,11 +242,11 @@
  </div>
  <div class="day-card">
  <div class="day">Cuma</div>
- <div class="activity">Yüzme veya bisiklet 30dk</div>
+ <div class="activity">Yüzme veya bisiklet 25dk</div>
  </div>
  <div class="day-card">
  <div class="day">Cumartesi</div>
- <div class="activity">Tüm vücut güç + Denge</div>
+ <div class="activity">Tüm vücut güç (hafif) + Denge</div>
  </div>
  <div class="day-card">
  <div class="day">Pazar</div>
@@ -160,49 +254,289 @@
  </div>
  </div>
 
+ <h3>Hafta 5-6: Gelişim Dönemi</h3>
+ <p><strong>Hedef:</strong> Yoğunluğu artırmak, yeni hareketler eklemek.</p>
+ <div class="week-plan">
+ <div class="day-card">
+ <div class="day">Pazartesi</div>
+ <div class="activity">Yürüyüş 30dk + Üst vücut güç (4 hareket, 3x10)</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Salı</div>
+ <div class="activity">Tai Chi veya Yoga 30dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Çarşamba</div>
+ <div class="activity">Yürüyüş 30dk + Alt vücut güç (4 hareket, 3x10)</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Perşembe</div>
+ <div class="activity">Denge + Esneklik 20dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Cuma</div>
+ <div class="activity">Yüzme veya bisiklet 30dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Cumartesi</div>
+ <div class="activity">Tüm vücut güç + Denge 40dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Pazar</div>
+ <div class="activity">Hafif yürüyüş veya dinlenme</div>
+ </div>
+ </div>
+
+ <h3>Hafta 7-8: Pekiştirme</h3>
+ <p><strong>Hedef:</strong> Program artık alışkanlık haline geldi. Sürdürülebilir düzeyde devam edin.</p>
+ <div class="week-plan">
+ <div class="day-card">
+ <div class="day">Pazartesi</div>
+ <div class="activity">Yürüyüş 30dk + Üst vücut güç (5 hareket, 3x12)</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Salı</div>
+ <div class="activity">Denge + Yoga 30dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Çarşamba</div>
+ <div class="activity">Yürüyüş 30dk + Alt vücut güç (5 hareket, 3x12)</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Perşembe</div>
+ <div class="activity">Dinlenme veya hafif germe</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Cuma</div>
+ <div class="activity">Yüzme veya bisiklet 30dk + Core</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Cumartesi</div>
+ <div class="activity">Tüm vücut güç + Denge 45dk</div>
+ </div>
+ <div class="day-card">
+ <div class="day">Pazar</div>
+ <div class="activity">Doğa yürüyüşü veya dinlenme</div>
+ </div>
+ </div>
+
+ <h2>Temel Hareketler ve Doğru Form</h2>
+
+ <h3>Alt Vücut Hareketleri</h3>
+ <table class="guide-table">
+ <thead>
+ <tr><th>Hareket</th><th>Hedef Kaslar</th><th>Uygulama</th><th>Güvenlik Notu</th></tr>
+ </thead>
+ <tbody>
+ <tr><td><strong>Sandalyede Squat</strong></td><td>Quadriceps, glute</td><td>Sandalyeden kalkıp oturma, 3x10</td><td>Dizler ayak parmaklarını geçmesin</td></tr>
+ <tr><td><strong>Duvar Squat</strong></td><td>Quadriceps, glute</td><td>Sırta dayalı, 30sn tutma, 3 set</td><td>Dizler 90 derece, sırt düz</td></tr>
+ <tr><td><strong>Ayakta Baldır Kaldırma</strong></td><td>Gastroknemius, soleus</td><td>Tezgaha tutunarak, 3x15</td><td>Yavaş ve kontrollü hareket</td></tr>
+ <tr><td><strong>Yan Adımlama</strong></td><td>Glute medius, abductor</td><td>Bant ile veya bantsız, 3x10 her yön</td><td>Gövde dik, hafif çömelme</td></tr>
+ <tr><td><strong>Modifiye Lunge</strong></td><td>Quadriceps, hamstring</td><td>Sandalyeye tutunarak, 2x8 her bacak</td><td>Arka diz yere değmesin</td></tr>
+ </tbody>
+ </table>
+
+ <h3>Üst Vücut Hareketleri</h3>
+ <table class="guide-table">
+ <thead>
+ <tr><th>Hareket</th><th>Hedef Kaslar</th><th>Uygulama</th><th>Güvenlik Notu</th></tr>
+ </thead>
+ <tbody>
+ <tr><td><strong>Duvar Şınavı</strong></td><td>Göğüs, omuz, triceps</td><td>Duvara doğru, 3x10</td><td>Dirsekler 45 derece açıda</td></tr>
+ <tr><td><strong>Bant ile Kürek Çekme</strong></td><td>Sırt, biceps</td><td>Oturarak, bant ayak altında, 3x12</td><td>Omuzları geriye sıkın</td></tr>
+ <tr><td><strong>Omuz Kaldırma</strong></td><td>Deltoid</td><td>1-3 kg dumbell, yana kaldırma, 3x10</td><td>Omuz seviyesinden yukarı kaldırmayın</td></tr>
+ <tr><td><strong>Biceps Curl</strong></td><td>Biceps</td><td>1-3 kg dumbell, 3x12</td><td>Dirsek sabit, gövde sallamayın</td></tr>
+ <tr><td><strong>Triceps Uzatma</strong></td><td>Triceps</td><td>Sandalyede, bant veya hafif ağırlık, 3x10</td><td>Dirsek kulak hizasında sabit</td></tr>
+ </tbody>
+ </table>
+
+ <h2>Yaygın Sağlık Durumlarına Göre Öneriler</h2>
+
+ <h3>Artrit (Eklem İltihabı) Varsa</h3>
+ <ul>
+ <li>Su içi egzersizleri tercih edin (yüzme, su aerobiği)</li>
+ <li>Düşük etkili aktiviteler seçin (bisiklet, yürüyüş)</li>
+ <li>Eklem ağrısı varsa o gün dinlenin, ertesi gün deneyin</li>
+ <li>Isınma süresini 10-15 dakikaya uzatın</li>
+ <li>Ağırlıkları hafif tutun, tekrar sayısını artırın</li>
+ </ul>
+
+ <h3>Osteoporoz Varsa</h3>
+ <ul>
+ <li>Yük taşıyan egzersizler (yürüyüş, merdiven çıkma) kemik yoğunluğunu artırır</li>
+ <li>Direnç egzersizleri kritik oneme sahiptir</li>
+ <li>Öne eğilme ve bükülme hareketlerinden kaçının (vertebra kırığı riski)</li>
+ <li>Denge egzersizlerine öncelik verin (düşme = kırık riski)</li>
+ </ul>
+
+ <h3>Kalp Hastalığı Varsa</h3>
+ <ul>
+ <li>Mutlaka kardiyologunuzdan onay alın</li>
+ <li>Düşük-orta yoğunlukta başlayın</li>
+ <li>Nabız takibi yapın (akıllı saat veya nabız ölçer)</li>
+ <li>Valsalva manevrası yapmayın (nefes tutarak ıkınma)</li>
+ <li>Aşırı soğuk veya sıcakta açık havada egzersiz yapmayın</li>
+ </ul>
+
+ <h3>Diyabet Varsa</h3>
+ <ul>
+ <li>Egzersiz öncesi ve sonrası kan şekerini ölçün</li>
+ <li>Yanınızda hızlı şeker kaynağı bulundurun (meyve suyu, şeker)</li>
+ <li>Ayak bakımına dikkat edin (uygun ayakkabı, çorap)</li>
+ <li>Hipoglisemi belirtilerini bilin (titreme, terleme, baş dönmesi)</li>
+ </ul>
+
  <h2>Güvenlik Kuralları</h2>
 
- <div class="info-box warning">
- <h4> Başlamadan Önce</h4>
+ <div class="info-box danger">
+ <h4>Egzersizi Derhal Durdurun</h4>
+ <p>Aşağıdaki belirtilerden herhangi birini yaşarsanız egzersizi hemen bırakın ve gerekirse 112'yi arayın:</p>
  <ul>
- <li>Kronik hastalığınız varsa doktorunuza danışın</li>
- <li>Yavaş başlayın, kademeli artırın</li>
- <li>Ağrı hissederseniz durun</li>
- <li>Bol su için</li>
- <li>Uygun ayakkabı ve kıyafet giyin</li>
+ <li>Göğüste baskı, sıkışma veya ağrı</li>
+ <li>Ciddi nefes darlığı</li>
+ <li>Baş dönmesi veya bayılma hissi</li>
+ <li>Düzensiz kalp atışı</li>
+ <li>Şiddetli eklem ağrısı</li>
+ <li>Bulantı veya kusma</li>
+ </ul>
+ </div>
+
+ <div class="info-box warning">
+ <h4>Genel Güvenlik İlkeleri</h4>
+ <ul>
+ <li><strong>Yavaş başlayın, kademeli artırın:</strong> "10 dakika kuralı" - her hafta egzersiz süresini en fazla %10 artırın</li>
+ <li><strong>Her zaman ısının:</strong> 5-10 dakika hafif aktivite (yerinde yürüme, kol döndürme)</li>
+ <li><strong>Her zaman soğuma yapın:</strong> 5-10 dakika yavaş yürüme ve germe</li>
+ <li><strong>Bol su için:</strong> Egzersiz öncesi, sırası ve sonrasında. Susuzluk hissi gecikmeli gelir</li>
+ <li><strong>Uygun ayakkabı giyin:</strong> Destekli, kaymaz tabanlı spor ayakkabı</li>
+ <li><strong>Ortamı değerlendirin:</strong> Kaygan zemin, düzensiz yüzey, aşırı sıcak/soğuktan kaçının</li>
+ <li><strong>İki gün ard arda aynı kas grubunu çalıştırmayın:</strong> Kaslar dinlenirken güçlenir</li>
+ <li><strong>"Ağrıya rağmen devam et" felsefesi yanlıştır:</strong> Kas ağrısı (DOMS) normal, eklem ağrısı değil</li>
  </ul>
  </div>
 
  <h3>Kaçınılması Gerekenler</h3>
  <ul>
- <li> Ani, patlayıcı hareketler</li>
- <li> Çok ağır yükler (ego lifting)</li>
- <li> Isınmadan yoğun egzersiz</li>
- <li> Aşırı sıcak/soğukta açık havada</li>
- <li> Hasta veya ateşliyken egzersiz</li>
+ <li>Ani, patlayıcı hareketler (plyometri, box jump gibi)</li>
+ <li>Formunuzun kaldıramayacağı ağır yükler</li>
+ <li>Isınmadan yoğun egzersiz</li>
+ <li>Aşırı sıcak veya soğukta açık hava egzersizi</li>
+ <li>Hasta, ateşli veya akut enfeksiyon döneminde egzersiz</li>
+ <li>Ağrıyı görmezden gelme</li>
+ <li>Başkalarıyla karşılaştırma - kendi temponuzu koruyun</li>
  </ul>
 
- <h2>Motivasyon İpuçları</h2>
+ <h2>Beslenme ve Egzersiz İlişkisi</h2>
+ <p>50 yaşından sonra egzersizin faydalarını maksimize etmek için beslenme de kritik rol oynar:</p>
+
+ <h3>Protein İhtiyacı</h3>
+ <p>50+ yaş grubunda kas yapımı için protein ihtiyacı gençlere göre daha yüksektir. <strong>Günde kilogram başına 1.0-1.2 gram protein</strong> hedefleyin (70 kg = 70-84 gram protein/gün).</p>
  <ul>
- <li>Bir arkadaş veya grup bulun</li>
- <li>Rutini aynı saate bağlayın</li>
- <li>Küçük hedefler koyun ve kutlayın</li>
- <li>Müzik veya podcast dinleyin</li>
- <li>İlerlemenizi takip edin (adım sayar, günlük)</li>
+ <li><strong>Her öğünde 25-30g protein alın:</strong> Kas sentezi için yeterli lösin aminoasidi sağlamak adına</li>
+ <li><strong>Egzersiz sonrası 30 dakika içinde protein alın:</strong> Yoğurt, yumurta, tavuk veya protein shake</li>
+ <li><strong>İyi kaynaklar:</strong> Yumurta, balık, tavuk, yoğurt, peynir, baklagiller, tofu</li>
+ </ul>
+
+ <h3>D Vitamini ve Kalsiyum</h3>
+ <p>Kemik sağlığı için her ikisi de şart:</p>
+ <ul>
+ <li><strong>D vitamini:</strong> Günde 800-1000 IU (kan düzeyini ölçtürün, eksikse daha yüksek doz gerekebilir)</li>
+ <li><strong>Kalsiyum:</strong> Günde 1000-1200 mg (süt ürünleri, brokoli, badem, sardalya)</li>
+ </ul>
+
+ <h3>Hidrasyon</h3>
+ <p>Yaşla birlikte susuzluk hissi azalır, bu nedenle bilinçli olarak su içmelisiniz. Günde en az 1.5-2 litre su hedefleyin. Egzersiz sırasında her 15-20 dakikada birkaç yudum su alın.</p>
+
+ <h2>Motivasyon ve Sürdürülebilirlik</h2>
+ <p>En mükemmel program bile yapılmadığında işe yaramaz. İşte kalıcı egzersiz alışkanlığı oluşturmak için kanıta dayalı stratejiler:</p>
+ <ul>
+ <li><strong>Bir arkadaş veya grup bulun:</strong> Sosyal destek, egzersiz tutarlılığını %65 artırır (Wing &amp; Jeffery, 1999)</li>
+ <li><strong>Rutini aynı saate bağlayın:</strong> "Sabah kahvemden sonra yürüyüş" gibi tetikleyici davranışlar</li>
+ <li><strong>Küçük hedefler koyun ve kutlayın:</strong> "Bu hafta 3 gün yürüdüm" - mükemmeliyetçilik düşmanınız</li>
+ <li><strong>Müzik veya podcast dinleyin:</strong> Algılanan efor düzeyini %12 azaltır</li>
+ <li><strong>İlerlemenizi takip edin:</strong> Adım sayar, egzersiz günlüğü veya uygulama</li>
+ <li><strong>Çeşitlilik ekleyin:</strong> Aynı aktivite sıkıcı hale gelirse değiştirin</li>
+ <li><strong>Kötü günleri normalleştirin:</strong> Bir gün kaçırdınız diye programı bırakmayın</li>
+ <li><strong>Uzun vadeli düşünün:</strong> "6 ay sonra nasıl hissedeceğim?" perspektifi</li>
  </ul>
 
  <div class="info-box tip">
- <h4> Hatırlatma</h4>
- <p>"En iyi egzersiz, yaptığınız egzersizdir." Mükemmel program aramak yerine, tutarlı olmaya odaklanın. Günde 10 dakika bile faydalıdır!</p>
+ <h4>Hatırlatma</h4>
+ <p>"En iyi egzersiz, yaptığınız egzersizdir." Mükemmel program aramak yerine, tutarlı olmaya odaklanın. Günde 10 dakika bile hareketsiz bir günden katbekat daha faydalıdır. Araştırmalar, haftada sadece 75 dakika yürüyüşün bile ömrü 1.8 yıl uzatabildiğini gösteriyor.</p>
  </div>
+
+ <h2>İlerleme Takibi: Neyi Ölçmelisiniz?</h2>
+ <p>Gelişiminizi izlemek motivasyonu artırır ve programın etkinliğini değerlendirmenize yardımcı olur:</p>
+ <table class="guide-table">
+ <thead>
+ <tr><th>Ölçüt</th><th>Ne Sıklıkla</th><th>Neden Önemli</th></tr>
+ </thead>
+ <tbody>
+ <tr><td>Günlük adım sayısı</td><td>Her gün</td><td>Genel aktivite düzeyini gösterir</td></tr>
+ <tr><td>Egzersiz tekrar/set sayısı</td><td>Her antrenman</td><td>Güç gelişimini takip eder</td></tr>
+ <tr><td>Tek ayakta durma süresi</td><td>Ayda 1</td><td>Denge gelişimini ölçer</td></tr>
+ <tr><td>Sandalyeden kalkma testi (30sn)</td><td>Ayda 1</td><td>Alt vücut gücünü değerlendirir</td></tr>
+ <tr><td>Yürüyüş mesafesi veya süresi</td><td>Haftalık</td><td>Kardiyovasküler kapasiteyi izler</td></tr>
+ <tr><td>Esneklik (ayak parmaklarına uzanma)</td><td>Ayda 1</td><td>Esneklik değişimini ölçer</td></tr>
+ <tr><td>Genel enerji ve ruh hali (1-10)</td><td>Her gün</td><td>Öznel iyilik halini takip eder</td></tr>
+ </tbody>
+ </table>
+
+ <h2>Sık Sorulan Sorular</h2>
+
+ <div class="faq-item">
+ <h4>50 yaşında egzersize sıfırdan başlayabilir miyim?</h4>
+ <p>Kesinlikle evet. Araştırmalar, daha önce hiç egzersiz yapmamış 60-70 yaş arası bireylerin bile 12 haftalık program sonunda anlamlı kas gücü ve dayanıklılık kazandığını göstermektedir. Önemli olan yavaş başlamak ve kademeli ilerlemek. Doktor onayı aldıktan sonra bu rehberdeki "Hafta 1-2: Alışma" programıyla başlayabilirsiniz.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Ağırlık kaldırmak yaşlılar için tehlikeli değil mi?</h4>
+ <p>Bu yaygın bir efsanedir. Doğru form ve uygun ağırlık ile direnç egzersizleri 50+ yaş grubu için sadece güvenli değil, aynı zamanda en faydalı egzersiz türlerinden biridir. Sarkopeniyi (yaşa bağlı kas kaybı) önlemenin tek yolu budur. Makine ağırlıkları ve direnç bantları, serbest ağırlıklara göre daha güvenli bir başlangıç noktasıdır.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Dizlerim ağrıyor, yürüyüş yapabilir miyim?</h4>
+ <p>Diz ağrısının nedenine bağlı. Hafif osteoartrit durumunda yürüyüş genellikle güvenlidir ve hatta eklem sağlığını destekler. Düz zeminde, destekli ayakkabıyla kısa mesafelerle başlayın. Ancak akut ağrı, şişlik veya kilitlenme varsa önce bir ortopediste görünün. Alternatif olarak yüzme ve sabit bisiklet, dizlere daha az yük bindirir.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Haftada kaç gün egzersiz yapmalıyım?</h4>
+ <p>WHO önerisi: Haftada en az 150 dakika orta yoğunlukta aerobik + 2 gün direnç egzersizi. Bu, haftada 4-5 gün aktif olmanız anlamına gelir. Ancak başlangıçta 3 gün yeterlidir. Önemli olan tutarlılık - haftada 3 gün sürdürülebilir program, 7 gün yapıp bırakmaktan çok daha iyidir.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Egzersizden sonra kas ağrısı normal mi?</h4>
+ <p>Evet, özellikle yeni başladığınızda veya yoğunluğu artırdığınızda. Buna "gecikmiş kas ağrısı" (DOMS) denir ve 24-72 saat sürebilir. Hafif germe, yürüyüş ve bol su ile hafifler. Ancak eklem ağrısı, keskin ağrı veya 72 saatten uzun süren ağrı normal değildir - dinlenin ve gerekirse doktora başvurun.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Egzersiz kemik erimesini (osteoporoz) önler mi?</h4>
+ <p>Evet, özellikle yük taşıyan egzersizler (yürüyüş, merdiven çıkma) ve direnç egzersizleri kemik yoğunluğunu artırmada etkilidir. Yüzme ve bisiklet kardiyovasküler açıdan faydalı olsa da kemik üzerinde aynı etkiyi göstermez. Osteoporoz riski varsa programınıza mutlaka yük taşıyan aktiviteler ekleyin.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Sabah mı akşam mı egzersiz yapmalıyım?</h4>
+ <p>Her ikisi de etkilidir. Sabah egzersizi gün boyu enerji verir ve rutine bağlılığı artırır. Akşam egzersizinde kas gücü genellikle daha yüksektir. En iyi zaman, tutarlı olarak yapabildiğiniz zamandır. Ancak yatmadan 3-4 saat önce yoğun egzersizden kaçının; uyku kalitesini bozabilir.</p>
+ </div>
+
+ <h2>Kaynaklar</h2>
+ <ul>
+ <li>World Health Organization. (2022). <em>WHO Guidelines on Physical Activity and Sedentary Behaviour</em>. Geneva: WHO.</li>
+ <li>Erickson, K.I. ve ark. (2011). Exercise training increases size of hippocampus and improves memory. <em>PNAS</em>, 108(7), 3017-3022.</li>
+ <li>Peterson, M.D. ve ark. (2010). Resistance exercise for muscular strength in older adults: A meta-analysis. <em>Ageing Research Reviews</em>, 9(3), 226-237.</li>
+ <li>Sherrington, C. ve ark. (2019). Exercise for preventing falls in older people living in the community. <em>Cochrane Database of Systematic Reviews</em>, 1.</li>
+ <li>Fragala, M.S. ve ark. (2019). Resistance Training for Older Adults: Position Statement From NSCA. <em>Journal of Strength and Conditioning Research</em>, 33(8).</li>
+ <li>American College of Sports Medicine. (2022). <em>ACSM's Guidelines for Exercise Testing and Prescription</em>, 11th ed.</li>
+ <li>Türkiye İstatistik Kurumu (TÜİK). (2023). Yaşlı İstatistikleri.</li>
+ </ul>
 
  <div class="guide-cta">
  <h3>Size özel egzersiz planı mı istiyorsunuz?</h3>
  <p>Sağlık durumunuza ve hedeflerinize uygun program oluşturalım.</p>
- <a href="../test.html" class="cta-btn">Teste Başla →</a>
+ <a href="../test.html" class="cta-btn">Teste Başla &rarr;</a>
  </div>
  </main>
 
- <footer><p style="font-size:0.85rem;font-style:italic;opacity:0.7;margin-bottom:0.5rem;">Türkiye uzun yaşasın diye.</p><p>© 2026 UzunYaşa. Tüm hakları saklıdır.</p></footer>
+ <footer><p style="font-size:0.85rem;font-style:italic;opacity:0.7;margin-bottom:0.5rem;">Türkiye uzun yaşasın diye.</p><p>&copy; 2026 UzunYaşa. Tüm hakları saklıdır.</p></footer>
 </body>
 </html>
