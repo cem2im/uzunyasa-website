@@ -1,44 +1,20 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QBM7E0EHFP');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Uzmanları — UzunYaşa Preview</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
     <style>
-        :root {
-            /* UzunYaşa Orijinal Tema Renkleri */
-            --primary: #195157;
-            --primary-light: #2a7d83;
-            --primary-dark: #0f3d42;
-            --accent: #E8963E;
-            --accent-dark: #D97706;
-            --bg: #FAF9F7;
-            --bg-card: #ffffff;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --border: #e5e7eb;
-            --gradient: linear-gradient(135deg, #195157 0%, #2a7d83 100%);
-            --gradient-accent: linear-gradient(135deg, #E8963E 0%, #D97706 100%);
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 12px 40px rgba(25,81,87,0.15);
-            --shadow-xl: 0 24px 60px rgba(25,81,87,0.2);
-            --radius-sm: 12px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
         /* ===== AI EXPERTS SECTION ===== */
         .ai-experts-section {
             padding: 120px 24px;
@@ -46,7 +22,6 @@
             margin: 0 auto;
         }
 
-        /* Dynamic Headline */
         .dynamic-headline {
             text-align: center;
             margin-bottom: 64px;
@@ -107,7 +82,6 @@
             margin: 0 auto;
         }
 
-        /* Expert Selector Cards */
         .expert-selector {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -195,7 +169,6 @@
             line-height: 1.5;
         }
 
-        /* Browser Mockup */
         .product-preview {
             background: var(--bg-card);
             border-radius: var(--radius-lg);
@@ -238,7 +211,6 @@
             min-height: 480px;
         }
 
-        /* Chat Interface */
         .chat-interface {
             padding: 32px;
             display: flex;
@@ -312,7 +284,6 @@
             justify-content: center;
         }
 
-        /* Stats Panel */
         .stats-panel {
             background: white;
             border-left: 1px solid var(--border);
@@ -364,7 +335,6 @@
             transition: width 1s ease-out;
         }
 
-        /* Trust Section */
         .trust-section {
             margin-top: 64px;
             opacity: 0;
@@ -436,7 +406,6 @@
             line-height: 1.5;
         }
 
-        /* CTA Button */
         .cta-wrapper {
             text-align: center;
             margin-top: 48px;
@@ -472,7 +441,6 @@
             transform: translateX(4px);
         }
 
-        /* Responsive */
         @media (max-width: 960px) {
             .product-content {
                 grid-template-columns: 1fr;

@@ -1,75 +1,22 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QBM7E0EHFP');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | UzunYaşa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
     <style>
-        :root {
-            --primary-teal: #195157;
-            --primary-teal-light: #2a6b73;
-            --accent-orange: #E8963E;
-            --text-dark: #1a1a1a;
-            --text-gray: #6b7280;
-            --bg-cream: #FAF9F7;
-            --bg-white: #FFFFFF;
-            --border-light: #e5e7eb;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background: var(--bg-cream);
-        }
-
-        .header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.75rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo-img { height: 70px; width: auto; }
-
-        .nav { display: flex; align-items: center; gap: 2rem; }
-
-        .nav-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
-
-        .btn-primary {
-            background: var(--accent-orange);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Hero */
         .blog-hero {
             padding: 8rem 2rem 4rem;
             position: relative;
@@ -110,7 +57,6 @@
             opacity: 0.9;
         }
 
-        /* Categories */
         .categories {
             background: var(--bg-white);
             padding: 1rem 2rem;
@@ -151,14 +97,12 @@
             color: white;
         }
 
-        /* Blog Content */
         .blog-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
 
-        /* Featured Post */
         .featured-post {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -189,12 +133,7 @@
             opacity: 0.3;
         }
 
-        .featured-body {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        .featured-
 
         .post-category {
             display: inline-block;
@@ -246,14 +185,6 @@
         }
 
         .read-more:hover { text-decoration: underline; }
-
-        /* Posts Grid */
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
 
         .posts-grid {
             display: grid;
@@ -309,9 +240,7 @@
             display: none;
         }
 
-        .post-body {
-            padding: 1.25rem;
-        }
+        .post-
 
         .post-body h3 {
             display: none;
@@ -329,7 +258,6 @@
             color: var(--text-gray);
         }
 
-        /* Newsletter */
         .newsletter-section {
             background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light));
             padding: 4rem 2rem;
@@ -374,22 +302,6 @@
             cursor: pointer;
         }
 
-        /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-logo { height: 50px; margin-bottom: 1rem; }
-
         .footer p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
 
         @media (max-width: 968px) {
@@ -401,7 +313,7 @@
         @media (max-width: 640px) {
             .posts-grid { grid-template-columns: 1fr; }
             .newsletter-form { flex-direction: column; }
-            .nav { display: none; }
+            
         }
     </style>
 </head>

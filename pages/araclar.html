@@ -1,100 +1,22 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QBM7E0EHFP');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sağlık Hesaplayıcıları | UzunYaşa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
     <style>
-        :root {
-            --primary-teal: #195157;
-            --primary-teal-light: #2a6b73;
-            --accent-orange: #E8963E;
-            --accent-orange-light: #f0a854;
-            --text-dark: #1a1a1a;
-            --text-gray: #6b7280;
-            --bg-cream: #FAF9F7;
-            --bg-white: #FFFFFF;
-            --border-light: #e5e7eb;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background: var(--bg-cream);
-        }
-
-        .header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.75rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo-img { height: 70px; width: auto; }
-
-        .nav { display: flex; align-items: center; gap: 2rem; }
-
-        .nav-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
-
-        .btn-primary {
-            background: var(--accent-orange);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
-
-        .btn-primary:hover { background: var(--accent-orange-light); transform: translateY(-1px); }
-
-        /* Hero */
-        .page-hero {
-            position: relative;
-            padding: 10rem 2rem 5rem;
-            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
-            color: white;
-            overflow: hidden;
-        }
-
-        .page-hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .page-hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
-        .page-hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
-
-        /* Tool Navigation */
         .tool-nav {
             background: var(--bg-white);
             padding: 1.5rem 2rem;
@@ -134,7 +56,6 @@
             color: white;
         }
 
-        /* Calculator Sections */
         .calculator-section {
             padding: 4rem 2rem;
             display: none;
@@ -161,7 +82,6 @@
             margin-bottom: 2rem;
         }
 
-        /* Calculator Card */
         .calc-card {
             background: var(--bg-white);
             border-radius: 20px;
@@ -228,7 +148,6 @@
             box-shadow: 0 5px 20px rgba(232, 150, 62, 0.4);
         }
 
-        /* Results */
         .result-box {
             margin-top: 2rem;
             padding: 2rem;
@@ -271,7 +190,6 @@
         .result-category.overweight { background: #FEF3C7; color: #92400E; }
         .result-category.obese { background: #FEE2E2; color: #991B1B; }
 
-        /* BMI Scale */
         .bmi-scale {
             margin: 2rem 0;
         }
@@ -346,7 +264,6 @@
         .legend-dot.yellow { background: #F59E0B; }
         .legend-dot.red { background: #EF4444; }
 
-        /* How to Use */
         .how-to-use {
             margin-top: 3rem;
             padding: 2rem;
@@ -371,7 +288,6 @@
             line-height: 1.6;
         }
 
-        /* Risk Info */
         .risk-info {
             margin-top: 2rem;
             display: grid;
@@ -418,7 +334,6 @@
         .risk-card.moderate p { color: #B45309; }
         .risk-card.high p { color: #B91C1C; }
 
-        /* Calorie Details */
         .calorie-details {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -460,7 +375,6 @@
             color: var(--text-gray);
         }
 
-        /* WHR Scale */
         .whr-result {
             display: flex;
             align-items: center;
@@ -506,63 +420,14 @@
             color: var(--text-gray);
         }
 
-        /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-inner { max-width: 1200px; margin: 0 auto; }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand p { color: rgba(255, 255, 255, 0.7); margin-top: 1rem; font-size: 0.9rem; }
-
-        .footer-col h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.5);
-            text-transform: uppercase;
-        }
-
-        .footer-col a {
-            display: block;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover { color: white; }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .footer-logo { height: 50px; }
-
         @media (max-width: 768px) {
-            .nav { display: none; }
-            .page-hero h1 { font-size: 2rem; }
+
             .tool-nav-inner { flex-wrap: wrap; }
             .calc-grid { grid-template-columns: 1fr; }
             .calorie-details { grid-template-columns: 1fr; }
             .risk-info { grid-template-columns: 1fr; }
             .scale-legend { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            
         }
     </style>
 </head>
