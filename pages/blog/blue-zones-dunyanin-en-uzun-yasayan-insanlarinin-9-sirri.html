@@ -61,6 +61,13 @@
  
  footer p { opacity: 0.7; font-size: 0.9rem; }
  @media (max-width: 640px) { h1 { font-size: 1.65rem; } article { padding: 5.5rem 1rem 2rem; } .featured-image { height: 220px; } }
+ 
+ .key-stat-box { background: linear-gradient(135deg, #f0fdfa, #ecfdf5); border-left: 5px solid #0D7377; border-radius: 0 16px 16px 0; padding: 1.5rem 2rem; margin: 2rem 0; display: flex; align-items: center; gap: 1.25rem; }
+ .key-stat-box .ks-number { font-size: 2.5rem; font-weight: 800; color: #0D7377; line-height: 1; white-space: nowrap; }
+ .key-stat-box .ks-context { font-size: 0.95rem; color: #195157; line-height: 1.5; }
+ .key-stat-box.accent { border-left-color: #E8963E; background: linear-gradient(135deg, #fffbeb, #fef3c7); }
+ .key-stat-box.accent .ks-number { color: #E8963E; }
+ @media (max-width: 640px) { .key-stat-box .ks-number { font-size: 1.8rem; } .key-stat-box { flex-direction: column; text-align: center; } }
  </style>
 </head>
 <body>
@@ -84,7 +91,8 @@
  </div>
 
  <div class="post-content">
- <p># Blue Zones: Dünyanın En Uzun Yaşayan İnsanlarının 9 Sırrı</p><p>Dünyada bazı bölgeler var ki, insanlar burada olağanüstü uzun ve sağlıklı yaşıyorlar. National Geographic Explorer Dan Buettner ve araştırma ekibinin yaptığı çalışmalar sonucu "Blue Zones" (Mavi Bölgeler) olarak adlandırılan bu yerler, uzun yaşamın sırlarını barındırıyor.</p><p><h2>Blue Zones Nedir?</h2></p><p>Blue Zones terimi, dünyada 100 yaş üstü insanların (centenarian) diğer bölgelere göre 10 kat daha fazla yaşadığı beş özel bölgeyi tanımlar:</p>
+ <p># Blue Zones: Dünyanın En Uzun Yaşayan İnsanlarının 9 Sırrı</p>
+ <div class="key-stat-box"><span class="ks-number">10x</span><span class="ks-context">Blue Zones bölgelerinde 100 yaş üstü insan oranı, dünya ortalamasının 10 katı</span></div><p>Dünyada bazı bölgeler var ki, insanlar burada olağanüstü uzun ve sağlıklı yaşıyorlar. National Geographic Explorer Dan Buettner ve araştırma ekibinin yaptığı çalışmalar sonucu "Blue Zones" (Mavi Bölgeler) olarak adlandırılan bu yerler, uzun yaşamın sırlarını barındırıyor.</p><p><h2>Blue Zones Nedir?</h2></p><p>Blue Zones terimi, dünyada 100 yaş üstü insanların (centenarian) diğer bölgelere göre 10 kat daha fazla yaşadığı beş özel bölgeyi tanımlar:</p>
 
  
 <p><ul><li><strong>İkaria, Yunanistan</strong> - Demans oranları düşük, kardiyovasküler hastalıklar nadir</li></p>

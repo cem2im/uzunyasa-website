@@ -65,7 +65,7 @@
  @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } }
  </style>
 </head>
-<body>
+<body class="category-uyku">
  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;padding:1rem;background:#fff;z-index:9999;">İçeriğe geç</a>
 
  <header class="header">
@@ -90,6 +90,44 @@
  <p>Uyku hijyeni, kaliteli ve kesintisiz uyku için uyguladığınız alışkanlıklar ve çevresel düzenlemeler bütünüdür. Tıpkı diş fırçalama gibi, uyku hijyeni de günlük sağlık rutininizin bir parçası olmalıdır.</p>
  <p>Amerikan Uyku Tıbbı Akademisi (AASM) araştırmalarına göre, uyku hijyeni uygulamalarını benimseyen kişilerin <strong>%65'i</strong> ilk 2 hafta içinde uyku kalitesinde belirgin iyileşme bildirmektedir.</p>
  <p>Üstelik uyku hijyeni, ilaç tedavilerinin aksine yan etkisi olmayan, sürdürülebilir ve herkesin uygulayabileceği bir yaklaşımdır. Hadi adım adım başlayalım.</p>
+
+ <!-- Stat Highlight -->
+ <div class="stat-highlight">
+   <div class="stat-number">%65</div>
+   <div class="stat-text">Uyku hijyeni uygulayan kişilerin ilk 2 hafta içinde uyku kalitesinde belirgin iyileşme bildirdiği oran (AASM verileri)</div>
+ </div>
+
+ <!-- Sleep Cycle Infographic -->
+ <div class="infographic">
+   <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uyku evreleri döngüsü görseli">
+     <defs>
+       <linearGradient id="sleepG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#5B4FCF"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
+     </defs>
+     <!-- Cycle wave -->
+     <path d="M 30 60 Q 100 60, 130 120 Q 160 180, 220 180 Q 260 180, 280 120 Q 300 60, 350 60 Q 400 60, 430 120 Q 460 180, 510 180 Q 550 180, 570 120 Q 590 60, 640 60" fill="none" stroke="url(#sleepG)" stroke-width="3.5" stroke-linecap="round"/>
+     <!-- Labels -->
+     <text x="30" y="45" fill="#5B4FCF" font-size="11" font-weight="600">Uyanık</text>
+     <text x="120" y="115" fill="#7c3aed" font-size="10">REM</text>
+     <text x="200" y="200" fill="#4338ca" font-size="10" font-weight="600">Derin Uyku</text>
+     <text x="340" y="45" fill="#5B4FCF" font-size="10">Hafif</text>
+     <text x="420" y="115" fill="#7c3aed" font-size="10">REM</text>
+     <text x="490" y="200" fill="#4338ca" font-size="10" font-weight="600">Derin Uyku</text>
+     <text x="620" y="45" fill="#5B4FCF" font-size="10">Hafif</text>
+     <!-- Dots on wave -->
+     <circle cx="30" cy="60" r="5" fill="#5B4FCF"/>
+     <circle cx="220" cy="180" r="5" fill="#4338ca"/>
+     <circle cx="350" cy="60" r="5" fill="#5B4FCF"/>
+     <circle cx="510" cy="180" r="5" fill="#4338ca"/>
+     <circle cx="640" cy="60" r="5" fill="#5B4FCF"/>
+     <!-- Time axis -->
+     <line x1="30" y1="210" x2="670" y2="210" stroke="#cbd5e1" stroke-width="1"/>
+     <text x="30" y="218" fill="#94a3b8" font-size="9">22:00</text>
+     <text x="200" y="218" fill="#94a3b8" font-size="9">00:00</text>
+     <text x="400" y="218" fill="#94a3b8" font-size="9">02:00</text>
+     <text x="600" y="218" fill="#94a3b8" font-size="9">04:00</text>
+   </svg>
+   <p class="infographic-caption">Tipik bir gece boyunca uyku evreleri döngüsü — derin uyku ilk saatlerde yoğunlaşır</p>
+ </div>
 
  <h2>1. Yatak Odası Optimizasyonu</h2>
 

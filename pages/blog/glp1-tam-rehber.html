@@ -57,6 +57,13 @@
  .author-info p { font-size: 0.85rem; color: var(--text-gray); }
  
  @media (max-width: 640px) { h1 { font-size: 1.8rem; } article { padding: 6rem 1rem 3rem; } .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+ 
+ .key-stat-box { background: linear-gradient(135deg, #f0fdfa, #ecfdf5); border-left: 5px solid #0D7377; border-radius: 0 16px 16px 0; padding: 1.5rem 2rem; margin: 2rem 0; display: flex; align-items: center; gap: 1.25rem; }
+ .key-stat-box .ks-number { font-size: 2.5rem; font-weight: 800; color: #0D7377; line-height: 1; white-space: nowrap; }
+ .key-stat-box .ks-context { font-size: 0.95rem; color: #195157; line-height: 1.5; }
+ .key-stat-box.accent { border-left-color: #E8963E; background: linear-gradient(135deg, #fffbeb, #fef3c7); }
+ .key-stat-box.accent .ks-number { color: #E8963E; }
+ @media (max-width: 640px) { .key-stat-box .ks-number { font-size: 1.8rem; } .key-stat-box { flex-direction: column; text-align: center; } }
  </style>
 </head>
 <body>
@@ -93,6 +100,7 @@
  </div>
 
  <div class="content">
+ <div class="key-stat-box"><span class="ks-number">15-20%</span><span class="ks-context">Semaglutid ile ortalama toplam vücut ağırlığı kaybı — klinik çalışma sonuçları</span></div>
  <h2 id="nedir">GLP-1 İlaçları Nedir?</h2>
  <p>GLP-1 reseptör agonistleri, bir neslin en önemli ilaç sınıfı haline geldi. Başlangıçta tip 2 diyabet tedavisi için geliştirilen bu ilaçlar, obezite tedavisinde devrim yarattı.</p>
  
