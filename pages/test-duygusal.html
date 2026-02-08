@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/animations.css">
 <style>
 :root{--primary:#0D7377;--primary-dark:#195157;--accent:#E8963E;--bg:#f8fafa;--card-bg:#fff;--text:#1a2e35;--text-light:#5a7a84}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -26,7 +27,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .quiz-header p{font-size:1.1rem;opacity:.9;max-width:600px;margin:0 auto}
 .quiz-container{max-width:680px;margin:-2rem auto 3rem;padding:0 1rem}
 .progress-wrap{background:#e0eeef;border-radius:20px;height:8px;margin-bottom:2rem;overflow:hidden}
-.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:20px;transition:width .4s ease;width:0%}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:20px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
 .progress-text{text-align:center;font-size:.85rem;color:var(--text-light);margin-bottom:1.5rem}
 .question-card{background:var(--card-bg);border-radius:16px;padding:2rem;box-shadow:0 2px 20px rgba(0,0,0,.06);animation:fadeUp .4s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -43,7 +44,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .nav-btn:disabled{opacity:.4;cursor:not-allowed}
 .nav-btn.next:hover:not(:disabled){background:var(--primary-dark)}
 .result-container{display:none}
-.result-card{background:var(--card-bg);border-radius:20px;padding:2.5rem;box-shadow:0 4px 30px rgba(0,0,0,.08);text-align:center;animation:fadeUp .5s ease}
+.result-card{background:var(--card-bg);border-radius:20px;padding:2.5rem;box-shadow:0 4px 30px rgba(0,0,0,.08);text-align:center;animation:resultReveal .6s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes resultReveal{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
 .result-icon{font-size:4rem;margin-bottom:1rem}
 .result-title{font-size:1.8rem;font-weight:800;color:var(--primary-dark);margin-bottom:.5rem}
 .result-subtitle{font-size:1.1rem;color:var(--accent);font-weight:600;margin-bottom:1.5rem}
@@ -214,5 +216,6 @@ function restart(){current=0;answers.fill(-1);document.getElementById('quizArea'
 
 render();
 </script>
+<script src="../scripts/animations.js"></script>
 </body>
 </html>

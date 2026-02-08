@@ -23,6 +23,7 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="styles/main.css">
+ <link rel="stylesheet" href="styles/animations.css">
  <style>
  .logo {
  display: flex;
@@ -2003,7 +2004,7 @@ Beslenme, egzersiz ve tedavi seçenekleri.
         <video class="section-video-bg" autoplay muted loop playsinline style="position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;transform:translate(-50%,-50%);object-fit:cover;z-index:0;">
             <source src="videos/background-2.mp4" type="video/mp4">
         </video>
-        <div style="position:absolute;inset:0;background:rgba(13,55,59,0.82);z-index:1;"></div>
+        <div class="anim-gradient-bg" style="position:absolute;inset:0;z-index:1;"></div>
         <div style="max-width:850px;margin:0 auto;position:relative;z-index:2;">
             <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.5vw,2.4rem);color:rgba(255,255,255,0.95);line-height:1.5;font-weight:500;letter-spacing:-0.01em;margin-bottom:1rem;">
                 Fazla kilodan kurtul. Sağlıklı beslen. Hareket et.<br>
@@ -2912,6 +2913,7 @@ Beslenme, egzersiz ve tedavi seçenekleri.
  }
  </script>
 
+ <script src="scripts/animations.js"></script>
 </body>
 </html>
 

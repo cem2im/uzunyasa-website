@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles/main.css">
+<link rel="stylesheet" href="../styles/animations.css">
 <style>
 :root{--primary:#0D7377;--primary-dark:#195157;--accent:#E8963E;--bg:#f8fafa;--card:#fff;--text:#1a2e35;--text-light:#5a7a84}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -210,6 +211,40 @@ observer.unobserve(entry.target);
 },{threshold:0.2});
 
 document.querySelectorAll('[data-animate]').forEach(el=>observer.observe(el));
+
+// Number tickers for key stats
+(function(){
+var nums=document.querySelectorAll('.key-stat-item .num');
+var tickObserver=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+var el=entry.target;
+var text=el.textContent.trim();
+var match=text.match(/([\d.]+)/);
+if(match){
+var target=parseFloat(match[1]);
+var prefix=text.substring(0,text.indexOf(match[1]));
+var suffix=text.substring(text.indexOf(match[1])+match[1].length);
+var start=performance.now();
+var duration=1800;
+function easeOut(t){return t===1?1:1-Math.pow(2,-10*t)}
+function tick(now){
+var p=Math.min((now-start)/duration,1);
+var v=easeOut(p)*target;
+if(text.includes('.')){el.textContent=prefix+v.toFixed(1)+suffix}
+else{el.textContent=prefix+Math.round(v)+suffix}
+if(p<1)requestAnimationFrame(tick);
+else el.textContent=text;
+}
+requestAnimationFrame(tick);
+}
+tickObserver.unobserve(el);
+}
+});
+},{threshold:0.5});
+nums.forEach(function(el){tickObserver.observe(el)});
+})();
 </script>
+<script src="../scripts/animations.js"></script>
 </body>
 </html>

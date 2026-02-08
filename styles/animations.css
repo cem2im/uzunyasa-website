@@ -1,0 +1,420 @@
+/* ============================================
+   UzunYasa - Professional Animations
+   Premium health platform animations
+   ============================================ */
+
+/* ===== KEYFRAMES ===== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232, 150, 62, 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 0 20px 4px rgba(232, 150, 62, 0.15); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(232, 150, 62, 0.3), 0 0 0 0 rgba(232, 150, 62, 0); }
+  50% { box-shadow: 0 4px 20px rgba(232, 150, 62, 0.3), 0 0 30px 8px rgba(232, 150, 62, 0.12); }
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(-2deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-22px) rotate(4deg); }
+}
+
+@keyframes float4 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-3deg); }
+}
+
+@keyframes float5 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(2deg); }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes progressRing {
+  from { stroke-dasharray: 0 283; }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes barGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes flipIn {
+  from { transform: rotateY(90deg); opacity: 0; }
+  to { transform: rotateY(0); opacity: 1; }
+}
+
+@keyframes mapPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(2.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+@keyframes resultReveal {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes smoothProgress {
+  from { width: 0%; }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+.anim-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.anim-fade-in.anim-visible {
+  opacity: 1;
+}
+
+.anim-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.anim-slide-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-slide-left {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.anim-slide-left.anim-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.anim-slide-right {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.anim-slide-right.anim-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.anim-scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.anim-scale-in.anim-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays */
+.anim-delay-1 { transition-delay: 0.1s !important; }
+.anim-delay-2 { transition-delay: 0.2s !important; }
+.anim-delay-3 { transition-delay: 0.3s !important; }
+.anim-delay-4 { transition-delay: 0.4s !important; }
+.anim-delay-5 { transition-delay: 0.5s !important; }
+.anim-delay-6 { transition-delay: 0.6s !important; }
+.anim-delay-7 { transition-delay: 0.7s !important; }
+.anim-delay-8 { transition-delay: 0.8s !important; }
+
+/* ===== PULSING CTA BUTTONS ===== */
+.btn-pulse {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ===== FLOATING HEALTH ICONS ===== */
+.floating-icons-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  opacity: 0.07;
+  color: white;
+  will-change: transform;
+}
+
+.floating-icon:nth-child(1) { animation: float1 8s ease-in-out infinite; top: 15%; left: 8%; }
+.floating-icon:nth-child(2) { animation: float2 10s ease-in-out infinite; top: 25%; right: 12%; }
+.floating-icon:nth-child(3) { animation: float3 7s ease-in-out infinite; top: 60%; left: 5%; }
+.floating-icon:nth-child(4) { animation: float4 12s ease-in-out infinite; top: 70%; right: 8%; }
+.floating-icon:nth-child(5) { animation: float5 9s ease-in-out infinite; top: 40%; left: 15%; }
+
+/* ===== TYPEWRITER CURSOR ===== */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--accent, #E8963E);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: cursorBlink 1s step-end infinite;
+}
+
+/* ===== CARD HOVER ANIMATIONS ===== */
+.anim-card-hover {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.anim-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== ANIMATED GRADIENT BACKGROUND ===== */
+.anim-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(13, 55, 59, 0.85),
+    rgba(13, 115, 119, 0.82),
+    rgba(20, 145, 155, 0.80),
+    rgba(13, 55, 59, 0.85)
+  );
+  background-size: 300% 300%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* ===== PROGRESS RINGS ===== */
+.progress-ring-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring-circle {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-ring-bg {
+  fill: none;
+  stroke: rgba(13, 115, 119, 0.1);
+  stroke-width: 6;
+}
+
+.progress-ring-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary, #0D7377);
+}
+
+/* ===== FLIP CARDS ===== */
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ===== ANIMATED BAR CHARTS ===== */
+.anim-bar {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.anim-bar.anim-visible {
+  transform: scaleX(1);
+}
+
+/* ===== ANIMATED CONNECTING LINES ===== */
+.anim-line {
+  stroke-dasharray: 8 4;
+  stroke-dashoffset: 100;
+  animation: drawLine 2s linear forwards;
+  animation-play-state: paused;
+}
+
+.anim-line.anim-visible {
+  animation-play-state: running;
+}
+
+/* ===== MAP PULSE DOTS ===== */
+.map-dot {
+  position: relative;
+}
+
+.map-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  transform: translate(-50%, -50%);
+  animation: mapPulse 2s ease-out infinite;
+}
+
+/* ===== QUIZ TRANSITIONS ===== */
+.quiz-slide-enter {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.quiz-slide-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.quiz-slide-exit {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.quiz-progress-bar {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quiz-result-reveal {
+  animation: resultReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ===== NUMBER TICKER ===== */
+.number-ticker {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== DONUT CHART ANIMATION ===== */
+.anim-donut-segment {
+  transition: stroke-dasharray 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== ACCESSIBILITY: REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .floating-icon,
+  .btn-pulse,
+  .anim-gradient-bg,
+  .map-dot::after,
+  .typewriter-cursor {
+    animation: none !important;
+  }
+
+  .anim-fade-in,
+  .anim-slide-up,
+  .anim-slide-left,
+  .anim-slide-right,
+  .anim-scale-in,
+  .anim-bar {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .floating-icons-container {
+    display: none;
+  }
+}
