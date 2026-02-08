@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script src="../../scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Türkiye Obezite Haritası | UzunYaşa</title>
+ <meta name="description" content="Türkiye'nin 81 ilinin obezite oranlarını interaktif harita üzerinde keşfedin. TÜİK verilerine dayalı bölgesel karşılaştırma ve analiz.">
+ <meta name="keywords" content="Türkiye obezite haritası, obezite oranları, il bazlı obezite, TÜİK obezite, bölgesel obezite">
+ <meta property="og:title" content="Türkiye Obezite Haritası | UzunYaşa">
+ <meta property="og:description" content="Türkiye'nin bölgesel obezite oranlarını interaktif harita üzerinde keşfedin.">
+ <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+ <meta property="og:type" content="website">
+ <meta property="og:locale" content="tr_TR">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../styles/main.css">
+ <style>
+  :root {
+   --teal: #0D7377;
+   --teal-light: #14919B;
+   --orange: #E8963E;
+  }
+
+  .map-page { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  .map-title {
+   text-align: center;
+   margin-bottom: 0.5rem;
+  }
+  .map-title h1 {
+   font-size: 2rem;
+   font-weight: 800;
+   color: var(--teal);
+  }
+  .map-subtitle {
+   text-align: center;
+   color: #6b7280;
+   margin-bottom: 0.5rem;
+   font-size: 1rem;
+  }
+  .map-avg-badge {
+   text-align: center;
+   margin-bottom: 2rem;
+  }
+  .map-avg-badge span {
+   display: inline-block;
+   background: linear-gradient(135deg, var(--teal), var(--teal-light));
+   color: white;
+   padding: 0.5rem 1.5rem;
+   border-radius: 30px;
+   font-weight: 700;
+   font-size: 1rem;
+  }
+
+  .map-layout {
+   display: grid;
+   grid-template-columns: 1fr 320px;
+   gap: 2rem;
+   align-items: start;
+  }
+
+  .map-container {
+   background: white;
+   border-radius: 16px;
+   padding: 1.5rem;
+   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+   border: 1px solid #e5e7eb;
+   position: relative;
+  }
+
+  .map-container svg {
+   width: 100%;
+   height: auto;
+  }
+
+  .map-container svg path {
+   stroke: #fff;
+   stroke-width: 1.5;
+   cursor: pointer;
+   transition: all 0.25s ease;
+  }
+
+  .map-container svg path:hover {
+   stroke: #1f2937;
+   stroke-width: 2.5;
+   filter: brightness(0.9);
+   transform-origin: center;
+  }
+
+  /* Tooltip */
+  .map-tooltip {
+   display: none;
+   position: fixed;
+   background: white;
+   border-radius: 12px;
+   padding: 1rem 1.25rem;
+   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+   border: 1px solid #e5e7eb;
+   z-index: 1000;
+   min-width: 220px;
+   pointer-events: none;
+  }
+  .map-tooltip.show { display: block; }
+  .map-tooltip h3 {
+   font-size: 1rem;
+   color: var(--teal);
+   margin-bottom: 0.5rem;
+  }
+  .map-tooltip .tt-rate {
+   font-size: 1.75rem;
+   font-weight: 800;
+   margin-bottom: 0.25rem;
+  }
+  .map-tooltip .tt-label {
+   font-size: 0.8rem;
+   color: #6b7280;
+   margin-bottom: 0.5rem;
+  }
+  .map-tooltip .tt-badge {
+   display: inline-block;
+   padding: 0.2rem 0.75rem;
+   border-radius: 20px;
+   font-size: 0.75rem;
+   font-weight: 600;
+   margin-bottom: 0.5rem;
+  }
+  .map-tooltip .tt-badge.above { background: #fee2e2; color: #991b1b; }
+  .map-tooltip .tt-badge.below { background: #d1fae5; color: #065f46; }
+  .map-tooltip .tt-pop {
+   font-size: 0.85rem;
+   color: #6b7280;
+  }
+
+  /* Legend */
+  .map-legend {
+   margin-top: 1rem;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   justify-content: center;
+   flex-wrap: wrap;
+  }
+  .legend-bar {
+   width: 200px;
+   height: 14px;
+   border-radius: 7px;
+   background: linear-gradient(to right, #22c55e, #eab308, #ef4444);
+  }
+  .legend-labels {
+   display: flex;
+   justify-content: space-between;
+   width: 200px;
+   font-size: 0.7rem;
+   color: #6b7280;
+  }
+
+  /* Sidebar */
+  .map-sidebar {
+   background: white;
+   border-radius: 16px;
+   padding: 1.5rem;
+   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+   border: 1px solid #e5e7eb;
+  }
+  .sidebar-title {
+   font-size: 1.1rem;
+   font-weight: 700;
+   color: var(--teal);
+   margin-bottom: 1rem;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+  }
+  .rank-item {
+   display: flex;
+   align-items: center;
+   gap: 0.75rem;
+   padding: 0.6rem 0;
+   border-bottom: 1px solid #f3f4f6;
+  }
+  .rank-item:last-child { border-bottom: none; }
+  .rank-num {
+   width: 28px;
+   height: 28px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 700;
+   font-size: 0.8rem;
+   flex-shrink: 0;
+  }
+  .rank-num.gold { background: #fef3c7; color: #92400e; }
+  .rank-num.silver { background: #f3f4f6; color: #374151; }
+  .rank-num.bronze { background: #fed7aa; color: #9a3412; }
+  .rank-num.normal { background: #f3f4f6; color: #6b7280; }
+  .rank-info { flex: 1; }
+  .rank-name { font-weight: 600; font-size: 0.9rem; color: #1f2937; }
+  .rank-region { font-size: 0.75rem; color: #9ca3af; }
+  .rank-bar-wrap {
+   flex: 1;
+   max-width: 80px;
+  }
+  .rank-bar-bg {
+   width: 100%;
+   height: 8px;
+   background: #f3f4f6;
+   border-radius: 4px;
+   overflow: hidden;
+  }
+  .rank-bar-fill {
+   height: 100%;
+   border-radius: 4px;
+   transition: width 0.5s ease;
+  }
+  .rank-pct {
+   font-weight: 700;
+   font-size: 0.9rem;
+   min-width: 45px;
+   text-align: right;
+  }
+
+  /* Mobile list view */
+  .mobile-list { display: none; }
+  .mobile-list-item {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   padding: 0.75rem 0;
+   border-bottom: 1px solid #f3f4f6;
+  }
+  .ml-name {
+   min-width: 120px;
+   font-weight: 600;
+   font-size: 0.9rem;
+   color: #1f2937;
+  }
+  .ml-bar-wrap { flex: 1; }
+  .ml-bar-bg {
+   width: 100%;
+   height: 24px;
+   background: #f3f4f6;
+   border-radius: 12px;
+   overflow: hidden;
+   position: relative;
+  }
+  .ml-bar-fill {
+   height: 100%;
+   border-radius: 12px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   padding-right: 8px;
+   font-size: 0.75rem;
+   font-weight: 700;
+   color: white;
+   transition: width 0.5s ease;
+  }
+  .ml-avg-line {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   width: 2px;
+   background: #1f2937;
+   z-index: 2;
+  }
+
+  /* Info section */
+  .map-info {
+   margin-top: 2rem;
+   background: white;
+   border-radius: 16px;
+   padding: 2rem;
+   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+   border: 1px solid #e5e7eb;
+  }
+  .map-info h2 {
+   font-size: 1.25rem;
+   color: var(--teal);
+   margin-bottom: 1rem;
+  }
+  .map-info p {
+   color: #6b7280;
+   line-height: 1.7;
+   margin-bottom: 0.75rem;
+   font-size: 0.95rem;
+  }
+  .map-info .source {
+   font-size: 0.8rem;
+   color: #9ca3af;
+   font-style: italic;
+   margin-top: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+   .map-layout {
+    grid-template-columns: 1fr;
+   }
+   .desktop-map { display: none; }
+   .mobile-list { display: block; }
+   .map-sidebar { order: -1; }
+  }
+  @media (min-width: 901px) {
+   .mobile-list { display: none; }
+  }
+ </style>
+</head>
+<body>
+ <header class="header">
+ <div class="header-inner">
+ <a href="../../index.html" class="logo">
+  <img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img">
+ </a>
+ <nav class="nav">
+  <a href="../rehberler.html" class="nav-link">Keşfet</a>
+  <a href="../araclar.html" class="nav-link active">Araçlar</a>
+  <a href="../hikayeler.html" class="nav-link">Hikayeler</a>
+  <a href="../bilim.html" class="nav-link">Bilim</a>
+  <a href="../hakkimizda.html" class="nav-link">Hakkımızda</a>
+  <a href="../test.html" class="btn-primary">Teste Başla</a>
+ </nav>
+ </div>
+ </header>
+
+ <section class="page-hero" style="min-height:200px;">
+ <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0D7377 0%,#14919B 50%,#0A5C5F 100%);"></div>
+ <div class="page-hero-overlay" style="background:rgba(0,0,0,0.1);"></div>
+ <div class="page-hero-content">
+ <nav class="hero-breadcrumb">
+  <a href="../../index.html">Ana Sayfa</a>
+  <span>›</span>
+  <a href="../araclar.html">Araçlar</a>
+  <span>›</span>
+  <span class="current">Obezite Haritası</span>
+ </nav>
+ <h1>🗺️ Türkiye Obezite Haritası</h1>
+ <p>Bölgesel obezite oranlarını interaktif harita üzerinde keşfedin</p>
+ </div>
+ </section>
+
+ <main class="map-page">
+
+ <div class="map-avg-badge">
+ <span>🇹🇷 Türkiye Ortalaması: %32.1</span>
+ </div>
+
+ <div class="map-layout">
+ <div>
+  <!-- Desktop SVG Map -->
+  <div class="map-container desktop-map">
+   <svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg" id="turkey-map">
+    <!-- Marmara -->
+    <path id="marmara" d="M 120 80 L 200 60 L 280 70 L 320 90 L 310 130 L 280 160 L 240 170 L 200 165 L 160 150 L 130 130 L 110 110 Z" />
+    <!-- Ege (Aegean) -->
+    <path id="ege" d="M 110 110 L 130 130 L 160 150 L 200 165 L 240 170 L 230 210 L 210 260 L 180 310 L 140 330 L 100 300 L 80 250 L 70 200 L 80 150 Z" />
+    <!-- Akdeniz (Mediterranean) -->
+    <path id="akdeniz" d="M 180 310 L 210 260 L 230 210 L 240 170 L 280 160 L 340 180 L 400 200 L 460 220 L 520 250 L 560 280 L 540 320 L 500 350 L 440 370 L 380 360 L 320 340 L 260 330 L 200 320 Z" />
+    <!-- İç Anadolu (Central Anatolia) -->
+    <path id="ic-anadolu" d="M 280 160 L 310 130 L 320 90 L 380 80 L 450 85 L 520 100 L 560 120 L 580 160 L 570 200 L 540 240 L 520 250 L 460 220 L 400 200 L 340 180 Z" />
+    <!-- Karadeniz (Black Sea) -->
+    <path id="karadeniz" d="M 320 90 L 380 80 L 450 85 L 520 100 L 560 120 L 620 80 L 700 50 L 780 40 L 850 50 L 880 70 L 860 110 L 820 130 L 770 140 L 720 135 L 670 130 L 620 140 L 580 160 L 560 120 L 520 100 L 450 85 L 380 80 L 320 90 Z" />
+    <!-- Doğu Anadolu (Eastern Anatolia) -->
+    <path id="dogu" d="M 580 160 L 620 140 L 670 130 L 720 135 L 770 140 L 820 130 L 860 110 L 900 130 L 930 170 L 940 220 L 920 270 L 880 300 L 830 310 L 780 290 L 730 260 L 680 240 L 640 220 L 600 210 L 570 200 L 580 160 Z" />
+    <!-- Güneydoğu Anadolu (Southeastern Anatolia) -->
+    <path id="guneydogu" d="M 570 200 L 600 210 L 640 220 L 680 240 L 730 260 L 780 290 L 830 310 L 810 350 L 770 380 L 720 390 L 660 380 L 610 360 L 570 330 L 540 320 L 560 280 L 520 250 L 540 240 L 570 200 Z" />
+    <!-- Region Labels -->
+    <text x="210" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" style="pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.5);">Marmara</text>
+    <text x="150" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" style="pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.5);">Ege</text>
+    <text x="390" y="310" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" style="pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.5);">Akdeniz</text>
+    <text x="440" y="170" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" style="pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.5);">İç Anadolu</text>
+    <text x="650" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" style="pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.5);">Karadeniz</text>
+    <text x="780" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" style="pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.5);">Doğu Anadolu</text>
+    <text x="700" y="340" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" style="pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.5);">Güneydoğu</text>
+   </svg>
+
+   <div class="map-legend">
+    <span style="font-size:0.8rem;color:#6b7280;">Düşük</span>
+    <div class="legend-bar"></div>
+    <span style="font-size:0.8rem;color:#6b7280;">Yüksek</span>
+   </div>
+   <div class="legend-labels" style="max-width:200px;margin:0.25rem auto 0;">
+    <span>%26</span>
+    <span>%34</span>
+    <span>%42</span>
+   </div>
+  </div>
+
+  <!-- Mobile List View -->
+  <div class="mobile-list" id="mobile-list"></div>
+ </div>
+
+ <!-- Sidebar: Top 10 -->
+ <div class="map-sidebar">
+  <div class="sidebar-title">📊 En Yüksek 10 İl</div>
+  <div id="top10-list"></div>
+ </div>
+ </div>
+
+ <!-- Info section -->
+ <div class="map-info">
+ <h2>📋 Obezite Haritası Hakkında</h2>
+ <p>Bu harita, Türkiye'nin 7 coğrafi bölgesindeki obezite oranlarını görselleştirmektedir. Veriler TÜİK Sağlık Araştırması ve DSÖ raporlarına dayanmaktadır.</p>
+ <p><strong>Güneydoğu Anadolu</strong> bölgesi %38.5 ile en yüksek ortalama obezite oranına sahipken, <strong>Ege</strong> bölgesi %29.0 ile en düşük orana sahiptir. Türkiye genelinde yetişkin obezite oranı <strong>%32.1</strong> olarak hesaplanmaktadır.</p>
+ <p>Bölgesel farklılıklar; beslenme alışkanlıkları, sosyoekonomik düzey, kentleşme oranı ve fiziksel aktivite düzeyi gibi faktörlerle açıklanmaktadır.</p>
+ <p class="source">Kaynak: TÜİK Türkiye Sağlık Araştırması, DSÖ Avrupa Obezite Raporu. Veriler yaklaşık değerlerdir ve bilgilendirme amaçlıdır.</p>
+ </div>
+
+ </main>
+
+ <!-- Tooltip -->
+ <div class="map-tooltip" id="map-tooltip">
+ <h3 id="tt-name"></h3>
+ <div class="tt-rate" id="tt-rate"></div>
+ <div class="tt-label">Obezite Oranı</div>
+ <div id="tt-badge"></div>
+ <div class="tt-pop" id="tt-pop"></div>
+ </div>
+
+ <footer class="footer">
+ <div class="footer-inner">
+ <div class="footer-grid">
+  <div class="footer-brand">
+   <a href="../../index.html">
+    <img src="../../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+   </a>
+   <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+   <p style="font-size:0.85rem;font-style:italic;opacity:0.6;margin-top:0.25rem;">Türkiye uzun yaşasın diye.</p>
+  </div>
+  <div class="footer-col">
+   <h4>Keşfet</h4>
+   <a href="../beslenme.html">Beslenme</a>
+   <a href="../egzersiz.html">Egzersiz</a>
+   <a href="../uyku-stres.html">Uyku & Stres</a>
+   <a href="../tedavi.html">Tedavi Seçenekleri</a>
+  </div>
+  <div class="footer-col">
+   <h4>Araçlar</h4>
+   <a href="../araclar.html#bmi">BMI Hesaplayıcı</a>
+   <a href="../araclar.html#calorie">Kalori Hesaplayıcı</a>
+   <a href="turkiye-obezite-haritasi.html">Obezite Haritası</a>
+  </div>
+  <div class="footer-col">
+   <h4>Hakkımızda</h4>
+   <a href="../hakkimizda.html">Ekibimiz</a>
+   <a href="../bilim.html">Bilimsel Yaklaşım</a>
+   <a href="../hakkimizda.html#iletisim">İletişim</a>
+  </div>
+ </div>
+ <div class="footer-bottom">
+  <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+  <span>Gizlilik Politikası | Kullanım Koşulları</span>
+ </div>
+ </div>
+ </footer>
+
+ <script>
+ // ===== DATA =====
+ const TURKEY_AVG = 32.1;
+
+ const regions = {
+  'marmara': {
+   name: 'Marmara Bölgesi',
+   rate: 31.2,
+   population: '26,000,000',
+   cities: [
+    {name:'İstanbul', rate:31.0, pop:'16,000,000'},
+    {name:'Bursa', rate:33.0, pop:'3,200,000'},
+    {name:'Kocaeli', rate:30.5, pop:'2,100,000'},
+    {name:'Tekirdağ', rate:29.8, pop:'1,150,000'},
+    {name:'Balıkesir', rate:32.2, pop:'1,250,000'},
+    {name:'Manisa', rate:30.0, pop:'1,450,000'},
+    {name:'Sakarya', rate:31.5, pop:'1,060,000'},
+    {name:'Edirne', rate:28.5, pop:'430,000'},
+    {name:'Kırklareli', rate:28.0, pop:'365,000'},
+    {name:'Çanakkale', rate:29.0, pop:'560,000'},
+    {name:'Yalova', rate:30.2, pop:'290,000'},
+   ]
+  },
+  'ege': {
+   name: 'Ege Bölgesi',
+   rate: 29.0,
+   population: '11,500,000',
+   cities: [
+    {name:'İzmir', rate:28.0, pop:'4,460,000'},
+    {name:'Aydın', rate:30.5, pop:'1,150,000'},
+    {name:'Denizli', rate:29.2, pop:'1,050,000'},
+    {name:'Muğla', rate:27.0, pop:'1,020,000'},
+    {name:'Kütahya', rate:31.5, pop:'580,000'},
+    {name:'Afyonkarahisar', rate:30.8, pop:'750,000'},
+    {name:'Uşak', rate:29.5, pop:'375,000'},
+   ]
+  },
+  'akdeniz': {
+   name: 'Akdeniz Bölgesi',
+   rate: 32.0,
+   population: '11,200,000',
+   cities: [
+    {name:'Adana', rate:34.0, pop:'2,270,000'},
+    {name:'Antalya', rate:30.0, pop:'2,690,000'},
+    {name:'Mersin', rate:33.2, pop:'1,920,000'},
+    {name:'Hatay', rate:34.5, pop:'1,660,000'},
+    {name:'Kahramanmaraş', rate:35.0, pop:'1,170,000'},
+    {name:'Osmaniye', rate:33.8, pop:'550,000'},
+    {name:'Isparta', rate:29.5, pop:'450,000'},
+    {name:'Burdur', rate:28.5, pop:'270,000'},
+   ]
+  },
+  'ic-anadolu': {
+   name: 'İç Anadolu Bölgesi',
+   rate: 35.2,
+   population: '13,500,000',
+   cities: [
+    {name:'Ankara', rate:33.0, pop:'5,750,000'},
+    {name:'Konya', rate:37.0, pop:'2,320,000'},
+    {name:'Kayseri', rate:36.5, pop:'1,440,000'},
+    {name:'Sivas', rate:35.5, pop:'650,000'},
+    {name:'Eskişehir', rate:30.5, pop:'900,000'},
+    {name:'Yozgat', rate:37.5, pop:'425,000'},
+    {name:'Kırşehir', rate:36.0, pop:'245,000'},
+    {name:'Nevşehir', rate:35.0, pop:'310,000'},
+    {name:'Aksaray', rate:36.8, pop:'430,000'},
+    {name:'Niğde', rate:34.5, pop:'370,000'},
+    {name:'Karaman', rate:34.0, pop:'260,000'},
+    {name:'Kırıkkale', rate:35.8, pop:'290,000'},
+    {name:'Çankırı', rate:34.2, pop:'195,000'},
+   ]
+  },
+  'karadeniz': {
+   name: 'Karadeniz Bölgesi',
+   rate: 33.0,
+   population: '8,400,000',
+   cities: [
+    {name:'Samsun', rate:34.5, pop:'1,370,000'},
+    {name:'Trabzon', rate:33.5, pop:'820,000'},
+    {name:'Ordu', rate:33.0, pop:'760,000'},
+    {name:'Tokat', rate:34.0, pop:'620,000'},
+    {name:'Zonguldak', rate:32.0, pop:'600,000'},
+    {name:'Rize', rate:31.5, pop:'350,000'},
+    {name:'Giresun', rate:32.5, pop:'455,000'},
+    {name:'Amasya', rate:33.5, pop:'340,000'},
+    {name:'Kastamonu', rate:31.0, pop:'390,000'},
+    {name:'Sinop', rate:30.5, pop:'220,000'},
+    {name:'Bartın', rate:31.8, pop:'200,000'},
+    {name:'Artvin', rate:30.0, pop:'175,000'},
+    {name:'Bolu', rate:31.2, pop:'320,000'},
+    {name:'Düzce', rate:32.8, pop:'400,000'},
+    {name:'Bayburt', rate:33.0, pop:'85,000'},
+    {name:'Gümüşhane', rate:32.0, pop:'155,000'},
+    {name:'Karabük', rate:31.5, pop:'250,000'},
+    {name:'Çorum', rate:34.2, pop:'540,000'},
+   ]
+  },
+  'dogu': {
+   name: 'Doğu Anadolu Bölgesi',
+   rate: 36.0,
+   population: '6,200,000',
+   cities: [
+    {name:'Van', rate:38.0, pop:'1,140,000'},
+    {name:'Erzurum', rate:36.5, pop:'780,000'},
+    {name:'Malatya', rate:35.0, pop:'810,000'},
+    {name:'Elazığ', rate:35.5, pop:'590,000'},
+    {name:'Ağrı', rate:39.0, pop:'540,000'},
+    {name:'Muş', rate:38.5, pop:'410,000'},
+    {name:'Bitlis', rate:37.5, pop:'350,000'},
+    {name:'Bingöl', rate:36.0, pop:'285,000'},
+    {name:'Hakkari', rate:37.0, pop:'290,000'},
+    {name:'Iğdır', rate:36.5, pop:'200,000'},
+    {name:'Kars', rate:35.5, pop:'290,000'},
+    {name:'Ardahan', rate:34.0, pop:'100,000'},
+    {name:'Tunceli', rate:32.0, pop:'88,000'},
+    {name:'Erzincan', rate:34.5, pop:'240,000'},
+   ]
+  },
+  'guneydogu': {
+   name: 'Güneydoğu Anadolu Bölgesi',
+   rate: 38.5,
+   population: '9,200,000',
+   cities: [
+    {name:'Şanlıurfa', rate:42.0, pop:'2,170,000'},
+    {name:'Diyarbakır', rate:39.5, pop:'1,800,000'},
+    {name:'Gaziantep', rate:37.0, pop:'2,150,000'},
+    {name:'Mardin', rate:40.0, pop:'870,000'},
+    {name:'Batman', rate:41.0, pop:'630,000'},
+    {name:'Şırnak', rate:38.5, pop:'550,000'},
+    {name:'Siirt', rate:39.0, pop:'335,000'},
+    {name:'Adıyaman', rate:36.5, pop:'640,000'},
+    {name:'Kilis', rate:35.5, pop:'145,000'},
+   ]
+  }
+ };
+
+ // ===== COLOR FUNCTION =====
+ function rateToColor(rate) {
+  // Map rate 26-42 to green-yellow-red
+  const min = 26, max = 42;
+  const t = Math.max(0, Math.min(1, (rate - min) / (max - min)));
+  let r, g, b;
+  if (t < 0.5) {
+   const s = t * 2;
+   r = Math.round(34 + (234 - 34) * s);
+   g = Math.round(197 + (179 - 197) * s);
+   b = Math.round(94 + (8 - 94) * s);
+  } else {
+   const s = (t - 0.5) * 2;
+   r = Math.round(234 + (239 - 234) * s);
+   g = Math.round(179 + (68 - 179) * s);
+   b = Math.round(8 + (68 - 8) * s);
+  }
+  return `rgb(${r},${g},${b})`;
+ }
+
+ // ===== COLOR THE MAP =====
+ Object.keys(regions).forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.setAttribute('fill', rateToColor(regions[id].rate));
+ });
+
+ // ===== TOOLTIP =====
+ const tooltip = document.getElementById('map-tooltip');
+
+ document.querySelectorAll('#turkey-map path').forEach(path => {
+  const regionId = path.id;
+  const region = regions[regionId];
+  if (!region) return;
+
+  path.addEventListener('mouseenter', (e) => {
+   document.getElementById('tt-name').textContent = region.name;
+   document.getElementById('tt-rate').textContent = '%' + region.rate.toFixed(1);
+   document.getElementById('tt-rate').style.color = rateToColor(region.rate);
+
+   const diff = region.rate - TURKEY_AVG;
+   const badge = document.getElementById('tt-badge');
+   if (diff > 0) {
+    badge.innerHTML = '<span class="tt-badge above">▲ Ortalamanın ' + diff.toFixed(1) + ' puan üstünde</span>';
+   } else {
+    badge.innerHTML = '<span class="tt-badge below">▼ Ortalamanın ' + Math.abs(diff).toFixed(1) + ' puan altında</span>';
+   }
+
+   document.getElementById('tt-pop').textContent = '👥 Nüfus: ' + region.population;
+   tooltip.classList.add('show');
+
+   gtag('event', 'map_hover', {event_category: 'obesity_map', event_label: region.name});
+  });
+
+  path.addEventListener('mousemove', (e) => {
+   const x = e.clientX + 15;
+   const y = e.clientY - 10;
+   const tw = tooltip.offsetWidth;
+   const th = tooltip.offsetHeight;
+   tooltip.style.left = (x + tw > window.innerWidth ? e.clientX - tw - 15 : x) + 'px';
+   tooltip.style.top = (y + th > window.innerHeight ? e.clientY - th - 10 : y) + 'px';
+  });
+
+  path.addEventListener('mouseleave', () => {
+   tooltip.classList.remove('show');
+  });
+
+  path.addEventListener('click', () => {
+   gtag('event', 'map_click', {event_category: 'obesity_map', event_label: region.name});
+  });
+ });
+
+ // ===== TOP 10 SIDEBAR =====
+ const allCities = [];
+ Object.values(regions).forEach(r => {
+  r.cities.forEach(c => allCities.push({...c, region: r.name.replace(' Bölgesi', '')}));
+ });
+ allCities.sort((a, b) => b.rate - a.rate);
+
+ const top10 = allCities.slice(0, 10);
+ const top10Html = top10.map((c, i) => {
+  const numClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : 'normal';
+  const barWidth = ((c.rate / 45) * 100).toFixed(0);
+  return `<div class="rank-item">
+   <div class="rank-num ${numClass}">${i + 1}</div>
+   <div class="rank-info">
+    <div class="rank-name">${c.name}</div>
+    <div class="rank-region">${c.region}</div>
+   </div>
+   <div class="rank-bar-wrap">
+    <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:${barWidth}%;background:${rateToColor(c.rate)};"></div></div>
+   </div>
+   <div class="rank-pct" style="color:${rateToColor(c.rate)};">%${c.rate.toFixed(1)}</div>
+  </div>`;
+ }).join('');
+ document.getElementById('top10-list').innerHTML = top10Html;
+
+ // ===== MOBILE LIST =====
+ const sortedRegions = Object.values(regions).sort((a, b) => b.rate - a.rate);
+ const avgLinePos = ((TURKEY_AVG / 45) * 100).toFixed(0);
+ const mobileHtml = '<div style="text-align:center;margin-bottom:1rem;font-size:0.85rem;color:#6b7280;">Bölgelere göre obezite oranları (kesikli çizgi = Türkiye ortalaması)</div>' +
+  sortedRegions.map(r => {
+   const barWidth = ((r.rate / 45) * 100).toFixed(0);
+   return `<div class="mobile-list-item">
+    <div class="ml-name">${r.name.replace(' Bölgesi', '')}</div>
+    <div class="ml-bar-wrap">
+     <div class="ml-bar-bg">
+      <div class="ml-bar-fill" style="width:${barWidth}%;background:${rateToColor(r.rate)};">%${r.rate.toFixed(1)}</div>
+      <div class="ml-avg-line" style="left:${avgLinePos}%;border-left:2px dashed #374151;background:none;"></div>
+     </div>
+    </div>
+   </div>`;
+  }).join('');
+ document.getElementById('mobile-list').innerHTML = mobileHtml;
+ </script>
+</body>
+</html>
