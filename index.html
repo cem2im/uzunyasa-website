@@ -1625,9 +1625,300 @@
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
+
+        /* ===== LOADING SCREEN ===== */
+        .page-loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #195157, #0D7377);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        .page-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .page-loader img {
+            height: 80px;
+            margin-bottom: 2rem;
+            animation: loaderPulse 1.2s ease-in-out infinite;
+        }
+        .loader-bar {
+            width: 120px;
+            height: 3px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .loader-bar::after {
+            content: '';
+            display: block;
+            width: 40%;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            animation: loaderSlide 1s ease-in-out infinite;
+        }
+        @keyframes loaderPulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        @keyframes loaderSlide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(350%); }
+        }
+
+        /* ===== SCROLL REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+
+        /* ===== COMPACT HEADER ON SCROLL ===== */
+        .header {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.97) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08) !important;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+        .header.scrolled .logo-img {
+            height: 28px;
+            transition: height 0.3s ease;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease, left 0.3s ease;
+            border-radius: 1px;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* ===== PARALLAX HERO ===== */
+        .hero-video,
+        .hero-overlay {
+            will-change: transform;
+        }
+
+        /* ===== IMPROVED GUIDE CARDS ===== */
+        .guide-card {
+            overflow: hidden;
+        }
+        .guide-card .guide-card-image {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+        }
+        .guide-card:hover .guide-card-image {
+            transform: scale(1.05);
+        }
+        .guide-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        .guide-card-body {
+            padding: 1rem 1.25rem;
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999;
+            box-shadow: 0 4px 20px rgba(13, 115, 119, 0.35);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(13, 115, 119, 0.5);
+        }
+        .back-to-top svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ===== MICRO-INTERACTIONS: BUTTONS ===== */
+        .btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
+        .btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        .hero-btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(232, 150, 62, 0.4), 0 0 60px rgba(232, 150, 62, 0.15);
+        }
+        .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(13, 115, 119, 0.3), 0 0 40px rgba(13, 115, 119, 0.1);
+        }
+
+        /* ===== MICRO-INTERACTIONS: GOAL CARDS ===== */
+        .goal-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .goal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ===== MICRO-INTERACTIONS: TOOL CARDS ===== */
+        .tool-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== AI EXPERT CARDS ENHANCED ===== */
+        .ai-expert-card {
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .ai-expert-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== PREMIUM TYPOGRAPHY ===== */
+        .section-title {
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        .section-subtitle {
+            letter-spacing: 0.01em;
+            line-height: 1.7;
+        }
+        .guide-meta {
+            letter-spacing: 0.02em;
+        }
+        .stat-value {
+            letter-spacing: -0.02em;
+        }
+        .stat-label {
+            line-height: 1.5;
+            letter-spacing: 0.01em;
+        }
+
+        /* ===== BLOG CARD HOVER ===== */
+        [style*="border-radius: 16px; overflow: hidden; border: 1px solid"] {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        }
+        a:has([style*="border-radius: 16px; overflow: hidden; border: 1px solid"]):hover > div {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ===== STAT COUNTER FLASH ===== */
+        .stat-value.counting {
+            color: var(--accent);
+            transition: color 0.3s ease;
+        }
+        .stat-value.counted {
+            color: var(--primary);
+            transition: color 0.6s ease;
+        }
+
+        /* ===== SMOOTH SCROLL ===== */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
+
+    <!-- LOADING SCREEN -->
+    <div class="page-loader" id="pageLoader">
+        <img src="images/logo-white.svg" alt="UzunYaşa">
+        <div class="loader-bar"></div>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="Başa dön">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
 
     <!-- HEADER -->
     <header class="header">
@@ -2100,7 +2391,7 @@
         </video>
         <div class="section-overlay"></div>
         <div class="section-inner">
-            <img src="images/logo-white.svg" alt="UzunYaşa" class="logo-img-large" style="margin-bottom: 1.5rem;">
+            <img src="images/logo-white.svg" alt="UzunYaşa" class="logo-img-large" loading="lazy" style="margin-bottom: 1.5rem;">
             <h2 class="cta-title">Sağlıklı yaşam yolculuğunuza bugün başlayın</h2>
             <div class="cta-buttons">
                 <a href="pages/test.html" class="btn cta-btn-primary">
@@ -2190,73 +2481,193 @@
     </footer>
 
     <script>
-        // Rotating tagline animation
+        // ===== LOADING SCREEN =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('loaded');
+            }, 600);
+        });
+        // Fallback: hide loader after 3s max
+        setTimeout(() => {
+            const loader = document.getElementById('pageLoader');
+            if (loader) loader.classList.add('loaded');
+        }, 3000);
+
+        // ===== ROTATING TAGLINE =====
         const rotatingWords = document.querySelectorAll('.rotating-word');
         let currentIndex = 0;
-        
         function rotateWords() {
             const current = rotatingWords[currentIndex];
             const nextIndex = (currentIndex + 1) % rotatingWords.length;
             const next = rotatingWords[nextIndex];
-            
-            // Exit current
             current.classList.remove('active');
             current.classList.add('exit');
-            
-            // Enter next
             next.classList.remove('exit');
             next.classList.add('active');
-            
-            // Clean up exit class after animation
-            setTimeout(() => {
-                current.classList.remove('exit');
-            }, 600);
-            
+            setTimeout(() => current.classList.remove('exit'), 600);
             currentIndex = nextIndex;
         }
-        
         setInterval(rotateWords, 3000);
 
-        // Header scroll effect
+        // ===== HEADER: COMPACT ON SCROLL + ACTIVE NAV =====
         const header = document.querySelector('.header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.style.boxShadow = 'var(--shadow-md)';
+        const backToTop = document.getElementById('backToTop');
+        const sections = document.querySelectorAll('section[id], section[class*="-section"]');
+
+        function onScroll() {
+            const scrollY = window.scrollY;
+
+            // Header compact
+            if (scrollY > 80) {
+                header.classList.add('scrolled');
             } else {
-                header.style.boxShadow = 'none';
+                header.classList.remove('scrolled');
             }
+
+            // Back to top
+            if (scrollY > 600) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Parallax hero
+            const hero = document.querySelector('.hero-video');
+            const overlay = document.querySelector('.hero-overlay');
+            if (hero && scrollY < window.innerHeight) {
+                const offset = scrollY * 0.35;
+                hero.style.transform = 'translate3d(0,' + offset + 'px,0) scale(1.05)';
+                overlay.style.transform = 'translate3d(0,' + (offset * 0.5) + 'px,0)';
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // ===== SCROLL REVEAL (Intersection Observer) =====
+        function addRevealClasses() {
+            // Section headers
+            document.querySelectorAll('.section-header, .ai-experts-header').forEach(el => {
+                if (!el.classList.contains('reveal')) el.classList.add('reveal');
+            });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
+            // Cards with stagger
+            const cardGroups = [
+                { sel: '.goal-card', cls: 'reveal' },
+                { sel: '.tool-card', cls: 'reveal' },
+                { sel: '.guide-card', cls: 'reveal' },
+                { sel: '.ai-expert-card', cls: 'reveal' },
+                { sel: '.stat-item', cls: 'reveal' },
+                { sel: '.team-card', cls: 'reveal' },
+            ];
+            cardGroups.forEach(group => {
+                document.querySelectorAll(group.sel).forEach((el, i) => {
+                    if (!el.classList.contains('reveal')) {
+                        el.classList.add(group.cls);
+                        el.classList.add('stagger-' + Math.min(i + 1, 6));
+                    }
+                });
+            });
+
+            // Larger blocks
+            document.querySelectorAll('.tool-featured, .compare-box, .health-wheel-home').forEach(el => {
+                if (!el.classList.contains('reveal-scale')) el.classList.add('reveal-scale');
+            });
+
+            // Blog inline cards
+            document.querySelectorAll('[style*="border-radius: 16px; overflow: hidden; border: 1px solid"]').forEach((el, i) => {
+                const parent = el.closest('a');
+                if (parent && !parent.classList.contains('reveal')) {
+                    parent.classList.add('reveal');
+                    parent.classList.add('stagger-' + Math.min(i + 1, 6));
                 }
             });
-        }, observerOptions);
+        }
 
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+        addRevealClasses();
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
         });
 
-        // Story video playback
+        // ===== STATS COUNTER ANIMATION =====
+        const statValues = document.querySelectorAll('.stat-value');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStatValue(entry.target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statValues.forEach(el => statsObserver.observe(el));
+
+        function animateStatValue(el) {
+            const text = el.textContent.trim();
+            // Extract number
+            const match = text.match(/([\d,.]+)/);
+            if (!match) return; // e.g. "Kanıta Dayalı" — no number
+
+            const numStr = match[1];
+            const num = parseFloat(numStr.replace(/,/g, ''));
+            const prefix = text.substring(0, text.indexOf(numStr));
+            const suffix = text.substring(text.indexOf(numStr) + numStr.length);
+            const hasComma = numStr.includes(',');
+            const isFloat = numStr.includes('.') && !hasComma;
+            const duration = 1800;
+            const start = performance.now();
+
+            el.classList.add('counting');
+
+            function easeOutExpo(t) {
+                return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+            }
+
+            function tick(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeOutExpo(progress);
+                let current = Math.round(eased * num);
+
+                if (hasComma) {
+                    el.textContent = prefix + current.toLocaleString('tr-TR') + suffix;
+                } else {
+                    el.textContent = prefix + current + suffix;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    el.textContent = text; // restore original
+                    el.classList.remove('counting');
+                    el.classList.add('counted');
+                }
+            }
+            requestAnimationFrame(tick);
+        }
+
+        // ===== STORY VIDEO PLAYBACK =====
         function playStoryVideo(card) {
             const video = card.querySelector('video');
             const playBtn = card.querySelector('.story-play');
-            
             if (video.paused) {
-                // Pause all other videos first
                 document.querySelectorAll('.story-card video').forEach(v => {
                     v.pause();
                     v.closest('.story-card').querySelector('.story-play').style.display = 'flex';
                 });
-                
                 video.play();
                 playBtn.style.display = 'none';
             } else {
@@ -2264,23 +2675,19 @@
                 playBtn.style.display = 'flex';
             }
         }
-
-        // Reset play button when video ends
         document.querySelectorAll('.story-card video').forEach(video => {
             video.addEventListener('ended', function() {
                 this.closest('.story-card').querySelector('.story-play').style.display = 'flex';
             });
         });
 
-        // Newsletter form handler
+        // ===== NEWSLETTER =====
         function handleNewsletter(e, form) {
             e.preventDefault();
             const email = form.email.value;
-            // Store locally and send via email link
             localStorage.setItem('uzunyasa_subscriber', email);
             form.style.display = 'none';
             document.getElementById('newsletter-success').style.display = 'block';
-            // Open email client as backup
             setTimeout(() => {
                 window.open('mailto:cemsimsek11@gmail.com?subject=Yeni%20Abone&body=Email:%20' + encodeURIComponent(email), '_blank');
             }, 1000);
