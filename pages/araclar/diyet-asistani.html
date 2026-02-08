@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script src="../../scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Diyet Asistanı — Kişisel Haftalık Yemek Planı | UzunYaşa</title>
+ <meta name="description" content="Kişisel bilgilerinize göre 7 günlük Türk mutfağı yemek planı oluşturun. BMI, TDEE hesaplama, makro dağılımı ve alışveriş listesi.">
+ <meta name="keywords" content="diyet planı, haftalık yemek planı, kalori hesaplama, Türk yemekleri diyet, kilo verme planı, TDEE hesaplama">
+ <meta property="og:title" content="Diyet Asistanı — Kişisel Haftalık Yemek Planı | UzunYaşa">
+ <meta property="og:description" content="Kişisel bilgilerinize göre 7 günlük Türk mutfağı yemek planı oluşturun.">
+ <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+ <meta property="og:type" content="website">
+ <meta property="og:locale" content="tr_TR">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../styles/main.css">
+ <link rel="stylesheet" href="../../styles/animations.css">
+ <style>
+  :root {
+   --teal: #0D7377;
+   --teal-light: #0f8a8f;
+   --teal-bg: #f0fdfa;
+   --orange: #E8963E;
+   --green: #059669;
+   --yellow: #d97706;
+   --red: #dc2626;
+   --gray-50: #f9fafb;
+   --gray-100: #f3f4f6;
+   --gray-200: #e5e7eb;
+   --gray-300: #d1d5db;
+   --gray-500: #6b7280;
+   --gray-700: #374151;
+   --gray-900: #111827;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--gray-700); line-height: 1.6; }
+
+  .quiz-header {
+   background: white;
+   border-bottom: 1px solid var(--gray-200);
+   padding: 1rem 1.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: sticky;
+   top: 0;
+   z-index: 100;
+  }
+  .quiz-header .logo-img { height: 36px; }
+  .quiz-header .back-link {
+   color: var(--gray-500);
+   text-decoration: none;
+   font-size: 0.9rem;
+  }
+  .quiz-header .back-link:hover { color: var(--teal); }
+
+  .disclaimer-banner {
+   background: #fffbeb;
+   border-bottom: 1px solid #fde68a;
+   padding: 0.6rem 1.5rem;
+   text-align: center;
+   font-size: 0.8rem;
+   color: #92400e;
+  }
+
+  .progress-wrapper {
+   background: white;
+   padding: 1rem 1.5rem;
+   border-bottom: 1px solid var(--gray-200);
+  }
+  .progress-bar-track {
+   height: 6px;
+   background: var(--gray-200);
+   border-radius: 3px;
+   overflow: hidden;
+  }
+  .progress-bar-fill {
+   height: 100%;
+   background: linear-gradient(90deg, var(--teal), var(--orange));
+   border-radius: 3px;
+   transition: width 0.4s ease;
+   width: 0%;
+  }
+  .progress-label {
+   font-size: 0.75rem;
+   color: var(--gray-500);
+   margin-top: 0.35rem;
+   text-align: center;
+  }
+
+  .quiz-container {
+   max-width: 640px;
+   margin: 2rem auto;
+   padding: 0 1rem;
+  }
+
+  .step { display: none; animation: fadeIn 0.35s ease; }
+  .step.active { display: block; }
+  @keyframes fadeIn {
+   from { opacity: 0; transform: translateY(12px); }
+   to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-card {
+   background: white;
+   border-radius: 16px;
+   padding: 2rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+   border: 1px solid var(--gray-200);
+  }
+
+  .step-number {
+   font-size: 0.75rem;
+   font-weight: 600;
+   color: var(--teal);
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   margin-bottom: 0.5rem;
+  }
+  .step-title {
+   font-size: 1.35rem;
+   font-weight: 700;
+   color: var(--gray-900);
+   margin-bottom: 0.5rem;
+  }
+  .step-desc {
+   font-size: 0.9rem;
+   color: var(--gray-500);
+   margin-bottom: 1.5rem;
+  }
+
+  .form-row {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 1rem;
+   margin-bottom: 1rem;
+  }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label {
+   display: block;
+   font-size: 0.85rem;
+   font-weight: 600;
+   color: var(--gray-700);
+   margin-bottom: 0.35rem;
+  }
+  .form-group input, .form-group select {
+   width: 100%;
+   padding: 0.7rem 1rem;
+   border: 1.5px solid var(--gray-300);
+   border-radius: 10px;
+   font-size: 1rem;
+   font-family: inherit;
+   transition: border-color 0.2s;
+   background: white;
+  }
+  .form-group input:focus, .form-group select:focus {
+   outline: none;
+   border-color: var(--teal);
+   box-shadow: 0 0 0 3px rgba(13,115,119,0.1);
+  }
+
+  .bmi-result {
+   display: none;
+   background: var(--teal-bg);
+   border: 1px solid #99f6e4;
+   border-radius: 12px;
+   padding: 1.25rem;
+   margin-top: 1rem;
+   text-align: center;
+  }
+  .bmi-result.show { display: block; }
+  .bmi-value { font-size: 2rem; font-weight: 800; color: var(--teal); }
+  .bmi-category { font-size: 0.85rem; font-weight: 600; margin-top: 0.25rem; }
+  .tdee-info { font-size: 0.85rem; color: var(--gray-700); margin-top: 0.5rem; }
+  .tdee-info strong { color: var(--teal); }
+
+  .checkbox-group { display: flex; flex-direction: column; gap: 0.6rem; }
+  .checkbox-item {
+   display: flex;
+   align-items: center;
+   gap: 0.75rem;
+   padding: 0.75rem 1rem;
+   border: 1.5px solid var(--gray-200);
+   border-radius: 10px;
+   cursor: pointer;
+   transition: all 0.2s;
+   user-select: none;
+  }
+  .checkbox-item:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .checkbox-item.checked { border-color: var(--teal); background: var(--teal-bg); }
+  .checkbox-item input[type="checkbox"] { display: none; }
+  .check-box {
+   width: 22px; height: 22px;
+   border: 2px solid var(--gray-300);
+   border-radius: 6px;
+   display: flex; align-items: center; justify-content: center;
+   flex-shrink: 0; transition: all 0.2s;
+  }
+  .checkbox-item.checked .check-box { background: var(--teal); border-color: var(--teal); }
+  .check-box svg { display: none; }
+  .checkbox-item.checked .check-box svg { display: block; }
+
+  .radio-group { display: flex; flex-direction: column; gap: 0.6rem; }
+  .radio-item {
+   display: flex; align-items: center; gap: 0.75rem;
+   padding: 0.75rem 1rem;
+   border: 1.5px solid var(--gray-200);
+   border-radius: 10px;
+   cursor: pointer; transition: all 0.2s; user-select: none;
+  }
+  .radio-item:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .radio-item.checked { border-color: var(--teal); background: var(--teal-bg); }
+  .radio-item input[type="radio"] { display: none; }
+  .radio-dot {
+   width: 22px; height: 22px;
+   border: 2px solid var(--gray-300);
+   border-radius: 50%;
+   display: flex; align-items: center; justify-content: center;
+   flex-shrink: 0; transition: all 0.2s;
+  }
+  .radio-item.checked .radio-dot { border-color: var(--teal); }
+  .radio-item.checked .radio-dot::after {
+   content: ''; width: 10px; height: 10px;
+   background: var(--teal); border-radius: 50%;
+  }
+
+  .btn-row {
+   display: flex; justify-content: space-between;
+   margin-top: 1.5rem; gap: 1rem;
+  }
+  .btn {
+   padding: 0.75rem 2rem;
+   border-radius: 10px;
+   font-size: 0.95rem; font-weight: 600;
+   border: none; cursor: pointer;
+   transition: all 0.2s; font-family: inherit;
+  }
+  .btn-primary { background: var(--teal); color: white; }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .btn-secondary { background: var(--gray-100); color: var(--gray-700); }
+  .btn-secondary:hover { background: var(--gray-200); }
+
+  .field-error { color: var(--red); font-size: 0.8rem; margin-top: 0.25rem; display: none; }
+
+  /* RESULTS */
+  .results-container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+  .results-header {
+   text-align: center; padding: 2rem 0;
+  }
+  .results-header h1 {
+   font-size: 1.75rem; font-weight: 800; color: var(--gray-900);
+  }
+  .results-header p { color: var(--gray-500); margin-top: 0.25rem; }
+
+  .results-stats {
+   display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+   gap: 1rem; margin-bottom: 2rem;
+  }
+  .stat-card {
+   background: white; border-radius: 12px; padding: 1.25rem;
+   text-align: center; border: 1px solid var(--gray-200);
+  }
+  .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--teal); }
+  .stat-label { font-size: 0.75rem; color: var(--gray-500); margin-top: 0.15rem; }
+
+  .results-actions {
+   display: flex; flex-wrap: wrap; gap: 0.75rem;
+   justify-content: center; margin-bottom: 2rem;
+  }
+  .action-btn {
+   display: inline-flex; align-items: center; gap: 0.5rem;
+   padding: 0.6rem 1.25rem; border-radius: 10px;
+   font-size: 0.85rem; font-weight: 600;
+   border: 1.5px solid var(--gray-200); background: white;
+   color: var(--gray-700); cursor: pointer; transition: all 0.2s;
+   font-family: inherit; text-decoration: none;
+  }
+  .action-btn:hover { border-color: var(--teal); color: var(--teal); }
+  .action-btn.primary { background: var(--teal); color: white; border-color: var(--teal); }
+  .action-btn.primary:hover { background: var(--teal-light); }
+
+  /* Day cards */
+  .day-card {
+   background: white; border-radius: 16px;
+   margin-bottom: 1.5rem;
+   border: 1px solid var(--gray-200);
+   overflow: hidden;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .day-header {
+   display: flex; justify-content: space-between; align-items: center;
+   padding: 1rem 1.5rem;
+   background: linear-gradient(135deg, var(--teal), var(--teal-light));
+   color: white; cursor: pointer;
+  }
+  .day-header h3 { font-size: 1.05rem; font-weight: 700; }
+  .day-header .day-kcal { font-size: 0.9rem; opacity: 0.9; }
+  .day-body { padding: 1rem 1.5rem; }
+  .day-body.collapsed { display: none; }
+
+  .meal-row {
+   display: flex; justify-content: space-between; align-items: flex-start;
+   padding: 0.65rem 0;
+   border-bottom: 1px solid var(--gray-100);
+  }
+  .meal-row:last-child { border-bottom: none; }
+  .meal-type {
+   font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+   color: var(--teal); letter-spacing: 0.04em;
+   min-width: 70px;
+  }
+  .meal-name { flex: 1; font-size: 0.9rem; color: var(--gray-700); margin: 0 0.75rem; }
+  .meal-kcal { font-size: 0.85rem; font-weight: 600; color: var(--gray-500); white-space: nowrap; }
+
+  .day-progress {
+   padding: 0.5rem 1.5rem 1rem;
+  }
+  .progress-track {
+   height: 8px; background: var(--gray-100);
+   border-radius: 4px; overflow: hidden;
+  }
+  .progress-fill {
+   height: 100%; border-radius: 4px;
+   background: linear-gradient(90deg, var(--green), var(--teal));
+   transition: width 0.5s;
+  }
+  .progress-fill.over { background: linear-gradient(90deg, var(--yellow), var(--red)); }
+  .progress-text {
+   font-size: 0.7rem; color: var(--gray-500); margin-top: 0.25rem;
+   display: flex; justify-content: space-between;
+  }
+
+  /* Donut chart */
+  .macro-chart {
+   display: flex; align-items: center; justify-content: center;
+   gap: 1.5rem; padding: 1rem 1.5rem;
+  }
+  .donut-container { position: relative; width: 80px; height: 80px; }
+  .donut-container canvas { width: 80px; height: 80px; }
+  .macro-legend { display: flex; flex-direction: column; gap: 0.35rem; }
+  .macro-legend-item {
+   display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem;
+  }
+  .macro-dot {
+   width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* Shopping list modal */
+  .modal-overlay {
+   display: none; position: fixed; inset: 0;
+   background: rgba(0,0,0,0.5); z-index: 1000;
+   align-items: center; justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal-box {
+   background: white; border-radius: 16px;
+   max-width: 500px; width: 90%; max-height: 80vh;
+   overflow-y: auto; padding: 2rem;
+  }
+  .modal-box h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--gray-900); }
+  .modal-box ul { list-style: none; padding: 0; }
+  .modal-box li {
+   padding: 0.4rem 0; border-bottom: 1px solid var(--gray-100);
+   font-size: 0.9rem;
+  }
+  .modal-close {
+   position: absolute; top: 1rem; right: 1rem;
+   background: none; border: none; font-size: 1.5rem;
+   cursor: pointer; color: var(--gray-500);
+  }
+
+  /* Intro */
+  .intro-card {
+   background: white; border-radius: 16px; padding: 2.5rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+   border: 1px solid var(--gray-200); text-align: center;
+  }
+  .intro-badge {
+   display: inline-block; background: var(--teal-bg);
+   color: var(--teal); font-size: 0.8rem; font-weight: 700;
+   padding: 0.35rem 1rem; border-radius: 20px; margin-bottom: 1rem;
+  }
+  .intro-title { font-size: 1.75rem; font-weight: 800; color: var(--gray-900); margin-bottom: 0.5rem; }
+  .intro-desc { font-size: 1rem; color: var(--gray-500); margin-bottom: 1.5rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  @media print {
+   .quiz-header, .disclaimer-banner, .progress-wrapper, .results-actions, .no-print { display: none !important; }
+   .day-body.collapsed { display: block !important; }
+   .day-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+   body { background: white; }
+  }
+
+  @media (max-width: 600px) {
+   .form-row { grid-template-columns: 1fr; }
+   .results-stats { grid-template-columns: 1fr 1fr; }
+   .macro-chart { flex-direction: column; }
+   .results-actions { flex-direction: column; }
+   .action-btn { width: 100%; justify-content: center; }
+  }
+ </style>
+</head>
+<body>
+ <!-- Header -->
+ <header class="quiz-header">
+  <a href="../../index.html"><img src="../../images/uzunyasa-logo.svg" alt="UzunYaşa" class="logo-img"></a>
+  <a href="../araclar.html" class="back-link">← Araçlar</a>
+ </header>
+
+ <div class="disclaimer-banner">
+  ⚠️ Bu araç genel bilgilendirme amaçlıdır, tıbbi beslenme önerisi değildir. Diyetisyeninize danışın.
+ </div>
+
+ <!-- Progress -->
+ <div class="progress-wrapper" id="progressWrapper">
+  <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+  <div class="progress-label" id="progressLabel">Adım 1 / 5</div>
+ </div>
+
+ <!-- WIZARD -->
+ <div class="quiz-container" id="wizard">
+
+  <!-- Intro -->
+  <div class="step active" id="step-intro">
+   <div class="intro-card">
+    <div class="intro-badge">🥗 Yapay Zeka Destekli</div>
+    <h1 class="intro-title">Diyet Asistanı</h1>
+    <p class="intro-desc">Kişisel bilgilerinize göre 7 günlük Türk mutfağı yemek planı oluşturun. Kalori hedefi, makro dağılımı ve alışveriş listesi dahil.</p>
+    <button class="btn btn-primary" onclick="startWizard()" style="padding:1rem 3rem;font-size:1.1rem;">Başlayalım →</button>
+   </div>
+  </div>
+
+  <!-- Step 1: Profile -->
+  <div class="step" id="step-1">
+   <div class="step-card">
+    <div class="step-number">Adım 1 / 5</div>
+    <h2 class="step-title">📋 Profil Bilgileri</h2>
+    <p class="step-desc">Boy, kilo, yaş ve cinsiyetinizi girin.</p>
+
+    <div class="form-row">
+     <div class="form-group">
+      <label>Boy (cm)</label>
+      <input type="number" id="height" placeholder="170" min="100" max="250">
+     </div>
+     <div class="form-group">
+      <label>Kilo (kg)</label>
+      <input type="number" id="weight" placeholder="75" min="30" max="300">
+     </div>
+    </div>
+    <div class="form-row">
+     <div class="form-group">
+      <label>Yaş</label>
+      <input type="number" id="age" placeholder="30" min="15" max="100">
+     </div>
+     <div class="form-group">
+      <label>Cinsiyet</label>
+      <select id="gender">
+       <option value="">Seçin</option>
+       <option value="male">Erkek</option>
+       <option value="female">Kadın</option>
+      </select>
+     </div>
+    </div>
+    <div class="form-group">
+     <label>Aktivite Seviyesi</label>
+     <select id="activity">
+      <option value="1.2">Hareketsiz (masa başı)</option>
+      <option value="1.375">Hafif aktif (haftada 1-3 gün)</option>
+      <option value="1.55" selected>Orta aktif (haftada 3-5 gün)</option>
+      <option value="1.725">Çok aktif (haftada 6-7 gün)</option>
+      <option value="1.9">Ekstra aktif (günde 2 antrenman)</option>
+     </select>
+    </div>
+
+    <div class="bmi-result" id="bmiResult">
+     <div class="bmi-value" id="bmiValue">—</div>
+     <div class="bmi-category" id="bmiCategory"></div>
+     <div class="tdee-info">Günlük enerji ihtiyacı (TDEE): <strong id="tdeeValue">—</strong> kcal</div>
+    </div>
+
+    <div class="field-error" id="step1Error">Lütfen tüm alanları doldurun.</div>
+    <div class="btn-row">
+     <span></span>
+     <button class="btn btn-primary" onclick="goStep(2)">Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- Step 2: Goal -->
+  <div class="step" id="step-2">
+   <div class="step-card">
+    <div class="step-number">Adım 2 / 5</div>
+    <h2 class="step-title">🎯 Hedefiniz</h2>
+    <p class="step-desc">Beslenme hedefinizi seçin.</p>
+
+    <div class="radio-group" id="goalGroup">
+     <label class="radio-item" onclick="selectRadio(this,'goal')">
+      <input type="radio" name="goal" value="lose">
+      <div class="radio-dot"></div>
+      <span>🔻 Kilo vermek (TDEE − 500 kcal)</span>
+     </label>
+     <label class="radio-item" onclick="selectRadio(this,'goal')">
+      <input type="radio" name="goal" value="maintain">
+      <div class="radio-dot"></div>
+      <span>⚖️ Kilo korumak (TDEE)</span>
+     </label>
+     <label class="radio-item" onclick="selectRadio(this,'goal')">
+      <input type="radio" name="goal" value="gain">
+      <div class="radio-dot"></div>
+      <span>💪 Kas yapmak (TDEE + 300 kcal)</span>
+     </label>
+    </div>
+
+    <div class="field-error" id="step2Error">Lütfen bir hedef seçin.</div>
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(1)">← Geri</button>
+     <button class="btn btn-primary" onclick="goStep(3)">Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- Step 3: Diet Preference -->
+  <div class="step" id="step-3">
+   <div class="step-card">
+    <div class="step-number">Adım 3 / 5</div>
+    <h2 class="step-title">🥦 Beslenme Tercihleri</h2>
+    <p class="step-desc">Beslenme tarzınızı seçin (birden fazla seçebilirsiniz).</p>
+
+    <div class="checkbox-group" id="prefGroup">
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="normal" checked>
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Normal (her şey)</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="vegetarian">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Vejetaryen</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="lactose-free">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Laktozsuz</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="gluten-free">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Glutensiz</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="low-carb">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Düşük karbonhidrat</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="mediterranean">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Akdeniz diyeti tarzı</span>
+     </label>
+    </div>
+
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(2)">← Geri</button>
+     <button class="btn btn-primary" onclick="goStep(4)">Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- Step 4: Allergies -->
+  <div class="step" id="step-4">
+   <div class="step-card">
+    <div class="step-number">Adım 4 / 5</div>
+    <h2 class="step-title">⚠️ Alerjiler / Kısıtlamalar</h2>
+    <p class="step-desc">Varsa alerji veya kısıtlamalarınızı işaretleyin.</p>
+
+    <div class="checkbox-group" id="allergyGroup">
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="nuts">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Kuruyemiş alerjisi</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="seafood">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Deniz ürünleri</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="egg">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Yumurta</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="dairy">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="checkbox-label">Süt ürünleri</span>
+     </label>
+    </div>
+
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(3)">← Geri</button>
+     <button class="btn btn-primary" onclick="goStep(5)">Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- Step 5: Meal preference -->
+  <div class="step" id="step-5">
+   <div class="step-card">
+    <div class="step-number">Adım 5 / 5</div>
+    <h2 class="step-title">🍽️ Öğün Tercihi</h2>
+    <p class="step-desc">Günde kaç öğün tercih edersiniz?</p>
+
+    <div class="radio-group" id="mealCountGroup">
+     <label class="radio-item" onclick="selectRadio(this,'mealCount')">
+      <input type="radio" name="mealCount" value="3">
+      <div class="radio-dot"></div>
+      <span>3 ana öğün</span>
+     </label>
+     <label class="radio-item" onclick="selectRadio(this,'mealCount')">
+      <input type="radio" name="mealCount" value="5">
+      <div class="radio-dot"></div>
+      <span>3 ana + 2 ara öğün</span>
+     </label>
+     <label class="radio-item" onclick="selectRadio(this,'mealCount')">
+      <input type="radio" name="mealCount" value="2">
+      <div class="radio-dot"></div>
+      <span>2 ana öğün (intermittent fasting 16:8)</span>
+     </label>
+    </div>
+
+    <div class="field-error" id="step5Error">Lütfen bir tercih seçin.</div>
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(4)">← Geri</button>
+     <button class="btn btn-primary" onclick="generatePlan()" style="background:var(--orange);">🥗 Planımı Oluştur</button>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- RESULTS -->
+ <div id="results" style="display:none;">
+  <div class="results-container">
+   <div class="results-header">
+    <h1>🥗 7 Günlük Yemek Planınız</h1>
+    <p id="resultsSummary"></p>
+   </div>
+
+   <div class="results-stats" id="resultsStats"></div>
+
+   <div class="results-actions no-print">
+    <button class="action-btn primary" onclick="generatePlan()">🔄 Yeniden Oluştur</button>
+    <button class="action-btn" onclick="showShopping()">🛒 Alışveriş Listesi</button>
+    <button class="action-btn" onclick="window.print()">🖨️ Yazdır</button>
+    <button class="action-btn" onclick="shareWhatsApp()">💬 WhatsApp</button>
+    <button class="action-btn" onclick="savePlan()">💾 Kaydet</button>
+   </div>
+
+   <div id="planDays"></div>
+  </div>
+ </div>
+
+ <!-- Shopping modal -->
+ <div class="modal-overlay" id="shoppingModal" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="modal-box" style="position:relative;">
+   <button class="modal-close" onclick="document.getElementById('shoppingModal').classList.remove('show')">✕</button>
+   <h2>🛒 Haftalık Alışveriş Listesi</h2>
+   <ul id="shoppingList"></ul>
+  </div>
+ </div>
+
+<script>
+// ============== MEAL DATABASE ==============
+const meals = {
+ kahvalti: [
+  { name: 'Menemen (2 yumurta)', kcal: 280, p: 18, k: 8, y: 20, tags: [], allergens: ['egg'], ingredients: ['yumurta','domates','biber','zeytinyağı'] },
+  { name: 'Peynirli omlet', kcal: 320, p: 22, k: 4, y: 24, tags: [], allergens: ['egg','dairy'], ingredients: ['yumurta','beyaz peynir','tereyağı'] },
+  { name: 'Yulaf ezmesi + muz + bal', kcal: 350, p: 10, k: 55, y: 8, tags: ['vegetarian','mediterranean'], allergens: [], ingredients: ['yulaf ezmesi','muz','bal'] },
+  { name: 'Tam buğday tost + beyaz peynir + domates', kcal: 250, p: 12, k: 30, y: 9, tags: ['vegetarian'], allergens: ['dairy','gluten'], ingredients: ['tam buğday ekmeği','beyaz peynir','domates'] },
+  { name: 'Açma + çay + peynir tabağı', kcal: 400, p: 14, k: 42, y: 20, tags: [], allergens: ['dairy','gluten'], ingredients: ['açma','beyaz peynir','kaşar peyniri','çay'] },
+  { name: 'Sahanda yumurta + sucuk (2 dilim)', kcal: 380, p: 20, k: 4, y: 32, tags: ['low-carb'], allergens: ['egg'], ingredients: ['yumurta','sucuk','tereyağı'] },
+  { name: 'Müsli + yoğurt + mevsim meyve', kcal: 300, p: 12, k: 45, y: 8, tags: ['vegetarian','mediterranean'], allergens: ['dairy','gluten'], ingredients: ['müsli','yoğurt','mevsim meyvesi'] },
+  { name: 'Poğaça + ayran', kcal: 420, p: 12, k: 48, y: 20, tags: [], allergens: ['dairy','gluten'], ingredients: ['poğaça','ayran'] },
+  { name: 'Kaşarlı tost', kcal: 350, p: 16, k: 32, y: 18, tags: [], allergens: ['dairy','gluten'], ingredients: ['tost ekmeği','kaşar peyniri'] },
+  { name: 'Tam tahıllı gevrek + süt', kcal: 280, p: 10, k: 42, y: 6, tags: ['vegetarian'], allergens: ['dairy','gluten'], ingredients: ['tam tahıllı gevrek','süt'] },
+  { name: 'Avokadolu tam buğday tost', kcal: 310, p: 8, k: 28, y: 20, tags: ['vegetarian','mediterranean','lactose-free'], allergens: ['gluten'], ingredients: ['tam buğday ekmeği','avokado','limon'] },
+  { name: 'Lor peynirli salata', kcal: 220, p: 18, k: 10, y: 12, tags: ['vegetarian','low-carb','mediterranean'], allergens: ['dairy'], ingredients: ['lor peyniri','domates','salatalık','zeytinyağı'] },
+  { name: 'Gözleme (peynirli)', kcal: 380, p: 16, k: 38, y: 18, tags: [], allergens: ['dairy','gluten'], ingredients: ['un','beyaz peynir','ıspanak'] },
+  { name: 'Simit + peynir + çay', kcal: 430, p: 16, k: 52, y: 18, tags: [], allergens: ['dairy','gluten'], ingredients: ['simit','beyaz peynir','çay'] },
+  { name: 'Smoothie (muz, yulaf, süt, fıstık ezmesi)', kcal: 380, p: 14, k: 46, y: 16, tags: [], allergens: ['dairy','nuts'], ingredients: ['muz','yulaf ezmesi','süt','fıstık ezmesi'] },
+ ],
+ ogle: [
+  { name: 'Mercimek çorbası + salata', kcal: 280, p: 14, k: 38, y: 6, tags: ['vegetarian','mediterranean','lactose-free','gluten-free'], allergens: [], ingredients: ['kırmızı mercimek','soğan','havuç','limon','salata'] },
+  { name: 'Izgara tavuk salata', kcal: 350, p: 35, k: 12, y: 18, tags: ['low-carb','mediterranean','lactose-free','gluten-free'], allergens: [], ingredients: ['tavuk göğsü','marul','domates','salatalık','zeytinyağı'] },
+  { name: 'Kuru fasulye + pilav (küçük)', kcal: 400, p: 18, k: 55, y: 10, tags: ['vegetarian','lactose-free'], allergens: [], ingredients: ['kuru fasulye','pirinç','domates salçası','soğan'] },
+  { name: 'Ton balıklı sandviç', kcal: 380, p: 28, k: 32, y: 14, tags: ['mediterranean'], allergens: ['seafood','gluten'], ingredients: ['ton balığı','tam buğday ekmeği','marul','domates'] },
+  { name: 'Zeytinyağlı enginar + bulgur', kcal: 320, p: 10, k: 42, y: 14, tags: ['vegetarian','mediterranean','lactose-free'], allergens: [], ingredients: ['enginar','bulgur','zeytinyağı','limon'] },
+  { name: 'Tavuk wrap', kcal: 420, p: 30, k: 36, y: 16, tags: [], allergens: ['gluten'], ingredients: ['tavuk göğsü','lavaş','marul','domates','yoğurt sosu'] },
+  { name: 'Sebze çorbası + tam buğday ekmek', kcal: 250, p: 8, k: 38, y: 6, tags: ['vegetarian','mediterranean','lactose-free'], allergens: ['gluten'], ingredients: ['karışık sebze','tam buğday ekmeği'] },
+  { name: 'Nohutlu salata', kcal: 340, p: 16, k: 40, y: 12, tags: ['vegetarian','mediterranean','lactose-free','gluten-free'], allergens: [], ingredients: ['nohut','domates','salatalık','maydanoz','zeytinyağı'] },
+  { name: 'Etli bulgur pilavı', kcal: 380, p: 22, k: 42, y: 12, tags: ['lactose-free'], allergens: [], ingredients: ['kıyma','bulgur','domates salçası','soğan'] },
+  { name: 'Karışık ızgara sebze + hellim', kcal: 300, p: 18, k: 16, y: 20, tags: ['vegetarian','low-carb','mediterranean'], allergens: ['dairy'], ingredients: ['patlıcan','kabak','biber','hellim peyniri'] },
+  { name: 'Makarna (domates soslu)', kcal: 400, p: 14, k: 60, y: 10, tags: ['vegetarian','lactose-free'], allergens: ['gluten'], ingredients: ['makarna','domates','sarımsak','zeytinyağı','fesleğen'] },
+  { name: 'Mercimek köftesi + ayran', kcal: 320, p: 14, k: 42, y: 8, tags: ['vegetarian'], allergens: ['dairy'], ingredients: ['kırmızı mercimek','bulgur','soğan','maydanoz','ayran'] },
+  { name: 'Falafel tabağı', kcal: 380, p: 16, k: 40, y: 18, tags: ['vegetarian','mediterranean','lactose-free'], allergens: [], ingredients: ['nohut','maydanoz','soğan','salata'] },
+  { name: 'Tavuk sote + salata', kcal: 350, p: 30, k: 18, y: 16, tags: ['low-carb','lactose-free','gluten-free'], allergens: [], ingredients: ['tavuk göğsü','biber','domates','soğan'] },
+  { name: 'Lahmacun (2 adet) + ayran', kcal: 480, p: 22, k: 52, y: 18, tags: [], allergens: ['dairy','gluten'], ingredients: ['lahmacun','kıyma','ayran','maydanoz','limon'] },
+  { name: 'Mantar sote + pilav', kcal: 360, p: 12, k: 48, y: 12, tags: ['vegetarian','lactose-free'], allergens: [], ingredients: ['mantar','pirinç','soğan','zeytinyağı'] },
+  { name: 'Çiğ köfte dürüm', kcal: 350, p: 12, k: 48, y: 10, tags: ['vegetarian','lactose-free'], allergens: ['gluten'], ingredients: ['bulgur','nar ekşisi','maydanoz','lavaş','marul'] },
+  { name: 'Patlıcan musakka', kcal: 380, p: 18, k: 24, y: 24, tags: [], allergens: [], ingredients: ['patlıcan','kıyma','domates','soğan','biber'] },
+  { name: 'Ispanaklı börek (1 dilim)', kcal: 350, p: 14, k: 32, y: 18, tags: ['vegetarian'], allergens: ['dairy','gluten','egg'], ingredients: ['yufka','ıspanak','beyaz peynir','yumurta'] },
+  { name: 'Balık tava + salata', kcal: 400, p: 30, k: 20, y: 22, tags: ['mediterranean'], allergens: ['seafood','gluten'], ingredients: ['levrek','un','salata','zeytinyağı','limon'] },
+ ],
+ aksam: [
+  { name: 'Fırın tavuk + sebze', kcal: 380, p: 34, k: 16, y: 20, tags: ['low-carb','mediterranean','lactose-free','gluten-free'], allergens: [], ingredients: ['tavuk but','patates','havuç','kabak','zeytinyağı'] },
+  { name: 'Izgara köfte + salata', kcal: 420, p: 30, k: 12, y: 28, tags: ['low-carb','lactose-free','gluten-free'], allergens: [], ingredients: ['kıyma','soğan','maydanoz','salata','domates'] },
+  { name: 'Sebzeli güveç', kcal: 300, p: 10, k: 34, y: 14, tags: ['vegetarian','mediterranean','lactose-free','gluten-free'], allergens: [], ingredients: ['patlıcan','kabak','biber','domates','patates'] },
+  { name: 'Somon ızgara + brokoli', kcal: 400, p: 36, k: 8, y: 24, tags: ['low-carb','mediterranean','lactose-free','gluten-free'], allergens: ['seafood'], ingredients: ['somon fileto','brokoli','zeytinyağı','limon'] },
+  { name: 'Etli kuru fasulye + yoğurt', kcal: 450, p: 26, k: 48, y: 16, tags: [], allergens: ['dairy'], ingredients: ['kuru fasulye','kuşbaşı et','domates salçası','yoğurt'] },
+  { name: 'Fırın sebze + lor peynir', kcal: 280, p: 18, k: 20, y: 14, tags: ['vegetarian','low-carb','mediterranean'], allergens: ['dairy'], ingredients: ['kabak','patlıcan','biber','lor peyniri'] },
+  { name: 'Tavuk tandır + bulgur', kcal: 400, p: 32, k: 36, y: 14, tags: ['lactose-free'], allergens: [], ingredients: ['tavuk but','bulgur','domates','biber'] },
+  { name: 'Zeytinyağlı taze fasulye + yoğurt', kcal: 250, p: 10, k: 28, y: 10, tags: ['vegetarian','mediterranean'], allergens: ['dairy'], ingredients: ['taze fasulye','domates','soğan','yoğurt','zeytinyağı'] },
+  { name: 'Biftek + ızgara sebze', kcal: 450, p: 38, k: 10, y: 28, tags: ['low-carb','lactose-free','gluten-free'], allergens: [], ingredients: ['biftek','kabak','biber','mantar'] },
+  { name: 'Karnabahar graten', kcal: 320, p: 16, k: 18, y: 22, tags: ['vegetarian','gluten-free'], allergens: ['dairy'], ingredients: ['karnabahar','kaşar peyniri','süt','tereyağı'] },
+  { name: 'Sebze türlüsü + yoğurt', kcal: 280, p: 10, k: 32, y: 12, tags: ['vegetarian','mediterranean'], allergens: ['dairy'], ingredients: ['kabak','patlıcan','domates','yoğurt'] },
+  { name: 'Fırında levrek + patates', kcal: 380, p: 32, k: 24, y: 14, tags: ['mediterranean'], allergens: ['seafood'], ingredients: ['levrek','patates','domates','zeytinyağı'] },
+  { name: 'İmam bayıldı + pilav', kcal: 350, p: 8, k: 42, y: 16, tags: ['vegetarian','mediterranean','lactose-free'], allergens: [], ingredients: ['patlıcan','domates','soğan','pirinç','zeytinyağı'] },
+  { name: 'Kabak mücver + cacık', kcal: 300, p: 14, k: 24, y: 16, tags: ['vegetarian'], allergens: ['egg','dairy'], ingredients: ['kabak','yumurta','un','yoğurt','salatalık'] },
+  { name: 'Tavuk şiş + ezme + bulgur', kcal: 420, p: 34, k: 36, y: 14, tags: ['lactose-free'], allergens: [], ingredients: ['tavuk göğsü','bulgur','domates','biber','soğan'] },
+  { name: 'Çoban kavurma + salata', kcal: 450, p: 32, k: 10, y: 32, tags: ['low-carb','lactose-free','gluten-free'], allergens: [], ingredients: ['kuşbaşı et','biber','domates','salata'] },
+  { name: 'Barbunya pilaki + salata', kcal: 300, p: 14, k: 36, y: 10, tags: ['vegetarian','mediterranean','lactose-free','gluten-free'], allergens: [], ingredients: ['barbunya','soğan','havuç','domates','zeytinyağı'] },
+  { name: 'Patlıcan kebabı + bulgur', kcal: 400, p: 24, k: 36, y: 16, tags: ['lactose-free'], allergens: [], ingredients: ['kıyma','patlıcan','domates','bulgur'] },
+  { name: 'Karnıyarık + yoğurt', kcal: 380, p: 20, k: 26, y: 22, tags: [], allergens: ['dairy'], ingredients: ['patlıcan','kıyma','domates','yoğurt'] },
+  { name: 'Tas kebabı + pilav', kcal: 480, p: 30, k: 42, y: 20, tags: [], allergens: [], ingredients: ['kuşbaşı et','patates','domates salçası','pirinç'] },
+ ],
+ ara: [
+  { name: '1 elma + 10 badem', kcal: 150, p: 4, k: 20, y: 7, tags: ['vegetarian','lactose-free','gluten-free','mediterranean'], allergens: ['nuts'], ingredients: ['elma','badem'] },
+  { name: 'Yoğurt + ceviz', kcal: 180, p: 8, k: 14, y: 10, tags: ['vegetarian','mediterranean'], allergens: ['dairy','nuts'], ingredients: ['yoğurt','ceviz'] },
+  { name: 'Havuç + hummus', kcal: 120, p: 4, k: 16, y: 5, tags: ['vegetarian','mediterranean','lactose-free','gluten-free'], allergens: [], ingredients: ['havuç','nohut','tahin'] },
+  { name: 'Muz + fıstık ezmesi', kcal: 200, p: 6, k: 26, y: 10, tags: ['vegetarian','lactose-free','gluten-free'], allergens: ['nuts'], ingredients: ['muz','fıstık ezmesi'] },
+  { name: 'Peynir + tam buğday kraker', kcal: 160, p: 8, k: 16, y: 7, tags: ['vegetarian'], allergens: ['dairy','gluten'], ingredients: ['beyaz peynir','tam buğday kraker'] },
+  { name: 'Smoothie (çilek, yoğurt)', kcal: 150, p: 6, k: 22, y: 4, tags: ['vegetarian'], allergens: ['dairy'], ingredients: ['çilek','yoğurt'] },
+  { name: 'Kuruyemiş karışım (30g)', kcal: 170, p: 5, k: 10, y: 14, tags: ['vegetarian','lactose-free','gluten-free','mediterranean'], allergens: ['nuts'], ingredients: ['badem','ceviz','fındık'] },
+  { name: 'Lor peynir + domates', kcal: 100, p: 10, k: 6, y: 4, tags: ['vegetarian','low-carb','gluten-free'], allergens: ['dairy'], ingredients: ['lor peyniri','domates'] },
+  { name: 'Protein bar', kcal: 200, p: 20, k: 22, y: 6, tags: ['lactose-free'], allergens: ['gluten'], ingredients: ['protein bar'] },
+  { name: 'Meyve tabağı', kcal: 120, p: 2, k: 28, y: 1, tags: ['vegetarian','lactose-free','gluten-free','mediterranean'], allergens: [], ingredients: ['elma','portakal','üzüm'] },
+ ]
+};
+
+// ============== STATE ==============
+let currentStep = 'intro';
+let userProfile = {};
+let currentPlan = null;
+
+// ============== WIZARD LOGIC ==============
+function startWizard() {
+ currentStep = 1;
+ showStep(1);
+}
+
+function showStep(n) {
+ document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+ const id = typeof n === 'string' ? 'step-' + n : 'step-' + n;
+ document.getElementById(id).classList.add('active');
+ if (typeof n === 'number') {
+  const pct = (n / 5) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = 'Adım ' + n + ' / 5';
+ }
+}
+
+function goStep(n) {
+ // Validate current step
+ if (n > 1 && currentStep === 1 || (typeof currentStep === 'number' && n > currentStep)) {
+  if (!validateStep(currentStep)) return;
+ }
+ currentStep = n;
+ showStep(n);
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function validateStep(s) {
+ if (s === 1) {
+  const h = +document.getElementById('height').value;
+  const w = +document.getElementById('weight').value;
+  const a = +document.getElementById('age').value;
+  const g = document.getElementById('gender').value;
+  if (!h || !w || !a || !g) {
+   document.getElementById('step1Error').style.display = 'block';
+   return false;
+  }
+  document.getElementById('step1Error').style.display = 'none';
+  calcBMI();
+  return true;
+ }
+ if (s === 2) {
+  const sel = document.querySelector('input[name="goal"]:checked');
+  if (!sel) {
+   document.getElementById('step2Error').style.display = 'block';
+   return false;
+  }
+  document.getElementById('step2Error').style.display = 'none';
+  return true;
+ }
+ if (s === 5) {
+  const sel = document.querySelector('input[name="mealCount"]:checked');
+  if (!sel) {
+   document.getElementById('step5Error').style.display = 'block';
+   return false;
+  }
+  document.getElementById('step5Error').style.display = 'none';
+  return true;
+ }
+ return true;
+}
+
+function calcBMI() {
+ const h = +document.getElementById('height').value / 100;
+ const w = +document.getElementById('weight').value;
+ const a = +document.getElementById('age').value;
+ const g = document.getElementById('gender').value;
+ const act = +document.getElementById('activity').value;
+
+ const bmi = w / (h * h);
+ let cat = '', color = '';
+ if (bmi < 18.5) { cat = 'Zayıf'; color = 'var(--yellow)'; }
+ else if (bmi < 25) { cat = 'Normal'; color = 'var(--green)'; }
+ else if (bmi < 30) { cat = 'Fazla kilolu'; color = 'var(--yellow)'; }
+ else { cat = 'Obez'; color = 'var(--red)'; }
+
+ // Mifflin-St Jeor
+ let bmr;
+ if (g === 'male') bmr = 10 * w + 6.25 * (h * 100) - 5 * a + 5;
+ else bmr = 10 * w + 6.25 * (h * 100) - 5 * a - 161;
+ const tdee = Math.round(bmr * act);
+
+ document.getElementById('bmiValue').textContent = bmi.toFixed(1);
+ document.getElementById('bmiValue').style.color = color;
+ document.getElementById('bmiCategory').textContent = cat;
+ document.getElementById('bmiCategory').style.color = color;
+ document.getElementById('tdeeValue').textContent = tdee;
+ document.getElementById('bmiResult').classList.add('show');
+
+ userProfile.bmi = bmi;
+ userProfile.tdee = tdee;
+ userProfile.weight = w;
+ userProfile.height = h * 100;
+}
+
+// Auto-calc on input change
+['height','weight','age','gender','activity'].forEach(id => {
+ document.getElementById(id).addEventListener('change', () => {
+  const h = +document.getElementById('height').value;
+  const w = +document.getElementById('weight').value;
+  const a = +document.getElementById('age').value;
+  const g = document.getElementById('gender').value;
+  if (h && w && a && g) calcBMI();
+ });
+});
+
+function selectRadio(el, name) {
+ el.closest('.radio-group').querySelectorAll('.radio-item').forEach(i => i.classList.remove('checked'));
+ el.classList.add('checked');
+ el.querySelector('input').checked = true;
+}
+
+function toggleCheck(el) {
+ el.classList.toggle('checked');
+ const inp = el.querySelector('input');
+ inp.checked = !inp.checked;
+}
+
+// ============== PLAN GENERATION ==============
+function generatePlan() {
+ if (!validateStep(5)) return;
+
+ // Gather inputs
+ const goal = document.querySelector('input[name="goal"]:checked').value;
+ const mealCount = +document.querySelector('input[name="mealCount"]:checked').value;
+
+ const prefs = [];
+ document.querySelectorAll('#prefGroup input:checked').forEach(i => prefs.push(i.value));
+ const allergies = [];
+ document.querySelectorAll('#allergyGroup input:checked').forEach(i => allergies.push(i.value));
+
+ // Calc target calories
+ let targetKcal = userProfile.tdee;
+ if (goal === 'lose') targetKcal -= 500;
+ else if (goal === 'gain') targetKcal += 300;
+ targetKcal = Math.max(1200, targetKcal);
+
+ userProfile.targetKcal = targetKcal;
+ userProfile.goal = goal;
+ userProfile.mealCount = mealCount;
+
+ // Filter meals
+ const isNormal = prefs.includes('normal');
+ function filterMeals(mealList) {
+  return mealList.filter(m => {
+   // Allergen check
+   for (const a of allergies) {
+    if (m.allergens.includes(a)) return false;
+   }
+   // Preference check
+   if (!isNormal) {
+    if (prefs.includes('vegetarian') && !m.tags.includes('vegetarian')) return false;
+    if (prefs.includes('lactose-free') && m.allergens.includes('dairy')) return false;
+    if (prefs.includes('gluten-free') && m.allergens.includes('gluten')) return false;
+    if (prefs.includes('low-carb') && !m.tags.includes('low-carb')) return false;
+   }
+   return true;
+  });
+ }
+
+ const avail = {
+  kahvalti: filterMeals(meals.kahvalti),
+  ogle: filterMeals(meals.ogle),
+  aksam: filterMeals(meals.aksam),
+  ara: filterMeals(meals.ara),
+ };
+
+ // Distribute calories across meals
+ let dist;
+ if (mealCount === 3) dist = { kahvalti: 0.3, ogle: 0.35, aksam: 0.35 };
+ else if (mealCount === 5) dist = { kahvalti: 0.25, ogle: 0.3, aksam: 0.3, ara1: 0.075, ara2: 0.075 };
+ else dist = { ogle: 0.5, aksam: 0.5 }; // IF 16:8
+
+ const days = ['Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi','Pazar'];
+ const plan = [];
+
+ function pickMeal(pool, targetCal, lastPick) {
+  if (!pool.length) return null;
+  // Sort by closeness to target
+  const sorted = [...pool].sort((a, b) => Math.abs(a.kcal - targetCal) - Math.abs(b.kcal - targetCal));
+  // Pick from top 3, avoid repeating yesterday
+  const top = sorted.slice(0, Math.min(4, sorted.length));
+  let candidates = top.filter(m => m.name !== lastPick);
+  if (!candidates.length) candidates = top;
+  return candidates[Math.floor(Math.random() * candidates.length)];
+ }
+
+ const lastPicks = { kahvalti: '', ogle: '', aksam: '', ara1: '', ara2: '' };
+
+ for (let d = 0; d < 7; d++) {
+  const dayMeals = {};
+  let dayTotal = 0;
+
+  for (const [type, ratio] of Object.entries(dist)) {
+   const cal = Math.round(targetKcal * ratio);
+   const pool = type.startsWith('ara') ? avail.ara : avail[type];
+   if (!pool || !pool.length) continue;
+   const meal = pickMeal(pool, cal, lastPicks[type]);
+   if (meal) {
+    dayMeals[type] = { ...meal };
+    dayTotal += meal.kcal;
+    lastPicks[type] = meal.name;
+   }
+  }
+
+  plan.push({ day: days[d], meals: dayMeals, totalKcal: dayTotal });
+ }
+
+ currentPlan = plan;
+ renderResults(plan, targetKcal);
+
+ // Save to localStorage
+ try {
+  localStorage.setItem('uzunyasa_diet_plan', JSON.stringify({ plan, profile: userProfile, date: new Date().toISOString() }));
+ } catch(e) {}
+
+ // GA event
+ if (typeof gtag === 'function') {
+  gtag('event', 'diet_plan_generated', { target_kcal: targetKcal, goal: goal, meal_count: mealCount });
+ }
+}
+
+function renderResults(plan, targetKcal) {
+ document.getElementById('wizard').style.display = 'none';
+ document.getElementById('progressWrapper').style.display = 'none';
+ document.getElementById('results').style.display = 'block';
+
+ const goalText = { lose: 'Kilo Verme', maintain: 'Kilo Koruma', gain: 'Kas Yapma' };
+ document.getElementById('resultsSummary').textContent =
+  'Hedef: ' + goalText[userProfile.goal] + ' · Günlük ' + targetKcal + ' kcal';
+
+ // Stats
+ const avgKcal = Math.round(plan.reduce((s, d) => s + d.totalKcal, 0) / 7);
+ document.getElementById('resultsStats').innerHTML = `
+  <div class="stat-card"><div class="stat-value">${targetKcal}</div><div class="stat-label">Hedef kcal/gün</div></div>
+  <div class="stat-card"><div class="stat-value">${avgKcal}</div><div class="stat-label">Ortalama kcal/gün</div></div>
+  <div class="stat-card"><div class="stat-value">${userProfile.bmi.toFixed(1)}</div><div class="stat-label">BMI</div></div>
+  <div class="stat-card"><div class="stat-value">${userProfile.tdee}</div><div class="stat-label">TDEE kcal</div></div>
+ `;
+
+ // Day cards
+ const container = document.getElementById('planDays');
+ container.innerHTML = '';
+
+ const mealLabels = {
+  kahvalti: '☀️ Kahvaltı',
+  ogle: '🌤️ Öğle',
+  aksam: '🌙 Akşam',
+  ara1: '🍎 Ara Öğün 1',
+  ara2: '🍎 Ara Öğün 2'
+ };
+
+ plan.forEach((day, i) => {
+  const pct = Math.min((day.totalKcal / targetKcal) * 100, 120);
+  const overClass = day.totalKcal > targetKcal * 1.05 ? 'over' : '';
+
+  let mealsHTML = '';
+  for (const [type, meal] of Object.entries(day.meals)) {
+   mealsHTML += `
+    <div class="meal-row">
+     <span class="meal-type">${mealLabels[type] || type}</span>
+     <span class="meal-name">${meal.name}</span>
+     <span class="meal-kcal">${meal.kcal} kcal</span>
+    </div>`;
+  }
+
+  // Macro totals for the day
+  let tp = 0, tk = 0, ty = 0;
+  Object.values(day.meals).forEach(m => { tp += m.p; tk += m.k; ty += m.y; });
+  const totalMacro = tp + tk + ty || 1;
+
+  const cardHTML = `
+   <div class="day-card">
+    <div class="day-header" onclick="this.nextElementSibling.classList.toggle('collapsed');this.parentElement.querySelector('.day-progress').classList.toggle('collapsed');this.parentElement.querySelector('.macro-chart').classList.toggle('collapsed')">
+     <h3>${day.day}</h3>
+     <span class="day-kcal">${day.totalKcal} kcal</span>
+    </div>
+    <div class="day-body${i > 2 ? ' collapsed' : ''}">
+     ${mealsHTML}
+    </div>
+    <div class="macro-chart${i > 2 ? ' collapsed' : ''}">
+     <div class="donut-container"><canvas id="donut-${i}" width="160" height="160"></canvas></div>
+     <div class="macro-legend">
+      <div class="macro-legend-item"><span class="macro-dot" style="background:#059669"></span>Protein: ${tp}g (${Math.round(tp/totalMacro*100)}%)</div>
+      <div class="macro-legend-item"><span class="macro-dot" style="background:#E8963E"></span>Karb: ${tk}g (${Math.round(tk/totalMacro*100)}%)</div>
+      <div class="macro-legend-item"><span class="macro-dot" style="background:#dc2626"></span>Yağ: ${ty}g (${Math.round(ty/totalMacro*100)}%)</div>
+     </div>
+    </div>
+    <div class="day-progress${i > 2 ? ' collapsed' : ''}">
+     <div class="progress-track"><div class="progress-fill ${overClass}" style="width:${Math.min(pct, 100)}%"></div></div>
+     <div class="progress-text"><span>${day.totalKcal} / ${targetKcal} kcal</span><span>${Math.round(pct)}%</span></div>
+    </div>
+   </div>`;
+  container.innerHTML += cardHTML;
+ });
+
+ // Draw donuts
+ setTimeout(() => {
+  plan.forEach((day, i) => {
+   let tp = 0, tk = 0, ty = 0;
+   Object.values(day.meals).forEach(m => { tp += m.p; tk += m.k; ty += m.y; });
+   drawDonut(`donut-${i}`, [tp, tk, ty], ['#059669','#E8963E','#dc2626']);
+  });
+ }, 100);
+
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function drawDonut(canvasId, values, colors) {
+ const canvas = document.getElementById(canvasId);
+ if (!canvas) return;
+ const ctx = canvas.getContext('2d');
+ const total = values.reduce((a, b) => a + b, 0) || 1;
+ const cx = 80, cy = 80, r = 60, lineWidth = 18;
+ let startAngle = -Math.PI / 2;
+
+ ctx.clearRect(0, 0, 160, 160);
+ values.forEach((val, i) => {
+  const slice = (val / total) * Math.PI * 2;
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, startAngle, startAngle + slice);
+  ctx.strokeStyle = colors[i];
+  ctx.lineWidth = lineWidth;
+  ctx.stroke();
+  startAngle += slice;
+ });
+
+ // Center hole
+ ctx.beginPath();
+ ctx.arc(cx, cy, r - lineWidth / 2 - 4, 0, Math.PI * 2);
+ ctx.fillStyle = 'white';
+ ctx.fill();
+}
+
+// ============== FEATURES ==============
+function showShopping() {
+ if (!currentPlan) return;
+ const ingredientMap = {};
+ currentPlan.forEach(day => {
+  Object.values(day.meals).forEach(meal => {
+   meal.ingredients.forEach(ing => {
+    ingredientMap[ing] = (ingredientMap[ing] || 0) + 1;
+   });
+  });
+ });
+
+ const list = document.getElementById('shoppingList');
+ list.innerHTML = '';
+ Object.entries(ingredientMap)
+  .sort((a, b) => b[1] - a[1])
+  .forEach(([name, count]) => {
+   const li = document.createElement('li');
+   li.textContent = count > 1 ? `${name} (×${count})` : name;
+   list.appendChild(li);
+  });
+
+ document.getElementById('shoppingModal').classList.add('show');
+}
+
+function shareWhatsApp() {
+ if (!currentPlan) return;
+ let text = '🥗 7 Günlük Yemek Planım (UzunYaşa)\n';
+ text += `Hedef: ${userProfile.targetKcal} kcal/gün\n\n`;
+ currentPlan.forEach(day => {
+  text += `📅 ${day.day} (${day.totalKcal} kcal)\n`;
+  Object.entries(day.meals).forEach(([type, meal]) => {
+   const labels = { kahvalti:'Kahvaltı', ogle:'Öğle', aksam:'Akşam', ara1:'Ara 1', ara2:'Ara 2' };
+   text += `  ${labels[type] || type}: ${meal.name} (${meal.kcal} kcal)\n`;
+  });
+  text += '\n';
+ });
+ text += '🔗 uzunyasa.com/pages/araclar/diyet-asistani.html';
+ window.open('https://wa.me/?text=' + encodeURIComponent(text));
+}
+
+function savePlan() {
+ if (!currentPlan) return;
+ try {
+  localStorage.setItem('uzunyasa_diet_plan', JSON.stringify({
+   plan: currentPlan, profile: userProfile, date: new Date().toISOString()
+  }));
+  alert('Plan kaydedildi! Daha sonra bu sayfaya geldiğinizde yüklenir.');
+ } catch(e) {
+  alert('Kaydetme başarısız.');
+ }
+}
+
+// Load saved plan option
+window.addEventListener('DOMContentLoaded', () => {
+ try {
+  const saved = JSON.parse(localStorage.getItem('uzunyasa_diet_plan'));
+  if (saved && saved.plan) {
+   const days = Math.round((Date.now() - new Date(saved.date).getTime()) / 86400000);
+   if (days < 7) {
+    // Offer to restore - add a small banner
+    const btn = document.createElement('button');
+    btn.className = 'btn btn-secondary';
+    btn.style.cssText = 'margin-top:1rem;font-size:0.85rem;';
+    btn.textContent = `💾 Kayıtlı planı yükle (${days === 0 ? 'bugün' : days + ' gün önce'})`;
+    btn.onclick = () => {
+     currentPlan = saved.plan;
+     userProfile = saved.profile;
+     renderResults(saved.plan, saved.profile.targetKcal);
+    };
+    document.querySelector('.intro-card').appendChild(btn);
+   }
+  }
+ } catch(e) {}
+});
+</script>
+</body>
+</html>
