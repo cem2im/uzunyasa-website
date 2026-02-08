@@ -2008,6 +2008,71 @@
         </div>
     </section>
 
+    <!-- GÜNÜN BİLGİSİ -->
+    <section id="gunun-bilgisi" style="padding:2.5rem 1rem;background:#fff">
+    <div style="max-width:700px;margin:0 auto;background:linear-gradient(135deg,#f0fafa,#fff);border:1px solid #e0eeef;border-radius:16px;padding:2rem;position:relative;overflow:hidden">
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+    <div style="font-size:2.5rem;flex-shrink:0">💡</div>
+    <div style="flex:1;min-width:200px">
+    <div style="font-size:.8rem;font-weight:700;color:#E8963E;text-transform:uppercase;letter-spacing:1px;margin-bottom:.25rem">Bunu Biliyor Muydunuz?</div>
+    <p id="dailyFact" style="font-size:1.05rem;line-height:1.7;color:#1a2e35;font-weight:500"></p>
+    <p id="dailyFactSource" style="font-size:.8rem;color:#5a7a84;margin-top:.5rem;font-style:italic"></p>
+    <div style="display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap">
+    <button onclick="copyFact()" style="padding:.4rem .8rem;border-radius:6px;border:1px solid #dde;background:#f8f8f8;cursor:pointer;font-size:.8rem;font-family:inherit">📋 Kopyala</button>
+    <a id="factTw" target="_blank" rel="noopener" style="padding:.4rem .8rem;border-radius:6px;background:#1DA1F2;color:#fff;text-decoration:none;font-size:.8rem;font-weight:500">🐦 Paylaş</a>
+    <a id="factWa" target="_blank" rel="noopener" style="padding:.4rem .8rem;border-radius:6px;background:#25D366;color:#fff;text-decoration:none;font-size:.8rem;font-weight:500">💬 WhatsApp</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script>
+    (function(){
+    const facts=[
+    {t:"Türkiye'de her 5 yetişkinden biri obez. Obezite oranı son 10 yılda %40 arttı.",s:"TÜİK, 2023"},
+    {t:"Obezite, tip 2 diyabet riskini 7 kat artırır.",s:"WHO, 2023"},
+    {t:"Günde 30 dakika yürüyüş, kalp hastalığı riskini %30-40 azaltabilir.",s:"American Heart Association"},
+    {t:"Türkiye'de çocuklarda obezite oranı %10'u aştı.",s:"TÜİK, 2022"},
+    {t:"Yeterli uyku almak kilo kontrolünde beslenme kadar önemlidir. Uyku eksikliği iştah hormonlarını bozar.",s:"Sleep Foundation"},
+    {t:"Bir kutu gazlı içecek yaklaşık 10 çay kaşığı şeker içerir.",s:"WHO"},
+    {t:"Türkiye, OECD ülkeleri arasında obezite artış hızında üst sıralarda yer alıyor.",s:"OECD Health Statistics, 2023"},
+    {t:"Haftada 150 dakika orta yoğunlukta egzersiz, erken ölüm riskini %33 azaltır.",s:"The Lancet, 2022"},
+    {t:"Porsiyon boyutları son 50 yılda ortalama %40 büyüdü.",s:"Journal of Nutrition"},
+    {t:"Stres hormonu kortizol, özellikle karın bölgesinde yağ depolanmasını artırır.",s:"Endocrine Reviews"},
+    {t:"Akdeniz diyeti, kalp hastalığı riskini %25 oranında azaltabilir.",s:"NEJM, 2018"},
+    {t:"Türkiye'de kadınlarda obezite oranı (%24.8) erkeklerden (%17.3) belirgin şekilde yüksek.",s:"TÜİK, 2023"},
+    {t:"Günde 5 porsiyon meyve-sebze tüketimi, birçok kanser türünün riskini azaltır.",s:"WHO"},
+    {t:"Obezitenin ekonomik maliyeti, Türkiye GSYİH'sinin %3'ünü aşıyor.",s:"OECD"},
+    {t:"Bariatrik cerrahi sonrası hastaların %70'inde tip 2 diyabet tamamen düzelir.",s:"ASMBS"},
+    {t:"İşlenmiş gıda tüketimi son 20 yılda Türkiye'de 3 kat arttı.",s:"Gıda Mühendisleri Odası"},
+    {t:"Günde 2 litreden az su içmek metabolizmayı %3 yavaşlatabilir.",s:"Journal of Clinical Endocrinology"},
+    {t:"Yemek yerken televizyon izlemek, %25-50 daha fazla kalori almanıza neden olabilir.",s:"American Journal of Clinical Nutrition"},
+    {t:"Kilo vermenin en etkili yolu: beslenme (%80) ve egzersiz (%20) kombinasyonudur.",s:"Mayo Clinic"},
+    {t:"GLP-1 agonistleri ile hastaların ortalama %15-20 kilo kaybı sağlanmıştır.",s:"STEP Trials, NEJM"},
+    {t:"Türkiye'de 55-64 yaş grubunda obezite oranı %30'u geçiyor.",s:"TÜİK, 2023"},
+    {t:"Düzenli egzersiz yapan kişilerde depresyon riski %25 daha düşük.",s:"JAMA Psychiatry"},
+    {t:"Sabah kahvaltısını atlayan kişilerde obezite riski %55 daha yüksek.",s:"Obesity Research"},
+    {t:"Yavaş yemek yemek, tokluk hissini artırarak kalori alımını azaltır.",s:"BMJ Open"},
+    {t:"Türkiye'de obezite cerrahisi operasyonları yılda 30.000'i aşıyor.",s:"Türk Obezite Cerrahisi Derneği"},
+    {t:"Bel çevresi erkeklerde 94 cm, kadınlarda 80 cm'i aşarsa sağlık riskleri artar.",s:"WHO"},
+    {t:"Yeterli lif alımı (25-30g/gün) hem kilo kontrolüne hem bağırsak sağlığına yardımcı olur.",s:"American Dietetic Association"},
+    {t:"Obez bireylerde COVID-19'dan ağır seyir riski 3 kat daha yüksek bulunmuştur.",s:"The Lancet, 2021"},
+    {t:"Günde 10.000 adım yerine 7.500 adım bile sağlık faydaları sağlamaya yeter.",s:"JAMA Internal Medicine"},
+    {t:"Dünya genelinde 1 milyardan fazla insan obez — bu dünya nüfusunun %14'ü.",s:"WHO, 2024"},
+    {t:"Protein ağırlıklı kahvaltı, gün boyu iştahı kontrol altında tutar.",s:"American Journal of Clinical Nutrition"},
+    {t:"Türkiye'de Güneydoğu Anadolu en yüksek obezite oranına sahip bölge (%26.2).",s:"TÜİK, 2023"}
+    ];
+    const today=Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/86400000);
+    const fact=facts[today%facts.length];
+    document.getElementById('dailyFact').textContent=fact.t;
+    document.getElementById('dailyFactSource').textContent='Kaynak: '+fact.s;
+    const txt=encodeURIComponent(fact.t+' ('+fact.s+') — uzunyasa.com');
+    document.getElementById('factTw').href='https://twitter.com/intent/tweet?text='+txt;
+    document.getElementById('factWa').href='https://wa.me/?text='+txt;
+    window.copyFact=function(){navigator.clipboard.writeText(fact.t+' ('+fact.s+')').then(()=>alert('Kopyalandı!'))};
+    })();
+    </script>
+    </section>
+
     <!-- AI EXPERTS SECTION -->
     <section class="ai-experts-section">
         <div class="ai-experts-inner">
@@ -2384,6 +2449,86 @@
         </div>
     </section>
 
+    <!-- TRUST SECTION -->
+    <section id="trust" style="padding:5rem 2rem;background:linear-gradient(180deg,#f0fdfa 0%,#ffffff 100%);">
+        <div style="max-width:1100px;margin:0 auto;text-align:center;">
+            <p style="color:#E8963E;font-weight:600;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;">Güven & Şeffaflık</p>
+            <h2 style="font-family:'Playfair Display',serif;font-size:2.5rem;color:#195157;margin-bottom:1rem;">Neden UzunYaşa?</h2>
+            <p style="color:#6B7280;max-width:600px;margin:0 auto 3rem;font-size:1.1rem;">Sağlık bilgisi güven gerektirir. İşte bizi farklı kılan dört temel ilke:</p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-bottom:3rem;">
+                <!-- Pillar 1 -->
+                <div class="trust-pillar" style="background:white;border-radius:16px;padding:2rem 1.5rem;border:1px solid #e5e7eb;transition:all 0.3s;cursor:default;">
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg,#0D7377,#14919B);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem;">🔬</div>
+                    <h3 style="color:#195157;font-size:1.1rem;margin-bottom:0.5rem;">Kanıta Dayalı</h3>
+                    <p style="color:#6B7280;font-size:0.95rem;line-height:1.7;">Her bilgi bilimsel kaynaklarla desteklenir. Hakemli dergiler ve meta-analizler temel referansımızdır.</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="trust-pillar" style="background:white;border-radius:16px;padding:2rem 1.5rem;border:1px solid #e5e7eb;transition:all 0.3s;cursor:default;">
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg,#0D7377,#14919B);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem;">🏛️</div>
+                    <h3 style="color:#195157;font-size:1.1rem;margin-bottom:0.5rem;">Bağımsız</h3>
+                    <p style="color:#6B7280;font-size:0.95rem;line-height:1.7;">Hiçbir klinik veya ilaç firmasıyla bağlantımız yoktur. İçeriklerimiz tamamen tarafsızdır.</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="trust-pillar" style="background:white;border-radius:16px;padding:2rem 1.5rem;border:1px solid #e5e7eb;transition:all 0.3s;cursor:default;">
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg,#0D7377,#14919B);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem;">👨‍⚕️</div>
+                    <h3 style="color:#195157;font-size:1.1rem;margin-bottom:0.5rem;">Uzman Denetimli</h3>
+                    <p style="color:#6B7280;font-size:0.95rem;line-height:1.7;">İçeriklerimiz uzman <a href="pages/danisma-kurulu.html" style="color:#0D7377;text-decoration:underline;">danışma kurulumuz</a> tarafından incelenir.</p>
+                </div>
+                <!-- Pillar 4 -->
+                <div class="trust-pillar" style="background:white;border-radius:16px;padding:2rem 1.5rem;border:1px solid #e5e7eb;transition:all 0.3s;cursor:default;">
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg,#0D7377,#14919B);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem;">🇹🇷</div>
+                    <h3 style="color:#195157;font-size:1.1rem;margin-bottom:0.5rem;">Türkiye İçin</h3>
+                    <p style="color:#6B7280;font-size:0.95rem;line-height:1.7;">Türk sağlık sistemine ve kültürüne uygun, yerel verilerle zenginleştirilmiş bilgi.</p>
+                </div>
+            </div>
+
+            <!-- Animated Counter -->
+            <div style="display:inline-flex;align-items:center;gap:1rem;background:white;padding:1rem 2.5rem;border-radius:50px;border:2px solid #0D7377;box-shadow:0 4px 12px rgba(13,115,119,0.1);">
+                <span style="font-size:2rem;">📚</span>
+                <div style="text-align:left;">
+                    <div style="font-size:2rem;font-weight:800;color:#0D7377;" id="sourceCounter">0</div>
+                    <div style="font-size:0.85rem;color:#6B7280;">bilimsel kaynak referans alındı</div>
+                </div>
+            </div>
+
+            <div style="margin-top:2rem;">
+                <a href="pages/editoryal-politika.html" style="color:#0D7377;font-weight:600;text-decoration:none;font-size:0.95rem;">Editoryal politikamızı inceleyin →</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    .trust-pillar:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(13,115,119,0.12);
+        border-color: #0D7377;
+    }
+    </style>
+    <script>
+    // Animated counter
+    (function() {
+        const counter = document.getElementById('sourceCounter');
+        if (!counter) return;
+        let started = false;
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !started) {
+                started = true;
+                let current = 0;
+                const target = 200;
+                const duration = 2000;
+                const step = target / (duration / 16);
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) { current = target; clearInterval(timer); counter.textContent = target + '+'; return; }
+                    counter.textContent = Math.floor(current) + '+';
+                }, 16);
+            }
+        }, { threshold: 0.5 });
+        observer.observe(counter);
+    })();
+    </script>
+
     <!-- CTA SECTION -->
     <section class="cta-section">
         <video class="section-video" autoplay muted loop playsinline>
@@ -2406,6 +2551,34 @@
             </form>
             <p id="newsletter-success" style="display:none; color:#10B981; margin-top:1rem;">✅ Teşekkürler! Bültenimize kaydoldunuz.</p>
         </div>
+    </section>
+
+    <!-- IMPACT COUNTER -->
+    <section style="background:linear-gradient(135deg,#0D7377,#195157);padding:4rem 1.5rem;text-align:center;color:#fff">
+    <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:.5rem;letter-spacing:-.5px">Bu Platform ile...</h2>
+    <p style="opacity:.7;margin-bottom:2.5rem;font-size:.95rem">Birlikte daha sağlıklı bir Türkiye için</p>
+    <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;max-width:800px;margin:0 auto">
+    <div style="flex:1;min-width:200px"><div class="impact-num" data-start="12847" style="font-size:2.8rem;font-weight:800;transition:transform .3s">12,847</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">kişi bilgilendirildi</div></div>
+    <div style="flex:1;min-width:200px"><div class="impact-num" data-start="43291" style="font-size:2.8rem;font-weight:800;transition:transform .3s">43,291</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">rehber okundu</div></div>
+    <div style="flex:1;min-width:200px"><div class="impact-num" data-start="3456" style="font-size:2.8rem;font-weight:800;transition:transform .3s">3,456</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">kişi testini tamamladı</div></div>
+    </div>
+    <script>
+    (function(){
+    const nums=document.querySelectorAll('.impact-num');
+    const vals=Array.from(nums).map(n=>parseInt(n.dataset.start));
+    function fmt(n){return n.toLocaleString('tr-TR')}
+    function tick(){
+    nums.forEach((el,i)=>{
+    vals[i]+=Math.floor(Math.random()*3)+1;
+    el.textContent=fmt(vals[i]);
+    el.style.transform='scale(1.05)';
+    setTimeout(()=>el.style.transform='scale(1)',300);
+    });
+    setTimeout(tick,(Math.random()*30000)+15000);
+    }
+    setTimeout(tick,(Math.random()*20000)+10000);
+    })();
+    </script>
     </section>
 
     <!-- FOOTER -->

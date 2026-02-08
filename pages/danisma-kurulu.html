@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QBM7E0EHFP');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danışma Kurulumuz | UzunYaşa</title>
+    <meta name="description" content="UzunYaşa Danışma Kurulu: İçeriklerimizi tıbbi doğruluk açısından inceleyen uzman kadromuz.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .dk-hero {
+            background: linear-gradient(135deg, #195157 0%, #0D7377 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+        .dk-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .dk-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        .dk-hero .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; opacity: 0.7; }
+        .dk-hero .breadcrumb a { color: white; text-decoration: none; }
+        .dk-hero .breadcrumb a:hover { text-decoration: underline; }
+        .dk-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .dk-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        .dk-intro h2 { font-size: 1.5rem; color: #195157; margin-bottom: 0.75rem; }
+        .dk-intro p { color: #6B7280; line-height: 1.8; }
+        .dk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .dk-card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .dk-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0D7377, #14919B);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .dk-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(13,115,119,0.12);
+            border-color: #0D7377;
+        }
+        .dk-card:hover::before { transform: scaleX(1); }
+        .dk-card-top {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+        .dk-avatar {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        .dk-avatar.gastro { background: linear-gradient(135deg, #0D7377, #14919B); }
+        .dk-avatar.endo { background: linear-gradient(135deg, #7C3AED, #8B5CF6); }
+        .dk-avatar.bari { background: linear-gradient(135deg, #DC2626, #EF4444); }
+        .dk-avatar.diyet { background: linear-gradient(135deg, #059669, #10B981); }
+        .dk-avatar.fizyo { background: linear-gradient(135deg, #D97706, #F59E0B); }
+        .dk-avatar.hasta { background: linear-gradient(135deg, #2563EB, #3B82F6); }
+        .dk-card-top h3 { font-size: 1.1rem; color: #195157; margin-bottom: 0.15rem; }
+        .dk-card-top .dk-role { font-size: 0.8rem; color: #E8963E; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .dk-card p.dk-desc { color: #6B7280; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+        .dk-areas h4 { font-size: 0.8rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+        .dk-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .dk-tag {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdfa;
+            color: #0D7377;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #d1fae5;
+        }
+        .dk-notice {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #fafaf8;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+        .dk-notice p { color: #6B7280; font-size: 0.95rem; }
+        .dk-notice .dk-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .dk-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .dk-cta a {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: #0D7377;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .dk-cta a:hover { background: #195157; }
+        @media (max-width: 768px) {
+            .dk-hero h1 { font-size: 2rem; }
+            .dk-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">İçeriğe geç</a>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="rehberler.html" class="nav-link">Keşfet ▾</a>
+                <a href="araclar.html" class="nav-link">Araçlar</a>
+                <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+                <a href="bilim.html" class="nav-link">Bilim</a>
+                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                <a href="test.html" class="btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="dk-hero">
+        <div class="breadcrumb">
+            <a href="../index.html">Ana Sayfa</a> › <a href="hakkimizda.html">Hakkımızda</a> › <span>Danışma Kurulu</span>
+        </div>
+        <h1>Danışma Kurulumuz</h1>
+        <p>İçeriklerimizi tıbbi doğruluk ve bilimsel güncellik açısından inceleyen uzman kadromuz.</p>
+    </section>
+
+    <main id="main" class="dk-content">
+        <div class="dk-intro">
+            <h2>Multidisipliner Uzman Kadro</h2>
+            <p>Danışma kurulumuz, kilo yönetimi ve sağlıklı yaşam alanında farklı uzmanlıklara sahip profesyonellerden oluşur. Her içerik, ilgili uzmanlık alanındaki kurul üyemiz tarafından incelenir.</p>
+        </div>
+
+        <div class="dk-grid">
+            <!-- Gastroenteroloji -->
+            <div class="dk-card">
+                <div class="dk-card-top">
+                    <div class="dk-avatar gastro">GU</div>
+                    <div>
+                        <h3>Gastroenteroloji Uzmanı</h3>
+                        <span class="dk-role">Kurul Başkanı</span>
+                    </div>
+                </div>
+                <p class="dk-desc">Sindirim sistemi hastalıkları, endoskopik prosedürler ve gastrointestinal cerrahinin kilo yönetimindeki rolü konularında içerikleri inceler.</p>
+                <div class="dk-areas">
+                    <h4>İnceleme Alanları</h4>
+                    <div class="dk-tags">
+                        <span class="dk-tag">Endoskopik Sleeve</span>
+                        <span class="dk-tag">Mide Balonu</span>
+                        <span class="dk-tag">Sindirim Sağlığı</span>
+                        <span class="dk-tag">GİS Prosedürler</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Endokrinoloji -->
+            <div class="dk-card">
+                <div class="dk-card-top">
+                    <div class="dk-avatar endo">EU</div>
+                    <div>
+                        <h3>Endokrinoloji Uzmanı</h3>
+                        <span class="dk-role">Kurul Üyesi</span>
+                    </div>
+                </div>
+                <p class="dk-desc">Hormonal düzenlemeler, metabolik sendrom, insülin direnci ve GLP-1 ilaçları konusundaki içerikleri değerlendirir.</p>
+                <div class="dk-areas">
+                    <h4>İnceleme Alanları</h4>
+                    <div class="dk-tags">
+                        <span class="dk-tag">GLP-1 İlaçları</span>
+                        <span class="dk-tag">İnsülin Direnci</span>
+                        <span class="dk-tag">Tiroid</span>
+                        <span class="dk-tag">Metabolik Sendrom</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bariatrik Cerrahi -->
+            <div class="dk-card">
+                <div class="dk-card-top">
+                    <div class="dk-avatar bari">BC</div>
+                    <div>
+                        <h3>Bariatrik Cerrahi Uzmanı</h3>
+                        <span class="dk-role">Kurul Üyesi</span>
+                    </div>
+                </div>
+                <p class="dk-desc">Cerrahi kilo verme yöntemleri, ameliyat öncesi/sonrası süreçler ve uzun vadeli takip konularını denetler.</p>
+                <div class="dk-areas">
+                    <h4>İnceleme Alanları</h4>
+                    <div class="dk-tags">
+                        <span class="dk-tag">Sleeve Gastrektomi</span>
+                        <span class="dk-tag">Gastrik Bypass</span>
+                        <span class="dk-tag">Ameliyat Hazırlığı</span>
+                        <span class="dk-tag">Komplikasyonlar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diyetisyen -->
+            <div class="dk-card">
+                <div class="dk-card-top">
+                    <div class="dk-avatar diyet">DY</div>
+                    <div>
+                        <h3>Diyetisyen</h3>
+                        <span class="dk-role">Kurul Üyesi</span>
+                    </div>
+                </div>
+                <p class="dk-desc">Beslenme planları, diyet türleri, besin değerleri ve beslenme alışkanlıkları konularındaki içerikleri inceler.</p>
+                <div class="dk-areas">
+                    <h4>İnceleme Alanları</h4>
+                    <div class="dk-tags">
+                        <span class="dk-tag">Diyet Programları</span>
+                        <span class="dk-tag">Kalori Yönetimi</span>
+                        <span class="dk-tag">Akdeniz Diyeti</span>
+                        <span class="dk-tag">Aralıklı Oruç</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Egzersiz Fizyologu -->
+            <div class="dk-card">
+                <div class="dk-card-top">
+                    <div class="dk-avatar fizyo">EF</div>
+                    <div>
+                        <h3>Egzersiz Fizyologu</h3>
+                        <span class="dk-role">Kurul Üyesi</span>
+                    </div>
+                </div>
+                <p class="dk-desc">Fiziksel aktivite programları, egzersiz güvenliği ve hareketin metabolik etkileri konularını değerlendirir.</p>
+                <div class="dk-areas">
+                    <h4>İnceleme Alanları</h4>
+                    <div class="dk-tags">
+                        <span class="dk-tag">HIIT & Kardio</span>
+                        <span class="dk-tag">Kuvvet Antrenmanı</span>
+                        <span class="dk-tag">Esneklik</span>
+                        <span class="dk-tag">Egzersiz Güvenliği</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hasta Temsilcisi -->
+            <div class="dk-card">
+                <div class="dk-card-top">
+                    <div class="dk-avatar hasta">HT</div>
+                    <div>
+                        <h3>Hasta Temsilcisi</h3>
+                        <span class="dk-role">Kurul Üyesi</span>
+                    </div>
+                </div>
+                <p class="dk-desc">İçeriklerin anlaşılabilirliğini, hasta perspektifinden uygunluğunu ve pratik faydasını değerlendirir.</p>
+                <div class="dk-areas">
+                    <h4>İnceleme Alanları</h4>
+                    <div class="dk-tags">
+                        <span class="dk-tag">Anlaşılabilirlik</span>
+                        <span class="dk-tag">Hasta Deneyimi</span>
+                        <span class="dk-tag">Erişilebilirlik</span>
+                        <span class="dk-tag">Pratik Uygulanabilirlik</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dk-notice">
+            <div class="dk-icon">🔒</div>
+            <p><strong>Gizlilik Notu:</strong> Danışma kurulumuz, bağımsızlık ve gizlilik ilkesi gereği anonim olarak çalışmaktadır. Bu, kurul üyelerimizin hiçbir dış baskı altında kalmadan tarafsız değerlendirme yapabilmesini güvence altına alır.</p>
+        </div>
+
+        <div class="dk-cta">
+            <a href="editoryal-politika.html">Editoryal Politikamızı İnceleyin →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html"><img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
+                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Keşfet</h4>
+                    <a href="beslenme.html">Beslenme</a>
+                    <a href="egzersiz.html">Egzersiz</a>
+                    <a href="uyku-stres.html">Uyku & Stres</a>
+                    <a href="tedavi.html">Tedavi Seçenekleri</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Araçlar</h4>
+                    <a href="test.html">Bana Ne Uygun?</a>
+                    <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
+                    <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hakkımızda</h4>
+                    <a href="hakkimizda.html">Ekibimiz</a>
+                    <a href="editoryal-politika.html">Editoryal Politika</a>
+                    <a href="danisma-kurulu.html">Danışma Kurulu</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+                <span>Gizlilik Politikası | Kullanım Koşulları</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-QBM7E0EHFP');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duygusal Yeme Testi - Yiyeceklerle İlişkiniz Nasıl? | UzunYaşa</title>
+<meta name="description" content="Yiyeceklerle ilişkinizi keşfedin. 10 soruluk bilimsel test ile duygusal yeme alışkanlıklarınızı anlayın ve kişisel öneriler alın.">
+<link rel="canonical" href="https://uzunyasa.com/pages/test-duygusal.html">
+<meta property="og:title" content="Duygusal Yeme Testi | UzunYaşa">
+<meta property="og:description" content="Yiyeceklerle ilişkinizi keşfedin. 10 soruluk test ile duygusal yeme alışkanlıklarınızı anlayın.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://uzunyasa.com/pages/test-duygusal.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/main.css">
+<style>
+:root{--primary:#0D7377;--primary-dark:#195157;--accent:#E8963E;--bg:#f8fafa;--card-bg:#fff;--text:#1a2e35;--text-light:#5a7a84}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.quiz-header{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;text-align:center;padding:4rem 1.5rem 3rem}
+.quiz-header h1{font-size:2.2rem;font-weight:800;margin-bottom:.5rem}
+.quiz-header p{font-size:1.1rem;opacity:.9;max-width:600px;margin:0 auto}
+.quiz-container{max-width:680px;margin:-2rem auto 3rem;padding:0 1rem}
+.progress-wrap{background:#e0eeef;border-radius:20px;height:8px;margin-bottom:2rem;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:20px;transition:width .4s ease;width:0%}
+.progress-text{text-align:center;font-size:.85rem;color:var(--text-light);margin-bottom:1.5rem}
+.question-card{background:var(--card-bg);border-radius:16px;padding:2rem;box-shadow:0 2px 20px rgba(0,0,0,.06);animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.question-number{font-size:.85rem;color:var(--primary);font-weight:600;margin-bottom:.5rem}
+.question-text{font-size:1.2rem;font-weight:600;margin-bottom:1.5rem;line-height:1.5}
+.options{display:flex;flex-direction:column;gap:.75rem}
+.option{padding:1rem 1.25rem;border:2px solid #e5edef;border-radius:12px;cursor:pointer;transition:all .2s;font-size:.95rem;text-align:left;background:#fff}
+.option:hover{border-color:var(--primary);background:#f0f9f9}
+.option.selected{border-color:var(--primary);background:rgba(13,115,119,.08);font-weight:500}
+.nav-btns{display:flex;justify-content:space-between;margin-top:1.5rem;gap:1rem}
+.nav-btn{padding:.75rem 2rem;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.nav-btn.prev{background:#e5edef;color:var(--text)}
+.nav-btn.next{background:var(--primary);color:#fff;margin-left:auto}
+.nav-btn:disabled{opacity:.4;cursor:not-allowed}
+.nav-btn.next:hover:not(:disabled){background:var(--primary-dark)}
+.result-container{display:none}
+.result-card{background:var(--card-bg);border-radius:20px;padding:2.5rem;box-shadow:0 4px 30px rgba(0,0,0,.08);text-align:center;animation:fadeUp .5s ease}
+.result-icon{font-size:4rem;margin-bottom:1rem}
+.result-title{font-size:1.8rem;font-weight:800;color:var(--primary-dark);margin-bottom:.5rem}
+.result-subtitle{font-size:1.1rem;color:var(--accent);font-weight:600;margin-bottom:1.5rem}
+.result-desc{font-size:1rem;color:var(--text-light);line-height:1.7;margin-bottom:2rem;text-align:left}
+.advice-list{text-align:left;margin-bottom:2rem}
+.advice-list h3{font-size:1.1rem;margin-bottom:1rem;color:var(--primary-dark)}
+.advice-item{display:flex;gap:.75rem;margin-bottom:1rem;align-items:flex-start}
+.advice-item .icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.advice-item p{font-size:.95rem;color:var(--text)}
+.share-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.share-btn{padding:.6rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.share-btn.tw{background:#1DA1F2;color:#fff}
+.share-btn.wa{background:#25D366;color:#fff}
+.share-btn.copy{background:#e5edef;color:var(--text)}
+.cta-box{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border-radius:14px;padding:1.5rem;margin-top:1.5rem}
+.cta-box h3{margin-bottom:.5rem}
+.cta-box a{color:var(--accent);font-weight:600;text-decoration:underline}
+.restart-btn{margin-top:1.5rem;padding:.75rem 2rem;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer}
+@media(max-width:600px){.quiz-header h1{font-size:1.6rem}.question-text{font-size:1.05rem}.result-title{font-size:1.4rem}}
+</style>
+</head>
+<body>
+<header class="quiz-header">
+<h1>🍽️ Yiyeceklerle İlişkiniz Nasıl?</h1>
+<p>10 kısa soru ile duygusal yeme alışkanlıklarınızı keşfedin ve kişiselleştirilmiş öneriler alın.</p>
+</header>
+
+<div class="quiz-container">
+<div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+<p class="progress-text" id="progressText">Soru 1 / 10</p>
+
+<div id="quizArea">
+<div class="question-card" id="questionCard">
+<div class="question-number" id="qNum">Soru 1</div>
+<div class="question-text" id="qText"></div>
+<div class="options" id="options"></div>
+</div>
+<div class="nav-btns">
+<button class="nav-btn prev" id="prevBtn" onclick="prevQ()" disabled>← Geri</button>
+<button class="nav-btn next" id="nextBtn" onclick="nextQ()" disabled>İleri →</button>
+</div>
+</div>
+
+<div class="result-container" id="resultArea">
+<div class="result-card">
+<div class="result-icon" id="resIcon"></div>
+<div class="result-title" id="resTitle"></div>
+<div class="result-subtitle" id="resSub"></div>
+<div class="result-desc" id="resDesc"></div>
+<div class="advice-list" id="resAdvice"></div>
+<div class="share-row">
+<button class="share-btn tw" onclick="shareTw()">🐦 Twitter'da Paylaş</button>
+<button class="share-btn wa" onclick="shareWa()">💬 WhatsApp</button>
+<button class="share-btn copy" onclick="copyResult()">📋 Kopyala</button>
+</div>
+<div class="cta-box" id="ctaBox"></div>
+<button class="restart-btn" onclick="restart()">🔄 Testi Tekrar Yap</button>
+</div>
+</div>
+</div>
+
+<script>
+const questions=[
+{q:"Stresli olduğunuzda yemek yeme ihtiyacı hisseder misiniz?",opts:["Hemen hemen her zaman","Sık sık","Bazen","Nadiren"],scores:[3,2,1,0],cat:"stres"},
+{q:"Yalnız olduğunuzda daha çok yemek yer misiniz?",opts:["Evet, belirgin şekilde","Genellikle evet","Ara sıra","Hayır, fark etmez"],scores:[3,2,1,0],cat:"duygusal"},
+{q:"Üzgün veya mutsuz olduğunuzda kendinizi yiyeceklerle ödüllendirir misiniz?",opts:["Her zaman","Sıklıkla","Bazen","Neredeyse hiç"],scores:[3,2,1,0],cat:"duygusal"},
+{q:"Arkadaşlarınızla birlikteyken normalden daha fazla yemek yer misiniz?",opts:["Kesinlikle evet","Genelde evet","Bazen","Hayır"],scores:[3,2,1,0],cat:"sosyal"},
+{q:"İş veya okul baskısı altındayken atıştırmalık tüketiminiz artar mı?",opts:["Çok artar","Artar","Biraz artar","Değişmez"],scores:[3,2,1,0],cat:"stres"},
+{q:"Yemek yerken genellikle ne kadar yediğinizin farkında mısınız?",opts:["Hiç farkında değilim","Pek değilim","Genelde farkındayım","Her zaman farkındayım"],scores:[3,2,1,0],cat:"bilinc"},
+{q:"Sosyal ortamlarda (düğün, parti vb.) yeme kontrolünüz nasıldır?",opts:["Çok zorlanırım","Zorlanırım","İdare ederim","Kontrol edebilirim"],scores:[3,2,1,0],cat:"sosyal"},
+{q:"Canınız sıkıldığında buzdolabını açar mısınız?",opts:["Her zaman","Sık sık","Ara sıra","Hayır"],scores:[3,2,1,0],cat:"duygusal"},
+{q:"Yemek yedikten sonra pişmanlık veya suçluluk hisseder misiniz?",opts:["Sık sık","Bazen","Nadiren","Hiçbir zaman"],scores:[3,2,1,0],cat:"stres"},
+{q:"Yemek öncesi gerçekten aç olup olmadığınızı kendinize sorar mısınız?",opts:["Hiçbir zaman","Nadiren","Genellikle","Her zaman"],scores:[3,2,1,0],cat:"bilinc"}
+];
+
+const profiles={
+duygusal:{icon:"💜",title:"Duygusal Yiyici",sub:"Duygularınız tabağınıza yansıyor",desc:"Duygusal yiyiciler, hislerini yönetmek için yiyeceğe yönelme eğilimindedir. Mutluluk, üzüntü, yalnızlık gibi duygular iştahınızı doğrudan etkiliyor. Bu farkındalık, değişimin ilk adımıdır.",advice:[
+{icon:"🧘",text:"Yemek yeme dürtüsü geldiğinde 5 dakika bekleyin ve duygularınızı adlandırın"},
+{icon:"📓",text:"Duygu günlüğü tutun — ne zaman, neden yediğinizi kaydedin"},
+{icon:"🎵",text:"Yeme dışı ödüller keşfedin: müzik, yürüyüş, arkadaş araması"},
+{icon:"💬",text:"Bir psikolog ile duygusal yeme döngüsünü konuşmayı düşünün"}
+],cta:"Duygusal yeme hakkında daha fazla bilgi için <a href='../pages/beslenme.html'>Beslenme Rehberimizi</a> okuyun."},
+stres:{icon:"⚡",title:"Stres Yiyicisi",sub:"Baskı altında yemek sığınağınız oluyor",desc:"Stres yiyicileri, iş, okul veya hayat baskıları altında yiyeceğe yönelir. Kortizol hormonu iştahınızı artırıyor ve genellikle yüksek kalorili, şekerli yiyeceklere yöneliyorsunuz.",advice:[
+{icon:"🏃",text:"Stres anında 10 dakikalık yürüyüş veya nefes egzersizi deneyin"},
+{icon:"⏰",text:"Düzenli öğün saatleri belirleyin — açlık stresi azaltır"},
+{icon:"🥗",text:"Yanınızda sağlıklı atıştırmalıklar bulundurun"},
+{icon:"😴",text:"Uyku düzeninize özen gösterin — yorgunluk stresi artırır"}
+],cta:"Stres yönetimi teknikleri için <a href='../pages/stres/stres-yonetimi.html'>Stres Rehberimize</a> göz atın."},
+sosyal:{icon:"🎉",title:"Sosyal Yiyici",sub:"Çevrenizdekiler iştahınızı şekillendiriyor",desc:"Sosyal yiyiciler, başkalarıyla birlikteyken yeme kontrolünü kaybetme eğilimindedir. Kutlamalar, buluşmalar ve sosyal baskı yeme alışkanlıklarınızı doğrudan etkiliyor.",advice:[
+{icon:"🎯",text:"Sosyal etkinliklere gitmeden önce hafif bir şey yiyin"},
+{icon:"🍽️",text:"Porsiyon kontrolü uygulayın — küçük tabak kullanın"},
+{icon:"🗣️",text:"'Hayır' demeyi öğrenin — nazikçe reddetmek normaldir"},
+{icon:"👥",text:"Sağlıklı yaşam hedeflerinizi yakınlarınızla paylaşın"}
+],cta:"Sosyal ortamlarda beslenme stratejileri için <a href='../pages/beslenme.html'>rehberlerimizi</a> inceleyin."},
+bilinc:{icon:"🧠",title:"Bilinçli Yiyici",sub:"Farkındalığınız yüksek, yoldasınız!",desc:"Tebrikler! Yeme alışkanlıklarınız konusunda oldukça bilinçlisiniz. Açlık sinyallerinizi dinliyor ve duygularınızın yeme davranışınızı yönetmesine genelde izin vermiyorsunuz.",advice:[
+{icon:"📈",text:"Bu farkındalığı koruyun ve düzenli olarak kendinizi değerlendirin"},
+{icon:"🥦",text:"Beslenme kalitenizi daha da artırmak için yeni tarifler deneyin"},
+{icon:"🤝",text:"Bilginizi çevrenizle paylaşın — başkalarına ilham olun"},
+{icon:"📚",text:"Sezgisel yeme (intuitive eating) yaklaşımını keşfedin"}
+],cta:"İleri düzey beslenme stratejileri için <a href='../pages/beslenme.html'>içeriklerimizi</a> keşfedin."}
+};
+
+let current=0,answers=new Array(questions.length).fill(-1);
+
+function render(){
+const q=questions[current];
+document.getElementById('qNum').textContent='Soru '+(current+1);
+document.getElementById('qText').textContent=q.q;
+document.getElementById('progressBar').style.width=((current+1)/questions.length*100)+'%';
+document.getElementById('progressText').textContent='Soru '+(current+1)+' / '+questions.length;
+const optDiv=document.getElementById('options');
+optDiv.innerHTML='';
+q.opts.forEach((o,i)=>{
+const btn=document.createElement('button');
+btn.className='option'+(answers[current]===i?' selected':'');
+btn.textContent=o;
+btn.setAttribute('role','radio');
+btn.setAttribute('aria-checked',answers[current]===i);
+btn.onclick=()=>{answers[current]=i;render()};
+optDiv.appendChild(btn);
+});
+document.getElementById('prevBtn').disabled=current===0;
+document.getElementById('nextBtn').disabled=answers[current]===-1;
+document.getElementById('nextBtn').textContent=current===questions.length-1?'Sonuçları Gör ✨':'İleri →';
+}
+
+function nextQ(){
+if(answers[current]===-1)return;
+if(current===questions.length-1){showResult();return}
+current++;render();
+document.getElementById('questionCard').style.animation='none';
+void document.getElementById('questionCard').offsetHeight;
+document.getElementById('questionCard').style.animation='fadeUp .4s ease';
+}
+function prevQ(){if(current>0){current--;render()}}
+
+function showResult(){
+const cats={duygusal:0,stres:0,sosyal:0,bilinc:0};
+const catCounts={duygusal:0,stres:0,sosyal:0,bilinc:0};
+questions.forEach((q,i)=>{cats[q.cat]+=q.scores[answers[i]];catCounts[q.cat]++});
+// Normalize
+Object.keys(cats).forEach(k=>cats[k]=cats[k]/(catCounts[k]*3));
+// bilinc is inverse
+cats.bilinc=1-cats.bilinc;
+let topCat='bilinc',topVal=0;
+['duygusal','stres','sosyal'].forEach(k=>{if(cats[k]>topVal){topVal=cats[k];topCat=k}});
+if(topVal<0.35)topCat='bilinc';
+
+const p=profiles[topCat];
+document.getElementById('quizArea').style.display='none';
+document.getElementById('resultArea').style.display='block';
+document.getElementById('resIcon').textContent=p.icon;
+document.getElementById('resTitle').textContent=p.title;
+document.getElementById('resSub').textContent=p.sub;
+document.getElementById('resDesc').textContent=p.desc;
+const advDiv=document.getElementById('resAdvice');
+advDiv.innerHTML='<h3>💡 Kişisel Önerileriniz</h3>';
+p.advice.forEach(a=>{advDiv.innerHTML+=`<div class="advice-item"><span class="icon">${a.icon}</span><p>${a.text}</p></div>`});
+document.getElementById('ctaBox').innerHTML=`<h3>📖 Daha Fazlasını Keşfedin</h3><p>${p.cta}</p>`;
+window._resultProfile=topCat;
+gtag('event','quiz_complete',{quiz:'duygusal_yeme',result:topCat});
+}
+
+function shareTw(){const p=profiles[window._resultProfile];window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('Duygusal Yeme Testinde "'+p.title+'" çıktım! 🍽️ Sen de dene: https://uzunyasa.com/pages/test-duygusal.html'),'_blank')}
+function shareWa(){const p=profiles[window._resultProfile];window.open('https://wa.me/?text='+encodeURIComponent('Duygusal Yeme Testinde "'+p.title+'" çıktım! 🍽️ Sen de dene: https://uzunyasa.com/pages/test-duygusal.html'),'_blank')}
+function copyResult(){const p=profiles[window._resultProfile];navigator.clipboard.writeText('Duygusal Yeme Testinde "'+p.title+'" çıktım! Sen de dene: https://uzunyasa.com/pages/test-duygusal.html').then(()=>alert('Kopyalandı!'))}
+function restart(){current=0;answers.fill(-1);document.getElementById('quizArea').style.display='';document.getElementById('resultArea').style.display='none';render()}
+
+render();
+</script>
+</body>
+</html>

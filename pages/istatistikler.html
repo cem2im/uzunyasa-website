@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-QBM7E0EHFP');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Türkiye Obezite İstatistikleri - Verilerle Obezite | UzunYaşa</title>
+<meta name="description" content="Türkiye'de obezite oranları, bölgesel dağılım, cinsiyet ve yaş analizi. TÜİK, WHO ve OECD verilerine dayalı güncel istatistikler.">
+<link rel="canonical" href="https://uzunyasa.com/pages/istatistikler.html">
+<meta property="og:title" content="Türkiye Obezite İstatistikleri | UzunYaşa">
+<meta property="og:description" content="Verilerle Türkiye'de obezite: oranlar, bölgesel dağılım, uluslararası karşılaştırma.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/main.css">
+<style>
+:root{--primary:#0D7377;--primary-dark:#195157;--accent:#E8963E;--bg:#f8fafa;--card:#fff;--text:#1a2e35;--text-light:#5a7a84}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.page-header{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;text-align:center;padding:4rem 1.5rem 3rem}
+.page-header h1{font-size:2.2rem;font-weight:800;margin-bottom:.5rem}
+.page-header p{opacity:.9;max-width:700px;margin:0 auto;font-size:1.05rem}
+.container{max-width:900px;margin:-2rem auto 3rem;padding:0 1rem}
+.chart-card{background:var(--card);border-radius:16px;padding:2rem;margin-bottom:2rem;box-shadow:0 2px 20px rgba(0,0,0,.06);opacity:0;transform:translateY(30px);transition:all .6s ease}
+.chart-card.visible{opacity:1;transform:translateY(0)}
+.chart-card h2{font-size:1.3rem;font-weight:700;color:var(--primary-dark);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.chart-card .source{font-size:.8rem;color:var(--text-light);margin-bottom:1.5rem}
+/* Bar chart */
+.bar-chart{display:flex;align-items:flex-end;gap:6px;height:220px;padding-top:20px;position:relative}
+.bar-col{display:flex;flex-direction:column;align-items:center;flex:1;height:100%;justify-content:flex-end}
+.bar{background:linear-gradient(180deg,var(--primary),var(--primary-dark));border-radius:4px 4px 0 0;width:100%;max-width:40px;transition:height 1s ease;height:0;position:relative}
+.bar:hover{opacity:.85}
+.bar-val{font-size:.7rem;font-weight:700;color:var(--primary);margin-bottom:4px;opacity:0;transition:opacity .5s .8s}
+.visible .bar-val{opacity:1}
+.bar-lbl{font-size:.65rem;color:var(--text-light);margin-top:6px;text-align:center;white-space:nowrap}
+/* Horizontal bars */
+.h-bars{display:flex;flex-direction:column;gap:.75rem}
+.h-bar-row{display:flex;align-items:center;gap:.75rem}
+.h-bar-label{font-size:.85rem;font-weight:500;width:120px;text-align:right;flex-shrink:0}
+.h-bar-track{flex:1;height:28px;background:#eef3f4;border-radius:6px;overflow:hidden;position:relative}
+.h-bar-fill{height:100%;border-radius:6px;transition:width 1.2s ease;width:0;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:.75rem;font-weight:700;color:#fff}
+.h-bar-fill.teal{background:linear-gradient(90deg,var(--primary),#14a3a8)}
+.h-bar-fill.orange{background:linear-gradient(90deg,var(--accent),#f0a854)}
+.h-bar-fill.dark{background:linear-gradient(90deg,var(--primary-dark),#2a7a82)}
+/* Donut chart */
+.donut-wrap{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.donut-svg{width:200px;height:200px}
+.donut-circle{fill:none;stroke-width:30;stroke-linecap:round;transition:stroke-dasharray 1.2s ease}
+.donut-legend{display:flex;flex-direction:column;gap:.75rem}
+.legend-item{display:flex;align-items:center;gap:.5rem;font-size:.95rem}
+.legend-dot{width:14px;height:14px;border-radius:4px;flex-shrink:0}
+.key-stat{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem;justify-content:center}
+.key-stat-item{background:var(--bg);border-radius:12px;padding:1.25rem;text-align:center;min-width:140px;flex:1}
+.key-stat-item .num{font-size:2rem;font-weight:800;color:var(--primary)}
+.key-stat-item .txt{font-size:.8rem;color:var(--text-light);margin-top:.25rem}
+.share-bar{text-align:center;margin-top:2rem;padding:1.5rem;background:var(--card);border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.share-bar h3{margin-bottom:.75rem;color:var(--primary-dark)}
+.share-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.share-btns a{padding:.6rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;color:#fff;transition:opacity .2s}
+.share-btns a:hover{opacity:.85}
+.share-btns .tw{background:#1DA1F2}
+.share-btns .wa{background:#25D366}
+.share-btns .li{background:#0A66C2}
+@media(max-width:600px){.page-header h1{font-size:1.6rem}.h-bar-label{width:80px;font-size:.75rem}.bar-chart{height:180px}.donut-wrap{gap:1.5rem}}
+</style>
+</head>
+<body>
+<header class="page-header">
+<h1>📊 Türkiye Obezite İstatistikleri</h1>
+<p>TÜİK, WHO ve OECD verilerine dayalı güncel obezite istatistikleri ve analizler</p>
+</header>
+
+<div class="container">
+<!-- Key Stats -->
+<div class="chart-card" data-animate>
+<div class="key-stat">
+<div class="key-stat-item"><div class="num">%21.1</div><div class="txt">Yetişkin obezite oranı (2023)</div></div>
+<div class="key-stat-item"><div class="num">%34.5</div><div class="txt">Fazla kilolu + obez</div></div>
+<div class="key-stat-item"><div class="num">17.9M</div><div class="txt">Obez yetişkin sayısı</div></div>
+<div class="key-stat-item"><div class="num">#1</div><div class="txt">Avrupa'da en yüksek artış</div></div>
+</div>
+</div>
+
+<!-- Yearly trend -->
+<div class="chart-card" data-animate>
+<h2>📈 Yıllara Göre Obezite Oranı (%)</h2>
+<p class="source">Kaynak: TÜİK Sağlık Araştırması, 2010-2024</p>
+<div class="bar-chart" id="yearlyChart"></div>
+</div>
+
+<!-- Regional -->
+<div class="chart-card" data-animate>
+<h2>🗺️ Bölgelere Göre Obezite Oranı</h2>
+<p class="source">Kaynak: TÜİK, 2023</p>
+<div class="h-bars" id="regionalBars"></div>
+</div>
+
+<!-- Gender donut -->
+<div class="chart-card" data-animate>
+<h2>👫 Cinsiyete Göre Obezite</h2>
+<p class="source">Kaynak: TÜİK, 2023</p>
+<div class="donut-wrap">
+<svg class="donut-svg" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="70" class="donut-circle" id="donutFemale" stroke="#E8963E" stroke-dasharray="0 440" transform="rotate(-90 100 100)"/>
+<circle cx="100" cy="100" r="70" class="donut-circle" id="donutMale" stroke="#0D7377" stroke-dasharray="0 440" transform="rotate(-90 100 100)"/>
+<text x="100" y="95" text-anchor="middle" font-size="18" font-weight="800" fill="#1a2e35">%21.1</text>
+<text x="100" y="115" text-anchor="middle" font-size="10" fill="#5a7a84">Genel Oran</text>
+</svg>
+<div class="donut-legend">
+<div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div><strong>Kadın: %24.8</strong></div>
+<div class="legend-item"><div class="legend-dot" style="background:var(--primary)"></div><strong>Erkek: %17.3</strong></div>
+<div class="legend-item" style="font-size:.85rem;color:var(--text-light)">Kadınlarda obezite oranı erkeklerden %43 daha yüksek</div>
+</div>
+</div>
+</div>
+
+<!-- Age groups -->
+<div class="chart-card" data-animate>
+<h2>📊 Yaş Gruplarına Göre Obezite (%)</h2>
+<p class="source">Kaynak: TÜİK, 2023</p>
+<div class="h-bars" id="ageBars"></div>
+</div>
+
+<!-- Country comparison -->
+<div class="chart-card" data-animate>
+<h2>🌍 Ülkelere Göre Karşılaştırma (%)</h2>
+<p class="source">Kaynak: OECD Health Statistics, 2023</p>
+<div class="h-bars" id="countryBars"></div>
+</div>
+
+<!-- Share -->
+<div class="share-bar">
+<h3>Bu sayfayı paylaşın</h3>
+<div class="share-btns">
+<a class="tw" href="https://twitter.com/intent/tweet?text=T%C3%BCrkiye%20obezite%20istatistikleri%20%F0%9F%93%8A&url=https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener">🐦 Twitter</a>
+<a class="wa" href="https://wa.me/?text=T%C3%BCrkiye%20obezite%20istatistikleri%20%F0%9F%93%8A%20https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener">💬 WhatsApp</a>
+<a class="li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener">💼 LinkedIn</a>
+</div>
+</div>
+</div>
+
+<script>
+// Data
+const yearlyData=[
+{y:'2010',v:15.2},{y:'2012',v:16.9},{y:'2014',v:17.2},{y:'2016',v:18.6},{y:'2017',v:19.6},
+{y:'2018',v:19.9},{y:'2019',v:20.2},{y:'2020',v:21.7},{y:'2021',v:20.2},{y:'2022',v:20.7},{y:'2023',v:21.1},{y:'2024',v:21.4}
+];
+const regionalData=[
+{l:'Güneydoğu A.',v:26.2},{l:'Doğu Anadolu',v:23.8},{l:'İç Anadolu',v:22.5},{l:'Karadeniz',v:21.9},
+{l:'Akdeniz',v:21.1},{l:'Marmara',v:20.3},{l:'Ege',v:18.7},{l:'Batı Anadolu',v:19.4}
+];
+const ageData=[
+{l:'15-24',v:5.2},{l:'25-34',v:14.8},{l:'35-44',v:22.3},{l:'45-54',v:28.7},{l:'55-64',v:30.1},{l:'65-74',v:27.4},{l:'75+',v:21.8}
+];
+const countryData=[
+{l:'ABD 🇺🇸',v:41.9},{l:'Meksika 🇲🇽',v:36.1},{l:'Türkiye 🇹🇷',v:21.1,hl:true},{l:'İngiltere 🇬🇧',v:25.9},
+{l:'Almanya 🇩🇪',v:19.3},{l:'Fransa 🇫🇷',v:17.0},{l:'İtalya 🇮🇹',v:12.0},{l:'Japonya 🇯🇵',v:4.5},{l:'G. Kore 🇰🇷',v:5.9}
+];
+
+// Build yearly bar chart
+const maxY=Math.max(...yearlyData.map(d=>d.v));
+document.getElementById('yearlyChart').innerHTML=yearlyData.map(d=>`
+<div class="bar-col">
+<span class="bar-val">%${d.v}</span>
+<div class="bar" data-h="${d.v/maxY*100}%" style="height:0"></div>
+<span class="bar-lbl">${d.y}</span>
+</div>`).join('');
+
+function buildHBars(id,data,maxV){
+const mx=maxV||Math.max(...data.map(d=>d.v));
+document.getElementById(id).innerHTML=data.map(d=>{
+const cls=d.hl?'orange':'teal';
+return`<div class="h-bar-row"><span class="h-bar-label">${d.l}</span><div class="h-bar-track"><div class="h-bar-fill ${cls}" data-w="${d.v/mx*100}%">%${d.v}</div></div></div>`;
+}).join('');
+}
+buildHBars('regionalBars',regionalData.sort((a,b)=>b.v-a.v));
+buildHBars('ageBars',ageData);
+buildHBars('countryBars',countryData.sort((a,b)=>b.v-a.v),50);
+
+// Scroll animation
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+// Animate bars
+entry.target.querySelectorAll('.bar[data-h]').forEach((b,i)=>{
+setTimeout(()=>b.style.height=b.dataset.h,i*80);
+});
+entry.target.querySelectorAll('.h-bar-fill[data-w]').forEach((b,i)=>{
+setTimeout(()=>b.style.width=b.dataset.w,i*100);
+});
+// Donut
+const f=entry.target.querySelector('#donutFemale');
+const m=entry.target.querySelector('#donutMale');
+if(f&&m){
+const circ=2*Math.PI*70;
+setTimeout(()=>{f.style.strokeDasharray=`${24.8/100*circ} ${circ}`;},200);
+setTimeout(()=>{
+const offset=24.8/100*circ;
+m.setAttribute('stroke-dashoffset',-offset);
+m.style.strokeDasharray=`${17.3/100*circ} ${circ}`;
+},400);
+}
+observer.unobserve(entry.target);
+}
+});
+},{threshold:0.2});
+
+document.querySelectorAll('[data-animate]').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

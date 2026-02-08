@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QBM7E0EHFP');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editoryal Politikamız | UzunYaşa</title>
+    <meta name="description" content="UzunYaşa editoryal politikası: İçeriklerimiz nasıl oluşturulur, incelenir ve güncellenir. Bağımsızlık ilkemiz ve kaynak politikamız.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .ep-hero {
+            background: linear-gradient(135deg, #195157 0%, #0D7377 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+        .ep-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .ep-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .ep-hero .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .ep-hero .breadcrumb a { color: white; text-decoration: none; }
+        .ep-hero .breadcrumb a:hover { text-decoration: underline; }
+        .ep-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .ep-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .ep-section {
+            margin-bottom: 4rem;
+        }
+        .ep-section-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #0D7377, #14919B);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .ep-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: #195157;
+            margin-bottom: 1rem;
+        }
+        .ep-section p, .ep-section li {
+            color: #4B5563;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        .ep-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .ep-section ul li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .ep-section ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0D7377;
+            font-weight: 700;
+        }
+        .ep-highlight {
+            background: linear-gradient(135deg, #f0fdfa, #e6f7f8);
+            border-left: 4px solid #0D7377;
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+            color: #195157;
+            font-weight: 500;
+        }
+        .ep-process {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .ep-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: #fafaf8;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+        .ep-step-num {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: #0D7377;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .ep-step h4 { color: #195157; margin-bottom: 0.25rem; font-size: 1rem; }
+        .ep-step p { color: #6B7280; font-size: 0.95rem; margin: 0; }
+        .ep-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+            margin: 3rem 0;
+        }
+        .ep-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #fafaf8;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+        }
+        .ep-cta h3 { color: #195157; margin-bottom: 1rem; font-size: 1.25rem; }
+        .ep-cta p { color: #6B7280; margin-bottom: 1.5rem; }
+        .ep-cta a {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: #0D7377;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .ep-cta a:hover { background: #195157; }
+        .ep-updated {
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 768px) {
+            .ep-hero h1 { font-size: 2rem; }
+            .ep-content { padding: 2rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">İçeriğe geç</a>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="rehberler.html" class="nav-link">Keşfet ▾</a>
+                <a href="araclar.html" class="nav-link">Araçlar</a>
+                <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+                <a href="bilim.html" class="nav-link">Bilim</a>
+                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+                <a href="test.html" class="btn-primary">Teste Başla</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="ep-hero">
+        <div class="breadcrumb">
+            <a href="../index.html">Ana Sayfa</a> › <a href="hakkimizda.html">Hakkımızda</a> › <span>Editoryal Politika</span>
+        </div>
+        <h1>Editoryal Politikamız</h1>
+        <p>İçeriklerimizin nasıl oluşturulduğunu, incelendiğini ve güncellendiğini şeffaf bir şekilde paylaşıyoruz.</p>
+        <div class="ep-badge">🛡️ Bağımsız & Kanıta Dayalı İçerik</div>
+    </section>
+
+    <main id="main" class="ep-content">
+
+        <div class="ep-highlight">
+            "Hiçbir doktor, klinik veya ilaç firmasından maddi destek almıyoruz. İçeriklerimiz tamamen bağımsız ve bilimsel kanıtlara dayalıdır."
+        </div>
+
+        <!-- Bağımsızlık -->
+        <section class="ep-section">
+            <div class="ep-section-icon">🏛️</div>
+            <h2>Bağımsızlık İlkemiz</h2>
+            <p>UzunYaşa, herhangi bir sağlık kuruluşu, ilaç firması, klinik veya bireysel hekimle ticari bağı olmayan bağımsız bir platformdur. İçeriklerimiz hiçbir dış etki altında kalmadan, yalnızca bilimsel kanıtlara dayanarak hazırlanır.</p>
+            <ul>
+                <li>Hiçbir ilaç firmasından sponsorluk veya finansman kabul etmiyoruz</li>
+                <li>Belirli bir kliniğe veya hekime yönlendirme yapmıyoruz</li>
+                <li>Ürün veya hizmet tanıtımı içeriklerimizde yer almaz</li>
+                <li>Reklam içeriklerimiz ile editoryal içeriklerimiz kesinlikle ayrıdır</li>
+            </ul>
+        </section>
+
+        <div class="ep-divider"></div>
+
+        <!-- İçerik Oluşturma Süreci -->
+        <section class="ep-section">
+            <div class="ep-section-icon">📝</div>
+            <h2>İçerik Oluşturma Sürecimiz</h2>
+            <p>Her içerik, titiz bir süreçten geçerek yayınlanır. Amacımız en doğru, güncel ve anlaşılır bilgiyi sunmaktır.</p>
+            <div class="ep-process">
+                <div class="ep-step">
+                    <div class="ep-step-num">1</div>
+                    <div>
+                        <h4>Konu Araştırması</h4>
+                        <p>Güncel bilimsel literatür, meta-analizler ve sistematik derlemeler taranır.</p>
+                    </div>
+                </div>
+                <div class="ep-step">
+                    <div class="ep-step-num">2</div>
+                    <div>
+                        <h4>İçerik Yazımı</h4>
+                        <p>Uzman yazarlarımız bilimsel verileri anlaşılır Türkçeye çevirir.</p>
+                    </div>
+                </div>
+                <div class="ep-step">
+                    <div class="ep-step-num">3</div>
+                    <div>
+                        <h4>Uzman İncelemesi</h4>
+                        <p>Danışma kurulumuz içeriği tıbbi doğruluk açısından değerlendirir.</p>
+                    </div>
+                </div>
+                <div class="ep-step">
+                    <div class="ep-step-num">4</div>
+                    <div>
+                        <h4>Yayın & Takip</h4>
+                        <p>İçerik yayınlanır ve düzenli aralıklarla güncellenir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="ep-divider"></div>
+
+        <!-- Kaynak Politikası -->
+        <section class="ep-section">
+            <div class="ep-section-icon">📚</div>
+            <h2>Kaynak Politikamız</h2>
+            <p>Güvenilirliğimizin temelinde şeffaf kaynak kullanımı yatar. Her içeriğimizde kullandığımız kaynakları açıkça belirtiriz.</p>
+            <ul>
+                <li>Hakemli bilimsel dergilerde yayınlanmış araştırmaları tercih ederiz</li>
+                <li>Dünya Sağlık Örgütü, T.C. Sağlık Bakanlığı gibi resmi kurumların verilerini kullanırız</li>
+                <li>Meta-analiz ve sistematik derlemeleri bireysel çalışmalara tercih ederiz</li>
+                <li>Her kaynağı doğrudan linkle veya DOI numarasıyla belirtiriz</li>
+                <li>Çelişkili kanıtları açıkça belirtir, tek taraflı sunum yapmayız</li>
+            </ul>
+        </section>
+
+        <div class="ep-divider"></div>
+
+        <!-- Güncelleme Politikası -->
+        <section class="ep-section">
+            <div class="ep-section-icon">🔄</div>
+            <h2>Güncelleme Politikamız</h2>
+            <p>Tıbbi bilgi sürekli gelişir. İçeriklerimizi güncel tutmak en önemli sorumluluklarımızdan biridir.</p>
+            <ul>
+                <li>Tüm içerikler en az 6 ayda bir gözden geçirilir</li>
+                <li>Yeni araştırma sonuçları yayınlandığında ilgili içerikler güncellenir</li>
+                <li>Her içerikte "son güncelleme tarihi" açıkça belirtilir</li>
+                <li>Önemli güncellemeler okuyuculara bildirilir</li>
+                <li>Güncelliğini yitiren içerikler arşivlenir veya yeniden yazılır</li>
+            </ul>
+        </section>
+
+        <div class="ep-divider"></div>
+
+        <!-- Çıkar Çatışması -->
+        <section class="ep-section">
+            <div class="ep-section-icon">⚖️</div>
+            <h2>Çıkar Çatışması Beyanı</h2>
+            <p>Şeffaflık ilkemiz gereği, olası çıkar çatışmalarını açıkça beyan ederiz:</p>
+            <ul>
+                <li>Danışma kurulu üyelerimizin olası çıkar çatışmaları düzenli olarak değerlendirilir</li>
+                <li>İçerik yazarlarımız herhangi bir sağlık kuruluşuyla ticari ilişki içinde değildir</li>
+                <li>Platform geliri tamamen okuyucu desteği ve bağımsız reklam gelirlerinden oluşur</li>
+                <li>Sponsorlu içerik kabul etmiyoruz</li>
+            </ul>
+        </section>
+
+        <div class="ep-cta">
+            <h3>Danışma Kurulumuzu Tanıyın</h3>
+            <p>İçeriklerimizi inceleyen uzman danışma kurulumuz hakkında bilgi alın.</p>
+            <a href="danisma-kurulu.html">Danışma Kurulu →</a>
+        </div>
+
+        <p class="ep-updated">Son güncelleme: Şubat 2026</p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html"><img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
+                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Keşfet</h4>
+                    <a href="beslenme.html">Beslenme</a>
+                    <a href="egzersiz.html">Egzersiz</a>
+                    <a href="uyku-stres.html">Uyku & Stres</a>
+                    <a href="tedavi.html">Tedavi Seçenekleri</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Araçlar</h4>
+                    <a href="test.html">Bana Ne Uygun?</a>
+                    <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
+                    <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hakkımızda</h4>
+                    <a href="hakkimizda.html">Ekibimiz</a>
+                    <a href="editoryal-politika.html">Editoryal Politika</a>
+                    <a href="danisma-kurulu.html">Danışma Kurulu</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+                <span>Gizlilik Politikası | Kullanım Koşulları</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
