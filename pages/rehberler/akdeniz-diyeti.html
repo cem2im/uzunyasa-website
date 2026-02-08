@@ -12,7 +12,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Akdeniz Diyeti Başlangıç Rehberi | UzunYaşa</title>
- <meta name="description" content="Dünyanın en sağlıklı beslenme tarzı Akdeniz diyeti: Ne yemeli, örnek menüler ve alışveriş listesi.">
+ <meta name="description" content="Dünyanın en sağlıklı beslenme tarzı Akdeniz diyeti: Ne yemeli, örnek menüler, alışveriş listesi ve bilimsel kanıtlar.">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="../../styles/main.css">
@@ -31,7 +31,9 @@
  .guide-content p { margin-bottom: 1.25rem; font-size: 1.05rem; }
  .guide-content ul, .guide-content ol { margin: 1rem 0 1.5rem 1.5rem; }
  .guide-content li { margin-bottom: 0.75rem; }
- .info-box { padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; background: #ECFDF5; border-left: 4px solid var(--success); }
+ .info-box { padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
+ .info-box.tip { background: #ECFDF5; border-left: 4px solid var(--success); }
+ .info-box.warning { background: #FEF3C7; border-left: 4px solid var(--warning); }
  .info-box h4 { margin-bottom: 0.5rem; }
  .food-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
  .food-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; text-align: center; }
@@ -44,10 +46,15 @@
  .pyramid-level.often { background: #FEF3C7; }
  .pyramid-level.weekly { background: #FEE2E2; }
  .pyramid-level.rare { background: #F3F4F6; }
+ .guide-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+ .guide-table th, .guide-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+ .guide-table th { background: var(--bg); font-weight: 600; }
  .guide-cta { background: linear-gradient(135deg, var(--primary), var(--primary-light)); padding: 3rem 2rem; border-radius: 20px; text-align: center; color: white; margin: 3rem 0; }
  .guide-cta h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
  .guide-cta p { opacity: 0.9; margin-bottom: 1.5rem; }
  .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; }
+ .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+ .faq-item h4 { margin-bottom: 0.5rem; color: var(--primary); }
  
  footer p { opacity: 0.7; }
  @media (max-width: 768px) { .guide-hero h1 { font-size: 2rem; } }
@@ -57,7 +64,7 @@
  <header class="header">
  <div class="header-inner">
  <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
- <a href="../rehberler.html" class="back-link">← Tüm Rehberler</a>
+ <a href="../rehberler.html" class="back-link">&larr; Tüm Rehberler</a>
  </div>
  </header>
 
@@ -65,147 +72,324 @@
  <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1400" alt="Akdeniz Diyeti" class="guide-hero-bg">
  <div class="guide-hero-overlay"></div>
  <div class="guide-hero-content">
- <span class="guide-badge"> Beslenme</span>
+ <span class="guide-badge">Beslenme</span>
  <h1>Akdeniz Diyeti Başlangıç Rehberi</h1>
- <p>Dünyanın en sağlıklı ve sürdürülebilir beslenme tarzı. Kalp hastalığı riskini %30 azaltan, uzun ömür destekleyen Akdeniz diyeti.</p>
+ <p>Dünyanın en sağlıklı ve sürdürülebilir beslenme tarzı. Kalp hastalığı riskini %30 azaltan, uzun ömür destekleyen Akdeniz diyeti hakkında bilmeniz gereken her şey.</p>
  <div class="guide-meta">
- <span>⏱ 35 dk okuma</span>
- <span> 7 bölüm</span>
- <span> Alışveriş listesi dahil</span>
+ <span>45 dk okuma</span>
+ <span>10 bölüm</span>
+ <span>Alışveriş listesi dahil</span>
  </div>
  </div>
  </section>
 
  <main class="guide-content">
- <h2>Akdeniz Diyeti Nedir?</h2>
- <p>Akdeniz diyeti, İtalya, Yunanistan, İspanya ve Türkiye gibi Akdeniz ülkelerinin geleneksel beslenme alışkanlıklarına dayanan bir yaşam tarzıdır. 1960'larda bu bölgelerde kalp hastalığı oranlarının düşük olduğunun keşfedilmesiyle bilimsel ilgi çekmiştir.</p>
- 
- <div class="info-box">
- <h4> Bilimsel Kanıtlar</h4>
- <p>PREDIMED çalışması, Akdeniz diyetinin kardiyovasküler olayları %30 azalttığını gösterdi. 2024'te yayınlanan meta-analiz, tüm nedenlere bağlı ölüm riskinde %21 azalma tespit etti.</p>
+
+ <div class="info-box warning">
+ <h4>Tıbbi Uyarı</h4>
+ <p>Bu rehber genel bilgi amaçlıdır. Diyabet, böbrek hastalığı, gıda alerjileri veya başka kronik rahatsızlıklarınız varsa, beslenme düzeninizi değiştirmeden önce doktorunuza veya diyetisyeninize danışın.</p>
  </div>
 
+ <h2>Akdeniz Diyeti Nedir?</h2>
+ <p>Akdeniz diyeti, İtalya, Yunanistan, İspanya ve Türkiye gibi Akdeniz havzası ülkelerinin geleneksel beslenme alışkanlıklarına dayanan bir yaşam tarzıdır. 1950'li ve 60'lı yıllarda Amerikalı fizyolog Ancel Keys, bu bölgelerde kalp hastalığı oranlarının Kuzey Avrupa ve Amerika'ya kıyasla çarpıcı biçimde düşük olduğunu keşfetti. Bu gözlem, beslenme biliminin en kapsamlı araştırma alanlarından birinin doğmasına yol açtı.</p>
+
+ <p>Akdeniz diyeti bir "diyet" olmaktan çok, bir <strong>yaşam biçimi</strong>dir. Kısıtlayıcı kurallar yerine, belirli besin gruplarını öne çıkaran, doğal ve mevsimsel beslenmeyi teşvik eden bir yaklaşım sunar. U.S. News &amp; World Report tarafından 2018'den bu yana her yıl "Dünyanın En İyi Diyeti" seçilmektedir.</p>
+ 
+ <div class="info-box tip">
+ <h4>Bilimsel Kanıtlar</h4>
+ <p><strong>PREDIMED Çalışması (2013, 2018 revize):</strong> 7.447 katılımcıyla yapılan bu dev çalışma, zeytinyağı zengin Akdeniz diyetinin kardiyovasküler olayları (kalp krizi, inme) %30 azalttığını gösterdi. Bu sonuç, tıp dünyasında bir dönüm noktası oldu.</p>
+ <p><strong>Meta-analiz (Sofi ve ark., 2024):</strong> 12.8 milyon kişiyi kapsayan analiz, Akdeniz diyetine yüksek uyumun tüm nedenlere bağlı ölüm riskinde %21, kardiyovasküler ölüm riskinde %33 azalma ile ilişkili olduğunu tespit etti.</p>
+ <p><strong>MIND Çalışması:</strong> Akdeniz diyetinin Alzheimer riskini %53'e kadar azaltabildiği gösterildi.</p>
+ </div>
+
+ <h2>Türk Mutfağı ve Akdeniz Diyeti</h2>
+ <p>İşte size harika bir haber: <strong>Türk mutfağı zaten Akdeniz diyetinin temelinde yer alır.</strong> Zeytinyağlılar, baklagiller, bulgur, yoğurt, taze sebze ve meyveler... Aslında büyükannelerimizin sofrasına dönmek yeterli.</p>
+ <p>Ancak modern Türk beslenme tarzında bazı sapmalar yaşandı: Aşırı ekmek tüketimi, işlenmiş gıdaların artması, şekerli içecekler ve fast food... Bu rehber, Türk mutfağının güçlü yönlerini koruyarak, Akdeniz diyetinin bilimsel çerçevesini Türk sofrasına uyarlamayı amaçlıyor.</p>
+
  <h2>Besin Piramidi</h2>
+ <p>Akdeniz diyetinin besin piramidi, geleneksel Batı beslenme piramidinden önemli farklılıklar gösterir. Temel prensip: Bitkisel gıdalar tabanı oluşturur, hayvansal ürünler yukarıya doğru azalır.</p>
  
  <div class="pyramid">
  <div class="pyramid-level daily">
- <strong>🟢 HER GÜN</strong><br>
- Sebzeler, meyveler, tam tahıllar, zeytinyağı, baklagiller, kuruyemişler, otlar & baharatlar
+ <strong>HER GUN - Sofranızın Temeli</strong><br>
+ Sebzeler (5+ porsiyon), meyveler (2-3 porsiyon), tam tahıllar (bulgur, yulaf, esmer pirinç), zeytinyağı (3-4 yemek kaşığı), baklagiller, kuruyemişler, otlar ve baharatlar, bol su
  </div>
  <div class="pyramid-level often">
- <strong>🟡 HAFTADA BİRKAÇ KEZ</strong><br>
- Balık & deniz ürünleri, kümes hayvanları, yumurta, peynir, yoğurt
+ <strong>HAFTADA BİRKAÇ KEZ</strong><br>
+ Balık ve deniz ürünleri (2-3 kez), kümes hayvanları (2-3 kez), yumurta (4-7 adet/hafta), peynir ve yoğurt (her gün az miktarda)
  </div>
  <div class="pyramid-level weekly">
- <strong>🟠 HAFTADA 1-2 KEZ</strong><br>
- Kırmızı et (az miktarda)
+ <strong>HAFTADA 1-2 KEZ VEYA DAHA AZ</strong><br>
+ Kırmızı et (ayda 3-4 porsiyon, 85-115g), tatlılar
  </div>
  <div class="pyramid-level rare">
- <strong> NADİREN</strong><br>
- Şekerli yiyecekler, işlenmiş gıdalar, tereyağı
+ <strong>NADİREN VEYA HİÇ</strong><br>
+ Şekerli yiyecekler, işlenmiş gıdalar (sucuk, sosis, hazır yemek), tereyağı/margarin, şekerli içecekler, beyaz un ürünleri
  </div>
  </div>
 
- <h2>Temel Besinler</h2>
+ <h2>Temel Besinler ve Porsiyon Rehberi</h2>
  
  <div class="food-grid">
  <div class="food-card">
  <div class="emoji"></div>
  <h4>Zeytinyağı</h4>
- <p>Ana yağ kaynağı. Günde 3-4 yemek kaşığı.</p>
+ <p>Ana yağ kaynağı. Günde 3-4 yemek kaşığı. Sızma zeytinyağı tercih edin.</p>
  </div>
  <div class="food-card">
  <div class="emoji"></div>
  <h4>Balık</h4>
- <p>Omega-3 kaynağı. Haftada 2-3 porsiyon.</p>
+ <p>Omega-3 deposu. Haftada 2-3 porsiyon (150g). Somon, uskumru, sardalya, hamsi.</p>
  </div>
  <div class="food-card">
  <div class="emoji"></div>
  <h4>Sebzeler</h4>
- <p>Çeşitli renkler. Her öğünde.</p>
+ <p>Her öğünde, çeşitli renkler. Günde 400g+. Pişmiş ve çiğ karma.</p>
  </div>
  <div class="food-card">
  <div class="emoji"></div>
  <h4>Baklagiller</h4>
- <p>Nohut, mercimek, fasulye. Haftada 3+ kez.</p>
+ <p>Nohut, mercimek, kuru fasulye, barbunya. Haftada 3-4 kez, 1 kase porsiyon.</p>
  </div>
  <div class="food-card">
  <div class="emoji"></div>
  <h4>Kuruyemişler</h4>
- <p>Ceviz, badem. Günde 1 avuç.</p>
+ <p>Ceviz, badem, fındık. Günde 1 avuç (30g). Tuzsuz tercih edin.</p>
  </div>
  <div class="food-card">
  <div class="emoji"></div>
  <h4>Meyveler</h4>
- <p>Tatlı yerine. Günde 2-3 porsiyon.</p>
+ <p>Tatlı yerine meyve. Günde 2-3 porsiyon. Mevsiminde ve çiğ tüketin.</p>
  </div>
  </div>
 
- <h2>Örnek Haftalık Menü</h2>
+ <h3>Zeytinyağı: Akdeniz Diyetinin Kalbi</h3>
+ <p>Zeytinyağı, Akdeniz diyetinin en önemli bileşenidir. Sızma (extra virgin) zeytinyağı, polifenoller ve oleik asit bakımından zengindir. PREDIMED çalışmasında günde 4+ yemek kaşığı zeytinyağı tüketen grup en yüksek faydayı gösterdi.</p>
+ <ul>
+ <li><strong>Pişirme:</strong> Düşük-orta ateşte pişirme için güvenlidir (duman noktası ~190-210°C)</li>
+ <li><strong>Çiğ kullanım:</strong> Salatalarda, zeytinyağlılarda, ekmek yanında en iyi haliyle</li>
+ <li><strong>Saklama:</strong> Koyu cam şişede, serin ve karanlık yerde. Işık ve ısıdan koruyun</li>
+ <li><strong>Kalite göstergesi:</strong> Hasat tarihi yazılı, asit oranı %0.8 altında, acı ve yakıcı tat (polifenol göstergesi)</li>
+ </ul>
+
+ <h2>Tam Haftalık Menü Planı</h2>
+ <p>Aşağıdaki menü, Türk damak tadına uyarlanmış bir Akdeniz diyeti örneğidir. Toplam günlük kalori yaklaşık 1800-2000 kcal civarındadır.</p>
  
  <h3>Pazartesi</h3>
  <ul>
- <li><strong>Kahvaltı:</strong> Türk kahvaltısı - peynir, domates, salatalık, zeytin, yumurta</li>
- <li><strong>Öğle:</strong> Mercimek çorbası + tam buğday ekmeği</li>
- <li><strong>Akşam:</strong> Zeytinyağlı enginar + yoğurt</li>
+ <li><strong>Kahvaltı:</strong> Türk kahvaltısı - beyaz peynir (50g), domates, salatalık, zeytin (5-6 adet), haşlanmış yumurta, tam buğday ekmek (1 dilim), zeytinyağı</li>
+ <li><strong>Ara öğün:</strong> 1 avuç badem + 1 elma</li>
+ <li><strong>Öğle:</strong> Mercimek çorbası (1 kase) + tam buğday ekmeği (1 dilim) + yeşil salata</li>
+ <li><strong>Ara öğün:</strong> Havuç-kereviz çubukları + humus (2 yemek kaşığı)</li>
+ <li><strong>Akşam:</strong> Zeytinyağlı enginar (1 porsiyon) + yoğurt (1 kase) + bulgur pilavı (3 yemek kaşığı)</li>
  </ul>
 
  <h3>Salı</h3>
  <ul>
- <li><strong>Kahvaltı:</strong> Yulaf ezmesi, ceviz, bal, muz</li>
- <li><strong>Öğle:</strong> Ton balıklı salata</li>
- <li><strong>Akşam:</strong> Izgara tavuk, bulgur pilavı, cacık</li>
+ <li><strong>Kahvaltı:</strong> Yulaf ezmesi (40g), ceviz (4-5 adet), bal (1 tatlı kaşığı), muz (yarım)</li>
+ <li><strong>Ara öğün:</strong> 1 kase yoğurt + çilek</li>
+ <li><strong>Öğle:</strong> Ton balıklı salata (ton balığı, marul, domates, salatalık, zeytinyağı-limon sos)</li>
+ <li><strong>Ara öğün:</strong> 1 avuç fındık</li>
+ <li><strong>Akşam:</strong> Izgara tavuk (150g), bulgur pilavı, cacık, mevsim salatası</li>
  </ul>
 
  <h3>Çarşamba</h3>
  <ul>
- <li><strong>Kahvaltı:</strong> Tam buğday tost, avokado, yumurta</li>
- <li><strong>Öğle:</strong> Zeytinyağlı taze fasulye + pilav</li>
- <li><strong>Akşam:</strong> Fırında somon, roka salatası</li>
+ <li><strong>Kahvaltı:</strong> Tam buğday tost, avokado (yarım), yumurta (1), domates</li>
+ <li><strong>Ara öğün:</strong> Portakal (1 adet)</li>
+ <li><strong>Öğle:</strong> Zeytinyağlı taze fasulye (1 porsiyon) + esmer pirinç pilavı (3 yemek kaşığı)</li>
+ <li><strong>Ara öğün:</strong> Lor peyniri (2 yemek kaşığı) + ceviz</li>
+ <li><strong>Akşam:</strong> Fırında somon (150g), roka-nar salatası, zeytinyağı-limon sos</li>
  </ul>
 
- <h2>Alışveriş Listesi</h2>
+ <h3>Perşembe</h3>
+ <ul>
+ <li><strong>Kahvaltı:</strong> Menemen (2 yumurta, domates, biber, zeytinyağı) + tam buğday ekmek</li>
+ <li><strong>Ara öğün:</strong> Yeşil smoothie (ıspanak, muz, yoğurt)</li>
+ <li><strong>Öğle:</strong> Nohut yemeği (1 porsiyon) + yoğurt + salata</li>
+ <li><strong>Ara öğün:</strong> 1 avuç badem + kuru kayısı (3 adet)</li>
+ <li><strong>Akşam:</strong> Fırında levrek, buharda brokoli ve havuç, limon</li>
+ </ul>
+
+ <h3>Cuma</h3>
+ <ul>
+ <li><strong>Kahvaltı:</strong> Lor peyniri, domates, roka, zeytinyağı, tam buğday ekmek</li>
+ <li><strong>Ara öğün:</strong> Muz (1 adet) + ceviz</li>
+ <li><strong>Öğle:</strong> Kırmızı mercimek çorbası + bol limon + tam buğday ekmek</li>
+ <li><strong>Ara öğün:</strong> Havuç çubukları + humus</li>
+ <li><strong>Akşam:</strong> Zeytinyağlı patlıcan musakka (et olmadan) + yoğurt + bulgur</li>
+ </ul>
+
+ <h3>Cumartesi</h3>
+ <ul>
+ <li><strong>Kahvaltı:</strong> Geç kahvaltı/brunch - serpme kahvaltı (peynir çeşitleri, zeytin, yumurta, domates, salatalık, bal-kaymak az miktarda, tam buğday ekmek)</li>
+ <li><strong>Öğle:</strong> Hafif - meyve tabağı + yoğurt + kuruyemiş</li>
+ <li><strong>Akşam:</strong> Izgara köfte (az yağlı dana kıyma, 100g) + közlenmiş sebzeler + çoban salatası</li>
+ </ul>
+
+ <h3>Pazar</h3>
+ <ul>
+ <li><strong>Kahvaltı:</strong> Yulaf pankek (yulaf, yumurta, muz) + taze meyve + bal damlası</li>
+ <li><strong>Öğle:</strong> Kuru fasulye (1 porsiyon) + esmer pirinç pilavı + turşu + salata</li>
+ <li><strong>Ara öğün:</strong> Badem + kuru incir (2 adet)</li>
+ <li><strong>Akşam:</strong> Zeytinyağlı kabak dolması + yoğurt</li>
+ </ul>
+
+ <h2>Kapsamlı Alışveriş Listesi</h2>
  
- <div class="info-box">
- <h4> Haftalık Temel Liste</h4>
- <p><strong>Sebzeler:</strong> Domates, salatalık, biber, patlıcan, kabak, ıspanak, brokoli, soğan, sarımsak</p>
- <p><strong>Meyveler:</strong> Elma, portakal, üzüm, incir, muz</p>
- <p><strong>Protein:</strong> Balık (somon, levrek), tavuk, yumurta, nohut, mercimek</p>
- <p><strong>Tahıllar:</strong> Tam buğday ekmeği, bulgur, yulaf, esmer pirinç</p>
- <p><strong>Yağlar:</strong> Sızma zeytinyağı (kaliteli)</p>
- <p><strong>Süt Ürünleri:</strong> Yoğurt, beyaz peynir, lor</p>
- <p><strong>Kuruyemişler:</strong> Ceviz, badem, fındık</p>
+ <div class="info-box tip">
+ <h4>Haftalık Temel Alışveriş Listesi</h4>
+ <p><strong>Sebzeler (mevsiminde):</strong> Domates (1 kg), salatalık (500g), biber (500g), patlıcan (500g), kabak (500g), ıspanak (300g), brokoli (1 adet), soğan (500g), sarımsak (1 baş), havuç (500g), roka (1 demet), marul (1 adet), kereviz</p>
+ <p><strong>Meyveler:</strong> Elma (4 adet), portakal (4 adet), muz (3 adet), mevsim meyvesi (500g), limon (3 adet)</p>
+ <p><strong>Protein kaynakları:</strong> Balık - somon veya levrek fileto (400g), tavuk göğsü (400g), yumurta (10'lu paket), nohut (500g kuru veya 2 konserve), yeşil mercimek (500g), kırmızı mercimek (500g), kuru fasulye (500g)</p>
+ <p><strong>Tahıllar:</strong> Tam buğday ekmeği (1 ekmek), bulgur (500g), yulaf ezmesi (500g), esmer pirinç (500g)</p>
+ <p><strong>Yağlar:</strong> Sızma zeytinyağı (1 litre, kaliteli - erken hasat varsa tercih edin)</p>
+ <p><strong>Süt ürünleri:</strong> Süzme yoğurt (1 kg), beyaz peynir (300g), lor peyniri (200g)</p>
+ <p><strong>Kuruyemişler ve kurumeyveler:</strong> Ceviz (200g), badem (200g), fındık (200g), kuru kayısı (200g), kuru incir (200g)</p>
+ <p><strong>Baharat ve sos:</strong> Kekik, kimyon, zerdeçal, karabiber, pul biber, tuz (az), bal (1 kavanoz), tahin</p>
+ <p><strong>Diğer:</strong> Zeytin (yeşil ve siyah, 300g), tahin, sirke (elma sirkesi veya nar ekşisi)</p>
  </div>
 
- <h2>Faydaları</h2>
+ <h3>Alışveriş İpuçları</h3>
  <ul>
- <li> <strong>Kalp sağlığı:</strong> Kardiyovasküler hastalık riskini %30 azaltır</li>
- <li> <strong>Beyin sağlığı:</strong> Alzheimer ve demans riskini düşürür</li>
- <li> <strong>Kilo kontrolü:</strong> Uzun vadede sürdürülebilir kilo yönetimi</li>
- <li> <strong>Kan şekeri:</strong> Tip 2 diyabet riskini azaltır</li>
- <li> <strong>Ruh hali:</strong> Depresyon belirtilerini hafifletir</li>
- <li>⏰ <strong>Uzun ömür:</strong> Genel ölüm riskinde %21 azalma</li>
+ <li><strong>Mevsiminde alın:</strong> Hem daha besleyici, hem daha ucuz, hem daha lezzetli</li>
+ <li><strong>Yerel pazarları tercih edin:</strong> Semt pazarları, kooperatif satış noktaları</li>
+ <li><strong>Etiket okuyun:</strong> İşlenmiş gıdalarda şeker, tuz ve katkı maddesi içeriğini kontrol edin</li>
+ <li><strong>Toplu alın:</strong> Baklagiller, tahıllar ve kuruyemişler toptan alınabilir</li>
+ <li><strong>Dondurun:</strong> Mevsiminde aldığınız meyve ve sebzeleri dondurarak saklayın</li>
  </ul>
 
- <h2>Başlarken İpuçları</h2>
- <ol>
- <li><strong>Yavaş geçiş yapın:</strong> Haftada 1-2 öğün değiştirerek başlayın</li>
- <li><strong>Zeytinyağına geçin:</strong> Tereyağı ve diğer yağları azaltın</li>
- <li><strong>Balık tüketimini artırın:</strong> Haftada en az 2 porsiyon</li>
- <li><strong>Kırmızı eti azaltın:</strong> Ayda 2-3 porsiyona indirin</li>
- <li><strong>Şekerli içecekleri bırakın:</strong> Su, bitki çayları tercih edin</li>
- <li><strong>Sosyalleşin:</strong> Akdeniz kültürü aile/arkadaşlarla yemeği önemser</li>
- </ol>
+ <h2>Akdeniz Diyetinin Kanıtlanmış Faydaları</h2>
+ 
+ <table class="guide-table">
+ <thead>
+ <tr><th>Sağlık Alanı</th><th>Fayda</th><th>Kanıt Düzeyi</th></tr>
+ </thead>
+ <tbody>
+ <tr><td><strong>Kalp sağlığı</strong></td><td>Kardiyovasküler hastalık riskini %25-30 azaltır</td><td>Cok güçlü (PREDIMED, çok sayıda RCT)</td></tr>
+ <tr><td><strong>Beyin sağlığı</strong></td><td>Alzheimer ve demans riskini %40-53 düşürür</td><td>Güçlü (MIND çalışması, kohort çalışmaları)</td></tr>
+ <tr><td><strong>Kilo kontrolü</strong></td><td>Uzun vadede sürdürülebilir kilo yönetimi</td><td>Güçlü (düşük kısıtlama = yüksek uyum)</td></tr>
+ <tr><td><strong>Kan şekeri</strong></td><td>Tip 2 diyabet riskini %20-30 azaltır</td><td>Güçlü (çok sayıda kohort çalışması)</td></tr>
+ <tr><td><strong>Ruh hali</strong></td><td>Depresyon riskini %33 düşürür</td><td>Orta-güçlü (SMILES çalışması ve meta-analizler)</td></tr>
+ <tr><td><strong>Uzun ömür</strong></td><td>Genel ölüm riskinde %21 azalma</td><td>Çok güçlü (12.8M kişilik meta-analiz)</td></tr>
+ <tr><td><strong>Kanser</strong></td><td>Genel kanser riskinde %10-15 azalma, özellikle kolorektal</td><td>Orta (gözlemsel çalışmalar)</td></tr>
+ <tr><td><strong>İltihap</strong></td><td>Sistemik inflamasyonu azaltır (CRP, IL-6 düşüşü)</td><td>Güçlü</td></tr>
+ </tbody>
+ </table>
+
+ <h2>Adım Adım Geçiş Planı: 4 Haftalık Program</h2>
+ <p>Beslenme değişikliklerinde en büyük hata, bir anda her şeyi değiştirmeye çalışmaktır. Bunun yerine kademeli geçiş hem daha sürdürülebilir hem daha keyiflidir.</p>
+
+ <h3>Hafta 1: Yağ Geçişi</h3>
+ <ul>
+ <li>Tereyağı ve ayçiçek yağını zeytinyağıyla değiştirin</li>
+ <li>Salatalara zeytinyağı-limon sos yapın</li>
+ <li>Ekmeğe tereyağı yerine zeytinyağı bandırın</li>
+ <li>Günde 1 avuç kuruyemiş (ceviz veya badem) ekleyin</li>
+ </ul>
+
+ <h3>Hafta 2: Sebze ve Baklagil Artırma</h3>
+ <ul>
+ <li>Her öğüne en az 1 porsiyon sebze ekleyin</li>
+ <li>Haftada 2 gün baklagil yemeği yapın (mercimek çorbası, nohut yemeği)</li>
+ <li>Atıştırmalıkları sebze çubuğu + humus ile değiştirin</li>
+ <li>Beyaz ekmek yerine tam buğday ekmeğe geçin</li>
+ </ul>
+
+ <h3>Hafta 3: Protein Kaynağını Değiştirme</h3>
+ <ul>
+ <li>Haftada 2 gün balık yemeği yapın (Türk mutfağı balık zenginidir!)</li>
+ <li>Kırmızı et sıklığını haftada 1 keze düşürün</li>
+ <li>İşlenmiş et ürünlerini (sucuk, sosis, salam) tamamen çıkarın veya çok azaltın</li>
+ <li>Tatlı yerine meyve tüketin</li>
+ </ul>
+
+ <h3>Hafta 4: İçecek ve Alışkanlık Düzenleme</h3>
+ <ul>
+ <li>Şekerli içecekleri bırakın (kola, hazır meyve suyu)</li>
+ <li>Günde 8-10 bardak su için</li>
+ <li>Bitki çayları keşfedin (adaçayı, papatya, ıhlamur)</li>
+ <li>Yemekleri mümkünse aile veya arkadaşlarla yiyin (Akdeniz kültürü!)</li>
+ <li>Yavaş yiyin - her lokmayı en az 15-20 kez çiğneyin</li>
+ </ul>
+
+ <h2>Bütçe Dostu Akdeniz Diyeti</h2>
+ <p>Akdeniz diyetinin pahalı olduğu bir efsanedir. Türkiye'de bu beslenme tarzı aslında oldukça ekonomiktir:</p>
+ <ul>
+ <li><strong>Baklagiller ucuzdur:</strong> 1 kg kuru mercimek = 10+ porsiyon yemek</li>
+ <li><strong>Yumurta mükemmel protein kaynağıdır:</strong> Porsiyon başına en ucuz kaliteli protein</li>
+ <li><strong>Mevsim sebzeleri uygun fiyatlıdır:</strong> Semt pazarlarında kapanış saatlerinde daha da ucuz</li>
+ <li><strong>Kırmızı eti azaltmak tasarruf sağlar:</strong> Et bütçesi yerine balık ve baklagil</li>
+ <li><strong>Ev yemekleri dışarı yemekten çok daha ucuzdur:</strong> Toplu pişirme ve dondurma tekniklerini kullanın</li>
+ <li><strong>Toplu alım:</strong> Zeytinyağı, bulgur, pirinç, baklagil gibi uzun ömürlü ürünleri toptan alın</li>
+ </ul>
+
+ <h2>Yaygın Hatalar ve Çözümleri</h2>
+ <ul>
+ <li><strong>Hata: Zeytinyağını sınırsız kullanmak.</strong> Cözüm: Sağlıklı olsa da kaloriktir. Günde 3-4 yemek kaşığı yeterlidir.</li>
+ <li><strong>Hata: Sadece makarna ve ekmek yemek.</strong> Cözüm: Tam tahıllar önemli ama porsiyona dikkat. Tabağın yarısı sebze olmalı.</li>
+ <li><strong>Hata: "Akdeniz diyeti = sadece salata" düşüncesi.</strong> Cözüm: Zengin ve lezzetli bir mutfak. Zeytinyağlılar, çorbalar, balık, etli sebze yemekleri...</li>
+ <li><strong>Hata: Şarabı sağlık için içmeye başlamak.</strong> Cözüm: Alkol tüketmiyorsanız, Akdeniz diyeti için başlamanıza gerek yok. Faydalar besinlerden gelir.</li>
+ <li><strong>Hata: Hemen her şeyi değiştirmeye çalışmak.</strong> Cözüm: Yukarıdaki 4 haftalık geçiş planını takip edin.</li>
+ </ul>
+
+ <h2>Sık Sorulan Sorular</h2>
+
+ <div class="faq-item">
+ <h4>Akdeniz diyetiyle kilo verebilir miyim?</h4>
+ <p>Evet, ancak Akdeniz diyeti birincil olarak bir kilo verme diyeti değil, sağlık diyetidir. Porsiyon kontrolü yaparsanız kilo kaybı sağlarsınız. Araştırmalar, Akdeniz diyetinin düşük yağlı diyetlerle karşılaştırıldığında 12 ayda benzer veya daha iyi kilo kaybı sağladığını ve önemlisi uzun vadede daha sürdürülebilir olduğunu göstermektedir.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Günde ne kadar zeytinyağı kullanmalıyım?</h4>
+ <p>PREDIMED çalışmasında fayda gösteren miktar günde 4 yemek kaşığı (yaklaşık 50ml) idi. Ancak başlangıçta 2-3 yemek kaşığı ile başlayabilirsiniz. Zeytinyağı kaloriktir (1 yemek kaşığı = ~120 kcal), bu nedenle diğer yağ kaynaklarını azaltarak zeytinyağına geçiş yapın.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Ekmek yiyebilir miyim?</h4>
+ <p>Evet, ancak tam buğday veya tam tahıl ekmeği tercih edin ve porsiyona dikkat edin. Günde 2-3 dilim yeterlidir. Geleneksel Türk beyaz ekmeği yerine, esmer ekmek, çavdar ekmeği veya tam buğday pide seçenekleri deneyin.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Vejetaryen veya vegan Akdeniz diyeti mümkün mü?</h4>
+ <p>Kesinlikle. Akdeniz diyeti zaten büyük ölçüde bitkisel ağırlıklıdır. Vejetaryenler yumurta ve süt ürünlerini, veganlar ise baklagiller, tofu, tempeh ve kuruyemişleri protein kaynağı olarak kullanabilir. B12, demir ve omega-3 takviyesine dikkat edin.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Diyabet hastası Akdeniz diyeti yapabilir mi?</h4>
+ <p>Evet, hatta şiddetle önerilir. Akdeniz diyeti kan şekeri kontrolünü iyileştirir ve insülin duyarlılığını artırır. Ancak meyve ve tahıl porsiyonlarını diyetisyeninizle ayarlayın ve kan şekerinizi düzenli takip edin.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Akdeniz diyetinde alkol zorunlu mu?</h4>
+ <p>Hayır. Geleneksel Akdeniz yaşam tarzında yemekle birlikte az miktarda şarap içilmesi yaygındır, ancak alkol zorunlu bir bileşen değildir. Alkol kullanmıyorsanız başlamayın. Diyetin faydaları besin kalitesinden gelir, alkolden değil.</p>
+ </div>
+
+ <div class="faq-item">
+ <h4>Akdeniz diyeti pahalı mı?</h4>
+ <p>Türkiye'de hayır. Baklagiller, yumurta, mevsim sebzeleri ve tam tahıllar oldukça ekonomiktir. Kırmızı et tüketimini azaltmak da bütçeye yardımcı olur. Haftada bir kişi için yaklaşık 400-600 TL ile kaliteli bir Akdeniz diyeti sürdürülebilir (2025 fiyatlarıyla).</p>
+ </div>
+
+ <h2>Kaynaklar</h2>
+ <ul>
+ <li>Estruch, R. ve ark. (2018). Primary Prevention of Cardiovascular Disease with a Mediterranean Diet Supplemented with Extra-Virgin Olive Oil or Nuts. <em>New England Journal of Medicine</em>, 378(25), e34.</li>
+ <li>Sofi, F. ve ark. (2024). Adherence to Mediterranean diet and health status: updated meta-analysis. <em>BMJ</em>, 382, e075665.</li>
+ <li>Morris, M.C. ve ark. (2015). MIND diet associated with reduced incidence of Alzheimer's disease. <em>Alzheimer's &amp; Dementia</em>, 11(9), 1007-1014.</li>
+ <li>Jacka, F.N. ve ark. (2017). A randomised controlled trial of dietary improvement for adults with major depression (the 'SMILES' trial). <em>BMC Medicine</em>, 15(1), 23.</li>
+ <li>Willett, W.C. ve ark. (1995). Mediterranean diet pyramid: a cultural model for healthy eating. <em>American Journal of Clinical Nutrition</em>, 61(6), 1402S-1406S.</li>
+ <li>U.S. News &amp; World Report. (2024). Best Diets Rankings. Erişim: usnews.com/best-diet</li>
+ <li>Türkiye Beslenme Rehberi (TÜBER). (2022). T.C. Sağlık Bakanlığı.</li>
+ </ul>
 
  <div class="guide-cta">
  <h3>Kişisel beslenme planı ister misiniz?</h3>
  <p>AI diyetisyenimiz size özel Akdeniz diyeti planı oluşturabilir.</p>
- <a href="../ecem-app.html" class="cta-btn">Ecem ile Konuş →</a>
+ <a href="../ecem-app.html" class="cta-btn">Ecem ile Konuş &rarr;</a>
  </div>
  </main>
 
  <footer><p style="font-size:0.85rem;font-style:italic;opacity:0.7;margin-bottom:0.5rem;">Türkiye uzun yaşasın diye.</p>
- <p>© 2026 UzunYaşa. Tüm hakları saklıdır.</p>
+ <p>&copy; 2026 UzunYaşa. Tüm hakları saklıdır.</p>
  </footer>
 </body>
 </html>
