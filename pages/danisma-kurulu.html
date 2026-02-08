@@ -12,138 +12,187 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Danışma Kurulumuz | UzunYaşa</title>
-    <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
- <meta name="description" content="UzunYaşa Danışma Kurulu: İçeriklerimizi tıbbi doğruluk açısından inceleyen uzman kadromuz.">
+ <meta name="description" content="UzunYaşa Danışma Kurulu: Hacettepe Üniversitesi Tıp Fakültesi'nden uzman akademisyenlerden oluşan bilimsel danışma kurulumuz.">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="../styles/main.css">
  <style>
  .dk-hero {
- background: linear-gradient(135deg, rgba(25,81,87,0.9), rgba(13,115,119,0.85)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=80') center/cover;
- padding: 8rem 2rem 4rem;
- text-align: center;
- color: white;
+   background: linear-gradient(135deg, rgba(25,81,87,0.92), rgba(13,115,119,0.88)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=80') center/cover;
+   padding: 8rem 2rem 4rem;
+   text-align: center;
+   color: white;
  }
  .dk-hero h1 {
- font-family: 'Playfair Display', serif;
- font-size: 3rem;
- font-weight: 700;
- margin-bottom: 1rem;
+   font-family: 'Playfair Display', serif;
+   font-size: 3rem;
+   font-weight: 700;
+   margin-bottom: 1rem;
  }
  .dk-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
  .dk-hero .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; opacity: 0.7; }
  .dk-hero .breadcrumb a { color: white; text-decoration: none; }
  .dk-hero .breadcrumb a:hover { text-decoration: underline; }
+ .dk-hero .hero-badge {
+   display: inline-flex; align-items: center; gap: 8px;
+   background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+   padding: 8px 20px; border-radius: 100px; font-size: 0.85rem;
+   margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.2);
+ }
  .dk-content {
- max-width: 1100px;
- margin: 0 auto;
- padding: 4rem 2rem;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 4rem 2rem;
  }
  .dk-intro {
- text-align: center;
- max-width: 700px;
- margin: 0 auto 3rem;
+   text-align: center;
+   max-width: 750px;
+   margin: 0 auto 3rem;
  }
- .dk-intro h2 { font-size: 1.5rem; color: #195157; margin-bottom: 0.75rem; }
+ .dk-intro h2 { font-size: 1.6rem; color: #195157; margin-bottom: 0.75rem; }
  .dk-intro p { color: #6B7280; line-height: 1.8; }
+
+ /* Founder Card */
+ .dk-founder {
+   background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%);
+   border: 2px solid #0D7377;
+   border-radius: 20px;
+   padding: 2.5rem;
+   margin-bottom: 2rem;
+   display: flex;
+   align-items: center;
+   gap: 2rem;
+   position: relative;
+   overflow: hidden;
+ }
+ .dk-founder::before {
+   content: '';
+   position: absolute;
+   top: 0; left: 0; right: 0; height: 4px;
+   background: linear-gradient(90deg, #0D7377, #14919B, #E8963E);
+ }
+ .dk-founder-photo {
+   width: 120px; height: 120px; min-width: 120px;
+   border-radius: 50%;
+   overflow: hidden;
+   border: 4px solid white;
+   box-shadow: 0 8px 24px rgba(13,115,119,0.2);
+ }
+ .dk-founder-photo img { width: 100%; height: 100%; object-fit: cover; }
+ .dk-founder-info { flex: 1; }
+ .dk-founder-badge {
+   display: inline-flex; align-items: center; gap: 6px;
+   background: #0D7377; color: white;
+   padding: 4px 12px; border-radius: 100px; font-size: 0.75rem;
+   font-weight: 600; margin-bottom: 0.75rem;
+ }
+ .dk-founder-info h3 { font-size: 1.4rem; color: #195157; margin-bottom: 0.25rem; }
+ .dk-founder-info .dk-specialty { color: #0D7377; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+ .dk-founder-info .dk-affiliation { color: #9CA3AF; font-size: 0.85rem; margin-bottom: 0.75rem; }
+ .dk-founder-info p.dk-bio { color: #6B7280; font-size: 0.95rem; line-height: 1.7; }
+
+ /* Grid */
  .dk-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
- gap: 1.5rem;
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+   gap: 1.5rem;
  }
  .dk-card {
- background: white;
- border-radius: 16px;
- border: 1px solid #e5e7eb;
- padding: 2rem;
- transition: all 0.3s ease;
- position: relative;
- overflow: hidden;
+   background: white;
+   border-radius: 16px;
+   border: 1px solid #e5e7eb;
+   padding: 2rem;
+   transition: all 0.3s ease;
+   position: relative;
+   overflow: hidden;
  }
  .dk-card::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- height: 4px;
- background: linear-gradient(90deg, #0D7377, #14919B);
- transform: scaleX(0);
- transition: transform 0.3s ease;
+   content: '';
+   position: absolute;
+   top: 0; left: 0; right: 0; height: 4px;
+   background: linear-gradient(90deg, #0D7377, #14919B);
+   transform: scaleX(0);
+   transition: transform 0.3s ease;
  }
  .dk-card:hover {
- transform: translateY(-4px);
- box-shadow: 0 12px 24px rgba(13,115,119,0.12);
- border-color: #0D7377;
+   transform: translateY(-4px);
+   box-shadow: 0 12px 24px rgba(13,115,119,0.12);
+   border-color: #0D7377;
  }
  .dk-card:hover::before { transform: scaleX(1); }
  .dk-card-top {
- display: flex;
- align-items: center;
- gap: 1rem;
- margin-bottom: 1.25rem;
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   margin-bottom: 1.25rem;
  }
- .dk-avatar {
- width: 56px;
- height: 56px;
- min-width: 56px;
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- font-size: 1.25rem;
- font-weight: 700;
- color: white;
+ .dk-photo {
+   width: 64px; height: 64px; min-width: 64px;
+   border-radius: 50%;
+   overflow: hidden;
+   border: 3px solid #f0fdfa;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
  }
- .dk-avatar.gastro { background: linear-gradient(135deg, #0D7377, #14919B); }
- .dk-avatar.endo { background: linear-gradient(135deg, #7C3AED, #8B5CF6); }
- .dk-avatar.bari { background: linear-gradient(135deg, #DC2626, #EF4444); }
- .dk-avatar.diyet { background: linear-gradient(135deg, #059669, #10B981); }
- .dk-avatar.fizyo { background: linear-gradient(135deg, #D97706, #F59E0B); }
- .dk-avatar.hasta { background: linear-gradient(135deg, #2563EB, #3B82F6); }
- .dk-card-top h3 { font-size: 1.1rem; color: #195157; margin-bottom: 0.15rem; }
+ .dk-photo img { width: 100%; height: 100%; object-fit: cover; }
+ .dk-card-top h3 { font-size: 1.05rem; color: #195157; margin-bottom: 0.15rem; }
  .dk-card-top .dk-role { font-size: 0.8rem; color: #E8963E; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
- .dk-card p.dk-desc { color: #6B7280; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
- .dk-areas h4 { font-size: 0.8rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
+ .dk-card .dk-specialty-label { color: #0D7377; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; }
+ .dk-card .dk-affiliation-label { color: #9CA3AF; font-size: 0.8rem; margin-bottom: 0.75rem; }
+ .dk-card p.dk-desc { color: #6B7280; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+ .dk-areas h4 { font-size: 0.75rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
  .dk-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
  .dk-tag {
- padding: 0.25rem 0.75rem;
- background: #f0fdfa;
- color: #0D7377;
- border-radius: 50px;
- font-size: 0.8rem;
- font-weight: 500;
- border: 1px solid #d1fae5;
+   padding: 0.25rem 0.75rem;
+   background: #f0fdfa;
+   color: #0D7377;
+   border-radius: 50px;
+   font-size: 0.75rem;
+   font-weight: 500;
+   border: 1px solid #d1fae5;
  }
+
+ .dk-hacettepe-badge {
+   text-align: center;
+   margin-bottom: 3rem;
+   padding: 1.5rem 2rem;
+   background: linear-gradient(135deg, #fafaf8, #f0fdfa);
+   border-radius: 12px;
+   border: 1px solid #d1fae5;
+ }
+ .dk-hacettepe-badge p { color: #195157; font-size: 1rem; font-weight: 500; }
+ .dk-hacettepe-badge .dk-uni { font-size: 0.85rem; color: #6B7280; margin-top: 0.25rem; }
+
  .dk-notice {
- text-align: center;
- margin-top: 3rem;
- padding: 2rem;
- background: #fafaf8;
- border-radius: 12px;
- border: 1px solid #e5e7eb;
+   text-align: center;
+   margin-top: 3rem;
+   padding: 2rem;
+   background: #fafaf8;
+   border-radius: 12px;
+   border: 1px solid #e5e7eb;
  }
  .dk-notice p { color: #6B7280; font-size: 0.95rem; }
  .dk-notice .dk-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
  .dk-cta {
- text-align: center;
- margin-top: 2rem;
+   text-align: center;
+   margin-top: 2rem;
  }
  .dk-cta a {
- display: inline-block;
- padding: 0.75rem 2rem;
- background: #0D7377;
- color: white;
- border-radius: 8px;
- text-decoration: none;
- font-weight: 600;
- transition: background 0.2s;
+   display: inline-block;
+   padding: 0.75rem 2rem;
+   background: #0D7377;
+   color: white;
+   border-radius: 8px;
+   text-decoration: none;
+   font-weight: 600;
+   transition: background 0.2s;
  }
  .dk-cta a:hover { background: #195157; }
  @media (max-width: 768px) {
- .dk-hero h1 { font-size: 2rem; }
- .dk-grid { grid-template-columns: 1fr; }
+   .dk-hero h1 { font-size: 2rem; }
+   .dk-grid { grid-template-columns: 1fr; }
+   .dk-founder { flex-direction: column; text-align: center; }
+   .dk-founder-photo { margin: 0 auto; }
  }
  </style>
 </head>
@@ -151,217 +200,299 @@
  <a href="#main" class="skip-link">İçeriğe geç</a>
  <header class="header">
  <div class="header-inner">
- <a href="../index.html" class="logo">
- <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
- </a>
- <nav class="nav">
- <a href="rehberler.html" class="nav-link">Keşfet </a>
- <a href="araclar.html" class="nav-link">Araçlar</a>
- <a href="hikayeler.html" class="nav-link">Hikayeler</a>
- <a href="bilim.html" class="nav-link">Bilim</a>
- <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
- <a href="test.html" class="btn-primary">Teste Başla</a>
- </nav>
+   <a href="../index.html" class="logo">
+     <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+   </a>
+   <nav class="nav">
+     <a href="rehberler.html" class="nav-link">Keşfet </a>
+     <a href="araclar.html" class="nav-link">Araçlar</a>
+     <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+     <a href="bilim.html" class="nav-link">Bilim</a>
+     <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+     <a href="test.html" class="btn-primary">Teste Başla</a>
+   </nav>
  </div>
  </header>
 
  <section class="dk-hero">
- <div class="breadcrumb">
- <a href="../index.html">Ana Sayfa</a> › <a href="hakkimizda.html">Hakkımızda</a> › <span>Danışma Kurulu</span>
- </div>
- <h1>Danışma Kurulumuz</h1>
- <p>İçeriklerimizi tıbbi doğruluk ve bilimsel güncellik açısından inceleyen uzman kadromuz.</p>
+   <div class="breadcrumb">
+     <a href="../index.html">Ana Sayfa</a> › <a href="hakkimizda.html">Hakkımızda</a> › <span>Danışma Kurulu</span>
+   </div>
+   <div class="hero-badge">🏥 Hacettepe Üniversitesi Tıp Fakültesi</div>
+   <h1>Danışma Kurulumuz</h1>
+   <p>Hacettepe Üniversitesi Tıp Fakültesi'nden uzman akademisyenler ve klinisyenlerden oluşan bilimsel danışma kurulumuz, içeriklerimizi tıbbi doğruluk ve güncellik açısından denetler.</p>
  </section>
 
  <main id="main" class="dk-content">
- <div class="dk-intro">
- <h2>Multidisipliner Uzman Kadro</h2>
- <p>Obezite ve kilo yönetimi, tek bir tıp dalının kapsamına sığmayan çok boyutlu bir sağlık sorunudur. Bu nedenle danışma kurulumuz; gastroenteroloji, endokrinoloji, bariatrik cerrahi, beslenme bilimleri, egzersiz fizyolojisi ve davranış bilimlerinden uzmanları bir araya getirir. Her içerik, ilgili uzmanlık alanındaki kurul üyemiz tarafından bilimsel doğruluk, güncellik ve klinik uygulanabilirlik açısından incelenir. Kurul üyelerimiz gönüllülük esasıyla çalışmakta olup hiçbir ticari bağlantıları bulunmamaktadır.</p>
- </div>
+   <div class="dk-hacettepe-badge">
+     <p>🎓 Tüm kurul üyelerimiz <strong>Hacettepe Üniversitesi Tıp Fakültesi</strong> mensubudur.</p>
+     <p class="dk-uni">Türkiye'nin en köklü ve saygın tıp fakültelerinden biri</p>
+   </div>
 
- <div class="dk-grid">
- <!-- Gastroenteroloji -->
- <div class="dk-card">
- <div class="dk-card-top">
- <div class="dk-avatar gastro">GU</div>
- <div>
- <h3>Gastroenteroloji Uzmanı</h3>
- <span class="dk-role">Kurul Başkanı</span>
- </div>
- </div>
- <p class="dk-desc">Sindirim sistemi hastalıkları, ileri endoskopik prosedürler (ESG, intragastrik balon), gastrointestinal motilite bozuklukları ve bariatrik endoskopinin kilo yönetimindeki rolü konularında içerikleri inceler. GLP-1 agonistlerinin gastrointestinal yan etkileri ve etkileşimleri konusunda da danışmanlık sağlar. Endoskopik sleeve gastroplasti (ESG) ile ilgili klinik verilerin ve hasta seçim kriterlerinin doğruluğunu denetler.</p>
- <div class="dk-areas">
- <h4>İnceleme Alanları</h4>
- <div class="dk-tags">
- <span class="dk-tag">Endoskopik Sleeve (ESG)</span>
- <span class="dk-tag">İntragastrik Balon</span>
- <span class="dk-tag">Sindirim Sağlığı</span>
- <span class="dk-tag">GİS Prosedürler</span>
- <span class="dk-tag">Bariatrik Endoskopi</span>
- <span class="dk-tag">GLP-1 GİS Etkileri</span>
- </div>
- </div>
- </div>
+   <div class="dk-intro">
+     <h2>Multidisipliner Uzman Kadro</h2>
+     <p>Obezite ve kilo yönetimi, tek bir tıp dalının kapsamına sığmayan çok boyutlu bir sağlık sorunudur. Bu nedenle danışma kurulumuz; gastroenteroloji, iç hastalıkları, endokrinoloji, kardiyoloji ve geriatri alanlarından uzmanları bir araya getirir. Kurul üyelerimiz gönüllülük esasıyla çalışmakta olup hiçbir ticari bağlantıları bulunmamaktadır.</p>
+   </div>
 
- <!-- Endokrinoloji -->
- <div class="dk-card">
- <div class="dk-card-top">
- <div class="dk-avatar endo">EU</div>
- <div>
- <h3>Endokrinoloji Uzmanı</h3>
- <span class="dk-role">Kurul Üyesi</span>
- </div>
- </div>
- <p class="dk-desc">Hormonal düzenlemeler, metabolik sendrom, insülin direnci, tip 2 diyabet yönetimi ve GLP-1 reseptör agonistleri (semaglutid, tirzepatid) konusundaki içerikleri değerlendirir. Tiroid hastalıklarının kilo üzerindeki etkileri, polikistik over sendromu (PKOS) ve obezitenin hormonal mekanizmaları konularında bilimsel doğruluk denetimi yapar. İlaç dozajları, kontrendikasyonlar ve ilaç etkileşimleri konusunda uzman görüşü sağlar.</p>
- <div class="dk-areas">
- <h4>İnceleme Alanları</h4>
- <div class="dk-tags">
- <span class="dk-tag">GLP-1 Agonistleri</span>
- <span class="dk-tag">İnsülin Direnci</span>
- <span class="dk-tag">Tiroid Hastalıkları</span>
- <span class="dk-tag">Metabolik Sendrom</span>
- <span class="dk-tag">Tip 2 Diyabet</span>
- <span class="dk-tag">PKOS</span>
- </div>
- </div>
- </div>
+   <!-- Founder -->
+   <div class="dk-founder">
+     <div class="dk-founder-photo">
+       <img src="../images/kurul/cem-simsek.svg" alt="Dr. Cem Şimşek">
+     </div>
+     <div class="dk-founder-info">
+       <div class="dk-founder-badge">⭐ Kurucu & Kurul Başkanı</div>
+       <h3>Dr. Cem Şimşek</h3>
+       <div class="dk-specialty">Gastroenteroloji / İç Hastalıkları</div>
+       <div class="dk-affiliation">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-bio">UzunYaşa'nın kurucusu. Bariatrik endoskopi, GLP-1 reseptör agonistleri ve obezite yönetimi konularında uzmanlaşmıştır. Endoskopik sleeve gastroplasti (ESG), intragastrik balon uygulamaları ve sindirim sistemi hastalıklarının kilo yönetimi ile ilişkisi konularında içerikleri denetler.</p>
+     </div>
+   </div>
 
- <!-- Bariatrik Cerrahi -->
- <div class="dk-card">
- <div class="dk-card-top">
- <div class="dk-avatar bari">BC</div>
- <div>
- <h3>Bariatrik Cerrahi Uzmanı</h3>
- <span class="dk-role">Kurul Üyesi</span>
- </div>
- </div>
- <p class="dk-desc">Laparoskopik ve robotik bariatrik cerrahi yöntemleri (sleeve gastrektomi, Roux-en-Y gastrik bypass, mini gastrik bypass), ameliyat öncesi multidisipliner değerlendirme protokolleri, perioperatif bakım ve uzun vadeli metabolik takip konularını denetler. Revizyon cerrahisi endikasyonları, cerrahi komplikasyon yönetimi ve bariatrik cerrahi sonrası beslenme protokolleri konusunda içeriklerin klinik doğruluğunu sağlar. Türkiye'deki bariatrik cerrahi istatistikleri ve hasta seçim kriterleri ile ilgili verileri doğrular.</p>
- <div class="dk-areas">
- <h4>İnceleme Alanları</h4>
- <div class="dk-tags">
- <span class="dk-tag">Sleeve Gastrektomi</span>
- <span class="dk-tag">Gastrik Bypass</span>
- <span class="dk-tag">Ameliyat Hazırlığı</span>
- <span class="dk-tag">Komplikasyonlar</span>
- <span class="dk-tag">Revizyon Cerrahisi</span>
- <span class="dk-tag">Metabolik Cerrahi</span>
- </div>
- </div>
- </div>
+   <!-- Grid -->
+   <div class="dk-grid">
 
- <!-- Diyetisyen -->
- <div class="dk-card">
- <div class="dk-card-top">
- <div class="dk-avatar diyet">DY</div>
- <div>
- <h3>Diyetisyen</h3>
- <span class="dk-role">Kurul Üyesi</span>
- </div>
- </div>
- <p class="dk-desc">Kanıta dayalı beslenme planları, klinik diyet protokolleri (çok düşük kalorili diyetler, Akdeniz diyeti, DASH diyeti), makro ve mikro besin öğesi dengeleri, bariatrik cerrahi öncesi/sonrası beslenme programları ve metabolik beslenme tedavisini kapsar. Aralıklı oruç, düşük karbonhidrat ve ketojenik diyetlerin bilimsel kanıt düzeylerini değerlendirir. Türk mutfağına uygun sağlıklı beslenme önerilerinin pratik uygulanabilirliğini denetler.</p>
- <div class="dk-areas">
- <h4>İnceleme Alanları</h4>
- <div class="dk-tags">
- <span class="dk-tag">Klinik Beslenme</span>
- <span class="dk-tag">Kalori Yönetimi</span>
- <span class="dk-tag">Akdeniz Diyeti</span>
- <span class="dk-tag">Aralıklı Oruç</span>
- <span class="dk-tag">Bariatrik Beslenme</span>
- <span class="dk-tag">VLCD Protokolleri</span>
- </div>
- </div>
- </div>
+     <!-- Oğuz Uyaroğlu -->
+     <div class="dk-card">
+       <div class="dk-card-top">
+         <div class="dk-photo">
+           <img src="../images/kurul/oguz-uyaroglu.svg" alt="Doç. Dr. Oğuz Uyaroğlu">
+         </div>
+         <div>
+           <h3>Doç. Dr. Oğuz Uyaroğlu</h3>
+           <span class="dk-role">Kurul Üyesi</span>
+         </div>
+       </div>
+       <div class="dk-specialty-label">İç Hastalıkları</div>
+       <div class="dk-affiliation-label">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-desc">İç hastalıkları alanında geniş kapsamlı klinik deneyime sahiptir. Obezite ile ilişkili komorbiditelerin (hipertansiyon, diyabet, metabolik sendrom) tanı ve tedavi süreçleri, genel dahiliye yaklaşımları ve multidisipliner hasta yönetimi konularında danışmanlık sağlar.</p>
+       <div class="dk-areas">
+         <h4>İnceleme Alanları</h4>
+         <div class="dk-tags">
+           <span class="dk-tag">İç Hastalıkları</span>
+           <span class="dk-tag">Metabolik Sendrom</span>
+           <span class="dk-tag">Komorbiditeler</span>
+           <span class="dk-tag">Klinik Tıp</span>
+         </div>
+       </div>
+     </div>
 
- <!-- Egzersiz Fizyologu -->
- <div class="dk-card">
- <div class="dk-card-top">
- <div class="dk-avatar fizyo">EF</div>
- <div>
- <h3>Egzersiz Fizyologu</h3>
- <span class="dk-role">Kurul Üyesi</span>
- </div>
- </div>
- <p class="dk-desc">Obez bireyler ve kronik hastalığı olanlar için güvenli fiziksel aktivite programları, egzersiz reçeteleme ilkeleri, kardiyovasküler ve kas-iskelet sistemi güvenlik protokolleri ile hareketin metabolik etkileri konularını değerlendirir. HIIT, kuvvet antrenmanı ve düşük yoğunluklu aktivitelerin kilo yönetimindeki etkinliğine dair kanıt düzeylerini inceler. 50 yaş üstü bireyler ve bariatrik cerrahi sonrası hastalar için egzersiz önerilerinin uygunluğunu denetler.</p>
- <div class="dk-areas">
- <h4>İnceleme Alanları</h4>
- <div class="dk-tags">
- <span class="dk-tag">HIIT ve Kardio</span>
- <span class="dk-tag">Kuvvet Antrenmanı</span>
- <span class="dk-tag">Esneklik ve Mobilite</span>
- <span class="dk-tag">Egzersiz Güvenliği</span>
- <span class="dk-tag">Egzersiz Reçeteleme</span>
- <span class="dk-tag">Rehabilitasyon</span>
- </div>
- </div>
- </div>
+     <!-- Mehmet Yılmaz -->
+     <div class="dk-card">
+       <div class="dk-card-top">
+         <div class="dk-photo">
+           <img src="../images/kurul/mehmet-yilmaz.svg" alt="Prof. Dr. Mehmet Yılmaz">
+         </div>
+         <div>
+           <h3>Prof. Dr. Mehmet Yılmaz</h3>
+           <span class="dk-role">Kurul Üyesi</span>
+         </div>
+       </div>
+       <div class="dk-specialty-label">İç Hastalıkları</div>
+       <div class="dk-affiliation-label">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-desc">İç hastalıkları alanında profesör unvanına sahip deneyimli bir akademisyen. Kronik hastalık yönetimi, obezite ile ilişkili sistemik hastalıklar ve kanıta dayalı tedavi protokolleri konularında içeriklerin bilimsel doğruluğunu denetler.</p>
+       <div class="dk-areas">
+         <h4>İnceleme Alanları</h4>
+         <div class="dk-tags">
+           <span class="dk-tag">İç Hastalıkları</span>
+           <span class="dk-tag">Kronik Hastalıklar</span>
+           <span class="dk-tag">Kanıta Dayalı Tıp</span>
+         </div>
+       </div>
+     </div>
 
- <!-- Hasta Temsilcisi -->
- <div class="dk-card">
- <div class="dk-card-top">
- <div class="dk-avatar hasta">HT</div>
- <div>
- <h3>Hasta Temsilcisi</h3>
- <span class="dk-role">Kurul Üyesi</span>
- </div>
- </div>
- <p class="dk-desc">İçeriklerin sağlık okuryazarlığı düzeyi farklı okuyucular tarafından anlaşılabilirliğini, hasta perspektifinden pratik uygulanabilirliğini ve gerçekçi beklenti yönetimini değerlendirir. Tıbbi jargonun sadeleştirilmesi, karar verme süreçlerinin desteklenmesi ve içeriklerin duygusal tonunun uygunluğu konularında geri bildirim sağlar. Obezite ile yaşayan bireylerin karşılaştığı stigma ve psikolojik zorlukları göz önünde bulundurarak içeriklerin saygılı ve kapsayıcı olmasını denetler.</p>
- <div class="dk-areas">
- <h4>İnceleme Alanları</h4>
- <div class="dk-tags">
- <span class="dk-tag">Anlaşılabilirlik</span>
- <span class="dk-tag">Hasta Deneyimi</span>
- <span class="dk-tag">Erişilebilirlik</span>
- <span class="dk-tag">Pratik Uygulanabilirlik</span>
- <span class="dk-tag">Stigma Duyarlılığı</span>
- <span class="dk-tag">Sağlık Okuryazarlığı</span>
- </div>
- </div>
- </div>
- </div>
+     <!-- Uğur Ünlütürk -->
+     <div class="dk-card">
+       <div class="dk-card-top">
+         <div class="dk-photo">
+           <img src="../images/kurul/ugur-unluturk.svg" alt="Prof. Dr. Uğur Ünlütürk">
+         </div>
+         <div>
+           <h3>Prof. Dr. Uğur Ünlütürk</h3>
+           <span class="dk-role">Kurul Üyesi</span>
+         </div>
+       </div>
+       <div class="dk-specialty-label">Endokrinoloji ve Metabolizma Hastalıkları</div>
+       <div class="dk-affiliation-label">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-desc">Hormonal düzenlemeler, metabolik sendrom, insülin direnci, tip 2 diyabet yönetimi ve GLP-1 reseptör agonistleri (semaglutid, tirzepatid) konusundaki içerikleri değerlendirir. Tiroid hastalıklarının kilo üzerindeki etkileri, PKOS ve obezitenin hormonal mekanizmaları konularında bilimsel doğruluk denetimi yapar.</p>
+       <div class="dk-areas">
+         <h4>İnceleme Alanları</h4>
+         <div class="dk-tags">
+           <span class="dk-tag">GLP-1 Agonistleri</span>
+           <span class="dk-tag">İnsülin Direnci</span>
+           <span class="dk-tag">Tiroid Hastalıkları</span>
+           <span class="dk-tag">Metabolik Sendrom</span>
+           <span class="dk-tag">Tip 2 Diyabet</span>
+         </div>
+       </div>
+     </div>
 
- <div class="dk-notice">
- <div class="dk-icon"></div>
- <p><strong>Gizlilik Notu:</strong> Danışma kurulumuz, bağımsızlık ve gizlilik ilkesi gereği anonim olarak çalışmaktadır. Bu, kurul üyelerimizin hiçbir dış baskı altında kalmadan tarafsız değerlendirme yapabilmesini güvence altına alır.</p>
- </div>
+     <!-- Uğur Karakulak -->
+     <div class="dk-card">
+       <div class="dk-card-top">
+         <div class="dk-photo">
+           <img src="../images/kurul/ugur-karakulak.svg" alt="Prof. Dr. Uğur Karakulak">
+         </div>
+         <div>
+           <h3>Prof. Dr. Uğur Karakulak</h3>
+           <span class="dk-role">Kurul Üyesi</span>
+         </div>
+       </div>
+       <div class="dk-specialty-label">Kardiyoloji</div>
+       <div class="dk-affiliation-label">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-desc">Kalp damar hastalıkları, obezite ve kardiyovasküler risk yönetimi konularında uzmandır. Obezitenin kalp sağlığı üzerindeki etkileri, hipertansiyon yönetimi, kardiyometabolik risk faktörleri ve egzersizin kardiyovasküler güvenliği konularında içerikleri denetler.</p>
+       <div class="dk-areas">
+         <h4>İnceleme Alanları</h4>
+         <div class="dk-tags">
+           <span class="dk-tag">Kardiyoloji</span>
+           <span class="dk-tag">Kardiyovasküler Risk</span>
+           <span class="dk-tag">Hipertansiyon</span>
+           <span class="dk-tag">Egzersiz Güvenliği</span>
+         </div>
+       </div>
+     </div>
 
- <div class="dk-cta">
- <a href="editoryal-politika.html">Editoryal Politikamızı İnceleyin →</a>
- </div>
+     <!-- Gözde Şimşek -->
+     <div class="dk-card">
+       <div class="dk-card-top">
+         <div class="dk-photo">
+           <img src="../images/kurul/gozde-simsek.svg" alt="Dr. Gözde Şimşek">
+         </div>
+         <div>
+           <h3>Dr. Gözde Şimşek</h3>
+           <span class="dk-role">Kurul Üyesi</span>
+         </div>
+       </div>
+       <div class="dk-specialty-label">Tıp</div>
+       <div class="dk-affiliation-label">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-desc">İçeriklerin tıbbi doğruluğu, anlaşılabilirliği ve hasta odaklı yaklaşım açısından değerlendirilmesine katkı sağlar. Sağlık okuryazarlığı ve erişilebilir sağlık bilgisi sunumu konularında danışmanlık yapar.</p>
+       <div class="dk-areas">
+         <h4>İnceleme Alanları</h4>
+         <div class="dk-tags">
+           <span class="dk-tag">Tıbbi İçerik Denetimi</span>
+           <span class="dk-tag">Sağlık Okuryazarlığı</span>
+           <span class="dk-tag">Hasta Eğitimi</span>
+         </div>
+       </div>
+     </div>
+
+     <!-- Aslı Alkan -->
+     <div class="dk-card">
+       <div class="dk-card-top">
+         <div class="dk-photo">
+           <img src="../images/kurul/asli-alkan.svg" alt="Dr. Aslı Alkan">
+         </div>
+         <div>
+           <h3>Dr. Aslı Alkan</h3>
+           <span class="dk-role">Kurul Üyesi</span>
+         </div>
+       </div>
+       <div class="dk-specialty-label">Tıp</div>
+       <div class="dk-affiliation-label">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-desc">Kanıta dayalı tıp yaklaşımıyla içeriklerin bilimsel doğruluğunu ve klinik uygulanabilirliğini değerlendirir. Güncel literatür takibi ve içerik güncellemelerine katkı sağlar.</p>
+       <div class="dk-areas">
+         <h4>İnceleme Alanları</h4>
+         <div class="dk-tags">
+           <span class="dk-tag">Kanıta Dayalı Tıp</span>
+           <span class="dk-tag">Literatür Takibi</span>
+           <span class="dk-tag">Klinik Doğruluk</span>
+         </div>
+       </div>
+     </div>
+
+     <!-- Erdi Özdemir -->
+     <div class="dk-card">
+       <div class="dk-card-top">
+         <div class="dk-photo">
+           <img src="../images/kurul/erdi-ozdemir.svg" alt="Dr. Erdi Özdemir">
+         </div>
+         <div>
+           <h3>Dr. Erdi Özdemir</h3>
+           <span class="dk-role">Kurul Üyesi</span>
+         </div>
+       </div>
+       <div class="dk-specialty-label">Tıp</div>
+       <div class="dk-affiliation-label">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-desc">İçeriklerin bilimsel kaynaklarla uyumluluğu, güncel kılavuzlara uygunluğu ve pratik uygulanabilirliği konularında danışmanlık yapar. Araştırma metodolojisi ve veri yorumlama konularında katkı sağlar.</p>
+       <div class="dk-areas">
+         <h4>İnceleme Alanları</h4>
+         <div class="dk-tags">
+           <span class="dk-tag">Araştırma Metodolojisi</span>
+           <span class="dk-tag">Veri Analizi</span>
+           <span class="dk-tag">Kılavuz Uyumu</span>
+         </div>
+       </div>
+     </div>
+
+     <!-- Cem Çöteli -->
+     <div class="dk-card">
+       <div class="dk-card-top">
+         <div class="dk-photo">
+           <img src="../images/kurul/cem-coteli.svg" alt="Doç. Dr. Cem Çöteli">
+         </div>
+         <div>
+           <h3>Doç. Dr. Cem Çöteli</h3>
+           <span class="dk-role">Kurul Üyesi</span>
+         </div>
+       </div>
+       <div class="dk-specialty-label">Geriatri / İç Hastalıkları</div>
+       <div class="dk-affiliation-label">Hacettepe Üniversitesi Tıp Fakültesi</div>
+       <p class="dk-desc">Yaşlı bireylerde obezite yönetimi, sarkopenik obezite, polifarmasi ve çoklu kronik hastalık yönetimi konularında uzmandır. 65 yaş üstü bireylerde kilo yönetiminin özel gereksinimleri, ilaç etkileşimleri ve güvenli egzersiz önerileri konularında içerikleri denetler.</p>
+       <div class="dk-areas">
+         <h4>İnceleme Alanları</h4>
+         <div class="dk-tags">
+           <span class="dk-tag">Geriatri</span>
+           <span class="dk-tag">Sarkopenik Obezite</span>
+           <span class="dk-tag">Yaşlı Sağlığı</span>
+           <span class="dk-tag">Polifarmasi</span>
+         </div>
+       </div>
+     </div>
+
+   </div>
+
+   <div class="dk-notice">
+     <div class="dk-icon">🏛️</div>
+     <p><strong>Akademik İş Birliği:</strong> Danışma kurulumuz Hacettepe Üniversitesi Tıp Fakültesi'nden gönüllü akademisyen ve klinisyenlerden oluşmaktadır. Kurul üyelerimiz hiçbir ticari bağlantı taşımadan, bağımsız ve tarafsız olarak bilimsel değerlendirme yapmaktadır.</p>
+   </div>
+
+   <div class="dk-cta">
+     <a href="editoryal-politika.html">Editoryal Politikamızı İnceleyin →</a>
+   </div>
  </main>
 
  <footer class="footer">
- <div class="footer-inner">
- <div class="footer-grid">
- <div class="footer-brand">
- <a href="../index.html"><img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
- <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
- <p style="font-size:0.85rem;font-style:italic;opacity:0.6;margin-top:0.25rem;">Türkiye uzun yaşasın diye.</p>
- </div>
- <div class="footer-col">
- <h4>Keşfet</h4>
- <a href="beslenme.html">Beslenme</a>
- <a href="egzersiz.html">Egzersiz</a>
- <a href="uyku-stres.html">Uyku & Stres</a>
- <a href="tedavi.html">Tedavi Seçenekleri</a>
- </div>
- <div class="footer-col">
- <h4>Araçlar</h4>
- <a href="test.html">Bana Ne Uygun?</a>
- <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
- <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
- </div>
- <div class="footer-col">
- <h4>Hakkımızda</h4>
- <a href="hakkimizda.html">Ekibimiz</a>
- <a href="editoryal-politika.html">Editoryal Politika</a>
- <a href="danisma-kurulu.html">Danışma Kurulu</a>
- </div>
- </div>
- <div class="footer-bottom">
- <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
- <span>Gizlilik Politikası | Kullanım Koşulları</span>
- </div>
- </div>
+   <div class="footer-inner">
+     <div class="footer-grid">
+       <div class="footer-brand">
+         <a href="../index.html"><img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
+         <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+         <p style="font-size:0.85rem;font-style:italic;opacity:0.6;margin-top:0.25rem;">Türkiye uzun yaşasın diye.</p>
+       </div>
+       <div class="footer-col">
+         <h4>Keşfet</h4>
+         <a href="beslenme.html">Beslenme</a>
+         <a href="egzersiz.html">Egzersiz</a>
+         <a href="uyku-stres.html">Uyku & Stres</a>
+         <a href="tedavi.html">Tedavi Seçenekleri</a>
+       </div>
+       <div class="footer-col">
+         <h4>Araçlar</h4>
+         <a href="test.html">Bana Ne Uygun?</a>
+         <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
+         <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
+       </div>
+       <div class="footer-col">
+         <h4>Hakkımızda</h4>
+         <a href="hakkimizda.html">Ekibimiz</a>
+         <a href="editoryal-politika.html">Editoryal Politika</a>
+         <a href="danisma-kurulu.html">Danışma Kurulu</a>
+       </div>
+     </div>
+     <div class="footer-bottom">
+       <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+       <span>Gizlilik Politikası | Kullanım Koşulları</span>
+     </div>
+   </div>
  </footer>
 </body>
 </html>
