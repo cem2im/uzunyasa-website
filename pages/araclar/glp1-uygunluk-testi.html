@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script src="../../scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>GLP-1 Uygunluk Testi | UzunYaşa</title>
+ <meta name="description" content="GLP-1 (semaglutide, liraglutide) ilaçlarının size uygun olup olmadığını öğrenin. Klinik kılavuzlara dayalı ücretsiz ön değerlendirme testi.">
+ <meta name="keywords" content="GLP-1 uygunluk, semaglutide, kilo verme ilacı, obezite tedavisi, BMI hesaplama, Ozempic, Wegovy">
+ <meta property="og:title" content="GLP-1 Uygunluk Testi | UzunYaşa">
+ <meta property="og:description" content="GLP-1 tedavisi size uygun mu? Klinik kılavuzlara dayalı ücretsiz ön değerlendirme testi ile öğrenin.">
+ <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+ <meta property="og:type" content="website">
+ <meta property="og:locale" content="tr_TR">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../styles/main.css">
+ <style>
+  :root {
+   --teal: #0D7377;
+   --teal-light: #0f8a8f;
+   --teal-bg: #f0fdfa;
+   --orange: #E8963E;
+   --green: #059669;
+   --yellow: #d97706;
+   --red: #dc2626;
+   --gray-50: #f9fafb;
+   --gray-100: #f3f4f6;
+   --gray-200: #e5e7eb;
+   --gray-300: #d1d5db;
+   --gray-500: #6b7280;
+   --gray-700: #374151;
+   --gray-900: #111827;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--gray-700); line-height: 1.6; }
+
+  /* Header */
+  .quiz-header {
+   background: white;
+   border-bottom: 1px solid var(--gray-200);
+   padding: 1rem 1.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: sticky;
+   top: 0;
+   z-index: 100;
+  }
+  .quiz-header .logo-img { height: 36px; }
+  .quiz-header .back-link {
+   color: var(--gray-500);
+   text-decoration: none;
+   font-size: 0.9rem;
+  }
+  .quiz-header .back-link:hover { color: var(--teal); }
+
+  /* Disclaimer banner */
+  .disclaimer-banner {
+   background: #fffbeb;
+   border-bottom: 1px solid #fde68a;
+   padding: 0.6rem 1.5rem;
+   text-align: center;
+   font-size: 0.8rem;
+   color: #92400e;
+  }
+
+  /* Progress bar */
+  .progress-wrapper {
+   background: white;
+   padding: 1rem 1.5rem;
+   border-bottom: 1px solid var(--gray-200);
+  }
+  .progress-bar-track {
+   height: 6px;
+   background: var(--gray-200);
+   border-radius: 3px;
+   overflow: hidden;
+  }
+  .progress-bar-fill {
+   height: 100%;
+   background: linear-gradient(90deg, var(--teal), var(--orange));
+   border-radius: 3px;
+   transition: width 0.4s ease;
+   width: 0%;
+  }
+  .progress-label {
+   font-size: 0.75rem;
+   color: var(--gray-500);
+   margin-top: 0.35rem;
+   text-align: center;
+  }
+
+  /* Main container */
+  .quiz-container {
+   max-width: 640px;
+   margin: 2rem auto;
+   padding: 0 1rem;
+  }
+
+  /* Step */
+  .step {
+   display: none;
+   animation: fadeIn 0.35s ease;
+  }
+  .step.active { display: block; }
+  @keyframes fadeIn {
+   from { opacity: 0; transform: translateY(12px); }
+   to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-card {
+   background: white;
+   border-radius: 16px;
+   padding: 2rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+   border: 1px solid var(--gray-200);
+  }
+
+  .step-number {
+   font-size: 0.75rem;
+   font-weight: 600;
+   color: var(--teal);
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   margin-bottom: 0.5rem;
+  }
+
+  .step-title {
+   font-size: 1.35rem;
+   font-weight: 700;
+   color: var(--gray-900);
+   margin-bottom: 0.5rem;
+  }
+
+  .step-desc {
+   font-size: 0.9rem;
+   color: var(--gray-500);
+   margin-bottom: 1.5rem;
+  }
+
+  /* Form elements */
+  .form-row {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 1rem;
+   margin-bottom: 1rem;
+  }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label {
+   display: block;
+   font-size: 0.85rem;
+   font-weight: 600;
+   color: var(--gray-700);
+   margin-bottom: 0.35rem;
+  }
+  .form-group input, .form-group select {
+   width: 100%;
+   padding: 0.7rem 1rem;
+   border: 1.5px solid var(--gray-300);
+   border-radius: 10px;
+   font-size: 1rem;
+   font-family: inherit;
+   transition: border-color 0.2s;
+   background: white;
+  }
+  .form-group input:focus, .form-group select:focus {
+   outline: none;
+   border-color: var(--teal);
+   box-shadow: 0 0 0 3px rgba(13,115,119,0.1);
+  }
+
+  /* BMI result inline */
+  .bmi-result {
+   display: none;
+   background: var(--teal-bg);
+   border: 1px solid #99f6e4;
+   border-radius: 12px;
+   padding: 1.25rem;
+   margin-top: 1rem;
+   text-align: center;
+  }
+  .bmi-result.show { display: block; }
+  .bmi-value {
+   font-size: 2.5rem;
+   font-weight: 800;
+   color: var(--teal);
+  }
+  .bmi-category {
+   font-size: 0.9rem;
+   font-weight: 600;
+   margin-top: 0.25rem;
+  }
+
+  /* Checkboxes */
+  .checkbox-group { display: flex; flex-direction: column; gap: 0.6rem; }
+  .checkbox-item {
+   display: flex;
+   align-items: center;
+   gap: 0.75rem;
+   padding: 0.75rem 1rem;
+   border: 1.5px solid var(--gray-200);
+   border-radius: 10px;
+   cursor: pointer;
+   transition: all 0.2s;
+   user-select: none;
+  }
+  .checkbox-item:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .checkbox-item.checked {
+   border-color: var(--teal);
+   background: var(--teal-bg);
+  }
+  .checkbox-item input[type="checkbox"] { display: none; }
+  .check-box {
+   width: 22px;
+   height: 22px;
+   border: 2px solid var(--gray-300);
+   border-radius: 6px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   transition: all 0.2s;
+  }
+  .checkbox-item.checked .check-box {
+   background: var(--teal);
+   border-color: var(--teal);
+  }
+  .check-box svg { display: none; }
+  .checkbox-item.checked .check-box svg { display: block; }
+  .checkbox-label { font-size: 0.95rem; color: var(--gray-700); }
+
+  /* Radio buttons */
+  .radio-group { display: flex; flex-direction: column; gap: 0.6rem; }
+  .radio-item {
+   display: flex;
+   align-items: center;
+   gap: 0.75rem;
+   padding: 0.75rem 1rem;
+   border: 1.5px solid var(--gray-200);
+   border-radius: 10px;
+   cursor: pointer;
+   transition: all 0.2s;
+   user-select: none;
+  }
+  .radio-item:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .radio-item.checked { border-color: var(--teal); background: var(--teal-bg); }
+  .radio-item input[type="radio"] { display: none; }
+  .radio-dot {
+   width: 22px; height: 22px;
+   border: 2px solid var(--gray-300);
+   border-radius: 50%;
+   display: flex; align-items: center; justify-content: center;
+   flex-shrink: 0;
+   transition: all 0.2s;
+  }
+  .radio-item.checked .radio-dot {
+   border-color: var(--teal);
+  }
+  .radio-item.checked .radio-dot::after {
+   content: '';
+   width: 10px; height: 10px;
+   background: var(--teal);
+   border-radius: 50%;
+  }
+
+  /* Buttons */
+  .btn-row {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 1.5rem;
+   gap: 1rem;
+  }
+  .btn {
+   padding: 0.75rem 2rem;
+   border-radius: 10px;
+   font-size: 0.95rem;
+   font-weight: 600;
+   border: none;
+   cursor: pointer;
+   transition: all 0.2s;
+   font-family: inherit;
+  }
+  .btn-primary {
+   background: var(--teal);
+   color: white;
+  }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .btn-secondary {
+   background: var(--gray-100);
+   color: var(--gray-700);
+  }
+  .btn-secondary:hover { background: var(--gray-200); }
+
+  /* Error */
+  .field-error {
+   color: var(--red);
+   font-size: 0.8rem;
+   margin-top: 0.25rem;
+   display: none;
+  }
+
+  /* Results */
+  .result-card {
+   background: white;
+   border-radius: 16px;
+   padding: 2.5rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+   border: 1px solid var(--gray-200);
+   text-align: center;
+  }
+  .result-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+  .result-title {
+   font-size: 1.5rem;
+   font-weight: 800;
+   margin-bottom: 0.75rem;
+  }
+  .result-title.green { color: var(--green); }
+  .result-title.yellow { color: var(--yellow); }
+  .result-title.red { color: var(--red); }
+  .result-title.gray { color: var(--gray-500); }
+  .result-desc {
+   font-size: 1rem;
+   color: var(--gray-700);
+   margin-bottom: 1.5rem;
+   line-height: 1.7;
+  }
+
+  .result-summary {
+   background: var(--gray-50);
+   border-radius: 12px;
+   padding: 1.5rem;
+   margin: 1.5rem 0;
+   text-align: left;
+  }
+  .result-summary h4 {
+   font-size: 0.85rem;
+   font-weight: 700;
+   color: var(--gray-900);
+   margin-bottom: 0.75rem;
+   text-transform: uppercase;
+   letter-spacing: 0.03em;
+  }
+  .result-summary-item {
+   display: flex;
+   justify-content: space-between;
+   padding: 0.4rem 0;
+   font-size: 0.9rem;
+   border-bottom: 1px solid var(--gray-200);
+  }
+  .result-summary-item:last-child { border-bottom: none; }
+  .result-summary-item .label { color: var(--gray-500); }
+  .result-summary-item .value { font-weight: 600; color: var(--gray-900); }
+
+  .result-ctas {
+   display: flex;
+   flex-direction: column;
+   gap: 0.75rem;
+   margin-top: 1.5rem;
+  }
+  .result-cta {
+   display: block;
+   padding: 0.85rem 1.5rem;
+   border-radius: 10px;
+   text-decoration: none;
+   font-weight: 600;
+   font-size: 0.95rem;
+   transition: all 0.2s;
+   text-align: center;
+  }
+  .result-cta-primary {
+   background: var(--teal);
+   color: white;
+  }
+  .result-cta-primary:hover { background: var(--teal-light); }
+  .result-cta-secondary {
+   background: var(--gray-100);
+   color: var(--gray-700);
+   border: 1px solid var(--gray-200);
+  }
+  .result-cta-secondary:hover { background: var(--gray-200); }
+  .result-cta-print {
+   background: none;
+   color: var(--teal);
+   border: 1.5px solid var(--teal);
+  }
+  .result-cta-print:hover { background: var(--teal-bg); }
+
+  /* Intro */
+  .intro-card {
+   background: white;
+   border-radius: 16px;
+   padding: 2.5rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+   border: 1px solid var(--gray-200);
+   text-align: center;
+  }
+  .intro-badge {
+   display: inline-block;
+   background: var(--teal-bg);
+   color: var(--teal);
+   font-size: 0.8rem;
+   font-weight: 700;
+   padding: 0.35rem 1rem;
+   border-radius: 20px;
+   margin-bottom: 1rem;
+  }
+  .intro-title {
+   font-size: 1.75rem;
+   font-weight: 800;
+   color: var(--gray-900);
+   margin-bottom: 0.75rem;
+  }
+  .intro-desc {
+   color: var(--gray-500);
+   font-size: 1rem;
+   margin-bottom: 1.5rem;
+   max-width: 480px;
+   margin-left: auto;
+   margin-right: auto;
+  }
+  .intro-features {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   gap: 1rem;
+   margin-bottom: 2rem;
+   text-align: center;
+  }
+  .intro-feature-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  .intro-feature-text { font-size: 0.8rem; color: var(--gray-500); }
+
+  /* Footer */
+  .quiz-footer {
+   max-width: 640px;
+   margin: 2rem auto 3rem;
+   padding: 0 1rem;
+  }
+  .references {
+   background: white;
+   border-radius: 12px;
+   padding: 1.5rem;
+   border: 1px solid var(--gray-200);
+   margin-bottom: 1rem;
+  }
+  .references h4 {
+   font-size: 0.8rem;
+   font-weight: 700;
+   color: var(--gray-900);
+   margin-bottom: 0.5rem;
+   text-transform: uppercase;
+   letter-spacing: 0.03em;
+  }
+  .references p {
+   font-size: 0.75rem;
+   color: var(--gray-500);
+   line-height: 1.6;
+  }
+  .footer-disclaimer {
+   text-align: center;
+   font-size: 0.75rem;
+   color: var(--gray-500);
+   font-style: italic;
+   padding: 1rem 0;
+  }
+  .site-footer {
+   text-align: center;
+   padding: 2rem;
+   font-size: 0.8rem;
+   color: var(--gray-500);
+   border-top: 1px solid var(--gray-200);
+  }
+  .site-footer a { color: inherit; text-decoration: underline; }
+
+  /* Warning box in contraindication */
+  .warning-note {
+   background: #fef2f2;
+   border: 1px solid #fecaca;
+   border-radius: 10px;
+   padding: 0.75rem 1rem;
+   font-size: 0.8rem;
+   color: #991b1b;
+   margin-bottom: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+   .form-row { grid-template-columns: 1fr; }
+   .intro-features { grid-template-columns: 1fr; gap: 0.5rem; }
+   .intro-title { font-size: 1.4rem; }
+   .step-card { padding: 1.5rem; }
+   .result-card { padding: 1.5rem; }
+   .btn { padding: 0.7rem 1.25rem; font-size: 0.9rem; }
+  }
+
+  @media print {
+   .quiz-header, .progress-wrapper, .disclaimer-banner, .btn-row, .result-ctas, .site-footer { display: none; }
+   .result-card { box-shadow: none; border: 2px solid var(--gray-300); }
+   .quiz-footer { margin-top: 1rem; }
+   body { background: white; }
+  }
+ </style>
+</head>
+<body>
+
+ <header class="quiz-header">
+  <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
+  <a href="../araclar.html" class="back-link">← Araçlar</a>
+ </header>
+
+ <div class="disclaimer-banner">
+  ⚕️ Bu test tıbbi tavsiye yerine geçmez. Sonuçlar bilgilendirme amaçlıdır, kesin tanı ve tedavi için bir hekime başvurun.
+ </div>
+
+ <div class="progress-wrapper" id="progressWrapper" style="display:none;">
+  <div class="progress-bar-track">
+   <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+  <div class="progress-label" id="progressLabel">Adım 1 / 6</div>
+ </div>
+
+ <div class="quiz-container">
+
+  <!-- INTRO -->
+  <div class="step active" id="stepIntro">
+   <div class="intro-card">
+    <div class="intro-badge">Ücretsiz Ön Değerlendirme</div>
+    <h1 class="intro-title">GLP-1 İlaçları Size Uygun mu?</h1>
+    <p class="intro-desc">Semaglutide (Ozempic/Wegovy), liraglutide (Saxenda) gibi GLP-1 ilaçlarının sizin için uygun olup olmadığını 2024-2025 klinik kılavuzlarına göre değerlendirin.</p>
+    <div class="intro-features">
+     <div>
+      <div class="intro-feature-icon">⏱</div>
+      <div class="intro-feature-text">3 dakika</div>
+     </div>
+     <div>
+      <div class="intro-feature-icon">🔬</div>
+      <div class="intro-feature-text">Kılavuz bazlı</div>
+     </div>
+     <div>
+      <div class="intro-feature-icon">🔒</div>
+      <div class="intro-feature-text">Verileriniz kaydedilmez</div>
+     </div>
+    </div>
+    <button class="btn btn-primary" onclick="startQuiz()" style="width:100%;padding:1rem;">Teste Başla →</button>
+   </div>
+  </div>
+
+  <!-- STEP 1: BMI -->
+  <div class="step" id="step1">
+   <div class="step-card">
+    <div class="step-number">Adım 1 / 6</div>
+    <h2 class="step-title">Boy ve Kilonuz</h2>
+    <p class="step-desc">BMI (Vücut Kitle İndeksi) hesaplaması için boyunuzu ve kilonuzu girin.</p>
+    <div class="form-row">
+     <div class="form-group">
+      <label for="height">Boy (cm)</label>
+      <input type="number" id="height" placeholder="170" min="100" max="250" inputmode="numeric">
+      <div class="field-error" id="heightError">100-250 cm arası bir değer girin</div>
+     </div>
+     <div class="form-group">
+      <label for="weight">Kilo (kg)</label>
+      <input type="number" id="weight" placeholder="80" min="30" max="300" inputmode="numeric">
+      <div class="field-error" id="weightError">30-300 kg arası bir değer girin</div>
+     </div>
+    </div>
+    <div class="bmi-result" id="bmiResult">
+     <div class="bmi-value" id="bmiValue">--</div>
+     <div class="bmi-category" id="bmiCategory">BMI Kategorisi</div>
+    </div>
+    <div class="btn-row">
+     <span></span>
+     <button class="btn btn-primary" id="btn1" onclick="goStep(2)" disabled>Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- STEP 2: Age & Gender -->
+  <div class="step" id="step2">
+   <div class="step-card">
+    <div class="step-number">Adım 2 / 6</div>
+    <h2 class="step-title">Yaş ve Cinsiyet</h2>
+    <p class="step-desc">Değerlendirme için temel bilgilerinizi girin.</p>
+    <div class="form-row">
+     <div class="form-group">
+      <label for="age">Yaşınız</label>
+      <input type="number" id="age" placeholder="35" min="12" max="100" inputmode="numeric">
+      <div class="field-error" id="ageError">Lütfen yaşınızı girin</div>
+     </div>
+     <div class="form-group">
+      <label for="gender">Cinsiyet</label>
+      <select id="gender">
+       <option value="">Seçiniz</option>
+       <option value="K">Kadın</option>
+       <option value="E">Erkek</option>
+      </select>
+     </div>
+    </div>
+    <div class="field-error" id="underageError" style="display:none;text-align:center;font-size:0.95rem;padding:1rem;background:#fef2f2;border-radius:10px;margin-top:1rem;">
+     Bu test 18 yaş ve üstü bireyler içindir. 18 yaş altı için lütfen bir pediatri uzmanına başvurun.
+    </div>
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(1)">← Geri</button>
+     <button class="btn btn-primary" id="btn2" onclick="goStep(3)" disabled>Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- STEP 3: Comorbidities -->
+  <div class="step" id="step3">
+   <div class="step-card">
+    <div class="step-number">Adım 3 / 6</div>
+    <h2 class="step-title">Eşlik Eden Sağlık Sorunları</h2>
+    <p class="step-desc">Aşağıdakilerden sizde mevcut olanları işaretleyin. (Birden fazla seçebilirsiniz)</p>
+    <div class="checkbox-group" id="comorbidities">
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="diyabet">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Tip 2 Diyabet</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="hipertansiyon">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Yüksek tansiyon (hipertansiyon)</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="dislipidemi">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Yüksek kolesterol / trigliserit</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="uyku-apnesi">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Obstrüktif uyku apnesi</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="kalp">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Kardiyovasküler hastalık</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="karaciger">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Karaciğer yağlanması (NAFLD/NASH)</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)" id="pcosItem">
+      <input type="checkbox" value="pcos">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Polikistik over sendromu (PCOS)</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="osteoartrit">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Eklem ağrıları / osteoartrit</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="reflu">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Gastroözofageal reflü</span>
+     </label>
+    </div>
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(2)">← Geri</button>
+     <button class="btn btn-primary" onclick="goStep(4)">Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- STEP 4: Contraindications -->
+  <div class="step" id="step4">
+   <div class="step-card">
+    <div class="step-number">Adım 4 / 6</div>
+    <h2 class="step-title">Kontrendikasyon Taraması</h2>
+    <p class="step-desc">Aşağıdaki durumlardan sizde mevcut olanları işaretleyin.</p>
+    <div class="warning-note">⚠️ Bu sorular güvenliğiniz için önemlidir. Lütfen dürüstçe yanıtlayın.</div>
+    <div class="checkbox-group" id="contraindications">
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="tiroid-ca">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Medüller tiroid kanseri öyküsü (siz veya ailenizde)</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="men2">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">MEN 2 sendromu</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="pankreatit">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Akut pankreatit geçirdim</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="gastroparezi">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Şiddetli mide boşalma sorunu (gastroparezi)</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="gebelik">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Hamileyim veya emziriyorum</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="safra-tasi">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Safra taşı sorunu</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="bobrek">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Kronik böbrek yetmezliği (ileri evre)</span>
+     </label>
+    </div>
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(3)">← Geri</button>
+     <button class="btn btn-primary" onclick="goStep(5)">Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- STEP 5: Previous attempts -->
+  <div class="step" id="step5">
+   <div class="step-card">
+    <div class="step-number">Adım 5 / 6</div>
+    <h2 class="step-title">Önceki Kilo Verme Denemeleri</h2>
+    <p class="step-desc">Daha önce kilo vermek için denediğiniz yöntemler hakkında.</p>
+
+    <div class="form-group">
+     <label>Daha önce diyet denediniz mi?</label>
+     <div class="radio-group" id="dietTried">
+      <label class="radio-item" onclick="selectRadio(this, 'dietTried')">
+       <input type="radio" name="dietTried" value="evet">
+       <span class="radio-dot"></span>
+       <span class="checkbox-label">Evet</span>
+      </label>
+      <label class="radio-item" onclick="selectRadio(this, 'dietTried')">
+       <input type="radio" name="dietTried" value="hayir">
+       <span class="radio-dot"></span>
+       <span class="checkbox-label">Hayır</span>
+      </label>
+     </div>
+    </div>
+
+    <div class="form-group" id="dietCountGroup" style="display:none;">
+     <label>Kaç kez diyet denediniz?</label>
+     <div class="radio-group" id="dietCount">
+      <label class="radio-item" onclick="selectRadio(this, 'dietCount')">
+       <input type="radio" name="dietCount" value="1-2">
+       <span class="radio-dot"></span>
+       <span class="checkbox-label">1-2 kez</span>
+      </label>
+      <label class="radio-item" onclick="selectRadio(this, 'dietCount')">
+       <input type="radio" name="dietCount" value="3-5">
+       <span class="radio-dot"></span>
+       <span class="checkbox-label">3-5 kez</span>
+      </label>
+      <label class="radio-item" onclick="selectRadio(this, 'dietCount')">
+       <input type="radio" name="dietCount" value="5+">
+       <span class="radio-dot"></span>
+       <span class="checkbox-label">5'ten fazla</span>
+      </label>
+     </div>
+    </div>
+
+    <div class="form-group">
+     <label>Daha önce kilo verme ilacı kullandınız mı?</label>
+     <div class="radio-group" id="medTried">
+      <label class="radio-item" onclick="selectRadio(this, 'medTried')">
+       <input type="radio" name="medTried" value="evet">
+       <span class="radio-dot"></span>
+       <span class="checkbox-label">Evet</span>
+      </label>
+      <label class="radio-item" onclick="selectRadio(this, 'medTried')">
+       <input type="radio" name="medTried" value="hayir">
+       <span class="radio-dot"></span>
+       <span class="checkbox-label">Hayır</span>
+      </label>
+     </div>
+    </div>
+
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(4)">← Geri</button>
+     <button class="btn btn-primary" onclick="goStep(6)">Devam →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- STEP 6: Family history -->
+  <div class="step" id="step6">
+   <div class="step-card">
+    <div class="step-number">Adım 6 / 6</div>
+    <h2 class="step-title">Aile Öyküsü</h2>
+    <p class="step-desc">Ailenizde (anne, baba, kardeş) aşağıdaki durumlar var mı?</p>
+    <div class="checkbox-group" id="familyHistory">
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="aile-obezite">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Obezite</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="aile-diyabet">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Diyabet</span>
+     </label>
+     <label class="checkbox-item" onclick="toggleCheck(this)">
+      <input type="checkbox" value="aile-kalp">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="checkbox-label">Kalp hastalığı</span>
+     </label>
+    </div>
+    <div class="btn-row">
+     <button class="btn btn-secondary" onclick="goStep(5)">← Geri</button>
+     <button class="btn btn-primary" onclick="showResults()">Sonuçları Gör →</button>
+    </div>
+   </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="step" id="stepResult"></div>
+
+ </div>
+
+ <div class="quiz-footer">
+  <div class="references">
+   <h4>Kaynaklar</h4>
+   <p>
+    • American Association of Clinical Endocrinology (AACE) 2024 — Obesity Management Guidelines<br>
+    • American Gastroenterological Association (AGA) 2025 — Pharmacological Interventions for Obesity<br>
+    • Endocrine Society 2024 — Clinical Practice Guideline: Pharmacological Management of Obesity<br>
+    • European Association for the Study of Obesity (EASO) 2024 — Consensus Statement on GLP-1 RAs
+   </p>
+  </div>
+  <div class="footer-disclaimer">
+   ⚕️ Bu test tıbbi tavsiye yerine geçmez. Sonuçlar yalnızca bilgilendirme amaçlıdır.<br>
+   Kesin tanı ve tedavi kararları için mutlaka bir hekime danışın.
+  </div>
+ </div>
+
+ <footer class="site-footer">
+  <p style="font-style:italic;opacity:0.7;margin-bottom:0.5rem;">Türkiye uzun yaşasın diye.</p>
+  <p>© 2026 UzunYaşa. <a href="https://tyzd.org" target="_blank">Tıpta Yapay Zeka Derneği</a> girişimidir.</p>
+ </footer>
+
+<script>
+// State
+let currentStep = 0;
+const totalSteps = 6;
+let data = {};
+
+function trackStep(step) {
+ if (typeof gtag === 'function') {
+  gtag('event', 'glp1_quiz_step', { step_number: step, step_name: stepNames[step] || 'unknown' });
+ }
+}
+const stepNames = { 0: 'intro', 1: 'bmi', 2: 'age_gender', 3: 'comorbidities', 4: 'contraindications', 5: 'previous_attempts', 6: 'family_history', 7: 'result' };
+
+function startQuiz() {
+ currentStep = 1;
+ document.getElementById('progressWrapper').style.display = 'block';
+ showStep(1);
+ trackStep(1);
+}
+
+function showStep(n) {
+ document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+ const target = n === 0 ? 'stepIntro' : n === 7 ? 'stepResult' : 'step' + n;
+ document.getElementById(target).classList.add('active');
+ updateProgress(n);
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(n) {
+ if (n < 1 || n > 6) return;
+ const pct = (n / totalSteps) * 100;
+ document.getElementById('progressFill').style.width = pct + '%';
+ document.getElementById('progressLabel').textContent = 'Adım ' + n + ' / ' + totalSteps;
+}
+
+// BMI calc
+const heightInput = document.getElementById('height');
+const weightInput = document.getElementById('weight');
+function calcBMI() {
+ const h = parseFloat(heightInput.value);
+ const w = parseFloat(weightInput.value);
+ if (h >= 100 && h <= 250 && w >= 30 && w <= 300) {
+  const bmi = w / ((h / 100) ** 2);
+  data.bmi = Math.round(bmi * 10) / 10;
+  document.getElementById('bmiValue').textContent = data.bmi;
+  let cat = '', color = '';
+  if (bmi < 18.5) { cat = 'Zayıf'; color = '#3b82f6'; }
+  else if (bmi < 25) { cat = 'Normal'; color = '#059669'; }
+  else if (bmi < 27) { cat = 'Fazla Kilolu'; color = '#d97706'; }
+  else if (bmi < 30) { cat = 'Fazla Kilolu (Yüksek)'; color = '#ea580c'; }
+  else if (bmi < 35) { cat = 'Obez (Sınıf I)'; color = '#dc2626'; }
+  else if (bmi < 40) { cat = 'Obez (Sınıf II)'; color = '#b91c1c'; }
+  else { cat = 'Morbid Obez (Sınıf III)'; color = '#7f1d1d'; }
+  const catEl = document.getElementById('bmiCategory');
+  catEl.textContent = cat;
+  catEl.style.color = color;
+  document.getElementById('bmiResult').classList.add('show');
+  document.getElementById('btn1').disabled = false;
+ } else {
+  document.getElementById('bmiResult').classList.remove('show');
+  document.getElementById('btn1').disabled = true;
+ }
+}
+heightInput.addEventListener('input', calcBMI);
+weightInput.addEventListener('input', calcBMI);
+
+// Age/gender validation
+const ageInput = document.getElementById('age');
+const genderInput = document.getElementById('gender');
+function validateStep2() {
+ const age = parseInt(ageInput.value);
+ const gender = genderInput.value;
+ const under = document.getElementById('underageError');
+ if (age > 0 && age < 18) {
+  under.style.display = 'block';
+  document.getElementById('btn2').disabled = true;
+  return;
+ }
+ under.style.display = 'none';
+ document.getElementById('btn2').disabled = !(age >= 18 && age <= 100 && gender);
+ // Show/hide PCOS based on gender
+ if (gender === 'E') {
+  document.getElementById('pcosItem').style.display = 'none';
+ } else {
+  document.getElementById('pcosItem').style.display = '';
+ }
+}
+ageInput.addEventListener('input', validateStep2);
+genderInput.addEventListener('change', validateStep2);
+
+// Checkbox toggle
+function toggleCheck(el) {
+ const cb = el.querySelector('input[type="checkbox"]');
+ cb.checked = !cb.checked;
+ el.classList.toggle('checked', cb.checked);
+}
+
+// Radio select
+function selectRadio(el, groupName) {
+ const group = el.closest('.radio-group');
+ group.querySelectorAll('.radio-item').forEach(r => r.classList.remove('checked'));
+ el.classList.add('checked');
+ el.querySelector('input[type="radio"]').checked = true;
+
+ if (groupName === 'dietTried') {
+  const val = el.querySelector('input').value;
+  document.getElementById('dietCountGroup').style.display = val === 'evet' ? 'block' : 'none';
+ }
+}
+
+function goStep(n) {
+ // Validate current step before advancing
+ if (n > currentStep) {
+  if (currentStep === 1) {
+   const h = parseFloat(heightInput.value);
+   const w = parseFloat(weightInput.value);
+   if (!(h >= 100 && h <= 250 && w >= 30 && w <= 300)) return;
+  }
+  if (currentStep === 2) {
+   const age = parseInt(ageInput.value);
+   const gender = genderInput.value;
+   if (!(age >= 18 && age <= 100 && gender)) return;
+  }
+ }
+ currentStep = n;
+ showStep(n);
+ if (n > 0) trackStep(n);
+}
+
+function getCheckedValues(containerId) {
+ const container = document.getElementById(containerId);
+ return Array.from(container.querySelectorAll('input:checked')).map(cb => cb.value);
+}
+
+function getRadioValue(name) {
+ const el = document.querySelector('input[name="' + name + '"]:checked');
+ return el ? el.value : null;
+}
+
+function showResults() {
+ // Gather data
+ data.age = parseInt(ageInput.value);
+ data.gender = genderInput.value;
+ data.height = parseFloat(heightInput.value);
+ data.weight = parseFloat(weightInput.value);
+ data.comorbidities = getCheckedValues('comorbidities');
+ data.contraindications = getCheckedValues('contraindications');
+ data.familyHistory = getCheckedValues('familyHistory');
+ data.dietTried = getRadioValue('dietTried');
+ data.dietCount = getRadioValue('dietCount');
+ data.medTried = getRadioValue('medTried');
+
+ // Determine result
+ const bmi = data.bmi;
+ const comorbCount = data.comorbidities.length;
+ const hardContra = data.contraindications.filter(c => ['tiroid-ca', 'men2', 'pankreatit', 'gastroparezi', 'gebelik', 'bobrek'].includes(c));
+ const relativeContra = data.contraindications.filter(c => c === 'safra-tasi');
+ const hasHardContra = hardContra.length > 0;
+ const hasRelativeContra = relativeContra.length > 0;
+
+ let result, icon, titleClass, title, desc, ctas;
+
+ if (hasHardContra) {
+  // RED
+  result = 'red';
+  icon = '🔴';
+  titleClass = 'red';
+  title = 'GLP-1 Önerilmiyor';
+  desc = 'Belirttiğiniz sağlık durumları nedeniyle GLP-1 tedavisi sizin için uygun olmayabilir. Alternatif tedavi seçenekleri için doktorunuza danışmanızı öneriyoruz.';
+  ctas = `
+   <a href="../tedavi/karsilastirma.html" class="result-cta result-cta-secondary" target="_blank">Alternatif Tedavi Seçenekleri →</a>
+   <a href="javascript:window.print()" class="result-cta result-cta-print">🖨 Sonucu Yazdır / Kaydet</a>
+  `;
+ } else if (bmi < 25) {
+  // WHITE/GRAY — Normal BMI
+  result = 'gray';
+  icon = '⚪';
+  titleClass = 'gray';
+  title = 'BMI Normal Aralıkta';
+  desc = 'BMI değeriniz normal aralıktadır. Şu an ilaç tedavisi endikasyonu görünmemektedir. Sağlıklı yaşam alışkanlıklarınızı sürdürmeye devam edin!';
+  ctas = `
+   <a href="../blog/glp1-tam-rehber.html" class="result-cta result-cta-secondary">GLP-1 Hakkında Bilgi Edinin →</a>
+   <a href="javascript:window.print()" class="result-cta result-cta-print">🖨 Sonucu Yazdır / Kaydet</a>
+  `;
+ } else if (bmi >= 30 || (bmi >= 27 && comorbCount > 0)) {
+  if (hasRelativeContra) {
+   // YELLOW — eligible but relative contraindication
+   result = 'yellow';
+   icon = '🟡';
+   titleClass = 'yellow';
+   title = 'Bireysel Değerlendirme Gerekli';
+   desc = 'BMI değeriniz tedavi kriterlerini karşılıyor, ancak belirttiğiniz bazı sağlık durumları (safra taşı) nedeniyle bireysel tıbbi değerlendirme gereklidir. Bir uzman doktor sizin için en uygun tedavi seçeneğini belirleyebilir.';
+   ctas = `
+    <a href="../blog/glp1-tam-rehber.html" class="result-cta result-cta-primary">GLP-1 Hakkında Detaylı Bilgi →</a>
+    <a href="javascript:window.print()" class="result-cta result-cta-print">🖨 Doktorunuzla Paylaşmak İçin Yazdırın</a>
+   `;
+  } else {
+   // GREEN
+   result = 'green';
+   icon = '🟢';
+   titleClass = 'green';
+   title = 'Uygun Olabilirsiniz';
+   desc = 'Sonuçlarınıza göre GLP-1 tedavisi sizin için uygun olabilir. Kesin değerlendirme için bir endokrinoloji veya iç hastalıkları uzmanına başvurmanızı öneriyoruz.';
+   ctas = `
+    <a href="javascript:window.print()" class="result-cta result-cta-primary">🖨 Doktorunuzla Bu Sonucu Paylaşın</a>
+    <a href="../blog/glp1-tam-rehber.html" class="result-cta result-cta-secondary">GLP-1 Hakkında Detaylı Bilgi →</a>
+   `;
+  }
+ } else if (bmi >= 25) {
+  // YELLOW — BMI 25-27 range
+  result = 'yellow';
+  icon = '🟡';
+  titleClass = 'yellow';
+  title = 'Değerlendirme Gerekli';
+  desc = 'BMI değeriniz fazla kilolu aralığındadır. Durumunuz bireysel değerlendirme gerektiriyor. Bir uzman doktor, sizin için en uygun tedavi seçeneğini belirleyebilir.';
+  ctas = `
+   <a href="../blog/glp1-tam-rehber.html" class="result-cta result-cta-primary">GLP-1 Hakkında Detaylı Bilgi →</a>
+   <a href="javascript:window.print()" class="result-cta result-cta-print">🖨 Sonucu Yazdır / Kaydet</a>
+  `;
+ }
+
+ // Build summary
+ const comorbNames = {
+  'diyabet': 'Tip 2 Diyabet', 'hipertansiyon': 'Hipertansiyon', 'dislipidemi': 'Dislipidemi',
+  'uyku-apnesi': 'Uyku Apnesi', 'kalp': 'Kalp Hastalığı', 'karaciger': 'Karaciğer Yağlanması',
+  'pcos': 'PCOS', 'osteoartrit': 'Osteoartrit', 'reflu': 'Reflü'
+ };
+ const contraNames = {
+  'tiroid-ca': 'Tiroid Kanseri Öyküsü', 'men2': 'MEN 2', 'pankreatit': 'Pankreatit',
+  'gastroparezi': 'Gastroparezi', 'gebelik': 'Gebelik/Emzirme', 'safra-tasi': 'Safra Taşı', 'bobrek': 'Böbrek Yetmezliği'
+ };
+
+ let summaryHTML = `
+  <div class="result-summary">
+   <h4>Özet Bilgileriniz</h4>
+   <div class="result-summary-item"><span class="label">BMI</span><span class="value">${data.bmi} kg/m²</span></div>
+   <div class="result-summary-item"><span class="label">Yaş</span><span class="value">${data.age}</span></div>
+   <div class="result-summary-item"><span class="label">Cinsiyet</span><span class="value">${data.gender === 'K' ? 'Kadın' : 'Erkek'}</span></div>
+   <div class="result-summary-item"><span class="label">Eşlik eden hastalık</span><span class="value">${comorbCount > 0 ? data.comorbidities.map(c => comorbNames[c]).join(', ') : 'Yok'}</span></div>
+   <div class="result-summary-item"><span class="label">Kontrendikasyon</span><span class="value">${data.contraindications.length > 0 ? data.contraindications.map(c => contraNames[c]).join(', ') : 'Yok'}</span></div>
+   <div class="result-summary-item"><span class="label">Diyet denemesi</span><span class="value">${data.dietTried === 'evet' ? 'Evet (' + (data.dietCount || '?') + ' kez)' : (data.dietTried === 'hayir' ? 'Hayır' : 'Belirtilmedi')}</span></div>
+   <div class="result-summary-item"><span class="label">Aile öyküsü</span><span class="value">${data.familyHistory.length > 0 ? data.familyHistory.map(f => f.replace('aile-', '').charAt(0).toUpperCase() + f.replace('aile-', '').slice(1)).join(', ') : 'Yok'}</span></div>
+  </div>
+ `;
+
+ document.getElementById('stepResult').innerHTML = `
+  <div class="result-card">
+   <div class="result-icon">${icon}</div>
+   <h2 class="result-title ${titleClass}">${title}</h2>
+   <p class="result-desc">${desc}</p>
+   ${summaryHTML}
+   <div class="result-ctas">${ctas}</div>
+  </div>
+ `;
+
+ document.getElementById('progressWrapper').style.display = 'none';
+ showStep(7);
+ trackStep(7);
+
+ if (typeof gtag === 'function') {
+  gtag('event', 'glp1_quiz_complete', { result: result, bmi: data.bmi });
+ }
+}
+</script>
+
+</body>
+</html>
