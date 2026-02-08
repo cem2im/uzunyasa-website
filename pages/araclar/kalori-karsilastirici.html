@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script src="../../scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalori Karşılaştırıcı — Hangisi Daha Kalorili? | UzunYaşa</title>
+<meta name="description" content="İki yiyeceği karşılaştır, hangisinin daha kalorili olduğunu tahmin et! 20 soruluk eğlenceli kalori testi ile sürprizlere hazır ol.">
+<meta name="keywords" content="kalori karşılaştırma, kalori testi, yemek kalorisi, besin kalorisi, sağlıklı beslenme, diyet">
+<meta property="og:title" content="Kalori Karşılaştırıcı — Hangisi Daha Kalorili? | UzunYaşa">
+<meta property="og:description" content="İki yiyeceği karşılaştır, hangisinin daha kalorili olduğunu tahmin et! 20 soruluk eğlenceli kalori testi.">
+<meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/main.css">
+<style>
+:root {
+ --teal: #0D7377;
+ --teal-light: #14919B;
+ --orange: #E8963E;
+ --green: #10B981;
+ --red: #EF4444;
+ --gray-50: #f9fafb;
+ --gray-100: #f3f4f6;
+ --gray-200: #e5e7eb;
+ --gray-500: #6b7280;
+ --gray-700: #374151;
+ --gray-900: #111827;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--gray-700); line-height: 1.6; min-height: 100vh; }
+
+/* Header */
+.kk-header {
+ background: white;
+ border-bottom: 1px solid var(--gray-200);
+ padding: 1rem 1.5rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ position: sticky;
+ top: 0;
+ z-index: 100;
+}
+.kk-header .logo-img { height: 36px; }
+.kk-header .back-link {
+ color: var(--gray-500);
+ text-decoration: none;
+ font-size: 0.9rem;
+}
+.kk-header .back-link:hover { color: var(--teal); }
+
+/* Progress */
+.progress-wrapper {
+ background: white;
+ padding: 0.75rem 1.5rem;
+ border-bottom: 1px solid var(--gray-200);
+}
+.progress-bar-track {
+ height: 6px;
+ background: var(--gray-200);
+ border-radius: 3px;
+ overflow: hidden;
+}
+.progress-bar-fill {
+ height: 100%;
+ background: linear-gradient(90deg, var(--teal), var(--orange));
+ border-radius: 3px;
+ transition: width 0.5s ease;
+ width: 0%;
+}
+.progress-label {
+ font-size: 0.8rem;
+ color: var(--gray-500);
+ margin-top: 0.3rem;
+ display: flex;
+ justify-content: space-between;
+}
+
+/* Main */
+.kk-main {
+ max-width: 800px;
+ margin: 0 auto;
+ padding: 1.5rem 1rem;
+}
+
+/* Intro */
+.kk-intro {
+ text-align: center;
+ padding: 3rem 1rem;
+}
+.kk-intro h1 {
+ font-size: 2rem;
+ font-weight: 800;
+ color: var(--gray-900);
+ margin-bottom: 0.5rem;
+}
+.kk-intro .subtitle {
+ font-size: 1.1rem;
+ color: var(--gray-500);
+ margin-bottom: 2rem;
+}
+.kk-intro .emoji-big { font-size: 4rem; margin-bottom: 1rem; display: block; }
+
+.btn-start {
+ background: linear-gradient(135deg, var(--teal), var(--teal-light));
+ color: white;
+ border: none;
+ padding: 1rem 2.5rem;
+ font-size: 1.1rem;
+ font-weight: 700;
+ border-radius: 12px;
+ cursor: pointer;
+ transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13,115,119,0.3); }
+
+/* Question */
+.kk-question { display: none; }
+.kk-question.active { display: block; }
+
+.question-title {
+ text-align: center;
+ font-size: 1.3rem;
+ font-weight: 700;
+ color: var(--gray-900);
+ margin-bottom: 1.5rem;
+}
+
+/* Cards container */
+.cards-row {
+ display: grid;
+ grid-template-columns: 1fr auto 1fr;
+ gap: 1rem;
+ align-items: stretch;
+}
+.vs-badge {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: 800;
+ font-size: 1.2rem;
+ color: var(--orange);
+ padding: 0 0.25rem;
+}
+
+/* Food card */
+.food-card {
+ background: white;
+ border-radius: 16px;
+ padding: 1.5rem 1rem;
+ text-align: center;
+ border: 3px solid var(--gray-200);
+ cursor: pointer;
+ transition: all 0.3s ease;
+ position: relative;
+ overflow: hidden;
+}
+.food-card:hover { border-color: var(--teal-light); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+.food-card .food-emoji { font-size: 3rem; margin-bottom: 0.75rem; display: block; }
+.food-card .food-name { font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.25rem; }
+.food-card .food-portion { font-size: 0.85rem; color: var(--gray-500); margin-bottom: 1rem; }
+.food-card .btn-guess {
+ background: linear-gradient(135deg, var(--teal), var(--teal-light));
+ color: white;
+ border: none;
+ padding: 0.6rem 1.5rem;
+ font-size: 0.95rem;
+ font-weight: 600;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: transform 0.2s;
+}
+.food-card .btn-guess:hover { transform: scale(1.05); }
+
+/* Revealed state */
+.food-card.revealed { cursor: default; pointer-events: none; }
+.food-card.revealed:hover { transform: none; box-shadow: none; }
+.food-card.winner { border-color: var(--green); background: #f0fdf4; }
+.food-card.loser { border-color: var(--red); background: #fef2f2; }
+
+.calorie-reveal {
+ display: none;
+ font-size: 2rem;
+ font-weight: 900;
+ margin-top: 0.75rem;
+ animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.food-card.revealed .calorie-reveal { display: block; }
+.food-card.winner .calorie-reveal { color: var(--green); }
+.food-card.loser .calorie-reveal { color: var(--red); }
+
+.calorie-label {
+ display: none;
+ font-size: 0.75rem;
+ font-weight: 600;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ margin-top: 0.25rem;
+}
+.food-card.revealed .calorie-label { display: block; }
+.food-card.winner .calorie-label { color: var(--green); }
+.food-card.loser .calorie-label { color: var(--red); }
+
+.food-card.revealed .btn-guess { display: none; }
+
+@keyframes popIn {
+ 0% { transform: scale(0); opacity: 0; }
+ 100% { transform: scale(1); opacity: 1; }
+}
+
+/* Result banner */
+.result-banner {
+ display: none;
+ text-align: center;
+ margin-top: 1.5rem;
+ animation: slideUp 0.4s ease;
+}
+.result-banner.show { display: block; }
+
+.result-verdict {
+ display: inline-block;
+ padding: 0.4rem 1rem;
+ border-radius: 20px;
+ font-weight: 700;
+ font-size: 0.9rem;
+ margin-bottom: 0.75rem;
+}
+.result-verdict.correct { background: #d1fae5; color: #065f46; }
+.result-verdict.wrong { background: #fee2e2; color: #991b1b; }
+
+.fun-fact {
+ background: #fffbeb;
+ border: 1px solid #fde68a;
+ border-radius: 12px;
+ padding: 1rem;
+ font-size: 0.9rem;
+ color: #92400e;
+ margin-top: 0.75rem;
+ line-height: 1.5;
+}
+.fun-fact::before { content: "💡 "; }
+
+.btn-next {
+ margin-top: 1.25rem;
+ background: linear-gradient(135deg, var(--orange), #d4862f);
+ color: white;
+ border: none;
+ padding: 0.75rem 2rem;
+ font-size: 1rem;
+ font-weight: 700;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: transform 0.2s;
+}
+.btn-next:hover { transform: translateY(-2px); }
+
+@keyframes slideUp {
+ 0% { transform: translateY(20px); opacity: 0; }
+ 100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Final score */
+.kk-final {
+ display: none;
+ text-align: center;
+ padding: 2rem 1rem;
+ animation: slideUp 0.5s ease;
+}
+.kk-final.active { display: block; }
+.kk-final .score-circle {
+ width: 140px;
+ height: 140px;
+ border-radius: 50%;
+ background: linear-gradient(135deg, var(--teal), var(--teal-light));
+ display: inline-flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ margin-bottom: 1.5rem;
+}
+.kk-final .score-num { font-size: 2.5rem; font-weight: 900; line-height: 1; }
+.kk-final .score-of { font-size: 0.9rem; opacity: 0.8; }
+.kk-final h2 { font-size: 1.5rem; color: var(--gray-900); margin-bottom: 0.5rem; }
+.kk-final .score-msg { font-size: 1.1rem; color: var(--gray-500); margin-bottom: 2rem; }
+
+.share-section { margin-top: 1.5rem; }
+.share-section h3 { font-size: 1rem; color: var(--gray-700); margin-bottom: 1rem; }
+.share-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+.share-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.4rem;
+ padding: 0.6rem 1.2rem;
+ border-radius: 10px;
+ font-size: 0.9rem;
+ font-weight: 600;
+ text-decoration: none;
+ border: none;
+ cursor: pointer;
+ transition: transform 0.2s;
+ color: white;
+}
+.share-btn:hover { transform: translateY(-2px); }
+.share-btn.whatsapp { background: #25D366; }
+.share-btn.twitter { background: #1DA1F2; }
+.share-btn.copy { background: var(--gray-700); }
+.share-btn.restart { background: linear-gradient(135deg, var(--teal), var(--teal-light)); margin-top: 0.5rem; }
+
+/* Mobile */
+@media (max-width: 600px) {
+ .cards-row {
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+ }
+ .vs-badge {
+  padding: 0.25rem 0;
+  font-size: 1rem;
+ }
+ .kk-intro h1 { font-size: 1.6rem; }
+ .food-card { padding: 1.25rem 0.75rem; }
+ .food-card .food-emoji { font-size: 2.5rem; }
+ .calorie-reveal { font-size: 1.6rem; }
+}
+
+/* Footer */
+.kk-footer {
+ text-align: center;
+ padding: 2rem 1rem;
+ font-size: 0.8rem;
+ color: var(--gray-500);
+ border-top: 1px solid var(--gray-200);
+ margin-top: 3rem;
+}
+.kk-footer a { color: var(--teal); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="kk-header">
+ <a href="../../index.html">
+  <img src="../../images/uzunyasa-logo.svg" alt="UzunYaşa" class="logo-img">
+ </a>
+ <a href="../../index.html" class="back-link">← Ana Sayfa</a>
+</header>
+
+<!-- Progress -->
+<div class="progress-wrapper" id="progressWrapper" style="display:none;">
+ <div class="progress-bar-track">
+  <div class="progress-bar-fill" id="progressFill"></div>
+ </div>
+ <div class="progress-label">
+  <span id="progressText">1 / 20</span>
+  <span id="scoreText">0 doğru</span>
+ </div>
+</div>
+
+<!-- Intro -->
+<div class="kk-main">
+ <div class="kk-intro" id="introScreen">
+  <span class="emoji-big">🍕⚖️🥙</span>
+  <h1>Hangisi Daha Kalorili?</h1>
+  <p class="subtitle">20 yiyecek çifti, 20 sürpriz. Kalori bilgini test et!</p>
+  <button class="btn-start" onclick="startGame()">Başla →</button>
+ </div>
+
+ <!-- Question container -->
+ <div id="questionContainer"></div>
+
+ <!-- Final score -->
+ <div class="kk-final" id="finalScreen">
+  <div class="score-circle">
+   <span class="score-num" id="finalScore">0</span>
+   <span class="score-of">/ 20</span>
+  </div>
+  <h2 id="finalTitle"></h2>
+  <p class="score-msg" id="finalMsg"></p>
+  <div class="share-section">
+   <h3>Sonucunu paylaş 👇</h3>
+   <div class="share-btns">
+    <a class="share-btn whatsapp" id="shareWA" href="#" target="_blank">📱 WhatsApp</a>
+    <a class="share-btn twitter" id="shareTW" href="#" target="_blank">🐦 Twitter/X</a>
+    <button class="share-btn copy" id="shareCopy" onclick="copyShare()">📋 Kopyala</button>
+   </div>
+   <div class="share-btns" style="margin-top:0.75rem;">
+    <button class="share-btn restart" onclick="restartGame()">🔄 Tekrar Oyna</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+<footer class="kk-footer">
+ <p>© 2025 <a href="../../index.html">UzunYaşa</a> — Bilimle daha uzun, daha iyi yaşam</p>
+ <p style="margin-top:0.25rem; font-size:0.75rem;">Kalori değerleri ortalama porsiyonlara göre yaklaşık değerlerdir.</p>
+</footer>
+
+<script>
+const pairs = [
+ {a:{name:"Lahmacun",portion:"1 adet (150g)",emoji:"🫓",kcal:280},b:{name:"Pizza Dilimi",portion:"1 dilim (150g)",emoji:"🍕",kcal:350},fact:"Lahmacun ince hamuru sayesinde pizza diliminden yaklaşık %20 daha az kalorili!"},
+ {a:{name:"Ayran",portion:"1 bardak (200ml)",emoji:"🥛",kcal:65},b:{name:"Kola",portion:"1 bardak (200ml)",emoji:"🥤",kcal:84},fact:"Ayran hem daha az kalorili, hem de protein ve probiyotik içerir. Kola ise sadece şeker!"},
+ {a:{name:"İskender",portion:"1 porsiyon (350g)",emoji:"🥩",kcal:750},b:{name:"Big Mac",portion:"1 adet (200g)",emoji:"🍔",kcal:563},fact:"İskender'deki tereyağı tek başına yaklaşık 200 kalori ekliyor!"},
+ {a:{name:"Kuru Fasulye",portion:"1 porsiyon (300g)",emoji:"🫘",kcal:280},b:{name:"Makarna",portion:"1 porsiyon (300g)",emoji:"🍝",kcal:450},fact:"Kuru fasulye hem daha az kalorili, hem de çok daha fazla protein ve lif içerir!"},
+ {a:{name:"Simit",portion:"1 adet (120g)",emoji:"🥯",kcal:380},b:{name:"Poğaça",portion:"1 adet (100g)",emoji:"🧁",kcal:350},fact:"Simit daha büyük görünse de, poğaçadaki yağ oranı gram başına daha yüksek!"},
+ {a:{name:"Baklava",portion:"1 dilim (80g)",emoji:"🍯",kcal:340},b:{name:"Cheesecake",portion:"1 dilim (120g)",emoji:"🍰",kcal:400},fact:"Baklava küçük porsiyon avantajıyla cheesecake'ten daha az kalorili çıkıyor!"},
+ {a:{name:"Döner Dürüm",portion:"1 adet (300g)",emoji:"🌯",kcal:650},b:{name:"Hamburger",portion:"1 adet (250g)",emoji:"🍔",kcal:540},fact:"Döner dürüm, lavaş ekmeği ve sos eklentileriyle kalori canavarına dönüşebilir!"},
+ {a:{name:"Mercimek Çorbası",portion:"1 kase (300ml)",emoji:"🥣",kcal:180},b:{name:"Tarhana Çorbası",portion:"1 kase (300ml)",emoji:"🍲",kcal:150},fact:"Her iki çorba da harika seçimler! Mercimek çorbası daha fazla protein içerir."},
+ {a:{name:"Mantı",portion:"1 porsiyon (250g)",emoji:"🥟",kcal:420},b:{name:"Ravioli",portion:"1 porsiyon (250g)",emoji:"🍝",kcal:380},fact:"Mantının üstüne eklenen yoğurt ve tereyağlı sos kaloriyi artırıyor!"},
+ {a:{name:"Türk Kahvesi (şekerli)",portion:"1 fincan",emoji:"☕",kcal:50},b:{name:"Latte",portion:"1 bardak (300ml)",emoji:"🥤",kcal:180},fact:"Bir latte, 3.5 fincan şekerli Türk kahvesi kadar kalori içeriyor!"},
+ {a:{name:"Kıymalı Pide",portion:"1 dilim (200g)",emoji:"🫓",kcal:480},b:{name:"Sucuklu Pizza",portion:"1 dilim (200g)",emoji:"🍕",kcal:520},fact:"Sucuktaki yağ oranı, kaloriyi pizza lehine artırıyor."},
+ {a:{name:"Zeytinyağlı Dolma",portion:"1 porsiyon (200g)",emoji:"🫒",kcal:260},b:{name:"Etli Dolma",portion:"1 porsiyon (200g)",emoji:"🥩",kcal:350},fact:"Zeytinyağlı dolma, etli versiyonundan %25 daha az kalorili — üstelik daha hafif!"},
+ {a:{name:"Çiğ Köfte",portion:"1 porsiyon (150g)",emoji:"🌶️",kcal:240},b:{name:"Falafel Wrap",portion:"1 adet (200g)",emoji:"🌯",kcal:350},fact:"Çiğ köfte etsiz olduğu için şaşırtıcı derecede düşük kalorili!"},
+ {a:{name:"Avokado",portion:"1 adet (150g)",emoji:"🥑",kcal:240},b:{name:"Muz",portion:"1 adet (120g)",emoji:"🍌",kcal:105},fact:"Avokado sağlıklı yağlar açısından zengin ama kalori olarak muzun 2 katından fazla!"},
+ {a:{name:"Portakal Suyu",portion:"1 bardak (250ml)",emoji:"🧃",kcal:112},b:{name:"Portakal",portion:"1 adet (200g)",emoji:"🍊",kcal:62},fact:"Portakal suyu yerine portakal yersen, hem daha tok kalırsın hem %45 daha az kalori alırsın!"},
+ {a:{name:"Badem",portion:"10 adet (14g)",emoji:"🌰",kcal:82},b:{name:"Fındık",portion:"10 adet (14g)",emoji:"🌰",kcal:88},fact:"Badem ve fındık neredeyse aynı kalorili! İkisi de sağlıklı atıştırmalıklar."},
+ {a:{name:"Zeytinyağı",portion:"1 yemek kaşığı (15ml)",emoji:"🫒",kcal:120},b:{name:"Tereyağı",portion:"1 yemek kaşığı (15g)",emoji:"🧈",kcal:108},fact:"Zeytinyağı daha sağlıklı yağ profili sunsa da, kalori olarak tereyağından fazla!"},
+ {a:{name:"Pilav",portion:"1 porsiyon (200g)",emoji:"🍚",kcal:260},b:{name:"Bulgur Pilavı",portion:"1 porsiyon (200g)",emoji:"🌾",kcal:170},fact:"Bulgur pilavı, beyaz pilavdan %35 daha az kalorili + 3 kat daha fazla lif içerir!"},
+ {a:{name:"Beyaz Ekmek",portion:"1 dilim (30g)",emoji:"🍞",kcal:80},b:{name:"Tam Buğday Ekmek",portion:"1 dilim (30g)",emoji:"🥖",kcal:70},fact:"Kalori farkı küçük ama tam buğday ekmeğin lif içeriği çok daha yüksek!"},
+ {a:{name:"Dondurma",portion:"1 kase (100g)",emoji:"🍦",kcal:210},b:{name:"Sütlaç",portion:"1 kase (200g)",emoji:"🍮",kcal:280},fact:"Sütlaç daha sağlıklı görünse de, porsiyon büyüklüğü kaloriyi artırıyor!"}
+];
+
+let currentPair = 0;
+let score = 0;
+let gameStarted = false;
+
+function startGame() {
+ gameStarted = true;
+ currentPair = 0;
+ score = 0;
+ document.getElementById('introScreen').style.display = 'none';
+ document.getElementById('progressWrapper').style.display = 'block';
+ document.getElementById('finalScreen').classList.remove('active');
+ showPair();
+ gtag('event', 'kalori_game_start');
+}
+
+function showPair() {
+ updateProgress();
+ const p = pairs[currentPair];
+ const container = document.getElementById('questionContainer');
+ container.innerHTML = `
+  <div class="kk-question active">
+   <h2 class="question-title">Hangisi daha kalorili? 🤔</h2>
+   <div class="cards-row">
+    <div class="food-card" id="cardA" onclick="guess('a')">
+     <span class="food-emoji">${p.a.emoji}</span>
+     <div class="food-name">${p.a.name}</div>
+     <div class="food-portion">${p.a.portion}</div>
+     <button class="btn-guess">Bu mu? 👆</button>
+     <div class="calorie-reveal" id="kcalA">${p.a.kcal} kcal</div>
+     <div class="calorie-label" id="labelA"></div>
+    </div>
+    <div class="vs-badge">VS</div>
+    <div class="food-card" id="cardB" onclick="guess('b')">
+     <span class="food-emoji">${p.b.emoji}</span>
+     <div class="food-name">${p.b.name}</div>
+     <div class="food-portion">${p.b.portion}</div>
+     <button class="btn-guess">Bu mu? 👆</button>
+     <div class="calorie-reveal" id="kcalB">${p.b.kcal} kcal</div>
+     <div class="calorie-label" id="labelB"></div>
+    </div>
+   </div>
+   <div class="result-banner" id="resultBanner">
+    <div class="result-verdict" id="resultVerdict"></div>
+    <div class="fun-fact" id="funFact"></div>
+    <button class="btn-next" id="btnNext" onclick="nextPair()">Sonraki →</button>
+   </div>
+  </div>`;
+}
+
+function guess(choice) {
+ const p = pairs[currentPair];
+ const actual = p.a.kcal >= p.b.kcal ? 'a' : 'b';
+ const correct = choice === actual;
+ if (correct) score++;
+
+ const cardA = document.getElementById('cardA');
+ const cardB = document.getElementById('cardB');
+ cardA.classList.add('revealed');
+ cardB.classList.add('revealed');
+
+ if (p.a.kcal >= p.b.kcal) {
+  cardA.classList.add('loser');
+  cardB.classList.add('winner');
+  document.getElementById('labelA').textContent = '⬆️ Daha kalorili';
+  document.getElementById('labelB').textContent = '✅ Daha az';
+ } else {
+  cardB.classList.add('loser');
+  cardA.classList.add('winner');
+  document.getElementById('labelB').textContent = '⬆️ Daha kalorili';
+  document.getElementById('labelA').textContent = '✅ Daha az';
+ }
+
+ const verdict = document.getElementById('resultVerdict');
+ verdict.textContent = correct ? '✅ Doğru bildin!' : '❌ Yanlış tahmin!';
+ verdict.className = 'result-verdict ' + (correct ? 'correct' : 'wrong');
+
+ document.getElementById('funFact').textContent = p.fact;
+ document.getElementById('resultBanner').classList.add('show');
+
+ if (currentPair === pairs.length - 1) {
+  document.getElementById('btnNext').textContent = 'Sonuçları Gör →';
+ }
+
+ document.getElementById('scoreText').textContent = score + ' doğru';
+ gtag('event', 'kalori_guess', { pair: currentPair + 1, correct: correct, food_a: p.a.name, food_b: p.b.name });
+}
+
+function nextPair() {
+ currentPair++;
+ if (currentPair >= pairs.length) {
+  showFinal();
+ } else {
+  showPair();
+ }
+}
+
+function updateProgress() {
+ const pct = ((currentPair) / pairs.length) * 100;
+ document.getElementById('progressFill').style.width = pct + '%';
+ document.getElementById('progressText').textContent = (currentPair + 1) + ' / ' + pairs.length;
+}
+
+function showFinal() {
+ document.getElementById('questionContainer').innerHTML = '';
+ document.getElementById('progressFill').style.width = '100%';
+ document.getElementById('progressText').textContent = '20 / 20';
+
+ const f = document.getElementById('finalScreen');
+ f.classList.add('active');
+ document.getElementById('finalScore').textContent = score;
+
+ let title, msg;
+ if (score >= 15) { title = 'Kalori uzmanısın! 🏆'; msg = 'Tebrikler! Besin değerlerini çok iyi biliyorsun.'; }
+ else if (score >= 10) { title = 'Fena değil! 😮'; msg = 'İyi gidiyorsun ama bazı sürprizler var, değil mi?'; }
+ else { title = 'Şaşırtıcı, değil mi? 💡'; msg = 'Çoğu insan da böyle şaşırıyor — merak etme!'; }
+
+ document.getElementById('finalTitle').textContent = title;
+ document.getElementById('finalMsg').textContent = msg;
+
+ const shareText = `Kalori Karşılaştırıcı'da ${score}/20 doğru bildim! Sen de dene 👉 uzunyasa.com/pages/araclar/kalori-karsilastirici.html`;
+ const shareEncoded = encodeURIComponent(shareText);
+
+ document.getElementById('shareWA').href = 'https://wa.me/?text=' + shareEncoded;
+ document.getElementById('shareTW').href = 'https://twitter.com/intent/tweet?text=' + shareEncoded;
+
+ gtag('event', 'kalori_game_complete', { score: score, total: 20 });
+}
+
+function copyShare() {
+ const shareText = `Kalori Karşılaştırıcı'da ${score}/20 doğru bildim! Sen de dene 👉 uzunyasa.com/pages/araclar/kalori-karsilastirici.html`;
+ navigator.clipboard.writeText(shareText).then(() => {
+  const btn = document.getElementById('shareCopy');
+  btn.textContent = '✅ Kopyalandı!';
+  setTimeout(() => btn.textContent = '📋 Kopyala', 2000);
+ });
+}
+
+function restartGame() {
+ startGame();
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
