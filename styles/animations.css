@@ -483,10 +483,10 @@ header a,
 .anim-gradient-bg {
   background: linear-gradient(
     135deg,
-    rgba(13, 55, 59, 0.85),
-    rgba(13, 115, 119, 0.82),
-    rgba(20, 145, 155, 0.80),
-    rgba(13, 55, 59, 0.85)
+    rgba(13, 55, 59, 0.65),
+    rgba(13, 115, 119, 0.60),
+    rgba(20, 145, 155, 0.58),
+    rgba(13, 55, 59, 0.65)
   );
   background-size: 300% 300%;
   animation: gradientShift 12s ease infinite;
