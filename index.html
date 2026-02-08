@@ -1905,6 +1905,15 @@
  html {
  scroll-behavior: smooth;
  }
+
+ /* Hide video backgrounds on mobile / reduced-motion to save bandwidth */
+ @media (prefers-reduced-motion: reduce), (max-width: 768px) {
+ .section-video-bg,
+ .section-video,
+ .hero-video {
+ display: none !important;
+ }
+ }
  </style>
 </head>
 <body>
@@ -1989,9 +1998,12 @@ Beslenme, egzersiz ve tedavi seçenekleri.
 
  
     <!-- MANIFESTO -->
-    <section style="padding:5rem 2rem;background:linear-gradient(180deg,#0f3d42 0%,#195157 100%);text-align:center;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 50%, rgba(232,150,62,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.03) 0%, transparent 50%);"></div>
-        <div style="max-width:850px;margin:0 auto;position:relative;z-index:1;">
+    <section style="padding:5rem 2rem;text-align:center;position:relative;overflow:hidden;">
+        <video class="section-video-bg" autoplay muted loop playsinline style="position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;transform:translate(-50%,-50%);object-fit:cover;z-index:0;">
+            <source src="videos/background-2.mp4" type="video/mp4">
+        </video>
+        <div style="position:absolute;inset:0;background:rgba(13,55,59,0.82);z-index:1;"></div>
+        <div style="max-width:850px;margin:0 auto;position:relative;z-index:2;">
             <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.5vw,2.4rem);color:rgba(255,255,255,0.95);line-height:1.5;font-weight:500;letter-spacing:-0.01em;margin-bottom:1rem;">
                 Fazla kilodan kurtul. Sağlıklı beslen. Hareket et.<br>
                 <span style="color:var(--accent);font-weight:700;">Hayatına <span style="font-size:1.4em;letter-spacing:-0.02em;">10 yıl</span> ekle.</span>
@@ -2033,9 +2045,12 @@ Beslenme, egzersiz ve tedavi seçenekleri.
 
      <!-- GÜNÜN BİLGİSİ — PREMIUM -->
     <section id="gunun-bilgisi" style="padding:0;position:relative;overflow:hidden;">
-        <div style="background:linear-gradient(135deg, rgba(25,81,87,0.92) 0%, rgba(15,61,66,0.88) 50%, rgba(25,81,87,0.95) 100%), linear-gradient(180deg, #1a4a4f 0%, #0d3538 100%);padding:5rem 2rem;position:relative;">
-            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 30%, rgba(232,150,62,0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(255,255,255,0.04) 0%, transparent 50%);pointer-events:none;"></div>
-            <div style="max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:1;">
+        <video class="section-video-bg" autoplay muted loop playsinline style="position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;transform:translate(-50%,-50%);object-fit:cover;z-index:0;">
+            <source src="videos/background-5.mp4" type="video/mp4">
+        </video>
+        <div style="position:absolute;inset:0;background:rgba(13,55,59,0.78);z-index:1;"></div>
+        <div style="padding:5rem 2rem;position:relative;z-index:2;">
+            <div style="max-width:720px;margin:0 auto;text-align:center;position:relative;">
                 <div style="display:inline-block;background:rgba(232,150,62,0.15);border:1px solid rgba(232,150,62,0.3);padding:0.4rem 1.25rem;border-radius:25px;margin-bottom:1.5rem;">
                     <span style="font-size:0.8rem;font-weight:700;color:#E8963E;text-transform:uppercase;letter-spacing:2px;">Bunu Biliyor Muydunuz?</span>
                 </div>
@@ -2474,8 +2489,12 @@ Beslenme, egzersiz ve tedavi seçenekleri.
  </section>
 
  <!-- TRUST SECTION -->
- <section id="trust" style="padding:5rem 2rem;background:linear-gradient(180deg,#f0fdfa 0%,#ffffff 100%);">
- <div style="max-width:1100px;margin:0 auto;text-align:center;">
+ <section id="trust" style="padding:5rem 2rem;position:relative;overflow:hidden;">
+ <video class="section-video-bg" autoplay muted loop playsinline style="position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;transform:translate(-50%,-50%);object-fit:cover;z-index:0;">
+ <source src="videos/background-6.mp4" type="video/mp4">
+ </video>
+ <div style="position:absolute;inset:0;background:rgba(240,253,250,0.88);z-index:1;"></div>
+ <div style="max-width:1100px;margin:0 auto;text-align:center;position:relative;z-index:2;">
  <p style="color:#E8963E;font-weight:600;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;">Güven & Şeffaflık</p>
  <h2 style="font-family:'Playfair Display',serif;font-size:2.5rem;color:#195157;margin-bottom:1rem;">Neden UzunYaşa?</h2>
  <p style="color:#6B7280;max-width:600px;margin:0 auto 3rem;font-size:1.1rem;">Sağlık bilgisi güven gerektirir. İşte bizi farklı kılan dört temel ilke:</p>
@@ -2584,7 +2603,7 @@ Beslenme, egzersiz ve tedavi seçenekleri.
  <!-- CTA SECTION -->
  <section class="cta-section">
  <video class="section-video" autoplay muted loop playsinline>
- <source src="videos/background-1.mp4" type="video/mp4">
+ <source src="videos/background-7.mp4" type="video/mp4">
  </video>
  <div class="section-overlay"></div>
  <div class="section-inner">
