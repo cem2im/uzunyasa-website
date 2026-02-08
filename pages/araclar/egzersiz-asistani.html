@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script src="../../scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egzersiz Asistanı — Kişisel Antrenman Programı | UzunYaşa</title>
+<meta name="description" content="Kişisel egzersiz programı oluşturucu. Seviyenize, hedefinize ve imkanlarınıza göre haftalık antrenman planı alın. Ücretsiz, bilimsel, Türkçe.">
+<meta name="keywords" content="egzersiz programı, antrenman planı, fitness programı, kişisel antrenman, haftalık egzersiz, ev egzersizi">
+<meta property="og:title" content="Egzersiz Asistanı — Kişisel Antrenman Programı | UzunYaşa">
+<meta property="og:description" content="Seviyenize, hedefinize ve imkanlarınıza göre kişisel haftalık antrenman programı oluşturun. Ücretsiz!">
+<meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/main.css">
+<style>
+:root {
+ --teal: #0D7377;
+ --teal-light: #14919B;
+ --orange: #E8963E;
+ --green: #10B981;
+ --red: #EF4444;
+ --yellow: #F59E0B;
+ --blue: #3B82F6;
+ --purple: #8B5CF6;
+ --gray-50: #f9fafb;
+ --gray-100: #f3f4f6;
+ --gray-200: #e5e7eb;
+ --gray-300: #d1d5db;
+ --gray-500: #6b7280;
+ --gray-700: #374151;
+ --gray-900: #111827;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--gray-700); line-height: 1.6; min-height: 100vh; }
+
+.ea-header {
+ background: white;
+ border-bottom: 1px solid var(--gray-200);
+ padding: 1rem 1.5rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ position: sticky;
+ top: 0;
+ z-index: 100;
+}
+.ea-header .logo-img { height: 36px; }
+.ea-header .back-link { color: var(--gray-500); text-decoration: none; font-size: 0.9rem; }
+.ea-header .back-link:hover { color: var(--teal); }
+
+/* Progress */
+.progress-wrapper {
+ background: white;
+ padding: 0.75rem 1.5rem;
+ border-bottom: 1px solid var(--gray-200);
+}
+.progress-bar-track {
+ height: 6px;
+ background: var(--gray-200);
+ border-radius: 3px;
+ overflow: hidden;
+}
+.progress-bar-fill {
+ height: 100%;
+ background: linear-gradient(90deg, var(--teal), var(--orange));
+ border-radius: 3px;
+ transition: width 0.5s ease;
+ width: 0%;
+}
+.progress-label {
+ font-size: 0.8rem;
+ color: var(--gray-500);
+ margin-top: 0.3rem;
+ display: flex;
+ justify-content: space-between;
+}
+
+.ea-main {
+ max-width: 900px;
+ margin: 0 auto;
+ padding: 1.5rem 1rem;
+}
+
+/* Intro */
+.ea-intro {
+ text-align: center;
+ padding: 3rem 1rem;
+}
+.ea-intro .emoji-big { font-size: 4rem; margin-bottom: 1rem; display: block; }
+.ea-intro h1 { font-size: 2rem; font-weight: 800; color: var(--gray-900); margin-bottom: 0.5rem; }
+.ea-intro .subtitle { font-size: 1.1rem; color: var(--gray-500); margin-bottom: 2rem; }
+
+.btn-primary {
+ background: linear-gradient(135deg, var(--teal), var(--teal-light));
+ color: white;
+ border: none;
+ padding: 1rem 2.5rem;
+ font-size: 1.1rem;
+ font-weight: 700;
+ border-radius: 12px;
+ cursor: pointer;
+ transition: transform 0.2s, box-shadow 0.2s;
+ font-family: inherit;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13,115,119,0.3); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.btn-secondary {
+ background: white;
+ color: var(--teal);
+ border: 2px solid var(--teal);
+ padding: 0.75rem 1.5rem;
+ font-size: 1rem;
+ font-weight: 600;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: all 0.2s;
+ font-family: inherit;
+}
+.btn-secondary:hover { background: var(--teal); color: white; }
+
+/* Steps */
+.step { display: none; }
+.step.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.step-title {
+ text-align: center;
+ font-size: 1.4rem;
+ font-weight: 700;
+ color: var(--gray-900);
+ margin-bottom: 0.5rem;
+}
+.step-subtitle {
+ text-align: center;
+ color: var(--gray-500);
+ margin-bottom: 2rem;
+ font-size: 0.95rem;
+}
+
+/* Form */
+.form-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 1.25rem;
+ max-width: 500px;
+ margin: 0 auto 1.5rem;
+}
+.form-group {
+ display: flex;
+ flex-direction: column;
+ gap: 0.4rem;
+}
+.form-group.full { grid-column: 1 / -1; }
+.form-group label { font-weight: 600; font-size: 0.9rem; color: var(--gray-900); }
+.form-group input, .form-group select {
+ padding: 0.875rem 1rem;
+ border: 2px solid var(--gray-200);
+ border-radius: 10px;
+ font-size: 1rem;
+ font-family: inherit;
+ transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--teal); }
+
+.bmi-display {
+ text-align: center;
+ padding: 1rem;
+ background: white;
+ border-radius: 12px;
+ border: 1px solid var(--gray-200);
+ margin-top: 0.5rem;
+ display: none;
+}
+.bmi-display.show { display: block; }
+.bmi-value { font-size: 2rem; font-weight: 800; }
+.bmi-label { font-size: 0.85rem; color: var(--gray-500); }
+
+/* Option cards */
+.option-grid {
+ display: grid;
+ grid-template-columns: 1fr;
+ gap: 0.75rem;
+ max-width: 500px;
+ margin: 0 auto 1.5rem;
+}
+.option-card {
+ background: white;
+ border: 2px solid var(--gray-200);
+ border-radius: 12px;
+ padding: 1rem 1.25rem;
+ cursor: pointer;
+ transition: all 0.2s;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+}
+.option-card:hover { border-color: var(--teal-light); transform: translateY(-1px); }
+.option-card.selected { border-color: var(--teal); background: #f0fdfa; }
+.option-card .option-icon { font-size: 1.5rem; flex-shrink: 0; }
+.option-card .option-text { flex: 1; }
+.option-card .option-title { font-weight: 700; color: var(--gray-900); font-size: 1rem; }
+.option-card .option-desc { font-size: 0.85rem; color: var(--gray-500); }
+
+/* Multi-select */
+.option-card.multi.selected { border-color: var(--teal); background: #f0fdfa; }
+.option-card.multi .check-icon { width: 24px; height: 24px; border: 2px solid var(--gray-300); border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.option-card.multi.selected .check-icon { background: var(--teal); border-color: var(--teal); color: white; }
+
+/* Inline select grid */
+.inline-select {
+ display: flex;
+ gap: 0.5rem;
+ flex-wrap: wrap;
+ justify-content: center;
+ margin-bottom: 1.5rem;
+}
+.inline-select .chip {
+ padding: 0.75rem 1.25rem;
+ border: 2px solid var(--gray-200);
+ border-radius: 10px;
+ background: white;
+ cursor: pointer;
+ font-weight: 600;
+ font-size: 1rem;
+ transition: all 0.2s;
+ font-family: inherit;
+}
+.inline-select .chip:hover { border-color: var(--teal-light); }
+.inline-select .chip.selected { border-color: var(--teal); background: var(--teal); color: white; }
+
+.step-nav {
+ display: flex;
+ justify-content: center;
+ gap: 1rem;
+ margin-top: 2rem;
+}
+
+/* PROGRAM DISPLAY */
+.program-container { display: none; }
+.program-container.show { display: block; }
+
+.program-header {
+ text-align: center;
+ padding: 2rem 1rem;
+ background: linear-gradient(135deg, var(--teal), var(--teal-light));
+ border-radius: 16px;
+ color: white;
+ margin-bottom: 2rem;
+}
+.program-header h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; }
+.program-header p { opacity: 0.9; }
+
+.program-summary {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1rem;
+ margin-bottom: 2rem;
+}
+.summary-card {
+ background: white;
+ border-radius: 12px;
+ padding: 1.25rem;
+ text-align: center;
+ border: 1px solid var(--gray-200);
+}
+.summary-card .summary-value { font-size: 1.75rem; font-weight: 800; color: var(--teal); }
+.summary-card .summary-label { font-size: 0.8rem; color: var(--gray-500); margin-top: 0.25rem; }
+
+.program-actions {
+ display: flex;
+ gap: 0.75rem;
+ flex-wrap: wrap;
+ justify-content: center;
+ margin-bottom: 2rem;
+}
+
+/* Day cards */
+.day-card {
+ background: white;
+ border-radius: 16px;
+ margin-bottom: 1.5rem;
+ border: 1px solid var(--gray-200);
+ overflow: hidden;
+}
+.day-header {
+ padding: 1rem 1.25rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ cursor: pointer;
+ user-select: none;
+}
+.day-header .day-name { font-weight: 700; font-size: 1.1rem; color: var(--gray-900); }
+.day-header .day-meta { font-size: 0.85rem; color: var(--gray-500); display: flex; gap: 1rem; }
+.day-header .day-toggle { font-size: 1.2rem; transition: transform 0.2s; }
+.day-header .day-toggle.open { transform: rotate(180deg); }
+.day-rest { background: var(--gray-50); }
+.day-rest .day-header .day-name { color: var(--gray-500); }
+
+.day-body { padding: 0 1.25rem 1.25rem; display: none; }
+.day-body.open { display: block; }
+
+.exercise-section-title {
+ font-size: 0.8rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ color: var(--teal);
+ margin: 1rem 0 0.5rem;
+ padding-bottom: 0.25rem;
+ border-bottom: 1px solid var(--gray-100);
+}
+
+.exercise-item {
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
+ padding: 0.75rem 0;
+ border-bottom: 1px solid var(--gray-100);
+}
+.exercise-item:last-child { border-bottom: none; }
+.exercise-check {
+ width: 22px; height: 22px;
+ border: 2px solid var(--gray-300);
+ border-radius: 6px;
+ flex-shrink: 0;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: all 0.2s;
+}
+.exercise-check.done { background: var(--green); border-color: var(--green); color: white; }
+.exercise-info { flex: 1; }
+.exercise-name { font-weight: 600; color: var(--gray-900); font-size: 0.95rem; }
+.exercise-detail { font-size: 0.8rem; color: var(--gray-500); }
+.exercise-muscle { font-size: 1.25rem; flex-shrink: 0; }
+
+.exercise-howto {
+ font-size: 0.8rem;
+ color: var(--teal);
+ cursor: pointer;
+ font-weight: 600;
+ margin-top: 0.25rem;
+}
+.exercise-howto-text {
+ display: none;
+ font-size: 0.8rem;
+ color: var(--gray-500);
+ margin-top: 0.25rem;
+ padding: 0.5rem;
+ background: var(--gray-50);
+ border-radius: 6px;
+}
+.exercise-howto-text.show { display: block; }
+
+.day-footer {
+ padding: 0.75rem 1.25rem;
+ border-top: 1px solid var(--gray-100);
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.day-progress { font-size: 0.85rem; color: var(--gray-500); }
+.day-complete-btn {
+ padding: 0.5rem 1rem;
+ border: 2px solid var(--green);
+ border-radius: 8px;
+ background: white;
+ color: var(--green);
+ font-weight: 600;
+ font-size: 0.85rem;
+ cursor: pointer;
+ transition: all 0.2s;
+ font-family: inherit;
+}
+.day-complete-btn:hover { background: var(--green); color: white; }
+.day-complete-btn.completed { background: var(--green); color: white; }
+
+.progressive-note {
+ text-align: center;
+ padding: 1rem;
+ background: #fffbeb;
+ border: 1px solid #fde68a;
+ border-radius: 12px;
+ font-size: 0.9rem;
+ color: #92400E;
+ margin-top: 1rem;
+}
+
+/* Confetti */
+.confetti-container {
+ position: fixed;
+ top: 0; left: 0;
+ width: 100%; height: 100%;
+ pointer-events: none;
+ z-index: 9999;
+}
+.confetti-piece {
+ position: absolute;
+ width: 10px;
+ height: 10px;
+ top: -10px;
+ animation: confetti-fall 3s ease-out forwards;
+}
+@keyframes confetti-fall {
+ 0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+ 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Print */
+@media print {
+ .ea-header, .progress-wrapper, .program-actions, .exercise-check, .day-complete-btn, .day-footer, .step-nav, .no-print { display: none !important; }
+ .day-body { display: block !important; }
+ .day-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 1rem; }
+ body { background: white; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+ .form-grid { grid-template-columns: 1fr; }
+ .program-summary { grid-template-columns: 1fr; }
+ .ea-intro h1 { font-size: 1.5rem; }
+ .program-header h2 { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="ea-header">
+ <a href="../../index.html"><img src="../../images/uzunyasa-logo.svg" alt="UzunYaşa" class="logo-img"></a>
+ <a href="../araclar.html" class="back-link">← Araçlar</a>
+</header>
+
+<div class="progress-wrapper" id="progressWrapper" style="display:none;">
+ <div class="progress-bar-track">
+  <div class="progress-bar-fill" id="progressFill"></div>
+ </div>
+ <div class="progress-label">
+  <span id="progressStep">Adım 1/6</span>
+  <span id="progressPct">0%</span>
+ </div>
+</div>
+
+<main class="ea-main">
+ <!-- INTRO -->
+ <div class="ea-intro" id="introScreen">
+  <span class="emoji-big">🏋️</span>
+  <h1>Egzersiz Asistanı</h1>
+  <p class="subtitle">6 kısa soruyla size özel haftalık antrenman programı oluşturun</p>
+  <button class="btn-primary" onclick="startWizard()">Programa Başla →</button>
+ </div>
+
+ <!-- STEP 1: Profil -->
+ <div class="step" id="step1">
+  <h3 class="step-title">📋 Profiliniz</h3>
+  <p class="step-subtitle">Temel bilgilerinizi girin</p>
+  <div class="form-grid">
+   <div class="form-group">
+    <label>Yaş</label>
+    <input type="number" id="age" placeholder="25" min="10" max="100">
+   </div>
+   <div class="form-group">
+    <label>Cinsiyet</label>
+    <select id="gender">
+     <option value="">Seçin</option>
+     <option value="male">Erkek</option>
+     <option value="female">Kadın</option>
+    </select>
+   </div>
+   <div class="form-group">
+    <label>Boy (cm)</label>
+    <input type="number" id="height" placeholder="170" min="100" max="250">
+   </div>
+   <div class="form-group">
+    <label>Kilo (kg)</label>
+    <input type="number" id="weight" placeholder="70" min="30" max="300">
+   </div>
+   <div class="form-group full">
+    <div class="bmi-display" id="bmiDisplay">
+     <div class="bmi-value" id="bmiValue">—</div>
+     <div class="bmi-label" id="bmiLabel">BMI</div>
+    </div>
+   </div>
+  </div>
+  <div class="step-nav">
+   <button class="btn-primary" onclick="nextStep(1)">Devam →</button>
+  </div>
+ </div>
+
+ <!-- STEP 2: Fitness Seviyesi -->
+ <div class="step" id="step2">
+  <h3 class="step-title">💪 Fitness Seviyeniz</h3>
+  <p class="step-subtitle">Şu anki egzersiz düzeyiniz nedir?</p>
+  <div class="option-grid" id="levelOptions">
+   <div class="option-card" data-value="beginner" onclick="selectOption('level', this)">
+    <span class="option-icon">🟢</span>
+    <div class="option-text">
+     <div class="option-title">Başlangıç</div>
+     <div class="option-desc">0-3 ay düzenli egzersiz</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="intermediate" onclick="selectOption('level', this)">
+    <span class="option-icon">🟡</span>
+    <div class="option-text">
+     <div class="option-title">Orta</div>
+     <div class="option-desc">3-12 ay düzenli egzersiz</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="advanced" onclick="selectOption('level', this)">
+    <span class="option-icon">🔴</span>
+    <div class="option-text">
+     <div class="option-title">İleri</div>
+     <div class="option-desc">1+ yıl düzenli egzersiz</div>
+    </div>
+   </div>
+  </div>
+  <div class="step-nav">
+   <button class="btn-secondary" onclick="prevStep(2)">← Geri</button>
+   <button class="btn-primary" onclick="nextStep(2)">Devam →</button>
+  </div>
+ </div>
+
+ <!-- STEP 3: Hedef -->
+ <div class="step" id="step3">
+  <h3 class="step-title">🎯 Hedefiniz</h3>
+  <p class="step-subtitle">Egzersiz yapma amacınız nedir?</p>
+  <div class="option-grid" id="goalOptions">
+   <div class="option-card" data-value="weightloss" onclick="selectOption('goal', this)">
+    <span class="option-icon">⚖️</span>
+    <div class="option-text">
+     <div class="option-title">Kilo Vermek</div>
+     <div class="option-desc">Yağ yakımı ve form düzeltme</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="muscle" onclick="selectOption('goal', this)">
+    <span class="option-icon">💪</span>
+    <div class="option-text">
+     <div class="option-title">Kas Yapmak / Toparlanmak</div>
+     <div class="option-desc">Kas kütlesi ve güç artışı</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="health" onclick="selectOption('goal', this)">
+    <span class="option-icon">❤️</span>
+    <div class="option-text">
+     <div class="option-title">Genel Sağlık / Fitness</div>
+     <div class="option-desc">Dengeli ve sağlıklı yaşam</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="endurance" onclick="selectOption('goal', this)">
+    <span class="option-icon">🏃</span>
+    <div class="option-text">
+     <div class="option-title">Dayanıklılık Artırmak</div>
+     <div class="option-desc">Kardiyo kapasitesi ve enerji</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="stress" onclick="selectOption('goal', this)">
+    <span class="option-icon">🧘</span>
+    <div class="option-text">
+     <div class="option-title">Stres Azaltmak</div>
+     <div class="option-desc">Rahatlama ve zihinsel sağlık</div>
+    </div>
+   </div>
+  </div>
+  <div class="step-nav">
+   <button class="btn-secondary" onclick="prevStep(3)">← Geri</button>
+   <button class="btn-primary" onclick="nextStep(3)">Devam →</button>
+  </div>
+ </div>
+
+ <!-- STEP 4: İmkanlar -->
+ <div class="step" id="step4">
+  <h3 class="step-title">🏠 Egzersiz Ortamınız</h3>
+  <p class="step-subtitle">Nerede egzersiz yapacaksınız?</p>
+  <div class="option-grid" id="equipmentOptions">
+   <div class="option-card" data-value="home-none" onclick="selectOption('equipment', this)">
+    <span class="option-icon">🏠</span>
+    <div class="option-text">
+     <div class="option-title">Evde (Ekipmansız)</div>
+     <div class="option-desc">Sadece vücut ağırlığı egzersizleri</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="home-equip" onclick="selectOption('equipment', this)">
+    <span class="option-icon">🏋️</span>
+    <div class="option-text">
+     <div class="option-title">Evde (Dambıl/Bant Var)</div>
+     <div class="option-desc">Temel ekipmanlarla ev antrenmanı</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="gym" onclick="selectOption('equipment', this)">
+    <span class="option-icon">🏢</span>
+    <div class="option-text">
+     <div class="option-title">Spor Salonu</div>
+     <div class="option-desc">Tam donanımlı spor salonu</div>
+    </div>
+   </div>
+   <div class="option-card" data-value="outdoor" onclick="selectOption('equipment', this)">
+    <span class="option-icon">🌳</span>
+    <div class="option-text">
+     <div class="option-title">Açık Hava</div>
+     <div class="option-desc">Park, bahçe veya dış mekan</div>
+    </div>
+   </div>
+  </div>
+  <div class="step-nav">
+   <button class="btn-secondary" onclick="prevStep(4)">← Geri</button>
+   <button class="btn-primary" onclick="nextStep(4)">Devam →</button>
+  </div>
+ </div>
+
+ <!-- STEP 5: Zaman -->
+ <div class="step" id="step5">
+  <h3 class="step-title">⏱️ Zamanınız</h3>
+  <p class="step-subtitle">Egzersize ne kadar vakit ayırabilirsiniz?</p>
+  
+  <div style="max-width:500px;margin:0 auto;">
+   <label style="font-weight:700;color:var(--gray-900);display:block;margin-bottom:0.75rem;text-align:center;">Haftada kaç gün?</label>
+   <div class="inline-select" id="daysSelect">
+    <button class="chip" data-value="2" onclick="selectChip('days', this)">2 gün</button>
+    <button class="chip" data-value="3" onclick="selectChip('days', this)">3 gün</button>
+    <button class="chip" data-value="4" onclick="selectChip('days', this)">4 gün</button>
+    <button class="chip" data-value="5" onclick="selectChip('days', this)">5 gün</button>
+    <button class="chip" data-value="6" onclick="selectChip('days', this)">6 gün</button>
+   </div>
+   
+   <label style="font-weight:700;color:var(--gray-900);display:block;margin-bottom:0.75rem;text-align:center;margin-top:1.5rem;">Seans başına kaç dakika?</label>
+   <div class="inline-select" id="durationSelect">
+    <button class="chip" data-value="20" onclick="selectChip('duration', this)">20 dk</button>
+    <button class="chip" data-value="30" onclick="selectChip('duration', this)">30 dk</button>
+    <button class="chip" data-value="45" onclick="selectChip('duration', this)">45 dk</button>
+    <button class="chip" data-value="60" onclick="selectChip('duration', this)">60 dk</button>
+   </div>
+  </div>
+  
+  <div class="step-nav">
+   <button class="btn-secondary" onclick="prevStep(5)">← Geri</button>
+   <button class="btn-primary" onclick="nextStep(5)">Devam →</button>
+  </div>
+ </div>
+
+ <!-- STEP 6: Sağlık -->
+ <div class="step" id="step6">
+  <h3 class="step-title">🩺 Sağlık Kısıtlamaları</h3>
+  <p class="step-subtitle">Varsa işaretleyin (birden fazla seçilebilir)</p>
+  <div class="option-grid" id="healthOptions">
+   <div class="option-card multi" data-value="back" onclick="toggleMulti(this)">
+    <div class="check-icon"></div>
+    <div class="option-text"><div class="option-title">Bel / Sırt Ağrısı</div></div>
+   </div>
+   <div class="option-card multi" data-value="knee" onclick="toggleMulti(this)">
+    <div class="check-icon"></div>
+    <div class="option-text"><div class="option-title">Diz Sorunu</div></div>
+   </div>
+   <div class="option-card multi" data-value="shoulder" onclick="toggleMulti(this)">
+    <div class="check-icon"></div>
+    <div class="option-text"><div class="option-title">Omuz Sorunu</div></div>
+   </div>
+   <div class="option-card multi" data-value="heart" onclick="toggleMulti(this)">
+    <div class="check-icon"></div>
+    <div class="option-text">
+     <div class="option-title">Kalp Rahatsızlığı</div>
+     <div class="option-desc">Hafif egzersiz önerilir</div>
+    </div>
+   </div>
+   <div class="option-card multi" data-value="pregnancy" onclick="toggleMulti(this)">
+    <div class="check-icon"></div>
+    <div class="option-text"><div class="option-title">Hamilelik</div></div>
+   </div>
+   <div class="option-card multi" data-value="none" onclick="toggleNone(this)">
+    <div class="check-icon"></div>
+    <div class="option-text"><div class="option-title">Hiçbiri ✓</div></div>
+   </div>
+  </div>
+  <div class="step-nav">
+   <button class="btn-secondary" onclick="prevStep(6)">← Geri</button>
+   <button class="btn-primary" onclick="generateProgram()">🏋️ Programı Oluştur</button>
+  </div>
+ </div>
+
+ <!-- PROGRAM -->
+ <div class="program-container" id="programContainer">
+  <div class="program-header">
+   <h2>🎉 Haftalık Programınız Hazır!</h2>
+   <p id="programSubtitle"></p>
+  </div>
+
+  <div class="program-summary" id="programSummary"></div>
+
+  <div class="program-actions no-print">
+   <button class="btn-secondary" onclick="window.print()">🖨️ Yazdır</button>
+   <button class="btn-secondary" onclick="shareWhatsApp()">📱 WhatsApp</button>
+   <button class="btn-secondary" onclick="resetProgram()">🔄 Yeniden Oluştur</button>
+  </div>
+
+  <div id="programDays"></div>
+
+  <div class="progressive-note">
+   💡 <strong>İpucu:</strong> Egzersizler kolay gelmeye başladığında set sayısını artırın veya bir üst seviyeye geçin!
+  </div>
+ </div>
+</main>
+
+<script>
+// ============ EXERCISE DATABASE ============
+const exercises = {
+ cardio: [
+  { name:'Yürüyüş (tempolu)', dur:30, cal:200, equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🚶', howto:'Düz bir yolda hızlı adımlarla yürüyün. Kollarınızı sallayın, sırt dik olsun.' },
+  { name:'Koşu', dur:30, cal:350, equip:['gym','outdoor'], avoid:['knee','heart','pregnancy'], icon:'🏃', howto:'Orta tempoda koşun. Nefes kontrolüne dikkat edin. Uygun ayakkabı giyin.' },
+  { name:'Bisiklet', dur:30, cal:280, equip:['gym','outdoor'], avoid:[], icon:'🚴', howto:'Sabit veya dış mekan bisikleti. Sele yüksekliğini diziniz hafif bükük olacak şekilde ayarlayın.' },
+  { name:'Yüzme', dur:30, cal:300, equip:['gym'], avoid:[], icon:'🏊', howto:'Serbest stil veya kurbağalama. Nefes tekniğine dikkat edin.' },
+  { name:'İp atlama', dur:15, cal:200, equip:['home-none','home-equip','outdoor'], avoid:['knee','heart','pregnancy'], icon:'⏭️', howto:'Ayak parmak uçlarına basarak atlayın. Bileklerinizle ipi döndürün.' },
+  { name:'Dans', dur:30, cal:250, equip:['home-none','home-equip'], avoid:[], icon:'💃', howto:'Sevdiğiniz müzikle serbest dans edin. Tüm vücudunuzu kullanın.' },
+  { name:'Merdiven çıkma', dur:20, cal:180, equip:['home-none','home-equip','outdoor'], avoid:['knee','heart'], icon:'🪜', howto:'Normal tempoda merdiven çıkın ve inin. Tutunarak ilerleyin.' },
+  { name:'Yerinde koşu', dur:15, cal:150, equip:['home-none','home-equip'], avoid:['knee','heart','pregnancy'], icon:'🏃', howto:'Yerinde dizleri yukarı kaldırarak koşun. Yumuşak zemin tercih edin.' },
+  { name:'Jumping jack', dur:10, cal:100, equip:['home-none','home-equip','outdoor'], avoid:['knee','heart','pregnancy'], icon:'⭐', howto:'Ayakları açıp kapatarak kolları yukarı kaldırın. Ritmik yapın.' },
+  { name:'Burpee', dur:10, cal:120, equip:['home-none','home-equip','outdoor'], avoid:['knee','back','heart','pregnancy','shoulder'], icon:'🔥', howto:'Ayakta başla → çömel → şınav pozisyonu → şınav → çömel → zıpla.' },
+  { name:'Box step-up', dur:15, cal:150, equip:['home-equip','gym','outdoor'], avoid:['knee'], icon:'📦', howto:'Sağlam bir basamağa sırayla ayaklarla çıkın ve inin.' },
+  { name:'Dağcı (mountain climber)', dur:10, cal:110, equip:['home-none','home-equip','outdoor'], avoid:['heart','pregnancy'], icon:'⛰️', howto:'Şınav pozisyonunda dizleri sırayla göğüse çekin.' },
+  { name:'High knees', dur:10, cal:100, equip:['home-none','home-equip','outdoor'], avoid:['knee','heart','pregnancy'], icon:'🦵', howto:'Yerinde koşarken dizleri bel hizasına kadar kaldırın.' },
+  { name:'Kürek çekme', dur:30, cal:300, equip:['gym'], avoid:['back'], icon:'🚣', howto:'Kürek makinesinde sırt düz, bacaklardan iterek çekin.' },
+  { name:'Eliptik', dur:30, cal:270, equip:['gym'], avoid:[], icon:'🏃', howto:'Eliptik makinede orta tempoda, tutacaklarla birlikte hareket edin.' }
+ ],
+ upper: [
+  { name:'Şınav (push-up)', sets:'3x12', equip:['home-none','home-equip','gym','outdoor'], avoid:['shoulder'], icon:'💪', howto:'Eller omuz genişliğinde, vücut düz. Göğsü yere yaklaştırın ve itin.' },
+  { name:'Dambıl bench press', sets:'3x10', equip:['home-equip','gym'], avoid:['shoulder'], icon:'🏋️', howto:'Sırt üstü yatın, dambılları göğüs hizasından yukarı itin.' },
+  { name:'Dambıl shoulder press', sets:'3x10', equip:['home-equip','gym'], avoid:['shoulder'], icon:'🏋️', howto:'Oturarak dambılları omuz hizasından yukarı itin.' },
+  { name:'Bicep curl', sets:'3x12', equip:['home-equip','gym'], avoid:[], icon:'💪', howto:'Dambılları dirsekten bükerek omuz hizasına kaldırın.' },
+  { name:'Tricep dips', sets:'3x10', equip:['home-none','home-equip','gym','outdoor'], avoid:['shoulder'], icon:'💪', howto:'Sandalyeye arkayı dönük, kolları bükerek vücudu alçaltın ve kaldırın.' },
+  { name:'Plank shoulder tap', sets:'3x20', equip:['home-none','home-equip','gym','outdoor'], avoid:['shoulder'], icon:'🤚', howto:'Plank pozisyonunda sırayla ellerinizle karşı omuza dokunun.' },
+  { name:'Pike push-up', sets:'3x8', equip:['home-none','home-equip','outdoor'], avoid:['shoulder'], icon:'💪', howto:'V şeklinde eğilin, başı yere doğru indirip itin. Omuz çalıştırır.' },
+  { name:'Dambıl row', sets:'3x10', equip:['home-equip','gym'], avoid:['back'], icon:'🏋️', howto:'Bir eliniz bankta, diğer elle dambılı göğse çekin.' },
+  { name:'Band pull-apart', sets:'3x15', equip:['home-equip','gym'], avoid:[], icon:'🔴', howto:'Bant iki elle gergin tutup kolları yana açın.' },
+  { name:'Lateral raise', sets:'3x12', equip:['home-equip','gym'], avoid:['shoulder'], icon:'🏋️', howto:'Dambılları yanlara omuz hizasına kadar kaldırın.' },
+  { name:'Superman', sets:'3x15', equip:['home-none','home-equip','outdoor'], avoid:['back'], icon:'🦸', howto:'Yüzüstü yatın, kol ve bacakları aynı anda yukarı kaldırın.' },
+  { name:'Diamond push-up', sets:'3x10', equip:['home-none','home-equip','outdoor'], avoid:['shoulder'], icon:'💎', howto:'Elleri birbirine yakın (elmas şekli) şınav çekin. Tricep çalıştırır.' },
+  { name:'Band bicep curl', sets:'3x12', equip:['home-equip'], avoid:[], icon:'🔴', howto:'Bandı ayak altına alıp dirsekten bükerek çekin.' },
+  { name:'Wall push-up', sets:'3x15', equip:['home-none','home-equip','outdoor'], avoid:[], icon:'🧱', howto:'Duvara karşı durarak şınav yapın. Başlangıç seviyesi için ideal.' },
+  { name:'Overhead press', sets:'3x10', equip:['home-equip','gym'], avoid:['shoulder'], icon:'🏋️', howto:'Ayakta dambılları başın üstüne itin. Core sıkı olsun.' }
+ ],
+ lower: [
+  { name:'Squat', sets:'3x15', equip:['home-none','home-equip','gym','outdoor'], avoid:['knee'], icon:'🦵', howto:'Ayaklar omuz genişliğinde, kalçayı geri iterek çömelin. Dizler ayak ucunu geçmesin.' },
+  { name:'Lunge', sets:'3x12/bacak', equip:['home-none','home-equip','gym','outdoor'], avoid:['knee'], icon:'🦵', howto:'Bir adım öne atın, arka diz yere yaklaşsın. Sırayla bacak değiştirin.' },
+  { name:'Glute bridge', sets:'3x15', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🍑', howto:'Sırt üstü yatın, dizler bükük. Kalçayı yukarı kaldırın ve sıkın.' },
+  { name:'Step-up', sets:'3x12', equip:['home-none','home-equip','gym','outdoor'], avoid:['knee'], icon:'🪜', howto:'Basamağa sırayla çıkıp inin. Denge sağlayın.' },
+  { name:'Wall sit', sets:'3x30sn', equip:['home-none','home-equip','outdoor'], avoid:['knee'], icon:'🧱', howto:'Sırt duvara dayalı, dizler 90° bükük bekleyin.' },
+  { name:'Calf raise', sets:'3x20', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🦵', howto:'Ayak parmak uçlarına yükselin, yavaşça inin.' },
+  { name:'Deadlift (dambıl)', sets:'3x10', equip:['home-equip','gym'], avoid:['back'], icon:'🏋️', howto:'Sırt düz, dambılları bacak önünde aşağı indirip kaldırın.' },
+  { name:'Sumo squat', sets:'3x15', equip:['home-none','home-equip','gym','outdoor'], avoid:['knee'], icon:'🦵', howto:'Ayaklar geniş açık, ayak uçları dışa dönük squat yapın.' },
+  { name:'Bulgarian split squat', sets:'3x10/bacak', equip:['home-none','home-equip','gym'], avoid:['knee'], icon:'🦵', howto:'Arka ayak bankta, ön bacakla çömelin.' },
+  { name:'Leg press', sets:'3x12', equip:['gym'], avoid:['knee'], icon:'🏋️', howto:'Leg press makinesinde bacakları itin. Dizleri kilitlemeyin.' },
+  { name:'Hip thrust', sets:'3x12', equip:['home-equip','gym'], avoid:[], icon:'🍑', howto:'Sırt banka dayalı, kalçayı ağırlıkla yukarı itin.' },
+  { name:'Hamstring curl', sets:'3x12', equip:['gym'], avoid:[], icon:'🦵', howto:'Hamstring curl makinesinde bacağı bükerek çekin.' },
+  { name:'Side lunge', sets:'3x12', equip:['home-none','home-equip','outdoor'], avoid:['knee'], icon:'🦵', howto:'Yana geniş adım atıp çömelin, diğer bacak düz kalsın.' },
+  { name:'Box jump', sets:'3x10', equip:['gym','outdoor'], avoid:['knee','heart','pregnancy','back'], icon:'📦', howto:'Kutunun üstüne iki ayakla zıplayın, yumuşak inin.' },
+  { name:'Goblet squat', sets:'3x12', equip:['home-equip','gym'], avoid:['knee'], icon:'🏋️', howto:'Dambılı göğüs önünde tutarak squat yapın.' }
+ ],
+ core: [
+  { name:'Plank', sets:'3x30-60sn', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🧘', howto:'Dirsekler yerde, vücut düz bir çizgide. Karın sıkı, kalça düşmesin.' },
+  { name:'Crunch', sets:'3x20', equip:['home-none','home-equip','gym','outdoor'], avoid:['back'], icon:'🔥', howto:'Sırt üstü dizler bükük, omuzları yerden kaldırın. Boynu zorlamayın.' },
+  { name:'Bicycle crunch', sets:'3x20', equip:['home-none','home-equip','gym','outdoor'], avoid:['back'], icon:'🚴', howto:'Sırt üstü, dirsek karşı dize dokunacak şekilde dönerek crunch yapın.' },
+  { name:'Russian twist', sets:'3x20', equip:['home-none','home-equip','gym','outdoor'], avoid:['back'], icon:'🔄', howto:'Oturarak gövdeyi sağa sola döndürün. İleri seviye: ayaklar havada.' },
+  { name:'Leg raise', sets:'3x15', equip:['home-none','home-equip','gym','outdoor'], avoid:['back'], icon:'🦵', howto:'Sırt üstü yatın, bacakları düz kaldırıp yavaşça indirin.' },
+  { name:'Dead bug', sets:'3x12', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🐛', howto:'Sırt üstü, karşı kol ve bacağı aynı anda uzatın. Bel yere yapışık kalsın.' },
+  { name:'Bird dog', sets:'3x12', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🐕', howto:'Dört ayak üzerinde, karşı kol ve bacağı aynı anda uzatın.' },
+  { name:'Side plank', sets:'3x20sn', equip:['home-none','home-equip','gym','outdoor'], avoid:['shoulder'], icon:'🧘', howto:'Yan yatıp dirsek üzerinde kalçayı kaldırın. Her iki taraf yapın.' },
+  { name:'Mountain climber', sets:'3x20', equip:['home-none','home-equip','gym','outdoor'], avoid:['heart','pregnancy'], icon:'⛰️', howto:'Şınav pozisyonunda dizleri hızlıca göğse çekin.' },
+  { name:'V-up', sets:'3x12', equip:['home-none','home-equip','gym','outdoor'], avoid:['back'], icon:'✌️', howto:'Sırt üstü yatın, kol ve bacakları aynı anda kaldırarak V oluşturun.' }
+ ],
+ flexibility: [
+  { name:'Hamstring stretch', sets:'30sn', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🧘', howto:'Oturarak bacağı düz uzatın, parmak uçlarına uzanın.' },
+  { name:'Quad stretch', sets:'30sn', equip:['home-none','home-equip','gym','outdoor'], avoid:['knee'], icon:'🧘', howto:'Ayakta durarak bir ayağı arkadan tutup topuğu kalçaya çekin.' },
+  { name:'Shoulder stretch', sets:'30sn', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🧘', howto:'Bir kolu göğüs önünde uzatıp diğer elle bastırın.' },
+  { name:'Cat-cow', sets:'10 tekrar', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🐱', howto:'Dört ayak üzerinde sırtı yukarı yuvarlayın (kedi), sonra aşağı çökertip başı kaldırın (inek).' },
+  { name:'Child\'s pose', sets:'30sn', equip:['home-none','home-equip','gym','outdoor'], avoid:[], icon:'🧒', howto:'Dizler üstü oturup kolları öne uzatarak alına yere koyun. Derin nefes alın.' }
+ ]
+};
+
+// ============ STATE ============
+let currentStep = 0;
+const state = { age:0, gender:'', height:0, weight:0, bmi:0, level:'', goal:'', equipment:'', days:0, duration:0, health:[] };
+let savedProgress = {};
+
+// ============ BMI AUTO-CALC ============
+document.addEventListener('DOMContentLoaded', () => {
+ ['height','weight'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calcBMI);
+ });
+ loadSaved();
+});
+
+function calcBMI() {
+ const h = parseFloat(document.getElementById('height').value);
+ const w = parseFloat(document.getElementById('weight').value);
+ const d = document.getElementById('bmiDisplay');
+ if (h > 0 && w > 0) {
+  const bmi = w / ((h/100) ** 2);
+  state.bmi = bmi;
+  document.getElementById('bmiValue').textContent = bmi.toFixed(1);
+  let label = '', color = '';
+  if (bmi < 18.5) { label = 'Zayıf'; color = 'var(--blue)'; }
+  else if (bmi < 25) { label = 'Normal'; color = 'var(--green)'; }
+  else if (bmi < 30) { label = 'Fazla Kilolu'; color = 'var(--yellow)'; }
+  else { label = 'Obez'; color = 'var(--red)'; }
+  document.getElementById('bmiValue').style.color = color;
+  document.getElementById('bmiLabel').textContent = 'BMI — ' + label;
+  d.classList.add('show');
+ } else { d.classList.remove('show'); }
+}
+
+// ============ NAVIGATION ============
+function startWizard() {
+ document.getElementById('introScreen').style.display = 'none';
+ document.getElementById('progressWrapper').style.display = 'block';
+ currentStep = 1;
+ showStep(1);
+ gtag('event', 'exercise_start', { event_category: 'engagement' });
+}
+
+function showStep(n) {
+ document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+ document.getElementById('step' + n).classList.add('active');
+ const pct = Math.round(((n-1)/6)*100);
+ document.getElementById('progressFill').style.width = pct + '%';
+ document.getElementById('progressStep').textContent = 'Adım ' + n + '/6';
+ document.getElementById('progressPct').textContent = pct + '%';
+}
+
+function nextStep(from) {
+ if (!validateStep(from)) return;
+ currentStep = from + 1;
+ showStep(currentStep);
+}
+function prevStep(from) { currentStep = from - 1; showStep(currentStep); }
+
+function validateStep(n) {
+ if (n === 1) {
+  state.age = parseInt(document.getElementById('age').value);
+  state.gender = document.getElementById('gender').value;
+  state.height = parseFloat(document.getElementById('height').value);
+  state.weight = parseFloat(document.getElementById('weight').value);
+  if (!state.age || !state.gender || !state.height || !state.weight) { alert('Lütfen tüm alanları doldurun.'); return false; }
+  return true;
+ }
+ if (n === 2 && !state.level) { alert('Lütfen bir seviye seçin.'); return false; }
+ if (n === 3 && !state.goal) { alert('Lütfen bir hedef seçin.'); return false; }
+ if (n === 4 && !state.equipment) { alert('Lütfen bir ortam seçin.'); return false; }
+ if (n === 5) {
+  if (!state.days || !state.duration) { alert('Lütfen gün ve süre seçin.'); return false; }
+ }
+ return true;
+}
+
+// ============ SELECTION HANDLERS ============
+function selectOption(key, el) {
+ el.closest('.option-grid').querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+ el.classList.add('selected');
+ state[key] = el.dataset.value;
+}
+
+function selectChip(key, el) {
+ el.closest('.inline-select').querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+ el.classList.add('selected');
+ state[key] = parseInt(el.dataset.value);
+}
+
+function toggleMulti(el) {
+ if (el.dataset.value === 'none') return toggleNone(el);
+ // deselect "none"
+ document.querySelector('#healthOptions [data-value="none"]').classList.remove('selected');
+ el.classList.toggle('selected');
+ updateHealth();
+}
+function toggleNone(el) {
+ document.querySelectorAll('#healthOptions .option-card').forEach(c => c.classList.remove('selected'));
+ el.classList.add('selected');
+ state.health = ['none'];
+}
+function updateHealth() {
+ state.health = [];
+ document.querySelectorAll('#healthOptions .option-card.selected').forEach(c => {
+  state.health.push(c.dataset.value);
+ });
+}
+
+// ============ PROGRAM GENERATION ============
+function generateProgram() {
+ if (state.health.length === 0) { state.health = ['none']; }
+ 
+ const program = buildWeeklyProgram();
+ renderProgram(program);
+ 
+ // hide wizard, show program
+ document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+ document.getElementById('progressWrapper').style.display = 'none';
+ document.getElementById('programContainer').classList.add('show');
+ 
+ // save
+ localStorage.setItem('ea_state', JSON.stringify(state));
+ localStorage.setItem('ea_program', JSON.stringify(program));
+ 
+ gtag('event', 'exercise_generate', { event_category: 'engagement', event_label: state.goal });
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildWeeklyProgram() {
+ const days = state.days;
+ const dur = state.duration;
+ const goal = state.goal;
+ const level = state.level;
+ const equip = state.equipment;
+ const health = state.health;
+ 
+ // Ratios based on goal
+ let cardioRatio, strengthRatio;
+ switch(goal) {
+  case 'weightloss': cardioRatio = 0.6; strengthRatio = 0.4; break;
+  case 'muscle': cardioRatio = 0.3; strengthRatio = 0.7; break;
+  case 'endurance': cardioRatio = 0.7; strengthRatio = 0.3; break;
+  case 'stress': cardioRatio = 0.5; strengthRatio = 0.5; break;
+  default: cardioRatio = 0.5; strengthRatio = 0.5;
+ }
+ 
+ // Heart condition: force more cardio (light), less intensity
+ if (health.includes('heart')) { cardioRatio = 0.6; strengthRatio = 0.4; }
+ 
+ // Filter exercises by equipment and health
+ const available = (list) => list.filter(e => 
+  e.equip.includes(equip) && !e.avoid.some(a => health.includes(a))
+ );
+ 
+ const cardioPool = available(exercises.cardio);
+ const upperPool = available(exercises.upper);
+ const lowerPool = available(exercises.lower);
+ const corePool = available(exercises.core);
+ const flexPool = available(exercises.flexibility);
+ 
+ // Set/rep multipliers based on level
+ const levelMult = level === 'beginner' ? 0.7 : level === 'intermediate' ? 1.0 : 1.3;
+ 
+ // Warmup time: 5 min, cooldown: 5 min
+ const workTime = dur - 10; // active exercise time
+ const cardioTime = Math.round(workTime * cardioRatio);
+ const strengthTime = Math.round(workTime * strengthRatio);
+ 
+ // Build 7 days
+ const dayNames = ['Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi','Pazar'];
+ const workoutDays = selectWorkoutDays(days);
+ 
+ const week = [];
+ let totalCal = 0, totalTime = 0;
+ 
+ for (let i = 0; i < 7; i++) {
+  if (!workoutDays.includes(i)) {
+   week.push({ name: dayNames[i], rest: true, exercises: [], totalCal: 0, totalTime: 0 });
+   continue;
+  }
+  
+  const dayExercises = [];
+  let dayCal = 0;
+  
+  // Warmup
+  const warmup = [
+   { name: 'Hafif yürüyüş / yerinde yürüme', detail: '3 dakika', section: 'warmup', icon: '🔥', howto: 'Yavaş tempoda yerinde yürüyerek vücudu ısıtın.' },
+   { name: 'Dinamik germe', detail: '2 dakika', section: 'warmup', icon: '🔥', howto: 'Kol çevirme, kalça açma, hafif squat ile eklemleri hazırlayın.' }
+  ];
+  dayExercises.push(...warmup);
+  
+  // Cardio exercises
+  if (cardioTime > 0 && cardioPool.length > 0) {
+   const numCardio = Math.min(Math.ceil(cardioTime / 15), 3, cardioPool.length);
+   const picked = pickRandom(cardioPool, numCardio, i);
+   picked.forEach(e => {
+    const adjDur = Math.round(Math.min(e.dur, cardioTime / numCardio));
+    const adjCal = Math.round(e.cal * (adjDur / e.dur) * (state.weight / 70));
+    dayCal += adjCal;
+    dayExercises.push({ name: e.name, detail: adjDur + ' dk', section: 'cardio', icon: e.icon, howto: e.howto, cal: adjCal });
+   });
+  }
+  
+  // Strength - alternate upper/lower
+  if (strengthTime > 0) {
+   const isUpperDay = i % 2 === 0;
+   const primaryPool = isUpperDay ? upperPool : lowerPool;
+   const numStrength = Math.min(Math.ceil(strengthTime / 5), 5, primaryPool.length);
+   const picked = pickRandom(primaryPool, numStrength, i);
+   picked.forEach(e => {
+    const adjSets = adjustSets(e.sets, levelMult);
+    dayExercises.push({ name: e.name, detail: adjSets, section: 'strength', icon: e.icon, howto: e.howto });
+   });
+  }
+  
+  // Core (2-3 exercises)
+  if (corePool.length > 0) {
+   const numCore = Math.min(dur >= 45 ? 3 : 2, corePool.length);
+   const picked = pickRandom(corePool, numCore, i);
+   picked.forEach(e => {
+    const adjSets = adjustSets(e.sets, levelMult);
+    dayExercises.push({ name: e.name, detail: adjSets, section: 'core', icon: e.icon, howto: e.howto });
+   });
+  }
+  
+  // Cooldown
+  const numFlex = Math.min(3, flexPool.length);
+  const flexPicked = pickRandom(flexPool, numFlex, i);
+  flexPicked.forEach(e => {
+   dayExercises.push({ name: e.name, detail: e.sets, section: 'cooldown', icon: e.icon, howto: e.howto });
+  });
+  
+  // Estimate total cal for strength/core (rough: 5 cal/min)
+  dayCal += Math.round(strengthTime * 5 * (state.weight / 70));
+  
+  totalCal += dayCal;
+  totalTime += dur;
+  
+  week.push({ name: dayNames[i], rest: false, exercises: dayExercises, totalCal: dayCal, totalTime: dur });
+ }
+ 
+ return { week, totalCal, totalTime, workoutDays: days };
+}
+
+function selectWorkoutDays(n) {
+ // Spread workout days evenly
+ const patterns = {
+  2: [0, 3],
+  3: [0, 2, 4],
+  4: [0, 1, 3, 4],
+  5: [0, 1, 2, 3, 4],
+  6: [0, 1, 2, 3, 4, 5]
+ };
+ return patterns[n] || patterns[3];
+}
+
+function pickRandom(pool, n, seed) {
+ const shuffled = [...pool].sort(() => Math.sin(seed * 100 + pool.length) - 0.5);
+ // Use a seeded-ish shuffle for variety per day
+ const result = [];
+ for (let i = 0; i < Math.min(n, shuffled.length); i++) {
+  result.push(shuffled[(i + seed) % shuffled.length]);
+ }
+ // Deduplicate
+ const seen = new Set();
+ return result.filter(e => { if (seen.has(e.name)) return false; seen.add(e.name); return true; });
+}
+
+function adjustSets(setsStr, mult) {
+ // e.g. "3x12" → adjust reps
+ return setsStr.replace(/(\d+)x(\d+)/g, (m, s, r) => {
+  const newReps = Math.round(parseInt(r) * mult);
+  return s + 'x' + newReps;
+ }).replace(/(\d+)x(\d+)sn/g, (m, s, sec) => {
+  const newSec = Math.round(parseInt(sec) * mult);
+  return s + 'x' + newSec + 'sn';
+ });
+}
+
+// ============ RENDER ============
+function renderProgram(program) {
+ // Subtitle
+ const goalNames = { weightloss:'Kilo Verme', muscle:'Kas Yapma', health:'Genel Sağlık', endurance:'Dayanıklılık', stress:'Stres Azaltma' };
+ const levelNames = { beginner:'Başlangıç', intermediate:'Orta', advanced:'İleri' };
+ document.getElementById('programSubtitle').textContent = 
+  levelNames[state.level] + ' Seviye • ' + goalNames[state.goal] + ' • Haftada ' + state.days + ' gün';
+ 
+ // Summary
+ const muscleGroups = new Set();
+ program.week.forEach(d => d.exercises.forEach(e => {
+  if (e.section === 'strength') muscleGroups.add('Kuvvet');
+  if (e.section === 'cardio') muscleGroups.add('Kardio');
+  if (e.section === 'core') muscleGroups.add('Core');
+ }));
+ 
+ document.getElementById('programSummary').innerHTML = `
+  <div class="summary-card"><div class="summary-value">${program.totalTime} dk</div><div class="summary-label">Haftalık Toplam Süre</div></div>
+  <div class="summary-card"><div class="summary-value">~${program.totalCal}</div><div class="summary-label">Tahmini Kalori (kcal)</div></div>
+  <div class="summary-card"><div class="summary-value">${[...muscleGroups].join(', ')}</div><div class="summary-label" style="font-size:0.75rem;">Çalışılan Gruplar</div></div>
+ `;
+ 
+ // Days
+ const container = document.getElementById('programDays');
+ container.innerHTML = '';
+ 
+ // Load saved progress
+ savedProgress = JSON.parse(localStorage.getItem('ea_progress') || '{}');
+ 
+ program.week.forEach((day, di) => {
+  const card = document.createElement('div');
+  card.className = 'day-card' + (day.rest ? ' day-rest' : '');
+  
+  if (day.rest) {
+   card.innerHTML = `
+    <div class="day-header">
+     <span class="day-name">📅 ${day.name} — Dinlenme Günü</span>
+     <span style="color:var(--gray-500);font-size:0.9rem;">🧘 İsteğe bağlı hafif yürüyüş veya germe</span>
+    </div>`;
+  } else {
+   const sections = { warmup:'🔥 Isınma', cardio:'❤️ Kardio', strength:'💪 Kuvvet', core:'🎯 Core', cooldown:'🧘 Soğuma' };
+   let bodyHTML = '';
+   let currentSection = '';
+   
+   day.exercises.forEach((ex, ei) => {
+    if (ex.section !== currentSection) {
+     currentSection = ex.section;
+     bodyHTML += `<div class="exercise-section-title">${sections[currentSection] || currentSection}</div>`;
+    }
+    const key = di + '-' + ei;
+    const done = savedProgress[key] ? 'done' : '';
+    bodyHTML += `
+     <div class="exercise-item">
+      <div class="exercise-check ${done}" onclick="toggleExercise(${di},${ei},this)" data-key="${key}">
+       ${done ? '✓' : ''}
+      </div>
+      <div class="exercise-info">
+       <div class="exercise-name">${ex.name}</div>
+       <div class="exercise-detail">${ex.detail}${ex.cal ? ' • ~' + ex.cal + ' kcal' : ''}</div>
+       <div class="exercise-howto" onclick="this.nextElementSibling.classList.toggle('show')">ℹ️ Nasıl Yapılır?</div>
+       <div class="exercise-howto-text">${ex.howto}</div>
+      </div>
+      <span class="exercise-muscle">${ex.icon}</span>
+     </div>`;
+   });
+   
+   const dayComplete = savedProgress['day-' + di] ? 'completed' : '';
+   card.innerHTML = `
+    <div class="day-header" onclick="toggleDay(this)">
+     <span class="day-name">📅 ${day.name}</span>
+     <span class="day-meta">
+      <span>⏱️ ${day.totalTime} dk</span>
+      <span>🔥 ~${day.totalCal} kcal</span>
+      <span class="day-toggle">▼</span>
+     </span>
+    </div>
+    <div class="day-body">${bodyHTML}</div>
+    <div class="day-footer">
+     <span class="day-progress" id="dayProg${di}"></span>
+     <button class="day-complete-btn ${dayComplete}" onclick="completeDay(${di}, this)" id="dayBtn${di}">
+      ${dayComplete ? 'Tamamlandı ✓' : 'Günü Tamamla'}
+     </button>
+    </div>`;
+  }
+  container.appendChild(card);
+  if (!day.rest) updateDayProgress(di);
+ });
+}
+
+function toggleDay(header) {
+ const body = header.nextElementSibling;
+ const toggle = header.querySelector('.day-toggle');
+ if (body && body.classList.contains('day-body')) {
+  body.classList.toggle('open');
+  toggle.classList.toggle('open');
+ }
+}
+
+function toggleExercise(di, ei, el) {
+ const key = di + '-' + ei;
+ el.classList.toggle('done');
+ const isDone = el.classList.contains('done');
+ el.innerHTML = isDone ? '✓' : '';
+ savedProgress[key] = isDone;
+ localStorage.setItem('ea_progress', JSON.stringify(savedProgress));
+ updateDayProgress(di);
+}
+
+function updateDayProgress(di) {
+ const checks = document.querySelectorAll(`#programDays .day-card:nth-child(${di+1}) .exercise-check`);
+ const done = document.querySelectorAll(`#programDays .day-card:nth-child(${di+1}) .exercise-check.done`);
+ const el = document.getElementById('dayProg' + di);
+ if (el) el.textContent = done.length + '/' + checks.length + ' tamamlandı';
+}
+
+function completeDay(di, btn) {
+ savedProgress['day-' + di] = true;
+ btn.classList.add('completed');
+ btn.textContent = 'Tamamlandı ✓';
+ localStorage.setItem('ea_progress', JSON.stringify(savedProgress));
+ 
+ // Mark all exercises done
+ document.querySelectorAll(`#programDays .day-card:nth-child(${di+1}) .exercise-check:not(.done)`).forEach(el => {
+  el.classList.add('done');
+  el.innerHTML = '✓';
+  const key = el.dataset.key;
+  if (key) savedProgress[key] = true;
+ });
+ localStorage.setItem('ea_progress', JSON.stringify(savedProgress));
+ updateDayProgress(di);
+ 
+ // Confetti!
+ launchConfetti();
+ gtag('event', 'exercise_day_complete', { event_category: 'engagement', event_label: 'day_' + di });
+}
+
+function launchConfetti() {
+ const container = document.createElement('div');
+ container.className = 'confetti-container';
+ document.body.appendChild(container);
+ const colors = ['#0D7377','#E8963E','#10B981','#EF4444','#F59E0B','#8B5CF6','#3B82F6'];
+ for (let i = 0; i < 50; i++) {
+  const piece = document.createElement('div');
+  piece.className = 'confetti-piece';
+  piece.style.left = Math.random() * 100 + '%';
+  piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+  piece.style.animationDelay = Math.random() * 0.5 + 's';
+  piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+  piece.style.width = (6 + Math.random() * 8) + 'px';
+  piece.style.height = (6 + Math.random() * 8) + 'px';
+  container.appendChild(piece);
+ }
+ setTimeout(() => container.remove(), 3500);
+}
+
+function shareWhatsApp() {
+ const goalNames = { weightloss:'Kilo Verme', muscle:'Kas Yapma', health:'Genel Sağlık', endurance:'Dayanıklılık', stress:'Stres Azaltma' };
+ const text = `🏋️ UzunYaşa Egzersiz Asistanı ile haftalık ${goalNames[state.goal]} programımı oluşturdum! Haftada ${state.days} gün, günde ${state.duration} dk. Sen de dene: https://uzunyasa.com/pages/araclar/egzersiz-asistani.html`;
+ window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+}
+
+function resetProgram() {
+ localStorage.removeItem('ea_progress');
+ savedProgress = {};
+ document.getElementById('programContainer').classList.remove('show');
+ document.getElementById('progressWrapper').style.display = 'block';
+ currentStep = 1;
+ showStep(1);
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function loadSaved() {
+ const saved = localStorage.getItem('ea_program');
+ const savedState = localStorage.getItem('ea_state');
+ if (saved && savedState) {
+  try {
+   const prog = JSON.parse(saved);
+   Object.assign(state, JSON.parse(savedState));
+   document.getElementById('introScreen').style.display = 'none';
+   renderProgram(prog);
+   document.getElementById('programContainer').classList.add('show');
+  } catch(e) {}
+ }
+}
+</script>
+</body>
+</html>
