@@ -4,547 +4,547 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QBM7E0EHFP');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tedavi Seçenekleri | UzunYaşa</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/hub-upgrade.css">
-    <style>
-        .warning-banner {
-            background: #FEF3C7;
-            border: 1px solid #F59E0B;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 3rem auto;
-            max-width: 800px;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Tedavi Seçenekleri | UzunYaşa</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../styles/main.css">
+ <link rel="stylesheet" href="../styles/hub-upgrade.css">
+ <style>
+ .warning-banner {
+ background: #FEF3C7;
+ border: 1px solid #F59E0B;
+ border-radius: 12px;
+ padding: 1.5rem;
+ margin: 3rem auto;
+ max-width: 800px;
+ display: flex;
+ gap: 1rem;
+ align-items: flex-start;
+ }
 
-        .warning-banner svg {
-            width: 24px;
-            height: 24px;
-            color: #D97706;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
+ .warning-banner svg {
+ width: 24px;
+ height: 24px;
+ color: #D97706;
+ flex-shrink: 0;
+ margin-top: 2px;
+ }
 
-        .warning-banner p {
-            color: #92400E;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
+ .warning-banner p {
+ color: #92400E;
+ font-size: 0.95rem;
+ line-height: 1.6;
+ }
 
-        .treatment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
+ .treatment-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+ gap: 2rem;
+ }
 
-        .treatment-card {
-            background: var(--bg-white);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s;
-        }
+ .treatment-card {
+ background: var(--bg-white);
+ border-radius: 16px;
+ overflow: hidden;
+ border: 1px solid var(--border-light);
+ transition: all 0.3s;
+ }
 
-        .treatment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-        }
+ .treatment-card:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+ }
 
-        .treatment-header {
-            padding: 2rem;
-            background: var(--primary-teal);
-            color: white;
-        }
+ .treatment-header {
+ padding: 2rem;
+ background: var(--primary-teal);
+ color: white;
+ }
 
-        .treatment-header.orange { background: var(--accent-orange); }
-        .treatment-header.dark { background: #374151; }
+ .treatment-header.orange { background: var(--accent-orange); }
+ .treatment-header.dark { background: #374151; }
 
-        .treatment-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
+ .treatment-header h3 {
+ font-size: 1.5rem;
+ margin-bottom: 0.5rem;
+ }
 
-        .treatment-header p {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
+ .treatment-header p {
+ opacity: 0.9;
+ font-size: 0.95rem;
+ }
 
-        .treatment-
+ .treatment-
 
-        .treatment-list {
-            list-style: none;
-        }
+ .treatment-list {
+ list-style: none;
+ }
 
-        .treatment-list li {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+ .treatment-list li {
+ padding: 1rem 0;
+ border-bottom: 1px solid var(--border-light);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
 
-        .treatment-list li:last-child { border-bottom: none; }
+ .treatment-list li:last-child { border-bottom: none; }
 
-        .treatment-list a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            transition: color 0.2s;
-        }
+ .treatment-list a {
+ color: var(--text-dark);
+ text-decoration: none;
+ font-weight: 500;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ width: 100%;
+ transition: color 0.2s;
+ }
 
-        .treatment-list a:hover { color: var(--primary-teal); }
+ .treatment-list a:hover { color: var(--primary-teal); }
 
-        .treatment-list span { color: var(--primary-teal); }
+ .treatment-list span { color: var(--primary-teal); }
 
-        .comparison-section {
-            background: var(--bg-white);
-            padding: 5rem 2rem;
-        }
+ .comparison-section {
+ background: var(--bg-white);
+ padding: 5rem 2rem;
+ }
 
-        .comparison-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+ .comparison-inner {
+ max-width: 1000px;
+ margin: 0 auto;
+ }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
+ .comparison-table {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 2rem;
+ background: white;
+ border-radius: 12px;
+ overflow: hidden;
+ box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+ }
 
-        .comparison-table th {
-            background: var(--primary-teal);
-            color: white;
-            padding: 1.25rem;
-            text-align: left;
-            font-weight: 600;
-        }
+ .comparison-table th {
+ background: var(--primary-teal);
+ color: white;
+ padding: 1.25rem;
+ text-align: left;
+ font-weight: 600;
+ }
 
-        .comparison-table td {
-            padding: 1rem 1.25rem;
-            border-bottom: 1px solid var(--border-light);
-            vertical-align: top;
-        }
+ .comparison-table td {
+ padding: 1rem 1.25rem;
+ border-bottom: 1px solid var(--border-light);
+ vertical-align: top;
+ }
 
-        .comparison-table tr:last-child td { border-bottom: none; }
+ .comparison-table tr:last-child td { border-bottom: none; }
 
-        .comparison-table tr:hover td { background: var(--bg-cream); }
+ .comparison-table tr:hover td { background: var(--bg-cream); }
 
-        .check { color: #10B981; }
-        .cross { color: #EF4444; }
+ .check { color: #10B981; }
+ .cross { color: #EF4444; }
 
-        .evidence-section {
-            padding: 5rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+ .evidence-section {
+ padding: 5rem 2rem;
+ max-width: 900px;
+ margin: 0 auto;
+ }
 
-        .evidence-levels {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+ .evidence-levels {
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+ }
 
-        .evidence-item {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: var(--bg-white);
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-        }
+ .evidence-item {
+ display: flex;
+ align-items: center;
+ gap: 1.5rem;
+ padding: 1.5rem;
+ background: var(--bg-white);
+ border-radius: 12px;
+ border: 1px solid var(--border-light);
+ }
 
-        .evidence-badge {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: white;
-            flex-shrink: 0;
-        }
+ .evidence-badge {
+ width: 60px;
+ height: 60px;
+ border-radius: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: 700;
+ font-size: 1.25rem;
+ color: white;
+ flex-shrink: 0;
+ }
 
-        .evidence-badge.high { background: #10B981; }
-        .evidence-badge.moderate { background: #F59E0B; }
-        .evidence-badge.low { background: #EF4444; }
+ .evidence-badge.high { background: #10B981; }
+ .evidence-badge.moderate { background: #F59E0B; }
+ .evidence-badge.low { background: #EF4444; }
 
-        .evidence-content h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
+ .evidence-content h4 {
+ font-size: 1.1rem;
+ margin-bottom: 0.25rem;
+ }
 
-        .evidence-content p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
+ .evidence-content p {
+ color: var(--text-gray);
+ font-size: 0.9rem;
+ }
 
-        @media (max-width: 768px) {
+ @media (max-width: 768px) {
 
-            .treatment-grid { grid-template-columns: 1fr; }
-            .comparison-table { font-size: 0.85rem; }
-            
-        }
-    </style>
+ .treatment-grid { grid-template-columns: 1fr; }
+ .comparison-table { font-size: 0.85rem; }
+ 
+ }
+ </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <a href="../index.html" class="logo">
-                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
-            </a>
-            <nav class="nav">
-                <a href="rehberler.html" class="nav-link active">Keşfet ▾</a>
-                <a href="araclar.html" class="nav-link">Araçlar</a>
-                <a href="hikayeler.html" class="nav-link">Hikayeler</a>
-                <a href="bilim.html" class="nav-link">Bilim</a>
-                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
-                <a href="test.html" class="btn-primary">Teste Başla</a>
-            </nav>
-        </div>
-    </header>
+ <header class="header">
+ <div class="header-inner">
+ <a href="../index.html" class="logo">
+ <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+ </a>
+ <nav class="nav">
+ <a href="rehberler.html" class="nav-link active">Keşfet </a>
+ <a href="araclar.html" class="nav-link">Araçlar</a>
+ <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+ <a href="bilim.html" class="nav-link">Bilim</a>
+ <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+ <a href="test.html" class="btn-primary">Teste Başla</a>
+ </nav>
+ </div>
+ </header>
 
-    <section class="page-hero">
-        <video class="page-hero-bg" autoplay muted loop playsinline>
-            <source src="../videos/background-3.mp4" type="video/mp4">
-        </video>
-        <div class="page-hero-overlay"></div>
-        <div class="page-hero-content">
-            <nav class="hero-breadcrumb">
-                <a href="../index.html">Ana Sayfa</a>
-                <span>›</span>
-                <span class="current">Tedavi Seçenekleri</span>
-            </nav>
-            <div class="page-hero-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                </svg>
-            </div>
-            <h1>Tedavi Seçenekleri</h1>
-            <p>Obezite, metabolik hastalıklar ve yaşam tarzı değişikliği için kanıta dayalı tedavi yöntemlerinin karşılaştırması.</p>
-        </div>
-    </section>
+ <section class="page-hero">
+ <video class="page-hero-bg" autoplay muted loop playsinline>
+ <source src="../videos/background-3.mp4" type="video/mp4">
+ </video>
+ <div class="page-hero-overlay"></div>
+ <div class="page-hero-content">
+ <nav class="hero-breadcrumb">
+ <a href="../index.html">Ana Sayfa</a>
+ <span>›</span>
+ <span class="current">Tedavi Seçenekleri</span>
+ </nav>
+ <div class="page-hero-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+ </svg>
+ </div>
+ <h1>Tedavi Seçenekleri</h1>
+ <p>Obezite, metabolik hastalıklar ve yaşam tarzı değişikliği için kanıta dayalı tedavi yöntemlerinin karşılaştırması.</p>
+ </div>
+ </section>
 
-    <div class="content-section" style="padding-bottom: 0;">
-        <div class="warning-banner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                <line x1="12" y1="9" x2="12" y2="13"/>
-                <line x1="12" y1="17" x2="12.01" y2="17"/>
-            </svg>
-            <p><strong>Önemli:</strong> Bu sayfa sadece bilgilendirme amaçlıdır ve tıbbi tavsiye niteliği taşımaz. Herhangi bir tedaviye başlamadan önce mutlaka bir sağlık profesyoneline danışın. Her bireyin durumu farklıdır ve kişiselleştirilmiş değerlendirme gerektirir.</p>
-        </div>
-    </div>
+ <div class="content-section" style="padding-bottom: 0;">
+ <div class="warning-banner">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+ <line x1="12" y1="9" x2="12" y2="13"/>
+ <line x1="12" y1="17" x2="12.01" y2="17"/>
+ </svg>
+ <p><strong>Önemli:</strong> Bu sayfa sadece bilgilendirme amaçlıdır ve tıbbi tavsiye niteliği taşımaz. Herhangi bir tedaviye başlamadan önce mutlaka bir sağlık profesyoneline danışın. Her bireyin durumu farklıdır ve kişiselleştirilmiş değerlendirme gerektirir.</p>
+ </div>
+ </div>
 
-    <!-- COMPARISON TOOL CTA -->
-    <section style="max-width:900px; margin:2rem auto; padding:0 2rem;">
-        <a href="tedavi/karsilastirma.html" style="display:block; background:linear-gradient(135deg, #195157, #0D7377); border-radius:16px; padding:2.5rem; color:white; text-decoration:none; transition:all 0.3s; box-shadow:0 8px 30px rgba(13,115,119,0.2);" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(13,115,119,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 30px rgba(13,115,119,0.2)'">
-            <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
-                <div style="font-size:2.5rem;">⚖️</div>
-                <div style="flex:1; min-width:200px;">
-                    <div style="font-size:1.4rem; font-weight:700; margin-bottom:0.5rem;">İnteraktif Tedavi Karşılaştırma Aracı</div>
-                    <div style="opacity:0.9; line-height:1.6;">GLP-1 ilaçları vs ESG vs Bariatrik Cerrahi — kanıta dayalı, tarafsız karşılaştırma. Quiz ile size uygun tedaviyi keşfedin.</div>
-                </div>
-                <div style="font-size:1.5rem; font-weight:700;">→</div>
-            </div>
-        </a>
-    </section>
+ <!-- COMPARISON TOOL CTA -->
+ <section style="max-width:900px; margin:2rem auto; padding:0 2rem;">
+ <a href="tedavi/karsilastirma.html" style="display:block; background:linear-gradient(135deg, #195157, #0D7377); border-radius:16px; padding:2.5rem; color:white; text-decoration:none; transition:all 0.3s; box-shadow:0 8px 30px rgba(13,115,119,0.2);" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(13,115,119,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 30px rgba(13,115,119,0.2)'">
+ <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+ <div style="font-size:2.5rem;"></div>
+ <div style="flex:1; min-width:200px;">
+ <div style="font-size:1.4rem; font-weight:700; margin-bottom:0.5rem;">İnteraktif Tedavi Karşılaştırma Aracı</div>
+ <div style="opacity:0.9; line-height:1.6;">GLP-1 ilaçları vs ESG vs Bariatrik Cerrahi — kanıta dayalı, tarafsız karşılaştırma. Quiz ile size uygun tedaviyi keşfedin.</div>
+ </div>
+ <div style="font-size:1.5rem; font-weight:700;">→</div>
+ </div>
+ </a>
+ </section>
 
-    <section class="content-section">
-        <h2 class="section-title">Tedavi Kategorileri</h2>
-        <p class="section-subtitle">Farklı tedavi yaklaşımlarını keşfedin ve sizin için uygun seçenekleri belirleyin.</p>
-        
-        <div class="treatment-grid">
-            <div class="treatment-card hub-fade-in">
-                <div class="treatment-header">
-                    <h3>Yaşam Tarzı Değişikliği</h3>
-                    <p>İlk basamak tedavi yaklaşımı</p>
-                </div>
-                <div class="treatment-body">
-                    <ul class="treatment-list">
-                        <li><a href="beslenme.html">Beslenme Programları <span>→</span></a></li>
-                        <li><a href="egzersiz.html">Egzersiz Reçeteleri <span>→</span></a></li>
-                        <li><a href="tedavi/davranissal-terapi.html">Davranışsal Terapi <span>→</span></a></li>
-                        <li><a href="uyku-stres.html">Uyku Optimizasyonu <span>→</span></a></li>
-                        <li><a href="uyku-stres.html">Stres Yönetimi <span>→</span></a></li>
-                    </ul>
-                </div>
-            </div>
+ <section class="content-section">
+ <h2 class="section-title">Tedavi Kategorileri</h2>
+ <p class="section-subtitle">Farklı tedavi yaklaşımlarını keşfedin ve sizin için uygun seçenekleri belirleyin.</p>
+ 
+ <div class="treatment-grid">
+ <div class="treatment-card hub-fade-in">
+ <div class="treatment-header">
+ <h3>Yaşam Tarzı Değişikliği</h3>
+ <p>İlk basamak tedavi yaklaşımı</p>
+ </div>
+ <div class="treatment-body">
+ <ul class="treatment-list">
+ <li><a href="beslenme.html">Beslenme Programları <span>→</span></a></li>
+ <li><a href="egzersiz.html">Egzersiz Reçeteleri <span>→</span></a></li>
+ <li><a href="tedavi/davranissal-terapi.html">Davranışsal Terapi <span>→</span></a></li>
+ <li><a href="uyku-stres.html">Uyku Optimizasyonu <span>→</span></a></li>
+ <li><a href="uyku-stres.html">Stres Yönetimi <span>→</span></a></li>
+ </ul>
+ </div>
+ </div>
 
-            <div class="treatment-card hub-fade-in">
-                <div class="treatment-header orange">
-                    <h3>İlaç Tedavileri</h3>
-                    <p>Onaylı farmakolojik seçenekler</p>
-                </div>
-                <div class="treatment-body">
-                    <ul class="treatment-list">
-                        <li><a href="blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html">GLP-1 Agonistleri <span>→</span></a></li>
-                        <li><a href="tedavi/orlistat.html">Orlistat <span>→</span></a></li>
-                        <li><a href="tedavi/naltrexone-bupropion.html">Naltrexone/Bupropion <span>→</span></a></li>
-                        <li><a href="tedavi/kombinasyon-tedavileri.html">Kombinasyon Tedavileri <span>→</span></a></li>
-                        <li><a href="tedavi/yan-etkiler-riskler.html">Yan Etkiler & Riskler <span>→</span></a></li>
-                    </ul>
-                </div>
-            </div>
+ <div class="treatment-card hub-fade-in">
+ <div class="treatment-header orange">
+ <h3>İlaç Tedavileri</h3>
+ <p>Onaylı farmakolojik seçenekler</p>
+ </div>
+ <div class="treatment-body">
+ <ul class="treatment-list">
+ <li><a href="blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html">GLP-1 Agonistleri <span>→</span></a></li>
+ <li><a href="tedavi/orlistat.html">Orlistat <span>→</span></a></li>
+ <li><a href="tedavi/naltrexone-bupropion.html">Naltrexone/Bupropion <span>→</span></a></li>
+ <li><a href="tedavi/kombinasyon-tedavileri.html">Kombinasyon Tedavileri <span>→</span></a></li>
+ <li><a href="tedavi/yan-etkiler-riskler.html">Yan Etkiler & Riskler <span>→</span></a></li>
+ </ul>
+ </div>
+ </div>
 
-            <div class="treatment-card hub-fade-in">
-                <div class="treatment-header dark">
-                    <h3>Cerrahi Seçenekler</h3>
-                    <p>Bariatrik ve metabolik cerrahi</p>
-                </div>
-                <div class="treatment-body">
-                    <ul class="treatment-list">
-                        <li><a href="tedavi/gastrik-sleeve.html">Gastrik Sleeve <span>→</span></a></li>
-                        <li><a href="tedavi/gastrik-bypass.html">Gastrik Bypass <span>→</span></a></li>
-                        <li><a href="tedavi/endoskopik-prosedurler.html">Endoskopik Prosedürler <span>→</span></a></li>
-                        <li><a href="tedavi/ameliyat-oncesi-hazirlik.html">Ameliyat Öncesi Hazırlık <span>→</span></a></li>
-                        <li><a href="tedavi/uzun-vadeli-takip.html">Uzun Vadeli Takip <span>→</span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+ <div class="treatment-card hub-fade-in">
+ <div class="treatment-header dark">
+ <h3>Cerrahi Seçenekler</h3>
+ <p>Bariatrik ve metabolik cerrahi</p>
+ </div>
+ <div class="treatment-body">
+ <ul class="treatment-list">
+ <li><a href="tedavi/gastrik-sleeve.html">Gastrik Sleeve <span>→</span></a></li>
+ <li><a href="tedavi/gastrik-bypass.html">Gastrik Bypass <span>→</span></a></li>
+ <li><a href="tedavi/endoskopik-prosedurler.html">Endoskopik Prosedürler <span>→</span></a></li>
+ <li><a href="tedavi/ameliyat-oncesi-hazirlik.html">Ameliyat Öncesi Hazırlık <span>→</span></a></li>
+ <li><a href="tedavi/uzun-vadeli-takip.html">Uzun Vadeli Takip <span>→</span></a></li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="comparison-section">
-        <div class="comparison-inner">
-            <h2 class="section-title">Tedavi Karşılaştırması</h2>
-            <p class="section-subtitle">Farklı tedavi seçeneklerinin etkinlik, güvenlik ve uygunluk açısından karşılaştırması.</p>
-            
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Tedavi</th>
-                        <th>Ortalama Kilo Kaybı</th>
-                        <th>Sürdürülebilirlik</th>
-                        <th>Risk Seviyesi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Yaşam Tarzı</strong></td>
-                        <td>%5-10</td>
-                        <td><span class="check">★★★★★</span></td>
-                        <td>Çok Düşük</td>
-                    </tr>
-                    <tr>
-                        <td><strong>GLP-1 İlaçları</strong></td>
-                        <td>%15-20</td>
-                        <td><span class="check">★★★☆☆</span></td>
-                        <td>Düşük-Orta</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Gastrik Sleeve</strong></td>
-                        <td>%25-30</td>
-                        <td><span class="check">★★★★☆</span></td>
-                        <td>Orta</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Gastrik Bypass</strong></td>
-                        <td>%30-35</td>
-                        <td><span class="check">★★★★☆</span></td>
-                        <td>Orta-Yüksek</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Endoskopik (Balon)</strong></td>
-                        <td>%10-15</td>
-                        <td><span class="check">★★☆☆☆</span></td>
-                        <td>Düşük</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+ <section class="comparison-section">
+ <div class="comparison-inner">
+ <h2 class="section-title">Tedavi Karşılaştırması</h2>
+ <p class="section-subtitle">Farklı tedavi seçeneklerinin etkinlik, güvenlik ve uygunluk açısından karşılaştırması.</p>
+ 
+ <table class="comparison-table">
+ <thead>
+ <tr>
+ <th>Tedavi</th>
+ <th>Ortalama Kilo Kaybı</th>
+ <th>Sürdürülebilirlik</th>
+ <th>Risk Seviyesi</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Yaşam Tarzı</strong></td>
+ <td>%5-10</td>
+ <td><span class="check"></span></td>
+ <td>Çok Düşük</td>
+ </tr>
+ <tr>
+ <td><strong>GLP-1 İlaçları</strong></td>
+ <td>%15-20</td>
+ <td><span class="check"></span></td>
+ <td>Düşük-Orta</td>
+ </tr>
+ <tr>
+ <td><strong>Gastrik Sleeve</strong></td>
+ <td>%25-30</td>
+ <td><span class="check"></span></td>
+ <td>Orta</td>
+ </tr>
+ <tr>
+ <td><strong>Gastrik Bypass</strong></td>
+ <td>%30-35</td>
+ <td><span class="check"></span></td>
+ <td>Orta-Yüksek</td>
+ </tr>
+ <tr>
+ <td><strong>Endoskopik (Balon)</strong></td>
+ <td>%10-15</td>
+ <td><span class="check"></span></td>
+ <td>Düşük</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
 
-    <section class="evidence-section">
-        <h2 class="section-title">Kanıt Seviyeleri</h2>
-        <p class="section-subtitle">İçeriklerimizde kullandığımız kanıt derecelendirme sistemi.</p>
-        
-        <div class="evidence-levels">
-            <div class="evidence-item">
-                <div class="evidence-badge high">A</div>
-                <div class="evidence-content">
-                    <h4>Güçlü Kanıt</h4>
-                    <p>Çoklu randomize kontrollü çalışmalar ve meta-analizlerle desteklenen, tutarlı sonuçlar gösteren tedaviler.</p>
-                </div>
-            </div>
-            <div class="evidence-item">
-                <div class="evidence-badge moderate">B</div>
-                <div class="evidence-content">
-                    <h4>Orta Düzey Kanıt</h4>
-                    <p>Sınırlı sayıda randomize çalışma veya iyi tasarlanmış gözlemsel çalışmalarla desteklenen tedaviler.</p>
-                </div>
-            </div>
-            <div class="evidence-item">
-                <div class="evidence-badge low">C</div>
-                <div class="evidence-content">
-                    <h4>Zayıf Kanıt</h4>
-                    <p>Vaka raporları, uzman görüşleri veya ön çalışmalara dayanan, daha fazla araştırma gerektiren tedaviler.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+ <section class="evidence-section">
+ <h2 class="section-title">Kanıt Seviyeleri</h2>
+ <p class="section-subtitle">İçeriklerimizde kullandığımız kanıt derecelendirme sistemi.</p>
+ 
+ <div class="evidence-levels">
+ <div class="evidence-item">
+ <div class="evidence-badge high">A</div>
+ <div class="evidence-content">
+ <h4>Güçlü Kanıt</h4>
+ <p>Çoklu randomize kontrollü çalışmalar ve meta-analizlerle desteklenen, tutarlı sonuçlar gösteren tedaviler.</p>
+ </div>
+ </div>
+ <div class="evidence-item">
+ <div class="evidence-badge moderate">B</div>
+ <div class="evidence-content">
+ <h4>Orta Düzey Kanıt</h4>
+ <p>Sınırlı sayıda randomize çalışma veya iyi tasarlanmış gözlemsel çalışmalarla desteklenen tedaviler.</p>
+ </div>
+ </div>
+ <div class="evidence-item">
+ <div class="evidence-badge low">C</div>
+ <div class="evidence-content">
+ <h4>Zayıf Kanıt</h4>
+ <p>Vaka raporları, uzman görüşleri veya ön çalışmalara dayanan, daha fazla araştırma gerektiren tedaviler.</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="cta-section">
-        <h2>Size uygun tedavi seçeneğini keşfedin</h2>
-        <p>Kısa değerlendirmemizi tamamlayın, kişiselleştirilmiş öneriler alın.</p>
-        <a href="test.html" class="btn-white">Değerlendirmeye Başla →</a>
-    </section>
+ <section class="cta-section">
+ <h2>Size uygun tedavi seçeneğini keşfedin</h2>
+ <p>Kısa değerlendirmemizi tamamlayın, kişiselleştirilmiş öneriler alın.</p>
+ <a href="test.html" class="btn-white">Değerlendirmeye Başla →</a>
+ </section>
 
 
-    <!-- RELATED CONTENT -->
-    <section class="hub-related">
-        <h2>İlgili İçerikler</h2>
-        <div class="hub-related-grid">
-            <a href="beslenme.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Beslenme</h4>
-                    <p>İlk basamak tedavi</p>
-                </div>
-            </a>
-            <a href="egzersiz.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Egzersiz</h4>
-                    <p>Hareket programları</p>
-                </div>
-            </a>
-            <a href="bilim.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Bilimsel Yaklaşım</h4>
-                    <p>Kanıt seviyeleri</p>
-                </div>
-            </a>
-        </div>
-    </section>
-    <!-- NEWSLETTER -->
-    <section class="hub-newsletter">
-        <h2>📬 Haftalık Sağlık Bülteni</h2>
-        <p>Bilimsel araştırmalara dayalı sağlık önerileri, yeni içerikler ve ipuçları için abone olun.</p>
-        <form class="hub-newsletter-form" onsubmit="handleHubNewsletter(event, this)">
-            <input type="email" name="email" placeholder="E-posta adresiniz" required>
-            <button type="submit">Abone Ol</button>
-        </form>
-        <p class="hub-newsletter-success" id="hub-nl-success">✅ Teşekkürler! Bültenimize kaydoldunuz.</p>
-    </section>
-    <!-- SOCIAL SHARING -->
-    <div class="hub-social-share">
-        <span>Paylaş:</span>
-        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" class="hub-share-btn twitter" aria-label="Twitter'da Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="javascript:void(0)" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" class="hub-share-btn facebook" aria-label="Facebook'ta Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank')" class="hub-share-btn whatsapp" aria-label="WhatsApp'ta Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-    </div>
+ <!-- RELATED CONTENT -->
+ <section class="hub-related">
+ <h2>İlgili İçerikler</h2>
+ <div class="hub-related-grid">
+ <a href="beslenme.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Beslenme</h4>
+ <p>İlk basamak tedavi</p>
+ </div>
+ </a>
+ <a href="egzersiz.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Egzersiz</h4>
+ <p>Hareket programları</p>
+ </div>
+ </a>
+ <a href="bilim.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Bilimsel Yaklaşım</h4>
+ <p>Kanıt seviyeleri</p>
+ </div>
+ </a>
+ </div>
+ </section>
+ <!-- NEWSLETTER -->
+ <section class="hub-newsletter">
+ <h2> Haftalık Sağlık Bülteni</h2>
+ <p>Bilimsel araştırmalara dayalı sağlık önerileri, yeni içerikler ve ipuçları için abone olun.</p>
+ <form class="hub-newsletter-form" onsubmit="handleHubNewsletter(event, this)">
+ <input type="email" name="email" placeholder="E-posta adresiniz" required>
+ <button type="submit">Abone Ol</button>
+ </form>
+ <p class="hub-newsletter-success" id="hub-nl-success"> Teşekkürler! Bültenimize kaydoldunuz.</p>
+ </section>
+ <!-- SOCIAL SHARING -->
+ <div class="hub-social-share">
+ <span>Paylaş:</span>
+ <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" class="hub-share-btn twitter" aria-label="Twitter'da Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+ </a>
+ <a href="javascript:void(0)" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" class="hub-share-btn facebook" aria-label="Facebook'ta Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+ </a>
+ <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank')" class="hub-share-btn whatsapp" aria-label="WhatsApp'ta Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+ </a>
+ </div>
 
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="../index.html">
-                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
-                    </a>
-                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Keşfet</h4>
-                    <a href="beslenme.html">Beslenme</a>
-                    <a href="egzersiz.html">Egzersiz</a>
-                    <a href="uyku-stres.html">Uyku & Stres</a>
-                    <a href="tedavi.html">Tedavi Seçenekleri</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Araçlar</h4>
-                    <a href="test.html">Bana Ne Uygun?</a>
-                    <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
-                    <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Hakkımızda</h4>
-                    <a href="hakkimizda.html">Ekibimiz</a>
-                    <a href="bilim.html">Bilimsel Yaklaşım</a>
-                    <a href="hakkimizda.html#iletisim">İletişim</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
-                <span>Gizlilik Politikası | Kullanım Koşulları</span>
-            </div>
-        </div>
-    </footer>
+ <footer class="footer">
+ <div class="footer-inner">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="../index.html">
+ <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+ </a>
+ <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Keşfet</h4>
+ <a href="beslenme.html">Beslenme</a>
+ <a href="egzersiz.html">Egzersiz</a>
+ <a href="uyku-stres.html">Uyku & Stres</a>
+ <a href="tedavi.html">Tedavi Seçenekleri</a>
+ </div>
+ <div class="footer-col">
+ <h4>Araçlar</h4>
+ <a href="test.html">Bana Ne Uygun?</a>
+ <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
+ <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
+ </div>
+ <div class="footer-col">
+ <h4>Hakkımızda</h4>
+ <a href="hakkimizda.html">Ekibimiz</a>
+ <a href="bilim.html">Bilimsel Yaklaşım</a>
+ <a href="hakkimizda.html#iletisim">İletişim</a>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+ <span>Gizlilik Politikası | Kullanım Koşulları</span>
+ </div>
+ </div>
+ </footer>
 
-    <!-- HUB UPGRADE JS -->
-    <script>
-    // Staggered fade-in on scroll
-    const hubObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                hubObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    document.querySelectorAll(".hub-fade-in").forEach(el => hubObserver.observe(el));
+ <!-- HUB UPGRADE JS -->
+ <script>
+ // Staggered fade-in on scroll
+ const hubObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add("visible");
+ hubObserver.unobserve(entry.target);
+ }
+ });
+ }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+ document.querySelectorAll(".hub-fade-in").forEach(el => hubObserver.observe(el));
 
-    // Active sub-nav highlighting on scroll
-    if (document.querySelector(".hub-subnav")) {
-        const sections = document.querySelectorAll("section[id]");
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach(section => {
-                const top = section.offsetTop - 200;
-                if (pageYOffset >= top) current = section.getAttribute("id");
-            });
-            document.querySelectorAll(".hub-subnav-link").forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === "#" + current) link.classList.add("active");
-            });
-        });
-    }
+ // Active sub-nav highlighting on scroll
+ if (document.querySelector(".hub-subnav")) {
+ const sections = document.querySelectorAll("section[id]");
+ window.addEventListener("scroll", () => {
+ let current = "";
+ sections.forEach(section => {
+ const top = section.offsetTop - 200;
+ if (pageYOffset >= top) current = section.getAttribute("id");
+ });
+ document.querySelectorAll(".hub-subnav-link").forEach(link => {
+ link.classList.remove("active");
+ if (link.getAttribute("href") === "#" + current) link.classList.add("active");
+ });
+ });
+ }
 
-    // Newsletter handler
-    function handleHubNewsletter(e, form) {
-        e.preventDefault();
-        const email = form.email.value;
-        localStorage.setItem("uzunyasa_subscriber", email);
-        form.style.display = "none";
-        document.getElementById("hub-nl-success").style.display = "block";
-    }
-    </script>
+ // Newsletter handler
+ function handleHubNewsletter(e, form) {
+ e.preventDefault();
+ const email = form.email.value;
+ localStorage.setItem("uzunyasa_subscriber", email);
+ form.style.display = "none";
+ document.getElementById("hub-nl-success").style.display = "block";
+ }
+ </script>
 </body>
 </html>

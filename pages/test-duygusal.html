@@ -67,7 +67,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 </head>
 <body>
 <header class="quiz-header">
-<h1>🍽️ Yiyeceklerle İlişkiniz Nasıl?</h1>
+<h1> Yiyeceklerle İlişkiniz Nasıl?</h1>
 <p>10 kısa soru ile duygusal yeme alışkanlıklarınızı keşfedin ve kişiselleştirilmiş öneriler alın.</p>
 </header>
 
@@ -95,12 +95,12 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 <div class="result-desc" id="resDesc"></div>
 <div class="advice-list" id="resAdvice"></div>
 <div class="share-row">
-<button class="share-btn tw" onclick="shareTw()">🐦 Twitter'da Paylaş</button>
-<button class="share-btn wa" onclick="shareWa()">💬 WhatsApp</button>
-<button class="share-btn copy" onclick="copyResult()">📋 Kopyala</button>
+<button class="share-btn tw" onclick="shareTw()"> Twitter'da Paylaş</button>
+<button class="share-btn wa" onclick="shareWa()"> WhatsApp</button>
+<button class="share-btn copy" onclick="copyResult()"> Kopyala</button>
 </div>
 <div class="cta-box" id="ctaBox"></div>
-<button class="restart-btn" onclick="restart()">🔄 Testi Tekrar Yap</button>
+<button class="restart-btn" onclick="restart()"> Testi Tekrar Yap</button>
 </div>
 </div>
 </div>
@@ -120,29 +120,29 @@ const questions=[
 ];
 
 const profiles={
-duygusal:{icon:"💜",title:"Duygusal Yiyici",sub:"Duygularınız tabağınıza yansıyor",desc:"Duygusal yiyiciler, hislerini yönetmek için yiyeceğe yönelme eğilimindedir. Mutluluk, üzüntü, yalnızlık gibi duygular iştahınızı doğrudan etkiliyor. Bu farkındalık, değişimin ilk adımıdır.",advice:[
-{icon:"🧘",text:"Yemek yeme dürtüsü geldiğinde 5 dakika bekleyin ve duygularınızı adlandırın"},
-{icon:"📓",text:"Duygu günlüğü tutun — ne zaman, neden yediğinizi kaydedin"},
-{icon:"🎵",text:"Yeme dışı ödüller keşfedin: müzik, yürüyüş, arkadaş araması"},
-{icon:"💬",text:"Bir psikolog ile duygusal yeme döngüsünü konuşmayı düşünün"}
+duygusal:{icon:"",title:"Duygusal Yiyici",sub:"Duygularınız tabağınıza yansıyor",desc:"Duygusal yiyiciler, hislerini yönetmek için yiyeceğe yönelme eğilimindedir. Mutluluk, üzüntü, yalnızlık gibi duygular iştahınızı doğrudan etkiliyor. Bu farkındalık, değişimin ilk adımıdır.",advice:[
+{icon:"",text:"Yemek yeme dürtüsü geldiğinde 5 dakika bekleyin ve duygularınızı adlandırın"},
+{icon:"",text:"Duygu günlüğü tutun — ne zaman, neden yediğinizi kaydedin"},
+{icon:"",text:"Yeme dışı ödüller keşfedin: müzik, yürüyüş, arkadaş araması"},
+{icon:"",text:"Bir psikolog ile duygusal yeme döngüsünü konuşmayı düşünün"}
 ],cta:"Duygusal yeme hakkında daha fazla bilgi için <a href='../pages/beslenme.html'>Beslenme Rehberimizi</a> okuyun."},
-stres:{icon:"⚡",title:"Stres Yiyicisi",sub:"Baskı altında yemek sığınağınız oluyor",desc:"Stres yiyicileri, iş, okul veya hayat baskıları altında yiyeceğe yönelir. Kortizol hormonu iştahınızı artırıyor ve genellikle yüksek kalorili, şekerli yiyeceklere yöneliyorsunuz.",advice:[
-{icon:"🏃",text:"Stres anında 10 dakikalık yürüyüş veya nefes egzersizi deneyin"},
+stres:{icon:"",title:"Stres Yiyicisi",sub:"Baskı altında yemek sığınağınız oluyor",desc:"Stres yiyicileri, iş, okul veya hayat baskıları altında yiyeceğe yönelir. Kortizol hormonu iştahınızı artırıyor ve genellikle yüksek kalorili, şekerli yiyeceklere yöneliyorsunuz.",advice:[
+{icon:"",text:"Stres anında 10 dakikalık yürüyüş veya nefes egzersizi deneyin"},
 {icon:"⏰",text:"Düzenli öğün saatleri belirleyin — açlık stresi azaltır"},
-{icon:"🥗",text:"Yanınızda sağlıklı atıştırmalıklar bulundurun"},
-{icon:"😴",text:"Uyku düzeninize özen gösterin — yorgunluk stresi artırır"}
+{icon:"",text:"Yanınızda sağlıklı atıştırmalıklar bulundurun"},
+{icon:"",text:"Uyku düzeninize özen gösterin — yorgunluk stresi artırır"}
 ],cta:"Stres yönetimi teknikleri için <a href='../pages/stres/stres-yonetimi.html'>Stres Rehberimize</a> göz atın."},
-sosyal:{icon:"🎉",title:"Sosyal Yiyici",sub:"Çevrenizdekiler iştahınızı şekillendiriyor",desc:"Sosyal yiyiciler, başkalarıyla birlikteyken yeme kontrolünü kaybetme eğilimindedir. Kutlamalar, buluşmalar ve sosyal baskı yeme alışkanlıklarınızı doğrudan etkiliyor.",advice:[
-{icon:"🎯",text:"Sosyal etkinliklere gitmeden önce hafif bir şey yiyin"},
-{icon:"🍽️",text:"Porsiyon kontrolü uygulayın — küçük tabak kullanın"},
-{icon:"🗣️",text:"'Hayır' demeyi öğrenin — nazikçe reddetmek normaldir"},
-{icon:"👥",text:"Sağlıklı yaşam hedeflerinizi yakınlarınızla paylaşın"}
+sosyal:{icon:"",title:"Sosyal Yiyici",sub:"Çevrenizdekiler iştahınızı şekillendiriyor",desc:"Sosyal yiyiciler, başkalarıyla birlikteyken yeme kontrolünü kaybetme eğilimindedir. Kutlamalar, buluşmalar ve sosyal baskı yeme alışkanlıklarınızı doğrudan etkiliyor.",advice:[
+{icon:"",text:"Sosyal etkinliklere gitmeden önce hafif bir şey yiyin"},
+{icon:"",text:"Porsiyon kontrolü uygulayın — küçük tabak kullanın"},
+{icon:"",text:"'Hayır' demeyi öğrenin — nazikçe reddetmek normaldir"},
+{icon:"",text:"Sağlıklı yaşam hedeflerinizi yakınlarınızla paylaşın"}
 ],cta:"Sosyal ortamlarda beslenme stratejileri için <a href='../pages/beslenme.html'>rehberlerimizi</a> inceleyin."},
-bilinc:{icon:"🧠",title:"Bilinçli Yiyici",sub:"Farkındalığınız yüksek, yoldasınız!",desc:"Tebrikler! Yeme alışkanlıklarınız konusunda oldukça bilinçlisiniz. Açlık sinyallerinizi dinliyor ve duygularınızın yeme davranışınızı yönetmesine genelde izin vermiyorsunuz.",advice:[
-{icon:"📈",text:"Bu farkındalığı koruyun ve düzenli olarak kendinizi değerlendirin"},
-{icon:"🥦",text:"Beslenme kalitenizi daha da artırmak için yeni tarifler deneyin"},
-{icon:"🤝",text:"Bilginizi çevrenizle paylaşın — başkalarına ilham olun"},
-{icon:"📚",text:"Sezgisel yeme (intuitive eating) yaklaşımını keşfedin"}
+bilinc:{icon:"",title:"Bilinçli Yiyici",sub:"Farkındalığınız yüksek, yoldasınız!",desc:"Tebrikler! Yeme alışkanlıklarınız konusunda oldukça bilinçlisiniz. Açlık sinyallerinizi dinliyor ve duygularınızın yeme davranışınızı yönetmesine genelde izin vermiyorsunuz.",advice:[
+{icon:"",text:"Bu farkındalığı koruyun ve düzenli olarak kendinizi değerlendirin"},
+{icon:"",text:"Beslenme kalitenizi daha da artırmak için yeni tarifler deneyin"},
+{icon:"",text:"Bilginizi çevrenizle paylaşın — başkalarına ilham olun"},
+{icon:"",text:"Sezgisel yeme (intuitive eating) yaklaşımını keşfedin"}
 ],cta:"İleri düzey beslenme stratejileri için <a href='../pages/beslenme.html'>içeriklerimizi</a> keşfedin."}
 };
 
@@ -167,7 +167,7 @@ optDiv.appendChild(btn);
 });
 document.getElementById('prevBtn').disabled=current===0;
 document.getElementById('nextBtn').disabled=answers[current]===-1;
-document.getElementById('nextBtn').textContent=current===questions.length-1?'Sonuçları Gör ✨':'İleri →';
+document.getElementById('nextBtn').textContent=current===questions.length-1?'Sonuçları Gör ':'İleri →';
 }
 
 function nextQ(){
@@ -200,15 +200,15 @@ document.getElementById('resTitle').textContent=p.title;
 document.getElementById('resSub').textContent=p.sub;
 document.getElementById('resDesc').textContent=p.desc;
 const advDiv=document.getElementById('resAdvice');
-advDiv.innerHTML='<h3>💡 Kişisel Önerileriniz</h3>';
+advDiv.innerHTML='<h3> Kişisel Önerileriniz</h3>';
 p.advice.forEach(a=>{advDiv.innerHTML+=`<div class="advice-item"><span class="icon">${a.icon}</span><p>${a.text}</p></div>`});
-document.getElementById('ctaBox').innerHTML=`<h3>📖 Daha Fazlasını Keşfedin</h3><p>${p.cta}</p>`;
+document.getElementById('ctaBox').innerHTML=`<h3> Daha Fazlasını Keşfedin</h3><p>${p.cta}</p>`;
 window._resultProfile=topCat;
 gtag('event','quiz_complete',{quiz:'duygusal_yeme',result:topCat});
 }
 
-function shareTw(){const p=profiles[window._resultProfile];window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('Duygusal Yeme Testinde "'+p.title+'" çıktım! 🍽️ Sen de dene: https://uzunyasa.com/pages/test-duygusal.html'),'_blank')}
-function shareWa(){const p=profiles[window._resultProfile];window.open('https://wa.me/?text='+encodeURIComponent('Duygusal Yeme Testinde "'+p.title+'" çıktım! 🍽️ Sen de dene: https://uzunyasa.com/pages/test-duygusal.html'),'_blank')}
+function shareTw(){const p=profiles[window._resultProfile];window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('Duygusal Yeme Testinde "'+p.title+'" çıktım! Sen de dene: https://uzunyasa.com/pages/test-duygusal.html'),'_blank')}
+function shareWa(){const p=profiles[window._resultProfile];window.open('https://wa.me/?text='+encodeURIComponent('Duygusal Yeme Testinde "'+p.title+'" çıktım! Sen de dene: https://uzunyasa.com/pages/test-duygusal.html'),'_blank')}
 function copyResult(){const p=profiles[window._resultProfile];navigator.clipboard.writeText('Duygusal Yeme Testinde "'+p.title+'" çıktım! Sen de dene: https://uzunyasa.com/pages/test-duygusal.html').then(()=>alert('Kopyalandı!'))}
 function restart(){current=0;answers.fill(-1);document.getElementById('quizArea').style.display='';document.getElementById('resultArea').style.display='none';render()}
 

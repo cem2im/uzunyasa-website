@@ -4,477 +4,477 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QBM7E0EHFP');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalori Hesaplayıcı — Günlük Kalori İhtiyacı (TDEE) | UzunYaşa</title>
-    <meta name="description" content="Günlük kalori ihtiyacınızı (TDEE) hesaplayın. Mifflin-St Jeor formülü ile bazal metabolizma hızı, makrobesin dağılımı ve kalori açığı rehberi.">
-    <link rel="canonical" href="https://uzunyasa.com/pages/beslenme/kalori-hesaplayici.html">
-    <meta property="og:title" content="Kalori Hesaplayıcı — Günlük Kalori İhtiyacı (TDEE) | UzunYaşa">
-    <meta property="og:description" content="Günlük kalori ihtiyacınızı hesaplayın. TDEE, bazal metabolizma ve makrobesin dağılımı rehberi.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://uzunyasa.com/pages/beslenme/kalori-hesaplayici.html">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Kalori Hesaplayıcı",
-        "description": "Günlük kalori ihtiyacınızı (TDEE) Mifflin-St Jeor formülü ile hesaplayın.",
-        "author": {"@type": "Organization", "name": "UzunYaşa"},
-        "applicationCategory": "HealthApplication",
-        "operatingSystem": "Web",
-        "url": "https://uzunyasa.com/pages/beslenme/kalori-hesaplayici.html"
-    }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/content-page.css">
-    <style>
-        .guide-hero { position: relative; padding: 8rem 2rem 4rem; color: white; }
-        .guide-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(25,81,87,0.9), rgba(42,107,115,0.85)); }
-        .guide-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
-        .guide-badge { display: inline-block; background: var(--accent); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
-        .guide-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
-        .guide-hero p { font-size: 1.15rem; opacity: 0.95; }
-        .guide-content { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
-        .guide-content h2 { font-size: 1.6rem; color: var(--primary); margin: 2.5rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
-        .guide-content h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
-        .guide-content p { margin-bottom: 1.25rem; font-size: 1.05rem; }
-        .guide-content ul, .guide-content ol { margin: 1rem 0 1.5rem 1.5rem; }
-        .guide-content li { margin-bottom: 0.75rem; }
-        .info-box { padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
-        .info-box.tip { background: #ECFDF5; border-left: 4px solid var(--success); }
-        .info-box.warning { background: #FEF3C7; border-left: 4px solid var(--warning); }
-        .info-box h4 { margin-bottom: 0.5rem; }
-        .calc-container { background: linear-gradient(135deg, #F0FDFA, #E0F2FE); border: 2px solid var(--primary); border-radius: 20px; padding: 2.5rem; margin: 2rem 0; }
-        .calc-container h3 { color: var(--primary); font-size: 1.4rem; margin-bottom: 1.5rem; text-align: center; }
-        .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-        .calc-field { margin-bottom: 0; }
-        .calc-field label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .calc-field input, .calc-field select { width: 100%; padding: 0.85rem 1rem; border: 2px solid var(--border); border-radius: 10px; font-size: 1.05rem; font-family: inherit; transition: border-color 0.2s; box-sizing: border-box; }
-        .calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--primary); }
-        .calc-btn { display: block; width: 100%; padding: 1rem; background: var(--primary); color: white; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; font-family: inherit; }
-        .calc-btn:hover { background: #1a5a60; }
-        .calc-result { display: none; margin-top: 2rem; }
-        .result-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
-        .result-card { background: white; border-radius: 14px; padding: 1.5rem; text-align: center; }
-        .result-card.primary { border: 2px solid var(--primary); }
-        .result-card .result-label { font-size: 0.85rem; color: #64748B; margin-bottom: 0.25rem; }
-        .result-card .result-value { font-size: 2rem; font-weight: 800; color: var(--primary); }
-        .result-card .result-unit { font-size: 0.9rem; color: #64748B; }
-        .macro-bars { background: white; border-radius: 14px; padding: 1.5rem; }
-        .macro-bar-row { margin-bottom: 1rem; }
-        .macro-bar-label { display: flex; justify-content: space-between; margin-bottom: 0.35rem; font-size: 0.95rem; }
-        .macro-bar-track { height: 10px; background: #E2E8F0; border-radius: 5px; overflow: hidden; }
-        .macro-bar-fill { height: 100%; border-radius: 5px; transition: width 0.5s ease; }
-        .goal-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
-        .goal-card { background: white; border-radius: 14px; padding: 1.25rem; text-align: center; border: 2px solid var(--border); }
-        .goal-card h4 { font-size: 0.9rem; margin-bottom: 0.5rem; }
-        .goal-card .goal-kcal { font-size: 1.5rem; font-weight: 800; }
-        .sources { background: #F8FAFC; border-radius: 12px; padding: 1.5rem; margin: 2rem 0; font-size: 0.9rem; }
-        .sources h4 { margin-bottom: 0.75rem; }
-        .sources ol { margin-left: 1.5rem; }
-        .sources li { margin-bottom: 0.5rem; color: #64748B; }
-        .guide-cta { background: linear-gradient(135deg, var(--primary), #2a6b73); padding: 3rem 2rem; border-radius: 20px; text-align: center; color: white; margin: 3rem 0; }
-        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; }
-        @media (max-width: 768px) {
-            .guide-hero h1 { font-size: 2rem; }
-            .calc-row { grid-template-columns: 1fr; }
-            .result-cards, .goal-cards { grid-template-columns: 1fr; }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Kalori Hesaplayıcı — Günlük Kalori İhtiyacı (TDEE) | UzunYaşa</title>
+ <meta name="description" content="Günlük kalori ihtiyacınızı (TDEE) hesaplayın. Mifflin-St Jeor formülü ile bazal metabolizma hızı, makrobesin dağılımı ve kalori açığı rehberi.">
+ <link rel="canonical" href="https://uzunyasa.com/pages/beslenme/kalori-hesaplayici.html">
+ <meta property="og:title" content="Kalori Hesaplayıcı — Günlük Kalori İhtiyacı (TDEE) | UzunYaşa">
+ <meta property="og:description" content="Günlük kalori ihtiyacınızı hesaplayın. TDEE, bazal metabolizma ve makrobesin dağılımı rehberi.">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://uzunyasa.com/pages/beslenme/kalori-hesaplayici.html">
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Kalori Hesaplayıcı",
+ "description": "Günlük kalori ihtiyacınızı (TDEE) Mifflin-St Jeor formülü ile hesaplayın.",
+ "author": {"@type": "Organization", "name": "UzunYaşa"},
+ "applicationCategory": "HealthApplication",
+ "operatingSystem": "Web",
+ "url": "https://uzunyasa.com/pages/beslenme/kalori-hesaplayici.html"
+ }
+ </script>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../styles/main.css">
+ <link rel="stylesheet" href="../../styles/content-page.css">
+ <style>
+ .guide-hero { position: relative; padding: 8rem 2rem 4rem; color: white; }
+ .guide-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(25,81,87,0.9), rgba(42,107,115,0.85)); }
+ .guide-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+ .guide-badge { display: inline-block; background: var(--accent); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+ .guide-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+ .guide-hero p { font-size: 1.15rem; opacity: 0.95; }
+ .guide-content { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+ .guide-content h2 { font-size: 1.6rem; color: var(--primary); margin: 2.5rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+ .guide-content h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+ .guide-content p { margin-bottom: 1.25rem; font-size: 1.05rem; }
+ .guide-content ul, .guide-content ol { margin: 1rem 0 1.5rem 1.5rem; }
+ .guide-content li { margin-bottom: 0.75rem; }
+ .info-box { padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
+ .info-box.tip { background: #ECFDF5; border-left: 4px solid var(--success); }
+ .info-box.warning { background: #FEF3C7; border-left: 4px solid var(--warning); }
+ .info-box h4 { margin-bottom: 0.5rem; }
+ .calc-container { background: linear-gradient(135deg, #F0FDFA, #E0F2FE); border: 2px solid var(--primary); border-radius: 20px; padding: 2.5rem; margin: 2rem 0; }
+ .calc-container h3 { color: var(--primary); font-size: 1.4rem; margin-bottom: 1.5rem; text-align: center; }
+ .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+ .calc-field { margin-bottom: 0; }
+ .calc-field label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; }
+ .calc-field input, .calc-field select { width: 100%; padding: 0.85rem 1rem; border: 2px solid var(--border); border-radius: 10px; font-size: 1.05rem; font-family: inherit; transition: border-color 0.2s; box-sizing: border-box; }
+ .calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--primary); }
+ .calc-btn { display: block; width: 100%; padding: 1rem; background: var(--primary); color: white; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; font-family: inherit; }
+ .calc-btn:hover { background: #1a5a60; }
+ .calc-result { display: none; margin-top: 2rem; }
+ .result-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+ .result-card { background: white; border-radius: 14px; padding: 1.5rem; text-align: center; }
+ .result-card.primary { border: 2px solid var(--primary); }
+ .result-card .result-label { font-size: 0.85rem; color: #64748B; margin-bottom: 0.25rem; }
+ .result-card .result-value { font-size: 2rem; font-weight: 800; color: var(--primary); }
+ .result-card .result-unit { font-size: 0.9rem; color: #64748B; }
+ .macro-bars { background: white; border-radius: 14px; padding: 1.5rem; }
+ .macro-bar-row { margin-bottom: 1rem; }
+ .macro-bar-label { display: flex; justify-content: space-between; margin-bottom: 0.35rem; font-size: 0.95rem; }
+ .macro-bar-track { height: 10px; background: #E2E8F0; border-radius: 5px; overflow: hidden; }
+ .macro-bar-fill { height: 100%; border-radius: 5px; transition: width 0.5s ease; }
+ .goal-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+ .goal-card { background: white; border-radius: 14px; padding: 1.25rem; text-align: center; border: 2px solid var(--border); }
+ .goal-card h4 { font-size: 0.9rem; margin-bottom: 0.5rem; }
+ .goal-card .goal-kcal { font-size: 1.5rem; font-weight: 800; }
+ .sources { background: #F8FAFC; border-radius: 12px; padding: 1.5rem; margin: 2rem 0; font-size: 0.9rem; }
+ .sources h4 { margin-bottom: 0.75rem; }
+ .sources ol { margin-left: 1.5rem; }
+ .sources li { margin-bottom: 0.5rem; color: #64748B; }
+ .guide-cta { background: linear-gradient(135deg, var(--primary), #2a6b73); padding: 3rem 2rem; border-radius: 20px; text-align: center; color: white; margin: 3rem 0; }
+ .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; }
+ @media (max-width: 768px) {
+ .guide-hero h1 { font-size: 2rem; }
+ .calc-row { grid-template-columns: 1fr; }
+ .result-cards, .goal-cards { grid-template-columns: 1fr; }
+ }
+ </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;padding:1rem;background:#fff;z-index:9999;">İçeriğe geç</a>
+ <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;padding:1rem;background:#fff;z-index:9999;">İçeriğe geç</a>
 
-    <header class="header">
-        <div class="header-inner">
-            <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
-            <a href="../beslenme.html" class="back-link">← Beslenme Rehberi</a>
-        </div>
-    </header>
+ <header class="header">
+ <div class="header-inner">
+ <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
+ <a href="../beslenme.html" class="back-link">← Beslenme Rehberi</a>
+ </div>
+ </header>
 
-    <section class="guide-hero" role="banner">
-        <div class="guide-hero-overlay"></div>
-        <div class="guide-hero-content">
-            <span class="guide-badge">🔥 Araç</span>
-            <h1>Kalori Hesaplayıcı</h1>
-            <p>Günlük kalori ihtiyacınızı (TDEE) bilimsel formüllerle hesaplayın. Kilo vermek, almak veya korumak için kişiselleştirilmiş öneriler alın.</p>
-        </div>
-    </section>
+ <section class="guide-hero" role="banner">
+ <div class="guide-hero-overlay"></div>
+ <div class="guide-hero-content">
+ <span class="guide-badge"> Araç</span>
+ <h1>Kalori Hesaplayıcı</h1>
+ <p>Günlük kalori ihtiyacınızı (TDEE) bilimsel formüllerle hesaplayın. Kilo vermek, almak veya korumak için kişiselleştirilmiş öneriler alın.</p>
+ </div>
+ </section>
 
-    <main class="guide-content" id="main-content">
+ <main class="guide-content" id="main-content">
 
-        <!-- CALCULATOR -->
-        <div class="calc-container" role="form" aria-label="Kalori Hesaplayıcı">
-            <h3>🔥 Günlük Kalori İhtiyacınızı Hesaplayın</h3>
-            <div class="calc-row">
-                <div class="calc-field">
-                    <label for="cal-gender">Cinsiyet</label>
-                    <select id="cal-gender">
-                        <option value="male">Erkek</option>
-                        <option value="female">Kadın</option>
-                    </select>
-                </div>
-                <div class="calc-field">
-                    <label for="cal-age">Yaş</label>
-                    <input type="number" id="cal-age" placeholder="Örn: 35" min="15" max="100">
-                </div>
-            </div>
-            <div class="calc-row">
-                <div class="calc-field">
-                    <label for="cal-weight">Kilo (kg)</label>
-                    <input type="number" id="cal-weight" placeholder="Örn: 75" min="30" max="300" step="0.1">
-                </div>
-                <div class="calc-field">
-                    <label for="cal-height">Boy (cm)</label>
-                    <input type="number" id="cal-height" placeholder="Örn: 170" min="100" max="250">
-                </div>
-            </div>
-            <div class="calc-field" style="margin-bottom:1.5rem;">
-                <label for="cal-activity">Aktivite Düzeyi</label>
-                <select id="cal-activity">
-                    <option value="1.2">Hareketsiz (masa başı iş, egzersiz yok)</option>
-                    <option value="1.375">Az aktif (haftada 1-3 gün hafif egzersiz)</option>
-                    <option value="1.55" selected>Orta aktif (haftada 3-5 gün orta egzersiz)</option>
-                    <option value="1.725">Çok aktif (haftada 6-7 gün yoğun egzersiz)</option>
-                    <option value="1.9">Ekstra aktif (günde 2 kez antrenman veya fiziksel iş)</option>
-                </select>
-            </div>
-            <button class="calc-btn" onclick="calculateCalories()" aria-label="Kalori Hesapla">Kalori İhtiyacımı Hesapla</button>
+ <!-- CALCULATOR -->
+ <div class="calc-container" role="form" aria-label="Kalori Hesaplayıcı">
+ <h3> Günlük Kalori İhtiyacınızı Hesaplayın</h3>
+ <div class="calc-row">
+ <div class="calc-field">
+ <label for="cal-gender">Cinsiyet</label>
+ <select id="cal-gender">
+ <option value="male">Erkek</option>
+ <option value="female">Kadın</option>
+ </select>
+ </div>
+ <div class="calc-field">
+ <label for="cal-age">Yaş</label>
+ <input type="number" id="cal-age" placeholder="Örn: 35" min="15" max="100">
+ </div>
+ </div>
+ <div class="calc-row">
+ <div class="calc-field">
+ <label for="cal-weight">Kilo (kg)</label>
+ <input type="number" id="cal-weight" placeholder="Örn: 75" min="30" max="300" step="0.1">
+ </div>
+ <div class="calc-field">
+ <label for="cal-height">Boy (cm)</label>
+ <input type="number" id="cal-height" placeholder="Örn: 170" min="100" max="250">
+ </div>
+ </div>
+ <div class="calc-field" style="margin-bottom:1.5rem;">
+ <label for="cal-activity">Aktivite Düzeyi</label>
+ <select id="cal-activity">
+ <option value="1.2">Hareketsiz (masa başı iş, egzersiz yok)</option>
+ <option value="1.375">Az aktif (haftada 1-3 gün hafif egzersiz)</option>
+ <option value="1.55" selected>Orta aktif (haftada 3-5 gün orta egzersiz)</option>
+ <option value="1.725">Çok aktif (haftada 6-7 gün yoğun egzersiz)</option>
+ <option value="1.9">Ekstra aktif (günde 2 kez antrenman veya fiziksel iş)</option>
+ </select>
+ </div>
+ <button class="calc-btn" onclick="calculateCalories()" aria-label="Kalori Hesapla">Kalori İhtiyacımı Hesapla</button>
 
-            <div class="calc-result" id="cal-result" role="status" aria-live="polite">
-                <div class="result-cards">
-                    <div class="result-card">
-                        <div class="result-label">Bazal Metabolizma (BMR)</div>
-                        <div class="result-value" id="res-bmr">—</div>
-                        <div class="result-unit">kcal/gün</div>
-                    </div>
-                    <div class="result-card primary">
-                        <div class="result-label">Günlük İhtiyaç (TDEE)</div>
-                        <div class="result-value" id="res-tdee">—</div>
-                        <div class="result-unit">kcal/gün</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-label">Haftalık İhtiyaç</div>
-                        <div class="result-value" id="res-weekly">—</div>
-                        <div class="result-unit">kcal/hafta</div>
-                    </div>
-                </div>
+ <div class="calc-result" id="cal-result" role="status" aria-live="polite">
+ <div class="result-cards">
+ <div class="result-card">
+ <div class="result-label">Bazal Metabolizma (BMR)</div>
+ <div class="result-value" id="res-bmr">—</div>
+ <div class="result-unit">kcal/gün</div>
+ </div>
+ <div class="result-card primary">
+ <div class="result-label">Günlük İhtiyaç (TDEE)</div>
+ <div class="result-value" id="res-tdee">—</div>
+ <div class="result-unit">kcal/gün</div>
+ </div>
+ <div class="result-card">
+ <div class="result-label">Haftalık İhtiyaç</div>
+ <div class="result-value" id="res-weekly">—</div>
+ <div class="result-unit">kcal/hafta</div>
+ </div>
+ </div>
 
-                <div class="macro-bars">
-                    <h4 style="margin-bottom:1rem;">📊 Önerilen Makrobesin Dağılımı (Dengeli)</h4>
-                    <div class="macro-bar-row">
-                        <div class="macro-bar-label">
-                            <span>🍞 Karbonhidrat (%45-55)</span>
-                            <span id="macro-carb">— g</span>
-                        </div>
-                        <div class="macro-bar-track">
-                            <div class="macro-bar-fill" id="macro-carb-bar" style="width:0%; background:#EAB308;"></div>
-                        </div>
-                    </div>
-                    <div class="macro-bar-row">
-                        <div class="macro-bar-label">
-                            <span>🥩 Protein (%25-30)</span>
-                            <span id="macro-protein">— g</span>
-                        </div>
-                        <div class="macro-bar-track">
-                            <div class="macro-bar-fill" id="macro-protein-bar" style="width:0%; background:#EF4444;"></div>
-                        </div>
-                    </div>
-                    <div class="macro-bar-row">
-                        <div class="macro-bar-label">
-                            <span>🥑 Yağ (%20-30)</span>
-                            <span id="macro-fat">— g</span>
-                        </div>
-                        <div class="macro-bar-track">
-                            <div class="macro-bar-fill" id="macro-fat-bar" style="width:0%; background:#22C55E;"></div>
-                        </div>
-                    </div>
-                </div>
+ <div class="macro-bars">
+ <h4 style="margin-bottom:1rem;"> Önerilen Makrobesin Dağılımı (Dengeli)</h4>
+ <div class="macro-bar-row">
+ <div class="macro-bar-label">
+ <span> Karbonhidrat (%45-55)</span>
+ <span id="macro-carb">— g</span>
+ </div>
+ <div class="macro-bar-track">
+ <div class="macro-bar-fill" id="macro-carb-bar" style="width:0%; background:#EAB308;"></div>
+ </div>
+ </div>
+ <div class="macro-bar-row">
+ <div class="macro-bar-label">
+ <span> Protein (%25-30)</span>
+ <span id="macro-protein">— g</span>
+ </div>
+ <div class="macro-bar-track">
+ <div class="macro-bar-fill" id="macro-protein-bar" style="width:0%; background:#EF4444;"></div>
+ </div>
+ </div>
+ <div class="macro-bar-row">
+ <div class="macro-bar-label">
+ <span> Yağ (%20-30)</span>
+ <span id="macro-fat">— g</span>
+ </div>
+ <div class="macro-bar-track">
+ <div class="macro-bar-fill" id="macro-fat-bar" style="width:0%; background:#22C55E;"></div>
+ </div>
+ </div>
+ </div>
 
-                <div class="goal-cards">
-                    <div class="goal-card">
-                        <h4>🔻 Kilo Vermek</h4>
-                        <div class="goal-kcal" id="goal-lose" style="color:#EF4444;">—</div>
-                        <p style="font-size:0.8rem; color:#64748B; margin:0;">kcal/gün (-500)</p>
-                    </div>
-                    <div class="goal-card" style="border-color:var(--primary);">
-                        <h4>⚖️ Kilo Korumak</h4>
-                        <div class="goal-kcal" id="goal-maintain" style="color:var(--primary);">—</div>
-                        <p style="font-size:0.8rem; color:#64748B; margin:0;">kcal/gün</p>
-                    </div>
-                    <div class="goal-card">
-                        <h4>🔺 Kilo Almak</h4>
-                        <div class="goal-kcal" id="goal-gain" style="color:#22C55E;">—</div>
-                        <p style="font-size:0.8rem; color:#64748B; margin:0;">kcal/gün (+500)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+ <div class="goal-cards">
+ <div class="goal-card">
+ <h4> Kilo Vermek</h4>
+ <div class="goal-kcal" id="goal-lose" style="color:#EF4444;">—</div>
+ <p style="font-size:0.8rem; color:#64748B; margin:0;">kcal/gün (-500)</p>
+ </div>
+ <div class="goal-card" style="border-color:var(--primary);">
+ <h4> Kilo Korumak</h4>
+ <div class="goal-kcal" id="goal-maintain" style="color:var(--primary);">—</div>
+ <p style="font-size:0.8rem; color:#64748B; margin:0;">kcal/gün</p>
+ </div>
+ <div class="goal-card">
+ <h4> Kilo Almak</h4>
+ <div class="goal-kcal" id="goal-gain" style="color:#22C55E;">—</div>
+ <p style="font-size:0.8rem; color:#64748B; margin:0;">kcal/gün (+500)</p>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <h2>Kalori Nedir ve Neden Önemlidir?</h2>
-        <p>Kalori, besinlerden elde ettiğimiz enerjinin ölçü birimidir. Teknik olarak "kilokalori" (kcal) kullanılır — 1 kcal, 1 litre suyu 1°C ısıtmak için gereken enerjidir.</p>
-        <p>Vücudunuz sürekli enerji harcar: kalbinizi çalıştırmak, nefes almak, hücreleri yenilemek, yürümek, düşünmek — bunların hepsi kalori gerektirir. Aldığınız ve harcadığınız kalori arasındaki denge, kilonuzu belirleyen temel faktördür:</p>
-        <ul>
-            <li><strong>Kalori dengesi:</strong> Aldığınız = Harcadığınız → Kilo sabit kalır</li>
-            <li><strong>Kalori açığı:</strong> Aldığınız &lt; Harcadığınız → Kilo verirsiniz</li>
-            <li><strong>Kalori fazlası:</strong> Aldığınız &gt; Harcadığınız → Kilo alırsınız</li>
-        </ul>
+ <h2>Kalori Nedir ve Neden Önemlidir?</h2>
+ <p>Kalori, besinlerden elde ettiğimiz enerjinin ölçü birimidir. Teknik olarak "kilokalori" (kcal) kullanılır — 1 kcal, 1 litre suyu 1°C ısıtmak için gereken enerjidir.</p>
+ <p>Vücudunuz sürekli enerji harcar: kalbinizi çalıştırmak, nefes almak, hücreleri yenilemek, yürümek, düşünmek — bunların hepsi kalori gerektirir. Aldığınız ve harcadığınız kalori arasındaki denge, kilonuzu belirleyen temel faktördür:</p>
+ <ul>
+ <li><strong>Kalori dengesi:</strong> Aldığınız = Harcadığınız → Kilo sabit kalır</li>
+ <li><strong>Kalori açığı:</strong> Aldığınız &lt; Harcadığınız → Kilo verirsiniz</li>
+ <li><strong>Kalori fazlası:</strong> Aldığınız &gt; Harcadığınız → Kilo alırsınız</li>
+ </ul>
 
-        <h2>TDEE (Toplam Günlük Enerji Harcaması) Nedir?</h2>
-        <p>TDEE (Total Daily Energy Expenditure), bir günde harcadığınız toplam kalori miktarıdır. Üç bileşenden oluşur:</p>
+ <h2>TDEE (Toplam Günlük Enerji Harcaması) Nedir?</h2>
+ <p>TDEE (Total Daily Energy Expenditure), bir günde harcadığınız toplam kalori miktarıdır. Üç bileşenden oluşur:</p>
 
-        <h3>1. Bazal Metabolizma Hızı (BMR) — %60-70</h3>
-        <p>Hiçbir şey yapmadan, sadece hayatta kalmak için harcadığınız enerji. Kalp, beyin, karaciğer, böbrekler ve diğer organlarınız 24 saat çalışır. Toplam harcamanızın en büyük bölümünü oluşturur.</p>
+ <h3>1. Bazal Metabolizma Hızı (BMR) — %60-70</h3>
+ <p>Hiçbir şey yapmadan, sadece hayatta kalmak için harcadığınız enerji. Kalp, beyin, karaciğer, böbrekler ve diğer organlarınız 24 saat çalışır. Toplam harcamanızın en büyük bölümünü oluşturur.</p>
 
-        <h3>2. Besinlerin Termik Etkisi (TEF) — %10</h3>
-        <p>Yediğiniz yiyecekleri sindirmek, emmek ve işlemek için harcanan enerji. Protein sindirmek en çok enerji gerektirir (%20-30), ardından karbonhidrat (%5-10) ve yağ (%0-3) gelir.</p>
+ <h3>2. Besinlerin Termik Etkisi (TEF) — %10</h3>
+ <p>Yediğiniz yiyecekleri sindirmek, emmek ve işlemek için harcanan enerji. Protein sindirmek en çok enerji gerektirir (%20-30), ardından karbonhidrat (%5-10) ve yağ (%0-3) gelir.</p>
 
-        <h3>3. Fiziksel Aktivite — %20-30</h3>
-        <p>Egzersiz ve günlük hareketler (yürüme, merdiven çıkma, ev işleri). En çok kontrol edebildiğiniz bileşendir. NEAT (Non-Exercise Activity Thermogenesis — egzersiz dışı aktivite) de bu kategoridedir.</p>
+ <h3>3. Fiziksel Aktivite — %20-30</h3>
+ <p>Egzersiz ve günlük hareketler (yürüme, merdiven çıkma, ev işleri). En çok kontrol edebildiğiniz bileşendir. NEAT (Non-Exercise Activity Thermogenesis — egzersiz dışı aktivite) de bu kategoridedir.</p>
 
-        <h2>Formüller: BMR Nasıl Hesaplanır?</h2>
-        <p>Hesaplayıcımız, bilimsel olarak en geçerli kabul edilen <strong>Mifflin-St Jeor</strong> formülünü kullanır. 2005 yılında ADA (Amerikan Diyetetik Derneği) tarafından en doğru BMR formülü olarak önerilmiştir.</p>
+ <h2>Formüller: BMR Nasıl Hesaplanır?</h2>
+ <p>Hesaplayıcımız, bilimsel olarak en geçerli kabul edilen <strong>Mifflin-St Jeor</strong> formülünü kullanır. 2005 yılında ADA (Amerikan Diyetetik Derneği) tarafından en doğru BMR formülü olarak önerilmiştir.</p>
 
-        <div style="background:#F0FDFA; padding:1.5rem; border-radius:12px; margin:1.5rem 0;">
-            <h4 style="margin-bottom:1rem;">Mifflin-St Jeor Formülü</h4>
-            <p style="margin-bottom:0.5rem;"><strong>Erkek:</strong> BMR = (10 × kilo kg) + (6.25 × boy cm) − (5 × yaş) + 5</p>
-            <p style="margin-bottom:1rem;"><strong>Kadın:</strong> BMR = (10 × kilo kg) + (6.25 × boy cm) − (5 × yaş) − 161</p>
-            <p style="margin-bottom:0;"><strong>TDEE = BMR × Aktivite Çarpanı</strong></p>
-        </div>
+ <div style="background:#F0FDFA; padding:1.5rem; border-radius:12px; margin:1.5rem 0;">
+ <h4 style="margin-bottom:1rem;">Mifflin-St Jeor Formülü</h4>
+ <p style="margin-bottom:0.5rem;"><strong>Erkek:</strong> BMR = (10 × kilo kg) + (6.25 × boy cm) − (5 × yaş) + 5</p>
+ <p style="margin-bottom:1rem;"><strong>Kadın:</strong> BMR = (10 × kilo kg) + (6.25 × boy cm) − (5 × yaş) − 161</p>
+ <p style="margin-bottom:0;"><strong>TDEE = BMR × Aktivite Çarpanı</strong></p>
+ </div>
 
-        <h3>Harris-Benedict Formülü (Alternatif)</h3>
-        <p>1919'da geliştirilip 1984'te revize edilen eski formül hâlâ yaygın kullanılır:</p>
-        <ul>
-            <li><strong>Erkek:</strong> BMR = 88.362 + (13.397 × kilo) + (4.799 × boy) − (5.677 × yaş)</li>
-            <li><strong>Kadın:</strong> BMR = 447.593 + (9.247 × kilo) + (3.098 × boy) − (4.330 × yaş)</li>
-        </ul>
-        <p>Mifflin-St Jeor formülü, obez bireylerde Harris-Benedict'ten %5 daha doğru sonuç verir — bu yüzden hesaplayıcımızda onu tercih ediyoruz.</p>
+ <h3>Harris-Benedict Formülü (Alternatif)</h3>
+ <p>1919'da geliştirilip 1984'te revize edilen eski formül hâlâ yaygın kullanılır:</p>
+ <ul>
+ <li><strong>Erkek:</strong> BMR = 88.362 + (13.397 × kilo) + (4.799 × boy) − (5.677 × yaş)</li>
+ <li><strong>Kadın:</strong> BMR = 447.593 + (9.247 × kilo) + (3.098 × boy) − (4.330 × yaş)</li>
+ </ul>
+ <p>Mifflin-St Jeor formülü, obez bireylerde Harris-Benedict'ten %5 daha doğru sonuç verir — bu yüzden hesaplayıcımızda onu tercih ediyoruz.</p>
 
-        <h3>Aktivite Çarpanları</h3>
-        <table style="width:100%; border-collapse:collapse; margin:1rem 0;" role="table" aria-label="Aktivite çarpanları">
-            <thead>
-                <tr style="background:var(--primary); color:white;">
-                    <th style="padding:0.75rem; text-align:left;">Aktivite Düzeyi</th>
-                    <th style="padding:0.75rem; text-align:center;">Çarpan</th>
-                    <th style="padding:0.75rem; text-align:left;">Açıklama</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom:1px solid var(--border);">
-                    <td style="padding:0.75rem;">Hareketsiz</td>
-                    <td style="padding:0.75rem; text-align:center;">1.2</td>
-                    <td style="padding:0.75rem;">Masa başı iş, egzersiz yok</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border); background:#F8FAFC;">
-                    <td style="padding:0.75rem;">Az aktif</td>
-                    <td style="padding:0.75rem; text-align:center;">1.375</td>
-                    <td style="padding:0.75rem;">Haftada 1-3 gün hafif egzersiz</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border);">
-                    <td style="padding:0.75rem;">Orta aktif</td>
-                    <td style="padding:0.75rem; text-align:center;">1.55</td>
-                    <td style="padding:0.75rem;">Haftada 3-5 gün orta egzersiz</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border); background:#F8FAFC;">
-                    <td style="padding:0.75rem;">Çok aktif</td>
-                    <td style="padding:0.75rem; text-align:center;">1.725</td>
-                    <td style="padding:0.75rem;">Haftada 6-7 gün yoğun egzersiz</td>
-                </tr>
-                <tr>
-                    <td style="padding:0.75rem;">Ekstra aktif</td>
-                    <td style="padding:0.75rem; text-align:center;">1.9</td>
-                    <td style="padding:0.75rem;">Günde 2 kez antrenman veya fiziksel iş</td>
-                </tr>
-            </tbody>
-        </table>
+ <h3>Aktivite Çarpanları</h3>
+ <table style="width:100%; border-collapse:collapse; margin:1rem 0;" role="table" aria-label="Aktivite çarpanları">
+ <thead>
+ <tr style="background:var(--primary); color:white;">
+ <th style="padding:0.75rem; text-align:left;">Aktivite Düzeyi</th>
+ <th style="padding:0.75rem; text-align:center;">Çarpan</th>
+ <th style="padding:0.75rem; text-align:left;">Açıklama</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr style="border-bottom:1px solid var(--border);">
+ <td style="padding:0.75rem;">Hareketsiz</td>
+ <td style="padding:0.75rem; text-align:center;">1.2</td>
+ <td style="padding:0.75rem;">Masa başı iş, egzersiz yok</td>
+ </tr>
+ <tr style="border-bottom:1px solid var(--border); background:#F8FAFC;">
+ <td style="padding:0.75rem;">Az aktif</td>
+ <td style="padding:0.75rem; text-align:center;">1.375</td>
+ <td style="padding:0.75rem;">Haftada 1-3 gün hafif egzersiz</td>
+ </tr>
+ <tr style="border-bottom:1px solid var(--border);">
+ <td style="padding:0.75rem;">Orta aktif</td>
+ <td style="padding:0.75rem; text-align:center;">1.55</td>
+ <td style="padding:0.75rem;">Haftada 3-5 gün orta egzersiz</td>
+ </tr>
+ <tr style="border-bottom:1px solid var(--border); background:#F8FAFC;">
+ <td style="padding:0.75rem;">Çok aktif</td>
+ <td style="padding:0.75rem; text-align:center;">1.725</td>
+ <td style="padding:0.75rem;">Haftada 6-7 gün yoğun egzersiz</td>
+ </tr>
+ <tr>
+ <td style="padding:0.75rem;">Ekstra aktif</td>
+ <td style="padding:0.75rem; text-align:center;">1.9</td>
+ <td style="padding:0.75rem;">Günde 2 kez antrenman veya fiziksel iş</td>
+ </tr>
+ </tbody>
+ </table>
 
-        <h2>Makrobesinler: Kalorilerinizi Nasıl Dağıtmalısınız?</h2>
-        <p>Kaloriler üç ana makrobesinden gelir. Her birinin kalori değeri farklıdır:</p>
-        <ul>
-            <li><strong>Karbonhidrat:</strong> 1 gram = 4 kcal</li>
-            <li><strong>Protein:</strong> 1 gram = 4 kcal</li>
-            <li><strong>Yağ:</strong> 1 gram = 9 kcal</li>
-        </ul>
+ <h2>Makrobesinler: Kalorilerinizi Nasıl Dağıtmalısınız?</h2>
+ <p>Kaloriler üç ana makrobesinden gelir. Her birinin kalori değeri farklıdır:</p>
+ <ul>
+ <li><strong>Karbonhidrat:</strong> 1 gram = 4 kcal</li>
+ <li><strong>Protein:</strong> 1 gram = 4 kcal</li>
+ <li><strong>Yağ:</strong> 1 gram = 9 kcal</li>
+ </ul>
 
-        <h3>Genel Öneriler</h3>
-        <ul>
-            <li><strong>Karbonhidrat (%45-55):</strong> Beynin ve kasların birincil enerji kaynağı. Tam tahıllar, meyve, sebze ve baklagilleri tercih edin.</li>
-            <li><strong>Protein (%25-30):</strong> Kas onarımı, bağışıklık ve tokluk için kritik. Kilo verirken protein oranını yüksek tutmak kas kaybını önler. Günde kg başına 1.6-2.2g hedefleyin (aktif bireyler).</li>
-            <li><strong>Yağ (%20-30):</strong> Hormon üretimi, vitamin emilimi ve hücre zarı yapısı için gerekli. Zeytinyağı, avokado, ceviz gibi doymamış yağları tercih edin.</li>
-        </ul>
+ <h3>Genel Öneriler</h3>
+ <ul>
+ <li><strong>Karbonhidrat (%45-55):</strong> Beynin ve kasların birincil enerji kaynağı. Tam tahıllar, meyve, sebze ve baklagilleri tercih edin.</li>
+ <li><strong>Protein (%25-30):</strong> Kas onarımı, bağışıklık ve tokluk için kritik. Kilo verirken protein oranını yüksek tutmak kas kaybını önler. Günde kg başına 1.6-2.2g hedefleyin (aktif bireyler).</li>
+ <li><strong>Yağ (%20-30):</strong> Hormon üretimi, vitamin emilimi ve hücre zarı yapısı için gerekli. Zeytinyağı, avokado, ceviz gibi doymamış yağları tercih edin.</li>
+ </ul>
 
-        <div class="info-box tip">
-            <h4>💡 Pratik İpucu: Tabak Yöntemi</h4>
-            <p>Makro hesabı zor geliyorsa, tabak yöntemini kullanın: Tabağınızın <strong>yarısını sebze</strong>, <strong>çeyreğini protein</strong> (et, balık, baklagil) ve <strong>çeyreğini tam tahıl</strong> ile doldurun. Yanına bir porsiyon sağlıklı yağ ekleyin.</p>
-        </div>
+ <div class="info-box tip">
+ <h4> Pratik İpucu: Tabak Yöntemi</h4>
+ <p>Makro hesabı zor geliyorsa, tabak yöntemini kullanın: Tabağınızın <strong>yarısını sebze</strong>, <strong>çeyreğini protein</strong> (et, balık, baklagil) ve <strong>çeyreğini tam tahıl</strong> ile doldurun. Yanına bir porsiyon sağlıklı yağ ekleyin.</p>
+ </div>
 
-        <h2>Kalori Açığı: Sağlıklı Kilo Verme Rehberi</h2>
-        <p>Kilo vermek için kalori açığı oluşturmanız gerekir. Ancak açığın boyutu ve hızı çok önemlidir:</p>
+ <h2>Kalori Açığı: Sağlıklı Kilo Verme Rehberi</h2>
+ <p>Kilo vermek için kalori açığı oluşturmanız gerekir. Ancak açığın boyutu ve hızı çok önemlidir:</p>
 
-        <h3>Güvenli Kalori Açığı</h3>
-        <ul>
-            <li><strong>Hafif açık (250-500 kcal/gün):</strong> Haftada 0.25-0.5 kg kayıp. Sürdürülebilir, kas kaybı minimum. <strong>Önerilen yaklaşım.</strong></li>
-            <li><strong>Orta açık (500-750 kcal/gün):</strong> Haftada 0.5-0.75 kg kayıp. Çoğu kişi için uygun.</li>
-            <li><strong>Agresif açık (750-1000 kcal/gün):</strong> Haftada 0.75-1 kg kayıp. Sadece yüksek BMI'li bireyler ve tıbbi gözetimde.</li>
-        </ul>
+ <h3>Güvenli Kalori Açığı</h3>
+ <ul>
+ <li><strong>Hafif açık (250-500 kcal/gün):</strong> Haftada 0.25-0.5 kg kayıp. Sürdürülebilir, kas kaybı minimum. <strong>Önerilen yaklaşım.</strong></li>
+ <li><strong>Orta açık (500-750 kcal/gün):</strong> Haftada 0.5-0.75 kg kayıp. Çoğu kişi için uygun.</li>
+ <li><strong>Agresif açık (750-1000 kcal/gün):</strong> Haftada 0.75-1 kg kayıp. Sadece yüksek BMI'li bireyler ve tıbbi gözetimde.</li>
+ </ul>
 
-        <div class="info-box warning">
-            <h4>⚠️ Minimum Kalori Sınırı</h4>
-            <p>Günlük kalori alımınız kadınlarda <strong>1200 kcal</strong>, erkeklerde <strong>1500 kcal</strong>'in altına düşmemelidir (tıbbi gözetim olmadan). Bu sınırın altında besin eksiklikleri, kas kaybı, metabolizma yavaşlaması ve hormonal bozukluklar riski artar.</p>
-        </div>
+ <div class="info-box warning">
+ <h4> Minimum Kalori Sınırı</h4>
+ <p>Günlük kalori alımınız kadınlarda <strong>1200 kcal</strong>, erkeklerde <strong>1500 kcal</strong>'in altına düşmemelidir (tıbbi gözetim olmadan). Bu sınırın altında besin eksiklikleri, kas kaybı, metabolizma yavaşlaması ve hormonal bozukluklar riski artar.</p>
+ </div>
 
-        <h3>Neden Çok Düşük Kalorili Diyetler Başarısız Olur?</h3>
-        <p>Vücudunuz aşırı kalori kısıtlamasına "açlık alarmı" ile yanıt verir:</p>
-        <ol>
-            <li><strong>Metabolik adaptasyon:</strong> Metabolizma hızı %15-20 yavaşlar (adaptif termogenez)</li>
-            <li><strong>Kas kaybı:</strong> Vücut enerji için kas dokusunu yıkar → metabolizma daha da yavaşlar</li>
-            <li><strong>Hormon değişiklikleri:</strong> Leptin düşer (tokluk hormonu), ghrelin artar (açlık hormonu)</li>
-            <li><strong>Yo-yo etkisi:</strong> Diyeti bırakınca verilen kilo geri alınır, hatta daha fazlası</li>
-        </ol>
+ <h3>Neden Çok Düşük Kalorili Diyetler Başarısız Olur?</h3>
+ <p>Vücudunuz aşırı kalori kısıtlamasına "açlık alarmı" ile yanıt verir:</p>
+ <ol>
+ <li><strong>Metabolik adaptasyon:</strong> Metabolizma hızı %15-20 yavaşlar (adaptif termogenez)</li>
+ <li><strong>Kas kaybı:</strong> Vücut enerji için kas dokusunu yıkar → metabolizma daha da yavaşlar</li>
+ <li><strong>Hormon değişiklikleri:</strong> Leptin düşer (tokluk hormonu), ghrelin artar (açlık hormonu)</li>
+ <li><strong>Yo-yo etkisi:</strong> Diyeti bırakınca verilen kilo geri alınır, hatta daha fazlası</li>
+ </ol>
 
-        <h2>Kalori Sayımı Yapmadan Kalori Kontrolü</h2>
-        <p>Kalori saymak herkes için pratik değildir. İşte kalori hesaplamadan porsiyon kontrolü sağlama yöntemleri:</p>
+ <h2>Kalori Sayımı Yapmadan Kalori Kontrolü</h2>
+ <p>Kalori saymak herkes için pratik değildir. İşte kalori hesaplamadan porsiyon kontrolü sağlama yöntemleri:</p>
 
-        <h3>El Yöntemi</h3>
-        <ul>
-            <li><strong>Protein:</strong> Avuç içi boyutunda (yaklaşık 100-120g pişmiş et/balık)</li>
-            <li><strong>Sebze:</strong> Yumruk boyutunda (yaklaşık 1 porsiyon)</li>
-            <li><strong>Karbonhidrat:</strong> Avuç içi boyutunda (yaklaşık 1 porsiyon pişmiş pilav/makarna)</li>
-            <li><strong>Yağ:</strong> Başparmak boyutunda (yaklaşık 1 yemek kaşığı zeytinyağı)</li>
-        </ul>
+ <h3>El Yöntemi</h3>
+ <ul>
+ <li><strong>Protein:</strong> Avuç içi boyutunda (yaklaşık 100-120g pişmiş et/balık)</li>
+ <li><strong>Sebze:</strong> Yumruk boyutunda (yaklaşık 1 porsiyon)</li>
+ <li><strong>Karbonhidrat:</strong> Avuç içi boyutunda (yaklaşık 1 porsiyon pişmiş pilav/makarna)</li>
+ <li><strong>Yağ:</strong> Başparmak boyutunda (yaklaşık 1 yemek kaşığı zeytinyağı)</li>
+ </ul>
 
-        <h3>Yemek Günlüğü</h3>
-        <p>Araştırmalar, yediklerini kaydeden kişilerin <strong>2 kat daha fazla</strong> kilo verdiğini gösteriyor (Kaiser Permanente, 2008). Kalori saymak zorunda değilsiniz — sadece ne yediğinizi yazmak bile farkındalığı artırır.</p>
+ <h3>Yemek Günlüğü</h3>
+ <p>Araştırmalar, yediklerini kaydeden kişilerin <strong>2 kat daha fazla</strong> kilo verdiğini gösteriyor (Kaiser Permanente, 2008). Kalori saymak zorunda değilsiniz — sadece ne yediğinizi yazmak bile farkındalığı artırır.</p>
 
-        <div class="info-box tip">
-            <h4>🎯 Başlangıç Stratejisi</h4>
-            <p>İlk 2 hafta sadece ne yediğinizi kaydedin (hiçbir şeyi değiştirmeyin). Bu "farkındalık dönemi", alışkanlıklarınızı görmenizi sağlar. Ardından küçük değişikliklerle başlayın: şekerli içecekleri suyla değiştirmek bile günde 200-300 kcal tasarruf sağlayabilir.</p>
-        </div>
+ <div class="info-box tip">
+ <h4> Başlangıç Stratejisi</h4>
+ <p>İlk 2 hafta sadece ne yediğinizi kaydedin (hiçbir şeyi değiştirmeyin). Bu "farkındalık dönemi", alışkanlıklarınızı görmenizi sağlar. Ardından küçük değişikliklerle başlayın: şekerli içecekleri suyla değiştirmek bile günde 200-300 kcal tasarruf sağlayabilir.</p>
+ </div>
 
-        <h2>Sık Yapılan Hatalar</h2>
-        <ol>
-            <li><strong>"Sağlıklı" etiketine güvenmek:</strong> Granola, meyve suyu, kuru meyve — bunlar sağlıklı olabilir ama kalorisi yüksektir. Sağlıklı ≠ kalorisiz.</li>
-            <li><strong>Sıvı kalorileri unutmak:</strong> Çay/kahveye eklenen şeker, meyve suları, meşrubatlar, alkol — sıvı kaloriler tokluk sağlamaz ama birikir.</li>
-            <li><strong>Hafta sonu patlamaları:</strong> 5 gün disiplin, 2 gün aşırı yemek = haftalık açığınızı sıfırlayabilir.</li>
-            <li><strong>Egzersiz kalorilerini abartmak:</strong> "Spor yaptım, hak ettim" düşüncesi. 30 dk koşu ≈ 300 kcal, ama bir hamburger ≈ 600 kcal.</li>
-            <li><strong>Öğün atlamak:</strong> Araştırmalar, öğün atlayanlarda sonraki öğünlerde aşırı yeme eğiliminin arttığını gösteriyor.</li>
-        </ol>
+ <h2>Sık Yapılan Hatalar</h2>
+ <ol>
+ <li><strong>"Sağlıklı" etiketine güvenmek:</strong> Granola, meyve suyu, kuru meyve — bunlar sağlıklı olabilir ama kalorisi yüksektir. Sağlıklı ≠ kalorisiz.</li>
+ <li><strong>Sıvı kalorileri unutmak:</strong> Çay/kahveye eklenen şeker, meyve suları, meşrubatlar, alkol — sıvı kaloriler tokluk sağlamaz ama birikir.</li>
+ <li><strong>Hafta sonu patlamaları:</strong> 5 gün disiplin, 2 gün aşırı yemek = haftalık açığınızı sıfırlayabilir.</li>
+ <li><strong>Egzersiz kalorilerini abartmak:</strong> "Spor yaptım, hak ettim" düşüncesi. 30 dk koşu ≈ 300 kcal, ama bir hamburger ≈ 600 kcal.</li>
+ <li><strong>Öğün atlamak:</strong> Araştırmalar, öğün atlayanlarda sonraki öğünlerde aşırı yeme eğiliminin arttığını gösteriyor.</li>
+ </ol>
 
-        <div class="sources">
-            <h4>📚 Kaynaklar ve Referanslar</h4>
-            <ol>
-                <li>Mifflin MD, et al. "A new predictive equation for resting energy expenditure in healthy individuals." American Journal of Clinical Nutrition, 1990;51(2):241-247.</li>
-                <li>Harris JA, Benedict FG. "A Biometric Study of Human Basal Metabolism." PNAS, 1918;4(12):370-373.</li>
-                <li>Frankenfield D, et al. "Comparison of predictive equations for resting metabolic rate." Journal of the American Dietetic Association, 2005;105(5):775-789.</li>
-                <li>Hall KD, et al. "Energy balance and its components." American Journal of Clinical Nutrition, 2012;95(4):989-994.</li>
-                <li>Helms ER, et al. "Evidence-based recommendations for natural bodybuilding contest preparation." Journal of the International Society of Sports Nutrition, 2014;11:20.</li>
-                <li>Hollis JF, et al. "Weight Loss During the Intensive Intervention Phase of the Weight-Loss Maintenance Trial." American Journal of Preventive Medicine, 2008;35(2):118-126.</li>
-                <li>Rosenbaum M, Leibel RL. "Adaptive thermogenesis in humans." International Journal of Obesity, 2010;34:S47-S55.</li>
-                <li>Jéquier E. "Pathways to obesity." International Journal of Obesity, 2002;26:S12-S17.</li>
-            </ol>
-        </div>
+ <div class="sources">
+ <h4> Kaynaklar ve Referanslar</h4>
+ <ol>
+ <li>Mifflin MD, et al. "A new predictive equation for resting energy expenditure in healthy individuals." American Journal of Clinical Nutrition, 1990;51(2):241-247.</li>
+ <li>Harris JA, Benedict FG. "A Biometric Study of Human Basal Metabolism." PNAS, 1918;4(12):370-373.</li>
+ <li>Frankenfield D, et al. "Comparison of predictive equations for resting metabolic rate." Journal of the American Dietetic Association, 2005;105(5):775-789.</li>
+ <li>Hall KD, et al. "Energy balance and its components." American Journal of Clinical Nutrition, 2012;95(4):989-994.</li>
+ <li>Helms ER, et al. "Evidence-based recommendations for natural bodybuilding contest preparation." Journal of the International Society of Sports Nutrition, 2014;11:20.</li>
+ <li>Hollis JF, et al. "Weight Loss During the Intensive Intervention Phase of the Weight-Loss Maintenance Trial." American Journal of Preventive Medicine, 2008;35(2):118-126.</li>
+ <li>Rosenbaum M, Leibel RL. "Adaptive thermogenesis in humans." International Journal of Obesity, 2010;34:S47-S55.</li>
+ <li>Jéquier E. "Pathways to obesity." International Journal of Obesity, 2002;26:S12-S17.</li>
+ </ol>
+ </div>
 
-        <div class="guide-cta">
-            <h3>Kişisel beslenme planınızı oluşturun</h3>
-            <p>Kalori ihtiyacınızı öğrendiniz. Şimdi size özel beslenme önerileri alın.</p>
-            <a href="../test.html" class="cta-btn">Teste Başla →</a>
-        </div>
-    </main>
+ <div class="guide-cta">
+ <h3>Kişisel beslenme planınızı oluşturun</h3>
+ <p>Kalori ihtiyacınızı öğrendiniz. Şimdi size özel beslenme önerileri alın.</p>
+ <a href="../test.html" class="cta-btn">Teste Başla →</a>
+ </div>
+ </main>
 
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="../../index.html"><img src="../../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
-                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Keşfet</h4>
-                    <a href="../beslenme.html">Beslenme</a>
-                    <a href="../egzersiz.html">Egzersiz</a>
-                    <a href="../uyku-stres.html">Uyku & Stres</a>
-                    <a href="../tedavi.html">Tedavi Seçenekleri</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Araçlar</h4>
-                    <a href="bana-ne-uygun.html">Bana Ne Uygun?</a>
-                    <a href="bmi-hesaplayici.html">BMI Hesaplayıcı</a>
-                    <a href="kalori-hesaplayici.html">Kalori Hesaplayıcı</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Hakkımızda</h4>
-                    <a href="../hakkimizda.html">Ekibimiz</a>
-                    <a href="../bilim.html">Bilimsel Yaklaşım</a>
-                    <a href="../hakkimizda.html#iletisim">İletişim</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
-                <span>Gizlilik Politikası | Kullanım Koşulları</span>
-            </div>
-        </div>
-    </footer>
+ <footer class="footer">
+ <div class="footer-inner">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="../../index.html"><img src="../../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
+ <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Keşfet</h4>
+ <a href="../beslenme.html">Beslenme</a>
+ <a href="../egzersiz.html">Egzersiz</a>
+ <a href="../uyku-stres.html">Uyku & Stres</a>
+ <a href="../tedavi.html">Tedavi Seçenekleri</a>
+ </div>
+ <div class="footer-col">
+ <h4>Araçlar</h4>
+ <a href="bana-ne-uygun.html">Bana Ne Uygun?</a>
+ <a href="bmi-hesaplayici.html">BMI Hesaplayıcı</a>
+ <a href="kalori-hesaplayici.html">Kalori Hesaplayıcı</a>
+ </div>
+ <div class="footer-col">
+ <h4>Hakkımızda</h4>
+ <a href="../hakkimizda.html">Ekibimiz</a>
+ <a href="../bilim.html">Bilimsel Yaklaşım</a>
+ <a href="../hakkimizda.html#iletisim">İletişim</a>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+ <span>Gizlilik Politikası | Kullanım Koşulları</span>
+ </div>
+ </div>
+ </footer>
 
-    <script>
-        function calculateCalories() {
-            const gender = document.getElementById('cal-gender').value;
-            const age = parseInt(document.getElementById('cal-age').value);
-            const weight = parseFloat(document.getElementById('cal-weight').value);
-            const height = parseFloat(document.getElementById('cal-height').value);
-            const activity = parseFloat(document.getElementById('cal-activity').value);
+ <script>
+ function calculateCalories() {
+ const gender = document.getElementById('cal-gender').value;
+ const age = parseInt(document.getElementById('cal-age').value);
+ const weight = parseFloat(document.getElementById('cal-weight').value);
+ const height = parseFloat(document.getElementById('cal-height').value);
+ const activity = parseFloat(document.getElementById('cal-activity').value);
 
-            if (!age || !weight || !height || age < 15 || age > 100 || weight < 30 || weight > 300 || height < 100 || height > 250) {
-                alert('Lütfen geçerli değerler girin.');
-                return;
-            }
+ if (!age || !weight || !height || age < 15 || age > 100 || weight < 30 || weight > 300 || height < 100 || height > 250) {
+ alert('Lütfen geçerli değerler girin.');
+ return;
+ }
 
-            // Mifflin-St Jeor
-            let bmr;
-            if (gender === 'male') {
-                bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
-            } else {
-                bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
-            }
+ // Mifflin-St Jeor
+ let bmr;
+ if (gender === 'male') {
+ bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+ } else {
+ bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+ }
 
-            const tdee = Math.round(bmr * activity);
-            const bmrRound = Math.round(bmr);
-            const weekly = Math.round(tdee * 7);
+ const tdee = Math.round(bmr * activity);
+ const bmrRound = Math.round(bmr);
+ const weekly = Math.round(tdee * 7);
 
-            document.getElementById('res-bmr').textContent = bmrRound.toLocaleString('tr-TR');
-            document.getElementById('res-tdee').textContent = tdee.toLocaleString('tr-TR');
-            document.getElementById('res-weekly').textContent = weekly.toLocaleString('tr-TR');
+ document.getElementById('res-bmr').textContent = bmrRound.toLocaleString('tr-TR');
+ document.getElementById('res-tdee').textContent = tdee.toLocaleString('tr-TR');
+ document.getElementById('res-weekly').textContent = weekly.toLocaleString('tr-TR');
 
-            // Macros (50% carb, 25% protein, 25% fat)
-            const carbCal = tdee * 0.50;
-            const proteinCal = tdee * 0.25;
-            const fatCal = tdee * 0.25;
-            const carbG = Math.round(carbCal / 4);
-            const proteinG = Math.round(proteinCal / 4);
-            const fatG = Math.round(fatCal / 9);
+ // Macros (50% carb, 25% protein, 25% fat)
+ const carbCal = tdee * 0.50;
+ const proteinCal = tdee * 0.25;
+ const fatCal = tdee * 0.25;
+ const carbG = Math.round(carbCal / 4);
+ const proteinG = Math.round(proteinCal / 4);
+ const fatG = Math.round(fatCal / 9);
 
-            document.getElementById('macro-carb').textContent = carbG + ' g (' + Math.round(carbCal) + ' kcal)';
-            document.getElementById('macro-protein').textContent = proteinG + ' g (' + Math.round(proteinCal) + ' kcal)';
-            document.getElementById('macro-fat').textContent = fatG + ' g (' + Math.round(fatCal) + ' kcal)';
+ document.getElementById('macro-carb').textContent = carbG + ' g (' + Math.round(carbCal) + ' kcal)';
+ document.getElementById('macro-protein').textContent = proteinG + ' g (' + Math.round(proteinCal) + ' kcal)';
+ document.getElementById('macro-fat').textContent = fatG + ' g (' + Math.round(fatCal) + ' kcal)';
 
-            document.getElementById('macro-carb-bar').style.width = '50%';
-            document.getElementById('macro-protein-bar').style.width = '25%';
-            document.getElementById('macro-fat-bar').style.width = '25%';
+ document.getElementById('macro-carb-bar').style.width = '50%';
+ document.getElementById('macro-protein-bar').style.width = '25%';
+ document.getElementById('macro-fat-bar').style.width = '25%';
 
-            // Goal cards
-            document.getElementById('goal-lose').textContent = (tdee - 500).toLocaleString('tr-TR');
-            document.getElementById('goal-maintain').textContent = tdee.toLocaleString('tr-TR');
-            document.getElementById('goal-gain').textContent = (tdee + 500).toLocaleString('tr-TR');
+ // Goal cards
+ document.getElementById('goal-lose').textContent = (tdee - 500).toLocaleString('tr-TR');
+ document.getElementById('goal-maintain').textContent = tdee.toLocaleString('tr-TR');
+ document.getElementById('goal-gain').textContent = (tdee + 500).toLocaleString('tr-TR');
 
-            document.getElementById('cal-result').style.display = 'block';
-            document.getElementById('cal-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-    </script>
-    <script src="../../scripts/content-page.js" defer></script>
+ document.getElementById('cal-result').style.display = 'block';
+ document.getElementById('cal-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+ }
+ </script>
+ <script src="../../scripts/content-page.js" defer></script>
 </body>
 </html>

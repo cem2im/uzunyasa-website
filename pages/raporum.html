@@ -64,7 +64,7 @@ body{background:#fff!important}
 </head>
 <body>
 <header class="page-header">
-<h1>📊 Kişisel Sağlık Profilim</h1>
+<h1> Kişisel Sağlık Profilim</h1>
 <p>Bilgilerinizi girin, kişiselleştirilmiş sağlık raporunuzu hemen oluşturun.</p>
 </header>
 <div class="container">
@@ -78,13 +78,13 @@ body{background:#fff!important}
 <div class="form-group"><label for="activity">Aktivite Düzeyi</label><select id="activity" required><option value="">Seçiniz</option><option value="1.2">Hareketsiz (masa başı)</option><option value="1.375">Hafif aktif (haftada 1-3 gün)</option><option value="1.55">Orta aktif (haftada 3-5 gün)</option><option value="1.725">Çok aktif (haftada 6-7 gün)</option><option value="1.9">Ekstra aktif (günde 2 kez)</option></select></div>
 <div class="form-group"><label for="goal">Hedefiniz</label><select id="goal" required><option value="">Seçiniz</option><option value="lose">Kilo vermek</option><option value="maintain">Kiloyu korumak</option><option value="gain">Kilo almak</option><option value="health">Genel sağlık</option></select></div>
 </div>
-<button type="submit" class="generate-btn">📋 Raporumu Oluştur</button>
+<button type="submit" class="generate-btn"> Raporumu Oluştur</button>
 </form>
 </div>
 
 <div id="report">
 <div class="report-section">
-<h2>⚖️ Vücut Kitle İndeksi (BMI)</h2>
+<h2> Vücut Kitle İndeksi (BMI)</h2>
 <div class="bmi-display">
 <div class="bmi-value" id="bmiValue"></div>
 <div class="bmi-label" id="bmiLabel"></div>
@@ -93,7 +93,7 @@ body{background:#fff!important}
 </div>
 </div>
 <div class="report-section">
-<h2>🔥 Günlük Kalori İhtiyacı</h2>
+<h2> Günlük Kalori İhtiyacı</h2>
 <div class="stat-grid">
 <div class="stat-box"><div class="val" id="bmrVal"></div><div class="lbl">Bazal Metabolizma (BMR)</div></div>
 <div class="stat-box"><div class="val" id="tdeeVal"></div><div class="lbl">Günlük Kalori (TDEE)</div></div>
@@ -102,18 +102,18 @@ body{background:#fff!important}
 </div>
 </div>
 <div class="report-section">
-<h2>🏥 Tedavi Uygunluk Değerlendirmesi</h2>
+<h2> Tedavi Uygunluk Değerlendirmesi</h2>
 <div id="treatmentAssess"></div>
 </div>
 <div class="report-section">
-<h2>🥗 Beslenme Önerileri</h2>
+<h2> Beslenme Önerileri</h2>
 <ul class="tip-list" id="nutritionTips"></ul>
 </div>
 <div class="report-section">
-<h2>🏋️ Egzersiz Önerileri</h2>
+<h2> Egzersiz Önerileri</h2>
 <ul class="tip-list" id="exerciseTips"></ul>
 </div>
-<button class="print-btn no-print" onclick="window.print()">🖨️ Yazdır / PDF Olarak Kaydet</button>
+<button class="print-btn no-print" onclick="window.print()"> Yazdır / PDF Olarak Kaydet</button>
 </div>
 </div>
 
@@ -162,36 +162,36 @@ document.getElementById('proteinVal').textContent=protein+' g';
 
 // Treatment assessment
 let treatHtml='';
-if(bmi>=40)treatHtml='<p style="color:var(--danger);font-weight:600">⚠️ BMI değeriniz 40 üzerinde. Bariatrik cerrahi dahil tüm tedavi seçenekleri değerlendirilmelidir. Mutlaka bir obezite uzmanına başvurun.</p>';
-else if(bmi>=35)treatHtml='<p style="color:var(--accent);font-weight:600">⚠️ BMI değeriniz 35-40 arasında. GLP-1 agonistleri ve diğer medikal tedaviler sizin için uygun olabilir. Bir endokrinolog ile görüşmenizi öneririz.</p>';
+if(bmi>=40)treatHtml='<p style="color:var(--danger);font-weight:600"> BMI değeriniz 40 üzerinde. Bariatrik cerrahi dahil tüm tedavi seçenekleri değerlendirilmelidir. Mutlaka bir obezite uzmanına başvurun.</p>';
+else if(bmi>=35)treatHtml='<p style="color:var(--accent);font-weight:600"> BMI değeriniz 35-40 arasında. GLP-1 agonistleri ve diğer medikal tedaviler sizin için uygun olabilir. Bir endokrinolog ile görüşmenizi öneririz.</p>';
 else if(bmi>=30)treatHtml='<p style="color:var(--warning);font-weight:600">BMI değeriniz 30 üzerinde. Yaşam tarzı değişiklikleri ile birlikte medikal tedavi seçenekleri değerlendirilebilir.</p>';
 else if(bmi>=25)treatHtml='<p style="color:var(--text)">BMI değeriniz fazla kilolu aralığında. Beslenme düzenlemesi ve düzenli egzersiz ile hedeflerinize ulaşabilirsiniz.</p>';
-else treatHtml='<p style="color:var(--success)">✅ BMI değeriniz normal aralıkta. Sağlıklı yaşam alışkanlıklarınızı sürdürmeye devam edin.</p>';
+else treatHtml='<p style="color:var(--success)"> BMI değeriniz normal aralıkta. Sağlıklı yaşam alışkanlıklarınızı sürdürmeye devam edin.</p>';
 treatHtml+='<p style="margin-top:.75rem;font-size:.85rem;color:var(--text-light)">Bu değerlendirme bilgilendirme amaçlıdır. Tedavi kararları mutlaka bir hekim gözetiminde alınmalıdır.</p>';
 document.getElementById('treatmentAssess').innerHTML=treatHtml;
 
 // Nutrition tips
 const nTips=[];
 if(goal==='lose'){
-nTips.push({i:'🥗',t:'Öğünlerinizin yarısını sebzelerle doldurun'},{i:'💧',t:'Günde en az 2.5 litre su için — yemeklerden 30 dk önce 1 bardak'},{i:'🚫',t:'İşlenmiş gıda ve şekerli içecekleri minimuma indirin'},{i:'⏰',t:'Son öğününüzü yatmadan en az 3 saat önce yiyin'});
+nTips.push({i:'',t:'Öğünlerinizin yarısını sebzelerle doldurun'},{i:'',t:'Günde en az 2.5 litre su için — yemeklerden 30 dk önce 1 bardak'},{i:'',t:'İşlenmiş gıda ve şekerli içecekleri minimuma indirin'},{i:'⏰',t:'Son öğününüzü yatmadan en az 3 saat önce yiyin'});
 }else if(goal==='gain'){
-nTips.push({i:'🥜',t:'Sağlıklı yağlar ekleyin: avokado, kuruyemiş, zeytinyağı'},{i:'🍗',t:'Her öğünde yeterli protein alın ('+protein+' g/gün hedefi)'},{i:'🍌',t:'Ara öğünleri atlamamaya özen gösterin'},{i:'🥛',t:'Kalori yoğun ama besleyici atıştırmalıklar tercih edin'});
+nTips.push({i:'',t:'Sağlıklı yağlar ekleyin: avokado, kuruyemiş, zeytinyağı'},{i:'',t:'Her öğünde yeterli protein alın ('+protein+' g/gün hedefi)'},{i:'',t:'Ara öğünleri atlamamaya özen gösterin'},{i:'',t:'Kalori yoğun ama besleyici atıştırmalıklar tercih edin'});
 }else{
-nTips.push({i:'🌈',t:'Tabağınızda renk çeşitliliği sağlayın — her renk farklı besin'},{i:'🐟',t:'Haftada en az 2 kez balık tüketin (Omega-3)'},{i:'🫘',t:'Lif alımınızı artırın: baklagiller, tam tahıllar, sebzeler'},{i:'🧂',t:'Tuz tüketimini günde 5 gramın altında tutun'});
+nTips.push({i:'',t:'Tabağınızda renk çeşitliliği sağlayın — her renk farklı besin'},{i:'',t:'Haftada en az 2 kez balık tüketin (Omega-3)'},{i:'',t:'Lif alımınızı artırın: baklagiller, tam tahıllar, sebzeler'},{i:'',t:'Tuz tüketimini günde 5 gramın altında tutun'});
 }
-nTips.push({i:'📊',t:'Günlük hedef kaloriniz: <strong>'+targetCalories+' kcal</strong>'});
+nTips.push({i:'',t:'Günlük hedef kaloriniz: <strong>'+targetCalories+' kcal</strong>'});
 document.getElementById('nutritionTips').innerHTML=nTips.map(t=>`<li><span class="icon">${t.i}</span><span>${t.t}</span></li>`).join('');
 
 // Exercise tips
 const eTips=[];
 if(bmi>=35){
-eTips.push({i:'🚶',t:'Günde 20-30 dakika tempolu yürüyüş ile başlayın'},{i:'🏊',t:'Eklem dostu aktiviteler: yüzme, su aerobiği, bisiklet'},{i:'🧘',t:'Esneklik için haftada 2-3 gün yoga veya pilates'});
+eTips.push({i:'',t:'Günde 20-30 dakika tempolu yürüyüş ile başlayın'},{i:'',t:'Eklem dostu aktiviteler: yüzme, su aerobiği, bisiklet'},{i:'',t:'Esneklik için haftada 2-3 gün yoga veya pilates'});
 }else if(bmi>=25){
-eTips.push({i:'🏃',t:'Haftada 150 dakika orta yoğunlukta kardio (yürüyüş, bisiklet)'},{i:'💪',t:'Haftada 2-3 gün kuvvet antrenmanı — kas kütlesi metabolizmayı hızlandırır'},{i:'🧘',t:'Esneklik ve denge egzersizleri eklemeyi unutmayın'});
+eTips.push({i:'',t:'Haftada 150 dakika orta yoğunlukta kardio (yürüyüş, bisiklet)'},{i:'',t:'Haftada 2-3 gün kuvvet antrenmanı — kas kütlesi metabolizmayı hızlandırır'},{i:'',t:'Esneklik ve denge egzersizleri eklemeyi unutmayın'});
 }else{
-eTips.push({i:'🏋️',t:'Haftada 3-4 gün kuvvet antrenmanı + 2 gün kardio'},{i:'🏃',t:'HIIT antrenmanları metabolizmayı güçlü şekilde artırır'},{i:'🧘',t:'Toparlanma günlerinde yoga veya yürüyüş yapın'});
+eTips.push({i:'',t:'Haftada 3-4 gün kuvvet antrenmanı + 2 gün kardio'},{i:'',t:'HIIT antrenmanları metabolizmayı güçlü şekilde artırır'},{i:'',t:'Toparlanma günlerinde yoga veya yürüyüş yapın'});
 }
-eTips.push({i:'📱',t:'Günde en az 8.000 adım hedefleyin'},{i:'😴',t:'Egzersiz sonrası yeterli uyku alın (7-9 saat)'});
+eTips.push({i:'',t:'Günde en az 8.000 adım hedefleyin'},{i:'',t:'Egzersiz sonrası yeterli uyku alın (7-9 saat)'});
 document.getElementById('exerciseTips').innerHTML=eTips.map(t=>`<li><span class="icon">${t.i}</span><span>${t.t}</span></li>`).join('');
 
 document.getElementById('report').style.display='block';

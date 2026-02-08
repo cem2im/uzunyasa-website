@@ -4,1036 +4,1036 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QBM7E0EHFP');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sağlık Hesaplayıcıları | UzunYaşa</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/hub-upgrade.css">
-    <style>
-        .tool-nav {
-            background: var(--bg-white);
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--border-light);
-            position: sticky;
-            top: 85px;
-            z-index: 100;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Sağlık Hesaplayıcıları | UzunYaşa</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../styles/main.css">
+ <link rel="stylesheet" href="../styles/hub-upgrade.css">
+ <style>
+ .tool-nav {
+ background: var(--bg-white);
+ padding: 1.5rem 2rem;
+ border-bottom: 1px solid var(--border-light);
+ position: sticky;
+ top: 85px;
+ z-index: 100;
+ }
 
-        .tool-nav-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
+ .tool-nav-inner {
+ max-width: 800px;
+ margin: 0 auto;
+ display: flex;
+ gap: 1rem;
+ justify-content: center;
+ }
 
-        .tool-nav-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 30px;
-            border: 2px solid var(--border-light);
-            background: white;
-            color: var(--text-gray);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.95rem;
-        }
+ .tool-nav-btn {
+ padding: 0.75rem 1.5rem;
+ border-radius: 30px;
+ border: 2px solid var(--border-light);
+ background: white;
+ color: var(--text-gray);
+ font-weight: 600;
+ cursor: pointer;
+ transition: all 0.2s;
+ font-size: 0.95rem;
+ }
 
-        .tool-nav-btn:hover, .tool-nav-btn.active {
-            border-color: var(--primary-teal);
-            color: var(--primary-teal);
-        }
+ .tool-nav-btn:hover, .tool-nav-btn.active {
+ border-color: var(--primary-teal);
+ color: var(--primary-teal);
+ }
 
-        .tool-nav-btn.active {
-            background: var(--primary-teal);
-            color: white;
-        }
+ .tool-nav-btn.active {
+ background: var(--primary-teal);
+ color: white;
+ }
 
-        .calculator-section {
-            padding: 4rem 2rem;
-            display: none;
-        }
+ .calculator-section {
+ padding: 4rem 2rem;
+ display: none;
+ }
 
-        .calculator-section.active { display: block; }
+ .calculator-section.active { display: block; }
 
-        .calculator-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+ .calculator-container {
+ max-width: 900px;
+ margin: 0 auto;
+ }
 
-        .calc-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--primary-teal);
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
+ .calc-title {
+ font-size: 1.75rem;
+ font-weight: 700;
+ color: var(--primary-teal);
+ margin-bottom: 0.5rem;
+ text-align: center;
+ }
 
-        .calc-subtitle {
-            color: var(--text-gray);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+ .calc-subtitle {
+ color: var(--text-gray);
+ text-align: center;
+ margin-bottom: 2rem;
+ }
 
-        .calc-card {
-            background: var(--bg-white);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-light);
-        }
+ .calc-card {
+ background: var(--bg-white);
+ border-radius: 20px;
+ padding: 2.5rem;
+ box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+ border: 1px solid var(--border-light);
+ }
 
-        .calc-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
+ .calc-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 1.5rem;
+ margin-bottom: 2rem;
+ }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+ .form-group {
+ display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
+ }
 
-        .form-group.full { grid-column: 1 / -1; }
+ .form-group.full { grid-column: 1 / -1; }
 
-        .form-group label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
+ .form-group label {
+ font-weight: 600;
+ font-size: 0.9rem;
+ color: var(--text-dark);
+ }
 
-        .form-group input, .form-group select {
-            padding: 0.875rem 1rem;
-            border: 2px solid var(--border-light);
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-            font-family: inherit;
-        }
+ .form-group input, .form-group select {
+ padding: 0.875rem 1rem;
+ border: 2px solid var(--border-light);
+ border-radius: 10px;
+ font-size: 1rem;
+ transition: border-color 0.2s;
+ font-family: inherit;
+ }
 
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-teal);
-        }
+ .form-group input:focus, .form-group select:focus {
+ outline: none;
+ border-color: var(--primary-teal);
+ }
 
-        .form-hint {
-            font-size: 0.8rem;
-            color: var(--text-gray);
-        }
+ .form-hint {
+ font-size: 0.8rem;
+ color: var(--text-gray);
+ }
 
-        .calc-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
+ .calc-btn {
+ width: 100%;
+ padding: 1rem;
+ background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+ color: white;
+ border: none;
+ border-radius: 10px;
+ font-size: 1.1rem;
+ font-weight: 600;
+ cursor: pointer;
+ transition: all 0.2s;
+ }
 
-        .calc-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(232, 150, 62, 0.4);
-        }
+ .calc-btn:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 5px 20px rgba(232, 150, 62, 0.4);
+ }
 
-        .result-box {
-            margin-top: 2rem;
-            padding: 2rem;
-            background: var(--bg-cream);
-            border-radius: 16px;
-            display: none;
-        }
+ .result-box {
+ margin-top: 2rem;
+ padding: 2rem;
+ background: var(--bg-cream);
+ border-radius: 16px;
+ display: none;
+ }
 
-        .result-box.show { display: block; }
+ .result-box.show { display: block; }
 
-        .result-main {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+ .result-main {
+ text-align: center;
+ margin-bottom: 2rem;
+ }
 
-        .result-value {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--primary-teal);
-            line-height: 1;
-        }
+ .result-value {
+ font-size: 4rem;
+ font-weight: 700;
+ color: var(--primary-teal);
+ line-height: 1;
+ }
 
-        .result-label {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-top: 0.5rem;
-        }
+ .result-label {
+ font-size: 1.1rem;
+ color: var(--text-gray);
+ margin-top: 0.5rem;
+ }
 
-        .result-category {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-top: 1rem;
-            font-size: 0.95rem;
-        }
+ .result-category {
+ display: inline-block;
+ padding: 0.5rem 1.5rem;
+ border-radius: 30px;
+ font-weight: 600;
+ margin-top: 1rem;
+ font-size: 0.95rem;
+ }
 
-        .result-category.underweight { background: #DBEAFE; color: #1E40AF; }
-        .result-category.normal { background: #D1FAE5; color: #065F46; }
-        .result-category.overweight { background: #FEF3C7; color: #92400E; }
-        .result-category.obese { background: #FEE2E2; color: #991B1B; }
+ .result-category.underweight { background: #DBEAFE; color: #1E40AF; }
+ .result-category.normal { background: #D1FAE5; color: #065F46; }
+ .result-category.overweight { background: #FEF3C7; color: #92400E; }
+ .result-category.obese { background: #FEE2E2; color: #991B1B; }
 
-        .bmi-scale {
-            margin: 2rem 0;
-        }
+ .bmi-scale {
+ margin: 2rem 0;
+ }
 
-        .scale-bar {
-            height: 24px;
-            border-radius: 12px;
-            background: linear-gradient(to right, 
-                #3B82F6 0%, #3B82F6 18%,
-                #10B981 18%, #10B981 40%,
-                #F59E0B 40%, #F59E0B 60%,
-                #EF4444 60%, #EF4444 100%
-            );
-            position: relative;
-            margin-bottom: 0.5rem;
-        }
+ .scale-bar {
+ height: 24px;
+ border-radius: 12px;
+ background: linear-gradient(to right, 
+ #3B82F6 0%, #3B82F6 18%,
+ #10B981 18%, #10B981 40%,
+ #F59E0B 40%, #F59E0B 60%,
+ #EF4444 60%, #EF4444 100%
+ );
+ position: relative;
+ margin-bottom: 0.5rem;
+ }
 
-        .scale-marker {
-            position: absolute;
-            top: -8px;
-            width: 4px;
-            height: 40px;
-            background: var(--text-dark);
-            border-radius: 2px;
-            transform: translateX(-50%);
-            transition: left 0.5s ease;
-        }
+ .scale-marker {
+ position: absolute;
+ top: -8px;
+ width: 4px;
+ height: 40px;
+ background: var(--text-dark);
+ border-radius: 2px;
+ transform: translateX(-50%);
+ transition: left 0.5s ease;
+ }
 
-        .scale-marker::after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 10px solid var(--text-dark);
-        }
+ .scale-marker::after {
+ content: '';
+ position: absolute;
+ top: -8px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 0;
+ height: 0;
+ border-left: 8px solid transparent;
+ border-right: 8px solid transparent;
+ border-top: 10px solid var(--text-dark);
+ }
 
-        .scale-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            color: var(--text-gray);
-            padding: 0 0.5rem;
-        }
+ .scale-labels {
+ display: flex;
+ justify-content: space-between;
+ font-size: 0.75rem;
+ color: var(--text-gray);
+ padding: 0 0.5rem;
+ }
 
-        .scale-legend {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
+ .scale-legend {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 0.5rem;
+ margin-top: 1rem;
+ }
 
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8rem;
-        }
+ .legend-item {
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ font-size: 0.8rem;
+ }
 
-        .legend-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
+ .legend-dot {
+ width: 12px;
+ height: 12px;
+ border-radius: 50%;
+ }
 
-        .legend-dot.blue { background: #3B82F6; }
-        .legend-dot.green { background: #10B981; }
-        .legend-dot.yellow { background: #F59E0B; }
-        .legend-dot.red { background: #EF4444; }
+ .legend-dot.blue { background: #3B82F6; }
+ .legend-dot.green { background: #10B981; }
+ .legend-dot.yellow { background: #F59E0B; }
+ .legend-dot.red { background: #EF4444; }
 
-        .how-to-use {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: var(--bg-white);
-            border-radius: 16px;
-            border: 1px solid var(--border-light);
-        }
+ .how-to-use {
+ margin-top: 3rem;
+ padding: 2rem;
+ background: var(--bg-white);
+ border-radius: 16px;
+ border: 1px solid var(--border-light);
+ }
 
-        .how-to-use h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--primary-teal);
-        }
+ .how-to-use h3 {
+ font-size: 1.25rem;
+ margin-bottom: 1rem;
+ color: var(--primary-teal);
+ }
 
-        .how-to-use ol {
-            padding-left: 1.5rem;
-            color: var(--text-gray);
-        }
+ .how-to-use ol {
+ padding-left: 1.5rem;
+ color: var(--text-gray);
+ }
 
-        .how-to-use li {
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
-        }
+ .how-to-use li {
+ margin-bottom: 0.75rem;
+ line-height: 1.6;
+ }
 
-        .risk-info {
-            margin-top: 2rem;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
+ .risk-info {
+ margin-top: 2rem;
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1rem;
+ }
 
-        .risk-card {
-            padding: 1.25rem;
-            border-radius: 12px;
-            border: 1px solid;
-        }
+ .risk-card {
+ padding: 1.25rem;
+ border-radius: 12px;
+ border: 1px solid;
+ }
 
-        .risk-card.low {
-            background: #D1FAE5;
-            border-color: #10B981;
-        }
+ .risk-card.low {
+ background: #D1FAE5;
+ border-color: #10B981;
+ }
 
-        .risk-card.moderate {
-            background: #FEF3C7;
-            border-color: #F59E0B;
-        }
+ .risk-card.moderate {
+ background: #FEF3C7;
+ border-color: #F59E0B;
+ }
 
-        .risk-card.high {
-            background: #FEE2E2;
-            border-color: #EF4444;
-        }
+ .risk-card.high {
+ background: #FEE2E2;
+ border-color: #EF4444;
+ }
 
-        .risk-card h4 {
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
+ .risk-card h4 {
+ font-size: 0.95rem;
+ margin-bottom: 0.5rem;
+ }
 
-        .risk-card.low h4 { color: #065F46; }
-        .risk-card.moderate h4 { color: #92400E; }
-        .risk-card.high h4 { color: #991B1B; }
+ .risk-card.low h4 { color: #065F46; }
+ .risk-card.moderate h4 { color: #92400E; }
+ .risk-card.high h4 { color: #991B1B; }
 
-        .risk-card p {
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
+ .risk-card p {
+ font-size: 0.85rem;
+ line-height: 1.5;
+ }
 
-        .risk-card.low p { color: #047857; }
-        .risk-card.moderate p { color: #B45309; }
-        .risk-card.high p { color: #B91C1C; }
+ .risk-card.low p { color: #047857; }
+ .risk-card.moderate p { color: #B45309; }
+ .risk-card.high p { color: #B91C1C; }
 
-        .calorie-details {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
+ .calorie-details {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1rem;
+ margin-top: 1.5rem;
+ }
 
-        .calorie-card {
-            background: var(--bg-white);
-            padding: 1.25rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid var(--border-light);
-        }
+ .calorie-card {
+ background: var(--bg-white);
+ padding: 1.25rem;
+ border-radius: 12px;
+ text-align: center;
+ border: 2px solid var(--border-light);
+ }
 
-        .calorie-card.recommended {
-            border-color: var(--accent-orange);
-            background: #FFF7ED;
-        }
+ .calorie-card.recommended {
+ border-color: var(--accent-orange);
+ background: #FFF7ED;
+ }
 
-        .calorie-card h4 {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            margin-bottom: 0.5rem;
-        }
+ .calorie-card h4 {
+ font-size: 0.85rem;
+ color: var(--text-gray);
+ margin-bottom: 0.5rem;
+ }
 
-        .calorie-card .value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
+ .calorie-card .value {
+ font-size: 1.75rem;
+ font-weight: 700;
+ color: var(--text-dark);
+ }
 
-        .calorie-card.recommended .value {
-            color: var(--accent-orange);
-        }
+ .calorie-card.recommended .value {
+ color: var(--accent-orange);
+ }
 
-        .calorie-card .unit {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
+ .calorie-card .unit {
+ font-size: 0.9rem;
+ color: var(--text-gray);
+ }
 
-        .whr-result {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
+ .whr-result {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 2rem;
+ margin: 2rem 0;
+ }
 
-        .whr-gauge {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            position: relative;
-            background: conic-gradient(
-                #10B981 0deg 120deg,
-                #F59E0B 120deg 200deg,
-                #EF4444 200deg 360deg
-            );
-        }
+ .whr-gauge {
+ width: 200px;
+ height: 200px;
+ border-radius: 50%;
+ position: relative;
+ background: conic-gradient(
+ #10B981 0deg 120deg,
+ #F59E0B 120deg 200deg,
+ #EF4444 200deg 360deg
+ );
+ }
 
-        .whr-gauge-inner {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            background: var(--bg-cream);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+ .whr-gauge-inner {
+ position: absolute;
+ top: 20px;
+ left: 20px;
+ right: 20px;
+ bottom: 20px;
+ background: var(--bg-cream);
+ border-radius: 50%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ }
 
-        .whr-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
+ .whr-value {
+ font-size: 2.5rem;
+ font-weight: 700;
+ color: var(--text-dark);
+ }
 
-        .whr-label {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
+ .whr-label {
+ font-size: 0.9rem;
+ color: var(--text-gray);
+ }
 
-        @media (max-width: 768px) {
+ @media (max-width: 768px) {
 
-            .tool-nav-inner { flex-wrap: wrap; }
-            .calc-grid { grid-template-columns: 1fr; }
-            .calorie-details { grid-template-columns: 1fr; }
-            .risk-info { grid-template-columns: 1fr; }
-            .scale-legend { grid-template-columns: repeat(2, 1fr); }
-            
-        }
-    </style>
+ .tool-nav-inner { flex-wrap: wrap; }
+ .calc-grid { grid-template-columns: 1fr; }
+ .calorie-details { grid-template-columns: 1fr; }
+ .risk-info { grid-template-columns: 1fr; }
+ .scale-legend { grid-template-columns: repeat(2, 1fr); }
+ 
+ }
+ </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <a href="../index.html" class="logo">
-                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
-            </a>
-            <nav class="nav">
-                <a href="rehberler.html" class="nav-link">Keşfet ▾</a>
-                <a href="araclar.html" class="nav-link active">Araçlar</a>
-                <a href="hikayeler.html" class="nav-link">Hikayeler</a>
-                <a href="bilim.html" class="nav-link">Bilim</a>
-                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
-                <a href="test.html" class="btn-primary">Teste Başla</a>
-            </nav>
-        </div>
-    </header>
+ <header class="header">
+ <div class="header-inner">
+ <a href="../index.html" class="logo">
+ <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+ </a>
+ <nav class="nav">
+ <a href="rehberler.html" class="nav-link">Keşfet </a>
+ <a href="araclar.html" class="nav-link active">Araçlar</a>
+ <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+ <a href="bilim.html" class="nav-link">Bilim</a>
+ <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+ <a href="test.html" class="btn-primary">Teste Başla</a>
+ </nav>
+ </div>
+ </header>
 
-    <section class="page-hero">
-        <div class="page-hero-content">
-            <nav class="hero-breadcrumb">
-                <a href="../index.html">Ana Sayfa</a>
-                <span>›</span>
-                <span class="current">Sağlık Araçları</span>
-            </nav>
-            <h1>Sağlık Hesaplayıcıları</h1>
-            <p>Sağlık durumunuzu anlamak için ücretsiz, bilimsel hesaplama araçları.</p>
-        </div>
-    </section>
+ <section class="page-hero">
+ <div class="page-hero-content">
+ <nav class="hero-breadcrumb">
+ <a href="../index.html">Ana Sayfa</a>
+ <span>›</span>
+ <span class="current">Sağlık Araçları</span>
+ </nav>
+ <h1>Sağlık Hesaplayıcıları</h1>
+ <p>Sağlık durumunuzu anlamak için ücretsiz, bilimsel hesaplama araçları.</p>
+ </div>
+ </section>
 
-    <nav class="tool-nav">
-        <div class="tool-nav-inner">
-            <button class="tool-nav-btn active" data-tool="bmi">BMI Hesapla</button>
-            <button class="tool-nav-btn" data-tool="calorie">Kalori İhtiyacı</button>
-            <button class="tool-nav-btn" data-tool="whr">Bel-Kalça Oranı</button>
-        </div>
-    </nav>
+ <nav class="tool-nav">
+ <div class="tool-nav-inner">
+ <button class="tool-nav-btn active" data-tool="bmi">BMI Hesapla</button>
+ <button class="tool-nav-btn" data-tool="calorie">Kalori İhtiyacı</button>
+ <button class="tool-nav-btn" data-tool="whr">Bel-Kalça Oranı</button>
+ </div>
+ </nav>
 
-    <!-- BMI Calculator -->
-    <section class="calculator-section active" id="bmi-section">
-        <div class="calculator-container">
-            <h2 class="calc-title">Vücut Kitle İndeksi (BMI) Hesaplayıcı</h2>
-            <p class="calc-subtitle">Boy ve kilonuza göre BMI değerinizi öğrenin</p>
-            
-            <div class="calc-card">
-                <div class="calc-grid">
-                    <div class="form-group">
-                        <label for="bmi-height">Boy (cm)</label>
-                        <input type="number" id="bmi-height" placeholder="170" min="100" max="250">
-                    </div>
-                    <div class="form-group">
-                        <label for="bmi-weight">Kilo (kg)</label>
-                        <input type="number" id="bmi-weight" placeholder="70" min="30" max="300">
-                    </div>
-                </div>
-                <button class="calc-btn" onclick="calculateBMI()">Hesapla</button>
+ <!-- BMI Calculator -->
+ <section class="calculator-section active" id="bmi-section">
+ <div class="calculator-container">
+ <h2 class="calc-title">Vücut Kitle İndeksi (BMI) Hesaplayıcı</h2>
+ <p class="calc-subtitle">Boy ve kilonuza göre BMI değerinizi öğrenin</p>
+ 
+ <div class="calc-card">
+ <div class="calc-grid">
+ <div class="form-group">
+ <label for="bmi-height">Boy (cm)</label>
+ <input type="number" id="bmi-height" placeholder="170" min="100" max="250">
+ </div>
+ <div class="form-group">
+ <label for="bmi-weight">Kilo (kg)</label>
+ <input type="number" id="bmi-weight" placeholder="70" min="30" max="300">
+ </div>
+ </div>
+ <button class="calc-btn" onclick="calculateBMI()">Hesapla</button>
 
-                <div class="result-box" id="bmi-result">
-                    <div class="result-main">
-                        <div class="result-value" id="bmi-value">--</div>
-                        <div class="result-label">BMI Değeriniz</div>
-                        <span class="result-category" id="bmi-category">--</span>
-                    </div>
+ <div class="result-box" id="bmi-result">
+ <div class="result-main">
+ <div class="result-value" id="bmi-value">--</div>
+ <div class="result-label">BMI Değeriniz</div>
+ <span class="result-category" id="bmi-category">--</span>
+ </div>
 
-                    <div class="bmi-scale">
-                        <div class="scale-bar">
-                            <div class="scale-marker" id="bmi-marker" style="left: 0%"></div>
-                        </div>
-                        <div class="scale-labels">
-                            <span>16</span>
-                            <span>18.5</span>
-                            <span>25</span>
-                            <span>30</span>
-                            <span>40</span>
-                        </div>
-                        <div class="scale-legend">
-                            <div class="legend-item"><span class="legend-dot blue"></span> Zayıf (&lt;18.5)</div>
-                            <div class="legend-item"><span class="legend-dot green"></span> Normal (18.5-24.9)</div>
-                            <div class="legend-item"><span class="legend-dot yellow"></span> Fazla Kilolu (25-29.9)</div>
-                            <div class="legend-item"><span class="legend-dot red"></span> Obez (≥30)</div>
-                        </div>
-                    </div>
+ <div class="bmi-scale">
+ <div class="scale-bar">
+ <div class="scale-marker" id="bmi-marker" style="left: 0%"></div>
+ </div>
+ <div class="scale-labels">
+ <span>16</span>
+ <span>18.5</span>
+ <span>25</span>
+ <span>30</span>
+ <span>40</span>
+ </div>
+ <div class="scale-legend">
+ <div class="legend-item"><span class="legend-dot blue"></span> Zayıf (&lt;18.5)</div>
+ <div class="legend-item"><span class="legend-dot green"></span> Normal (18.5-24.9)</div>
+ <div class="legend-item"><span class="legend-dot yellow"></span> Fazla Kilolu (25-29.9)</div>
+ <div class="legend-item"><span class="legend-dot red"></span> Obez (≥30)</div>
+ </div>
+ </div>
 
-                    <div id="bmi-interpretation"></div>
-                </div>
-            </div>
+ <div id="bmi-interpretation"></div>
+ </div>
+ </div>
 
-            <div class="how-to-use">
-                <h3>📐 BMI Nasıl Hesaplanır?</h3>
-                <ol>
-                    <li><strong>Boyunuzu ölçün:</strong> Ayakkabısız, düz bir yüzeyde dik durun ve boyunuzu cm cinsinden ölçün.</li>
-                    <li><strong>Kilonuzu ölçün:</strong> Sabah, aç karnına, hafif kıyafetlerle tartılın.</li>
-                    <li><strong>Değerleri girin:</strong> Boy ve kilo değerlerinizi yukarıdaki alanlara yazın.</li>
-                    <li><strong>Sonucu değerlendirin:</strong> BMI değeriniz ve kategoriniz otomatik hesaplanacaktır.</li>
-                </ol>
-                <p style="margin-top: 1rem; color: var(--text-gray); font-size: 0.9rem;">
-                    <strong>Not:</strong> BMI, genel bir göstergedir. Kas kütlesi yüksek olan sporcularda veya yaşlılarda yanıltıcı olabilir. Kapsamlı değerlendirme için bir sağlık uzmanına başvurun.
-                </p>
-            </div>
-        </div>
-    </section>
+ <div class="how-to-use">
+ <h3> BMI Nasıl Hesaplanır?</h3>
+ <ol>
+ <li><strong>Boyunuzu ölçün:</strong> Ayakkabısız, düz bir yüzeyde dik durun ve boyunuzu cm cinsinden ölçün.</li>
+ <li><strong>Kilonuzu ölçün:</strong> Sabah, aç karnına, hafif kıyafetlerle tartılın.</li>
+ <li><strong>Değerleri girin:</strong> Boy ve kilo değerlerinizi yukarıdaki alanlara yazın.</li>
+ <li><strong>Sonucu değerlendirin:</strong> BMI değeriniz ve kategoriniz otomatik hesaplanacaktır.</li>
+ </ol>
+ <p style="margin-top: 1rem; color: var(--text-gray); font-size: 0.9rem;">
+ <strong>Not:</strong> BMI, genel bir göstergedir. Kas kütlesi yüksek olan sporcularda veya yaşlılarda yanıltıcı olabilir. Kapsamlı değerlendirme için bir sağlık uzmanına başvurun.
+ </p>
+ </div>
+ </div>
+ </section>
 
-    <!-- Calorie Calculator -->
-    <section class="calculator-section" id="calorie-section">
-        <div class="calculator-container">
-            <h2 class="calc-title">Günlük Kalori İhtiyacı Hesaplayıcı</h2>
-            <p class="calc-subtitle">Hedeflerinize göre günlük kalori ihtiyacınızı öğrenin</p>
-            
-            <div class="calc-card">
-                <div class="calc-grid">
-                    <div class="form-group">
-                        <label for="cal-gender">Cinsiyet</label>
-                        <select id="cal-gender">
-                            <option value="male">Erkek</option>
-                            <option value="female">Kadın</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="cal-age">Yaş</label>
-                        <input type="number" id="cal-age" placeholder="30" min="15" max="100">
-                    </div>
-                    <div class="form-group">
-                        <label for="cal-height">Boy (cm)</label>
-                        <input type="number" id="cal-height" placeholder="170" min="100" max="250">
-                    </div>
-                    <div class="form-group">
-                        <label for="cal-weight">Mevcut Kilo (kg)</label>
-                        <input type="number" id="cal-weight" placeholder="70" min="30" max="300">
-                    </div>
-                    <div class="form-group">
-                        <label for="cal-target">Hedef Kilo (kg)</label>
-                        <input type="number" id="cal-target" placeholder="65" min="30" max="300">
-                        <span class="form-hint">Korumak için mevcut kilonuzu yazın</span>
-                    </div>
-                    <div class="form-group">
-                        <label for="cal-activity">Aktivite Düzeyi</label>
-                        <select id="cal-activity">
-                            <option value="1.2">Hareketsiz (masa başı iş)</option>
-                            <option value="1.375">Hafif aktif (haftada 1-3 gün egzersiz)</option>
-                            <option value="1.55" selected>Orta aktif (haftada 3-5 gün egzersiz)</option>
-                            <option value="1.725">Çok aktif (haftada 6-7 gün egzersiz)</option>
-                            <option value="1.9">Ekstra aktif (günde 2 kez antrenman)</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label for="cal-goal">Hedefiniz</label>
-                        <select id="cal-goal">
-                            <option value="lose-fast">Hızlı kilo vermek (-1 kg/hafta)</option>
-                            <option value="lose" selected>Yavaş kilo vermek (-0.5 kg/hafta)</option>
-                            <option value="maintain">Kilomu korumak</option>
-                            <option value="gain">Kilo almak (+0.5 kg/hafta)</option>
-                        </select>
-                    </div>
-                </div>
-                <button class="calc-btn" onclick="calculateCalorie()">Hesapla</button>
+ <!-- Calorie Calculator -->
+ <section class="calculator-section" id="calorie-section">
+ <div class="calculator-container">
+ <h2 class="calc-title">Günlük Kalori İhtiyacı Hesaplayıcı</h2>
+ <p class="calc-subtitle">Hedeflerinize göre günlük kalori ihtiyacınızı öğrenin</p>
+ 
+ <div class="calc-card">
+ <div class="calc-grid">
+ <div class="form-group">
+ <label for="cal-gender">Cinsiyet</label>
+ <select id="cal-gender">
+ <option value="male">Erkek</option>
+ <option value="female">Kadın</option>
+ </select>
+ </div>
+ <div class="form-group">
+ <label for="cal-age">Yaş</label>
+ <input type="number" id="cal-age" placeholder="30" min="15" max="100">
+ </div>
+ <div class="form-group">
+ <label for="cal-height">Boy (cm)</label>
+ <input type="number" id="cal-height" placeholder="170" min="100" max="250">
+ </div>
+ <div class="form-group">
+ <label for="cal-weight">Mevcut Kilo (kg)</label>
+ <input type="number" id="cal-weight" placeholder="70" min="30" max="300">
+ </div>
+ <div class="form-group">
+ <label for="cal-target">Hedef Kilo (kg)</label>
+ <input type="number" id="cal-target" placeholder="65" min="30" max="300">
+ <span class="form-hint">Korumak için mevcut kilonuzu yazın</span>
+ </div>
+ <div class="form-group">
+ <label for="cal-activity">Aktivite Düzeyi</label>
+ <select id="cal-activity">
+ <option value="1.2">Hareketsiz (masa başı iş)</option>
+ <option value="1.375">Hafif aktif (haftada 1-3 gün egzersiz)</option>
+ <option value="1.55" selected>Orta aktif (haftada 3-5 gün egzersiz)</option>
+ <option value="1.725">Çok aktif (haftada 6-7 gün egzersiz)</option>
+ <option value="1.9">Ekstra aktif (günde 2 kez antrenman)</option>
+ </select>
+ </div>
+ <div class="form-group full">
+ <label for="cal-goal">Hedefiniz</label>
+ <select id="cal-goal">
+ <option value="lose-fast">Hızlı kilo vermek (-1 kg/hafta)</option>
+ <option value="lose" selected>Yavaş kilo vermek (-0.5 kg/hafta)</option>
+ <option value="maintain">Kilomu korumak</option>
+ <option value="gain">Kilo almak (+0.5 kg/hafta)</option>
+ </select>
+ </div>
+ </div>
+ <button class="calc-btn" onclick="calculateCalorie()">Hesapla</button>
 
-                <div class="result-box" id="calorie-result">
-                    <div class="calorie-details">
-                        <div class="calorie-card">
-                            <h4>Bazal Metabolizma (BMR)</h4>
-                            <div class="value" id="cal-bmr">--</div>
-                            <div class="unit">kcal/gün</div>
-                        </div>
-                        <div class="calorie-card">
-                            <h4>Günlük Harcama (TDEE)</h4>
-                            <div class="value" id="cal-tdee">--</div>
-                            <div class="unit">kcal/gün</div>
-                        </div>
-                        <div class="calorie-card recommended">
-                            <h4>Önerilen Kalori</h4>
-                            <div class="value" id="cal-target-cal">--</div>
-                            <div class="unit">kcal/gün</div>
-                        </div>
-                    </div>
+ <div class="result-box" id="calorie-result">
+ <div class="calorie-details">
+ <div class="calorie-card">
+ <h4>Bazal Metabolizma (BMR)</h4>
+ <div class="value" id="cal-bmr">--</div>
+ <div class="unit">kcal/gün</div>
+ </div>
+ <div class="calorie-card">
+ <h4>Günlük Harcama (TDEE)</h4>
+ <div class="value" id="cal-tdee">--</div>
+ <div class="unit">kcal/gün</div>
+ </div>
+ <div class="calorie-card recommended">
+ <h4>Önerilen Kalori</h4>
+ <div class="value" id="cal-target-cal">--</div>
+ <div class="unit">kcal/gün</div>
+ </div>
+ </div>
 
-                    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-white); border-radius: 12px;">
-                        <h4 style="margin-bottom: 1rem; color: var(--primary-teal);">📊 Makro Besin Dağılımı (Önerilen)</h4>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
-                            <div>
-                                <div style="font-size: 1.5rem; font-weight: 700; color: #EF4444;" id="cal-protein">--g</div>
-                                <div style="font-size: 0.85rem; color: var(--text-gray);">Protein</div>
-                            </div>
-                            <div>
-                                <div style="font-size: 1.5rem; font-weight: 700; color: #F59E0B;" id="cal-carb">--g</div>
-                                <div style="font-size: 0.85rem; color: var(--text-gray);">Karbonhidrat</div>
-                            </div>
-                            <div>
-                                <div style="font-size: 1.5rem; font-weight: 700; color: #10B981;" id="cal-fat">--g</div>
-                                <div style="font-size: 0.85rem; color: var(--text-gray);">Yağ</div>
-                            </div>
-                        </div>
-                    </div>
+ <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-white); border-radius: 12px;">
+ <h4 style="margin-bottom: 1rem; color: var(--primary-teal);"> Makro Besin Dağılımı (Önerilen)</h4>
+ <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+ <div>
+ <div style="font-size: 1.5rem; font-weight: 700; color: #EF4444;" id="cal-protein">--g</div>
+ <div style="font-size: 0.85rem; color: var(--text-gray);">Protein</div>
+ </div>
+ <div>
+ <div style="font-size: 1.5rem; font-weight: 700; color: #F59E0B;" id="cal-carb">--g</div>
+ <div style="font-size: 0.85rem; color: var(--text-gray);">Karbonhidrat</div>
+ </div>
+ <div>
+ <div style="font-size: 1.5rem; font-weight: 700; color: #10B981;" id="cal-fat">--g</div>
+ <div style="font-size: 0.85rem; color: var(--text-gray);">Yağ</div>
+ </div>
+ </div>
+ </div>
 
-                    <div id="calorie-interpretation" style="margin-top: 1.5rem;"></div>
-                </div>
-            </div>
+ <div id="calorie-interpretation" style="margin-top: 1.5rem;"></div>
+ </div>
+ </div>
 
-            <div class="how-to-use">
-                <h3>🔥 Kalori Hesabı Nasıl Çalışır?</h3>
-                <ol>
-                    <li><strong>Bazal Metabolizma (BMR):</strong> Vücudunuzun hiç hareket etmeden, sadece yaşamsal fonksiyonlar için harcadığı enerji.</li>
-                    <li><strong>TDEE:</strong> BMR x aktivite faktörü = Günlük toplam enerji harcamanız.</li>
-                    <li><strong>Hedef kalori:</strong> Kilo vermek için TDEE'nin altında, almak için üstünde kalori tüketmeniz gerekir.</li>
-                    <li><strong>Güvenli hız:</strong> Haftada 0.5-1 kg, sağlıklı ve sürdürülebilir bir kilo değişim hızıdır.</li>
-                </ol>
-            </div>
-        </div>
-    </section>
+ <div class="how-to-use">
+ <h3> Kalori Hesabı Nasıl Çalışır?</h3>
+ <ol>
+ <li><strong>Bazal Metabolizma (BMR):</strong> Vücudunuzun hiç hareket etmeden, sadece yaşamsal fonksiyonlar için harcadığı enerji.</li>
+ <li><strong>TDEE:</strong> BMR x aktivite faktörü = Günlük toplam enerji harcamanız.</li>
+ <li><strong>Hedef kalori:</strong> Kilo vermek için TDEE'nin altında, almak için üstünde kalori tüketmeniz gerekir.</li>
+ <li><strong>Güvenli hız:</strong> Haftada 0.5-1 kg, sağlıklı ve sürdürülebilir bir kilo değişim hızıdır.</li>
+ </ol>
+ </div>
+ </div>
+ </section>
 
-    <!-- Waist-Hip Ratio Calculator -->
-    <section class="calculator-section" id="whr-section">
-        <div class="calculator-container">
-            <h2 class="calc-title">Bel-Kalça Oranı Hesaplayıcı</h2>
-            <p class="calc-subtitle">Karın bölgesi yağlanma riskinizi değerlendirin</p>
-            
-            <div class="calc-card">
-                <div class="calc-grid">
-                    <div class="form-group">
-                        <label for="whr-gender">Cinsiyet</label>
-                        <select id="whr-gender">
-                            <option value="male">Erkek</option>
-                            <option value="female">Kadın</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="whr-waist">Bel Çevresi (cm)</label>
-                        <input type="number" id="whr-waist" placeholder="85" min="50" max="200">
-                        <span class="form-hint">En dar yerden, göbek hizasından ölçün</span>
-                    </div>
-                    <div class="form-group full">
-                        <label for="whr-hip">Kalça Çevresi (cm)</label>
-                        <input type="number" id="whr-hip" placeholder="100" min="50" max="200">
-                        <span class="form-hint">En geniş yerden ölçün</span>
-                    </div>
-                </div>
-                <button class="calc-btn" onclick="calculateWHR()">Hesapla</button>
+ <!-- Waist-Hip Ratio Calculator -->
+ <section class="calculator-section" id="whr-section">
+ <div class="calculator-container">
+ <h2 class="calc-title">Bel-Kalça Oranı Hesaplayıcı</h2>
+ <p class="calc-subtitle">Karın bölgesi yağlanma riskinizi değerlendirin</p>
+ 
+ <div class="calc-card">
+ <div class="calc-grid">
+ <div class="form-group">
+ <label for="whr-gender">Cinsiyet</label>
+ <select id="whr-gender">
+ <option value="male">Erkek</option>
+ <option value="female">Kadın</option>
+ </select>
+ </div>
+ <div class="form-group">
+ <label for="whr-waist">Bel Çevresi (cm)</label>
+ <input type="number" id="whr-waist" placeholder="85" min="50" max="200">
+ <span class="form-hint">En dar yerden, göbek hizasından ölçün</span>
+ </div>
+ <div class="form-group full">
+ <label for="whr-hip">Kalça Çevresi (cm)</label>
+ <input type="number" id="whr-hip" placeholder="100" min="50" max="200">
+ <span class="form-hint">En geniş yerden ölçün</span>
+ </div>
+ </div>
+ <button class="calc-btn" onclick="calculateWHR()">Hesapla</button>
 
-                <div class="result-box" id="whr-result">
-                    <div class="whr-result">
-                        <div class="whr-gauge">
-                            <div class="whr-gauge-inner">
-                                <div class="whr-value" id="whr-value">--</div>
-                                <div class="whr-label">Bel/Kalça Oranı</div>
-                            </div>
-                        </div>
-                        <div style="text-align: left;">
-                            <span class="result-category" id="whr-category">--</span>
-                            <p id="whr-risk-text" style="margin-top: 1rem; color: var(--text-gray); max-width: 300px;"></p>
-                        </div>
-                    </div>
+ <div class="result-box" id="whr-result">
+ <div class="whr-result">
+ <div class="whr-gauge">
+ <div class="whr-gauge-inner">
+ <div class="whr-value" id="whr-value">--</div>
+ <div class="whr-label">Bel/Kalça Oranı</div>
+ </div>
+ </div>
+ <div style="text-align: left;">
+ <span class="result-category" id="whr-category">--</span>
+ <p id="whr-risk-text" style="margin-top: 1rem; color: var(--text-gray); max-width: 300px;"></p>
+ </div>
+ </div>
 
-                    <div class="risk-info">
-                        <div class="risk-card low">
-                            <h4>✅ Düşük Risk</h4>
-                            <p><strong>Erkek:</strong> &lt;0.90<br><strong>Kadın:</strong> &lt;0.80<br>Karın bölgesi yağlanması normal sınırlarda.</p>
-                        </div>
-                        <div class="risk-card moderate">
-                            <h4>⚠️ Orta Risk</h4>
-                            <p><strong>Erkek:</strong> 0.90-0.99<br><strong>Kadın:</strong> 0.80-0.84<br>Dikkatli olunması gereken bölge.</p>
-                        </div>
-                        <div class="risk-card high">
-                            <h4>🔴 Yüksek Risk</h4>
-                            <p><strong>Erkek:</strong> ≥1.0<br><strong>Kadın:</strong> ≥0.85<br>Kardiyovasküler hastalık riski artmış.</p>
-                        </div>
-                        <div class="risk-card" style="background: #F3F4F6; border-color: var(--border-light);">
-                            <h4 style="color: var(--text-dark);">📋 Neden Önemli?</h4>
-                            <p style="color: var(--text-gray);">Bel/kalça oranı, BMI'dan bağımsız olarak karın içi (visseral) yağlanmayı gösterir. Bu yağ tipi diyabet, kalp hastalığı ve metabolik sendrom riskini artırır.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+ <div class="risk-info">
+ <div class="risk-card low">
+ <h4> Düşük Risk</h4>
+ <p><strong>Erkek:</strong> &lt;0.90<br><strong>Kadın:</strong> &lt;0.80<br>Karın bölgesi yağlanması normal sınırlarda.</p>
+ </div>
+ <div class="risk-card moderate">
+ <h4> Orta Risk</h4>
+ <p><strong>Erkek:</strong> 0.90-0.99<br><strong>Kadın:</strong> 0.80-0.84<br>Dikkatli olunması gereken bölge.</p>
+ </div>
+ <div class="risk-card high">
+ <h4> Yüksek Risk</h4>
+ <p><strong>Erkek:</strong> ≥1.0<br><strong>Kadın:</strong> ≥0.85<br>Kardiyovasküler hastalık riski artmış.</p>
+ </div>
+ <div class="risk-card" style="background: #F3F4F6; border-color: var(--border-light);">
+ <h4 style="color: var(--text-dark);"> Neden Önemli?</h4>
+ <p style="color: var(--text-gray);">Bel/kalça oranı, BMI'dan bağımsız olarak karın içi (visseral) yağlanmayı gösterir. Bu yağ tipi diyabet, kalp hastalığı ve metabolik sendrom riskini artırır.</p>
+ </div>
+ </div>
+ </div>
+ </div>
 
-            <div class="how-to-use">
-                <h3>📏 Doğru Ölçüm Nasıl Yapılır?</h3>
-                <ol>
-                    <li><strong>Bel ölçümü:</strong> Ayakta dik durun. Kaburgaların alt kenarı ile kalça kemiğinin üst kenarı arasındaki en dar noktayı (genellikle göbek hizası) ölçün.</li>
-                    <li><strong>Kalça ölçümü:</strong> Kalçanın en geniş noktasından, yandan bakıldığında en çıkıntılı yerden ölçün.</li>
-                    <li><strong>Doğru pozisyon:</strong> Nefes verirken, karnı içeri çekmeden ölçün. Mezura cildin üzerinde olmalı, sıkmamalı.</li>
-                    <li><strong>Tutarlılık:</strong> Her ölçümü aynı koşullarda (sabah, aç karnına) yapın.</li>
-                </ol>
-            </div>
-        </div>
-    </section>
+ <div class="how-to-use">
+ <h3> Doğru Ölçüm Nasıl Yapılır?</h3>
+ <ol>
+ <li><strong>Bel ölçümü:</strong> Ayakta dik durun. Kaburgaların alt kenarı ile kalça kemiğinin üst kenarı arasındaki en dar noktayı (genellikle göbek hizası) ölçün.</li>
+ <li><strong>Kalça ölçümü:</strong> Kalçanın en geniş noktasından, yandan bakıldığında en çıkıntılı yerden ölçün.</li>
+ <li><strong>Doğru pozisyon:</strong> Nefes verirken, karnı içeri çekmeden ölçün. Mezura cildin üzerinde olmalı, sıkmamalı.</li>
+ <li><strong>Tutarlılık:</strong> Her ölçümü aynı koşullarda (sabah, aç karnına) yapın.</li>
+ </ol>
+ </div>
+ </div>
+ </section>
 
 
-    <!-- RELATED CONTENT -->
-    <section class="hub-related">
-        <h2>İlgili İçerikler</h2>
-        <div class="hub-related-grid">
-            <a href="beslenme.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Beslenme</h4>
-                    <p>Beslenme rehberi</p>
-                </div>
-            </a>
-            <a href="egzersiz.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Egzersiz</h4>
-                    <p>Egzersiz planları</p>
-                </div>
-            </a>
-            <a href="rehberler.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Rehberler</h4>
-                    <p>Tüm rehberler</p>
-                </div>
-            </a>
-        </div>
-    </section>
-    <!-- NEWSLETTER -->
-    <section class="hub-newsletter">
-        <h2>📬 Haftalık Sağlık Bülteni</h2>
-        <p>Bilimsel araştırmalara dayalı sağlık önerileri, yeni içerikler ve ipuçları için abone olun.</p>
-        <form class="hub-newsletter-form" onsubmit="handleHubNewsletter(event, this)">
-            <input type="email" name="email" placeholder="E-posta adresiniz" required>
-            <button type="submit">Abone Ol</button>
-        </form>
-        <p class="hub-newsletter-success" id="hub-nl-success">✅ Teşekkürler! Bültenimize kaydoldunuz.</p>
-    </section>
-    <!-- SOCIAL SHARING -->
-    <div class="hub-social-share">
-        <span>Paylaş:</span>
-        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" class="hub-share-btn twitter" aria-label="Twitter'da Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="javascript:void(0)" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" class="hub-share-btn facebook" aria-label="Facebook'ta Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank')" class="hub-share-btn whatsapp" aria-label="WhatsApp'ta Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-    </div>
+ <!-- RELATED CONTENT -->
+ <section class="hub-related">
+ <h2>İlgili İçerikler</h2>
+ <div class="hub-related-grid">
+ <a href="beslenme.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Beslenme</h4>
+ <p>Beslenme rehberi</p>
+ </div>
+ </a>
+ <a href="egzersiz.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Egzersiz</h4>
+ <p>Egzersiz planları</p>
+ </div>
+ </a>
+ <a href="rehberler.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Rehberler</h4>
+ <p>Tüm rehberler</p>
+ </div>
+ </a>
+ </div>
+ </section>
+ <!-- NEWSLETTER -->
+ <section class="hub-newsletter">
+ <h2> Haftalık Sağlık Bülteni</h2>
+ <p>Bilimsel araştırmalara dayalı sağlık önerileri, yeni içerikler ve ipuçları için abone olun.</p>
+ <form class="hub-newsletter-form" onsubmit="handleHubNewsletter(event, this)">
+ <input type="email" name="email" placeholder="E-posta adresiniz" required>
+ <button type="submit">Abone Ol</button>
+ </form>
+ <p class="hub-newsletter-success" id="hub-nl-success"> Teşekkürler! Bültenimize kaydoldunuz.</p>
+ </section>
+ <!-- SOCIAL SHARING -->
+ <div class="hub-social-share">
+ <span>Paylaş:</span>
+ <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" class="hub-share-btn twitter" aria-label="Twitter'da Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+ </a>
+ <a href="javascript:void(0)" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" class="hub-share-btn facebook" aria-label="Facebook'ta Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+ </a>
+ <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank')" class="hub-share-btn whatsapp" aria-label="WhatsApp'ta Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+ </a>
+ </div>
 
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="../index.html">
-                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
-                    </a>
-                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Keşfet</h4>
-                    <a href="beslenme.html">Beslenme</a>
-                    <a href="egzersiz.html">Egzersiz</a>
-                    <a href="uyku-stres.html">Uyku & Stres</a>
-                    <a href="tedavi.html">Tedavi Seçenekleri</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Araçlar</h4>
-                    <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
-                    <a href="araclar.html#calorie">Kalori Hesaplayıcı</a>
-                    <a href="araclar.html#whr">Bel-Kalça Oranı</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Hakkımızda</h4>
-                    <a href="hakkimizda.html">Ekibimiz</a>
-                    <a href="bilim.html">Bilimsel Yaklaşım</a>
-                    <a href="hakkimizda.html#iletisim">İletişim</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
-                <span>Gizlilik Politikası | Kullanım Koşulları</span>
-            </div>
-        </div>
-    </footer>
+ <footer class="footer">
+ <div class="footer-inner">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="../index.html">
+ <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+ </a>
+ <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Keşfet</h4>
+ <a href="beslenme.html">Beslenme</a>
+ <a href="egzersiz.html">Egzersiz</a>
+ <a href="uyku-stres.html">Uyku & Stres</a>
+ <a href="tedavi.html">Tedavi Seçenekleri</a>
+ </div>
+ <div class="footer-col">
+ <h4>Araçlar</h4>
+ <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
+ <a href="araclar.html#calorie">Kalori Hesaplayıcı</a>
+ <a href="araclar.html#whr">Bel-Kalça Oranı</a>
+ </div>
+ <div class="footer-col">
+ <h4>Hakkımızda</h4>
+ <a href="hakkimizda.html">Ekibimiz</a>
+ <a href="bilim.html">Bilimsel Yaklaşım</a>
+ <a href="hakkimizda.html#iletisim">İletişim</a>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+ <span>Gizlilik Politikası | Kullanım Koşulları</span>
+ </div>
+ </div>
+ </footer>
 
-    <script>
-        // Tool Navigation
-        document.querySelectorAll('.tool-nav-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tool-nav-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.calculator-section').forEach(s => s.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tool + '-section').classList.add('active');
-            });
-        });
+ <script>
+ // Tool Navigation
+ document.querySelectorAll('.tool-nav-btn').forEach(btn => {
+ btn.addEventListener('click', () => {
+ document.querySelectorAll('.tool-nav-btn').forEach(b => b.classList.remove('active'));
+ document.querySelectorAll('.calculator-section').forEach(s => s.classList.remove('active'));
+ btn.classList.add('active');
+ document.getElementById(btn.dataset.tool + '-section').classList.add('active');
+ });
+ });
 
-        // BMI Calculator
-        function calculateBMI() {
-            const height = parseFloat(document.getElementById('bmi-height').value) / 100;
-            const weight = parseFloat(document.getElementById('bmi-weight').value);
-            
-            if (!height || !weight) {
-                alert('Lütfen boy ve kilo değerlerini girin.');
-                return;
-            }
+ // BMI Calculator
+ function calculateBMI() {
+ const height = parseFloat(document.getElementById('bmi-height').value) / 100;
+ const weight = parseFloat(document.getElementById('bmi-weight').value);
+ 
+ if (!height || !weight) {
+ alert('Lütfen boy ve kilo değerlerini girin.');
+ return;
+ }
 
-            const bmi = weight / (height * height);
-            const bmiRounded = bmi.toFixed(1);
-            
-            document.getElementById('bmi-value').textContent = bmiRounded;
-            document.getElementById('bmi-result').classList.add('show');
+ const bmi = weight / (height * height);
+ const bmiRounded = bmi.toFixed(1);
+ 
+ document.getElementById('bmi-value').textContent = bmiRounded;
+ document.getElementById('bmi-result').classList.add('show');
 
-            // Category
-            let category, categoryClass, interpretation;
-            if (bmi < 18.5) {
-                category = 'Zayıf';
-                categoryClass = 'underweight';
-                interpretation = '<p style="color: #1E40AF; background: #DBEAFE; padding: 1rem; border-radius: 8px;">BMI değeriniz normal aralığın altında. Yeterli ve dengeli beslenme, gerekirse bir diyetisyenle görüşme önerilir.</p>';
-            } else if (bmi < 25) {
-                category = 'Normal';
-                categoryClass = 'normal';
-                interpretation = '<p style="color: #065F46; background: #D1FAE5; padding: 1rem; border-radius: 8px;">Tebrikler! BMI değeriniz sağlıklı aralıkta. Dengeli beslenme ve düzenli fiziksel aktiviteye devam edin.</p>';
-            } else if (bmi < 30) {
-                category = 'Fazla Kilolu';
-                categoryClass = 'overweight';
-                interpretation = '<p style="color: #92400E; background: #FEF3C7; padding: 1rem; border-radius: 8px;">BMI değeriniz fazla kilolu aralığında. Sağlıklı beslenme ve düzenli egzersizle kilo kontrolü önerilir.</p>';
-            } else {
-                category = 'Obez';
-                categoryClass = 'obese';
-                interpretation = '<p style="color: #991B1B; background: #FEE2E2; padding: 1rem; border-radius: 8px;">BMI değeriniz obezite aralığında. Bir sağlık profesyoneli ile görüşerek kişiselleştirilmiş plan oluşturmanız önerilir.</p>';
-            }
+ // Category
+ let category, categoryClass, interpretation;
+ if (bmi < 18.5) {
+ category = 'Zayıf';
+ categoryClass = 'underweight';
+ interpretation = '<p style="color: #1E40AF; background: #DBEAFE; padding: 1rem; border-radius: 8px;">BMI değeriniz normal aralığın altında. Yeterli ve dengeli beslenme, gerekirse bir diyetisyenle görüşme önerilir.</p>';
+ } else if (bmi < 25) {
+ category = 'Normal';
+ categoryClass = 'normal';
+ interpretation = '<p style="color: #065F46; background: #D1FAE5; padding: 1rem; border-radius: 8px;">Tebrikler! BMI değeriniz sağlıklı aralıkta. Dengeli beslenme ve düzenli fiziksel aktiviteye devam edin.</p>';
+ } else if (bmi < 30) {
+ category = 'Fazla Kilolu';
+ categoryClass = 'overweight';
+ interpretation = '<p style="color: #92400E; background: #FEF3C7; padding: 1rem; border-radius: 8px;">BMI değeriniz fazla kilolu aralığında. Sağlıklı beslenme ve düzenli egzersizle kilo kontrolü önerilir.</p>';
+ } else {
+ category = 'Obez';
+ categoryClass = 'obese';
+ interpretation = '<p style="color: #991B1B; background: #FEE2E2; padding: 1rem; border-radius: 8px;">BMI değeriniz obezite aralığında. Bir sağlık profesyoneli ile görüşerek kişiselleştirilmiş plan oluşturmanız önerilir.</p>';
+ }
 
-            const categoryEl = document.getElementById('bmi-category');
-            categoryEl.textContent = category;
-            categoryEl.className = 'result-category ' + categoryClass;
-            document.getElementById('bmi-interpretation').innerHTML = interpretation;
+ const categoryEl = document.getElementById('bmi-category');
+ categoryEl.textContent = category;
+ categoryEl.className = 'result-category ' + categoryClass;
+ document.getElementById('bmi-interpretation').innerHTML = interpretation;
 
-            // Scale marker position (BMI 16-40 range)
-            const minBmi = 16, maxBmi = 40;
-            const position = Math.min(Math.max((bmi - minBmi) / (maxBmi - minBmi) * 100, 0), 100);
-            document.getElementById('bmi-marker').style.left = position + '%';
-        }
+ // Scale marker position (BMI 16-40 range)
+ const minBmi = 16, maxBmi = 40;
+ const position = Math.min(Math.max((bmi - minBmi) / (maxBmi - minBmi) * 100, 0), 100);
+ document.getElementById('bmi-marker').style.left = position + '%';
+ }
 
-        // Calorie Calculator
-        function calculateCalorie() {
-            const gender = document.getElementById('cal-gender').value;
-            const age = parseFloat(document.getElementById('cal-age').value);
-            const height = parseFloat(document.getElementById('cal-height').value);
-            const weight = parseFloat(document.getElementById('cal-weight').value);
-            const targetWeight = parseFloat(document.getElementById('cal-target').value);
-            const activity = parseFloat(document.getElementById('cal-activity').value);
-            const goal = document.getElementById('cal-goal').value;
+ // Calorie Calculator
+ function calculateCalorie() {
+ const gender = document.getElementById('cal-gender').value;
+ const age = parseFloat(document.getElementById('cal-age').value);
+ const height = parseFloat(document.getElementById('cal-height').value);
+ const weight = parseFloat(document.getElementById('cal-weight').value);
+ const targetWeight = parseFloat(document.getElementById('cal-target').value);
+ const activity = parseFloat(document.getElementById('cal-activity').value);
+ const goal = document.getElementById('cal-goal').value;
 
-            if (!age || !height || !weight || !targetWeight) {
-                alert('Lütfen tüm alanları doldurun.');
-                return;
-            }
+ if (!age || !height || !weight || !targetWeight) {
+ alert('Lütfen tüm alanları doldurun.');
+ return;
+ }
 
-            // Mifflin-St Jeor Formula
-            let bmr;
-            if (gender === 'male') {
-                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-            } else {
-                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-            }
+ // Mifflin-St Jeor Formula
+ let bmr;
+ if (gender === 'male') {
+ bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+ } else {
+ bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+ }
 
-            const tdee = bmr * activity;
+ const tdee = bmr * activity;
 
-            // Target calories based on goal
-            let targetCal;
-            switch(goal) {
-                case 'lose-fast': targetCal = tdee - 1000; break;
-                case 'lose': targetCal = tdee - 500; break;
-                case 'maintain': targetCal = tdee; break;
-                case 'gain': targetCal = tdee + 500; break;
-            }
+ // Target calories based on goal
+ let targetCal;
+ switch(goal) {
+ case 'lose-fast': targetCal = tdee - 1000; break;
+ case 'lose': targetCal = tdee - 500; break;
+ case 'maintain': targetCal = tdee; break;
+ case 'gain': targetCal = tdee + 500; break;
+ }
 
-            // Minimum safe calories
-            const minCal = gender === 'male' ? 1500 : 1200;
-            if (targetCal < minCal) targetCal = minCal;
+ // Minimum safe calories
+ const minCal = gender === 'male' ? 1500 : 1200;
+ if (targetCal < minCal) targetCal = minCal;
 
-            document.getElementById('cal-bmr').textContent = Math.round(bmr);
-            document.getElementById('cal-tdee').textContent = Math.round(tdee);
-            document.getElementById('cal-target-cal').textContent = Math.round(targetCal);
+ document.getElementById('cal-bmr').textContent = Math.round(bmr);
+ document.getElementById('cal-tdee').textContent = Math.round(tdee);
+ document.getElementById('cal-target-cal').textContent = Math.round(targetCal);
 
-            // Macros (30% protein, 40% carb, 30% fat)
-            const protein = Math.round((targetCal * 0.30) / 4);
-            const carb = Math.round((targetCal * 0.40) / 4);
-            const fat = Math.round((targetCal * 0.30) / 9);
+ // Macros (30% protein, 40% carb, 30% fat)
+ const protein = Math.round((targetCal * 0.30) / 4);
+ const carb = Math.round((targetCal * 0.40) / 4);
+ const fat = Math.round((targetCal * 0.30) / 9);
 
-            document.getElementById('cal-protein').textContent = protein + 'g';
-            document.getElementById('cal-carb').textContent = carb + 'g';
-            document.getElementById('cal-fat').textContent = fat + 'g';
+ document.getElementById('cal-protein').textContent = protein + 'g';
+ document.getElementById('cal-carb').textContent = carb + 'g';
+ document.getElementById('cal-fat').textContent = fat + 'g';
 
-            // Interpretation
-            const weightDiff = targetWeight - weight;
-            let interp = '';
-            if (weightDiff < -1) {
-                const weeks = Math.abs(weightDiff) / (goal === 'lose-fast' ? 1 : 0.5);
-                interp = `<p style="padding: 1rem; background: var(--bg-white); border-radius: 8px; color: var(--text-gray);">
-                    <strong>Hedef:</strong> ${Math.abs(weightDiff).toFixed(1)} kg vermek<br>
-                    <strong>Tahmini süre:</strong> ${Math.round(weeks)} hafta<br>
-                    <strong>Öneri:</strong> Günde ${Math.round(targetCal)} kcal tüketerek hedefinize ulaşabilirsiniz. Protein alımına dikkat edin ve haftada en az 150 dk orta yoğunlukta egzersiz yapın.
-                </p>`;
-            } else if (weightDiff > 1) {
-                interp = `<p style="padding: 1rem; background: var(--bg-white); border-radius: 8px; color: var(--text-gray);">
-                    <strong>Hedef:</strong> ${weightDiff.toFixed(1)} kg almak<br>
-                    <strong>Öneri:</strong> Kalori fazlası ile birlikte direnç antrenmanı yaparak kas kütlesi kazanımına odaklanın.
-                </p>`;
-            } else {
-                interp = `<p style="padding: 1rem; background: var(--bg-white); border-radius: 8px; color: var(--text-gray);">
-                    <strong>Hedef:</strong> Mevcut kiloyu korumak<br>
-                    <strong>Öneri:</strong> Günlük ${Math.round(tdee)} kcal civarında kalarak kilonuzu stabil tutabilirsiniz.
-                </p>`;
-            }
-            document.getElementById('calorie-interpretation').innerHTML = interp;
+ // Interpretation
+ const weightDiff = targetWeight - weight;
+ let interp = '';
+ if (weightDiff < -1) {
+ const weeks = Math.abs(weightDiff) / (goal === 'lose-fast' ? 1 : 0.5);
+ interp = `<p style="padding: 1rem; background: var(--bg-white); border-radius: 8px; color: var(--text-gray);">
+ <strong>Hedef:</strong> ${Math.abs(weightDiff).toFixed(1)} kg vermek<br>
+ <strong>Tahmini süre:</strong> ${Math.round(weeks)} hafta<br>
+ <strong>Öneri:</strong> Günde ${Math.round(targetCal)} kcal tüketerek hedefinize ulaşabilirsiniz. Protein alımına dikkat edin ve haftada en az 150 dk orta yoğunlukta egzersiz yapın.
+ </p>`;
+ } else if (weightDiff > 1) {
+ interp = `<p style="padding: 1rem; background: var(--bg-white); border-radius: 8px; color: var(--text-gray);">
+ <strong>Hedef:</strong> ${weightDiff.toFixed(1)} kg almak<br>
+ <strong>Öneri:</strong> Kalori fazlası ile birlikte direnç antrenmanı yaparak kas kütlesi kazanımına odaklanın.
+ </p>`;
+ } else {
+ interp = `<p style="padding: 1rem; background: var(--bg-white); border-radius: 8px; color: var(--text-gray);">
+ <strong>Hedef:</strong> Mevcut kiloyu korumak<br>
+ <strong>Öneri:</strong> Günlük ${Math.round(tdee)} kcal civarında kalarak kilonuzu stabil tutabilirsiniz.
+ </p>`;
+ }
+ document.getElementById('calorie-interpretation').innerHTML = interp;
 
-            document.getElementById('calorie-result').classList.add('show');
-        }
+ document.getElementById('calorie-result').classList.add('show');
+ }
 
-        // WHR Calculator
-        function calculateWHR() {
-            const gender = document.getElementById('whr-gender').value;
-            const waist = parseFloat(document.getElementById('whr-waist').value);
-            const hip = parseFloat(document.getElementById('whr-hip').value);
+ // WHR Calculator
+ function calculateWHR() {
+ const gender = document.getElementById('whr-gender').value;
+ const waist = parseFloat(document.getElementById('whr-waist').value);
+ const hip = parseFloat(document.getElementById('whr-hip').value);
 
-            if (!waist || !hip) {
-                alert('Lütfen bel ve kalça değerlerini girin.');
-                return;
-            }
+ if (!waist || !hip) {
+ alert('Lütfen bel ve kalça değerlerini girin.');
+ return;
+ }
 
-            const whr = waist / hip;
-            document.getElementById('whr-value').textContent = whr.toFixed(2);
-            document.getElementById('whr-result').classList.add('show');
+ const whr = waist / hip;
+ document.getElementById('whr-value').textContent = whr.toFixed(2);
+ document.getElementById('whr-result').classList.add('show');
 
-            let category, categoryClass, riskText;
-            if (gender === 'male') {
-                if (whr < 0.90) {
-                    category = 'Düşük Risk';
-                    categoryClass = 'normal';
-                    riskText = 'Bel-kalça oranınız erkekler için sağlıklı aralıkta. Kardiyovasküler risk faktörleriniz bu açıdan düşük.';
-                } else if (whr < 1.0) {
-                    category = 'Orta Risk';
-                    categoryClass = 'overweight';
-                    riskText = 'Bel-kalça oranınız orta risk bölgesinde. Yaşam tarzı değişiklikleri ile riski azaltabilirsiniz.';
-                } else {
-                    category = 'Yüksek Risk';
-                    categoryClass = 'obese';
-                    riskText = 'Bel-kalça oranınız yüksek risk bölgesinde. Karın bölgesi yağlanması, diyabet ve kalp hastalığı riskini artırır. Bir uzmana danışmanız önerilir.';
-                }
-            } else {
-                if (whr < 0.80) {
-                    category = 'Düşük Risk';
-                    categoryClass = 'normal';
-                    riskText = 'Bel-kalça oranınız kadınlar için sağlıklı aralıkta. Kardiyovasküler risk faktörleriniz bu açıdan düşük.';
-                } else if (whr < 0.85) {
-                    category = 'Orta Risk';
-                    categoryClass = 'overweight';
-                    riskText = 'Bel-kalça oranınız orta risk bölgesinde. Yaşam tarzı değişiklikleri ile riski azaltabilirsiniz.';
-                } else {
-                    category = 'Yüksek Risk';
-                    categoryClass = 'obese';
-                    riskText = 'Bel-kalça oranınız yüksek risk bölgesinde. Karın bölgesi yağlanması, diyabet ve kalp hastalığı riskini artırır. Bir uzmana danışmanız önerilir.';
-                }
-            }
+ let category, categoryClass, riskText;
+ if (gender === 'male') {
+ if (whr < 0.90) {
+ category = 'Düşük Risk';
+ categoryClass = 'normal';
+ riskText = 'Bel-kalça oranınız erkekler için sağlıklı aralıkta. Kardiyovasküler risk faktörleriniz bu açıdan düşük.';
+ } else if (whr < 1.0) {
+ category = 'Orta Risk';
+ categoryClass = 'overweight';
+ riskText = 'Bel-kalça oranınız orta risk bölgesinde. Yaşam tarzı değişiklikleri ile riski azaltabilirsiniz.';
+ } else {
+ category = 'Yüksek Risk';
+ categoryClass = 'obese';
+ riskText = 'Bel-kalça oranınız yüksek risk bölgesinde. Karın bölgesi yağlanması, diyabet ve kalp hastalığı riskini artırır. Bir uzmana danışmanız önerilir.';
+ }
+ } else {
+ if (whr < 0.80) {
+ category = 'Düşük Risk';
+ categoryClass = 'normal';
+ riskText = 'Bel-kalça oranınız kadınlar için sağlıklı aralıkta. Kardiyovasküler risk faktörleriniz bu açıdan düşük.';
+ } else if (whr < 0.85) {
+ category = 'Orta Risk';
+ categoryClass = 'overweight';
+ riskText = 'Bel-kalça oranınız orta risk bölgesinde. Yaşam tarzı değişiklikleri ile riski azaltabilirsiniz.';
+ } else {
+ category = 'Yüksek Risk';
+ categoryClass = 'obese';
+ riskText = 'Bel-kalça oranınız yüksek risk bölgesinde. Karın bölgesi yağlanması, diyabet ve kalp hastalığı riskini artırır. Bir uzmana danışmanız önerilir.';
+ }
+ }
 
-            const categoryEl = document.getElementById('whr-category');
-            categoryEl.textContent = category;
-            categoryEl.className = 'result-category ' + categoryClass;
-            document.getElementById('whr-risk-text').textContent = riskText;
-        }
-    </script>
+ const categoryEl = document.getElementById('whr-category');
+ categoryEl.textContent = category;
+ categoryEl.className = 'result-category ' + categoryClass;
+ document.getElementById('whr-risk-text').textContent = riskText;
+ }
+ </script>
 
-    <!-- HUB UPGRADE JS -->
-    <script>
-    // Staggered fade-in on scroll
-    const hubObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                hubObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    document.querySelectorAll(".hub-fade-in").forEach(el => hubObserver.observe(el));
+ <!-- HUB UPGRADE JS -->
+ <script>
+ // Staggered fade-in on scroll
+ const hubObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add("visible");
+ hubObserver.unobserve(entry.target);
+ }
+ });
+ }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+ document.querySelectorAll(".hub-fade-in").forEach(el => hubObserver.observe(el));
 
-    // Active sub-nav highlighting on scroll
-    if (document.querySelector(".hub-subnav")) {
-        const sections = document.querySelectorAll("section[id]");
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach(section => {
-                const top = section.offsetTop - 200;
-                if (pageYOffset >= top) current = section.getAttribute("id");
-            });
-            document.querySelectorAll(".hub-subnav-link").forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === "#" + current) link.classList.add("active");
-            });
-        });
-    }
+ // Active sub-nav highlighting on scroll
+ if (document.querySelector(".hub-subnav")) {
+ const sections = document.querySelectorAll("section[id]");
+ window.addEventListener("scroll", () => {
+ let current = "";
+ sections.forEach(section => {
+ const top = section.offsetTop - 200;
+ if (pageYOffset >= top) current = section.getAttribute("id");
+ });
+ document.querySelectorAll(".hub-subnav-link").forEach(link => {
+ link.classList.remove("active");
+ if (link.getAttribute("href") === "#" + current) link.classList.add("active");
+ });
+ });
+ }
 
-    // Newsletter handler
-    function handleHubNewsletter(e, form) {
-        e.preventDefault();
-        const email = form.email.value;
-        localStorage.setItem("uzunyasa_subscriber", email);
-        form.style.display = "none";
-        document.getElementById("hub-nl-success").style.display = "block";
-    }
-    </script>
+ // Newsletter handler
+ function handleHubNewsletter(e, form) {
+ e.preventDefault();
+ const email = form.email.value;
+ localStorage.setItem("uzunyasa_subscriber", email);
+ form.style.display = "none";
+ document.getElementById("hub-nl-success").style.display = "block";
+ }
+ </script>
 </body>
 </html>

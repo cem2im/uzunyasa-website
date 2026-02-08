@@ -69,7 +69,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 </head>
 <body>
 <header class="page-header">
-<h1>📊 Türkiye Obezite İstatistikleri</h1>
+<h1> Türkiye Obezite İstatistikleri</h1>
 <p>TÜİK, WHO ve OECD verilerine dayalı güncel obezite istatistikleri ve analizler</p>
 </header>
 
@@ -86,21 +86,21 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 
 <!-- Yearly trend -->
 <div class="chart-card" data-animate>
-<h2>📈 Yıllara Göre Obezite Oranı (%)</h2>
+<h2> Yıllara Göre Obezite Oranı (%)</h2>
 <p class="source">Kaynak: TÜİK Sağlık Araştırması, 2010-2024</p>
 <div class="bar-chart" id="yearlyChart"></div>
 </div>
 
 <!-- Regional -->
 <div class="chart-card" data-animate>
-<h2>🗺️ Bölgelere Göre Obezite Oranı</h2>
+<h2> Bölgelere Göre Obezite Oranı</h2>
 <p class="source">Kaynak: TÜİK, 2023</p>
 <div class="h-bars" id="regionalBars"></div>
 </div>
 
 <!-- Gender donut -->
 <div class="chart-card" data-animate>
-<h2>👫 Cinsiyete Göre Obezite</h2>
+<h2> Cinsiyete Göre Obezite</h2>
 <p class="source">Kaynak: TÜİK, 2023</p>
 <div class="donut-wrap">
 <svg class="donut-svg" viewBox="0 0 200 200">
@@ -119,14 +119,14 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 
 <!-- Age groups -->
 <div class="chart-card" data-animate>
-<h2>📊 Yaş Gruplarına Göre Obezite (%)</h2>
+<h2> Yaş Gruplarına Göre Obezite (%)</h2>
 <p class="source">Kaynak: TÜİK, 2023</p>
 <div class="h-bars" id="ageBars"></div>
 </div>
 
 <!-- Country comparison -->
 <div class="chart-card" data-animate>
-<h2>🌍 Ülkelere Göre Karşılaştırma (%)</h2>
+<h2> Ülkelere Göre Karşılaştırma (%)</h2>
 <p class="source">Kaynak: OECD Health Statistics, 2023</p>
 <div class="h-bars" id="countryBars"></div>
 </div>
@@ -135,9 +135,9 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 <div class="share-bar">
 <h3>Bu sayfayı paylaşın</h3>
 <div class="share-btns">
-<a class="tw" href="https://twitter.com/intent/tweet?text=T%C3%BCrkiye%20obezite%20istatistikleri%20%F0%9F%93%8A&url=https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener">🐦 Twitter</a>
-<a class="wa" href="https://wa.me/?text=T%C3%BCrkiye%20obezite%20istatistikleri%20%F0%9F%93%8A%20https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener">💬 WhatsApp</a>
-<a class="li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener">💼 LinkedIn</a>
+<a class="tw" href="https://twitter.com/intent/tweet?text=T%C3%BCrkiye%20obezite%20istatistikleri%20%F0%9F%93%8A&url=https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener"> Twitter</a>
+<a class="wa" href="https://wa.me/?text=T%C3%BCrkiye%20obezite%20istatistikleri%20%F0%9F%93%8A%20https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener"> WhatsApp</a>
+<a class="li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://uzunyasa.com/pages/istatistikler.html" target="_blank" rel="noopener"> LinkedIn</a>
 </div>
 </div>
 </div>
@@ -156,8 +156,8 @@ const ageData=[
 {l:'15-24',v:5.2},{l:'25-34',v:14.8},{l:'35-44',v:22.3},{l:'45-54',v:28.7},{l:'55-64',v:30.1},{l:'65-74',v:27.4},{l:'75+',v:21.8}
 ];
 const countryData=[
-{l:'ABD 🇺🇸',v:41.9},{l:'Meksika 🇲🇽',v:36.1},{l:'Türkiye 🇹🇷',v:21.1,hl:true},{l:'İngiltere 🇬🇧',v:25.9},
-{l:'Almanya 🇩🇪',v:19.3},{l:'Fransa 🇫🇷',v:17.0},{l:'İtalya 🇮🇹',v:12.0},{l:'Japonya 🇯🇵',v:4.5},{l:'G. Kore 🇰🇷',v:5.9}
+{l:'ABD ',v:41.9},{l:'Meksika ',v:36.1},{l:'Türkiye ',v:21.1,hl:true},{l:'İngiltere ',v:25.9},
+{l:'Almanya ',v:19.3},{l:'Fransa ',v:17.0},{l:'İtalya ',v:12.0},{l:'Japonya ',v:4.5},{l:'G. Kore ',v:5.9}
 ];
 
 // Build yearly bar chart

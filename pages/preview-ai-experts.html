@@ -4,637 +4,637 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QBM7E0EHFP');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Uzmanları — UzunYaşa Preview</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css">
-    <style>
-        /* ===== AI EXPERTS SECTION ===== */
-        .ai-experts-section {
-            padding: 120px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>AI Uzmanları — UzunYaşa Preview</title>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../styles/main.css">
+ <style>
+ /* ===== AI EXPERTS SECTION ===== */
+ .ai-experts-section {
+ padding: 120px 24px;
+ max-width: 1200px;
+ margin: 0 auto;
+ }
 
-        .dynamic-headline {
-            text-align: center;
-            margin-bottom: 64px;
-            opacity: 0;
-            transform: translateY(24px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
+ .dynamic-headline {
+ text-align: center;
+ margin-bottom: 64px;
+ opacity: 0;
+ transform: translateY(24px);
+ animation: fadeInUp 0.8s ease-out forwards;
+ }
 
-        .headline-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(25, 81, 87, 0.08);
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 24px;
-            letter-spacing: 0.02em;
-        }
+ .headline-label {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 8px 16px;
+ background: rgba(25, 81, 87, 0.08);
+ border-radius: 100px;
+ font-size: 13px;
+ font-weight: 600;
+ color: var(--primary);
+ margin-bottom: 24px;
+ letter-spacing: 0.02em;
+ }
 
-        .headline-label::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--gradient);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
+ .headline-label::before {
+ content: '';
+ width: 8px;
+ height: 8px;
+ background: var(--gradient);
+ border-radius: 50%;
+ animation: pulse 2s ease-in-out infinite;
+ }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.2); }
-        }
+ @keyframes pulse {
+ 0%, 100% { opacity: 1; transform: scale(1); }
+ 50% { opacity: 0.6; transform: scale(1.2); }
+ }
 
-        .headline-main {
-            font-family: 'Playfair Display', serif;
-            font-size: 72px;
-            font-weight: 600;
-            line-height: 1.1;
-            color: var(--text);
-            margin-bottom: 16px;
-            transition: all 0.4s ease;
-        }
+ .headline-main {
+ font-family: 'Playfair Display', serif;
+ font-size: 72px;
+ font-weight: 600;
+ line-height: 1.1;
+ color: var(--text);
+ margin-bottom: 16px;
+ transition: all 0.4s ease;
+ }
 
-        .headline-main .highlight {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+ .headline-main .highlight {
+ background: var(--gradient);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ }
 
-        .headline-sub {
-            font-size: 18px;
-            color: var(--text-light);
-            max-width: 540px;
-            margin: 0 auto;
-        }
+ .headline-sub {
+ font-size: 18px;
+ color: var(--text-light);
+ max-width: 540px;
+ margin: 0 auto;
+ }
 
-        .expert-selector {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 64px;
-        }
+ .expert-selector {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 24px;
+ margin-bottom: 64px;
+ }
 
-        .expert-card {
-            background: var(--bg-card);
-            border: 2px solid transparent;
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-sm);
-            opacity: 0;
-            transform: translateY(24px);
-        }
+ .expert-card {
+ background: var(--bg-card);
+ border: 2px solid transparent;
+ border-radius: var(--radius-lg);
+ padding: 32px;
+ cursor: pointer;
+ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ box-shadow: var(--shadow-sm);
+ opacity: 0;
+ transform: translateY(24px);
+ }
 
-        .expert-card:nth-child(1) { animation: fadeInUp 0.8s ease-out 0.1s forwards; }
-        .expert-card:nth-child(2) { animation: fadeInUp 0.8s ease-out 0.2s forwards; }
-        .expert-card:nth-child(3) { animation: fadeInUp 0.8s ease-out 0.3s forwards; }
+ .expert-card:nth-child(1) { animation: fadeInUp 0.8s ease-out 0.1s forwards; }
+ .expert-card:nth-child(2) { animation: fadeInUp 0.8s ease-out 0.2s forwards; }
+ .expert-card:nth-child(3) { animation: fadeInUp 0.8s ease-out 0.3s forwards; }
 
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+ @keyframes fadeInUp {
+ to { opacity: 1; transform: translateY(0); }
+ }
 
-        .expert-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
+ .expert-card:hover {
+ box-shadow: var(--shadow-md);
+ transform: translateY(-2px);
+ }
 
-        .expert-card.active {
-            border-color: var(--primary-dark);
-            transform: scale(1.02);
-            box-shadow: var(--shadow-lg);
-        }
+ .expert-card.active {
+ border-color: var(--primary-dark);
+ transform: scale(1.02);
+ box-shadow: var(--shadow-lg);
+ }
 
-        .expert-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-            background: #f3f4f6;
-            transition: all 0.3s ease;
-        }
+ .expert-icon {
+ width: 56px;
+ height: 56px;
+ border-radius: var(--radius-md);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 24px;
+ margin-bottom: 20px;
+ background: #f3f4f6;
+ transition: all 0.3s ease;
+ }
 
-        .expert-card.active .expert-icon {
-            background: var(--gradient);
-        }
+ .expert-card.active .expert-icon {
+ background: var(--gradient);
+ }
 
-        .expert-card.active .expert-icon span {
-            filter: grayscale(0) brightness(1.1);
-        }
+ .expert-card.active .expert-icon span {
+ filter: grayscale(0) brightness(1.1);
+ }
 
-        .expert-name {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+ .expert-name {
+ font-size: 18px;
+ font-weight: 600;
+ margin-bottom: 8px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ }
 
-        .expert-name .arrow {
-            opacity: 0;
-            transform: translateX(-4px);
-            transition: all 0.3s ease;
-            color: var(--primary);
-        }
+ .expert-name .arrow {
+ opacity: 0;
+ transform: translateX(-4px);
+ transition: all 0.3s ease;
+ color: var(--primary);
+ }
 
-        .expert-card:hover .arrow,
-        .expert-card.active .arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
+ .expert-card:hover .arrow,
+ .expert-card.active .arrow {
+ opacity: 1;
+ transform: translateX(0);
+ }
 
-        .expert-desc {
-            font-size: 14px;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
+ .expert-desc {
+ font-size: 14px;
+ color: var(--text-light);
+ line-height: 1.5;
+ }
 
-        .product-preview {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(24px);
-            animation: fadeInUp 0.8s ease-out 0.4s forwards;
-        }
+ .product-preview {
+ background: var(--bg-card);
+ border-radius: var(--radius-lg);
+ box-shadow: var(--shadow-xl);
+ overflow: hidden;
+ opacity: 0;
+ transform: translateY(24px);
+ animation: fadeInUp 0.8s ease-out 0.4s forwards;
+ }
 
-        .browser-frame {
-            background: #f5f5f7;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid var(--border);
-        }
+ .browser-frame {
+ background: #f5f5f7;
+ padding: 12px 16px;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ border-bottom: 1px solid var(--border);
+ }
 
-        .traffic-light {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
+ .traffic-light {
+ width: 12px;
+ height: 12px;
+ border-radius: 50%;
+ }
 
-        .traffic-light.red { background: #FF5F57; }
-        .traffic-light.yellow { background: #FEBC2E; }
-        .traffic-light.green { background: #28C840; }
+ .traffic-light.red { background: #FF5F57; }
+ .traffic-light.yellow { background: #FEBC2E; }
+ .traffic-light.green { background: #28C840; }
 
-        .browser-url {
-            flex: 1;
-            text-align: center;
-            font-size: 12px;
-            color: #86868b;
-        }
+ .browser-url {
+ flex: 1;
+ text-align: center;
+ font-size: 12px;
+ color: #86868b;
+ }
 
-        .product-content {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            min-height: 480px;
-        }
+ .product-content {
+ display: grid;
+ grid-template-columns: 1fr 320px;
+ min-height: 480px;
+ }
 
-        .chat-interface {
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            background: #fafafa;
-        }
+ .chat-interface {
+ padding: 32px;
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ background: #fafafa;
+ }
 
-        .chat-bubble {
-            max-width: 80%;
-            padding: 16px 20px;
-            border-radius: 20px;
-            font-size: 15px;
-            line-height: 1.5;
-            animation: bubbleIn 0.4s ease-out forwards;
-            opacity: 0;
-        }
+ .chat-bubble {
+ max-width: 80%;
+ padding: 16px 20px;
+ border-radius: 20px;
+ font-size: 15px;
+ line-height: 1.5;
+ animation: bubbleIn 0.4s ease-out forwards;
+ opacity: 0;
+ }
 
-        @keyframes bubbleIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+ @keyframes bubbleIn {
+ from { opacity: 0; transform: translateY(10px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
 
-        .chat-bubble.ai {
-            background: #F1F1F3;
-            color: var(--text);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
+ .chat-bubble.ai {
+ background: #F1F1F3;
+ color: var(--text);
+ align-self: flex-start;
+ border-bottom-left-radius: 4px;
+ }
 
-        .chat-bubble.user {
-            background: var(--gradient);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-        }
+ .chat-bubble.user {
+ background: var(--gradient);
+ color: white;
+ align-self: flex-end;
+ border-bottom-right-radius: 4px;
+ }
 
-        .chat-bubble:nth-child(1) { animation-delay: 0.6s; }
-        .chat-bubble:nth-child(2) { animation-delay: 0.9s; }
-        .chat-bubble:nth-child(3) { animation-delay: 1.2s; }
-        .chat-bubble:nth-child(4) { animation-delay: 1.5s; }
+ .chat-bubble:nth-child(1) { animation-delay: 0.6s; }
+ .chat-bubble:nth-child(2) { animation-delay: 0.9s; }
+ .chat-bubble:nth-child(3) { animation-delay: 1.2s; }
+ .chat-bubble:nth-child(4) { animation-delay: 1.5s; }
 
-        .chat-input {
-            margin-top: auto;
-            display: flex;
-            gap: 12px;
-            padding: 16px;
-            background: white;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-        }
+ .chat-input {
+ margin-top: auto;
+ display: flex;
+ gap: 12px;
+ padding: 16px;
+ background: white;
+ border-radius: var(--radius-md);
+ border: 1px solid var(--border);
+ }
 
-        .chat-input input {
-            flex: 1;
-            border: none;
-            outline: none;
-            font-size: 15px;
-            color: var(--text);
-        }
+ .chat-input input {
+ flex: 1;
+ border: none;
+ outline: none;
+ font-size: 15px;
+ color: var(--text);
+ }
 
-        .chat-input button {
-            width: 40px;
-            height: 40px;
-            border: none;
-            background: var(--gradient);
-            color: white;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+ .chat-input button {
+ width: 40px;
+ height: 40px;
+ border: none;
+ background: var(--gradient);
+ color: white;
+ border-radius: 10px;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
 
-        .stats-panel {
-            background: white;
-            border-left: 1px solid var(--border);
-            padding: 32px;
-        }
+ .stats-panel {
+ background: white;
+ border-left: 1px solid var(--border);
+ padding: 32px;
+ }
 
-        .stats-header {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 24px;
-        }
+ .stats-header {
+ font-size: 13px;
+ font-weight: 600;
+ color: var(--text-light);
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ margin-bottom: 24px;
+ }
 
-        .stat-item {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-        }
+ .stat-item {
+ padding: 16px 0;
+ border-bottom: 1px solid var(--border);
+ }
 
-        .stat-item:last-child { border-bottom: none; }
+ .stat-item:last-child { border-bottom: none; }
 
-        .stat-label {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-bottom: 4px;
-        }
+ .stat-label {
+ font-size: 13px;
+ color: var(--text-light);
+ margin-bottom: 4px;
+ }
 
-        .stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text);
-        }
+ .stat-value {
+ font-size: 24px;
+ font-weight: 700;
+ color: var(--text);
+ }
 
-        .stat-value.positive { color: #10b981; }
+ .stat-value.positive { color: #10b981; }
 
-        .stat-bar {
-            height: 6px;
-            background: #f3f4f6;
-            border-radius: 3px;
-            margin-top: 8px;
-            overflow: hidden;
-        }
+ .stat-bar {
+ height: 6px;
+ background: #f3f4f6;
+ border-radius: 3px;
+ margin-top: 8px;
+ overflow: hidden;
+ }
 
-        .stat-bar-fill {
-            height: 100%;
-            background: var(--gradient);
-            border-radius: 3px;
-            transition: width 1s ease-out;
-        }
+ .stat-bar-fill {
+ height: 100%;
+ background: var(--gradient);
+ border-radius: 3px;
+ transition: width 1s ease-out;
+ }
 
-        .trust-section {
-            margin-top: 64px;
-            opacity: 0;
-            transform: translateY(24px);
-            animation: fadeInUp 0.8s ease-out 0.5s forwards;
-        }
+ .trust-section {
+ margin-top: 64px;
+ opacity: 0;
+ transform: translateY(24px);
+ animation: fadeInUp 0.8s ease-out 0.5s forwards;
+ }
 
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-bottom: 48px;
-        }
+ .trust-badges {
+ display: flex;
+ justify-content: center;
+ gap: 32px;
+ margin-bottom: 48px;
+ }
 
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 20px;
-            background: white;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text);
-        }
+ .trust-badge {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ padding: 12px 20px;
+ background: white;
+ border-radius: var(--radius-md);
+ border: 1px solid var(--border);
+ font-size: 14px;
+ font-weight: 500;
+ color: var(--text);
+ }
 
-        .trust-badge-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-        }
+ .trust-badge-icon {
+ width: 24px;
+ height: 24px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: var(--primary);
+ }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            text-align: center;
-        }
+ .feature-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 32px;
+ text-align: center;
+ }
 
-        .feature-item {
-            padding: 32px;
-        }
+ .feature-item {
+ padding: 32px;
+ }
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 16px;
-            background: rgba(25, 81, 87, 0.08);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
+ .feature-icon {
+ width: 48px;
+ height: 48px;
+ margin: 0 auto 16px;
+ background: rgba(25, 81, 87, 0.08);
+ border-radius: var(--radius-sm);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 20px;
+ }
 
-        .feature-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
+ .feature-title {
+ font-size: 16px;
+ font-weight: 600;
+ margin-bottom: 8px;
+ }
 
-        .feature-desc {
-            font-size: 14px;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
+ .feature-desc {
+ font-size: 14px;
+ color: var(--text-light);
+ line-height: 1.5;
+ }
 
-        .cta-wrapper {
-            text-align: center;
-            margin-top: 48px;
-        }
+ .cta-wrapper {
+ text-align: center;
+ margin-top: 48px;
+ }
 
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 36px;
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(25, 81, 87, 0.3);
-        }
+ .cta-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 12px;
+ padding: 18px 36px;
+ background: var(--gradient);
+ color: white;
+ border: none;
+ border-radius: var(--radius-md);
+ font-size: 16px;
+ font-weight: 600;
+ text-decoration: none;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ box-shadow: 0 4px 20px rgba(25, 81, 87, 0.3);
+ }
 
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(25, 81, 87, 0.4);
-        }
+ .cta-btn:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 8px 30px rgba(25, 81, 87, 0.4);
+ }
 
-        .cta-btn .arrow {
-            transition: transform 0.3s ease;
-        }
+ .cta-btn .arrow {
+ transition: transform 0.3s ease;
+ }
 
-        .cta-btn:hover .arrow {
-            transform: translateX(4px);
-        }
+ .cta-btn:hover .arrow {
+ transform: translateX(4px);
+ }
 
-        @media (max-width: 960px) {
-            .product-content {
-                grid-template-columns: 1fr;
-            }
-            .stats-panel {
-                border-left: none;
-                border-top: 1px solid var(--border);
-            }
-        }
+ @media (max-width: 960px) {
+ .product-content {
+ grid-template-columns: 1fr;
+ }
+ .stats-panel {
+ border-left: none;
+ border-top: 1px solid var(--border);
+ }
+ }
 
-        @media (max-width: 640px) {
-            .ai-experts-section {
-                padding: 80px 16px;
-            }
-            .headline-main {
-                font-size: 40px;
-            }
-            .expert-selector {
-                grid-template-columns: 1fr;
-            }
-            .trust-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+ @media (max-width: 640px) {
+ .ai-experts-section {
+ padding: 80px 16px;
+ }
+ .headline-main {
+ font-size: 40px;
+ }
+ .expert-selector {
+ grid-template-columns: 1fr;
+ }
+ .trust-badges {
+ flex-direction: column;
+ align-items: center;
+ }
+ .feature-grid {
+ grid-template-columns: 1fr;
+ }
+ }
+ </style>
 </head>
 <body>
 
 <!-- Header -->
 <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e5e7eb;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;">
-        <a href="../index.html"><img src="../images/logo.svg" alt="UzunYaşa" style="height: 44px;"></a>
-        <nav style="display: flex; gap: 32px; align-items: center;">
-            <a href="../index.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Ana Sayfa</a>
-            <a href="rehberler.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Rehberler</a>
-            <a href="blog.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Blog</a>
-            <a href="test.html" style="padding: 10px 20px; background: linear-gradient(135deg, #195157, #2a7d83); color: white; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">Teste Başla</a>
-        </nav>
-    </div>
+ <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;">
+ <a href="../index.html"><img src="../images/logo.svg" alt="UzunYaşa" style="height: 44px;"></a>
+ <nav style="display: flex; gap: 32px; align-items: center;">
+ <a href="../index.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Ana Sayfa</a>
+ <a href="rehberler.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Rehberler</a>
+ <a href="blog.html" style="color: #6b7280; text-decoration: none; font-size: 15px; font-weight: 500;">Blog</a>
+ <a href="test.html" style="padding: 10px 20px; background: linear-gradient(135deg, #195157, #2a7d83); color: white; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">Teste Başla</a>
+ </nav>
+ </div>
 </header>
 
 <section class="ai-experts-section" style="padding-top: 160px;">
-    <!-- Dynamic Headline -->
-    <div class="dynamic-headline">
-        <div class="headline-label">AI Destekli Sağlık Rehberliği</div>
-        <h1 class="headline-main" id="mainHeadline">
-            <span class="highlight">Beslenme Uzmanınız</span><br>
-            Her Zaman Yanınızda
-        </h1>
-        <p class="headline-sub">Sorularınızı sorun, kişiselleştirilmiş ve bilimsel yanıtlar alın. 7/24 erişilebilir, kanıta dayalı rehberlik.</p>
-    </div>
+ <!-- Dynamic Headline -->
+ <div class="dynamic-headline">
+ <div class="headline-label">AI Destekli Sağlık Rehberliği</div>
+ <h1 class="headline-main" id="mainHeadline">
+ <span class="highlight">Beslenme Uzmanınız</span><br>
+ Her Zaman Yanınızda
+ </h1>
+ <p class="headline-sub">Sorularınızı sorun, kişiselleştirilmiş ve bilimsel yanıtlar alın. 7/24 erişilebilir, kanıta dayalı rehberlik.</p>
+ </div>
 
-    <!-- Expert Selector Cards -->
-    <div class="expert-selector">
-        <div class="expert-card active" onclick="selectExpert(this, 'beslenme')">
-            <div class="expert-icon"><span>🥗</span></div>
-            <div class="expert-name">
-                Beslenme Uzmanı
-                <span class="arrow">→</span>
-            </div>
-            <p class="expert-desc">Diyet planları, kalori hesaplama, besin önerileri ve sağlıklı yeme alışkanlıkları.</p>
-        </div>
-        <div class="expert-card" onclick="selectExpert(this, 'egzersiz')">
-            <div class="expert-icon"><span>🏃</span></div>
-            <div class="expert-name">
-                Egzersiz Koçu
-                <span class="arrow">→</span>
-            </div>
-            <p class="expert-desc">Kişiye özel antrenman programları, form düzeltme ve motivasyon desteği.</p>
-        </div>
-        <div class="expert-card" onclick="selectExpert(this, 'saglik')">
-            <div class="expert-icon"><span>💊</span></div>
-            <div class="expert-name">
-                Sağlık Danışmanı
-                <span class="arrow">→</span>
-            </div>
-            <p class="expert-desc">Tedavi seçenekleri, ilaç bilgileri ve sağlık sorularınıza yanıtlar.</p>
-        </div>
-    </div>
+ <!-- Expert Selector Cards -->
+ <div class="expert-selector">
+ <div class="expert-card active" onclick="selectExpert(this, 'beslenme')">
+ <div class="expert-icon"><span></span></div>
+ <div class="expert-name">
+ Beslenme Uzmanı
+ <span class="arrow">→</span>
+ </div>
+ <p class="expert-desc">Diyet planları, kalori hesaplama, besin önerileri ve sağlıklı yeme alışkanlıkları.</p>
+ </div>
+ <div class="expert-card" onclick="selectExpert(this, 'egzersiz')">
+ <div class="expert-icon"><span></span></div>
+ <div class="expert-name">
+ Egzersiz Koçu
+ <span class="arrow">→</span>
+ </div>
+ <p class="expert-desc">Kişiye özel antrenman programları, form düzeltme ve motivasyon desteği.</p>
+ </div>
+ <div class="expert-card" onclick="selectExpert(this, 'saglik')">
+ <div class="expert-icon"><span></span></div>
+ <div class="expert-name">
+ Sağlık Danışmanı
+ <span class="arrow">→</span>
+ </div>
+ <p class="expert-desc">Tedavi seçenekleri, ilaç bilgileri ve sağlık sorularınıza yanıtlar.</p>
+ </div>
+ </div>
 
-    <!-- Browser Mockup with Product UI -->
-    <div class="product-preview">
-        <div class="browser-frame">
-            <div class="traffic-light red"></div>
-            <div class="traffic-light yellow"></div>
-            <div class="traffic-light green"></div>
-            <div class="browser-url">uzunyasa.com/ai-uzman</div>
-        </div>
-        <div class="product-content">
-            <div class="chat-interface">
-                <div class="chat-bubble ai">
-                    Merhaba! Ben UzunYaşa Beslenme Uzmanınız. Sağlıklı beslenme konusunda size nasıl yardımcı olabilirim?
-                </div>
-                <div class="chat-bubble user">
-                    Kilo vermek istiyorum ama nereden başlayacağımı bilmiyorum. Yardımcı olur musun?
-                </div>
-                <div class="chat-bubble ai">
-                    Tabii ki! Öncelikle günlük kalori ihtiyacınızı hesaplayalım. Boy, kilo ve aktivite seviyenizi paylaşır mısınız? Ardından size özel bir beslenme planı oluşturabilirim.
-                </div>
-                <div class="chat-bubble user">
-                    175 cm, 85 kg, haftada 2-3 gün yürüyüş yapıyorum.
-                </div>
-                <div class="chat-input">
-                    <input type="text" placeholder="Sorunuzu yazın...">
-                    <button>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                    </button>
-                </div>
-            </div>
-            <div class="stats-panel">
-                <div class="stats-header">Sağlık Özeti</div>
-                <div class="stat-item">
-                    <div class="stat-label">Günlük Kalori Hedefi</div>
-                    <div class="stat-value">1,850 kcal</div>
-                    <div class="stat-bar"><div class="stat-bar-fill" style="width: 65%;"></div></div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-label">Bu Haftaki İlerleme</div>
-                    <div class="stat-value positive">-0.8 kg</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-label">Hedefe Kalan</div>
-                    <div class="stat-value">12 kg</div>
-                    <div class="stat-bar"><div class="stat-bar-fill" style="width: 25%;"></div></div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-label">Günlük Su</div>
-                    <div class="stat-value">2.1 / 2.5 L</div>
-                    <div class="stat-bar"><div class="stat-bar-fill" style="width: 84%;"></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
+ <!-- Browser Mockup with Product UI -->
+ <div class="product-preview">
+ <div class="browser-frame">
+ <div class="traffic-light red"></div>
+ <div class="traffic-light yellow"></div>
+ <div class="traffic-light green"></div>
+ <div class="browser-url">uzunyasa.com/ai-uzman</div>
+ </div>
+ <div class="product-content">
+ <div class="chat-interface">
+ <div class="chat-bubble ai">
+ Merhaba! Ben UzunYaşa Beslenme Uzmanınız. Sağlıklı beslenme konusunda size nasıl yardımcı olabilirim?
+ </div>
+ <div class="chat-bubble user">
+ Kilo vermek istiyorum ama nereden başlayacağımı bilmiyorum. Yardımcı olur musun?
+ </div>
+ <div class="chat-bubble ai">
+ Tabii ki! Öncelikle günlük kalori ihtiyacınızı hesaplayalım. Boy, kilo ve aktivite seviyenizi paylaşır mısınız? Ardından size özel bir beslenme planı oluşturabilirim.
+ </div>
+ <div class="chat-bubble user">
+ 175 cm, 85 kg, haftada 2-3 gün yürüyüş yapıyorum.
+ </div>
+ <div class="chat-input">
+ <input type="text" placeholder="Sorunuzu yazın...">
+ <button>
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+ </button>
+ </div>
+ </div>
+ <div class="stats-panel">
+ <div class="stats-header">Sağlık Özeti</div>
+ <div class="stat-item">
+ <div class="stat-label">Günlük Kalori Hedefi</div>
+ <div class="stat-value">1,850 kcal</div>
+ <div class="stat-bar"><div class="stat-bar-fill" style="width: 65%;"></div></div>
+ </div>
+ <div class="stat-item">
+ <div class="stat-label">Bu Haftaki İlerleme</div>
+ <div class="stat-value positive">-0.8 kg</div>
+ </div>
+ <div class="stat-item">
+ <div class="stat-label">Hedefe Kalan</div>
+ <div class="stat-value">12 kg</div>
+ <div class="stat-bar"><div class="stat-bar-fill" style="width: 25%;"></div></div>
+ </div>
+ <div class="stat-item">
+ <div class="stat-label">Günlük Su</div>
+ <div class="stat-value">2.1 / 2.5 L</div>
+ <div class="stat-bar"><div class="stat-bar-fill" style="width: 84%;"></div></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- Trust Section -->
-    <div class="trust-section">
-        <div class="trust-badges">
-            <div class="trust-badge">
-                <div class="trust-badge-icon">🔒</div>
-                KVKK Uyumlu
-            </div>
-            <div class="trust-badge">
-                <div class="trust-badge-icon">🛡️</div>
-                256-bit SSL
-            </div>
-            <div class="trust-badge">
-                <div class="trust-badge-icon">✓</div>
-                Tıbbi Kurul Onaylı
-            </div>
-        </div>
+ <!-- Trust Section -->
+ <div class="trust-section">
+ <div class="trust-badges">
+ <div class="trust-badge">
+ <div class="trust-badge-icon"></div>
+ KVKK Uyumlu
+ </div>
+ <div class="trust-badge">
+ <div class="trust-badge-icon"></div>
+ 256-bit SSL
+ </div>
+ <div class="trust-badge">
+ <div class="trust-badge-icon"></div>
+ Tıbbi Kurul Onaylı
+ </div>
+ </div>
 
-        <div class="feature-grid">
-            <div class="feature-item">
-                <div class="feature-icon">🎯</div>
-                <div class="feature-title">Kişiselleştirilmiş</div>
-                <p class="feature-desc">Yaşınız, kilonuz ve hedeflerinize göre özel öneriler alın.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">📚</div>
-                <div class="feature-title">Bilimsel Temelli</div>
-                <p class="feature-desc">Tüm öneriler hakemli araştırmalara ve klinik kanıtlara dayanır.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">⏰</div>
-                <div class="feature-title">7/24 Erişim</div>
-                <p class="feature-desc">İstediğiniz zaman, istediğiniz yerden sorularınızı sorun.</p>
-            </div>
-        </div>
+ <div class="feature-grid">
+ <div class="feature-item">
+ <div class="feature-icon"></div>
+ <div class="feature-title">Kişiselleştirilmiş</div>
+ <p class="feature-desc">Yaşınız, kilonuz ve hedeflerinize göre özel öneriler alın.</p>
+ </div>
+ <div class="feature-item">
+ <div class="feature-icon"></div>
+ <div class="feature-title">Bilimsel Temelli</div>
+ <p class="feature-desc">Tüm öneriler hakemli araştırmalara ve klinik kanıtlara dayanır.</p>
+ </div>
+ <div class="feature-item">
+ <div class="feature-icon">⏰</div>
+ <div class="feature-title">7/24 Erişim</div>
+ <p class="feature-desc">İstediğiniz zaman, istediğiniz yerden sorularınızı sorun.</p>
+ </div>
+ </div>
 
-        <div class="cta-wrapper">
-            <a href="../pages/test.html" class="cta-btn">
-                Ücretsiz Deneyin
-                <span class="arrow">→</span>
-            </a>
-        </div>
-    </div>
+ <div class="cta-wrapper">
+ <a href="../pages/test.html" class="cta-btn">
+ Ücretsiz Deneyin
+ <span class="arrow">→</span>
+ </a>
+ </div>
+ </div>
 </section>
 
 <script>
-    const headlines = {
-        beslenme: '<span class="highlight">Beslenme Uzmanınız</span><br>Her Zaman Yanınızda',
-        egzersiz: '<span class="highlight">Egzersiz Koçunuz</span><br>Her Zaman Yanınızda',
-        saglik: '<span class="highlight">Sağlık Danışmanınız</span><br>Her Zaman Yanınızda'
-    };
+ const headlines = {
+ beslenme: '<span class="highlight">Beslenme Uzmanınız</span><br>Her Zaman Yanınızda',
+ egzersiz: '<span class="highlight">Egzersiz Koçunuz</span><br>Her Zaman Yanınızda',
+ saglik: '<span class="highlight">Sağlık Danışmanınız</span><br>Her Zaman Yanınızda'
+ };
 
-    function selectExpert(card, type) {
-        document.querySelectorAll('.expert-card').forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-        document.getElementById('mainHeadline').innerHTML = headlines[type];
-    }
+ function selectExpert(card, type) {
+ document.querySelectorAll('.expert-card').forEach(c => c.classList.remove('active'));
+ card.classList.add('active');
+ document.getElementById('mainHeadline').innerHTML = headlines[type];
+ }
 </script>
 
 </body>

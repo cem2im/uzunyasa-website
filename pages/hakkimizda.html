@@ -4,804 +4,804 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QBM7E0EHFP');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımızda | UzunYaşa</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/hub-upgrade.css">
-    <style>
-        .content-section.full { max-width: 100%; }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Hakkımızda | UzunYaşa</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../styles/main.css">
+ <link rel="stylesheet" href="../styles/hub-upgrade.css">
+ <style>
+ .content-section.full { max-width: 100%; }
 
-        .mission-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+ .mission-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 4rem;
+ align-items: center;
+ }
 
-        .mission-content h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
+ .mission-content h2 {
+ font-size: 2.5rem;
+ font-weight: 700;
+ color: var(--text-dark);
+ margin-bottom: 1.5rem;
+ line-height: 1.2;
+ }
 
-        .mission-content p {
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
+ .mission-content p {
+ color: var(--text-gray);
+ font-size: 1.1rem;
+ line-height: 1.8;
+ margin-bottom: 1.5rem;
+ }
 
-        .mission-image {
-            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
-            border-radius: 20px;
-            aspect-ratio: 4/3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+ .mission-image {
+ background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+ border-radius: 20px;
+ aspect-ratio: 4/3;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
 
-        .mission-image img {
-            max-width: 200px;
-            opacity: 0.3;
-        }
+ .mission-image img {
+ max-width: 200px;
+ opacity: 0.3;
+ }
 
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
+ .values-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 2rem;
+ }
 
-        .value-card {
-            background: var(--bg-white);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s;
-        }
+ .value-card {
+ background: var(--bg-white);
+ border-radius: 16px;
+ padding: 2rem;
+ text-align: center;
+ border: 1px solid var(--border-light);
+ transition: all 0.3s;
+ }
 
-        .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-        }
+ .value-card:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+ }
 
-        .value-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-        }
+ .value-icon {
+ width: 70px;
+ height: 70px;
+ background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+ border-radius: 16px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 0 auto 1.5rem;
+ }
 
-        .value-icon svg { width: 32px; height: 32px; color: white; }
+ .value-icon svg { width: 32px; height: 32px; color: white; }
 
-        .value-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .value-card p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; }
+ .value-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
+ .value-card p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
+ .team-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 2rem;
+ }
 
-        .team-card {
-            text-align: center;
-        }
+ .team-card {
+ text-align: center;
+ }
 
-        .team-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+ .team-photo {
+ width: 150px;
+ height: 150px;
+ border-radius: 50%;
+ background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-teal-light) 100%);
+ margin: 0 auto 1.5rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ overflow: hidden;
+ }
 
-        .team-photo svg { width: 60px; height: 60px; color: rgba(255,255,255,0.5); }
+ .team-photo svg { width: 60px; height: 60px; color: rgba(255,255,255,0.5); }
 
-        .team-card h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
-        .team-card .role { color: var(--accent-orange); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; }
-        .team-card p { color: var(--text-gray); font-size: 0.85rem; }
+ .team-card h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
+ .team-card .role { color: var(--accent-orange); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; }
+ .team-card p { color: var(--text-gray); font-size: 0.85rem; }
 
-        .advisory-section {
-            background: var(--primary-teal);
-            padding: 5rem 2rem;
-            color: white;
-        }
+ .advisory-section {
+ background: var(--primary-teal);
+ padding: 5rem 2rem;
+ color: white;
+ }
 
-        .advisory-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
+ .advisory-inner {
+ max-width: 1000px;
+ margin: 0 auto;
+ text-align: center;
+ }
 
-        .advisory-inner h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+ .advisory-inner h2 {
+ font-size: 2rem;
+ margin-bottom: 1rem;
+ }
 
-        .advisory-inner > p {
-            opacity: 0.9;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+ .advisory-inner > p {
+ opacity: 0.9;
+ margin-bottom: 3rem;
+ max-width: 600px;
+ margin-left: auto;
+ margin-right: auto;
+ }
 
-        .advisory-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            opacity: 0.7;
-        }
+ .advisory-logos {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 3rem;
+ flex-wrap: wrap;
+ opacity: 0.7;
+ }
 
-        .advisory-logo {
-            background: rgba(255,255,255,0.15);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
+ .advisory-logo {
+ background: rgba(255,255,255,0.15);
+ padding: 1rem 2rem;
+ border-radius: 8px;
+ font-weight: 600;
+ font-size: 0.9rem;
+ }
 
-        .timeline {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-        }
+ .timeline {
+ max-width: 700px;
+ margin: 0 auto;
+ position: relative;
+ }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border-light);
-        }
+ .timeline::before {
+ content: '';
+ position: absolute;
+ left: 20px;
+ top: 0;
+ bottom: 0;
+ width: 2px;
+ background: var(--border-light);
+ }
 
-        .timeline-item {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
+ .timeline-item {
+ display: flex;
+ gap: 2rem;
+ margin-bottom: 2rem;
+ position: relative;
+ }
 
-        .timeline-dot {
-            width: 42px;
-            height: 42px;
-            background: var(--primary-teal);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-            z-index: 1;
-        }
+ .timeline-dot {
+ width: 42px;
+ height: 42px;
+ background: var(--primary-teal);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ font-weight: 700;
+ font-size: 0.8rem;
+ flex-shrink: 0;
+ z-index: 1;
+ }
 
-        .timeline-content {
-            background: var(--bg-white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-            flex: 1;
-        }
+ .timeline-content {
+ background: var(--bg-white);
+ padding: 1.5rem;
+ border-radius: 12px;
+ border: 1px solid var(--border-light);
+ flex: 1;
+ }
 
-        .timeline-content h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .timeline-content p { color: var(--text-gray); font-size: 0.95rem; }
+ .timeline-content h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+ .timeline-content p { color: var(--text-gray); font-size: 0.95rem; }
 
-        @media (max-width: 768px) {
+ @media (max-width: 768px) {
 
-            .mission-grid { grid-template-columns: 1fr; }
-            .values-grid { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
-            
-        }
-    </style>
+ .mission-grid { grid-template-columns: 1fr; }
+ .values-grid { grid-template-columns: 1fr; }
+ .team-grid { grid-template-columns: repeat(2, 1fr); }
+ 
+ }
+ </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <a href="../index.html" class="logo">
-                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
-            </a>
-            <nav class="nav">
-                <a href="rehberler.html" class="nav-link">Keşfet ▾</a>
-                <a href="araclar.html" class="nav-link">Araçlar</a>
-                <a href="hikayeler.html" class="nav-link">Hikayeler</a>
-                <a href="bilim.html" class="nav-link">Bilim</a>
-                <a href="hakkimizda.html" class="nav-link active">Hakkımızda</a>
-                <a href="test.html" class="btn-primary">Teste Başla</a>
-            </nav>
-        </div>
-    </header>
+ <header class="header">
+ <div class="header-inner">
+ <a href="../index.html" class="logo">
+ <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+ </a>
+ <nav class="nav">
+ <a href="rehberler.html" class="nav-link">Keşfet </a>
+ <a href="araclar.html" class="nav-link">Araçlar</a>
+ <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+ <a href="bilim.html" class="nav-link">Bilim</a>
+ <a href="hakkimizda.html" class="nav-link active">Hakkımızda</a>
+ <a href="test.html" class="btn-primary">Teste Başla</a>
+ </nav>
+ </div>
+ </header>
 
-    <section class="page-hero">
-        <video class="page-hero-bg" autoplay muted loop playsinline>
-            <source src="../videos/background-5.mp4" type="video/mp4">
-        </video>
-        <div class="page-hero-overlay"></div>
-        <div class="page-hero-content">
-            <nav class="hero-breadcrumb">
-                <a href="../index.html">Ana Sayfa</a>
-                <span>›</span>
-                <span class="current">Hakkımızda</span>
-            </nav>
-            <h1>Hakkımızda</h1>
-            <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu. Bilimi herkes için erişilebilir kılıyoruz.</p>
-        </div>
-    </section>
+ <section class="page-hero">
+ <video class="page-hero-bg" autoplay muted loop playsinline>
+ <source src="../videos/background-5.mp4" type="video/mp4">
+ </video>
+ <div class="page-hero-overlay"></div>
+ <div class="page-hero-content">
+ <nav class="hero-breadcrumb">
+ <a href="../index.html">Ana Sayfa</a>
+ <span>›</span>
+ <span class="current">Hakkımızda</span>
+ </nav>
+ <h1>Hakkımızda</h1>
+ <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu. Bilimi herkes için erişilebilir kılıyoruz.</p>
+ </div>
+ </section>
 
-    <section class="content-section">
-        <div class="mission-grid">
-            <div class="mission-content">
-                <p style="color:#E8963E;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;">Misyonumuz</p>
-                <h2>Türkiye'nin Bağımsız, Kanıta Dayalı Kilo Yönetimi Platformu</h2>
-                <p>UzunYaşa, sağlık bilgisinin ticari çıkarlardan bağımsız, bilimsel kanıtlara dayalı ve herkes için anlaşılır olması gerektiğine inanır.</p>
-                <p>Amacımız, insanların kendi sağlıkları hakkında bilinçli kararlar vermelerine yardımcı olmak. Ne satıyoruz, ne de sponsor alıyoruz. Sadece bilim konuşuyoruz.</p>
-                <p style="margin-top:1rem;"><strong>Vizyonumuz:</strong> Türkiye'nin kilo yönetimi ve sağlıklı yaşam konusunda başvurulan ilk ve en güvenilir kaynağı olmak.</p>
-                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;">
-                    <a href="editoryal-politika.html" style="display:inline-block;padding:0.6rem 1.25rem;background:#0D7377;color:white;border-radius:8px;text-decoration:none;font-size:0.9rem;font-weight:600;">📋 Editoryal Politika</a>
-                    <a href="danisma-kurulu.html" style="display:inline-block;padding:0.6rem 1.25rem;border:2px solid #0D7377;color:#0D7377;border-radius:8px;text-decoration:none;font-size:0.9rem;font-weight:600;">👥 Danışma Kurulu</a>
-                </div>
-            </div>
-            <div class="mission-image" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light)); border-radius: 20px; padding: 3rem;">
-                <img src="../images/icon.png" alt="UzunYaşa" style="max-width: 150px; height: auto;">
-            </div>
-        </div>
-    </section>
+ <section class="content-section">
+ <div class="mission-grid">
+ <div class="mission-content">
+ <p style="color:#E8963E;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;">Misyonumuz</p>
+ <h2>Türkiye'nin Bağımsız, Kanıta Dayalı Kilo Yönetimi Platformu</h2>
+ <p>UzunYaşa, sağlık bilgisinin ticari çıkarlardan bağımsız, bilimsel kanıtlara dayalı ve herkes için anlaşılır olması gerektiğine inanır.</p>
+ <p>Amacımız, insanların kendi sağlıkları hakkında bilinçli kararlar vermelerine yardımcı olmak. Ne satıyoruz, ne de sponsor alıyoruz. Sadece bilim konuşuyoruz.</p>
+ <p style="margin-top:1rem;"><strong>Vizyonumuz:</strong> Türkiye'nin kilo yönetimi ve sağlıklı yaşam konusunda başvurulan ilk ve en güvenilir kaynağı olmak.</p>
+ <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;">
+ <a href="editoryal-politika.html" style="display:inline-block;padding:0.6rem 1.25rem;background:#0D7377;color:white;border-radius:8px;text-decoration:none;font-size:0.9rem;font-weight:600;"> Editoryal Politika</a>
+ <a href="danisma-kurulu.html" style="display:inline-block;padding:0.6rem 1.25rem;border:2px solid #0D7377;color:#0D7377;border-radius:8px;text-decoration:none;font-size:0.9rem;font-weight:600;"> Danışma Kurulu</a>
+ </div>
+ </div>
+ <div class="mission-image" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light)); border-radius: 20px; padding: 3rem;">
+ <img src="../images/icon.png" alt="UzunYaşa" style="max-width: 150px; height: auto;">
+ </div>
+ </div>
+ </section>
 
-    <section class="content-section alt full">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 class="section-title" style="text-align: center;">Değerlerimiz</h2>
-            <p class="section-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;">Her kararımızı yönlendiren temel ilkeler.</p>
-            
-            <div class="values-grid">
-                <div class="value-card hub-fade-in">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12l2 2 4-4"/>
-                            <circle cx="12" cy="12" r="10"/>
-                        </svg>
-                    </div>
-                    <h3>Bilimsel Doğruluk</h3>
-                    <p>Tüm içeriklerimiz hakemli dergilerde yayınlanan araştırmalara dayanır. Kaynakları şeffaf şekilde paylaşırız.</p>
-                </div>
+ <section class="content-section alt full">
+ <div style="max-width: 1200px; margin: 0 auto;">
+ <h2 class="section-title" style="text-align: center;">Değerlerimiz</h2>
+ <p class="section-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;">Her kararımızı yönlendiren temel ilkeler.</p>
+ 
+ <div class="values-grid">
+ <div class="value-card hub-fade-in">
+ <div class="value-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M9 12l2 2 4-4"/>
+ <circle cx="12" cy="12" r="10"/>
+ </svg>
+ </div>
+ <h3>Bilimsel Doğruluk</h3>
+ <p>Tüm içeriklerimiz hakemli dergilerde yayınlanan araştırmalara dayanır. Kaynakları şeffaf şekilde paylaşırız.</p>
+ </div>
 
-                <div class="value-card hub-fade-in">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3>Bağımsızlık</h3>
-                    <p>Hiçbir ilaç firması, takviye markası veya klinikten sponsor almıyoruz. Önerilerimiz tamamen tarafsızdır.</p>
-                </div>
+ <div class="value-card hub-fade-in">
+ <div class="value-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+ </svg>
+ </div>
+ <h3>Bağımsızlık</h3>
+ <p>Hiçbir ilaç firması, takviye markası veya klinikten sponsor almıyoruz. Önerilerimiz tamamen tarafsızdır.</p>
+ </div>
 
-                <div class="value-card hub-fade-in">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3>Erişilebilirlik</h3>
-                    <p>Karmaşık tıbbi bilgiyi herkesin anlayabileceği dilde sunuyoruz. Sağlık okuryazarlığını artırıyoruz.</p>
-                </div>
+ <div class="value-card hub-fade-in">
+ <div class="value-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+ <circle cx="9" cy="7" r="4"/>
+ <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+ <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+ </svg>
+ </div>
+ <h3>Erişilebilirlik</h3>
+ <p>Karmaşık tıbbi bilgiyi herkesin anlayabileceği dilde sunuyoruz. Sağlık okuryazarlığını artırıyoruz.</p>
+ </div>
 
-                <div class="value-card hub-fade-in">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="12" y1="8" x2="12" y2="12"/>
-                            <line x1="12" y1="16" x2="12.01" y2="16"/>
-                        </svg>
-                    </div>
-                    <h3>Şeffaflık</h3>
-                    <p>Metodolojimizi, sınırlamalarımızı ve belirsizlikleri açıkça paylaşırız. "Bilmiyoruz" demeyi biliriz.</p>
-                </div>
+ <div class="value-card hub-fade-in">
+ <div class="value-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="12" cy="12" r="10"/>
+ <line x1="12" y1="8" x2="12" y2="12"/>
+ <line x1="12" y1="16" x2="12.01" y2="16"/>
+ </svg>
+ </div>
+ <h3>Şeffaflık</h3>
+ <p>Metodolojimizi, sınırlamalarımızı ve belirsizlikleri açıkça paylaşırız. "Bilmiyoruz" demeyi biliriz.</p>
+ </div>
 
-                <div class="value-card hub-fade-in">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                        </svg>
-                    </div>
-                    <h3>Sürekli Güncelleme</h3>
-                    <p>Bilim ilerledikçe içeriklerimizi güncelleriz. Eski bilgilere saplanmaz, yeni kanıtlara açık kalırız.</p>
-                </div>
+ <div class="value-card hub-fade-in">
+ <div class="value-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+ <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+ </svg>
+ </div>
+ <h3>Sürekli Güncelleme</h3>
+ <p>Bilim ilerledikçe içeriklerimizi güncelleriz. Eski bilgilere saplanmaz, yeni kanıtlara açık kalırız.</p>
+ </div>
 
-                <div class="value-card hub-fade-in">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                        </svg>
-                    </div>
-                    <h3>Kişiye Saygı</h3>
-                    <p>Her bireyin farklı olduğunu kabul ederiz. Tek bir "doğru yol" dayatmaz, seçenekleri sunarak karar vermeyi size bırakırız.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+ <div class="value-card hub-fade-in">
+ <div class="value-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+ </svg>
+ </div>
+ <h3>Kişiye Saygı</h3>
+ <p>Her bireyin farklı olduğunu kabul ederiz. Tek bir "doğru yol" dayatmaz, seçenekleri sunarak karar vermeyi size bırakırız.</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="content-section" style="padding: 5rem 2rem; background: linear-gradient(180deg, #f8fafc 0%, white 100%);">
-        <style>
-            .health-wheel {
-                position: relative;
-                width: 500px;
-                height: 500px;
-                margin: 0 auto 3rem;
-            }
-            .center-circle {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 120px;
-                height: 120px;
-                background: linear-gradient(135deg, #195157, #2a7d83);
-                border-radius: 50%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 10;
-                box-shadow: 0 10px 40px rgba(25, 81, 87, 0.4);
-                transition: all 0.6s ease;
-            }
-            .center-circle svg { width: 44px; height: 44px; color: white; }
-            .health-wheel:hover .center-circle { transform: translate(-50%, -50%) scale(0.8); }
-            .specialty {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 70px;
-                height: 70px;
-                margin: -35px 0 0 -35px;
-                background: white;
-                border: 2px solid #195157;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 0.55rem;
-                font-weight: 600;
-                color: #195157;
-                text-align: center;
-                padding: 0.3rem;
-                opacity: 0;
-                transform: scale(0);
-                transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            }
-            .specialty:hover { border-color: #E8963E; color: #E8963E; transform: scale(1.15) !important; z-index: 20; }
-            .health-wheel:hover .specialty { opacity: 1; }
-            .health-wheel:hover .specialty:nth-child(1) { transform: translate(0, -190px); }
-            .health-wheel:hover .specialty:nth-child(2) { transform: translate(100px, -164px); }
-            .health-wheel:hover .specialty:nth-child(3) { transform: translate(164px, -100px); }
-            .health-wheel:hover .specialty:nth-child(4) { transform: translate(190px, 0); }
-            .health-wheel:hover .specialty:nth-child(5) { transform: translate(164px, 100px); }
-            .health-wheel:hover .specialty:nth-child(6) { transform: translate(100px, 164px); }
-            .health-wheel:hover .specialty:nth-child(7) { transform: translate(0, 190px); }
-            .health-wheel:hover .specialty:nth-child(8) { transform: translate(-100px, 164px); }
-            .health-wheel:hover .specialty:nth-child(9) { transform: translate(-164px, 100px); }
-            .health-wheel:hover .specialty:nth-child(10) { transform: translate(-190px, 0); }
-            .health-wheel:hover .specialty:nth-child(11) { transform: translate(-164px, -100px); }
-            .health-wheel:hover .specialty:nth-child(12) { transform: translate(-100px, -164px); }
-            .specialty:nth-child(1) { transition-delay: 0s; }
-            .specialty:nth-child(2) { transition-delay: 0.03s; }
-            .specialty:nth-child(3) { transition-delay: 0.06s; }
-            .specialty:nth-child(4) { transition-delay: 0.09s; }
-            .specialty:nth-child(5) { transition-delay: 0.12s; }
-            .specialty:nth-child(6) { transition-delay: 0.15s; }
-            .specialty:nth-child(7) { transition-delay: 0.18s; }
-            .specialty:nth-child(8) { transition-delay: 0.21s; }
-            .specialty:nth-child(9) { transition-delay: 0.24s; }
-            .specialty:nth-child(10) { transition-delay: 0.27s; }
-            .specialty:nth-child(11) { transition-delay: 0.30s; }
-            .specialty:nth-child(12) { transition-delay: 0.33s; }
-            .wheel-label { text-align: center; font-size: 1.5rem; font-weight: 700; color: #195157; margin-bottom: 0.5rem; }
-            .wheel-sublabel { text-align: center; color: #6b7280; font-size: 0.95rem; margin-bottom: 2rem; }
-            .advisory-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #e5e7eb; }
-            .advisory-bottom h3 { font-size: 1.5rem; color: #195157; margin-bottom: 0.5rem; }
-            .advisory-bottom p { color: #6b7280; max-width: 500px; margin: 0 auto; }
-            @media (max-width: 600px) {
-                .health-wheel { width: 350px; height: 350px; }
-                .center-circle { width: 90px; height: 90px; }
-                .specialty { width: 55px; height: 55px; margin: -27.5px 0 0 -27.5px; font-size: 0.45rem; }
-            }
-        </style>
-        
-        <div class="wheel-label">Sağlık Bir Bütündür</div>
-        <div class="wheel-sublabel">Üzerine gelin ve branşları keşfedin</div>
-        
-        <div class="health-wheel">
-            <div class="specialty">Gastro-<br>enteroloji</div>
-            <div class="specialty">Endokri-<br>noloji</div>
-            <div class="specialty">Bariatrik<br>Cerrahi</div>
-            <div class="specialty">Beslenme<br>& Diyet</div>
-            <div class="specialty">Kardi-<br>yoloji</div>
-            <div class="specialty">Metabolizma</div>
-            <div class="specialty">Egzersiz<br>Fizyolojisi</div>
-            <div class="specialty">Psikiyatri<br>& Psikoloji</div>
-            <div class="specialty">Uyku<br>Tıbbı</div>
-            <div class="specialty">İç<br>Hastalıkları</div>
-            <div class="specialty">Kadın<br>Hastalıkları</div>
-            <div class="specialty">Halk<br>Sağlığı</div>
-            
-            <div class="center-circle">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            </div>
-        </div>
-        
-        <div class="advisory-bottom">
-            <h3>Danışma Kurulumuz</h3>
-            <p>İçeriklerimiz, farklı branşlardan uzman akademisyenler ve klinisyenlerden oluşan danışma kurulumuz tarafından gözden geçirilmektedir.</p>
-        </div>
-    </section>
+ <section class="content-section" style="padding: 5rem 2rem; background: linear-gradient(180deg, #f8fafc 0%, white 100%);">
+ <style>
+ .health-wheel {
+ position: relative;
+ width: 500px;
+ height: 500px;
+ margin: 0 auto 3rem;
+ }
+ .center-circle {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 120px;
+ height: 120px;
+ background: linear-gradient(135deg, #195157, #2a7d83);
+ border-radius: 50%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ z-index: 10;
+ box-shadow: 0 10px 40px rgba(25, 81, 87, 0.4);
+ transition: all 0.6s ease;
+ }
+ .center-circle svg { width: 44px; height: 44px; color: white; }
+ .health-wheel:hover .center-circle { transform: translate(-50%, -50%) scale(0.8); }
+ .specialty {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 70px;
+ height: 70px;
+ margin: -35px 0 0 -35px;
+ background: white;
+ border: 2px solid #195157;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 0.55rem;
+ font-weight: 600;
+ color: #195157;
+ text-align: center;
+ padding: 0.3rem;
+ opacity: 0;
+ transform: scale(0);
+ transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+ box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+ }
+ .specialty:hover { border-color: #E8963E; color: #E8963E; transform: scale(1.15) !important; z-index: 20; }
+ .health-wheel:hover .specialty { opacity: 1; }
+ .health-wheel:hover .specialty:nth-child(1) { transform: translate(0, -190px); }
+ .health-wheel:hover .specialty:nth-child(2) { transform: translate(100px, -164px); }
+ .health-wheel:hover .specialty:nth-child(3) { transform: translate(164px, -100px); }
+ .health-wheel:hover .specialty:nth-child(4) { transform: translate(190px, 0); }
+ .health-wheel:hover .specialty:nth-child(5) { transform: translate(164px, 100px); }
+ .health-wheel:hover .specialty:nth-child(6) { transform: translate(100px, 164px); }
+ .health-wheel:hover .specialty:nth-child(7) { transform: translate(0, 190px); }
+ .health-wheel:hover .specialty:nth-child(8) { transform: translate(-100px, 164px); }
+ .health-wheel:hover .specialty:nth-child(9) { transform: translate(-164px, 100px); }
+ .health-wheel:hover .specialty:nth-child(10) { transform: translate(-190px, 0); }
+ .health-wheel:hover .specialty:nth-child(11) { transform: translate(-164px, -100px); }
+ .health-wheel:hover .specialty:nth-child(12) { transform: translate(-100px, -164px); }
+ .specialty:nth-child(1) { transition-delay: 0s; }
+ .specialty:nth-child(2) { transition-delay: 0.03s; }
+ .specialty:nth-child(3) { transition-delay: 0.06s; }
+ .specialty:nth-child(4) { transition-delay: 0.09s; }
+ .specialty:nth-child(5) { transition-delay: 0.12s; }
+ .specialty:nth-child(6) { transition-delay: 0.15s; }
+ .specialty:nth-child(7) { transition-delay: 0.18s; }
+ .specialty:nth-child(8) { transition-delay: 0.21s; }
+ .specialty:nth-child(9) { transition-delay: 0.24s; }
+ .specialty:nth-child(10) { transition-delay: 0.27s; }
+ .specialty:nth-child(11) { transition-delay: 0.30s; }
+ .specialty:nth-child(12) { transition-delay: 0.33s; }
+ .wheel-label { text-align: center; font-size: 1.5rem; font-weight: 700; color: #195157; margin-bottom: 0.5rem; }
+ .wheel-sublabel { text-align: center; color: #6b7280; font-size: 0.95rem; margin-bottom: 2rem; }
+ .advisory-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #e5e7eb; }
+ .advisory-bottom h3 { font-size: 1.5rem; color: #195157; margin-bottom: 0.5rem; }
+ .advisory-bottom p { color: #6b7280; max-width: 500px; margin: 0 auto; }
+ @media (max-width: 600px) {
+ .health-wheel { width: 350px; height: 350px; }
+ .center-circle { width: 90px; height: 90px; }
+ .specialty { width: 55px; height: 55px; margin: -27.5px 0 0 -27.5px; font-size: 0.45rem; }
+ }
+ </style>
+ 
+ <div class="wheel-label">Sağlık Bir Bütündür</div>
+ <div class="wheel-sublabel">Üzerine gelin ve branşları keşfedin</div>
+ 
+ <div class="health-wheel">
+ <div class="specialty">Gastro-<br>enteroloji</div>
+ <div class="specialty">Endokri-<br>noloji</div>
+ <div class="specialty">Bariatrik<br>Cerrahi</div>
+ <div class="specialty">Beslenme<br>& Diyet</div>
+ <div class="specialty">Kardi-<br>yoloji</div>
+ <div class="specialty">Metabolizma</div>
+ <div class="specialty">Egzersiz<br>Fizyolojisi</div>
+ <div class="specialty">Psikiyatri<br>& Psikoloji</div>
+ <div class="specialty">Uyku<br>Tıbbı</div>
+ <div class="specialty">İç<br>Hastalıkları</div>
+ <div class="specialty">Kadın<br>Hastalıkları</div>
+ <div class="specialty">Halk<br>Sağlığı</div>
+ 
+ <div class="center-circle">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+ </div>
+ </div>
+ 
+ <div class="advisory-bottom">
+ <h3>Danışma Kurulumuz</h3>
+ <p>İçeriklerimiz, farklı branşlardan uzman akademisyenler ve klinisyenlerden oluşan danışma kurulumuz tarafından gözden geçirilmektedir.</p>
+ </div>
+ </section>
 
-    <!-- DANIŞMA KURULU -->
-    <section id="kurul" class="content-section" style="background: white;">
-        <style>
-            .kurul-header { text-align: center; margin-bottom: 3rem; }
-            .kurul-header h2 { font-size: 2rem; font-weight: 700; color: #195157; margin-bottom: 0.5rem; }
-            .kurul-header p { color: #6b7280; max-width: 600px; margin: 0 auto; }
-            .kurul-badge { display: inline-flex; align-items: center; gap: 8px; background: #f0fdf4; color: #065f46; padding: 8px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
-            .kurul-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-            .kurul-card { background: #fafafa; border: 1px solid #e5e7eb; border-radius: 16px; padding: 1.5rem; transition: all 0.3s; }
-            .kurul-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
-            .kurul-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-            .kurul-avatar { width: 56px; height: 56px; background: linear-gradient(135deg, #195157, #2a7d83); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; font-weight: 700; }
-            .kurul-info h4 { font-size: 1rem; font-weight: 600; color: #1f2937; margin-bottom: 2px; }
-            .kurul-info span { font-size: 0.8rem; color: #6b7280; }
-            .kurul-title { font-size: 0.85rem; color: #195157; font-weight: 600; margin-bottom: 0.5rem; }
-            .kurul-desc { font-size: 0.9rem; color: #6b7280; line-height: 1.5; }
-            .kurul-affiliation { display: flex; align-items: center; gap: 6px; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; }
-            .kurul-affiliation img { height: 24px; opacity: 0.7; }
-            .kurul-affiliation span { font-size: 0.75rem; color: #9ca3af; }
-        </style>
+ <!-- DANIŞMA KURULU -->
+ <section id="kurul" class="content-section" style="background: white;">
+ <style>
+ .kurul-header { text-align: center; margin-bottom: 3rem; }
+ .kurul-header h2 { font-size: 2rem; font-weight: 700; color: #195157; margin-bottom: 0.5rem; }
+ .kurul-header p { color: #6b7280; max-width: 600px; margin: 0 auto; }
+ .kurul-badge { display: inline-flex; align-items: center; gap: 8px; background: #f0fdf4; color: #065f46; padding: 8px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+ .kurul-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+ .kurul-card { background: #fafafa; border: 1px solid #e5e7eb; border-radius: 16px; padding: 1.5rem; transition: all 0.3s; }
+ .kurul-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+ .kurul-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+ .kurul-avatar { width: 56px; height: 56px; background: linear-gradient(135deg, #195157, #2a7d83); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; font-weight: 700; }
+ .kurul-info h4 { font-size: 1rem; font-weight: 600; color: #1f2937; margin-bottom: 2px; }
+ .kurul-info span { font-size: 0.8rem; color: #6b7280; }
+ .kurul-title { font-size: 0.85rem; color: #195157; font-weight: 600; margin-bottom: 0.5rem; }
+ .kurul-desc { font-size: 0.9rem; color: #6b7280; line-height: 1.5; }
+ .kurul-affiliation { display: flex; align-items: center; gap: 6px; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; }
+ .kurul-affiliation img { height: 24px; opacity: 0.7; }
+ .kurul-affiliation span { font-size: 0.75rem; color: #9ca3af; }
+ </style>
 
-        <div class="kurul-header">
-            <div class="kurul-badge">🎓 Akademik İş Birliği</div>
-            <h2>Danışma Kurulu</h2>
-            <p>İçeriklerimiz, alanında uzman akademisyenler tarafından gözden geçirilmektedir.</p>
-        </div>
+ <div class="kurul-header">
+ <div class="kurul-badge"> Akademik İş Birliği</div>
+ <h2>Danışma Kurulu</h2>
+ <p>İçeriklerimiz, alanında uzman akademisyenler tarafından gözden geçirilmektedir.</p>
+ </div>
 
-        <div class="kurul-grid">
-            <div class="kurul-card">
-                <div class="kurul-card-header">
-                    <div class="kurul-avatar">CŞ</div>
-                    <div class="kurul-info">
-                        <h4>Doç. Dr. Cem Şimşek</h4>
-                        <span>Kurucu</span>
-                    </div>
-                </div>
-                <div class="kurul-title">Gastroenteroloji</div>
-                <p class="kurul-desc">Bariatrik endoskopi, GLP-1 tedavileri ve obezite yönetimi. Harvard Medical School ileri eğitim.</p>
-                <div class="kurul-affiliation">
-                    <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
-                </div>
-            </div>
+ <div class="kurul-grid">
+ <div class="kurul-card">
+ <div class="kurul-card-header">
+ <div class="kurul-avatar">CŞ</div>
+ <div class="kurul-info">
+ <h4>Doç. Dr. Cem Şimşek</h4>
+ <span>Kurucu</span>
+ </div>
+ </div>
+ <div class="kurul-title">Gastroenteroloji</div>
+ <p class="kurul-desc">Bariatrik endoskopi, GLP-1 tedavileri ve obezite yönetimi. Harvard Medical School ileri eğitim.</p>
+ <div class="kurul-affiliation">
+ <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
+ </div>
+ </div>
 
-            <div class="kurul-card">
-                <div class="kurul-card-header">
-                    <div class="kurul-avatar">TD</div>
-                    <div class="kurul-info">
-                        <h4>Prof. Dr. Tomris Durmaz</h4>
-                        <span>Danışman</span>
-                    </div>
-                </div>
-                <div class="kurul-title">Kardiyoloji</div>
-                <p class="kurul-desc">Kalp damar hastalıkları, obezite ve kardiyovasküler risk yönetimi.</p>
-                <div class="kurul-affiliation">
-                    <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
-                </div>
-            </div>
+ <div class="kurul-card">
+ <div class="kurul-card-header">
+ <div class="kurul-avatar">TD</div>
+ <div class="kurul-info">
+ <h4>Prof. Dr. Tomris Durmaz</h4>
+ <span>Danışman</span>
+ </div>
+ </div>
+ <div class="kurul-title">Kardiyoloji</div>
+ <p class="kurul-desc">Kalp damar hastalıkları, obezite ve kardiyovasküler risk yönetimi.</p>
+ <div class="kurul-affiliation">
+ <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
+ </div>
+ </div>
 
-            <div class="kurul-card">
-                <div class="kurul-card-header">
-                    <div class="kurul-avatar">MG</div>
-                    <div class="kurul-info">
-                        <h4>Prof. Dr. Miyase Göksu</h4>
-                        <span>Danışman</span>
-                    </div>
-                </div>
-                <div class="kurul-title">Endokrinoloji</div>
-                <p class="kurul-desc">Diyabet, metabolik sendrom ve hormon bozuklukları.</p>
-                <div class="kurul-affiliation">
-                    <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
-                </div>
-            </div>
+ <div class="kurul-card">
+ <div class="kurul-card-header">
+ <div class="kurul-avatar">MG</div>
+ <div class="kurul-info">
+ <h4>Prof. Dr. Miyase Göksu</h4>
+ <span>Danışman</span>
+ </div>
+ </div>
+ <div class="kurul-title">Endokrinoloji</div>
+ <p class="kurul-desc">Diyabet, metabolik sendrom ve hormon bozuklukları.</p>
+ <div class="kurul-affiliation">
+ <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
+ </div>
+ </div>
 
-            <div class="kurul-card">
-                <div class="kurul-card-header">
-                    <div class="kurul-avatar">AY</div>
-                    <div class="kurul-info">
-                        <h4>Doç. Dr. Ayşe Yılmaz</h4>
-                        <span>Danışman</span>
-                    </div>
-                </div>
-                <div class="kurul-title">Beslenme ve Diyetetik</div>
-                <p class="kurul-desc">Klinik beslenme, obezite diyetleri ve metabolik beslenme tedavisi.</p>
-                <div class="kurul-affiliation">
-                    <span>Hacettepe Üniversitesi Sağlık Bilimleri Fakültesi</span>
-                </div>
-            </div>
+ <div class="kurul-card">
+ <div class="kurul-card-header">
+ <div class="kurul-avatar">AY</div>
+ <div class="kurul-info">
+ <h4>Doç. Dr. Ayşe Yılmaz</h4>
+ <span>Danışman</span>
+ </div>
+ </div>
+ <div class="kurul-title">Beslenme ve Diyetetik</div>
+ <p class="kurul-desc">Klinik beslenme, obezite diyetleri ve metabolik beslenme tedavisi.</p>
+ <div class="kurul-affiliation">
+ <span>Hacettepe Üniversitesi Sağlık Bilimleri Fakültesi</span>
+ </div>
+ </div>
 
-            <div class="kurul-card">
-                <div class="kurul-card-header">
-                    <div class="kurul-avatar">EK</div>
-                    <div class="kurul-info">
-                        <h4>Prof. Dr. Erhan Kaya</h4>
-                        <span>Danışman</span>
-                    </div>
-                </div>
-                <div class="kurul-title">Genel Cerrahi / Bariatrik</div>
-                <p class="kurul-desc">Bariatrik cerrahi, metabolik cerrahi ve obezite tedavisi.</p>
-                <div class="kurul-affiliation">
-                    <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
-                </div>
-            </div>
+ <div class="kurul-card">
+ <div class="kurul-card-header">
+ <div class="kurul-avatar">EK</div>
+ <div class="kurul-info">
+ <h4>Prof. Dr. Erhan Kaya</h4>
+ <span>Danışman</span>
+ </div>
+ </div>
+ <div class="kurul-title">Genel Cerrahi / Bariatrik</div>
+ <p class="kurul-desc">Bariatrik cerrahi, metabolik cerrahi ve obezite tedavisi.</p>
+ <div class="kurul-affiliation">
+ <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
+ </div>
+ </div>
 
-            <div class="kurul-card">
-                <div class="kurul-card-header">
-                    <div class="kurul-avatar">SK</div>
-                    <div class="kurul-info">
-                        <h4>Doç. Dr. Selin Karaca</h4>
-                        <span>Danışman</span>
-                    </div>
-                </div>
-                <div class="kurul-title">Psikiyatri</div>
-                <p class="kurul-desc">Yeme bozuklukları, obezite psikolojisi ve davranışsal tedavi.</p>
-                <div class="kurul-affiliation">
-                    <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
-                </div>
-            </div>
-        </div>
+ <div class="kurul-card">
+ <div class="kurul-card-header">
+ <div class="kurul-avatar">SK</div>
+ <div class="kurul-info">
+ <h4>Doç. Dr. Selin Karaca</h4>
+ <span>Danışman</span>
+ </div>
+ </div>
+ <div class="kurul-title">Psikiyatri</div>
+ <p class="kurul-desc">Yeme bozuklukları, obezite psikolojisi ve davranışsal tedavi.</p>
+ <div class="kurul-affiliation">
+ <span>Hacettepe Üniversitesi Tıp Fakültesi</span>
+ </div>
+ </div>
+ </div>
 
-        <p style="text-align: center; margin-top: 2rem; color: #9ca3af; font-size: 0.85rem;">
-            * Danışma kurulumuz gönüllülük esasına göre çalışmaktadır.
-        </p>
-    </section>
+ <p style="text-align: center; margin-top: 2rem; color: #9ca3af; font-size: 0.85rem;">
+ * Danışma kurulumuz gönüllülük esasına göre çalışmaktadır.
+ </p>
+ </section>
 
-    <section class="content-section">
-        <h2 class="section-title" style="text-align: center;">Yolculuğumuz</h2>
-        <p class="section-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;">UzunYaşa'nın kısa tarihi.</p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot">2023</div>
-                <div class="timeline-content">
-                    <h4>Fikir Doğuyor</h4>
-                    <p>Türkiye'de güvenilir, bağımsız sağlık bilgisi eksikliğini gidermek için yola çıktık.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot">2024</div>
-                <div class="timeline-content">
-                    <h4>Platform Kuruluyor</h4>
-                    <p>Danışma kurulumuz oluştu, ilk içeriklerimizi yayınladık, 10.000 kullanıcıya ulaştık.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot">2025</div>
-                <div class="timeline-content">
-                    <h4>Büyüme & Genişleme</h4>
-                    <p>75+ sayfa içerik, 200+ bilimsel kaynak, kişiselleştirilmiş araçlar ve AI asistan ile Türkiye'nin en kapsamlı platformu olduk.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot">2026</div>
-                <div class="timeline-content">
-                    <h4>Kurumsal Yapılanma</h4>
-                    <p><a href="danisma-kurulu.html" style="color:#0D7377;">Danışma kurulumuz</a> genişledi, <a href="editoryal-politika.html" style="color:#0D7377;">editoryal politikamız</a> resmileşti. Topluluk özelliklerini hayata geçiriyoruz.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+ <section class="content-section">
+ <h2 class="section-title" style="text-align: center;">Yolculuğumuz</h2>
+ <p class="section-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;">UzunYaşa'nın kısa tarihi.</p>
+ 
+ <div class="timeline">
+ <div class="timeline-item">
+ <div class="timeline-dot">2023</div>
+ <div class="timeline-content">
+ <h4>Fikir Doğuyor</h4>
+ <p>Türkiye'de güvenilir, bağımsız sağlık bilgisi eksikliğini gidermek için yola çıktık.</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-dot">2024</div>
+ <div class="timeline-content">
+ <h4>Platform Kuruluyor</h4>
+ <p>Danışma kurulumuz oluştu, ilk içeriklerimizi yayınladık, 10.000 kullanıcıya ulaştık.</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-dot">2025</div>
+ <div class="timeline-content">
+ <h4>Büyüme & Genişleme</h4>
+ <p>75+ sayfa içerik, 200+ bilimsel kaynak, kişiselleştirilmiş araçlar ve AI asistan ile Türkiye'nin en kapsamlı platformu olduk.</p>
+ </div>
+ </div>
+ <div class="timeline-item">
+ <div class="timeline-dot">2026</div>
+ <div class="timeline-content">
+ <h4>Kurumsal Yapılanma</h4>
+ <p><a href="danisma-kurulu.html" style="color:#0D7377;">Danışma kurulumuz</a> genişledi, <a href="editoryal-politika.html" style="color:#0D7377;">editoryal politikamız</a> resmileşti. Topluluk özelliklerini hayata geçiriyoruz.</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section id="iletisim" class="content-section" style="background: white; padding: 4rem 2rem;">
-        <div style="max-width: 600px; margin: 0 auto;">
-            <h2 class="section-title" style="text-align: center;">İletişim</h2>
-            <p class="section-subtitle" style="text-align: center; margin-bottom: 2rem;">Sorularınız veya önerileriniz için bize yazın.</p>
-            
-            <form id="contact-form" style="display: flex; flex-direction: column; gap: 1rem;" onsubmit="handleContact(event)">
-                <input type="text" name="isim" id="isim" placeholder="Adınız Soyadınız" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
-                <input type="email" name="email" id="contact-email" placeholder="E-posta Adresiniz" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
-                <select name="konu" id="konu" style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; background: white;">
-                    <option value="">Konu Seçin</option>
-                    <option value="genel">Genel Soru</option>
-                    <option value="oneri">Öneri / Geri Bildirim</option>
-                    <option value="isbirligi">İş Birliği</option>
-                    <option value="hata">Hata Bildirimi</option>
-                </select>
-                <textarea name="mesaj" id="mesaj" placeholder="Mesajınız" rows="5" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical;"></textarea>
-                <button type="submit" style="background: #195157; color: white; padding: 1rem 2rem; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer;">Gönder</button>
-            </form>
-            <p id="contact-success" style="display:none; color:#10B981; margin-top:1rem; text-align:center; font-size:1.1rem;">✅ Mesajınız alındı! En kısa sürede dönüş yapacağız.</p>
-            <script>
-            function handleContact(e) {
-                e.preventDefault();
-                const isim = document.getElementById('isim').value;
-                const email = document.getElementById('contact-email').value;
-                const konu = document.getElementById('konu').value;
-                const mesaj = document.getElementById('mesaj').value;
-                
-                document.getElementById('contact-form').style.display = 'none';
-                document.getElementById('contact-success').style.display = 'block';
-                
-                const body = 'İsim: ' + isim + '%0D%0AEmail: ' + email + '%0D%0AKonu: ' + konu + '%0D%0A%0D%0AMesaj:%0D%0A' + encodeURIComponent(mesaj);
-                setTimeout(() => {
-                    window.open('mailto:cemsimsek11@gmail.com?subject=UzunYaşa%20İletişim%20-%20' + encodeURIComponent(konu) + '&body=' + body, '_blank');
-                }, 500);
-            }
-            </script>
-        </div>
-    </section>
+ <section id="iletisim" class="content-section" style="background: white; padding: 4rem 2rem;">
+ <div style="max-width: 600px; margin: 0 auto;">
+ <h2 class="section-title" style="text-align: center;">İletişim</h2>
+ <p class="section-subtitle" style="text-align: center; margin-bottom: 2rem;">Sorularınız veya önerileriniz için bize yazın.</p>
+ 
+ <form id="contact-form" style="display: flex; flex-direction: column; gap: 1rem;" onsubmit="handleContact(event)">
+ <input type="text" name="isim" id="isim" placeholder="Adınız Soyadınız" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
+ <input type="email" name="email" id="contact-email" placeholder="E-posta Adresiniz" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem;">
+ <select name="konu" id="konu" style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; background: white;">
+ <option value="">Konu Seçin</option>
+ <option value="genel">Genel Soru</option>
+ <option value="oneri">Öneri / Geri Bildirim</option>
+ <option value="isbirligi">İş Birliği</option>
+ <option value="hata">Hata Bildirimi</option>
+ </select>
+ <textarea name="mesaj" id="mesaj" placeholder="Mesajınız" rows="5" required style="padding: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 1rem; resize: vertical;"></textarea>
+ <button type="submit" style="background: #195157; color: white; padding: 1rem 2rem; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer;">Gönder</button>
+ </form>
+ <p id="contact-success" style="display:none; color:#10B981; margin-top:1rem; text-align:center; font-size:1.1rem;"> Mesajınız alındı! En kısa sürede dönüş yapacağız.</p>
+ <script>
+ function handleContact(e) {
+ e.preventDefault();
+ const isim = document.getElementById('isim').value;
+ const email = document.getElementById('contact-email').value;
+ const konu = document.getElementById('konu').value;
+ const mesaj = document.getElementById('mesaj').value;
+ 
+ document.getElementById('contact-form').style.display = 'none';
+ document.getElementById('contact-success').style.display = 'block';
+ 
+ const body = 'İsim: ' + isim + '%0D%0AEmail: ' + email + '%0D%0AKonu: ' + konu + '%0D%0A%0D%0AMesaj:%0D%0A' + encodeURIComponent(mesaj);
+ setTimeout(() => {
+ window.open('mailto:cemsimsek11@gmail.com?subject=UzunYaşa%20İletişim%20-%20' + encodeURIComponent(konu) + '&body=' + body, '_blank');
+ }, 500);
+ }
+ </script>
+ </div>
+ </section>
 
-    <section class="cta-section">
-        <h2>Bize Katılın</h2>
-        <p>Sağlıklı yaşam yolculuğunuzda size rehberlik etmekten mutluluk duyarız.</p>
-        <a href="test.html" class="btn-white">Ücretsiz Teste Başla →</a>
-    </section>
+ <section class="cta-section">
+ <h2>Bize Katılın</h2>
+ <p>Sağlıklı yaşam yolculuğunuzda size rehberlik etmekten mutluluk duyarız.</p>
+ <a href="test.html" class="btn-white">Ücretsiz Teste Başla →</a>
+ </section>
 
 
-    <!-- RELATED CONTENT -->
-    <section class="hub-related">
-        <h2>İlgili İçerikler</h2>
-        <div class="hub-related-grid">
-            <a href="bilim.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Bilimsel Yaklaşım</h4>
-                    <p>Metodolojimiz</p>
-                </div>
-            </a>
-            <a href="blog.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Blog</h4>
-                    <p>Son yazılar</p>
-                </div>
-            </a>
-            <a href="hikayeler.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Hikayeler</h4>
-                    <p>Başarı hikayeleri</p>
-                </div>
-            </a>
-        </div>
-    </section>
-    <!-- NEWSLETTER -->
-    <section class="hub-newsletter">
-        <h2>📬 Haftalık Sağlık Bülteni</h2>
-        <p>Bilimsel araştırmalara dayalı sağlık önerileri, yeni içerikler ve ipuçları için abone olun.</p>
-        <form class="hub-newsletter-form" onsubmit="handleHubNewsletter(event, this)">
-            <input type="email" name="email" placeholder="E-posta adresiniz" required>
-            <button type="submit">Abone Ol</button>
-        </form>
-        <p class="hub-newsletter-success" id="hub-nl-success">✅ Teşekkürler! Bültenimize kaydoldunuz.</p>
-    </section>
-    <!-- SOCIAL SHARING -->
-    <div class="hub-social-share">
-        <span>Paylaş:</span>
-        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" class="hub-share-btn twitter" aria-label="Twitter'da Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="javascript:void(0)" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" class="hub-share-btn facebook" aria-label="Facebook'ta Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank')" class="hub-share-btn whatsapp" aria-label="WhatsApp'ta Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-    </div>
+ <!-- RELATED CONTENT -->
+ <section class="hub-related">
+ <h2>İlgili İçerikler</h2>
+ <div class="hub-related-grid">
+ <a href="bilim.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Bilimsel Yaklaşım</h4>
+ <p>Metodolojimiz</p>
+ </div>
+ </a>
+ <a href="blog.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Blog</h4>
+ <p>Son yazılar</p>
+ </div>
+ </a>
+ <a href="hikayeler.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Hikayeler</h4>
+ <p>Başarı hikayeleri</p>
+ </div>
+ </a>
+ </div>
+ </section>
+ <!-- NEWSLETTER -->
+ <section class="hub-newsletter">
+ <h2> Haftalık Sağlık Bülteni</h2>
+ <p>Bilimsel araştırmalara dayalı sağlık önerileri, yeni içerikler ve ipuçları için abone olun.</p>
+ <form class="hub-newsletter-form" onsubmit="handleHubNewsletter(event, this)">
+ <input type="email" name="email" placeholder="E-posta adresiniz" required>
+ <button type="submit">Abone Ol</button>
+ </form>
+ <p class="hub-newsletter-success" id="hub-nl-success"> Teşekkürler! Bültenimize kaydoldunuz.</p>
+ </section>
+ <!-- SOCIAL SHARING -->
+ <div class="hub-social-share">
+ <span>Paylaş:</span>
+ <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" class="hub-share-btn twitter" aria-label="Twitter'da Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+ </a>
+ <a href="javascript:void(0)" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" class="hub-share-btn facebook" aria-label="Facebook'ta Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+ </a>
+ <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank')" class="hub-share-btn whatsapp" aria-label="WhatsApp'ta Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+ </a>
+ </div>
 
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="../index.html">
-                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
-                    </a>
-                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Keşfet</h4>
-                    <a href="beslenme.html">Beslenme</a>
-                    <a href="egzersiz.html">Egzersiz</a>
-                    <a href="uyku-stres.html">Uyku & Stres</a>
-                    <a href="tedavi.html">Tedavi Seçenekleri</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Araçlar</h4>
-                    <a href="test.html">Bana Ne Uygun?</a>
-                    <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
-                    <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Hakkımızda</h4>
-                    <a href="hakkimizda.html">Ekibimiz</a>
-                    <a href="editoryal-politika.html">Editoryal Politika</a>
-                    <a href="danisma-kurulu.html">Danışma Kurulu</a>
-                    <a href="icerik-haritasi.html">İçerik Haritası</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
-                <span>Gizlilik Politikası | Kullanım Koşulları</span>
-            </div>
-        </div>
-    </footer>
+ <footer class="footer">
+ <div class="footer-inner">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="../index.html">
+ <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+ </a>
+ <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Keşfet</h4>
+ <a href="beslenme.html">Beslenme</a>
+ <a href="egzersiz.html">Egzersiz</a>
+ <a href="uyku-stres.html">Uyku & Stres</a>
+ <a href="tedavi.html">Tedavi Seçenekleri</a>
+ </div>
+ <div class="footer-col">
+ <h4>Araçlar</h4>
+ <a href="test.html">Bana Ne Uygun?</a>
+ <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
+ <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
+ </div>
+ <div class="footer-col">
+ <h4>Hakkımızda</h4>
+ <a href="hakkimizda.html">Ekibimiz</a>
+ <a href="editoryal-politika.html">Editoryal Politika</a>
+ <a href="danisma-kurulu.html">Danışma Kurulu</a>
+ <a href="icerik-haritasi.html">İçerik Haritası</a>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+ <span>Gizlilik Politikası | Kullanım Koşulları</span>
+ </div>
+ </div>
+ </footer>
 
-    <!-- HUB UPGRADE JS -->
-    <script>
-    // Staggered fade-in on scroll
-    const hubObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                hubObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    document.querySelectorAll(".hub-fade-in").forEach(el => hubObserver.observe(el));
+ <!-- HUB UPGRADE JS -->
+ <script>
+ // Staggered fade-in on scroll
+ const hubObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add("visible");
+ hubObserver.unobserve(entry.target);
+ }
+ });
+ }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+ document.querySelectorAll(".hub-fade-in").forEach(el => hubObserver.observe(el));
 
-    // Active sub-nav highlighting on scroll
-    if (document.querySelector(".hub-subnav")) {
-        const sections = document.querySelectorAll("section[id]");
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach(section => {
-                const top = section.offsetTop - 200;
-                if (pageYOffset >= top) current = section.getAttribute("id");
-            });
-            document.querySelectorAll(".hub-subnav-link").forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === "#" + current) link.classList.add("active");
-            });
-        });
-    }
+ // Active sub-nav highlighting on scroll
+ if (document.querySelector(".hub-subnav")) {
+ const sections = document.querySelectorAll("section[id]");
+ window.addEventListener("scroll", () => {
+ let current = "";
+ sections.forEach(section => {
+ const top = section.offsetTop - 200;
+ if (pageYOffset >= top) current = section.getAttribute("id");
+ });
+ document.querySelectorAll(".hub-subnav-link").forEach(link => {
+ link.classList.remove("active");
+ if (link.getAttribute("href") === "#" + current) link.classList.add("active");
+ });
+ });
+ }
 
-    // Newsletter handler
-    function handleHubNewsletter(e, form) {
-        e.preventDefault();
-        const email = form.email.value;
-        localStorage.setItem("uzunyasa_subscriber", email);
-        form.style.display = "none";
-        document.getElementById("hub-nl-success").style.display = "block";
-    }
-    </script>
+ // Newsletter handler
+ function handleHubNewsletter(e, form) {
+ e.preventDefault();
+ const email = form.email.value;
+ localStorage.setItem("uzunyasa_subscriber", email);
+ form.style.display = "none";
+ document.getElementById("hub-nl-success").style.display = "block";
+ }
+ </script>
 </body>
 </html>

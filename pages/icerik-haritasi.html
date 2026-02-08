@@ -4,475 +4,475 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QBM7E0EHFP');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İçerik Haritası | UzunYaşa</title>
-    <meta name="description" content="UzunYaşa platformundaki tüm içeriklerin haritası. Beslenme, egzersiz, tedavi, uyku ve daha fazlası.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css">
-    <style>
-        .ih-hero {
-            background: linear-gradient(135deg, #195157 0%, #0D7377 100%);
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            color: white;
-        }
-        .ih-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
-        .ih-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
-        .ih-hero .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; opacity: 0.7; }
-        .ih-hero .breadcrumb a { color: white; text-decoration: none; }
-        .ih-stats {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        .ih-stat {
-            background: rgba(255,255,255,0.15);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-        }
-        .ih-stat strong { font-size: 1.25rem; }
-        .ih-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        .ih-search {
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            position: relative;
-        }
-        .ih-search input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.2s;
-            background: white;
-        }
-        .ih-search input:focus { outline: none; border-color: #0D7377; }
-        .ih-search::before {
-            content: '🔍';
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.1rem;
-        }
-        .ih-category {
-            margin-bottom: 2rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            overflow: hidden;
-            background: white;
-        }
-        .ih-cat-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 1.5rem;
-            cursor: pointer;
-            background: #fafaf8;
-            user-select: none;
-            transition: background 0.2s;
-        }
-        .ih-cat-header:hover { background: #f0fdfa; }
-        .ih-cat-left {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .ih-cat-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-        .ih-cat-header h3 { font-size: 1.1rem; color: #195157; }
-        .ih-cat-count {
-            background: #0D7377;
-            color: white;
-            padding: 0.2rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .ih-cat-arrow {
-            font-size: 1.2rem;
-            color: #9CA3AF;
-            transition: transform 0.3s;
-        }
-        .ih-category.open .ih-cat-arrow { transform: rotate(180deg); }
-        .ih-cat-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-        .ih-category.open .ih-cat-body { max-height: 2000px; }
-        .ih-links {
-            padding: 0.5rem 1.5rem 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.5rem;
-        }
-        .ih-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 0.75rem;
-            color: #4B5563;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
-        .ih-link:hover {
-            background: #f0fdfa;
-            color: #0D7377;
-        }
-        .ih-link::before {
-            content: '→';
-            color: #0D7377;
-            font-weight: 600;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .ih-link:hover::before { opacity: 1; }
-        .ih-no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #9CA3AF;
-            display: none;
-        }
-        @media (max-width: 768px) {
-            .ih-hero h1 { font-size: 2rem; }
-            .ih-links { grid-template-columns: 1fr; }
-            .ih-stats { gap: 1rem; }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>İçerik Haritası | UzunYaşa</title>
+ <meta name="description" content="UzunYaşa platformundaki tüm içeriklerin haritası. Beslenme, egzersiz, tedavi, uyku ve daha fazlası.">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../styles/main.css">
+ <style>
+ .ih-hero {
+ background: linear-gradient(135deg, #195157 0%, #0D7377 100%);
+ padding: 8rem 2rem 4rem;
+ text-align: center;
+ color: white;
+ }
+ .ih-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+ .ih-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+ .ih-hero .breadcrumb { margin-bottom: 2rem; font-size: 0.9rem; opacity: 0.7; }
+ .ih-hero .breadcrumb a { color: white; text-decoration: none; }
+ .ih-stats {
+ display: flex;
+ justify-content: center;
+ gap: 2rem;
+ margin-top: 2rem;
+ flex-wrap: wrap;
+ }
+ .ih-stat {
+ background: rgba(255,255,255,0.15);
+ padding: 0.75rem 1.5rem;
+ border-radius: 50px;
+ backdrop-filter: blur(10px);
+ }
+ .ih-stat strong { font-size: 1.25rem; }
+ .ih-content {
+ max-width: 1100px;
+ margin: 0 auto;
+ padding: 3rem 2rem;
+ }
+ .ih-search {
+ max-width: 500px;
+ margin: 0 auto 3rem;
+ position: relative;
+ }
+ .ih-search input {
+ width: 100%;
+ padding: 1rem 1rem 1rem 3rem;
+ border: 2px solid #e5e7eb;
+ border-radius: 12px;
+ font-size: 1rem;
+ font-family: inherit;
+ transition: border-color 0.2s;
+ background: white;
+ }
+ .ih-search input:focus { outline: none; border-color: #0D7377; }
+ .ih-search::before {
+ content: '';
+ position: absolute;
+ left: 1rem;
+ top: 50%;
+ transform: translateY(-50%);
+ font-size: 1.1rem;
+ }
+ .ih-category {
+ margin-bottom: 2rem;
+ border: 1px solid #e5e7eb;
+ border-radius: 12px;
+ overflow: hidden;
+ background: white;
+ }
+ .ih-cat-header {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 1.25rem 1.5rem;
+ cursor: pointer;
+ background: #fafaf8;
+ user-select: none;
+ transition: background 0.2s;
+ }
+ .ih-cat-header:hover { background: #f0fdfa; }
+ .ih-cat-left {
+ display: flex;
+ align-items: center;
+ gap: 0.75rem;
+ }
+ .ih-cat-icon {
+ width: 40px;
+ height: 40px;
+ border-radius: 10px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.2rem;
+ }
+ .ih-cat-header h3 { font-size: 1.1rem; color: #195157; }
+ .ih-cat-count {
+ background: #0D7377;
+ color: white;
+ padding: 0.2rem 0.75rem;
+ border-radius: 50px;
+ font-size: 0.8rem;
+ font-weight: 600;
+ }
+ .ih-cat-arrow {
+ font-size: 1.2rem;
+ color: #9CA3AF;
+ transition: transform 0.3s;
+ }
+ .ih-category.open .ih-cat-arrow { transform: rotate(180deg); }
+ .ih-cat-body {
+ max-height: 0;
+ overflow: hidden;
+ transition: max-height 0.4s ease;
+ }
+ .ih-category.open .ih-cat-body { max-height: 2000px; }
+ .ih-links {
+ padding: 0.5rem 1.5rem 1.5rem;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+ gap: 0.5rem;
+ }
+ .ih-link {
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ padding: 0.6rem 0.75rem;
+ color: #4B5563;
+ text-decoration: none;
+ border-radius: 8px;
+ font-size: 0.95rem;
+ transition: all 0.2s;
+ }
+ .ih-link:hover {
+ background: #f0fdfa;
+ color: #0D7377;
+ }
+ .ih-link::before {
+ content: '→';
+ color: #0D7377;
+ font-weight: 600;
+ opacity: 0;
+ transition: opacity 0.2s;
+ }
+ .ih-link:hover::before { opacity: 1; }
+ .ih-no-results {
+ text-align: center;
+ padding: 3rem;
+ color: #9CA3AF;
+ display: none;
+ }
+ @media (max-width: 768px) {
+ .ih-hero h1 { font-size: 2rem; }
+ .ih-links { grid-template-columns: 1fr; }
+ .ih-stats { gap: 1rem; }
+ }
+ </style>
 </head>
 <body>
-    <a href="#main" class="skip-link">İçeriğe geç</a>
-    <header class="header">
-        <div class="header-inner">
-            <a href="../index.html" class="logo">
-                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
-            </a>
-            <nav class="nav">
-                <a href="rehberler.html" class="nav-link">Keşfet ▾</a>
-                <a href="araclar.html" class="nav-link">Araçlar</a>
-                <a href="hikayeler.html" class="nav-link">Hikayeler</a>
-                <a href="bilim.html" class="nav-link">Bilim</a>
-                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
-                <a href="test.html" class="btn-primary">Teste Başla</a>
-            </nav>
-        </div>
-    </header>
+ <a href="#main" class="skip-link">İçeriğe geç</a>
+ <header class="header">
+ <div class="header-inner">
+ <a href="../index.html" class="logo">
+ <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+ </a>
+ <nav class="nav">
+ <a href="rehberler.html" class="nav-link">Keşfet </a>
+ <a href="araclar.html" class="nav-link">Araçlar</a>
+ <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+ <a href="bilim.html" class="nav-link">Bilim</a>
+ <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+ <a href="test.html" class="btn-primary">Teste Başla</a>
+ </nav>
+ </div>
+ </header>
 
-    <section class="ih-hero">
-        <div class="breadcrumb">
-            <a href="../index.html">Ana Sayfa</a> › <span>İçerik Haritası</span>
-        </div>
-        <h1>İçerik Haritası</h1>
-        <p>Platformumuzdaki tüm içeriklere tek bir sayfadan ulaşın.</p>
-        <div class="ih-stats">
-            <div class="ih-stat">📄 <strong id="totalPages">75+</strong> sayfa</div>
-            <div class="ih-stat">📂 <strong>8</strong> kategori</div>
-            <div class="ih-stat">📚 <strong>200+</strong> bilimsel kaynak</div>
-        </div>
-    </section>
+ <section class="ih-hero">
+ <div class="breadcrumb">
+ <a href="../index.html">Ana Sayfa</a> › <span>İçerik Haritası</span>
+ </div>
+ <h1>İçerik Haritası</h1>
+ <p>Platformumuzdaki tüm içeriklere tek bir sayfadan ulaşın.</p>
+ <div class="ih-stats">
+ <div class="ih-stat"> <strong id="totalPages">75+</strong> sayfa</div>
+ <div class="ih-stat"> <strong>8</strong> kategori</div>
+ <div class="ih-stat"> <strong>200+</strong> bilimsel kaynak</div>
+ </div>
+ </section>
 
-    <main id="main" class="ih-content">
-        <div class="ih-search">
-            <input type="text" id="sitemapSearch" placeholder="İçerik ara..." aria-label="İçerik ara">
-        </div>
+ <main id="main" class="ih-content">
+ <div class="ih-search">
+ <input type="text" id="sitemapSearch" placeholder="İçerik ara..." aria-label="İçerik ara">
+ </div>
 
-        <div id="sitemapContainer">
-            <!-- Ana Sayfalar -->
-            <div class="ih-category open" data-cat="ana">
-                <div class="ih-cat-header" onclick="toggleCat(this)">
-                    <div class="ih-cat-left">
-                        <div class="ih-cat-icon" style="background:#f0fdfa;">🏠</div>
-                        <h3>Ana Sayfalar</h3>
-                        <span class="ih-cat-count">7</span>
-                    </div>
-                    <span class="ih-cat-arrow">▾</span>
-                </div>
-                <div class="ih-cat-body">
-                    <div class="ih-links">
-                        <a href="../index.html" class="ih-link">Ana Sayfa</a>
-                        <a href="hakkimizda.html" class="ih-link">Hakkımızda</a>
-                        <a href="editoryal-politika.html" class="ih-link">Editoryal Politika</a>
-                        <a href="danisma-kurulu.html" class="ih-link">Danışma Kurulu</a>
-                        <a href="araclar.html" class="ih-link">Araçlar</a>
-                        <a href="hikayeler.html" class="ih-link">Başarı Hikayeleri</a>
-                        <a href="bilim.html" class="ih-link">Bilimsel Yaklaşım</a>
-                    </div>
-                </div>
-            </div>
+ <div id="sitemapContainer">
+ <!-- Ana Sayfalar -->
+ <div class="ih-category open" data-cat="ana">
+ <div class="ih-cat-header" onclick="toggleCat(this)">
+ <div class="ih-cat-left">
+ <div class="ih-cat-icon" style="background:#f0fdfa;"></div>
+ <h3>Ana Sayfalar</h3>
+ <span class="ih-cat-count">7</span>
+ </div>
+ <span class="ih-cat-arrow"></span>
+ </div>
+ <div class="ih-cat-body">
+ <div class="ih-links">
+ <a href="../index.html" class="ih-link">Ana Sayfa</a>
+ <a href="hakkimizda.html" class="ih-link">Hakkımızda</a>
+ <a href="editoryal-politika.html" class="ih-link">Editoryal Politika</a>
+ <a href="danisma-kurulu.html" class="ih-link">Danışma Kurulu</a>
+ <a href="araclar.html" class="ih-link">Araçlar</a>
+ <a href="hikayeler.html" class="ih-link">Başarı Hikayeleri</a>
+ <a href="bilim.html" class="ih-link">Bilimsel Yaklaşım</a>
+ </div>
+ </div>
+ </div>
 
-            <!-- Beslenme -->
-            <div class="ih-category" data-cat="beslenme">
-                <div class="ih-cat-header" onclick="toggleCat(this)">
-                    <div class="ih-cat-left">
-                        <div class="ih-cat-icon" style="background:#fef3c7;">🥗</div>
-                        <h3>Beslenme</h3>
-                        <span class="ih-cat-count">5</span>
-                    </div>
-                    <span class="ih-cat-arrow">▾</span>
-                </div>
-                <div class="ih-cat-body">
-                    <div class="ih-links">
-                        <a href="beslenme.html" class="ih-link">Beslenme Merkezi</a>
-                        <a href="beslenme/kalori-hesaplayici.html" class="ih-link">Kalori Hesaplayıcı</a>
-                        <a href="beslenme/bmi-hesaplayici.html" class="ih-link">BMI Hesaplayıcı</a>
-                        <a href="beslenme/bana-ne-uygun.html" class="ih-link">Bana Ne Uygun?</a>
-                        <a href="test.html" class="ih-link">Kişiselleştirilmiş Test</a>
-                    </div>
-                </div>
-            </div>
+ <!-- Beslenme -->
+ <div class="ih-category" data-cat="beslenme">
+ <div class="ih-cat-header" onclick="toggleCat(this)">
+ <div class="ih-cat-left">
+ <div class="ih-cat-icon" style="background:#fef3c7;"></div>
+ <h3>Beslenme</h3>
+ <span class="ih-cat-count">5</span>
+ </div>
+ <span class="ih-cat-arrow"></span>
+ </div>
+ <div class="ih-cat-body">
+ <div class="ih-links">
+ <a href="beslenme.html" class="ih-link">Beslenme Merkezi</a>
+ <a href="beslenme/kalori-hesaplayici.html" class="ih-link">Kalori Hesaplayıcı</a>
+ <a href="beslenme/bmi-hesaplayici.html" class="ih-link">BMI Hesaplayıcı</a>
+ <a href="beslenme/bana-ne-uygun.html" class="ih-link">Bana Ne Uygun?</a>
+ <a href="test.html" class="ih-link">Kişiselleştirilmiş Test</a>
+ </div>
+ </div>
+ </div>
 
-            <!-- Egzersiz -->
-            <div class="ih-category" data-cat="egzersiz">
-                <div class="ih-cat-header" onclick="toggleCat(this)">
-                    <div class="ih-cat-left">
-                        <div class="ih-cat-icon" style="background:#dbeafe;">🏃</div>
-                        <h3>Egzersiz</h3>
-                        <span class="ih-cat-count">6</span>
-                    </div>
-                    <span class="ih-cat-arrow">▾</span>
-                </div>
-                <div class="ih-cat-body">
-                    <div class="ih-links">
-                        <a href="egzersiz.html" class="ih-link">Egzersiz Merkezi</a>
-                        <a href="egzersiz/kardiyovaskular.html" class="ih-link">Kardiyovasküler Egzersiz</a>
-                        <a href="egzersiz/kuvvet-antrenman.html" class="ih-link">Kuvvet Antrenmanı</a>
-                        <a href="egzersiz/hiit-tabata.html" class="ih-link">HIIT & Tabata</a>
-                        <a href="egzersiz/esneklik-mobilite.html" class="ih-link">Esneklik & Mobilite</a>
-                        <a href="egzersiz/grup-egzersizleri.html" class="ih-link">Grup Egzersizleri</a>
-                    </div>
-                </div>
-            </div>
+ <!-- Egzersiz -->
+ <div class="ih-category" data-cat="egzersiz">
+ <div class="ih-cat-header" onclick="toggleCat(this)">
+ <div class="ih-cat-left">
+ <div class="ih-cat-icon" style="background:#dbeafe;"></div>
+ <h3>Egzersiz</h3>
+ <span class="ih-cat-count">6</span>
+ </div>
+ <span class="ih-cat-arrow"></span>
+ </div>
+ <div class="ih-cat-body">
+ <div class="ih-links">
+ <a href="egzersiz.html" class="ih-link">Egzersiz Merkezi</a>
+ <a href="egzersiz/kardiyovaskular.html" class="ih-link">Kardiyovasküler Egzersiz</a>
+ <a href="egzersiz/kuvvet-antrenman.html" class="ih-link">Kuvvet Antrenmanı</a>
+ <a href="egzersiz/hiit-tabata.html" class="ih-link">HIIT & Tabata</a>
+ <a href="egzersiz/esneklik-mobilite.html" class="ih-link">Esneklik & Mobilite</a>
+ <a href="egzersiz/grup-egzersizleri.html" class="ih-link">Grup Egzersizleri</a>
+ </div>
+ </div>
+ </div>
 
-            <!-- Tedavi Seçenekleri -->
-            <div class="ih-category" data-cat="tedavi">
-                <div class="ih-cat-header" onclick="toggleCat(this)">
-                    <div class="ih-cat-left">
-                        <div class="ih-cat-icon" style="background:#fce7f3;">💊</div>
-                        <h3>Tedavi Seçenekleri</h3>
-                        <span class="ih-cat-count">11</span>
-                    </div>
-                    <span class="ih-cat-arrow">▾</span>
-                </div>
-                <div class="ih-cat-body">
-                    <div class="ih-links">
-                        <a href="tedavi.html" class="ih-link">Tedavi Merkezi</a>
-                        <a href="tedavi/gastrik-sleeve.html" class="ih-link">Gastrik Sleeve</a>
-                        <a href="tedavi/gastrik-bypass.html" class="ih-link">Gastrik Bypass</a>
-                        <a href="tedavi/endoskopik-prosedurler.html" class="ih-link">Endoskopik Prosedürler</a>
-                        <a href="tedavi/naltrexone-bupropion.html" class="ih-link">Naltrexone-Bupropion</a>
-                        <a href="tedavi/orlistat.html" class="ih-link">Orlistat</a>
-                        <a href="tedavi/davranissal-terapi.html" class="ih-link">Davranışsal Terapi</a>
-                        <a href="tedavi/kombinasyon-tedavileri.html" class="ih-link">Kombinasyon Tedavileri</a>
-                        <a href="tedavi/ameliyat-oncesi-hazirlik.html" class="ih-link">Ameliyat Öncesi Hazırlık</a>
-                        <a href="tedavi/yan-etkiler-riskler.html" class="ih-link">Yan Etkiler & Riskler</a>
-                        <a href="tedavi/uzun-vadeli-takip.html" class="ih-link">Uzun Vadeli Takip</a>
-                    </div>
-                </div>
-            </div>
+ <!-- Tedavi Seçenekleri -->
+ <div class="ih-category" data-cat="tedavi">
+ <div class="ih-cat-header" onclick="toggleCat(this)">
+ <div class="ih-cat-left">
+ <div class="ih-cat-icon" style="background:#fce7f3;"></div>
+ <h3>Tedavi Seçenekleri</h3>
+ <span class="ih-cat-count">11</span>
+ </div>
+ <span class="ih-cat-arrow"></span>
+ </div>
+ <div class="ih-cat-body">
+ <div class="ih-links">
+ <a href="tedavi.html" class="ih-link">Tedavi Merkezi</a>
+ <a href="tedavi/gastrik-sleeve.html" class="ih-link">Gastrik Sleeve</a>
+ <a href="tedavi/gastrik-bypass.html" class="ih-link">Gastrik Bypass</a>
+ <a href="tedavi/endoskopik-prosedurler.html" class="ih-link">Endoskopik Prosedürler</a>
+ <a href="tedavi/naltrexone-bupropion.html" class="ih-link">Naltrexone-Bupropion</a>
+ <a href="tedavi/orlistat.html" class="ih-link">Orlistat</a>
+ <a href="tedavi/davranissal-terapi.html" class="ih-link">Davranışsal Terapi</a>
+ <a href="tedavi/kombinasyon-tedavileri.html" class="ih-link">Kombinasyon Tedavileri</a>
+ <a href="tedavi/ameliyat-oncesi-hazirlik.html" class="ih-link">Ameliyat Öncesi Hazırlık</a>
+ <a href="tedavi/yan-etkiler-riskler.html" class="ih-link">Yan Etkiler & Riskler</a>
+ <a href="tedavi/uzun-vadeli-takip.html" class="ih-link">Uzun Vadeli Takip</a>
+ </div>
+ </div>
+ </div>
 
-            <!-- Uyku & Stres -->
-            <div class="ih-category" data-cat="uyku">
-                <div class="ih-cat-header" onclick="toggleCat(this)">
-                    <div class="ih-cat-left">
-                        <div class="ih-cat-icon" style="background:#ede9fe;">😴</div>
-                        <h3>Uyku & Stres Yönetimi</h3>
-                        <span class="ih-cat-count">9</span>
-                    </div>
-                    <span class="ih-cat-arrow">▾</span>
-                </div>
-                <div class="ih-cat-body">
-                    <div class="ih-links">
-                        <a href="uyku-stres.html" class="ih-link">Uyku & Stres Merkezi</a>
-                        <a href="uyku/uyku-hijyeni.html" class="ih-link">Uyku Hijyeni</a>
-                        <a href="uyku/sirkadiyen-ritim.html" class="ih-link">Sirkadiyen Ritim</a>
-                        <a href="uyku/uyku-bozukluklari.html" class="ih-link">Uyku Bozuklukları</a>
-                        <a href="uyku/ruya-ve-uyku-evreleri.html" class="ih-link">Rüya & Uyku Evreleri</a>
-                        <a href="stres/kronik-stres.html" class="ih-link">Kronik Stres</a>
-                        <a href="stres/meditasyon-mindfulness.html" class="ih-link">Meditasyon & Mindfulness</a>
-                        <a href="stres/nefes-teknikleri.html" class="ih-link">Nefes Teknikleri</a>
-                        <a href="stres/is-yasam-dengesi.html" class="ih-link">İş-Yaşam Dengesi</a>
-                    </div>
-                </div>
-            </div>
+ <!-- Uyku & Stres -->
+ <div class="ih-category" data-cat="uyku">
+ <div class="ih-cat-header" onclick="toggleCat(this)">
+ <div class="ih-cat-left">
+ <div class="ih-cat-icon" style="background:#ede9fe;"></div>
+ <h3>Uyku & Stres Yönetimi</h3>
+ <span class="ih-cat-count">9</span>
+ </div>
+ <span class="ih-cat-arrow"></span>
+ </div>
+ <div class="ih-cat-body">
+ <div class="ih-links">
+ <a href="uyku-stres.html" class="ih-link">Uyku & Stres Merkezi</a>
+ <a href="uyku/uyku-hijyeni.html" class="ih-link">Uyku Hijyeni</a>
+ <a href="uyku/sirkadiyen-ritim.html" class="ih-link">Sirkadiyen Ritim</a>
+ <a href="uyku/uyku-bozukluklari.html" class="ih-link">Uyku Bozuklukları</a>
+ <a href="uyku/ruya-ve-uyku-evreleri.html" class="ih-link">Rüya & Uyku Evreleri</a>
+ <a href="stres/kronik-stres.html" class="ih-link">Kronik Stres</a>
+ <a href="stres/meditasyon-mindfulness.html" class="ih-link">Meditasyon & Mindfulness</a>
+ <a href="stres/nefes-teknikleri.html" class="ih-link">Nefes Teknikleri</a>
+ <a href="stres/is-yasam-dengesi.html" class="ih-link">İş-Yaşam Dengesi</a>
+ </div>
+ </div>
+ </div>
 
-            <!-- Rehberler -->
-            <div class="ih-category" data-cat="rehberler">
-                <div class="ih-cat-header" onclick="toggleCat(this)">
-                    <div class="ih-cat-left">
-                        <div class="ih-cat-icon" style="background:#d1fae5;">📖</div>
-                        <h3>Rehberler</h3>
-                        <span class="ih-cat-count">10</span>
-                    </div>
-                    <span class="ih-cat-arrow">▾</span>
-                </div>
-                <div class="ih-cat-body">
-                    <div class="ih-links">
-                        <a href="rehberler.html" class="ih-link">Rehber Merkezi</a>
-                        <a href="rehberler/akdeniz-diyeti.html" class="ih-link">Akdeniz Diyeti Rehberi</a>
-                        <a href="rehberler/aralikli-oruc.html" class="ih-link">Aralıklı Oruç Rehberi</a>
-                        <a href="rehberler/kalori-acigi.html" class="ih-link">Kalori Açığı Rehberi</a>
-                        <a href="rehberler/evde-egzersiz.html" class="ih-link">Evde Egzersiz Rehberi</a>
-                        <a href="rehberler/50-yas-egzersiz.html" class="ih-link">50+ Yaş Egzersiz</a>
-                        <a href="rehberler/plato-kirma.html" class="ih-link">Plato Kırma Rehberi</a>
-                        <a href="rehberler/uyku-kalitesi.html" class="ih-link">Uyku Kalitesi Rehberi</a>
-                        <a href="rehberler/kalp-sagligi.html" class="ih-link">Kalp Sağlığı Rehberi</a>
-                        <a href="rehberler/tip2-diyabet.html" class="ih-link">Tip 2 Diyabet Rehberi</a>
-                    </div>
-                </div>
-            </div>
+ <!-- Rehberler -->
+ <div class="ih-category" data-cat="rehberler">
+ <div class="ih-cat-header" onclick="toggleCat(this)">
+ <div class="ih-cat-left">
+ <div class="ih-cat-icon" style="background:#d1fae5;"></div>
+ <h3>Rehberler</h3>
+ <span class="ih-cat-count">10</span>
+ </div>
+ <span class="ih-cat-arrow"></span>
+ </div>
+ <div class="ih-cat-body">
+ <div class="ih-links">
+ <a href="rehberler.html" class="ih-link">Rehber Merkezi</a>
+ <a href="rehberler/akdeniz-diyeti.html" class="ih-link">Akdeniz Diyeti Rehberi</a>
+ <a href="rehberler/aralikli-oruc.html" class="ih-link">Aralıklı Oruç Rehberi</a>
+ <a href="rehberler/kalori-acigi.html" class="ih-link">Kalori Açığı Rehberi</a>
+ <a href="rehberler/evde-egzersiz.html" class="ih-link">Evde Egzersiz Rehberi</a>
+ <a href="rehberler/50-yas-egzersiz.html" class="ih-link">50+ Yaş Egzersiz</a>
+ <a href="rehberler/plato-kirma.html" class="ih-link">Plato Kırma Rehberi</a>
+ <a href="rehberler/uyku-kalitesi.html" class="ih-link">Uyku Kalitesi Rehberi</a>
+ <a href="rehberler/kalp-sagligi.html" class="ih-link">Kalp Sağlığı Rehberi</a>
+ <a href="rehberler/tip2-diyabet.html" class="ih-link">Tip 2 Diyabet Rehberi</a>
+ </div>
+ </div>
+ </div>
 
-            <!-- Blog -->
-            <div class="ih-category" data-cat="blog">
-                <div class="ih-cat-header" onclick="toggleCat(this)">
-                    <div class="ih-cat-left">
-                        <div class="ih-cat-icon" style="background:#fef9c3;">✍️</div>
-                        <h3>Blog Yazıları</h3>
-                        <span class="ih-cat-count">18</span>
-                    </div>
-                    <span class="ih-cat-arrow">▾</span>
-                </div>
-                <div class="ih-cat-body">
-                    <div class="ih-links">
-                        <a href="blog.html" class="ih-link">Blog Ana Sayfa</a>
-                        <a href="blog/glp1-tam-rehber.html" class="ih-link">GLP-1 Tam Rehber</a>
-                        <a href="blog/glp1-birakinca-ne-olur.html" class="ih-link">GLP-1 Bırakınca Ne Olur?</a>
-                        <a href="blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html" class="ih-link">GLP-1 İlaçları ve Kilo Verme</a>
-                        <a href="blog/glp1-vs-esg-karsilastirma.html" class="ih-link">GLP-1 vs ESG Karşılaştırma</a>
-                        <a href="blog/ozempic-vs-esg-maliyet.html" class="ih-link">Ozempic vs ESG Maliyet</a>
-                        <a href="blog/bariatrik-cerrahi-rehberi.html" class="ih-link">Bariatrik Cerrahi Rehberi</a>
-                        <a href="blog/esg-endoskopik-sleeve-rehber.html" class="ih-link">ESG Endoskopik Sleeve</a>
-                        <a href="blog/esg-vs-sleeve-gastrektomi.html" class="ih-link">ESG vs Sleeve Gastrektomi</a>
-                        <a href="blog/mide-balonu-tedavisi-kime-uygun-sonuclar-nasil.html" class="ih-link">Mide Balonu Tedavisi</a>
-                        <a href="blog/akdeniz-diyeti-kalp-sagligi.html" class="ih-link">Akdeniz Diyeti & Kalp Sağlığı</a>
-                        <a href="blog/saglikli-beslenme-temelleri.html" class="ih-link">Sağlıklı Beslenme Temelleri</a>
-                        <a href="blog/saglikli-kilo-vermenin-10-altin-kurali.html" class="ih-link">Sağlıklı Kilo Vermenin 10 Altın Kuralı</a>
-                        <a href="blog/insulin-direnci-belirtiler-tedavi.html" class="ih-link">İnsülin Direnci</a>
-                        <a href="blog/hiit-vs-kardio-hangisi-daha-etkili.html" class="ih-link">HIIT vs Kardio</a>
-                        <a href="blog/egzersiz-temelleri-rehber.html" class="ih-link">Egzersiz Temelleri</a>
-                        <a href="blog/uyku-ve-kilo-gizli-baglanti.html" class="ih-link">Uyku ve Kilo</a>
-                        <a href="blog/turkiye-obezite-rehberi.html" class="ih-link">Türkiye Obezite Rehberi</a>
-                        <a href="blog/blue-zones-dunyanin-en-uzun-yasayan-insanlarinin-9-sirri.html" class="ih-link">Blue Zones: 9 Sır</a>
-                        <a href="blog/kilo-yonetimi-tedavi-secenekleri-karsilastirmasi.html" class="ih-link">Tedavi Seçenekleri Karşılaştırması</a>
-                        <a href="blog/bilimsel-yaklasimimiz-neden-onemli.html" class="ih-link">Bilimsel Yaklaşımımız</a>
-                    </div>
-                </div>
-            </div>
+ <!-- Blog -->
+ <div class="ih-category" data-cat="blog">
+ <div class="ih-cat-header" onclick="toggleCat(this)">
+ <div class="ih-cat-left">
+ <div class="ih-cat-icon" style="background:#fef9c3;"></div>
+ <h3>Blog Yazıları</h3>
+ <span class="ih-cat-count">18</span>
+ </div>
+ <span class="ih-cat-arrow"></span>
+ </div>
+ <div class="ih-cat-body">
+ <div class="ih-links">
+ <a href="blog.html" class="ih-link">Blog Ana Sayfa</a>
+ <a href="blog/glp1-tam-rehber.html" class="ih-link">GLP-1 Tam Rehber</a>
+ <a href="blog/glp1-birakinca-ne-olur.html" class="ih-link">GLP-1 Bırakınca Ne Olur?</a>
+ <a href="blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html" class="ih-link">GLP-1 İlaçları ve Kilo Verme</a>
+ <a href="blog/glp1-vs-esg-karsilastirma.html" class="ih-link">GLP-1 vs ESG Karşılaştırma</a>
+ <a href="blog/ozempic-vs-esg-maliyet.html" class="ih-link">Ozempic vs ESG Maliyet</a>
+ <a href="blog/bariatrik-cerrahi-rehberi.html" class="ih-link">Bariatrik Cerrahi Rehberi</a>
+ <a href="blog/esg-endoskopik-sleeve-rehber.html" class="ih-link">ESG Endoskopik Sleeve</a>
+ <a href="blog/esg-vs-sleeve-gastrektomi.html" class="ih-link">ESG vs Sleeve Gastrektomi</a>
+ <a href="blog/mide-balonu-tedavisi-kime-uygun-sonuclar-nasil.html" class="ih-link">Mide Balonu Tedavisi</a>
+ <a href="blog/akdeniz-diyeti-kalp-sagligi.html" class="ih-link">Akdeniz Diyeti & Kalp Sağlığı</a>
+ <a href="blog/saglikli-beslenme-temelleri.html" class="ih-link">Sağlıklı Beslenme Temelleri</a>
+ <a href="blog/saglikli-kilo-vermenin-10-altin-kurali.html" class="ih-link">Sağlıklı Kilo Vermenin 10 Altın Kuralı</a>
+ <a href="blog/insulin-direnci-belirtiler-tedavi.html" class="ih-link">İnsülin Direnci</a>
+ <a href="blog/hiit-vs-kardio-hangisi-daha-etkili.html" class="ih-link">HIIT vs Kardio</a>
+ <a href="blog/egzersiz-temelleri-rehber.html" class="ih-link">Egzersiz Temelleri</a>
+ <a href="blog/uyku-ve-kilo-gizli-baglanti.html" class="ih-link">Uyku ve Kilo</a>
+ <a href="blog/turkiye-obezite-rehberi.html" class="ih-link">Türkiye Obezite Rehberi</a>
+ <a href="blog/blue-zones-dunyanin-en-uzun-yasayan-insanlarinin-9-sirri.html" class="ih-link">Blue Zones: 9 Sır</a>
+ <a href="blog/kilo-yonetimi-tedavi-secenekleri-karsilastirmasi.html" class="ih-link">Tedavi Seçenekleri Karşılaştırması</a>
+ <a href="blog/bilimsel-yaklasimimiz-neden-onemli.html" class="ih-link">Bilimsel Yaklaşımımız</a>
+ </div>
+ </div>
+ </div>
 
-            <!-- Karşılaştırmalar -->
-            <div class="ih-category" data-cat="kars">
-                <div class="ih-cat-header" onclick="toggleCat(this)">
-                    <div class="ih-cat-left">
-                        <div class="ih-cat-icon" style="background:#fee2e2;">⚖️</div>
-                        <h3>Karşılaştırmalar & Araçlar</h3>
-                        <span class="ih-cat-count">4</span>
-                    </div>
-                    <span class="ih-cat-arrow">▾</span>
-                </div>
-                <div class="ih-cat-body">
-                    <div class="ih-links">
-                        <a href="tedavi/karsilastirma.html" class="ih-link">Tedavi Karşılaştırma Tablosu</a>
-                        <a href="test.html" class="ih-link">Bana Ne Uygun? Testi</a>
-                        <a href="araclar.html" class="ih-link">Tüm Araçlar</a>
-                        <a href="ecem-app.html" class="ih-link">Ecem AI Asistan</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+ <!-- Karşılaştırmalar -->
+ <div class="ih-category" data-cat="kars">
+ <div class="ih-cat-header" onclick="toggleCat(this)">
+ <div class="ih-cat-left">
+ <div class="ih-cat-icon" style="background:#fee2e2;"></div>
+ <h3>Karşılaştırmalar & Araçlar</h3>
+ <span class="ih-cat-count">4</span>
+ </div>
+ <span class="ih-cat-arrow"></span>
+ </div>
+ <div class="ih-cat-body">
+ <div class="ih-links">
+ <a href="tedavi/karsilastirma.html" class="ih-link">Tedavi Karşılaştırma Tablosu</a>
+ <a href="test.html" class="ih-link">Bana Ne Uygun? Testi</a>
+ <a href="araclar.html" class="ih-link">Tüm Araçlar</a>
+ <a href="ecem-app.html" class="ih-link">Ecem AI Asistan</a>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <div class="ih-no-results" id="noResults">
-            <p style="font-size:2rem;margin-bottom:0.5rem;">🔍</p>
-            <p>Aramanızla eşleşen içerik bulunamadı.</p>
-        </div>
-    </main>
+ <div class="ih-no-results" id="noResults">
+ <p style="font-size:2rem;margin-bottom:0.5rem;"></p>
+ <p>Aramanızla eşleşen içerik bulunamadı.</p>
+ </div>
+ </main>
 
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="../index.html"><img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
-                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Keşfet</h4>
-                    <a href="beslenme.html">Beslenme</a>
-                    <a href="egzersiz.html">Egzersiz</a>
-                    <a href="uyku-stres.html">Uyku & Stres</a>
-                    <a href="tedavi.html">Tedavi Seçenekleri</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Araçlar</h4>
-                    <a href="test.html">Bana Ne Uygun?</a>
-                    <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
-                    <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Hakkımızda</h4>
-                    <a href="hakkimizda.html">Ekibimiz</a>
-                    <a href="editoryal-politika.html">Editoryal Politika</a>
-                    <a href="danisma-kurulu.html">Danışma Kurulu</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
-                <span>Gizlilik Politikası | Kullanım Koşulları</span>
-            </div>
-        </div>
-    </footer>
+ <footer class="footer">
+ <div class="footer-inner">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="../index.html"><img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
+ <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Keşfet</h4>
+ <a href="beslenme.html">Beslenme</a>
+ <a href="egzersiz.html">Egzersiz</a>
+ <a href="uyku-stres.html">Uyku & Stres</a>
+ <a href="tedavi.html">Tedavi Seçenekleri</a>
+ </div>
+ <div class="footer-col">
+ <h4>Araçlar</h4>
+ <a href="test.html">Bana Ne Uygun?</a>
+ <a href="araclar.html#bmi">BMI Hesaplayıcı</a>
+ <a href="araclar.html#kalori">Kalori Hesaplayıcı</a>
+ </div>
+ <div class="footer-col">
+ <h4>Hakkımızda</h4>
+ <a href="hakkimizda.html">Ekibimiz</a>
+ <a href="editoryal-politika.html">Editoryal Politika</a>
+ <a href="danisma-kurulu.html">Danışma Kurulu</a>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+ <span>Gizlilik Politikası | Kullanım Koşulları</span>
+ </div>
+ </div>
+ </footer>
 
-    <script>
-    function toggleCat(header) {
-        header.closest('.ih-category').classList.toggle('open');
-    }
+ <script>
+ function toggleCat(header) {
+ header.closest('.ih-category').classList.toggle('open');
+ }
 
-    document.getElementById('sitemapSearch').addEventListener('input', function(e) {
-        const q = e.target.value.toLowerCase().trim();
-        const cats = document.querySelectorAll('.ih-category');
-        let anyVisible = false;
+ document.getElementById('sitemapSearch').addEventListener('input', function(e) {
+ const q = e.target.value.toLowerCase().trim();
+ const cats = document.querySelectorAll('.ih-category');
+ let anyVisible = false;
 
-        cats.forEach(cat => {
-            const links = cat.querySelectorAll('.ih-link');
-            let catVisible = false;
-            links.forEach(link => {
-                const match = !q || link.textContent.toLowerCase().includes(q);
-                link.style.display = match ? '' : 'none';
-                if (match) catVisible = true;
-            });
-            cat.style.display = catVisible ? '' : 'none';
-            if (q && catVisible) cat.classList.add('open');
-            if (!q) cat.classList.remove('open');
-            if (catVisible) anyVisible = true;
-        });
+ cats.forEach(cat => {
+ const links = cat.querySelectorAll('.ih-link');
+ let catVisible = false;
+ links.forEach(link => {
+ const match = !q || link.textContent.toLowerCase().includes(q);
+ link.style.display = match ? '' : 'none';
+ if (match) catVisible = true;
+ });
+ cat.style.display = catVisible ? '' : 'none';
+ if (q && catVisible) cat.classList.add('open');
+ if (!q) cat.classList.remove('open');
+ if (catVisible) anyVisible = true;
+ });
 
-        // Keep first open by default
-        if (!q) cats[0]?.classList.add('open');
-        document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
-    });
-    </script>
+ // Keep first open by default
+ if (!q) cats[0]?.classList.add('open');
+ document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
+ });
+ </script>
 </body>
 </html>

@@ -4,711 +4,711 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QBM7E0EHFP');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sağlık Rehberleri | UzunYaşa</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/hub-upgrade.css">
-    <style>
-        .featured-guide {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 0;
-            background: var(--bg-white);
-            border-radius: 24px;
-            overflow: hidden;
-            margin-bottom: 4rem;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Sağlık Rehberleri | UzunYaşa</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../styles/main.css">
+ <link rel="stylesheet" href="../styles/hub-upgrade.css">
+ <style>
+ .featured-guide {
+ display: grid;
+ grid-template-columns: 1.2fr 1fr;
+ gap: 0;
+ background: var(--bg-white);
+ border-radius: 24px;
+ overflow: hidden;
+ margin-bottom: 4rem;
+ border: 1px solid var(--border-light);
+ box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+ }
 
-        .featured-content {
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+ .featured-content {
+ padding: 3rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ }
 
-        .featured-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent-orange);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            width: fit-content;
-        }
+ .featured-badge {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ background: var(--accent-orange);
+ color: white;
+ padding: 0.4rem 1rem;
+ border-radius: 20px;
+ font-size: 0.8rem;
+ font-weight: 600;
+ margin-bottom: 1.5rem;
+ width: fit-content;
+ }
 
-        .featured-content h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
+ .featured-content h2 {
+ font-size: 2rem;
+ font-weight: 700;
+ margin-bottom: 1rem;
+ line-height: 1.3;
+ }
 
-        .featured-content > p {
-            color: var(--text-gray);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
+ .featured-content > p {
+ color: var(--text-gray);
+ font-size: 1.05rem;
+ line-height: 1.7;
+ margin-bottom: 1.5rem;
+ }
 
-        .featured-meta {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }
+ .featured-meta {
+ display: flex;
+ gap: 2rem;
+ margin-bottom: 1.5rem;
+ }
 
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
+ .meta-item {
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ color: var(--text-gray);
+ font-size: 0.9rem;
+ }
 
-        .meta-item svg { width: 18px; height: 18px; }
+ .meta-item svg { width: 18px; height: 18px; }
 
-        .featured-image {
-            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-        }
+ .featured-image {
+ background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ min-height: 400px;
+ }
 
-        .featured-image svg {
-            width: 120px;
-            height: 120px;
-            color: rgba(255,255,255,0.3);
-        }
+ .featured-image svg {
+ width: 120px;
+ height: 120px;
+ color: rgba(255,255,255,0.3);
+ }
 
-        .btn-guide {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--primary-teal);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-            width: fit-content;
-        }
+ .btn-guide {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ background: var(--primary-teal);
+ color: white;
+ padding: 1rem 1.5rem;
+ border-radius: 10px;
+ text-decoration: none;
+ font-weight: 600;
+ transition: all 0.2s;
+ width: fit-content;
+ }
 
-        .btn-guide:hover {
-            background: var(--primary-teal-light);
-            transform: translateX(5px);
-        }
+ .btn-guide:hover {
+ background: var(--primary-teal-light);
+ transform: translateX(5px);
+ }
 
-        .category-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
+ .category-tabs {
+ display: flex;
+ gap: 1rem;
+ margin-bottom: 2rem;
+ flex-wrap: wrap;
+ }
 
-        .category-tab {
-            padding: 0.6rem 1.25rem;
-            border-radius: 25px;
-            border: 2px solid var(--border-light);
-            background: white;
-            color: var(--text-gray);
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.9rem;
-        }
+ .category-tab {
+ padding: 0.6rem 1.25rem;
+ border-radius: 25px;
+ border: 2px solid var(--border-light);
+ background: white;
+ color: var(--text-gray);
+ font-weight: 500;
+ cursor: pointer;
+ transition: all 0.2s;
+ font-size: 0.9rem;
+ }
 
-        .category-tab:hover, .category-tab.active {
-            border-color: var(--primary-teal);
-            color: var(--primary-teal);
-        }
+ .category-tab:hover, .category-tab.active {
+ border-color: var(--primary-teal);
+ color: var(--primary-teal);
+ }
 
-        .category-tab.active {
-            background: var(--primary-teal);
-            color: white;
-        }
+ .category-tab.active {
+ background: var(--primary-teal);
+ color: white;
+ }
 
-        .guides-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-        }
+ .guides-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+ gap: 2rem;
+ }
 
-        .guide-card {
-            background: var(--bg-white);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
-        
-        .guide-card 
+ .guide-card {
+ background: var(--bg-white);
+ border-radius: 16px;
+ overflow: hidden;
+ border: 1px solid var(--border-light);
+ transition: all 0.3s;
+ text-decoration: none;
+ color: inherit;
+ display: flex;
+ flex-direction: column;
+ cursor: pointer;
+ }
+ 
+ .guide-card 
 
-        .guide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border-color: var(--primary-teal);
-        }
+ .guide-card:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+ border-color: var(--primary-teal);
+ }
 
-        .guide-thumbnail {
-            height: 200px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            padding: 1.25rem;
-        }
+ .guide-thumbnail {
+ height: 200px;
+ display: flex;
+ align-items: flex-end;
+ justify-content: flex-start;
+ position: relative;
+ background-size: cover;
+ background-position: center;
+ padding: 1.25rem;
+ }
 
-        .guide-thumbnail::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.2) 100%);
-            pointer-events: none;
-        }
+ .guide-thumbnail::before {
+ content: '';
+ position: absolute;
+ top: 0; left: 0; right: 0; bottom: 0;
+ background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.2) 100%);
+ pointer-events: none;
+ }
 
-        .guide-thumbnail svg {
-            display: none;
-        }
+ .guide-thumbnail svg {
+ display: none;
+ }
 
-        .guide-thumbnail h3 {
-            position: relative;
-            z-index: 2;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 700;
-            line-height: 1.3;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
+ .guide-thumbnail h3 {
+ position: relative;
+ z-index: 2;
+ color: white;
+ font-size: 1.2rem;
+ font-weight: 700;
+ line-height: 1.3;
+ text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+ }
 
-        .guide-thumbnail.teal { background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80'); }
-        .guide-thumbnail.orange { background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80'); }
-        .guide-thumbnail.purple { background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80'); }
-        .guide-thumbnail.green { background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80'); }
-        .guide-thumbnail.red { background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80'); }
-        .guide-thumbnail.blue { background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80'); }
+ .guide-thumbnail.teal { background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80'); }
+ .guide-thumbnail.orange { background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80'); }
+ .guide-thumbnail.purple { background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80'); }
+ .guide-thumbnail.green { background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80'); }
+ .guide-thumbnail.red { background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80'); }
+ .guide-thumbnail.blue { background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80'); }
 
-        .guide-category-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 0.3rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
+ .guide-category-badge {
+ position: absolute;
+ top: 1rem;
+ left: 1rem;
+ background: rgba(255,255,255,0.2);
+ color: white;
+ padding: 0.3rem 0.75rem;
+ border-radius: 15px;
+ font-size: 0.75rem;
+ font-weight: 600;
+ }
 
-        .guide-
+ .guide-
 
-        .guide-body h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
+ .guide-body h3 {
+ font-size: 1.15rem;
+ font-weight: 600;
+ margin-bottom: 0.5rem;
+ line-height: 1.4;
+ }
 
-        .guide-body p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            flex: 1;
-        }
+ .guide-body p {
+ color: var(--text-gray);
+ font-size: 0.9rem;
+ line-height: 1.6;
+ flex: 1;
+ }
 
-        .guide-
+ .guide-
 
-        .guide-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-gray);
-        }
+ .guide-meta {
+ display: flex;
+ gap: 1rem;
+ font-size: 0.8rem;
+ color: var(--text-gray);
+ }
 
-        .guide-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
+ .guide-meta span {
+ display: flex;
+ align-items: center;
+ gap: 0.3rem;
+ }
 
-        .guide-meta svg { width: 14px; height: 14px; }
+ .guide-meta svg { width: 14px; height: 14px; }
 
-        .guide-arrow {
-            color: var(--primary-teal);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
+ .guide-arrow {
+ color: var(--primary-teal);
+ font-weight: 600;
+ font-size: 1.2rem;
+ }
 
-        .popular-section {
-            background: var(--bg-white);
-            padding: 4rem 2rem;
-            margin-top: 2rem;
-        }
+ .popular-section {
+ background: var(--bg-white);
+ padding: 4rem 2rem;
+ margin-top: 2rem;
+ }
 
-        .popular-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+ .popular-inner {
+ max-width: 1200px;
+ margin: 0 auto;
+ }
 
-        .tags-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
+ .tags-cloud {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.75rem;
+ margin-top: 1.5rem;
+ }
 
-        .tag {
-            padding: 0.5rem 1rem;
-            background: var(--bg-cream);
-            border-radius: 20px;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            border: 1px solid var(--border-light);
-        }
+ .tag {
+ padding: 0.5rem 1rem;
+ background: var(--bg-cream);
+ border-radius: 20px;
+ color: var(--text-gray);
+ font-size: 0.9rem;
+ text-decoration: none;
+ transition: all 0.2s;
+ border: 1px solid var(--border-light);
+ }
 
-        .tag:hover {
-            background: var(--primary-teal);
-            color: white;
-            border-color: var(--primary-teal);
-        }
+ .tag:hover {
+ background: var(--primary-teal);
+ color: white;
+ border-color: var(--primary-teal);
+ }
 
-        @media (max-width: 768px) {
+ @media (max-width: 768px) {
 
-            .featured-guide { grid-template-columns: 1fr; }
-            .featured-image { min-height: 200px; }
-            .guides-grid { grid-template-columns: 1fr; }
-            
-        }
-    </style>
+ .featured-guide { grid-template-columns: 1fr; }
+ .featured-image { min-height: 200px; }
+ .guides-grid { grid-template-columns: 1fr; }
+ 
+ }
+ </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <a href="../index.html" class="logo">
-                <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
-            </a>
-            <nav class="nav">
-                <a href="rehberler.html" class="nav-link">Keşfet ▾</a>
-                <a href="araclar.html" class="nav-link">Araçlar</a>
-                <a href="hikayeler.html" class="nav-link">Hikayeler</a>
-                <a href="bilim.html" class="nav-link">Bilim</a>
-                <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
-                <a href="test.html" class="btn-primary">Teste Başla</a>
-            </nav>
-        </div>
-    </header>
+ <header class="header">
+ <div class="header-inner">
+ <a href="../index.html" class="logo">
+ <img src="../images/logo.svg" alt="UzunYaşa" class="logo-img">
+ </a>
+ <nav class="nav">
+ <a href="rehberler.html" class="nav-link">Keşfet </a>
+ <a href="araclar.html" class="nav-link">Araçlar</a>
+ <a href="hikayeler.html" class="nav-link">Hikayeler</a>
+ <a href="bilim.html" class="nav-link">Bilim</a>
+ <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+ <a href="test.html" class="btn-primary">Teste Başla</a>
+ </nav>
+ </div>
+ </header>
 
-    <section class="page-hero">
-        <video class="page-hero-bg" autoplay muted loop playsinline>
-            <source src="../videos/background-5.mp4" type="video/mp4">
-        </video>
-        <div class="page-hero-overlay"></div>
-        <div class="page-hero-content">
-            <nav class="hero-breadcrumb">
-                <a href="../index.html">Ana Sayfa</a>
-                <span>›</span>
-                <span class="current">Rehberler</span>
-            </nav>
-            <h1>Sağlık Rehberleri</h1>
-            <p>Adım adım, anlaşılır ve uygulanabilir rehberlerle sağlıklı yaşama geçiş yapın.</p>
-        </div>
-    </section>
+ <section class="page-hero">
+ <video class="page-hero-bg" autoplay muted loop playsinline>
+ <source src="../videos/background-5.mp4" type="video/mp4">
+ </video>
+ <div class="page-hero-overlay"></div>
+ <div class="page-hero-content">
+ <nav class="hero-breadcrumb">
+ <a href="../index.html">Ana Sayfa</a>
+ <span>›</span>
+ <span class="current">Rehberler</span>
+ </nav>
+ <h1>Sağlık Rehberleri</h1>
+ <p>Adım adım, anlaşılır ve uygulanabilir rehberlerle sağlıklı yaşama geçiş yapın.</p>
+ </div>
+ </section>
 
-    <section class="content-section">
-        <!-- Featured Guide -->
-        <div class="featured-guide">
-            <div class="featured-content">
-                <span class="featured-badge">⭐ En Popüler</span>
-                <h2>Kilo Verme Başlangıç Rehberi</h2>
-                <p>Sürdürülebilir kilo kaybı için ihtiyacınız olan her şey: beslenme temelleri, egzersiz planları, davranış değişikliği stratejileri ve motivasyon teknikleri.</p>
-                <div class="featured-meta">
-                    <span class="meta-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        45 dk okuma
-                    </span>
-                    <span class="meta-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        8 bölüm
-                    </span>
-                    <span class="meta-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                        12.4K okuyan
-                    </span>
-                </div>
-                <a href="rehberler/kalori-acigi.html" class="btn-guide">Rehberi Oku →</a>
-            </div>
-            <div class="featured-image">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M12 2v20M2 12h20"/>
-                    <circle cx="12" cy="12" r="10"/>
-                </svg>
-            </div>
-        </div>
+ <section class="content-section">
+ <!-- Featured Guide -->
+ <div class="featured-guide">
+ <div class="featured-content">
+ <span class="featured-badge"> En Popüler</span>
+ <h2>Kilo Verme Başlangıç Rehberi</h2>
+ <p>Sürdürülebilir kilo kaybı için ihtiyacınız olan her şey: beslenme temelleri, egzersiz planları, davranış değişikliği stratejileri ve motivasyon teknikleri.</p>
+ <div class="featured-meta">
+ <span class="meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ 45 dk okuma
+ </span>
+ <span class="meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+ 8 bölüm
+ </span>
+ <span class="meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+ 12.4K okuyan
+ </span>
+ </div>
+ <a href="rehberler/kalori-acigi.html" class="btn-guide">Rehberi Oku →</a>
+ </div>
+ <div class="featured-image">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+ <path d="M12 2v20M2 12h20"/>
+ <circle cx="12" cy="12" r="10"/>
+ </svg>
+ </div>
+ </div>
 
-        <!-- Category Tabs -->
-        <h2 class="section-title">Tüm Rehberler</h2>
-        <p class="section-subtitle">Konuya göre filtreleyin veya tümüne göz atın.</p>
+ <!-- Category Tabs -->
+ <h2 class="section-title">Tüm Rehberler</h2>
+ <p class="section-subtitle">Konuya göre filtreleyin veya tümüne göz atın.</p>
 
-        <div class="category-tabs">
-            <button class="category-tab active">Tümü</button>
-            <button class="category-tab">Kilo Yönetimi</button>
-            <button class="category-tab">Beslenme</button>
-            <button class="category-tab">Egzersiz</button>
-            <button class="category-tab">Kronik Hastalıklar</button>
-            <button class="category-tab">Zihinsel Sağlık</button>
-        </div>
+ <div class="category-tabs">
+ <button class="category-tab active">Tümü</button>
+ <button class="category-tab">Kilo Yönetimi</button>
+ <button class="category-tab">Beslenme</button>
+ <button class="category-tab">Egzersiz</button>
+ <button class="category-tab">Kronik Hastalıklar</button>
+ <button class="category-tab">Zihinsel Sağlık</button>
+ </div>
 
-        <!-- Guides Grid -->
-        <div class="guides-grid">
-            <a href="rehberler/kalori-acigi.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80');">
-                    <span class="guide-category-badge">Kilo Yönetimi</span>
-                    <h3>Kalori Açığı Oluşturma Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>Sağlıklı ve sürdürülebilir kalori açığı nasıl hesaplanır? Açlık hissetmeden kilo vermenin yolları.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 20 dk</span>
-                            <span>👁️ 5.2K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
+ <!-- Guides Grid -->
+ <div class="guides-grid">
+ <a href="rehberler/kalori-acigi.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80');">
+ <span class="guide-category-badge">Kilo Yönetimi</span>
+ <h3>Kalori Açığı Oluşturma Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>Sağlıklı ve sürdürülebilir kalori açığı nasıl hesaplanır? Açlık hissetmeden kilo vermenin yolları.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 20 dk</span>
+ <span> 5.2K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
 
-            <a href="rehberler/akdeniz-diyeti.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80');">
-                    <span class="guide-category-badge">Beslenme</span>
-                    <h3>Akdeniz Diyeti Başlangıç Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>Dünyanın en sağlıklı beslenme tarzı: ne yemeli, ne kadar yemeli, örnek menüler ve alışveriş listesi.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 35 dk</span>
-                            <span>👁️ 8.1K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
+ <a href="rehberler/akdeniz-diyeti.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80');">
+ <span class="guide-category-badge">Beslenme</span>
+ <h3>Akdeniz Diyeti Başlangıç Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>Dünyanın en sağlıklı beslenme tarzı: ne yemeli, ne kadar yemeli, örnek menüler ve alışveriş listesi.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 35 dk</span>
+ <span> 8.1K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
 
-            <a href="rehberler/evde-egzersiz.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80');">
-                    <span class="guide-category-badge">Egzersiz</span>
-                    <h3>Evde Egzersiz Başlangıç Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>Ekipmansız, evde yapılabilecek etkili antrenmanlar. Yeni başlayanlar için 4 haftalık program.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 25 dk</span>
-                            <span>👁️ 6.7K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
+ <a href="rehberler/evde-egzersiz.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80');">
+ <span class="guide-category-badge">Egzersiz</span>
+ <h3>Evde Egzersiz Başlangıç Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>Ekipmansız, evde yapılabilecek etkili antrenmanlar. Yeni başlayanlar için 4 haftalık program.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 25 dk</span>
+ <span> 6.7K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
 
-            <a href="rehberler/tip2-diyabet.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80');">
-                    <span class="guide-category-badge">Kronik Hastalıklar</span>
-                    <h3>Tip 2 Diyabet Önleme Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>Pre-diyabet veya risk altındaysanız: kan şekerini dengeleme, insülin direncini azaltma stratejileri.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 40 dk</span>
-                            <span>👁️ 4.3K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
+ <a href="rehberler/tip2-diyabet.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80');">
+ <span class="guide-category-badge">Kronik Hastalıklar</span>
+ <h3>Tip 2 Diyabet Önleme Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>Pre-diyabet veya risk altındaysanız: kan şekerini dengeleme, insülin direncini azaltma stratejileri.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 40 dk</span>
+ <span> 4.3K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
 
-            <a href="rehberler/uyku-kalitesi.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80');">
-                    <span class="guide-category-badge">Zihinsel Sağlık</span>
-                    <h3>Uyku Kalitesini Artırma Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>Uyku hijyeni, sirkadiyen ritim düzenleme, uyku apnesi belirtileri ve ne zaman doktora gidilmeli.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 30 dk</span>
-                            <span>👁️ 7.9K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
+ <a href="rehberler/uyku-kalitesi.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80');">
+ <span class="guide-category-badge">Zihinsel Sağlık</span>
+ <h3>Uyku Kalitesini Artırma Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>Uyku hijyeni, sirkadiyen ritim düzenleme, uyku apnesi belirtileri ve ne zaman doktora gidilmeli.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 30 dk</span>
+ <span> 7.9K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
 
-            <a href="rehberler/aralikli-oruc.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80');">
-                    <span class="guide-category-badge">Beslenme</span>
-                    <h3>Aralıklı Oruç Başlangıç Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>16:8, 5:2 ve diğer yöntemler. Kime uygun, nasıl başlanır, dikkat edilmesi gerekenler.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 25 dk</span>
-                            <span>👁️ 9.2K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
+ <a href="rehberler/aralikli-oruc.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80');">
+ <span class="guide-category-badge">Beslenme</span>
+ <h3>Aralıklı Oruç Başlangıç Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>16:8, 5:2 ve diğer yöntemler. Kime uygun, nasıl başlanır, dikkat edilmesi gerekenler.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 25 dk</span>
+ <span> 9.2K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
 
-            <a href="rehberler/plato-kirma.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=600&q=80');">
-                    <span class="guide-category-badge">Kilo Yönetimi</span>
-                    <h3>Plato Kırma Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>Kilo verirken takılıp kaldınız mı? Metabolizmayı hızlandırma ve plato dönemini aşma stratejileri.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 15 dk</span>
-                            <span>👁️ 3.8K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
+ <a href="rehberler/plato-kirma.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=600&q=80');">
+ <span class="guide-category-badge">Kilo Yönetimi</span>
+ <h3>Plato Kırma Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>Kilo verirken takılıp kaldınız mı? Metabolizmayı hızlandırma ve plato dönemini aşma stratejileri.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 15 dk</span>
+ <span> 3.8K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
 
-            <a href="rehberler/kalp-sagligi.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80');">
-                    <span class="guide-category-badge">Kronik Hastalıklar</span>
-                    <h3>Kalp Sağlığı Koruma Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>Kolesterol, tansiyon, kalp hastalığı risk faktörleri ve kanıta dayalı koruma stratejileri.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 35 dk</span>
-                            <span>👁️ 5.6K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
+ <a href="rehberler/kalp-sagligi.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80');">
+ <span class="guide-category-badge">Kronik Hastalıklar</span>
+ <h3>Kalp Sağlığı Koruma Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>Kolesterol, tansiyon, kalp hastalığı risk faktörleri ve kanıta dayalı koruma stratejileri.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 35 dk</span>
+ <span> 5.6K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
 
-            <a href="rehberler/50-yas-egzersiz.html" class="guide-card hub-fade-in">
-                <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80');">
-                    <span class="guide-category-badge">Egzersiz</span>
-                    <h3>50 Yaş Üstü Egzersiz Rehberi</h3>
-                </div>
-                <div class="guide-body">
-                    <p>Yaşa uygun, güvenli ve etkili egzersiz önerileri. Kas kaybını önleme, denge ve esneklik.</p>
-                    <div class="guide-footer">
-                        <div class="guide-meta">
-                            <span>⏱️ 30 dk</span>
-                            <span>👁️ 4.1K</span>
-                        </div>
-                        <span class="guide-arrow">→</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
+ <a href="rehberler/50-yas-egzersiz.html" class="guide-card hub-fade-in">
+ <div class="guide-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80');">
+ <span class="guide-category-badge">Egzersiz</span>
+ <h3>50 Yaş Üstü Egzersiz Rehberi</h3>
+ </div>
+ <div class="guide-body">
+ <p>Yaşa uygun, güvenli ve etkili egzersiz önerileri. Kas kaybını önleme, denge ve esneklik.</p>
+ <div class="guide-footer">
+ <div class="guide-meta">
+ <span>⏱ 30 dk</span>
+ <span> 4.1K</span>
+ </div>
+ <span class="guide-arrow">→</span>
+ </div>
+ </div>
+ </a>
+ </div>
+ </section>
 
-    <!-- Popular Tags -->
-    <section class="popular-section">
-        <div class="popular-inner">
-            <h2 class="section-title">Popüler Konular</h2>
-            <div class="tags-cloud">
-                <a href="rehberler/kalori-acigi.html" class="tag">Kilo verme</a>
-                <a href="beslenme.html" class="tag">Beslenme</a>
-                <a href="egzersiz.html" class="tag">Egzersiz</a>
-                <a href="rehberler/tip2-diyabet.html" class="tag">Diyabet</a>
-                <a href="rehberler/kalp-sagligi.html" class="tag">Kalp sağlığı</a>
-                <a href="rehberler/uyku-kalitesi.html" class="tag">Uyku</a>
-                <a href="uyku-stres.html" class="tag">Stres yönetimi</a>
-                <a href="rehberler/akdeniz-diyeti.html" class="tag">Akdeniz diyeti</a>
-                <a href="rehberler/aralikli-oruc.html" class="tag">Aralıklı oruç</a>
-                <a href="beslenme.html" class="tag">Protein</a>
-                <a href="blog/akdeniz-diyeti-kalp-sagligi.html" class="tag">Kolesterol</a>
-                <a href="rehberler/kalp-sagligi.html" class="tag">Tansiyon</a>
-                <a href="blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html" class="tag">GLP-1 ilaçları</a>
-                <a href="tedavi.html" class="tag">Bariatrik cerrahi</a>
-                <a href="blog/insulin-direnci-belirtiler-tedavi.html" class="tag">Metabolik sendrom</a>
-            </div>
-        </div>
-    </section>
+ <!-- Popular Tags -->
+ <section class="popular-section">
+ <div class="popular-inner">
+ <h2 class="section-title">Popüler Konular</h2>
+ <div class="tags-cloud">
+ <a href="rehberler/kalori-acigi.html" class="tag">Kilo verme</a>
+ <a href="beslenme.html" class="tag">Beslenme</a>
+ <a href="egzersiz.html" class="tag">Egzersiz</a>
+ <a href="rehberler/tip2-diyabet.html" class="tag">Diyabet</a>
+ <a href="rehberler/kalp-sagligi.html" class="tag">Kalp sağlığı</a>
+ <a href="rehberler/uyku-kalitesi.html" class="tag">Uyku</a>
+ <a href="uyku-stres.html" class="tag">Stres yönetimi</a>
+ <a href="rehberler/akdeniz-diyeti.html" class="tag">Akdeniz diyeti</a>
+ <a href="rehberler/aralikli-oruc.html" class="tag">Aralıklı oruç</a>
+ <a href="beslenme.html" class="tag">Protein</a>
+ <a href="blog/akdeniz-diyeti-kalp-sagligi.html" class="tag">Kolesterol</a>
+ <a href="rehberler/kalp-sagligi.html" class="tag">Tansiyon</a>
+ <a href="blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html" class="tag">GLP-1 ilaçları</a>
+ <a href="tedavi.html" class="tag">Bariatrik cerrahi</a>
+ <a href="blog/insulin-direnci-belirtiler-tedavi.html" class="tag">Metabolik sendrom</a>
+ </div>
+ </div>
+ </section>
 
-    <section class="cta-section">
-        <h2>Size özel rehber önerisi alın</h2>
-        <p>Kısa testimizi tamamlayın, hedeflerinize en uygun rehberleri keşfedin.</p>
-        <a href="test.html" class="btn-white">Teste Başla →</a>
-    </section>
+ <section class="cta-section">
+ <h2>Size özel rehber önerisi alın</h2>
+ <p>Kısa testimizi tamamlayın, hedeflerinize en uygun rehberleri keşfedin.</p>
+ <a href="test.html" class="btn-white">Teste Başla →</a>
+ </section>
 
 
-    <!-- RELATED CONTENT -->
-    <section class="hub-related">
-        <h2>İlgili İçerikler</h2>
-        <div class="hub-related-grid">
-            <a href="blog.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Blog</h4>
-                    <p>Güncel yazılar</p>
-                </div>
-            </a>
-            <a href="araclar.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Araçlar</h4>
-                    <p>Hesaplayıcılar</p>
-                </div>
-            </a>
-            <a href="hikayeler.html" class="hub-related-card">
-                <div class="hub-related-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
-                <div class="hub-related-text">
-                    <h4>Hikayeler</h4>
-                    <p>Başarı hikayeleri</p>
-                </div>
-            </a>
-        </div>
-    </section>
-    <!-- NEWSLETTER -->
-    <section class="hub-newsletter">
-        <h2>📬 Haftalık Sağlık Bülteni</h2>
-        <p>Bilimsel araştırmalara dayalı sağlık önerileri, yeni içerikler ve ipuçları için abone olun.</p>
-        <form class="hub-newsletter-form" onsubmit="handleHubNewsletter(event, this)">
-            <input type="email" name="email" placeholder="E-posta adresiniz" required>
-            <button type="submit">Abone Ol</button>
-        </form>
-        <p class="hub-newsletter-success" id="hub-nl-success">✅ Teşekkürler! Bültenimize kaydoldunuz.</p>
-    </section>
-    <!-- SOCIAL SHARING -->
-    <div class="hub-social-share">
-        <span>Paylaş:</span>
-        <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" class="hub-share-btn twitter" aria-label="Twitter'da Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="javascript:void(0)" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" class="hub-share-btn facebook" aria-label="Facebook'ta Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank')" class="hub-share-btn whatsapp" aria-label="WhatsApp'ta Paylaş">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-    </div>
+ <!-- RELATED CONTENT -->
+ <section class="hub-related">
+ <h2>İlgili İçerikler</h2>
+ <div class="hub-related-grid">
+ <a href="blog.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Blog</h4>
+ <p>Güncel yazılar</p>
+ </div>
+ </a>
+ <a href="araclar.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Araçlar</h4>
+ <p>Hesaplayıcılar</p>
+ </div>
+ </a>
+ <a href="hikayeler.html" class="hub-related-card">
+ <div class="hub-related-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+ </div>
+ <div class="hub-related-text">
+ <h4>Hikayeler</h4>
+ <p>Başarı hikayeleri</p>
+ </div>
+ </a>
+ </div>
+ </section>
+ <!-- NEWSLETTER -->
+ <section class="hub-newsletter">
+ <h2> Haftalık Sağlık Bülteni</h2>
+ <p>Bilimsel araştırmalara dayalı sağlık önerileri, yeni içerikler ve ipuçları için abone olun.</p>
+ <form class="hub-newsletter-form" onsubmit="handleHubNewsletter(event, this)">
+ <input type="email" name="email" placeholder="E-posta adresiniz" required>
+ <button type="submit">Abone Ol</button>
+ </form>
+ <p class="hub-newsletter-success" id="hub-nl-success"> Teşekkürler! Bültenimize kaydoldunuz.</p>
+ </section>
+ <!-- SOCIAL SHARING -->
+ <div class="hub-social-share">
+ <span>Paylaş:</span>
+ <a href="javascript:void(0)" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" class="hub-share-btn twitter" aria-label="Twitter'da Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+ </a>
+ <a href="javascript:void(0)" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" class="hub-share-btn facebook" aria-label="Facebook'ta Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+ </a>
+ <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(document.title+' '+location.href),'_blank')" class="hub-share-btn whatsapp" aria-label="WhatsApp'ta Paylaş">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+ </a>
+ </div>
 
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="../index.html">
-                        <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
-                    </a>
-                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Keşfet</h4>
-                    <a href="beslenme.html">Beslenme</a>
-                    <a href="egzersiz.html">Egzersiz</a>
-                    <a href="uyku-stres.html">Uyku & Stres</a>
-                    <a href="tedavi.html">Tedavi Seçenekleri</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Araçlar</h4>
-                    <a href="araclar.html">BMI Hesaplayıcı</a>
-                    <a href="araclar.html">Kalori Hesaplayıcı</a>
-                    <a href="araclar.html">Bel-Kalça Oranı</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Hakkımızda</h4>
-                    <a href="hakkimizda.html">Ekibimiz</a>
-                    <a href="bilim.html">Bilimsel Yaklaşım</a>
-                    <a href="hakkimizda.html#iletisim">İletişim</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
-                <span>Gizlilik Politikası | Kullanım Koşulları</span>
-            </div>
-        </div>
-    </footer>
+ <footer class="footer">
+ <div class="footer-inner">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="../index.html">
+ <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+ </a>
+ <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Keşfet</h4>
+ <a href="beslenme.html">Beslenme</a>
+ <a href="egzersiz.html">Egzersiz</a>
+ <a href="uyku-stres.html">Uyku & Stres</a>
+ <a href="tedavi.html">Tedavi Seçenekleri</a>
+ </div>
+ <div class="footer-col">
+ <h4>Araçlar</h4>
+ <a href="araclar.html">BMI Hesaplayıcı</a>
+ <a href="araclar.html">Kalori Hesaplayıcı</a>
+ <a href="araclar.html">Bel-Kalça Oranı</a>
+ </div>
+ <div class="footer-col">
+ <h4>Hakkımızda</h4>
+ <a href="hakkimizda.html">Ekibimiz</a>
+ <a href="bilim.html">Bilimsel Yaklaşım</a>
+ <a href="hakkimizda.html#iletisim">İletişim</a>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+ <span>Gizlilik Politikası | Kullanım Koşulları</span>
+ </div>
+ </div>
+ </footer>
 
-    <script>
-        document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-            });
-        });
-    </script>
+ <script>
+ document.querySelectorAll('.category-tab').forEach(tab => {
+ tab.addEventListener('click', () => {
+ document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+ tab.classList.add('active');
+ });
+ });
+ </script>
 
-    <!-- HUB UPGRADE JS -->
-    <script>
-    // Staggered fade-in on scroll
-    const hubObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                hubObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    document.querySelectorAll(".hub-fade-in").forEach(el => hubObserver.observe(el));
+ <!-- HUB UPGRADE JS -->
+ <script>
+ // Staggered fade-in on scroll
+ const hubObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add("visible");
+ hubObserver.unobserve(entry.target);
+ }
+ });
+ }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+ document.querySelectorAll(".hub-fade-in").forEach(el => hubObserver.observe(el));
 
-    // Active sub-nav highlighting on scroll
-    if (document.querySelector(".hub-subnav")) {
-        const sections = document.querySelectorAll("section[id]");
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach(section => {
-                const top = section.offsetTop - 200;
-                if (pageYOffset >= top) current = section.getAttribute("id");
-            });
-            document.querySelectorAll(".hub-subnav-link").forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === "#" + current) link.classList.add("active");
-            });
-        });
-    }
+ // Active sub-nav highlighting on scroll
+ if (document.querySelector(".hub-subnav")) {
+ const sections = document.querySelectorAll("section[id]");
+ window.addEventListener("scroll", () => {
+ let current = "";
+ sections.forEach(section => {
+ const top = section.offsetTop - 200;
+ if (pageYOffset >= top) current = section.getAttribute("id");
+ });
+ document.querySelectorAll(".hub-subnav-link").forEach(link => {
+ link.classList.remove("active");
+ if (link.getAttribute("href") === "#" + current) link.classList.add("active");
+ });
+ });
+ }
 
-    // Newsletter handler
-    function handleHubNewsletter(e, form) {
-        e.preventDefault();
-        const email = form.email.value;
-        localStorage.setItem("uzunyasa_subscriber", email);
-        form.style.display = "none";
-        document.getElementById("hub-nl-success").style.display = "block";
-    }
-    </script>
+ // Newsletter handler
+ function handleHubNewsletter(e, form) {
+ e.preventDefault();
+ const email = form.email.value;
+ localStorage.setItem("uzunyasa_subscriber", email);
+ form.style.display = "none";
+ document.getElementById("hub-nl-success").style.display = "block";
+ }
+ </script>
 </body>
 </html>
