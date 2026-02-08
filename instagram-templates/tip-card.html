@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1350px;
+    font-family: 'Inter', sans-serif;
+    background: #195157; color: #fff;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .content {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px 80px 40px; text-align: center;
+  }
+  .tip-icon {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: linear-gradient(135deg, #0D7377, #14919B);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 50px; font-size: 56px; font-weight: 900;
+    border: 4px solid rgba(255,255,255,0.2);
+  }
+  .tip-header {
+    font-size: 32px; font-weight: 600; color: #E8963E;
+    text-transform: uppercase; letter-spacing: 4px; margin-bottom: 50px;
+  }
+  .tip-text {
+    font-size: 48px; font-weight: 700; line-height: 1.4;
+    max-width: 850px; margin-bottom: 50px;
+  }
+  .tip-source {
+    font-size: 24px; color: rgba(255,255,255,0.4);
+  }
+  .tip-card-inner {
+    background: rgba(255,255,255,0.05); border-radius: 30px;
+    padding: 60px 50px; border: 2px solid rgba(255,255,255,0.08);
+  }
+  .footer {
+    padding: 40px 70px; display: flex; align-items: center;
+    justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+  .footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+  <div class="content">
+    <div class="tip-icon">i</div>
+    <div class="tip-header">Bunu biliyor muydunuz?</div>
+    <div class="tip-card-inner">
+      <div class="tip-text">{{TIP_TEXT}}</div>
+      <div class="tip-source">{{SOURCE}}</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-brand">uzunyasa.com</div>
+    <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "type": "stat",
+    "template": "stat-card.html",
+    "data": {
+      "STAT_NUMBER": "#1",
+      "STAT_TEXT": "T\u00fcrkiye, Avrupa'n\u0131n en obez \u00fclkesi.",
+      "SOURCE": "WHO, 2022"
+    }
+  },
+  {
+    "id": 2,
+    "type": "stat",
+    "template": "stat-card.html",
+    "data": {
+      "STAT_NUMBER": "3'te 1",
+      "STAT_TEXT": "Her 3 ki\u015fiden 1'i obez.\nHer 2 ki\u015fiden 1'i fazla kilolu.",
+      "SOURCE": "T\u00dcIK"
+    }
+  },
+  {
+    "id": 3,
+    "type": "comparison",
+    "template": "comparison.html",
+    "data": {
+      "LEFT_NAME": "Lahmacun",
+      "LEFT_DETAIL": "1 adet",
+      "LEFT_CAL": "210",
+      "RIGHT_NAME": "Pizza",
+      "RIGHT_DETAIL": "1 dilim",
+      "RIGHT_CAL": "285"
+    }
+  },
+  {
+    "id": 4,
+    "type": "myth",
+    "template": "myth-buster.html",
+    "data": {
+      "CLAIM": "Meyve suyu sa\u011fl\u0131kl\u0131d\u0131r.",
+      "VERDICT": "MIT",
+      "VERDICT_CLASS": "mit",
+      "EXPLANATION": "Bir bardak meyve suyu = 6 k\u00fcp \u015feker. Meyvenin kendisini tercih edin."
+    }
+  },
+  {
+    "id": 5,
+    "type": "stat",
+    "template": "stat-card.html",
+    "data": {
+      "STAT_NUMBER": "13",
+      "STAT_TEXT": "Obezite, 13 kanser t\u00fcr\u00fcn\u00fcn risk fakt\u00f6r\u00fcd\u00fcr.",
+      "SOURCE": "WHO"
+    }
+  },
+  {
+    "id": 6,
+    "type": "tip",
+    "template": "tip-card.html",
+    "data": {
+      "TIP_TEXT": "G\u00fcnde 30 dakika y\u00fcr\u00fcy\u00fc\u015f, \u00f6mr\u00fcn\u00fcz\u00fc 3-5 y\u0131l uzatabilir.",
+      "SOURCE": "PLOS Medicine, 2012"
+    }
+  },
+  {
+    "id": 7,
+    "type": "comparison",
+    "template": "comparison.html",
+    "data": {
+      "LEFT_NAME": "Ayran",
+      "LEFT_DETAIL": "1 bardak",
+      "LEFT_CAL": "66",
+      "RIGHT_NAME": "Kola",
+      "RIGHT_DETAIL": "1 bardak",
+      "RIGHT_CAL": "139"
+    }
+  },
+  {
+    "id": 8,
+    "type": "myth",
+    "template": "myth-buster.html",
+    "data": {
+      "CLAIM": "Ak\u015fam yemek yemek kilo ald\u0131r\u0131r.",
+      "VERDICT": "MIT",
+      "VERDICT_CLASS": "mit",
+      "EXPLANATION": "\u00d6nemli olan toplam kalori miktar\u0131d\u0131r, yeme saati de\u011fil."
+    }
+  },
+  {
+    "id": 9,
+    "type": "stat",
+    "template": "stat-card.html",
+    "data": {
+      "STAT_NUMBER": "$3T",
+      "STAT_TEXT": "Obezite tedavisi y\u0131lda d\u00fcnyaya 3 trilyon dolara mal oluyor.",
+      "SOURCE": "World Obesity Federation"
+    }
+  },
+  {
+    "id": 10,
+    "type": "tip",
+    "template": "tip-card.html",
+    "data": {
+      "TIP_TEXT": "Fazla kilodan kurtulmak \u00f6mr\u00fcn\u00fcz\u00fc 5-7 y\u0131l uzatabilir.",
+      "SOURCE": "Harvard / Lancet"
+    }
+  }
+]

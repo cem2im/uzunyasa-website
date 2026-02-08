@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1350px;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(160deg, #0D7377 0%, #195157 100%);
+    color: #fff; display: flex; flex-direction: column; overflow: hidden;
+  }
+  .content {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px; text-align: center;
+  }
+  .series-episode {
+    font-size: 24px; font-weight: 600; color: #E8963E;
+    text-transform: uppercase; letter-spacing: 6px; margin-bottom: 30px;
+    padding: 12px 30px; border: 2px solid #E8963E; border-radius: 50px;
+  }
+  .series-name {
+    font-size: 72px; font-weight: 900; line-height: 1.1;
+    margin-bottom: 50px; max-width: 900px;
+  }
+  .series-divider {
+    width: 100px; height: 6px; background: #E8963E;
+    border-radius: 3px; margin-bottom: 50px;
+  }
+  .series-teaser {
+    font-size: 36px; font-weight: 600; line-height: 1.4;
+    color: rgba(255,255,255,0.7); max-width: 800px;
+  }
+  .footer {
+    padding: 40px 70px; display: flex; align-items: center;
+    justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+  .footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+  <div class="content">
+    <div class="series-episode">{{EPISODE}}</div>
+    <div class="series-name">{{SERIES_NAME}}</div>
+    <div class="series-divider"></div>
+    <div class="series-teaser">{{TEASER}}</div>
+  </div>
+  <div class="footer">
+    <div class="footer-brand">uzunyasa.com</div>
+    <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1350px;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(160deg, #195157 0%, #0D7377 100%);
+    color: #fff; display: flex; flex-direction: column; overflow: hidden;
+  }
+  .content {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px 80px 40px;
+    text-align: center;
+  }
+  .stat-number {
+    font-size: 96px; font-weight: 900; line-height: 1.1;
+    color: #E8963E; margin-bottom: 40px;
+    text-transform: uppercase; letter-spacing: -2px;
+  }
+  .stat-text {
+    font-size: 48px; font-weight: 700; line-height: 1.3;
+    margin-bottom: 50px; max-width: 900px;
+  }
+  .stat-source {
+    font-size: 24px; color: rgba(255,255,255,0.5);
+    padding: 16px 32px; border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+  }
+  .top-accent {
+    width: 80px; height: 6px; background: #E8963E;
+    border-radius: 3px; margin-bottom: 60px;
+  }
+  .footer {
+    padding: 40px 70px; display: flex; align-items: center;
+    justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+  .footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+  <div class="content">
+    <div class="top-accent"></div>
+    <div class="stat-number">{{STAT_NUMBER}}</div>
+    <div class="stat-text">{{STAT_TEXT}}</div>
+    <div class="stat-source">Kaynak: {{SOURCE}}</div>
+  </div>
+  <div class="footer">
+    <div class="footer-brand">uzunyasa.com</div>
+    <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+  </div>
+</body>
+</html>
