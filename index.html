@@ -203,9 +203,9 @@
  width: 100%;
  height: 100%;
  background: linear-gradient(180deg, 
- rgba(25, 81, 87, 0.4) 0%, 
- rgba(25, 81, 87, 0.6) 50%, 
- rgba(15, 61, 66, 0.85) 100%);
+ rgba(25, 81, 87, 0.55) 0%, 
+ rgba(25, 81, 87, 0.7) 50%, 
+ rgba(15, 61, 66, 0.9) 100%);
  z-index: 1;
  }
 
@@ -1966,26 +1966,19 @@
  </video>
  <div class="hero-content">
  <img src="images/logo-white.svg" alt="UzunYaşa" class="logo-img-hero">
- <h1 class="hero-tagline">
- <div class="rotating-container">
- <span class="rotating-word active">Daha Uzun</span>
- <span class="rotating-word">Daha Sağlıklı</span>
- <span class="rotating-word">Daha Enerjik</span>
- <span class="rotating-word">Daha Güçlü</span>
- </div>
- <span class="tagline-static">Yaşa</span>
+ <h1 class="hero-tagline" style="font-size:clamp(1.5rem,4vw,2.8rem);">
+ Türkiye'nin Kanıta Dayalı<br>Kilo Yönetimi Platformu
  </h1>
  <div class="hero-separator"></div>
- <p style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:300;font-style:italic;opacity:0.75;letter-spacing:0.02em;margin-bottom:1.5rem;">Türkiye uzun yaşasın diye.</p>
- <p class="hero-description">
- Kanıta dayalı, bağımsız sağlık rehberliği.<br>
-Beslenme, egzersiz ve tedavi seçenekleri.
+ <p class="hero-description" style="font-size:1.15rem;opacity:0.9;max-width:600px;">
+ Fazla kilodan kurtul. Sağlıklı beslen. Hareket et.<br>
+ <strong style="color:var(--accent);font-size:1.25rem;">Hayatına 10 yıl ekle.</strong>
  </p>
  <div class="hero-buttons">
- <a href="pages/test.html" class="btn hero-btn-primary">
+ <a href="pages/test.html" class="btn hero-btn-primary" style="background:#E8963E;color:#fff;padding:18px 36px;font-size:1.1rem;font-weight:700;box-shadow:0 6px 24px rgba(232,150,62,0.5);">
  Teste Başla →
  </a>
- <a href="#kesfet" class="btn hero-btn-secondary">
+ <a href="#kesfet" class="btn hero-btn-secondary" style="background:rgba(255,255,255,0.95);color:#195157;border:none;padding:18px 36px;font-size:1.1rem;font-weight:600;">
  Keşfet
  </a>
  </div>
@@ -2576,30 +2569,13 @@ Beslenme, egzersiz ve tedavi seçenekleri.
 
  <!-- IMPACT COUNTER -->
  <section style="background:linear-gradient(135deg,#0D7377,#195157);padding:4rem 1.5rem;text-align:center;color:#fff">
- <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:.5rem;letter-spacing:-.5px">Bu Platform ile...</h2>
- <p style="opacity:.7;margin-bottom:2.5rem;font-size:.95rem">Birlikte daha sağlıklı bir Türkiye için</p>
- <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;max-width:800px;margin:0 auto">
- <div style="flex:1;min-width:200px"><div class="impact-num" data-start="12847" style="font-size:2.8rem;font-weight:800;transition:transform .3s">12,847</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">kişi bilgilendirildi</div></div>
- <div style="flex:1;min-width:200px"><div class="impact-num" data-start="43291" style="font-size:2.8rem;font-weight:800;transition:transform .3s">43,291</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">rehber okundu</div></div>
- <div style="flex:1;min-width:200px"><div class="impact-num" data-start="3456" style="font-size:2.8rem;font-weight:800;transition:transform .3s">3,456</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">kişi testini tamamladı</div></div>
+ <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:.5rem;letter-spacing:-.5px">Rakamlarla UzunYaşa</h2>
+ <p style="opacity:.7;margin-bottom:2.5rem;font-size:.95rem">Doğrulanabilir, gerçek veriler</p>
+ <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;max-width:900px;margin:0 auto">
+ <div style="flex:1;min-width:200px"><div style="font-size:2.8rem;font-weight:800;">120,000+</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">Kişilik Harvard Araştırması</div><div style="opacity:.5;font-size:.75rem;margin-top:.25rem">Li Y, et al. Circulation, 2018</div></div>
+ <div style="flex:1;min-width:200px"><div style="font-size:2.8rem;font-weight:800;">5 Alışkanlık = 10+ Yıl</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">Sağlıklı Yaşam Formülü</div><div style="opacity:.5;font-size:.75rem;margin-top:.25rem">Beslenme, egzersiz, uyku, stres, kilo</div></div>
+ <div style="flex:1;min-width:200px"><div style="font-size:2.8rem;font-weight:800;">50+</div><div style="opacity:.8;font-size:.95rem;margin-top:.25rem">Ücretsiz Rehber & Araç</div><div style="opacity:.5;font-size:.75rem;margin-top:.25rem">5 sağlık kategorisinde</div></div>
  </div>
- <script>
- (function(){
- const nums=document.querySelectorAll('.impact-num');
- const vals=Array.from(nums).map(n=>parseInt(n.dataset.start));
- function fmt(n){return n.toLocaleString('tr-TR')}
- function tick(){
- nums.forEach((el,i)=>{
- vals[i]+=Math.floor(Math.random()*3)+1;
- el.textContent=fmt(vals[i]);
- el.style.transform='scale(1.05)';
- setTimeout(()=>el.style.transform='scale(1)',300);
- });
- setTimeout(tick,(Math.random()*30000)+15000);
- }
- setTimeout(tick,(Math.random()*20000)+10000);
- })();
- </script>
  </section>
 
  <!-- CTA SECTION -->
@@ -2618,11 +2594,12 @@ Beslenme, egzersiz ve tedavi seçenekleri.
  </div>
  <div class="cta-divider">veya</div>
  <p style="margin-bottom: 1rem; opacity: 0.9;">Haftalık bültenimize abone olun</p>
- <form class="cta-newsletter" onsubmit="handleNewsletter(event, this)">
- <input type="email" name="email" class="cta-input" placeholder="E-posta adresiniz" required>
- <button type="submit" class="btn">Abone Ol</button>
- </form>
- <p id="newsletter-success" style="display:none; color:#10B981; margin-top:1rem;"> Teşekkürler! Bültenimize kaydoldunuz.</p>
+ <div class="cta-newsletter" style="flex-direction:column;align-items:center;gap:0.75rem;">
+ <a href="mailto:info@uzunyasa.com?subject=Bülten%20Aboneliği&body=Merhaba%2C%20haftalık%20bülteninize%20abone%20olmak%20istiyorum." class="btn" style="background:white;color:#195157;padding:14px 28px;font-weight:600;font-size:1rem;border-radius:10px;text-decoration:none;">
+ 📧 info@uzunyasa.com — Bülten İçin Yazın
+ </a>
+ <p style="opacity:0.6;font-size:0.8rem;margin-top:0.25rem;">Otomatik abonelik sistemi yakında aktif olacak</p>
+ </div>
  </div>
  </section>
 
@@ -2712,21 +2689,7 @@ Beslenme, egzersiz ve tedavi seçenekleri.
  if (loader) loader.classList.add('loaded');
  }, 3000);
 
- // ===== ROTATING TAGLINE =====
- const rotatingWords = document.querySelectorAll('.rotating-word');
- let currentIndex = 0;
- function rotateWords() {
- const current = rotatingWords[currentIndex];
- const nextIndex = (currentIndex + 1) % rotatingWords.length;
- const next = rotatingWords[nextIndex];
- current.classList.remove('active');
- current.classList.add('exit');
- next.classList.remove('exit');
- next.classList.add('active');
- setTimeout(() => current.classList.remove('exit'), 600);
- currentIndex = nextIndex;
- }
- setInterval(rotateWords, 3000);
+ // ===== ROTATING TAGLINE (disabled - static hero title now) =====
 
  // ===== HEADER: COMPACT ON SCROLL + ACTIVE NAV =====
  const header = document.querySelector('.header');
