@@ -44,9 +44,12 @@
   }
   .footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
   .footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+  .watermark { position: absolute; top: 30px; right: 30px; opacity: 0.9; z-index: 100; }
+  .watermark img { width: 140px; height: auto; }
 </style>
 </head>
-<body>
+<body style="position:relative;">
+  <div class="watermark"><img src="file:///data/workspace/uzunyasa-website/images/logo-white.svg" alt="UzunYaşa"></div>
   <div class="content">
     <div class="myth-label">Mit mi Gerçek mi?</div>
     <div class="myth-claim">{{CLAIM}}</div>
