@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+  * { margin: 0; padding: 0; }
+  body { background: transparent; }
+  .logo-container {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    padding: 60px 120px 30px 20px;
+  }
+  .leaf-icon {
+    position: relative;
+    width: 90px;
+    height: 110px;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+  /* Orange circle (sun/seed) */
+  .leaf-icon .sun {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #E8963E;
+    border-radius: 50%;
+    top: 8px;
+    left: 38px;
+  }
+  /* Left leaf */
+  .leaf-icon .leaf-left {
+    position: absolute;
+    width: 36px;
+    height: 56px;
+    background: #195157;
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(-30deg);
+    top: 32px;
+    left: 8px;
+  }
+  /* Right leaf */
+  .leaf-icon .leaf-right {
+    position: absolute;
+    width: 36px;
+    height: 56px;
+    background: #195157;
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(30deg);
+    top: 32px;
+    left: 46px;
+  }
+  /* Stem */
+  .leaf-icon .stem {
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background: #195157;
+    bottom: 5px;
+    left: 44px;
+  }
+  .text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 96px;
+    font-weight: 700;
+    color: #195157;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  /* Arc/swoosh SVG overlay */
+  .arc-svg {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    width: 700px;
+    height: 100px;
+  }
+</style>
+</head>
+<body>
+<div class="logo-container" id="logo">
+  <div class="leaf-icon">
+    <div class="sun"></div>
+    <div class="leaf-left"></div>
+    <div class="leaf-right"></div>
+    <div class="stem"></div>
+  </div>
+  <div class="text">UzunYaşa</div>
+  <svg class="arc-svg" viewBox="0 -20 600 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="arcGrad" x1="0" y1="0" x2="520" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#195157"/>
+        <stop offset="65%" stop-color="#5A9A8E"/>
+        <stop offset="100%" stop-color="#E8963E"/>
+      </linearGradient>
+    </defs>
+    <path d="M 5 65 Q 240 -5 480 28" stroke="url(#arcGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 460 34 L 510 0 L 486 44 Z" fill="#E8963E"/>
+    <line x1="510" y1="0" x2="535" y2="-15" stroke="#E8963E" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+</div>
+</body>
+</html>
