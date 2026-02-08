@@ -1911,8 +1911,8 @@
  scroll-behavior: smooth;
  }
 
- /* Hide video backgrounds on mobile / reduced-motion to save bandwidth */
- @media (prefers-reduced-motion: reduce), (max-width: 768px) {
+ /* Hide video backgrounds on reduced-motion only */
+ @media (prefers-reduced-motion: reduce) {
  .section-video-bg,
  .section-video,
  .hero-video {
