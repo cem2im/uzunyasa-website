@@ -6,25 +6,34 @@
 
 /* CSS Variables */
 :root {
-    --primary-teal: #195157;
-    --primary-teal-light: #2a6b73;
+    --primary: #0D7377;
+    --primary-light: #14919B;
+    --primary-dark: #0A5C5F;
+    --accent: #E8963E;
+    --accent-hover: #D4862F;
+    --bg-white: #FFFFFF;
+    --bg-cream: #FAFAF8;
+    --bg-light: #F3F4F6;
+    --text-dark: #1F2937;
+    --text-medium: #4B5563;
+    --text-light: #6B7280;
+    --text-muted: #9CA3AF;
+    --success: #10B981;
+    --border: #E5E7EB;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+    /* Aliases for sub-pages */
+    --primary-teal: #0D7377;
+    --primary-teal-light: #14919B;
     --accent-orange: #E8963E;
     --accent-orange-light: #f0a854;
-    --text-dark: #1a1a1a;
-    --text-gray: #6b7280;
-    --bg-cream: #FAF9F7;
-    --bg-white: #FFFFFF;
-    --border-light: #e5e7eb;
-    /* Aliases used by some pages */
-    --primary: #195157;
-    --primary-light: #2a6b73;
-    --accent: #E8963E;
-    --text: #1a1a1a;
-    --text-light: #6b7280;
-    --bg: #FAF9F7;
+    --text-gray: #6B7280;
+    --text: #1F2937;
+    --bg: #FAFAF8;
     --white: #FFFFFF;
-    --border: #e5e7eb;
-    --success: #10B981;
+    --border-light: #E5E7EB;
 }
 
 /* Reset */
@@ -39,7 +48,8 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
-    background: var(--bg-cream);
+    background: var(--bg-white);
+    font-size: 16px;
 }
 
 html {
@@ -730,4 +740,9 @@ section {
         flex-direction: column;
         text-align: center;
     }
+}
+
+/* Guide Card Body - was missing */
+.guide-card-body {
+    padding: 1rem 1.25rem;
 }
