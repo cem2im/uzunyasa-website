@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QBM7E0EHFP');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Hesaplayıcı — Vücut Kitle İndeksi Hesaplama | UzunYaşa</title>
+    <meta name="description" content="Ücretsiz BMI hesaplayıcı ile vücut kitle indeksinizi hesaplayın. BMI'nin anlamı, sınırlamaları, bel çevresi ölçümü ve Türkiye'ye özel sağlık risk kategorileri.">
+    <link rel="canonical" href="https://uzunyasa.com/pages/beslenme/bmi-hesaplayici.html">
+    <meta property="og:title" content="BMI Hesaplayıcı — Vücut Kitle İndeksi Hesaplama | UzunYaşa">
+    <meta property="og:description" content="Ücretsiz BMI hesaplayıcı. BMI'nin anlamı, sınırlamaları ve Türkiye'ye özel sağlık bilgileri.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://uzunyasa.com/pages/beslenme/bmi-hesaplayici.html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BMI Hesaplayıcı",
+        "description": "Vücut kitle indeksinizi hesaplayın ve sağlık risk kategorinizi öğrenin.",
+        "author": {"@type": "Organization", "name": "UzunYaşa"},
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "url": "https://uzunyasa.com/pages/beslenme/bmi-hesaplayici.html"
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <style>
+        .guide-hero { position: relative; padding: 8rem 2rem 4rem; color: white; }
+        .guide-hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .guide-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(25,81,87,0.9), rgba(42,107,115,0.85)); }
+        .guide-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .guide-badge { display: inline-block; background: var(--accent); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        .guide-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .guide-hero p { font-size: 1.15rem; opacity: 0.95; }
+        .guide-content { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+        .guide-content h2 { font-size: 1.6rem; color: var(--primary); margin: 2.5rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        .guide-content h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+        .guide-content p { margin-bottom: 1.25rem; font-size: 1.05rem; }
+        .guide-content ul, .guide-content ol { margin: 1rem 0 1.5rem 1.5rem; }
+        .guide-content li { margin-bottom: 0.75rem; }
+        .info-box { padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
+        .info-box.tip { background: #ECFDF5; border-left: 4px solid var(--success); }
+        .info-box.warning { background: #FEF3C7; border-left: 4px solid var(--warning); }
+        .info-box h4 { margin-bottom: 0.5rem; }
+        .calc-container { background: linear-gradient(135deg, #F0FDFA, #E0F2FE); border: 2px solid var(--primary); border-radius: 20px; padding: 2.5rem; margin: 2rem 0; }
+        .calc-container h3 { color: var(--primary); font-size: 1.4rem; margin-bottom: 1.5rem; text-align: center; }
+        .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .calc-field label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .calc-field input, .calc-field select { width: 100%; padding: 0.85rem 1rem; border: 2px solid var(--border); border-radius: 10px; font-size: 1.05rem; font-family: inherit; transition: border-color 0.2s; }
+        .calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--primary); }
+        .calc-btn { display: block; width: 100%; padding: 1rem; background: var(--primary); color: white; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; font-family: inherit; }
+        .calc-btn:hover { background: #1a5a60; }
+        .calc-result { display: none; margin-top: 2rem; padding: 2rem; background: white; border-radius: 16px; text-align: center; }
+        .bmi-number { font-size: 3.5rem; font-weight: 800; margin: 0.5rem 0; }
+        .bmi-category { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
+        .bmi-bar { height: 12px; border-radius: 6px; background: linear-gradient(to right, #3B82F6 0%, #22C55E 25%, #EAB308 50%, #F97316 75%, #EF4444 100%); margin: 1rem 0; position: relative; }
+        .bmi-marker { position: absolute; top: -6px; width: 24px; height: 24px; background: white; border: 3px solid #1F2937; border-radius: 50%; transform: translateX(-50%); transition: left 0.5s ease; }
+        .bmi-scale { display: flex; justify-content: space-between; font-size: 0.8rem; color: #64748B; }
+        .category-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .category-table th, .category-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .category-table th { background: var(--primary); color: white; }
+        .category-table tr:nth-child(even) { background: #F8FAFC; }
+        .sources { background: #F8FAFC; border-radius: 12px; padding: 1.5rem; margin: 2rem 0; font-size: 0.9rem; }
+        .sources h4 { margin-bottom: 0.75rem; }
+        .sources ol { margin-left: 1.5rem; }
+        .sources li { margin-bottom: 0.5rem; color: #64748B; }
+        .guide-cta { background: linear-gradient(135deg, var(--primary), #2a6b73); padding: 3rem 2rem; border-radius: 20px; text-align: center; color: white; margin: 3rem 0; }
+        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; }
+        @media (max-width: 768px) {
+            .guide-hero h1 { font-size: 2rem; }
+            .calc-row { grid-template-columns: 1fr; }
+            .bmi-number { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;padding:1rem;background:#fff;z-index:9999;">İçeriğe geç</a>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
+            <a href="../beslenme.html" class="back-link">← Beslenme Rehberi</a>
+        </div>
+    </header>
+
+    <section class="guide-hero" role="banner">
+        <div class="guide-hero-overlay"></div>
+        <div class="guide-hero-content">
+            <span class="guide-badge">⚖️ Araç</span>
+            <h1>BMI Hesaplayıcı</h1>
+            <p>Vücut kitle indeksinizi hesaplayın, sağlık risk kategorinizi öğrenin ve BMI'nin gerçekte ne anlama geldiğini keşfedin.</p>
+        </div>
+    </section>
+
+    <main class="guide-content" id="main-content">
+
+        <!-- CALCULATOR -->
+        <div class="calc-container" role="form" aria-label="BMI Hesaplayıcı">
+            <h3>⚖️ BMI'nizi Hesaplayın</h3>
+            <div class="calc-row">
+                <div class="calc-field">
+                    <label for="bmi-weight">Kilonuz (kg)</label>
+                    <input type="number" id="bmi-weight" placeholder="Örn: 75" min="30" max="300" step="0.1" aria-required="true">
+                </div>
+                <div class="calc-field">
+                    <label for="bmi-height">Boyunuz (cm)</label>
+                    <input type="number" id="bmi-height" placeholder="Örn: 170" min="100" max="250" step="1" aria-required="true">
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calculateBMI()" aria-label="BMI Hesapla">BMI Hesapla</button>
+
+            <div class="calc-result" id="bmi-result" role="status" aria-live="polite">
+                <p style="margin:0; color:#64748B;">Vücut Kitle İndeksiniz</p>
+                <div class="bmi-number" id="bmi-value">—</div>
+                <div class="bmi-category" id="bmi-category">—</div>
+                <div class="bmi-bar">
+                    <div class="bmi-marker" id="bmi-marker"></div>
+                </div>
+                <div class="bmi-scale">
+                    <span>16</span>
+                    <span>18.5</span>
+                    <span>25</span>
+                    <span>30</span>
+                    <span>35</span>
+                    <span>40+</span>
+                </div>
+                <p id="bmi-description" style="margin-top:1rem; font-size:0.95rem; color:#475569;"></p>
+            </div>
+        </div>
+
+        <h2>BMI (Vücut Kitle İndeksi) Nedir?</h2>
+        <p>BMI (Body Mass Index — Vücut Kitle İndeksi), Belçikalı matematikçi Adolphe Quetelet tarafından 1832'de geliştirilen basit bir formüldür. Kilonuzu boyunuzun karesine bölerek hesaplanır:</p>
+        <div style="background:#F0FDFA; padding:1.5rem; border-radius:12px; text-align:center; margin:1.5rem 0; font-size:1.2rem;">
+            <strong>BMI = Kilo (kg) ÷ Boy² (m)</strong>
+            <br><br>
+            <span style="color:#64748B;">Örnek: 75 kg ÷ (1.70 m × 1.70 m) = 75 ÷ 2.89 = <strong>25.95</strong></span>
+        </div>
+        <p>Dünya Sağlık Örgütü (DSÖ), BMI değerlerini aşağıdaki kategorilere ayırır:</p>
+
+        <table class="category-table" role="table" aria-label="BMI Kategorileri">
+            <thead>
+                <tr>
+                    <th>BMI Aralığı</th>
+                    <th>Kategori</th>
+                    <th>Sağlık Riski</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&lt; 16.0</td>
+                    <td>Ciddi düşük kilolu</td>
+                    <td>Çok yüksek</td>
+                </tr>
+                <tr>
+                    <td>16.0 – 16.9</td>
+                    <td>Orta düşük kilolu</td>
+                    <td>Yüksek</td>
+                </tr>
+                <tr>
+                    <td>17.0 – 18.4</td>
+                    <td>Hafif düşük kilolu</td>
+                    <td>Orta</td>
+                </tr>
+                <tr>
+                    <td>18.5 – 24.9</td>
+                    <td style="color:#059669; font-weight:600;">Normal kilolu</td>
+                    <td>Düşük</td>
+                </tr>
+                <tr>
+                    <td>25.0 – 29.9</td>
+                    <td>Fazla kilolu</td>
+                    <td>Artmış</td>
+                </tr>
+                <tr>
+                    <td>30.0 – 34.9</td>
+                    <td>Obezite (Sınıf I)</td>
+                    <td>Yüksek</td>
+                </tr>
+                <tr>
+                    <td>35.0 – 39.9</td>
+                    <td>Obezite (Sınıf II)</td>
+                    <td>Çok yüksek</td>
+                </tr>
+                <tr>
+                    <td>≥ 40.0</td>
+                    <td>Morbid obezite (Sınıf III)</td>
+                    <td>Son derece yüksek</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>BMI'nin Sınırlamaları: Neden Tek Başına Yeterli Değil?</h2>
+        <p>BMI yaygın olarak kullanılsa da, ciddi sınırlamaları olan kaba bir ölçüttür. İşte BMI'nin size söyleyemeyeceği şeyler:</p>
+
+        <h3>1. Kas Kütlesi vs. Yağ Kütlesi</h3>
+        <p>BMI, kas ile yağ arasında ayrım yapamaz. Düzenli spor yapan, kaslı bir kişi BMI'ye göre "fazla kilolu" çıkabilir. Örneğin, birçok profesyonel futbolcunun BMI'si 25'in üzerindedir — ama yağ oranları çok düşüktür.</p>
+
+        <h3>2. Yağ Dağılımını Göstermez</h3>
+        <p>Sağlık açısından ne kadar yağ taşıdığınız kadar, <strong>nerede</strong> taşıdığınız da önemlidir. Karın bölgesinde biriken yağ (viseral yağ), kalça ve bacaklardaki yağdan çok daha tehlikelidir. BMI bu farkı gösteremez.</p>
+
+        <h3>3. Yaş ve Cinsiyet Farkları</h3>
+        <p>Yaşlandıkça kas kütlesi azalır, yağ kütlesi artar. Aynı BMI'ye sahip 25 yaşındaki ve 65 yaşındaki kişilerin sağlık riskleri farklıdır. Kadınlar doğal olarak erkeklerden daha yüksek vücut yağ yüzdesine sahiptir.</p>
+
+        <h3>4. Etnik Farklılıklar</h3>
+        <p>BMI sınırları Avrupa kökenli popülasyonlar için geliştirilmiştir. Asya kökenli bireyler aynı BMI'de daha yüksek vücut yağ yüzdesine sahip olabilir. DSÖ, Asya-Pasifik bölgesi için daha düşük eşik değerler önermektedir.</p>
+
+        <div class="info-box warning">
+            <h4>⚠️ BMI Kimlerde Yanıltıcı Olabilir?</h4>
+            <ul style="margin-bottom:0;">
+                <li>Sporcular ve düzenli ağırlık çalışanlar</li>
+                <li>Hamileler</li>
+                <li>65 yaş üstü bireyler</li>
+                <li>18 yaş altı çocuk ve ergenler (çocuklar için farklı BMI persentil çizelgeleri kullanılır)</li>
+                <li>Ödem veya kas erimesi olan kişiler</li>
+            </ul>
+        </div>
+
+        <h2>🇹🇷 Türkiye'de BMI ve Obezite</h2>
+        <p>Türkiye, Avrupa'nın en yüksek obezite oranlarına sahip ülkelerinden biridir. TURDEP-II çalışmasına (2010) göre:</p>
+        <ul>
+            <li>Yetişkin nüfusun <strong>%35.9'u</strong> fazla kilolu (BMI 25-29.9)</li>
+            <li><strong>%32.1'i</strong> obez (BMI ≥ 30)</li>
+            <li>Kadınlarda obezite oranı (%44) erkeklerden (%27) belirgin şekilde yüksek</li>
+            <li>Obezite prevalansı son 12 yılda %40 artış göstermiş</li>
+        </ul>
+        <p>2023 TÜİK verilerine göre bu rakamlar daha da yükselmiştir. Kentleşme, işlenmiş gıda tüketiminin artması, fiziksel aktivite azalması ve geleneksel Türk mutfağından uzaklaşma başlıca nedenlerdir.</p>
+
+        <div class="info-box tip">
+            <h4>💡 Türkiye'ye Özel Risk Faktörleri</h4>
+            <p>Türk popülasyonunda metabolik sendrom ve insülin direnci prevalansı yüksektir. BMI normal aralıkta olsa bile, özellikle bel çevresi yüksek olan Türk bireylerinde kardiyometabolik risk artmış olabilir. Bu nedenle BMI'nin yanında bel çevresi ölçümü mutlaka yapılmalıdır.</p>
+        </div>
+
+        <h2>Bel Çevresi: BMI'den Daha İyi Bir Gösterge</h2>
+        <p>Bel çevresi ölçümü, karın bölgesindeki viseral yağı dolaylı olarak ölçer ve birçok araştırmada BMI'den daha iyi bir kardiyometabolik risk göstergesi olduğu kanıtlanmıştır.</p>
+
+        <h3>Nasıl Ölçülür?</h3>
+        <ol>
+            <li>Ayakta, rahat nefes alırken ölçün</li>
+            <li>Kıyafetlerin üzerinden değil, çıplak cilde mezura sarın</li>
+            <li>Mezurayı göbek deliği hizasında (kaburga ile kalça kemiği arasında) tutun</li>
+            <li>Nefes verirken (karın şişirmeden, içeri çekmeden) okuyun</li>
+            <li>Sabah, aç karnına ölçmek en tutarlı sonucu verir</li>
+        </ol>
+
+        <h3>Risk Eşik Değerleri</h3>
+        <table class="category-table" role="table" aria-label="Bel çevresi risk kategorileri">
+            <thead>
+                <tr>
+                    <th>Cinsiyet</th>
+                    <th>Artmış Risk</th>
+                    <th>Yüksek Risk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Erkek</td>
+                    <td>≥ 94 cm</td>
+                    <td>≥ 102 cm</td>
+                </tr>
+                <tr>
+                    <td>Kadın</td>
+                    <td>≥ 80 cm</td>
+                    <td>≥ 88 cm</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Bel/Boy Oranı</h3>
+        <p>Daha da pratik bir ölçüt: <strong>bel çevreniz boyunuzun yarısından az olmalıdır</strong>. Yani boyunuz 170 cm ise bel çevreniz 85 cm'in altında olmalıdır. Bu basit kural tüm yaşlarda ve cinsiyetlerde geçerlidir.</p>
+
+        <h2>BMI Ötesinde: Diğer Sağlık Göstergeleri</h2>
+        <p>Sağlığınızın tam resmini görmek için tek bir rakama güvenmek yerine, birden fazla göstergeyi birlikte değerlendirin:</p>
+        <ul>
+            <li><strong>Vücut yağ yüzdesi:</strong> Biyoempedans tartılar veya DEXA taramasıyla ölçülebilir. Erkeklerde %10-20, kadınlarda %20-30 normal kabul edilir.</li>
+            <li><strong>Kan değerleri:</strong> Açlık kan şekeri, HbA1c, lipid profili (kolesterol, trigliserid), karaciğer enzimleri.</li>
+            <li><strong>Kan basıncı:</strong> İdeal: 120/80 mmHg altında.</li>
+            <li><strong>Fiziksel fitness:</strong> Kardiyovasküler dayanıklılık, kas gücü ve esneklik — bunlar BMI'den bağımsız sağlık göstergeleridir.</li>
+            <li><strong>Bel/kalça oranı:</strong> Erkeklerde &lt;0.9, kadınlarda &lt;0.85 ideal.</li>
+        </ul>
+
+        <div class="info-box tip">
+            <h4>🎯 Ne Yapmalı?</h4>
+            <p>BMI'niz 25'in üzerindeyse veya bel çevreniz risk sınırını aşıyorsa, panik yapmayın. Küçük ama tutarlı adımlarla başlayın: günde 30 dakika yürüyüş, porsiyon kontrolü ve işlenmiş gıdaları azaltma. Haftada 0.5-1 kg kayıp hedefleyin. <a href="kalori-hesaplayici.html">Kalori Hesaplayıcı</a>'mız size yol gösterebilir.</p>
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar ve Referanslar</h4>
+            <ol>
+                <li>WHO. "Body mass index – BMI." World Health Organization, 2024.</li>
+                <li>Satman I, et al. "Twelve-year trends in the prevalence and risk factors of diabetes and prediabetes in Turkish adults (TURDEP-II)." European Journal of Epidemiology, 2013;28:169-180.</li>
+                <li>Ashwell M, et al. "Waist-to-height ratio is a better screening tool than BMI for adult cardiometabolic risk factors." Obesity Reviews, 2012;13(3):275-286.</li>
+                <li>Nuttall FQ. "Body Mass Index: Obesity, BMI, and Health." Nutrition Today, 2015;50(3):117-128.</li>
+                <li>Romero-Corral A, et al. "Accuracy of body mass index in diagnosing obesity in the adult general population." International Journal of Obesity, 2008;32:959-966.</li>
+                <li>WHO Expert Consultation. "Appropriate body-mass index for Asian populations." Lancet, 2004;363:157-163.</li>
+                <li>Ross R, et al. "Waist circumference as a vital sign in clinical practice." CMAJ, 2020;192(15):E390-E397.</li>
+            </ol>
+        </div>
+
+        <div class="guide-cta">
+            <h3>Kişisel sağlık profilinizi oluşturun</h3>
+            <p>BMI'nin ötesinde, kapsamlı sağlık değerlendirmemizle size özel öneriler alın.</p>
+            <a href="../test.html" class="cta-btn">Teste Başla →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../../index.html"><img src="../../images/logo-white.svg" alt="UzunYaşa" class="footer-logo"></a>
+                    <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Keşfet</h4>
+                    <a href="../beslenme.html">Beslenme</a>
+                    <a href="../egzersiz.html">Egzersiz</a>
+                    <a href="../uyku-stres.html">Uyku & Stres</a>
+                    <a href="../tedavi.html">Tedavi Seçenekleri</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Araçlar</h4>
+                    <a href="bana-ne-uygun.html">Bana Ne Uygun?</a>
+                    <a href="bmi-hesaplayici.html">BMI Hesaplayıcı</a>
+                    <a href="kalori-hesaplayici.html">Kalori Hesaplayıcı</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hakkımızda</h4>
+                    <a href="../hakkimizda.html">Ekibimiz</a>
+                    <a href="../bilim.html">Bilimsel Yaklaşım</a>
+                    <a href="../hakkimizda.html#iletisim">İletişim</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 UzunYaşa. Tüm hakları saklıdır.</span>
+                <span>Gizlilik Politikası | Kullanım Koşulları</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('bmi-weight').value);
+            const heightCm = parseFloat(document.getElementById('bmi-height').value);
+
+            if (!weight || !heightCm || weight < 30 || weight > 300 || heightCm < 100 || heightCm > 250) {
+                alert('Lütfen geçerli kilo (30-300 kg) ve boy (100-250 cm) değerleri girin.');
+                return;
+            }
+
+            const heightM = heightCm / 100;
+            const bmi = weight / (heightM * heightM);
+            const bmiRounded = Math.round(bmi * 10) / 10;
+
+            // Determine category
+            let category, color, description;
+            if (bmi < 16) {
+                category = 'Ciddi Düşük Kilolu';
+                color = '#3B82F6';
+                description = 'BMI değeriniz ciddi düşük kilo kategorisindedir. Bu durum bağışıklık sistemi zayıflığı, kemik erimesi ve organ fonksiyon bozukluklarıyla ilişkilendirilebilir. Bir sağlık profesyoneline danışmanız önerilir.';
+            } else if (bmi < 18.5) {
+                category = 'Düşük Kilolu';
+                color = '#60A5FA';
+                description = 'BMI değeriniz düşük kilo kategorisindedir. Yeterli kalori ve besin alımınızı gözden geçirmeniz faydalı olabilir. Bir diyetisyenle görüşmeyi düşünün.';
+            } else if (bmi < 25) {
+                category = 'Normal Kilolu ✅';
+                color = '#22C55E';
+                description = 'Tebrikler! BMI değeriniz normal aralıktadır. Dengeli beslenme ve düzenli egzersizle bu seviyeyi korumaya devam edin. Yine de bel çevrenizi de kontrol etmeyi unutmayın.';
+            } else if (bmi < 30) {
+                category = 'Fazla Kilolu';
+                color = '#EAB308';
+                description = 'BMI değeriniz fazla kilo kategorisindedir. Küçük yaşam tarzı değişiklikleri büyük fark yaratabilir. Günlük 30 dakika yürüyüş ve porsiyon kontrolüyle başlayabilirsiniz.';
+            } else if (bmi < 35) {
+                category = 'Obezite (Sınıf I)';
+                color = '#F97316';
+                description = 'BMI değeriniz obezite sınıf I kategorisindedir. Tip 2 diyabet, kalp hastalığı ve eklem sorunları riski artmıştır. Bir sağlık profesyoneli eşliğinde beslenme ve egzersiz programı oluşturmanız önerilir.';
+            } else if (bmi < 40) {
+                category = 'Obezite (Sınıf II)';
+                color = '#EF4444';
+                description = 'BMI değeriniz obezite sınıf II kategorisindedir. Sağlık riskleri belirgin şekilde artmıştır. Mutlaka bir hekim ve diyetisyen desteği alınması önerilir.';
+            } else {
+                category = 'Morbid Obezite (Sınıf III)';
+                color = '#DC2626';
+                description = 'BMI değeriniz morbid obezite kategorisindedir. Bu durumda multidisipliner tıbbi destek (endokrinoloji, beslenme, psikoloji) almanız çok önemlidir. Bariatrik cerrahi seçenekleri de değerlendirilebilir.';
+            }
+
+            document.getElementById('bmi-value').textContent = bmiRounded;
+            document.getElementById('bmi-value').style.color = color;
+            document.getElementById('bmi-category').textContent = category;
+            document.getElementById('bmi-category').style.color = color;
+            document.getElementById('bmi-description').textContent = description;
+
+            // Position marker on bar (BMI 16-40 range mapped to 0-100%)
+            const percent = Math.min(Math.max((bmi - 16) / (40 - 16) * 100, 0), 100);
+            document.getElementById('bmi-marker').style.left = percent + '%';
+
+            document.getElementById('bmi-result').style.display = 'block';
+            document.getElementById('bmi-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
