@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script src="/scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makro Üçgeni — Besin Makro Tahmin Oyunu | UzunYaşa</title>
+<meta name="description" content="100 Türk yemeğinin protein, yağ ve karbonhidrat oranlarını tahmin et! Eğlenceli makro besin testi ile beslenme bilgini sına.">
+<link rel="canonical" href="https://uzunyasa.com/pages/araclar/makro-ucgeni.html">
+<meta property="og:title" content="Makro Üçgeni — Besin Makro Tahmin Oyunu | UzunYaşa">
+<meta property="og:description" content="100 Türk yemeğinin makro oranlarını tahmin et! Eğlenceli beslenme testi.">
+<meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+<meta property="og:url" content="https://uzunyasa.com/pages/araclar/makro-ucgeni.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0D7377;--dark:#195157;--accent:#E8963E;--protein:#E8963E;--fat:#dc2626;--carb:#2D9F4F;--bg:#f8fafa;--card:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827;--radius:16px;--shadow:0 4px 24px rgba(0,0,0,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--gray-700);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.playfair{font-family:'Playfair Display',serif}
+
+/* Header */
+.site-header{background:#fff;border-bottom:1px solid var(--gray-200);padding:.875rem 1.5rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.site-header a{text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark)}
+.logo-text span{color:var(--accent)}
+.back-link{font-size:.875rem;color:var(--primary);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.25rem}
+
+/* Main container */
+.game-wrap{max-width:640px;margin:0 auto;padding:1rem;width:100%;flex:1}
+
+/* Progress */
+.progress-bar{background:var(--gray-200);border-radius:99px;height:8px;margin-bottom:.5rem;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:99px;transition:width .4s ease}
+.progress-text{font-size:.8rem;color:var(--gray-500);text-align:center;margin-bottom:1rem}
+
+/* Score bar */
+.score-bar{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;font-size:.85rem;font-weight:600}
+.score-bar .item{display:flex;align-items:center;gap:.35rem}
+.score-bar .icon{font-size:1.1rem}
+
+/* Card */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:1rem}
+.food-img-wrap{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--gray-100)}
+.food-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.food-img-wrap img:hover{transform:scale(1.03)}
+.food-badge{position:absolute;top:.75rem;left:.75rem;background:rgba(0,0,0,.6);color:#fff;padding:.3rem .75rem;border-radius:99px;font-size:.75rem;font-weight:600;backdrop-filter:blur(4px)}
+.food-info{padding:1.25rem 1.5rem .75rem}
+.food-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--dark);margin-bottom:.25rem}
+.food-portion{font-size:.85rem;color:var(--gray-500)}
+
+/* Triangle area */
+.triangle-section{padding:1rem 1.5rem}
+.triangle-container{position:relative;width:100%;max-width:360px;margin:0 auto}
+.triangle-svg{width:100%;height:auto;display:block;cursor:crosshair;touch-action:none;user-select:none}
+
+/* Sliders */
+.sliders{padding:0 1.5rem 1rem}
+.slider-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.65rem}
+.slider-label{width:80px;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:.35rem}
+.slider-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.slider-row input[type=range]{flex:1;height:6px;-webkit-appearance:none;appearance:none;border-radius:99px;outline:none;cursor:pointer}
+.slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2);cursor:grab}
+.slider-row input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2);cursor:grab}
+.slider-val{width:42px;text-align:right;font-size:.95rem;font-weight:700;font-variant-numeric:tabular-nums}
+.s-protein input{background:linear-gradient(90deg,#fef3c7,var(--protein))}.s-protein input::-webkit-slider-thumb{background:var(--protein)}.s-protein input::-moz-range-thumb{background:var(--protein)}.s-protein .slider-val{color:var(--protein)}
+.s-fat input{background:linear-gradient(90deg,#fee2e2,var(--fat))}.s-fat input::-webkit-slider-thumb{background:var(--fat)}.s-fat input::-moz-range-thumb{background:var(--fat)}.s-fat .slider-val{color:var(--fat)}
+.s-carb input{background:linear-gradient(90deg,#d1fae5,var(--carb))}.s-carb input::-webkit-slider-thumb{background:var(--carb)}.s-carb input::-moz-range-thumb{background:var(--carb)}.s-carb .slider-val{color:var(--carb)}
+
+/* Buttons */
+.btn-area{padding:0 1.5rem 1.5rem;text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 2.5rem;border-radius:99px;border:none;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--dark);transform:translateY(-1px)}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-outline{background:transparent;border:2px solid var(--primary);color:var(--primary)}.btn-outline:hover{background:var(--primary);color:#fff}
+
+/* Result overlay */
+.result-overlay{display:none;padding:1rem 1.5rem 1.5rem}
+.result-overlay.show{display:block}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+.result-col{text-align:center;padding:.75rem;border-radius:12px;background:var(--gray-50)}
+.result-col h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);margin-bottom:.5rem}
+.result-col .vals{display:flex;flex-direction:column;gap:.25rem}
+.result-col .val-row{display:flex;justify-content:space-between;font-size:.85rem}
+.result-col .val-row .dot{width:8px;height:8px;border-radius:50%;margin-right:.35rem;flex-shrink:0;margin-top:5px}
+.score-reveal{text-align:center;margin-bottom:1rem}
+.score-big{font-size:3rem;font-weight:900;line-height:1}
+.score-label{font-size:.85rem;color:var(--gray-500);margin-top:.25rem}
+.fun-fact{background:linear-gradient(135deg,#f0fdfa,#ecfdf5);border-left:4px solid var(--carb);padding:1rem;border-radius:0 12px 12px 0;font-size:.85rem;margin-bottom:1rem;color:var(--dark)}
+.fun-fact strong{color:var(--carb)}
+
+/* Category filter */
+.cat-filter{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:1rem;-webkit-overflow-scrolling:touch}
+.cat-filter::-webkit-scrollbar{display:none}
+.cat-btn{padding:.5rem 1rem;border-radius:99px;border:2px solid var(--gray-200);background:#fff;color:var(--gray-500);font-size:.8rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;font-family:inherit}
+.cat-btn:hover,.cat-btn.active{border-color:var(--primary);color:var(--primary)}
+.cat-btn.active{background:var(--primary);color:#fff}
+
+/* Start / End screens */
+.screen{display:none;text-align:center;padding:3rem 1.5rem}
+.screen.active{display:block}
+.screen h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--dark);margin-bottom:.75rem}
+.screen p{color:var(--gray-500);margin-bottom:1.5rem;max-width:420px;margin-left:auto;margin-right:auto}
+.end-score{font-size:5rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.25rem}
+.end-max{font-size:1rem;color:var(--gray-400);margin-bottom:1.5rem}
+.streak-badge{display:inline-flex;align-items:center;gap:.35rem;background:#fef3c7;color:#92400e;padding:.4rem 1rem;border-radius:99px;font-size:.85rem;font-weight:600;margin-bottom:1.5rem}
+.share-box{background:var(--gray-50);border-radius:12px;padding:1rem;margin:1rem 0;font-size:.85rem;color:var(--gray-700)}
+.share-box button{margin-top:.5rem}
+
+/* Game screen */
+#gameScreen{display:none}
+#gameScreen.active{display:block}
+
+/* Footer */
+.site-footer{background:var(--dark);color:rgba(255,255,255,.7);text-align:center;padding:2rem 1.5rem;font-size:.8rem;margin-top:auto}
+.site-footer a{color:var(--accent);text-decoration:none}
+
+/* Responsive */
+@media(max-width:480px){
+ .food-name{font-size:1.25rem}
+ .triangle-container{max-width:300px}
+ .result-grid{grid-template-columns:1fr}
+ .score-big{font-size:2.5rem}
+ .screen h1{font-size:1.75rem}
+ .end-score{font-size:3.5rem}
+}
+
+/* Animation */
+@keyframes pop{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+.pop{animation:pop .4s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.slide-up{animation:slideUp .4s ease}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+ <a href="/index.html">
+  <span class="logo-text">Uzun<span>Yaşa</span></span>
+ </a>
+ <a href="/pages/araclar.html" class="back-link">← Araçlar</a>
+</header>
+
+<!-- START SCREEN -->
+<div class="game-wrap">
+<div id="startScreen" class="screen active">
+ <div style="font-size:4rem;margin-bottom:1rem">🔺</div>
+ <h1>Makro Üçgeni</h1>
+ <p>Türk mutfağının en sevilen 100 yemeğinin protein, yağ ve karbonhidrat oranlarını ne kadar iyi biliyorsun? 10 yemek, 10 tahmin — hadi başlayalım!</p>
+
+ <div class="cat-filter" id="catFilter" style="justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem">
+  <button class="cat-btn active" data-cat="all">🎲 Karışık</button>
+  <button class="cat-btn" data-cat="corba">🍲 Çorbalar</button>
+  <button class="cat-btn" data-cat="et">🥩 Et Yemekleri</button>
+  <button class="cat-btn" data-cat="sebze">🥬 Sebze</button>
+  <button class="cat-btn" data-cat="tatli">🍰 Tatlılar</button>
+  <button class="cat-btn" data-cat="atistirmalik">🥙 Atıştırmalıklar</button>
+  <button class="cat-btn" data-cat="icecek">🥤 İçecekler</button>
+ </div>
+
+ <button class="btn btn-primary" onclick="startGame()" style="font-size:1.1rem;padding:1rem 3rem">🎯 Oyunu Başlat</button>
+</div>
+
+<!-- GAME SCREEN -->
+<div id="gameScreen">
+ <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+ <div class="progress-text" id="progressText">1 / 10</div>
+
+ <div class="score-bar">
+  <div class="item"><span class="icon">🏆</span> <span id="totalScore">0</span> puan</div>
+  <div class="item"><span class="icon">🔥</span> <span id="streak">0</span> seri</div>
+ </div>
+
+ <div class="card" id="foodCard">
+  <div class="food-img-wrap">
+   <img id="foodImg" src="" alt="" loading="eager">
+   <div class="food-badge" id="foodCategory"></div>
+  </div>
+  <div class="food-info">
+   <div class="food-name" id="foodName"></div>
+   <div class="food-portion" id="foodPortion">100g başına</div>
+  </div>
+
+  <div class="triangle-section">
+   <div class="triangle-container" id="triContainer">
+    <svg id="triSvg" viewBox="0 0 400 370" class="triangle-svg">
+     <!-- Grid lines -->
+     <defs>
+      <linearGradient id="gProt" x1="0%" y1="100%" x2="50%" y2="0%"><stop offset="0%" stop-color="#f3f4f6"/><stop offset="100%" stop-color="rgba(232,150,62,.15)"/></linearGradient>
+      <linearGradient id="gFat" x1="100%" y1="100%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f3f4f6"/><stop offset="100%" stop-color="rgba(220,38,38,.15)"/></linearGradient>
+      <linearGradient id="gCarb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f3f4f6"/><stop offset="100%" stop-color="rgba(45,159,79,.15)"/></linearGradient>
+     </defs>
+     <!-- Triangle fill -->
+     <polygon points="200,20 30,330 370,330" fill="#f9fafb" stroke="var(--gray-200)" stroke-width="2"/>
+     <!-- Grid -->
+     <g stroke="var(--gray-200)" stroke-width="0.5" opacity="0.6" id="triGrid"></g>
+     <!-- Corner labels -->
+     <text x="200" y="12" text-anchor="middle" font-size="13" font-weight="700" fill="var(--protein)">Protein</text>
+     <text x="15" y="352" text-anchor="start" font-size="13" font-weight="700" fill="var(--fat)">Yağ</text>
+     <text x="385" y="352" text-anchor="end" font-size="13" font-weight="700" fill="var(--carb)">Karbonhidrat</text>
+     <!-- Guess dot -->
+     <circle id="guessDot" cx="200" cy="227" r="10" fill="var(--primary)" stroke="#fff" stroke-width="3" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));transition:cx .3s,cy .3s"/>
+     <!-- Answer dot (hidden initially) -->
+     <circle id="answerDot" cx="200" cy="227" r="10" fill="var(--accent)" stroke="#fff" stroke-width="3" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));opacity:0;transition:all .6s ease"/>
+     <!-- Line between guess and answer -->
+     <line id="diffLine" x1="0" y1="0" x2="0" y2="0" stroke="var(--gray-400)" stroke-width="1.5" stroke-dasharray="4" opacity="0" style="transition:opacity .4s"/>
+    </svg>
+   </div>
+  </div>
+
+  <div class="sliders" id="slidersArea">
+   <div class="slider-row s-protein">
+    <div class="slider-label"><div class="slider-dot" style="background:var(--protein)"></div>Protein</div>
+    <input type="range" min="0" max="100" value="33" id="sProtein">
+    <div class="slider-val" id="vProtein">33%</div>
+   </div>
+   <div class="slider-row s-fat">
+    <div class="slider-label"><div class="slider-dot" style="background:var(--fat)"></div>Yağ</div>
+    <input type="range" min="0" max="100" value="34" id="sFat">
+    <div class="slider-val" id="vFat">34%</div>
+   </div>
+   <div class="slider-row s-carb">
+    <div class="slider-label"><div class="slider-dot" style="background:var(--carb)"></div>Karbonhidrat</div>
+    <input type="range" min="0" max="100" value="33" id="sCarb">
+    <div class="slider-val" id="vCarb">33%</div>
+   </div>
+  </div>
+
+  <div class="btn-area" id="guessArea">
+   <button class="btn btn-primary" id="guessBtn" onclick="revealAnswer()">🎯 Tahmin Et</button>
+  </div>
+
+  <div class="result-overlay" id="resultOverlay">
+   <div class="score-reveal slide-up">
+    <div class="score-big" id="roundScore" style="color:var(--primary)">0</div>
+    <div class="score-label">puan (100 üzerinden)</div>
+   </div>
+   <div class="result-grid slide-up">
+    <div class="result-col">
+     <h4>Senin Tahminin</h4>
+     <div class="vals" id="guessVals"></div>
+    </div>
+    <div class="result-col">
+     <h4>Gerçek Değerler</h4>
+     <div class="vals" id="realVals"></div>
+    </div>
+   </div>
+   <div class="fun-fact slide-up" id="funFact"></div>
+   <div class="btn-area">
+    <button class="btn btn-accent" id="nextBtn" onclick="nextFood()">Sonraki →</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+<!-- END SCREEN -->
+<div id="endScreen" class="screen">
+ <div style="font-size:3rem;margin-bottom:.5rem">🏆</div>
+ <h1>Tebrikler!</h1>
+ <div class="end-score" id="finalScore">0</div>
+ <div class="end-max">/ 1000 puan</div>
+ <div class="streak-badge" id="finalStreak">🔥 En uzun seri: 0</div>
+ <p id="endMsg"></p>
+ <div class="share-box">
+  <div id="shareText"></div>
+  <button class="btn btn-primary" onclick="shareResult()" style="font-size:.85rem;padding:.6rem 1.5rem">📋 Kopyala & Paylaş</button>
+ </div>
+ <div style="margin-top:1.5rem;display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+  <button class="btn btn-accent" onclick="startGame()">🔄 Tekrar Oyna</button>
+  <a href="/pages/araclar.html" class="btn btn-outline">← Diğer Araçlar</a>
+ </div>
+</div>
+</div>
+
+<footer class="site-footer">
+ <p>© 2025 UzunYaşa — Sağlıklı yaşam rehberiniz</p>
+ <p style="margin-top:.5rem"><a href="/pages/gizlilik-politikasi.html">Gizlilik</a> · <a href="/pages/kullanim-sartlari.html">Kullanım Şartları</a> · <a href="/pages/hakkimizda.html">Hakkımızda</a></p>
+</footer>
+
+<script>
+// ── FOOD DATA (100 Turkish foods, macros per 100g as percentages of total macro calories) ──
+// Format: [name, protein%, fat%, carb%, category, photoId, funFact, cal/100g]
+// Macros are percentage of CALORIES from each macro (protein+fat+carb = 100)
+const FOODS = [
+["Lahmacun",14,30,56,"atistirmalik","1543793674-b1bbf2a99c22","Lahmacun aslında ince hamur sayesinde birçok pideden daha düşük kalorilidir.",265],
+["Döner (Tavuk)",52,35,13,"et","1529006557810-9dee9befa23f","Tavuk döner, protein açısından en zengin Türk fast food'larından biridir.",175],
+["Kuru Fasulye",24,8,68,"sebze","1536304993664-32a9ebb56789","Kuru fasulye hem protein hem lif deposudur — 100g'da 7g lif bulunur.",120],
+["Mercimek Çorbası",20,22,58,"corba","1547592166-0471c2609de2","Mercimek çorbası limon ile servis edilir çünkü C vitamini demir emilimini artırır.",85],
+["Börek (Peynirli)",14,42,44,"atistirmalik","1519864600265-abb23847ef2c","Su böreği geleneği Osmanlı saray mutfağına dayanır.",280],
+["Baklava",5,40,55,"tatli","1519676867240-f03562e64548","Bir dilim baklavada yaklaşık 25 kat yufka bulunur.",430],
+["Künefe",6,38,56,"tatli","1590080875515-8a3a8dc5735e","Künefenin ana peyniri, tuzlu dil peyniridir. Tel kadayıf ile sarılır.",350],
+["Mantı",18,30,52,"et","1625938145744-e3fe45b4b5d5","Kayseri mantısı ne kadar küçükse, yapanın eli o kadar becerikli sayılır.",190],
+["Köfte (Izgara)",48,42,10,"et","1529042355636-9d2a2d3e3894","İzgara köftenin düşük karbonhidrat oranı onu keto diyetine uygun kılar.",215],
+["Pilav (Pirinç)",8,5,87,"sebze","1516684732162-798a0062be99","Pirinç pilavı Türk mutfağının olmazsa olmazıdır — hemen her yemeğin yanında gelir.",130],
+["Sarma (Yaprak)",10,35,55,"sebze","1625398407800-0a848e480c41","Zeytinyağlı yaprak sarma, Ege mutfağının sembol yemeklerinden biridir.",155],
+["Dolma (Biber)",12,30,58,"sebze","1600891964092-4316c8e21d2a","Dolma kelimesi Türkçe 'doldurmak' fiilinden gelir.",140],
+["Pide (Kıymalı)",16,32,52,"atistirmalik","1590947132387-155cc02cf1ee","Pide, Osmanlı döneminde Ramazan ayının vazgeçilmez yiyeceğiydi.",260],
+["Simit",11,10,79,"atistirmalik","1583338917451-face2751d8d1","İstanbul'da günde yaklaşık 2.5 milyon simit tüketilir.",310],
+["Ayran",33,28,39,"icecek","1600891964399-168dbd529d07","Ayran, probiyotik içeriği sayesinde bağırsak sağlığını destekler.",40],
+["Cacık",22,48,30,"sebze","1625398407796-cacik-similar","Cacık aslında bir çorba olarak da servis edilebilir — yaz aylarında soğuk içilir.",55],
+["Menemen",16,52,32,"sebze","1528712306091-ed0cb7b4c71f","Menemen adını İzmir'in Menemen ilçesinden alır.",110],
+["Sucuk",22,68,10,"et","1529042355636-sucuk-similar","Sucuk, Osmanlı ordusunun temel gıda maddelerinden biriydi.",350],
+["Pastırma",60,30,10,"et","1607623814075-5e5fa1e62109","Pastırma kelimesi 'bastırma' fiilinden gelir — et basılarak hazırlanır.",150],
+["Lokum",2,3,95,"tatli","1576097449798-7c7bcb3ef9d6","Lokum 500 yılı aşkın bir geçmişe sahiptir ve 'Turkish Delight' adıyla dünyaca ünlüdür.",370],
+["Kadayıf",5,35,60,"tatli","1590080875515-kadayif-sim","Tel kadayıf hamuru özel bir süzgeçten dökülerek yapılır.",400],
+["Tulumba",4,32,64,"tatli","1590080875515-tulumba-sim","Tulumba tatlısı şerbete batırılmadan önce kızartılır — çift pişirme tekniği uygulanır.",350],
+["Şalgam",15,5,80,"icecek","1600891964092-salgam-sim","Şalgam suyu Adana'nın en meşhur içeceğidir ve mor havuçtan yapılır.",18],
+["Turşu",15,3,82,"sebze","1595981235737-23ad5e04ce06","Turşu suyundaki laktik asit, sindirim sağlığı için faydalıdır.",15],
+["Çiğ Köfte",12,8,80,"atistirmalik","1607623814075-cigkofte-sim","Acılı çiğ köfte aslında bulgur bazlıdır — et içermez!",165],
+["Midye Dolma",28,22,50,"atistirmalik","1559339352236-midye-sim","İstanbul sokaklarında yılda tahminen 600 milyon midye dolma satılır.",135],
+["Kokoreç",38,50,12,"et","1529042355636-kokorec-sim","Kokoreç, bağırsak parçalarının şişe sarılıp ızgarada pişirilmesiyle yapılır.",220],
+["Tantuni",40,38,22,"et","1529042355636-tantuni-sim","Tantuni Mersin'e özgüdür ve çok ince kıyılmış et ile yapılır.",200],
+["Adana Kebap",42,48,10,"et","1555939594046-7b3ed1a78167","Adana kebap sadece kuyruk yağı ve kırmızı biberle hazırlanır — başka baharat eklenmez.",205],
+["İskender Kebap",22,48,30,"et","1555939594046-iskender-sim","İskender Kebap 1867'de Bursa'da İskender Efendi tarafından icat edilmiştir.",250],
+["Ali Nazik",30,42,28,"et","1555939594046-alinazik-sim","Ali Nazik, patlıcan ezmesi üzerine kuzu kavurma ile servis edilir.",180],
+["Hünkar Beğendi",18,42,40,"et","1555939594046-hunkar-sim","Hünkar Beğendi'nin patlıcan ezmesine beşamel sos eklenir.",175],
+["Karnıyarık",12,45,43,"sebze","1600891964092-karniyarik-sim","Karnıyarık adı 'karnı yarık' yani ortadan kesilen patlıcan anlamına gelir.",150],
+["İmam Bayıldı",7,55,38,"sebze","1600891964092-imam-sim","İmam Bayıldı efsanesine göre imam, yemeğin lezzetinden bayılmıştır.",165],
+["Musakka",14,48,38,"sebze","1600891964092-musakka-sim","Türk musakka Yunan versiyonundan farklıdır — beşamel sos kullanılmaz.",155],
+["Taze Fasulye",14,30,56,"sebze","1600891964092-taze-sim","Zeytinyağlı taze fasulye soğuk servis edilen bir Ege klasiğidir.",75],
+["Bamya",12,35,53,"sebze","1600891964092-bamya-sim","Bamyanın yapışkan dokusu aslında sindirime yardımcı olan bir liftir.",70],
+["Kabak Dolması",10,28,62,"sebze","1600891964092-kabak-dolma-sim","Kabak dolması hem etli hem zeytinyağlı olarak iki farklı şekilde yapılır.",100],
+["Zeytinyağlı Enginar",8,45,47,"sebze","1600891964092-enginar-sim","Enginar karaciğer sağlığını destekleyen güçlü antioksidanlar içerir.",110],
+["Barbunya Pilaki",18,18,64,"sebze","1600891964092-barbunya-sim","Pilaki kelimesi Rumca 'plaki' yani düz tabak anlamına gelir.",115],
+["Hamsi Tava",42,40,18,"et","1534604973900-hamsi-sim","Karadeniz'de hamsi o kadar sevilir ki ona şarkılar yazılmıştır.",185],
+["Levrek Izgara",62,30,8,"et","1534604973900-levrek-sim","Levrek, omega-3 yağ asitleri açısından zengin bir Akdeniz balığıdır.",115],
+["Karides Güveç",38,35,27,"et","1534604973900-karides-sim","Karides güveç, domatesli sosla güveçte pişirilir ve kaşar peyniri ile gratinlenir.",120],
+["Kuzu Tandır",32,55,13,"et","1555939594046-kuzu-sim","Tandır, yerin altına gömülen özel fırınlarda saatlerce pişirilir.",230],
+["Tavuk Şiş",52,28,20,"et","1555939594046-tavuk-sis-sim","Tavuk şiş marine edilirken yoğurt kullanılması eti yumuşatır.",155],
+["Çoban Salatası",10,48,42,"sebze","1540420773420-coban-sim","Çoban salatası Türk kahvaltısının ve yemeklerin vazgeçilmez yanıdır.",60],
+["Gavurdağı Salatası",8,55,37,"sebze","1540420773420-gavurdagi-sim","Gavurdağı salatası nar ekşisi ile tatlandırılır ve ceviz eklenir.",90],
+["Ezogelin Çorbası",14,15,71,"corba","1547592166-0471c2609de2","Ezogelin çorbası adını Gelin Ezo'nun hikayesinden alır.",80],
+["Tarhana Çorbası",14,18,68,"corba","1547592166-tarhana-sim","Tarhana dünyanın ilk hazır çorbası olarak kabul edilir — tarihi 3000 yıl öncesine dayanır.",75],
+["Yayla Çorbası",18,35,47,"corba","1547592166-yayla-sim","Yayla çorbası yoğurt bazlıdır ve özellikle Karadeniz bölgesinde çok sevilir.",65],
+["Su Böreği",13,38,49,"atistirmalik","1519864600265-su-boregi-sim","Su böreği hamuru haşlanarak hazırlanan tek börek çeşididir.",250],
+["Sigara Böreği",14,45,41,"atistirmalik","1519864600265-sigara-sim","Sigara böreği adını silindirik şeklinden alır.",290],
+["Gözleme",11,28,61,"atistirmalik","1519864600265-gozleme-sim","Gözleme Yörük çadırlarında sacda pişirilen geleneksel bir hamur işidir.",220],
+["Katmer",6,48,46,"tatli","1519864600265-katmer-sim","Gaziantep katmeri kaymak ve fıstık ile hazırlanır — kahvaltıda yenir.",380],
+["Tahinli Pide",8,25,67,"atistirmalik","1590947132387-tahinli-sim","Tahinli pide özellikle Ramazan ayında çok tüketilir.",300],
+["Poğaça",10,38,52,"atistirmalik","1519864600265-pogaca-sim","Poğaça kelimesi İtalyanca 'focaccia'dan gelir.",320],
+["Açma",9,32,59,"atistirmalik","1519864600265-acma-sim","Açma, yumuşak dokusunu içindeki süt ve tereyağına borçludur.",300],
+["Peynirli Tepsi Böreği",14,40,46,"atistirmalik","1519864600265-tepsi-sim","Tepsi böreği Türk annelerinin en sık yaptığı yemeklerden biridir.",270],
+["Havuç Tarator",8,55,37,"sebze","1540420773420-tarator-sim","Tarator sosu ceviz veya tahin bazlı olabilir.",120],
+["Atom Salatası",10,35,55,"sebze","1540420773420-atom-sim","Atom salatası adını acı biberlerden kaynaklanan 'patlayıcı' lezzetinden alır.",70],
+["Haydari",20,55,25,"sebze","1540420773420-haydari-sim","Haydari süzme yoğurt ile yapılır — normal yoğurda göre 2 kat protein içerir.",100],
+["Muhammara",7,58,35,"atistirmalik","1540420773420-muhammara-sim","Muhammara Antep mutfağından gelir ve kırmızı biberle cevizden yapılır.",185],
+["Humus",16,38,46,"atistirmalik","1547592166-humus-sim","Humus nohut bazlıdır ve 7000 yıllık bir geçmişi vardır.",175],
+["Baba Gannuş",8,58,34,"atistirmalik","1547592166-baba-sim","Baba gannuş közlenmiş patlıcan ve tahin ile yapılır.",130],
+["Falafel",16,35,49,"atistirmalik","1547592166-falafel-sim","Falafel nohut veya bakla bazlıdır ve kızartılarak hazırlanır.",330],
+["Çılbır",30,55,15,"et","1528712306091-cilbir-sim","Çılbır Osmanlı saray mutfağından gelen yoğurtlu yumurta yemeğidir.",140],
+["Kayısı",5,2,93,"atistirmalik","1560155016-kayisi","Malatya dünya kayısı üretiminin %85'ini karşılar.",48],
+["İncir (Taze)",4,3,93,"atistirmalik","1601379760883-incir","İncir aslında bir meyve değil, çiçektir — çiçekleri içe doğru açılır.",74],
+["Nar",5,5,90,"atistirmalik","1615485290382-nar-sim","Nar antik çağlardan beri bereketin simgesi olmuştur.",68],
+["Dut",6,4,90,"atistirmalik","1560155016-dut-sim","Dut ağacı ipek böceklerinin tek besin kaynağıdır.",43],
+["Ceviz",10,73,17,"atistirmalik","1563282536-ceviz-sim","Ceviz beyin şekline benzer ve beyin sağlığı için en faydalı kuruyemiştir.",654],
+["Fındık",9,75,16,"atistirmalik","1563282536-findik-sim","Türkiye dünya fındık üretiminin %70'ini karşılar.",628],
+["Badem",15,72,13,"atistirmalik","1563282536-badem-sim","28g badem günlük E vitamini ihtiyacının %37'sini karşılar.",579],
+["Kestane",5,8,87,"atistirmalik","1563282536-kestane-sim","Kestane diğer kuruyemişlerin aksine düşük yağlı ve yüksek karbonhidratlıdır.",213],
+["Aşure",5,8,87,"tatli","1576097449798-asure-sim","Aşure Nuh'un gemisi efsanesinden gelen dünyanın en eski tatlısı sayılır.",160],
+["Sütlaç",10,18,72,"tatli","1576097449798-sutlac-sim","Fırında sütlaç üstünün karamelize olması için yüksek ısıda pişirilir.",130],
+["Kazandibi",9,15,76,"tatli","1576097449798-kazandibi-sim","Kazandibi adını kazanın dibine yapışan yanık sütten alır.",155],
+["Tavuk Göğsü",9,15,76,"tatli","1576097449798-tavukgogsu-sim","Tavuk göğsü tatlısı gerçekten tavuk eti içerir — Osmanlı saray tatlısıdır.",150],
+["Keşkül",8,20,72,"tatli","1576097449798-keskul-sim","Keşkül Osmanlı döneminde dervişlere dağıtılan bir tatlıydı.",145],
+["Muhallebi",8,15,77,"tatli","1576097449798-muhallebi-sim","Muhallebi adı Arapça 'helbe' (süt) kelimesinden gelir.",120],
+["Kabak Tatlısı",3,2,95,"tatli","1576097449798-kabak-tatlisi","Kabak tatlısı şeker yerine pekmez ile de yapılabilir — daha sağlıklı bir alternatif.",120],
+["Helva (Tahin)",11,48,41,"tatli","1576097449798-helva-tahin","Tahin helvası susam bazlıdır ve demir açısından çok zengindir.",516],
+["Helva (Un)",5,30,65,"tatli","1576097449798-helva-un-sim","Un helvası cenaze sonrası ikram edilen geleneksel bir tatlıdır.",370],
+["Revani",5,18,77,"tatli","1576097449798-revani-sim","Revani İstanbul'un fethi şerefine yapıldığı rivayet edilir.",290],
+["Şekerpare",5,25,70,"tatli","1576097449798-sekerpare-sim","Şekerpare hamuruna eklenen irmik, tatlıya çıtır doku kazandırır.",350],
+["Güllaç",10,8,82,"tatli","1576097449798-gullac-sim","Güllaç Ramazan'ın geleneksel tatlısıdır ve çok düşük kalorilidir.",125],
+["Tavuklu Nohut",30,25,45,"et","1555939594046-tavuklu-nohut","Nohut, bitkisel protein kaynakları arasında en yüksek protein oranına sahiptir.",145],
+["Etli Nohut",28,30,42,"et","1555939594046-etli-nohut-sim","Etli nohut Anadolu'nun en yaygın ev yemeklerinden biridir.",160],
+["Kuru Köfte",18,20,62,"et","1529042355636-kuru-kofte-sim","Kuru köfte içindeki bulgur sayesinde liften zengindir.",200],
+["Bulgur Pilavı",10,10,80,"sebze","1516684732162-bulgur-sim","Bulgur pirinçe kıyasla 4 kat daha fazla lif içerir.",110],
+["Firik Pilavı",11,8,81,"sebze","1516684732162-firik-sim","Firik yeşil buğdayın yakılarak işlenmesiyle elde edilir — eşsiz bir lezzeti vardır.",115],
+["Lavaş",12,5,83,"atistirmalik","1519864600265-lavas-sim","Lavaş UNESCO Somut Olmayan Kültürel Miras listesindedir.",270],
+["Yufka",10,5,85,"atistirmalik","1519864600265-yufka-sim","Yufka geleneksel olarak saç üzerinde pişirilir ve aylarca saklanabilir.",310],
+["Kaşarlı Tost",18,42,40,"atistirmalik","1528735602780-kasarli-tost","Türkiye'de tostçular bir zamanlar her mahallede bulunurdu.",290],
+["Kumru",16,35,49,"atistirmalik","1528735602780-kumru-sim","Kumru sandviç İzmir Çeşme'ye özgüdür ve sucuk-kaşar ile yapılır.",280],
+["Islak Hamburger",14,32,54,"atistirmalik","1528735602780-islak-sim","Islak hamburger Taksim'in simgesidir — buharla ısıtılan özel dolaplarda saklanır.",260],
+["Midye Tava",22,35,43,"et","1534604973900-midye-tava-sim","Midye tava kızartma hamuru sayesinde ıslak midye dolmadan daha kalorilidir.",195],
+["Balık Ekmek",20,25,55,"atistirmalik","1534604973900-balik-ekmek","Eminönü'nde balık ekmek satan tekneler İstanbul'un simgesidir.",210],
+["Dürüm",20,38,42,"et","1529042355636-durum-sim","Dürüm lavaşın ince açılmasıyla yapılır — kebapçılarda en çok tercih edilen servistir.",230],
+["Beyran",38,42,20,"corba","1547592166-beyran-sim","Beyran çorbası Güneydoğu'da sabah kahvaltısı olarak içilir — çok besleyicidir.",110],
+["İşkembe Çorbası",42,38,20,"corba","1547592166-iskembe-sim","İşkembe çorbası gece kulüplerinden sonra en çok tercih edilen çorbadır.",52],
+["Paça Çorbası",35,45,20,"corba","1547592166-paca-sim","Paça çorbası kolajen açısından zengindir ve eklem sağlığını destekler.",60],
+["Kelle Paça",38,48,14,"corba","1547592166-kelle-sim","Kelle paça saatlerce kaynatılır ve jöle kıvamında kolajen içerir.",70]
+];
+
+// ── GAME STATE ──
+let selectedCat = 'all';
+let roundFoods = [];
+let currentIdx = 0;
+let totalScore = 0;
+let streak = 0;
+let maxStreak = 0;
+let revealed = false;
+let guessP = 33, guessF = 34, guessC = 33;
+let isDragging = false;
+
+// ── CATEGORY FILTER ──
+document.querySelectorAll('#catFilter .cat-btn').forEach(btn => {
+ btn.addEventListener('click', () => {
+  document.querySelectorAll('#catFilter .cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedCat = btn.dataset.cat;
+ });
+});
+
+// ── TRIANGLE MATH ──
+// Triangle vertices in SVG coords
+const TRI = {top:{x:200,y:30}, bl:{x:35,y:325}, br:{x:365,y:325}};
+
+function macroToXY(p, f, c) {
+ // p=protein%, f=fat%, c=carb% (sum=100)
+ const pp=p/100, fp=f/100, cp=c/100;
+ const x = TRI.top.x*pp + TRI.bl.x*fp + TRI.br.x*cp;
+ const y = TRI.top.y*pp + TRI.bl.y*fp + TRI.br.y*cp;
+ return {x,y};
+}
+
+function xyToMacro(x, y) {
+ // Inverse barycentric
+ const {top:A, bl:B, br:C} = TRI;
+ const det = (B.y-C.y)*(A.x-C.x) + (C.x-B.x)*(A.y-C.y);
+ let p = ((B.y-C.y)*(x-C.x) + (C.x-B.x)*(y-C.y)) / det;
+ let f = ((C.y-A.y)*(x-C.x) + (A.x-C.x)*(y-C.y)) / det;
+ let c = 1 - p - f;
+ // Clamp
+ p = Math.max(0, Math.min(1, p));
+ f = Math.max(0, Math.min(1, f));
+ c = Math.max(0, Math.min(1, c));
+ const s = p+f+c;
+ return {p:Math.round(p/s*100), f:Math.round(f/s*100), c:Math.round(c/s*100)};
+}
+
+function isInsideTriangle(x, y) {
+ const {top:A, bl:B, br:C} = TRI;
+ const det = (B.y-C.y)*(A.x-C.x) + (C.x-B.x)*(A.y-C.y);
+ let p = ((B.y-C.y)*(x-C.x) + (C.x-B.x)*(y-C.y)) / det;
+ let f = ((C.y-A.y)*(x-C.x) + (A.x-C.x)*(y-C.y)) / det;
+ let c = 1 - p - f;
+ return p >= -0.02 && f >= -0.02 && c >= -0.02;
+}
+
+// ── TRIANGLE INTERACTION ──
+const svg = document.getElementById('triSvg');
+const guessDot = document.getElementById('guessDot');
+
+function svgPoint(e) {
+ const rect = svg.getBoundingClientRect();
+ const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+ const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+ const scaleX = 400 / rect.width;
+ const scaleY = 370 / rect.height;
+ return {x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY};
+}
+
+function moveGuess(x, y) {
+ if (revealed) return;
+ if (!isInsideTriangle(x, y)) return;
+ guessDot.setAttribute('cx', x);
+ guessDot.setAttribute('cy', y);
+ const m = xyToMacro(x, y);
+ guessP = m.p; guessF = m.f; guessC = m.c;
+ // Fix rounding
+ const diff = 100 - (guessP + guessF + guessC);
+ guessC += diff;
+ updateSliders();
+}
+
+svg.addEventListener('mousedown', e => { if(!revealed){isDragging=true; moveGuess(...Object.values(svgPoint(e)))} });
+svg.addEventListener('mousemove', e => { if(isDragging) moveGuess(...Object.values(svgPoint(e))) });
+document.addEventListener('mouseup', () => isDragging=false);
+svg.addEventListener('touchstart', e => { if(!revealed){isDragging=true; e.preventDefault(); moveGuess(...Object.values(svgPoint(e)))} }, {passive:false});
+svg.addEventListener('touchmove', e => { if(isDragging){e.preventDefault(); moveGuess(...Object.values(svgPoint(e)))} }, {passive:false});
+svg.addEventListener('touchend', () => isDragging=false);
+
+// ── SLIDERS ──
+const sP = document.getElementById('sProtein');
+const sF = document.getElementById('sFat');
+const sC = document.getElementById('sCarb');
+
+function updateSliders() {
+ sP.value = guessP; sF.value = guessF; sC.value = guessC;
+ document.getElementById('vProtein').textContent = guessP + '%';
+ document.getElementById('vFat').textContent = guessF + '%';
+ document.getElementById('vCarb').textContent = guessC + '%';
+}
+
+function onSliderChange(which) {
+ if (revealed) return;
+ let p = +sP.value, f = +sF.value, c = +sC.value;
+ const total = p + f + c;
+ if (total !== 100) {
+  const excess = total - 100;
+  if (which === 'p') { const r = f+c||1; f = Math.max(0,Math.round(f - excess*f/r)); c = 100-p-f; }
+  else if (which === 'f') { const r = p+c||1; p = Math.max(0,Math.round(p - excess*p/r)); c = 100-p-f; }
+  else { const r = p+f||1; p = Math.max(0,Math.round(p - excess*p/r)); f = 100-p-c; }
+  p = Math.max(0, p); f = Math.max(0, f); c = Math.max(0, c);
+ }
+ guessP=p; guessF=f; guessC=c;
+ updateSliders();
+ // Move dot
+ const pos = macroToXY(guessP, guessF, guessC);
+ guessDot.setAttribute('cx', pos.x);
+ guessDot.setAttribute('cy', pos.y);
+}
+
+sP.addEventListener('input', () => onSliderChange('p'));
+sF.addEventListener('input', () => onSliderChange('f'));
+sC.addEventListener('input', () => onSliderChange('c'));
+
+// ── DRAW GRID ──
+function drawGrid() {
+ const g = document.getElementById('triGrid');
+ let lines = '';
+ for (let i = 1; i < 10; i++) {
+  const t = i/10;
+  // Lines parallel to each side
+  const p1 = {x:TRI.top.x+(TRI.bl.x-TRI.top.x)*t, y:TRI.top.y+(TRI.bl.y-TRI.top.y)*t};
+  const p2 = {x:TRI.top.x+(TRI.br.x-TRI.top.x)*t, y:TRI.top.y+(TRI.br.y-TRI.top.y)*t};
+  lines += `<line x1="${p1.x}" y1="${p1.y}" x2="${p2.x}" y2="${p2.y}"/>`;
+  const p3 = {x:TRI.bl.x+(TRI.top.x-TRI.bl.x)*t, y:TRI.bl.y+(TRI.top.y-TRI.bl.y)*t};
+  const p4 = {x:TRI.bl.x+(TRI.br.x-TRI.bl.x)*t, y:TRI.bl.y+(TRI.br.y-TRI.bl.y)*t};
+  lines += `<line x1="${p3.x}" y1="${p3.y}" x2="${p4.x}" y2="${p4.y}"/>`;
+  const p5 = {x:TRI.br.x+(TRI.top.x-TRI.br.x)*t, y:TRI.br.y+(TRI.top.y-TRI.br.y)*t};
+  const p6 = {x:TRI.br.x+(TRI.bl.x-TRI.br.x)*t, y:TRI.br.y+(TRI.bl.y-TRI.br.y)*t};
+  lines += `<line x1="${p5.x}" y1="${p5.y}" x2="${p6.x}" y2="${p6.y}"/>`;
+ }
+ g.innerHTML = lines;
+}
+drawGrid();
+
+// ── UNSPLASH PHOTOS ──
+// Use category-based fallback photos that reliably exist
+function getFoodPhoto(food) {
+ const catPhotos = {
+  'corba': 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop',
+  'et': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop',
+  'sebze': 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop',
+  'tatli': 'https://images.unsplash.com/photo-1576097449798-7c7bcb3ef2d6?w=400&h=300&fit=crop',
+  'atistirmalik': 'https://images.unsplash.com/photo-1529042355636-9d2a2d3e3894?w=400&h=300&fit=crop',
+  'icecek': 'https://images.unsplash.com/photo-1600891964092-4316c8e21d2a?w=400&h=300&fit=crop'
+ };
+ // Specific photos for popular items
+ const specific = {
+  'Baklava': 'https://images.unsplash.com/photo-1519676867240-f03562e64548?w=400&h=300&fit=crop',
+  'Simit': 'https://images.unsplash.com/photo-1583338917451-face2751d8d1?w=400&h=300&fit=crop',
+  'Adana Kebap': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=300&fit=crop',
+  'Köfte (Izgara)': 'https://images.unsplash.com/photo-1529042355636-9d2a2d3e3894?w=400&h=300&fit=crop',
+  'Humus': 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop',
+  'Menemen': 'https://images.unsplash.com/photo-1528712306091-ed0cb7b4c71f?w=400&h=300&fit=crop',
+  'Pilav (Pirinç)': 'https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=300&fit=crop',
+  'Mercimek Çorbası': 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop',
+  'Lokum': 'https://images.unsplash.com/photo-1576097449798-7c7bcb3ef2d6?w=400&h=300&fit=crop',
+  'Ceviz': 'https://images.unsplash.com/photo-1563282536-4a1e7d5a281a?w=400&h=300&fit=crop',
+  'Fındık': 'https://images.unsplash.com/photo-1563282536-4a1e7d5a281a?w=400&h=300&fit=crop',
+  'Badem': 'https://images.unsplash.com/photo-1563282536-4a1e7d5a281a?w=400&h=300&fit=crop',
+  'Falafel': 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop',
+  'Çoban Salatası': 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop',
+  'İncir (Taze)': 'https://images.unsplash.com/photo-1601379760883-1bb497c558e0?w=400&h=300&fit=crop',
+  'Nar': 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=300&fit=crop'
+ };
+ if (specific[food[0]]) return specific[food[0]];
+ return catPhotos[food[4]] || catPhotos['atistirmalik'];
+}
+
+const catNames = {corba:'🍲 Çorba', et:'🥩 Et', sebze:'🥬 Sebze', tatli:'🍰 Tatlı', atistirmalik:'🥙 Atıştırmalık', icecek:'🥤 İçecek'};
+
+// ── GAME LOGIC ──
+function startGame() {
+ let pool = selectedCat === 'all' ? [...FOODS] : FOODS.filter(f => f[4] === selectedCat);
+ if (pool.length < 10) pool = [...FOODS]; // fallback
+ // Shuffle & pick 10
+ for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
+ roundFoods = pool.slice(0, 10);
+ currentIdx = 0; totalScore = 0; streak = 0; maxStreak = 0;
+ showScreen('game');
+ loadFood();
+}
+
+function showScreen(s) {
+ document.getElementById('startScreen').classList.toggle('active', s==='start');
+ document.getElementById('gameScreen').classList.toggle('active', s==='game');
+ document.getElementById('endScreen').classList.toggle('active', s==='end');
+}
+
+function loadFood() {
+ const f = roundFoods[currentIdx];
+ revealed = false;
+ document.getElementById('foodImg').src = getFoodPhoto(f);
+ document.getElementById('foodImg').alt = f[0];
+ document.getElementById('foodName').textContent = f[0];
+ document.getElementById('foodPortion').textContent = `100g başına · ${f[7]} kcal`;
+ document.getElementById('foodCategory').textContent = catNames[f[4]] || f[4];
+ document.getElementById('progressFill').style.width = ((currentIdx)/10*100) + '%';
+ document.getElementById('progressText').textContent = `${currentIdx+1} / 10`;
+ document.getElementById('totalScore').textContent = totalScore;
+ document.getElementById('streak').textContent = streak;
+
+ // Reset
+ guessP=33; guessF=34; guessC=33;
+ updateSliders();
+ const pos = macroToXY(33,34,33);
+ guessDot.setAttribute('cx', pos.x); guessDot.setAttribute('cy', pos.y);
+ guessDot.style.opacity = '1';
+ document.getElementById('answerDot').style.opacity = '0';
+ document.getElementById('diffLine').style.opacity = '0';
+ document.getElementById('resultOverlay').classList.remove('show');
+ document.getElementById('guessArea').style.display = '';
+ document.getElementById('slidersArea').style.pointerEvents = '';
+ document.getElementById('slidersArea').style.opacity = '';
+ window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function revealAnswer() {
+ if (revealed) return;
+ revealed = true;
+ const f = roundFoods[currentIdx];
+ const realP = f[1], realF = f[2], realC = f[3];
+
+ // Calculate score (100 - avg absolute deviation * 2, min 0)
+ const diff = (Math.abs(guessP-realP) + Math.abs(guessF-realF) + Math.abs(guessC-realC)) / 2;
+ const score = Math.max(0, Math.round(100 - diff));
+
+ totalScore += score;
+ if (score >= 70) { streak++; maxStreak = Math.max(maxStreak, streak); } else { streak = 0; }
+
+ document.getElementById('totalScore').textContent = totalScore;
+ document.getElementById('streak').textContent = streak;
+
+ // Animate answer dot
+ const ansPos = macroToXY(realP, realF, realC);
+ const ansDot = document.getElementById('answerDot');
+ ansDot.setAttribute('cx', ansPos.x);
+ ansDot.setAttribute('cy', ansPos.y);
+ setTimeout(() => { ansDot.style.opacity = '1'; }, 200);
+
+ // Diff line
+ const dl = document.getElementById('diffLine');
+ dl.setAttribute('x1', guessDot.getAttribute('cx'));
+ dl.setAttribute('y1', guessDot.getAttribute('cy'));
+ dl.setAttribute('x2', ansPos.x);
+ dl.setAttribute('y2', ansPos.y);
+ setTimeout(() => { dl.style.opacity = '0.5'; }, 400);
+
+ // Disable sliders
+ document.getElementById('slidersArea').style.pointerEvents = 'none';
+ document.getElementById('slidersArea').style.opacity = '0.5';
+ document.getElementById('guessArea').style.display = 'none';
+
+ // Show results
+ const colors = {p:'var(--protein)', f:'var(--fat)', c:'var(--carb)'};
+ const makeRow = (label, val, color) => `<div class="val-row"><span style="display:flex;align-items:center"><span class="dot" style="background:${color}"></span>${label}</span><strong>${val}%</strong></div>`;
+ document.getElementById('guessVals').innerHTML = makeRow('Protein',guessP,colors.p)+makeRow('Yağ',guessF,colors.f)+makeRow('Karb.',guessC,colors.c);
+ document.getElementById('realVals').innerHTML = makeRow('Protein',realP,colors.p)+makeRow('Yağ',realF,colors.f)+makeRow('Karb.',realC,colors.c);
+
+ const scoreEl = document.getElementById('roundScore');
+ scoreEl.textContent = score;
+ scoreEl.style.color = score >= 80 ? 'var(--carb)' : score >= 50 ? 'var(--accent)' : 'var(--fat)';
+
+ document.getElementById('funFact').innerHTML = `<strong>💡 Bunu Biliyor Muydunuz?</strong> ${f[6]}`;
+ document.getElementById('nextBtn').textContent = currentIdx < 9 ? 'Sonraki →' : 'Sonuçları Gör 🏆';
+
+ document.getElementById('resultOverlay').classList.add('show');
+ document.getElementById('progressFill').style.width = ((currentIdx+1)/10*100) + '%';
+}
+
+function nextFood() {
+ currentIdx++;
+ if (currentIdx >= 10) { endGame(); return; }
+ loadFood();
+}
+
+function endGame() {
+ document.getElementById('finalScore').textContent = totalScore;
+ document.getElementById('finalStreak').innerHTML = `🔥 En uzun seri: ${maxStreak}`;
+ const avg = totalScore / 10;
+ let msg = '';
+ if (avg >= 85) msg = 'Muhteşem! Bir beslenme uzmanı gibi biliyorsun! 🌟';
+ else if (avg >= 70) msg = 'Harika! Makro bilgin çok iyi seviyede! 💪';
+ else if (avg >= 50) msg = 'Fena değil! Biraz pratikle daha da iyi olabilirsin. 👍';
+ else msg = 'Türk mutfağının makro sürprizleri seni şaşırttı! Tekrar dene! 🎯';
+ document.getElementById('endMsg').textContent = msg;
+ const shareMsg = `🔺 Makro Üçgeni'nde 1000 üzerinden ${totalScore} puan aldım!\n🔥 En uzun seri: ${maxStreak}\n\nSen de dene: uzunyasa.com/pages/araclar/makro-ucgeni.html`;
+ document.getElementById('shareText').textContent = shareMsg;
+ showScreen('end');
+}
+
+function shareResult() {
+ const text = document.getElementById('shareText').textContent;
+ if (navigator.share) {
+  navigator.share({text}).catch(()=>{});
+ } else if (navigator.clipboard) {
+  navigator.clipboard.writeText(text).then(() => {
+   const btn = event.target;
+   btn.textContent = '✅ Kopyalandı!';
+   setTimeout(() => btn.textContent = '📋 Kopyala & Paylaş', 2000);
+  });
+ }
+}
+</script>
+</body>
+</html>
