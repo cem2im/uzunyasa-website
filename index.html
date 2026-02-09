@@ -1976,8 +1976,13 @@
  </h1>
  <div class="hero-separator"></div>
  <p class="hero-description" style="font-size:1.15rem;opacity:0.9;max-width:600px;">
- Fazla kilodan kurtul. Sağlıklı beslen. Hareket et.<br>
- <strong style="color:var(--accent);font-size:1.25rem;">Hayatına 10 yıl ekle.</strong>
+ <span class="rotating-container" style="display:inline-block;min-width:280px;position:relative;height:1.4em;vertical-align:bottom;">
+   <span class="rotating-word active">Uzun yaşa.</span>
+   <span class="rotating-word">Sağlıklı yaşa.</span>
+   <span class="rotating-word">Güçlü yaşa.</span>
+   <span class="rotating-word">Bilinçli yaşa.</span>
+   <span class="rotating-word">Hayatına 10 yıl ekle.</span>
+ </span>
  </p>
  <div class="hero-buttons">
  <a href="pages/test.html" class="btn hero-btn-primary" style="background:#E8963E;color:#fff;padding:18px 36px;font-size:1.1rem;font-weight:700;box-shadow:0 6px 24px rgba(232,150,62,0.5);">
@@ -2963,6 +2968,20 @@
  </script>
 
  <script src="scripts/animations.js"></script>
+<script>
+(function(){
+  const words = document.querySelectorAll('.rotating-word');
+  if(!words.length) return;
+  let i = 0;
+  setInterval(()=>{
+    words[i].classList.remove('active');
+    words[i].classList.add('exit');
+    setTimeout(()=> words[i].classList.remove('exit'), 500);
+    i = (i+1) % words.length;
+    words[i].classList.add('active');
+  }, 2500);
+})();
+</script>
 </body>
 </html>
 
