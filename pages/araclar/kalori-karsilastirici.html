@@ -282,7 +282,7 @@ function startGame() {
 
 function foodVisual(item) {
  if (item.img) {
-  return '<img class="food-img" src="' + item.img + '" alt="' + item.name + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">' +
+  return '<img class="food-img" src="' + item.img + '" alt="' + item.name + '" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">' +
    '<span class="food-emoji" style="display:none">' + item.emoji + '</span>';
  }
  return '<span class="food-emoji">' + item.emoji + '</span>';
