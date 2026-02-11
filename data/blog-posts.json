@@ -1,5 +1,24 @@
 [
   {
+    "slug": "glp1-ilaclari-yan-etkileri-bilmeniz-gerekenler",
+    "title": "GLP-1 İlaçları Yan Etkileri: Bilmeniz Gerekenler",
+    "description": "GLP-1 agonistlerinin yan etkileri, güvenliği ve dikkat edilmesi gereken durumlar hakkında bilimsel bilgiler.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-11",
+    "readTime": 9,
+    "tags": [
+      "glp1",
+      "semaglutid",
+      "yan-etkiler",
+      "diyabet",
+      "obezite"
+    ],
+    "priority": "high"
+  },
+  {
     "slug": "stres-ve-kortizol-kilo-almaya-neden-olan-gizli-baglanti",
     "title": "Stres ve Kortizol: Kilo Almaya Neden Olan Gizli Bağlantı",
     "description": "Stres hormonları nasıl kilo aldırır? Kortizolün metabolizma üzerindeki etkilerini ve stres yönetimi yöntemlerini öğrenin.",
