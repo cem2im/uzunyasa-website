@@ -361,9 +361,14 @@ function showFinal() {
  document.getElementById('finalScore').textContent = score;
 
  let title, msg;
- if (score >= 15) { title = 'Kalori uzmanisin!'; msg = 'Tebrikler! Besin degerlerini cok iyi biliyorsun.'; }
- else if (score >= 10) { title = 'Fena degil!'; msg = 'Iyi gidiyorsun ama bazi surprizler var, degil mi?'; }
- else { title = 'Sasirtici, degil mi?'; msg = 'Cogu insan da boyle sasiriyor — merak etme!'; }
+ if (score === 20) { title = 'Kalori Tanrisi'; msg = 'Sen insan degilsin, sen bir beslenme ansiklopedisisin! Diyetisyenler senden randevu alsin.'; }
+ else if (score >= 18) { title = 'Mutfak Dedektifi'; msg = 'FBI seni istiyor — yemeklerin icerigini rontgen gibi goruyorsun!'; }
+ else if (score >= 15) { title = 'Kalori Avcisi'; msg = 'Menulere bakip kalorileri tahmin eden o arkadas sensin. Tebrikler!'; }
+ else if (score >= 12) { title = 'Saglikli Sezgici'; msg = 'Fena degilsin ama bazi yemekler seni fena kandirmis!'; }
+ else if (score >= 9) { title = 'Tabak Filozofu'; msg = 'Yemeklere bakip dusunuyorsun ama sonuc hep surpriz cikiyor, degil mi?'; }
+ else if (score >= 6) { title = 'Kalori Kumarbazi'; msg = 'Her tahminde zar atiyorsun galiba... Ama en azindan eglenceli!'; }
+ else if (score >= 3) { title = 'Diyet Caylagi'; msg = 'Houston, bir problemimiz var! Ama merak etme, herkes bir yerden baslar.'; }
+ else { title = 'Kalori Koru'; msg = 'Her seyi ters bildin — bu da bir yetenek aslinda! Tekrar dene, bu sefer tersini sec.'; }
 
  document.getElementById('finalTitle').textContent = title;
  document.getElementById('finalMsg').textContent = msg;
