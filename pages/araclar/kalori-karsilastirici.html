@@ -3,7 +3,6 @@
 <head>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <script src="/scripts/https-redirect.js"></script>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
  window.dataLayer = window.dataLayer || [];
@@ -13,11 +12,10 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kalori Karşılaştırıcı — Hangisi Daha Kalorili? | UzunYaşa</title>
-<meta name="description" content="İki yiyeceği karşılaştır, hangisinin daha kalorili olduğunu tahmin et! 20 soruluk eğlenceli kalori testi ile sürprizlere hazır ol.">
-<meta name="keywords" content="kalori karşılaştırma, kalori testi, yemek kalorisi, besin kalorisi, sağlıklı beslenme, diyet">
-<meta property="og:title" content="Kalori Karşılaştırıcı — Hangisi Daha Kalorili? | UzunYaşa">
-<meta property="og:description" content="İki yiyeceği karşılaştır, hangisinin daha kalorili olduğunu tahmin et! 20 soruluk eğlenceli kalori testi.">
+<title>Kalori Karsilastirici — Hangisi Daha Kalorili? | UzunYasa</title>
+<meta name="description" content="100 yemek, 2 mutfak! Turk ve Dunya mutfagindan yemekleri karsilastir, hangisinin daha kalorili oldugunu tahmin et!">
+<meta property="og:title" content="Kalori Karsilastirici — Hangisi Daha Kalorili? | UzunYasa">
+<meta property="og:description" content="100 yemek, 2 mutfak! Turk ve Dunya mutfagindan kalori testi.">
 <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
@@ -25,555 +23,375 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles/main.css">
- <link rel="stylesheet" href="../../styles/animations.css">
+<link rel="stylesheet" href="../../styles/animations.css">
 <style>
-:root {
- --teal: #0D7377;
- --teal-light: #14919B;
- --orange: #E8963E;
- --green: #10B981;
- --red: #EF4444;
- --gray-50: #f9fafb;
- --gray-100: #f3f4f6;
- --gray-200: #e5e7eb;
- --gray-500: #6b7280;
- --gray-700: #374151;
- --gray-900: #111827;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--gray-700); line-height: 1.6; min-height: 100vh; }
-
-/* Header */
-.kk-header {
- background: white;
- border-bottom: 1px solid var(--gray-200);
- padding: 1rem 1.5rem;
- display: flex;
- align-items: center;
- justify-content: space-between;
- position: sticky;
- top: 0;
- z-index: 100;
-}
-.kk-header .logo-img { height: 36px; }
-.kk-header .back-link {
- color: var(--gray-500);
- text-decoration: none;
- font-size: 0.9rem;
-}
-.kk-header .back-link:hover { color: var(--teal); }
-
-/* Progress */
-.progress-wrapper {
- background: white;
- padding: 0.75rem 1.5rem;
- border-bottom: 1px solid var(--gray-200);
-}
-.progress-bar-track {
- height: 6px;
- background: var(--gray-200);
- border-radius: 3px;
- overflow: hidden;
-}
-.progress-bar-fill {
- height: 100%;
- background: linear-gradient(90deg, var(--teal), var(--orange));
- border-radius: 3px;
- transition: width 0.5s ease;
- width: 0%;
-}
-.progress-label {
- font-size: 0.8rem;
- color: var(--gray-500);
- margin-top: 0.3rem;
- display: flex;
- justify-content: space-between;
-}
-
-/* Main */
-.kk-main {
- max-width: 800px;
- margin: 0 auto;
- padding: 1.5rem 1rem;
-}
-
-/* Intro */
-.kk-intro {
- text-align: center;
- padding: 3rem 1rem;
-}
-.kk-intro h1 {
- font-size: 2rem;
- font-weight: 800;
- color: var(--gray-900);
- margin-bottom: 0.5rem;
-}
-.kk-intro .subtitle {
- font-size: 1.1rem;
- color: var(--gray-500);
- margin-bottom: 2rem;
-}
-.kk-intro .emoji-big { font-size: 4rem; margin-bottom: 1rem; display: block; }
-
-.btn-start {
- background: linear-gradient(135deg, var(--teal), var(--teal-light));
- color: white;
- border: none;
- padding: 1rem 2.5rem;
- font-size: 1.1rem;
- font-weight: 700;
- border-radius: 12px;
- cursor: pointer;
- transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13,115,119,0.3); }
-
-/* Question */
-.kk-question { display: none; }
-.kk-question.active { display: block; }
-
-.question-title {
- text-align: center;
- font-size: 1.3rem;
- font-weight: 700;
- color: var(--gray-900);
- margin-bottom: 1.5rem;
-}
-
-/* Cards container */
-.cards-row {
- display: grid;
- grid-template-columns: 1fr auto 1fr;
- gap: 1rem;
- align-items: stretch;
-}
-.vs-badge {
- display: flex;
- align-items: center;
- justify-content: center;
- font-weight: 800;
- font-size: 1.2rem;
- color: var(--orange);
- padding: 0 0.25rem;
-}
-
-/* Food card */
-.food-card {
- background: white;
- border-radius: 16px;
- padding: 1.5rem 1rem;
- text-align: center;
- border: 3px solid var(--gray-200);
- cursor: pointer;
- transition: all 0.3s ease;
- position: relative;
- overflow: hidden;
-}
-.food-card:hover { border-color: var(--teal-light); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
-.food-card .food-emoji { font-size: 3rem; margin-bottom: 0.75rem; display: block; }
-.food-card .food-name { font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.25rem; }
-.food-card .food-portion { font-size: 0.85rem; color: var(--gray-500); margin-bottom: 1rem; }
-.food-card .btn-guess {
- background: linear-gradient(135deg, var(--teal), var(--teal-light));
- color: white;
- border: none;
- padding: 0.6rem 1.5rem;
- font-size: 0.95rem;
- font-weight: 600;
- border-radius: 10px;
- cursor: pointer;
- transition: transform 0.2s;
-}
-.food-card .btn-guess:hover { transform: scale(1.05); }
-
-/* Revealed state */
-.food-card.revealed { cursor: default; pointer-events: none; }
-.food-card.revealed:hover { transform: none; box-shadow: none; }
-.food-card.winner { border-color: var(--green); background: #f0fdf4; }
-.food-card.loser { border-color: var(--red); background: #fef2f2; }
-
-.calorie-reveal {
- display: none;
- font-size: 2rem;
- font-weight: 900;
- margin-top: 0.75rem;
- animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.food-card.revealed .calorie-reveal { display: block; }
-.food-card.winner .calorie-reveal { color: var(--green); }
-.food-card.loser .calorie-reveal { color: var(--red); }
-
-.calorie-label {
- display: none;
- font-size: 0.75rem;
- font-weight: 600;
- text-transform: uppercase;
- letter-spacing: 0.05em;
- margin-top: 0.25rem;
-}
-.food-card.revealed .calorie-label { display: block; }
-.food-card.winner .calorie-label { color: var(--green); }
-.food-card.loser .calorie-label { color: var(--red); }
-
-.food-card.revealed .btn-guess { display: none; }
-
-@keyframes popIn {
- 0% { transform: scale(0); opacity: 0; }
- 100% { transform: scale(1); opacity: 1; }
-}
-
-/* Result banner */
-.result-banner {
- display: none;
- text-align: center;
- margin-top: 1.5rem;
- animation: slideUp 0.4s ease;
-}
-.result-banner.show { display: block; }
-
-.result-verdict {
- display: inline-block;
- padding: 0.4rem 1rem;
- border-radius: 20px;
- font-weight: 700;
- font-size: 0.9rem;
- margin-bottom: 0.75rem;
-}
-.result-verdict.correct { background: #d1fae5; color: #065f46; }
-.result-verdict.wrong { background: #fee2e2; color: #991b1b; }
-
-.fun-fact {
- background: #fffbeb;
- border: 1px solid #fde68a;
- border-radius: 12px;
- padding: 1rem;
- font-size: 0.9rem;
- color: #92400e;
- margin-top: 0.75rem;
- line-height: 1.5;
-}
-.fun-fact::before { content: "💡 "; }
-
-.btn-next {
- margin-top: 1.25rem;
- background: linear-gradient(135deg, var(--orange), #d4862f);
- color: white;
- border: none;
- padding: 0.75rem 2rem;
- font-size: 1rem;
- font-weight: 700;
- border-radius: 10px;
- cursor: pointer;
- transition: transform 0.2s;
-}
-.btn-next:hover { transform: translateY(-2px); }
-
-@keyframes slideUp {
- 0% { transform: translateY(20px); opacity: 0; }
- 100% { transform: translateY(0); opacity: 1; }
-}
-
-/* Final score */
-.kk-final {
- display: none;
- text-align: center;
- padding: 2rem 1rem;
- animation: slideUp 0.5s ease;
-}
-.kk-final.active { display: block; }
-.kk-final .score-circle {
- width: 140px;
- height: 140px;
- border-radius: 50%;
- background: linear-gradient(135deg, var(--teal), var(--teal-light));
- display: inline-flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- color: white;
- margin-bottom: 1.5rem;
-}
-.kk-final .score-num { font-size: 2.5rem; font-weight: 900; line-height: 1; }
-.kk-final .score-of { font-size: 0.9rem; opacity: 0.8; }
-.kk-final h2 { font-size: 1.5rem; color: var(--gray-900); margin-bottom: 0.5rem; }
-.kk-final .score-msg { font-size: 1.1rem; color: var(--gray-500); margin-bottom: 2rem; }
-
-.share-section { margin-top: 1.5rem; }
-.share-section h3 { font-size: 1rem; color: var(--gray-700); margin-bottom: 1rem; }
-.share-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-.share-btn {
- display: inline-flex;
- align-items: center;
- gap: 0.4rem;
- padding: 0.6rem 1.2rem;
- border-radius: 10px;
- font-size: 0.9rem;
- font-weight: 600;
- text-decoration: none;
- border: none;
- cursor: pointer;
- transition: transform 0.2s;
- color: white;
-}
-.share-btn:hover { transform: translateY(-2px); }
-.share-btn.whatsapp { background: #25D366; }
-.share-btn.twitter { background: #1DA1F2; }
-.share-btn.copy { background: var(--gray-700); }
-.share-btn.restart { background: linear-gradient(135deg, var(--teal), var(--teal-light)); margin-top: 0.5rem; }
-
-/* Mobile */
-@media (max-width: 600px) {
- .cards-row {
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
- }
- .vs-badge {
-  padding: 0.25rem 0;
-  font-size: 1rem;
- }
- .kk-intro h1 { font-size: 1.6rem; }
- .food-card { padding: 1.25rem 0.75rem; }
- .food-card .food-emoji { font-size: 2.5rem; }
- .calorie-reveal { font-size: 1.6rem; }
-}
-
-/* Footer */
-.kk-footer {
- text-align: center;
- padding: 2rem 1rem;
- font-size: 0.8rem;
- color: var(--gray-500);
- border-top: 1px solid var(--gray-200);
- margin-top: 3rem;
-}
-.kk-footer a { color: var(--teal); text-decoration: none; }
+:root{--teal:#0D7377;--teal-light:#14919B;--orange:#E8963E;--green:#10B981;--red:#EF4444;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--gray-50);color:var(--gray-700);line-height:1.6;min-height:100vh}
+.kk-header{background:white;border-bottom:1px solid var(--gray-200);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.kk-header .logo-img{height:36px}
+.kk-header .back-link{color:var(--gray-500);text-decoration:none;font-size:0.9rem}
+.kk-header .back-link:hover{color:var(--teal)}
+.progress-wrapper{background:white;padding:0.75rem 1.5rem;border-bottom:1px solid var(--gray-200);display:none}
+.progress-bar-track{height:6px;background:var(--gray-200);border-radius:3px;overflow:hidden}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--orange));border-radius:3px;transition:width 0.5s ease;width:0%}
+.progress-label{font-size:0.8rem;color:var(--gray-500);margin-top:0.3rem;display:flex;justify-content:space-between}
+.kk-main{max-width:800px;margin:0 auto;padding:1.5rem 1rem}
+.kk-intro{text-align:center;padding:2rem 1rem}
+.kk-intro h1{font-size:2rem;font-weight:800;color:var(--gray-900);margin-bottom:0.5rem}
+.kk-intro .subtitle{font-size:1.1rem;color:var(--gray-500);margin-bottom:1.5rem}
+.tab-container{display:flex;gap:0.75rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
+.tab-btn{padding:0.75rem 1.5rem;border:2px solid var(--teal);border-radius:25px;cursor:pointer;font-weight:700;font-size:1rem;background:white;color:var(--teal);transition:all 0.3s;font-family:inherit}
+.tab-btn.active{background:var(--teal);color:white;box-shadow:0 4px 15px rgba(13,115,119,0.3)}
+.tab-btn:hover:not(.active){background:rgba(13,115,119,0.05)}
+.tab-info{text-align:center;margin-bottom:1.5rem;font-size:0.9rem;color:var(--gray-500)}
+.btn-start{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:white;border:none;padding:1rem 2.5rem;font-size:1.1rem;font-weight:700;border-radius:12px;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;font-family:inherit}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(13,115,119,0.3)}
+.question-title{text-align:center;font-size:1.3rem;font-weight:700;color:var(--gray-900);margin-bottom:1.5rem}
+.cards-row{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:stretch}
+.vs-badge{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;color:var(--orange);padding:0 0.25rem}
+.food-card{background:white;border-radius:16px;padding:1.5rem 1rem;text-align:center;border:3px solid var(--gray-200);cursor:pointer;transition:all 0.3s ease;position:relative;overflow:hidden}
+.food-card:hover{border-color:var(--teal-light);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.1)}
+.food-img{width:80px;height:80px;border-radius:50%;object-fit:cover;margin:0 auto 0.75rem;display:block;border:3px solid var(--gray-200)}
+.food-emoji{font-size:3rem;margin-bottom:0.75rem;display:block}
+.food-name{font-size:1.05rem;font-weight:700;color:var(--gray-900);margin-bottom:0.25rem}
+.food-portion{font-size:0.85rem;color:var(--gray-500);margin-bottom:1rem}
+.btn-guess{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:white;border:none;padding:0.6rem 1.5rem;font-size:0.95rem;font-weight:600;border-radius:10px;cursor:pointer;transition:transform 0.2s;font-family:inherit}
+.btn-guess:hover{transform:scale(1.05)}
+.food-card.revealed{cursor:default;pointer-events:none}
+.food-card.revealed:hover{transform:none;box-shadow:none}
+.food-card.winner{border-color:var(--green);background:#f0fdf4}
+.food-card.loser{border-color:var(--red);background:#fef2f2}
+.calorie-reveal{display:none;font-size:2rem;font-weight:900;margin-top:0.75rem}
+.food-card.revealed .calorie-reveal{display:block}
+.food-card.revealed .btn-guess{display:none}
+.food-card.winner .calorie-reveal{color:var(--green)}
+.food-card.loser .calorie-reveal{color:var(--red)}
+.calorie-label{display:none;font-size:0.85rem;font-weight:600;margin-top:0.25rem}
+.food-card.revealed .calorie-label{display:block}
+.result-banner{background:white;border-radius:16px;padding:1.5rem;margin-top:1.5rem;text-align:center;border:1px solid var(--gray-200);display:none}
+.result-banner.show{display:block;animation:slideUp 0.3s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.result-verdict{font-size:1.3rem;font-weight:800;margin-bottom:0.5rem}
+.result-verdict.correct{color:var(--green)}
+.result-verdict.wrong{color:var(--red)}
+.fun-fact{font-size:0.95rem;color:var(--gray-700);line-height:1.6;margin-bottom:1rem;padding:1rem;background:var(--gray-50);border-radius:10px;border-left:4px solid var(--orange)}
+.btn-next{background:var(--orange);color:white;border:none;padding:0.75rem 2rem;font-size:1rem;font-weight:700;border-radius:10px;cursor:pointer;transition:transform 0.2s;font-family:inherit}
+.btn-next:hover{transform:scale(1.05)}
+.final-screen{display:none;text-align:center;padding:2rem 1rem}
+.final-screen.active{display:block}
+.final-score-big{font-size:5rem;font-weight:900;background:linear-gradient(135deg,var(--teal),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.final-title{font-size:1.5rem;font-weight:800;color:var(--gray-900);margin:1rem 0 0.5rem}
+.final-msg{font-size:1rem;color:var(--gray-500);margin-bottom:2rem}
+.share-btns{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap}
+.share-btn{padding:0.6rem 1.2rem;border-radius:10px;font-size:0.9rem;font-weight:600;cursor:pointer;text-decoration:none;border:none;font-family:inherit;transition:transform 0.2s}
+.share-btn:hover{transform:scale(1.05)}
+.share-btn.wa{background:#25D366;color:white}
+.share-btn.tw{background:#1DA1F2;color:white}
+.share-btn.copy{background:var(--gray-200);color:var(--gray-700)}
+.share-btn.restart{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:white}
+.score-badge{background:white;display:inline-block;padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:600;color:var(--teal);border:1px solid var(--gray-200);margin-bottom:0.5rem}
+.kk-footer{text-align:center;padding:2rem 1rem;font-size:0.85rem;color:var(--gray-500);border-top:1px solid var(--gray-200);margin-top:2rem}
+.kk-footer a{color:var(--teal)}
+@media(max-width:600px){.cards-row{grid-template-columns:1fr;gap:0.75rem}.vs-badge{padding:0.25rem 0}.kk-intro h1{font-size:1.5rem}.food-img{width:60px;height:60px}}
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header class="kk-header">
- <a href="../../index.html">
-  <img src="../../images/uzunyasa-logo.svg" alt="UzunYaşa" class="logo-img">
- </a>
- <a href="../../index.html" class="back-link">← Ana Sayfa</a>
+ <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYasa" class="logo-img"></a>
+ <a href="../araclar.html" class="back-link">Araclara Don</a>
 </header>
 
-<!-- Progress -->
-<div class="progress-wrapper" id="progressWrapper" style="display:none;">
- <div class="progress-bar-track">
-  <div class="progress-bar-fill" id="progressFill"></div>
- </div>
- <div class="progress-label">
-  <span id="progressText">1 / 20</span>
-  <span id="scoreText">0 doğru</span>
- </div>
+<div class="progress-wrapper" id="progressWrapper">
+ <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+ <div class="progress-label"><span id="scoreText">0 dogru</span><span id="progressText">0 / 20</span></div>
 </div>
 
-<!-- Intro -->
-<div class="kk-main">
- <div class="kk-intro" id="introScreen">
-  <span class="emoji-big">🍕⚖️🥙</span>
-  <h1>Hangisi Daha Kalorili?</h1>
-  <p class="subtitle">20 yiyecek çifti, 20 sürpriz. Kalori bilgini test et!</p>
-  <button class="btn-start" onclick="startGame()">Başla →</button>
+<main class="kk-main">
+ <div id="introScreen" class="kk-intro">
+  <h1>Kalori Karsilastirici</h1>
+  <p class="subtitle">100 yemek, 2 mutfak — Hangisi daha kalorili?</p>
+  
+  <div class="tab-container">
+   <button class="tab-btn active" id="tabTR" onclick="selectTab('tr')">Turk Mutfagi</button>
+   <button class="tab-btn" id="tabWorld" onclick="selectTab('world')">Dunya Mutfagi</button>
+  </div>
+  <p class="tab-info" id="tabInfo">50 Turk yemegi arasinda 20 rastgele karsilastirma</p>
+  
+  <button class="btn-start" onclick="startGame()">Basla</button>
  </div>
 
- <!-- Question container -->
  <div id="questionContainer"></div>
 
- <!-- Final score -->
- <div class="kk-final" id="finalScreen">
-  <div class="score-circle">
-   <span class="score-num" id="finalScore">0</span>
-   <span class="score-of">/ 20</span>
+ <div class="final-screen" id="finalScreen">
+  <div class="final-score-big" id="finalScore">0</div>
+  <div style="font-size:1.2rem;color:var(--gray-500);font-weight:600">/20</div>
+  <h2 class="final-title" id="finalTitle"></h2>
+  <p class="final-msg" id="finalMsg"></p>
+  <div class="share-btns">
+   <a class="share-btn wa" id="shareWA" href="#" target="_blank">WhatsApp</a>
+   <a class="share-btn tw" id="shareTW" href="#" target="_blank">Twitter</a>
+   <button class="share-btn copy" id="shareCopy" onclick="copyShare()">Kopyala</button>
   </div>
-  <h2 id="finalTitle"></h2>
-  <p class="score-msg" id="finalMsg"></p>
-  <div class="share-section">
-   <h3>Sonucunu paylaş 👇</h3>
-   <div class="share-btns">
-    <a class="share-btn whatsapp" id="shareWA" href="#" target="_blank">📱 WhatsApp</a>
-    <a class="share-btn twitter" id="shareTW" href="#" target="_blank">🐦 Twitter/X</a>
-    <button class="share-btn copy" id="shareCopy" onclick="copyShare()">📋 Kopyala</button>
-   </div>
-   <div class="share-btns" style="margin-top:0.75rem;">
-    <button class="share-btn restart" onclick="restartGame()">🔄 Tekrar Oyna</button>
-   </div>
+  <div class="share-btns" style="margin-top:0.75rem;">
+   <button class="share-btn restart" onclick="restartGame()">Tekrar Oyna</button>
   </div>
  </div>
-</div>
+</main>
 
 <footer class="kk-footer">
- <p>© 2026 <a href="../../index.html">UzunYaşa</a> — Bilimle daha uzun, daha iyi yaşam</p>
- <p style="margin-top:0.25rem; font-size:0.75rem;">Kalori değerleri ortalama porsiyonlara göre yaklaşık değerlerdir.</p>
+ <p>&copy; 2026 <a href="../../index.html">UzunYasa</a> — Bilimle daha uzun, daha iyi yasam</p>
+ <p style="margin-top:0.25rem;font-size:0.75rem;">Kalori degerleri ortalama porsiyonlara gore yaklasik degerlerdir.</p>
 </footer>
 
 <script>
-const pairs = [
- {a:{name:"Lahmacun",portion:"1 adet (150g)",emoji:"🫓",kcal:280},b:{name:"Pizza Dilimi",portion:"1 dilim (150g)",emoji:"🍕",kcal:350},fact:"Lahmacun ince hamuru sayesinde pizza diliminden yaklaşık %20 daha az kalorili!"},
- {a:{name:"Ayran",portion:"1 bardak (200ml)",emoji:"🥛",kcal:65},b:{name:"Kola",portion:"1 bardak (200ml)",emoji:"🥤",kcal:84},fact:"Ayran hem daha az kalorili, hem de protein ve probiyotik içerir. Kola ise sadece şeker!"},
- {a:{name:"İskender",portion:"1 porsiyon (350g)",emoji:"🥩",kcal:750},b:{name:"Big Mac",portion:"1 adet (200g)",emoji:"🍔",kcal:563},fact:"İskender'deki tereyağı tek başına yaklaşık 200 kalori ekliyor!"},
- {a:{name:"Kuru Fasulye",portion:"1 porsiyon (300g)",emoji:"🫘",kcal:280},b:{name:"Makarna",portion:"1 porsiyon (300g)",emoji:"🍝",kcal:450},fact:"Kuru fasulye hem daha az kalorili, hem de çok daha fazla protein ve lif içerir!"},
- {a:{name:"Simit",portion:"1 adet (120g)",emoji:"🥯",kcal:380},b:{name:"Poğaça",portion:"1 adet (100g)",emoji:"🧁",kcal:350},fact:"Simit daha büyük görünse de, poğaçadaki yağ oranı gram başına daha yüksek!"},
- {a:{name:"Baklava",portion:"1 dilim (80g)",emoji:"🍯",kcal:340},b:{name:"Cheesecake",portion:"1 dilim (120g)",emoji:"🍰",kcal:400},fact:"Baklava küçük porsiyon avantajıyla cheesecake'ten daha az kalorili çıkıyor!"},
- {a:{name:"Döner Dürüm",portion:"1 adet (300g)",emoji:"🌯",kcal:650},b:{name:"Hamburger",portion:"1 adet (250g)",emoji:"🍔",kcal:540},fact:"Döner dürüm, lavaş ekmeği ve sos eklentileriyle kalori canavarına dönüşebilir!"},
- {a:{name:"Mercimek Çorbası",portion:"1 kase (300ml)",emoji:"🥣",kcal:180},b:{name:"Tarhana Çorbası",portion:"1 kase (300ml)",emoji:"🍲",kcal:150},fact:"Her iki çorba da harika seçimler! Mercimek çorbası daha fazla protein içerir."},
- {a:{name:"Mantı",portion:"1 porsiyon (250g)",emoji:"🥟",kcal:420},b:{name:"Ravioli",portion:"1 porsiyon (250g)",emoji:"🍝",kcal:380},fact:"Mantının üstüne eklenen yoğurt ve tereyağlı sos kaloriyi artırıyor!"},
- {a:{name:"Türk Kahvesi (şekerli)",portion:"1 fincan",emoji:"☕",kcal:50},b:{name:"Latte",portion:"1 bardak (300ml)",emoji:"🥤",kcal:180},fact:"Bir latte, 3.5 fincan şekerli Türk kahvesi kadar kalori içeriyor!"},
- {a:{name:"Kıymalı Pide",portion:"1 dilim (200g)",emoji:"🫓",kcal:480},b:{name:"Sucuklu Pizza",portion:"1 dilim (200g)",emoji:"🍕",kcal:520},fact:"Sucuktaki yağ oranı, kaloriyi pizza lehine artırıyor."},
- {a:{name:"Zeytinyağlı Dolma",portion:"1 porsiyon (200g)",emoji:"🫒",kcal:260},b:{name:"Etli Dolma",portion:"1 porsiyon (200g)",emoji:"🥩",kcal:350},fact:"Zeytinyağlı dolma, etli versiyonundan %25 daha az kalorili — üstelik daha hafif!"},
- {a:{name:"Çiğ Köfte",portion:"1 porsiyon (150g)",emoji:"🌶️",kcal:240},b:{name:"Falafel Wrap",portion:"1 adet (200g)",emoji:"🌯",kcal:350},fact:"Çiğ köfte etsiz olduğu için şaşırtıcı derecede düşük kalorili!"},
- {a:{name:"Avokado",portion:"1 adet (150g)",emoji:"🥑",kcal:240},b:{name:"Muz",portion:"1 adet (120g)",emoji:"🍌",kcal:105},fact:"Avokado sağlıklı yağlar açısından zengin ama kalori olarak muzun 2 katından fazla!"},
- {a:{name:"Portakal Suyu",portion:"1 bardak (250ml)",emoji:"🧃",kcal:112},b:{name:"Portakal",portion:"1 adet (200g)",emoji:"🍊",kcal:62},fact:"Portakal suyu yerine portakal yersen, hem daha tok kalırsın hem %45 daha az kalori alırsın!"},
- {a:{name:"Badem",portion:"10 adet (14g)",emoji:"🌰",kcal:82},b:{name:"Fındık",portion:"10 adet (14g)",emoji:"🌰",kcal:88},fact:"Badem ve fındık neredeyse aynı kalorili! İkisi de sağlıklı atıştırmalıklar."},
- {a:{name:"Zeytinyağı",portion:"1 yemek kaşığı (15ml)",emoji:"🫒",kcal:120},b:{name:"Tereyağı",portion:"1 yemek kaşığı (15g)",emoji:"🧈",kcal:108},fact:"Zeytinyağı daha sağlıklı yağ profili sunsa da, kalori olarak tereyağından fazla!"},
- {a:{name:"Pilav",portion:"1 porsiyon (200g)",emoji:"🍚",kcal:260},b:{name:"Bulgur Pilavı",portion:"1 porsiyon (200g)",emoji:"🌾",kcal:170},fact:"Bulgur pilavı, beyaz pilavdan %35 daha az kalorili + 3 kat daha fazla lif içerir!"},
- {a:{name:"Beyaz Ekmek",portion:"1 dilim (30g)",emoji:"🍞",kcal:80},b:{name:"Tam Buğday Ekmek",portion:"1 dilim (30g)",emoji:"🥖",kcal:70},fact:"Kalori farkı küçük ama tam buğday ekmeğin lif içeriği çok daha yüksek!"},
- {a:{name:"Dondurma",portion:"1 kase (100g)",emoji:"🍦",kcal:210},b:{name:"Sütlaç",portion:"1 kase (200g)",emoji:"🍮",kcal:280},fact:"Sütlaç daha sağlıklı görünse de, porsiyon büyüklüğü kaloriyi artırıyor!"}
+const turkishPairs = [
+ {a:{name:"Lahmacun",portion:"1 adet (150g)",img:"https://images.unsplash.com/photo-1620568392566-33e3a78debd0?w=200&h=200&fit=crop",emoji:"🫓",kcal:280},b:{name:"Pizza Dilimi",portion:"1 dilim (150g)",img:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop",emoji:"🍕",kcal:350},fact:"Lahmacun ince hamuru sayesinde pizza diliminden yaklasik %20 daha az kalorili!"},
+ {a:{name:"Ayran",portion:"1 bardak (200ml)",img:"https://images.unsplash.com/photo-1625865797689-cb6d5fa7a7f8?w=200&h=200&fit=crop",emoji:"🥛",kcal:65},b:{name:"Kola",portion:"1 bardak (200ml)",img:"https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200&h=200&fit=crop",emoji:"🥤",kcal:84},fact:"Ayran hem daha az kalorili, hem de protein ve probiyotik icerir. Kola ise sadece seker!"},
+ {a:{name:"Iskender",portion:"1 porsiyon (350g)",img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&h=200&fit=crop",emoji:"🥩",kcal:750},b:{name:"Big Mac",portion:"1 adet (200g)",img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop",emoji:"🍔",kcal:563},fact:"Iskender'deki tereyagi tek basina yaklasik 200 kalori ekliyor!"},
+ {a:{name:"Kuru Fasulye",portion:"1 porsiyon (300g)",img:"https://images.unsplash.com/photo-1536304993881-460d73cf5e4d?w=200&h=200&fit=crop",emoji:"🫘",kcal:280},b:{name:"Makarna",portion:"1 porsiyon (300g)",img:"https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=200&h=200&fit=crop",emoji:"🍝",kcal:450},fact:"Kuru fasulye hem daha az kalorili, hem de cok daha fazla protein ve lif icerir!"},
+ {a:{name:"Simit",portion:"1 adet (120g)",img:"https://images.unsplash.com/photo-1593246049226-ded77bf90326?w=200&h=200&fit=crop",emoji:"🥯",kcal:380},b:{name:"Pogaca",portion:"1 adet (100g)",img:"https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=200&h=200&fit=crop",emoji:"🧁",kcal:350},fact:"Simit daha buyuk gorunse de, pogacadaki yag orani gram basina daha yuksek!"},
+ {a:{name:"Baklava",portion:"1 dilim (80g)",img:"https://images.unsplash.com/photo-1598110750624-207050c4f28c?w=200&h=200&fit=crop",emoji:"🍯",kcal:340},b:{name:"Cheesecake",portion:"1 dilim (120g)",img:"https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=200&h=200&fit=crop",emoji:"🍰",kcal:400},fact:"Baklava kucuk porsiyon avantajiyla cheesecake'ten daha az kalorili cikiyor!"},
+ {a:{name:"Doner Durum",portion:"1 adet (300g)",img:"https://images.unsplash.com/photo-1633321702518-7fecdafb94d5?w=200&h=200&fit=crop",emoji:"🌯",kcal:650},b:{name:"Hamburger",portion:"1 adet (250g)",img:"https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200&h=200&fit=crop",emoji:"🍔",kcal:540},fact:"Doner durum, lavas ekmegi ve sos eklentileriyle kalori canavarina donusebilir!"},
+ {a:{name:"Mercimek Corbasi",portion:"1 kase (300ml)",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop",emoji:"🥣",kcal:180},b:{name:"Tarhana Corbasi",portion:"1 kase (300ml)",img:"https://images.unsplash.com/photo-1603105037880-880cd4f6be70?w=200&h=200&fit=crop",emoji:"🍲",kcal:150},fact:"Her iki corba da harika secimler! Mercimek corbasi daha fazla protein icerir."},
+ {a:{name:"Manti",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=200&h=200&fit=crop",emoji:"🥟",kcal:420},b:{name:"Ravioli",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=200&h=200&fit=crop",emoji:"🍝",kcal:380},fact:"Mantinin ustune eklenen yogurt ve tereyagli sos kaloriyi artiriyor!"},
+ {a:{name:"Turk Kahvesi (sekerli)",portion:"1 fincan",img:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop",emoji:"☕",kcal:50},b:{name:"Latte",portion:"1 bardak (300ml)",img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&h=200&fit=crop",emoji:"🥤",kcal:180},fact:"Bir latte, 3.5 fincan sekerli Turk kahvesi kadar kalori iceriyor!"},
+ {a:{name:"Kiymali Pide",portion:"1 dilim (200g)",img:"https://images.unsplash.com/photo-1622653902360-1b90d02e8fbc?w=200&h=200&fit=crop",emoji:"🫓",kcal:480},b:{name:"Sucuklu Pizza",portion:"1 dilim (200g)",img:"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=200&fit=crop",emoji:"🍕",kcal:520},fact:"Sucuktaki yag orani, kaloriyi pizza lehine artiriyor."},
+ {a:{name:"Zeytinyagli Dolma",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1621510456681-2b5b26e4fa08?w=200&h=200&fit=crop",emoji:"🫒",kcal:260},b:{name:"Etli Dolma",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1625865797689-cb6d5fa7a7f8?w=200&h=200&fit=crop",emoji:"🥩",kcal:350},fact:"Zeytinyagli dolma, etli versiyonundan %25 daha az kalorili — ustelik daha hafif!"},
+ {a:{name:"Cig Kofte",portion:"1 porsiyon (150g)",img:"https://images.unsplash.com/photo-1662116765994-1e4200c43589?w=200&h=200&fit=crop",emoji:"🌶️",kcal:240},b:{name:"Falafel Wrap",portion:"1 adet (200g)",img:"https://images.unsplash.com/photo-1593001874117-c99c800e3eb7?w=200&h=200&fit=crop",emoji:"🌯",kcal:350},fact:"Cig kofte etsiz oldugu icin sasirtici derecede dusuk kalorili!"},
+ {a:{name:"Avokado",portion:"1 adet (150g)",img:"https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=200&h=200&fit=crop",emoji:"🥑",kcal:240},b:{name:"Muz",portion:"1 adet (120g)",img:"https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=200&h=200&fit=crop",emoji:"🍌",kcal:105},fact:"Avokado saglikli yaglar acisindan zengin ama kalori olarak muzun 2 katindan fazla!"},
+ {a:{name:"Portakal Suyu",portion:"1 bardak (250ml)",img:"https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=200&h=200&fit=crop",emoji:"🧃",kcal:112},b:{name:"Portakal",portion:"1 adet (200g)",img:"https://images.unsplash.com/photo-1547514701-42782101795e?w=200&h=200&fit=crop",emoji:"🍊",kcal:62},fact:"Portakal suyu yerine portakal yersen, hem daha tok kalirsin hem %45 daha az kalori alirsin!"},
+ {a:{name:"Badem",portion:"10 adet (14g)",img:"https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=200&h=200&fit=crop",emoji:"🌰",kcal:82},b:{name:"Findik",portion:"10 adet (14g)",img:"https://images.unsplash.com/photo-1596362601603-f732bbd27f89?w=200&h=200&fit=crop",emoji:"🌰",kcal:88},fact:"Badem ve findik neredeyse ayni kalorili! Ikisi de saglikli atistarmaliklar."},
+ {a:{name:"Zeytinyagi",portion:"1 yemek kasigi (15ml)",img:"https://images.unsplash.com/photo-1474979266404-7eaabdf50494?w=200&h=200&fit=crop",emoji:"🫒",kcal:120},b:{name:"Tereyagi",portion:"1 yemek kasigi (15g)",img:"https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=200&h=200&fit=crop",emoji:"🧈",kcal:108},fact:"Zeytinyagi daha saglikli yag profili sunsa da, kalori olarak tereyagindan fazla!"},
+ {a:{name:"Pilav",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1536304993881-460d73cf5e4d?w=200&h=200&fit=crop",emoji:"🍚",kcal:260},b:{name:"Bulgur Pilavi",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=200&h=200&fit=crop",emoji:"🌾",kcal:170},fact:"Bulgur pilavi, beyaz pilavdan %35 daha az kalorili + 3 kat daha fazla lif icerir!"},
+ {a:{name:"Beyaz Ekmek",portion:"1 dilim (30g)",img:"https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=200&h=200&fit=crop",emoji:"🍞",kcal:80},b:{name:"Tam Bugday Ekmek",portion:"1 dilim (30g)",img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=200&fit=crop",emoji:"🥖",kcal:70},fact:"Kalori farki kucuk ama tam bugday ekmegin lif icerigi cok daha yuksek!"},
+ {a:{name:"Dondurma",portion:"1 kase (100g)",img:"https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=200&h=200&fit=crop",emoji:"🍦",kcal:210},b:{name:"Sutlac",portion:"1 kase (200g)",img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&h=200&fit=crop",emoji:"🍮",kcal:280},fact:"Sutlac daha saglikli gorunse de, porsiyon buyuklugu kaloriyi artiriyor!"},
+ {a:{name:"Adana Kebap",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=200&h=200&fit=crop",emoji:"🥩",kcal:520},b:{name:"Urfa Kebap",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=200&h=200&fit=crop",emoji:"🍖",kcal:450},fact:"Adana'daki kuyruk yagi farki yaklasik 70 kalori ekliyor. Urfa daha yagsiz!"},
+ {a:{name:"Kunefe",portion:"1 porsiyon (150g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🧀",kcal:450},b:{name:"Kazandibi",portion:"1 porsiyon (150g)",img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&h=200&fit=crop",emoji:"🍮",kcal:260},fact:"Kunefe tereyagi ve serup ile kazandibinin neredeyse 2 kati kaloriye ulasiyor!"},
+ {a:{name:"Icli Kofte",portion:"3 adet (180g)",img:"https://images.unsplash.com/photo-1662116765994-1e4200c43589?w=200&h=200&fit=crop",emoji:"🧆",kcal:420},b:{name:"Cig Kofte Durum",portion:"1 adet (200g)",img:"https://images.unsplash.com/photo-1662116765994-1e4200c43589?w=200&h=200&fit=crop",emoji:"🌯",kcal:310},fact:"Icli koftenin kizartilmasi kaloriyi ciddi artirir. Cig kofte ise etsiz ve hafif!"},
+ {a:{name:"Karniyarik",portion:"1 porsiyon (300g)",img:"https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=200&h=200&fit=crop",emoji:"🍆",kcal:380},b:{name:"Imam Bayildi",portion:"1 porsiyon (300g)",img:"https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=200&h=200&fit=crop",emoji:"🍆",kcal:220},fact:"Karniyariktaki kiyma yaklasik 160 kalori ekliyor! Imam bayildi zeytinyagli ve hafif."},
+ {a:{name:"Menemen",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1590412200988-a436970781fa?w=200&h=200&fit=crop",emoji:"🍳",kcal:250},b:{name:"Sucuklu Yumurta",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&h=200&fit=crop",emoji:"🍳",kcal:380},fact:"Sucuktaki yag orani menemenin neredeyse 1.5 kati kalori yaptirir!"},
+ {a:{name:"Gozleme",portion:"1 adet (200g)",img:"https://images.unsplash.com/photo-1588625500633-a0451ae10ce3?w=200&h=200&fit=crop",emoji:"🫓",kcal:350},b:{name:"Su Boregi",portion:"1 dilim (200g)",img:"https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=200&h=200&fit=crop",emoji:"🥧",kcal:420},fact:"Su boregindeki kat kat hamur ve tereyagi kaloriyi yukseltiyor!"},
+ {a:{name:"Asure",portion:"1 kase (200g)",img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop",emoji:"🥣",kcal:220},b:{name:"Keskul",portion:"1 kase (200g)",img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&h=200&fit=crop",emoji:"🍮",kcal:280},fact:"Asure tahil ve kuruyemis bazli olup keskuldeki kremanin kalorisinden dusuk!"},
+ {a:{name:"Tantuni",portion:"1 adet (250g)",img:"https://images.unsplash.com/photo-1633321702518-7fecdafb94d5?w=200&h=200&fit=crop",emoji:"🌯",kcal:480},b:{name:"Kokorec",portion:"1 yarim (200g)",img:"https://images.unsplash.com/photo-1633321702518-7fecdafb94d5?w=200&h=200&fit=crop",emoji:"🥖",kcal:350},fact:"Tantunideki ekmek ve yag emilimi kaloriyi yukseltiyor. Kokorec daha az hamurlu!"},
+ {a:{name:"Sigara Boregi",portion:"3 adet (120g)",img:"https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=200&h=200&fit=crop",emoji:"🥟",kcal:350},b:{name:"Peynirli Pogaca",portion:"1 adet (100g)",img:"https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=200&h=200&fit=crop",emoji:"🧁",kcal:320},fact:"Sigara boregi kizartildigi icin pogacadan biraz daha kalorili!"},
+ {a:{name:"Kadayif",portion:"1 dilim (100g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🍯",kcal:400},b:{name:"Tulumba",portion:"5 adet (100g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🍩",kcal:370},fact:"Kadayiftaki tereyagi + serup kombinasyonu kalori sampiyonu yapiyor!"},
+ {a:{name:"Lokma",portion:"5 adet (100g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🍩",kcal:350},b:{name:"Revani",portion:"1 dilim (100g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🍰",kcal:310},fact:"Lokmanin kizartma yagi + serup kombinasyonu revaniden daha kalorili yapiyor!"},
+ {a:{name:"Pismaniye",portion:"50g",img:"",emoji:"🍬",kcal:250},b:{name:"Tahin Helva",portion:"50g",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🍫",kcal:265},fact:"Tahin helva yogun yag icerigi ile pismaniyeden biraz daha kalorili!"},
+ {a:{name:"Kestane Sekeri",portion:"2 adet (60g)",img:"",emoji:"🌰",kcal:210},b:{name:"Lokum",portion:"3 adet (60g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🍬",kcal:190},fact:"Kestane sekeri sekerle kaplanmis oldugundan lokumdan biraz daha kalorili!"},
+ {a:{name:"Sahlep",portion:"1 bardak (200ml)",img:"",emoji:"☕",kcal:180},b:{name:"Boza",portion:"1 bardak (200ml)",img:"",emoji:"🥛",kcal:160},fact:"Sahlepteki sut ve nisasta bozadan biraz daha fazla kalori iceriyor!"},
+ {a:{name:"Iskembe Corbasi",portion:"1 kase (300ml)",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop",emoji:"🥣",kcal:200},b:{name:"Ezogelin Corbasi",portion:"1 kase (300ml)",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop",emoji:"🍲",kcal:140},fact:"Iskembe corbasi daha agir bir corba — ezogelin mercimekle daha hafif ve lifli!"},
+ {a:{name:"Etli Ekmek",portion:"1 dilim (200g)",img:"https://images.unsplash.com/photo-1622653902360-1b90d02e8fbc?w=200&h=200&fit=crop",emoji:"🫓",kcal:440},b:{name:"Lahmacun",portion:"1 adet (150g)",img:"https://images.unsplash.com/photo-1620568392566-33e3a78debd0?w=200&h=200&fit=crop",emoji:"🫓",kcal:280},fact:"Etli ekmek lahmacundan kalin ve buyuk — bu da %55 daha fazla kalori demek!"},
+ {a:{name:"Cilbir",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&h=200&fit=crop",emoji:"🍳",kcal:320},b:{name:"Sahanda Yumurta",portion:"2 adet (120g)",img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&h=200&fit=crop",emoji:"🍳",kcal:220},fact:"Cilbirdeki yogurt + tereyagi sosu kaloriyi artiriyor ama protein de cok!"},
+ {a:{name:"Tavuk Doner",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1633321702518-7fecdafb94d5?w=200&h=200&fit=crop",emoji:"🍗",kcal:350},b:{name:"Et Doner",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1633321702518-7fecdafb94d5?w=200&h=200&fit=crop",emoji:"🥩",kcal:480},fact:"Et doner tavuk donerden %37 daha kalorili — kirmizi etin yag orani yuksek!"},
+ {a:{name:"Hamsili Pilav",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1536304993881-460d73cf5e4d?w=200&h=200&fit=crop",emoji:"🐟",kcal:320},b:{name:"Pirinc Pilavi",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1536304993881-460d73cf5e4d?w=200&h=200&fit=crop",emoji:"🍚",kcal:260},fact:"Hamsili pilav balik proteini ekliyor ama kalori farki sanildiginden az!"},
+ {a:{name:"Katmer",portion:"1 adet (150g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🥞",kcal:520},b:{name:"Sutlu Nuriye",portion:"1 dilim (120g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🍮",kcal:280},fact:"Katmer kaymak ve antep fistigi ile kalori bombasi! Gaziantep klasigi."},
+ {a:{name:"Gullac",portion:"1 porsiyon (150g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🥛",kcal:220},b:{name:"Muhallebi",portion:"1 kase (200g)",img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&h=200&fit=crop",emoji:"🍮",kcal:250},fact:"Gullac hafif sutlu tatlilarin sampiyonu — muhallebiden daha az kalorili!"},
+ {a:{name:"Coban Salata",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=200&h=200&fit=crop",emoji:"🥗",kcal:80},b:{name:"Sezar Salata",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=200&h=200&fit=crop",emoji:"🥗",kcal:350},fact:"Sezar salatadaki sos, peynir ve kruton kaloriyi 4 katina cikariyor!"},
+ {a:{name:"Yaprak Sarma",portion:"5 adet (150g)",img:"https://images.unsplash.com/photo-1621510456681-2b5b26e4fa08?w=200&h=200&fit=crop",emoji:"🫒",kcal:200},b:{name:"Lahana Sarma",portion:"2 adet (200g)",img:"https://images.unsplash.com/photo-1621510456681-2b5b26e4fa08?w=200&h=200&fit=crop",emoji:"🥬",kcal:300},fact:"Etli lahana sarma zeytinyagli yaprak sarmadan %50 daha kalorili!"},
+ {a:{name:"Tavuk Gogsu Tatlisi",portion:"1 porsiyon (150g)",img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&h=200&fit=crop",emoji:"🍮",kcal:230},b:{name:"Profiterol",portion:"3 adet (150g)",img:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=200&h=200&fit=crop",emoji:"🍫",kcal:420},fact:"Profiterol cikolata sosu ve kremasiyla tavuk gogsunun neredeyse 2 kati!"},
+ {a:{name:"Kuymak",portion:"1 porsiyon (200g)",img:"",emoji:"🧀",kcal:450},b:{name:"Fondu",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1530016555861-2812e0cc9a0c?w=200&h=200&fit=crop",emoji:"🫕",kcal:480},fact:"Kuymak ve fondu neredeyse ayni kalorili — ikisi de peynir ve yag bombasi!"},
+ {a:{name:"Midye Dolma",portion:"5 adet (150g)",img:"",emoji:"🐚",kcal:280},b:{name:"Hamsi Tava",portion:"1 porsiyon (150g)",img:"https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?w=200&h=200&fit=crop",emoji:"🐟",kcal:250},fact:"Midye dolmadaki pirincli ic ve kizartma yaglari hamsi tavadan biraz daha kalorili!"},
+ {a:{name:"Cay",portion:"1 bardak (200ml)",img:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop",emoji:"🍵",kcal:2},b:{name:"Turk Kahvesi (sade)",portion:"1 fincan",img:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop",emoji:"☕",kcal:5},fact:"Ikisi de neredeyse sifir kalorili! Seker eklemezsen en saglikli icecekler."},
+ {a:{name:"Kumpir",portion:"1 adet (400g)",img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop",emoji:"🥔",kcal:650},b:{name:"Cig Kofte Durum",portion:"1 adet (200g)",img:"https://images.unsplash.com/photo-1662116765994-1e4200c43589?w=200&h=200&fit=crop",emoji:"🌯",kcal:310},fact:"Kumpir soslar ve icindekilerle durumlarin 2 kati kaloriye ulasabiliyor!"}
 ];
 
-let currentPair = 0;
+const worldPairs = [
+ {a:{name:"Sushi Roll",portion:"6 adet (180g)",img:"https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=200&fit=crop",emoji:"🍣",kcal:280},b:{name:"Spring Roll",portion:"3 adet (150g)",img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=200&fit=crop",emoji:"🥟",kcal:200},fact:"Sushi pirinci ve mayonezli soslar kaloriyi artiriyor. Spring roll daha hafif!"},
+ {a:{name:"Pad Thai",portion:"1 porsiyon (300g)",img:"https://images.unsplash.com/photo-1559314809-0d155014e29e?w=200&h=200&fit=crop",emoji:"🍜",kcal:450},b:{name:"Ramen",portion:"1 kase (400g)",img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=200&h=200&fit=crop",emoji:"🍜",kcal:500},fact:"Ramen etsuyu ve yag tabakasi nedeniyle Pad Thai'den biraz daha kalorili!"},
+ {a:{name:"Croissant",portion:"1 adet (60g)",img:"https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=200&h=200&fit=crop",emoji:"🥐",kcal:240},b:{name:"Bagel",portion:"1 adet (100g)",img:"https://images.unsplash.com/photo-1585535750014-5031cc04e974?w=200&h=200&fit=crop",emoji:"🥯",kcal:270},fact:"Bagel daha buyuk ve yogun — croissant hafif gorunse de tereyagdan kalori yuksek!"},
+ {a:{name:"Fish & Chips",portion:"1 porsiyon (350g)",img:"https://images.unsplash.com/photo-1580217593608-61931ceaa0e5?w=200&h=200&fit=crop",emoji:"🐟",kcal:800},b:{name:"Fried Chicken",portion:"2 parca (200g)",img:"https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=200&h=200&fit=crop",emoji:"🍗",kcal:500},fact:"Fish & Chips devasa porsiyonu ve patates kizartmasiyla kalori sampiyonu!"},
+ {a:{name:"Tiramisu",portion:"1 dilim (120g)",img:"https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=200&h=200&fit=crop",emoji:"🍰",kcal:350},b:{name:"Creme Brulee",portion:"1 porsiyon (120g)",img:"https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=200&h=200&fit=crop",emoji:"🍮",kcal:300},fact:"Tiramisudaki mascarpone peyniri ve biskuler kaloriyi yükseltiyor!"},
+ {a:{name:"Taco",portion:"2 adet (200g)",img:"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200&h=200&fit=crop",emoji:"🌮",kcal:380},b:{name:"Burrito",portion:"1 adet (350g)",img:"https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=200&h=200&fit=crop",emoji:"🌯",kcal:600},fact:"Burrito devasa boyutuyla 2 taconun neredeyse 2 kati kalori iceriyor!"},
+ {a:{name:"Paella",portion:"1 porsiyon (350g)",img:"https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=200&h=200&fit=crop",emoji:"🥘",kcal:400},b:{name:"Risotto",portion:"1 porsiyon (300g)",img:"https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=200&h=200&fit=crop",emoji:"🍚",kcal:420},fact:"Risottodaki tereyagi ve parmesan kaloriyi paelladan biraz yukari tasiyor!"},
+ {a:{name:"Dim Sum",portion:"5 adet (150g)",img:"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=200&h=200&fit=crop",emoji:"🥟",kcal:300},b:{name:"Gyoza",portion:"5 adet (150g)",img:"https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=200&h=200&fit=crop",emoji:"🥟",kcal:280},fact:"Ikisi de benzer ama dim sum cesitleri sos ve kizartma ile daha kalorili olabiliyor!"},
+ {a:{name:"Moussaka",portion:"1 dilim (250g)",img:"https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=200&h=200&fit=crop",emoji:"🍆",kcal:350},b:{name:"Lasagna",portion:"1 dilim (250g)",img:"https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=200&h=200&fit=crop",emoji:"🧀",kcal:420},fact:"Lasagnadaki peynir katmanlari moussakadan daha fazla kalori ekliyor!"},
+ {a:{name:"Hummus",portion:"100g",img:"https://images.unsplash.com/photo-1577805947697-89e18249d767?w=200&h=200&fit=crop",emoji:"🫘",kcal:170},b:{name:"Guacamole",portion:"100g",img:"https://images.unsplash.com/photo-1600803907087-f56d462fd26b?w=200&h=200&fit=crop",emoji:"🥑",kcal:160},fact:"Neredeyse ayni kalorili! Ikisi de saglikli yaglar ve protein iceriyor."},
+ {a:{name:"Bibimbap",portion:"1 kase (400g)",img:"https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=200&h=200&fit=crop",emoji:"🍚",kcal:500},b:{name:"Donburi",portion:"1 kase (400g)",img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=200&h=200&fit=crop",emoji:"🍚",kcal:550},fact:"Donburideki tempura veya teriyaki sos kaloriyi biraz artiriyor!"},
+ {a:{name:"Waffle",portion:"1 adet (120g)",img:"https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=200&h=200&fit=crop",emoji:"🧇",kcal:310},b:{name:"Pancake",portion:"2 adet (120g)",img:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=200&fit=crop",emoji:"🥞",kcal:280},fact:"Waffle hamurundaki ekstra tereyagi pancake'ten biraz daha kalorili yapiyor!"},
+ {a:{name:"Gelato",portion:"1 top (80g)",img:"https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=200&h=200&fit=crop",emoji:"🍨",kcal:160},b:{name:"Sorbet",portion:"1 top (80g)",img:"https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=200&h=200&fit=crop",emoji:"🍧",kcal:100},fact:"Sorbet sutsuz ve yagsiz — gelatonun neredeyse yarisi kadar kalorili!"},
+ {a:{name:"Caesar Salata",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=200&h=200&fit=crop",emoji:"🥗",kcal:350},b:{name:"Greek Salata",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=200&h=200&fit=crop",emoji:"🥗",kcal:230},fact:"Caesar salatadaki sos ve kruton kaloriyi %50 artiriyor!"},
+ {a:{name:"Nachos",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=200&h=200&fit=crop",emoji:"🌮",kcal:500},b:{name:"Bruschetta",portion:"3 adet (150g)",img:"https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=200&h=200&fit=crop",emoji:"🍞",kcal:220},fact:"Nachos peynir sosu ve kizartmayla bruschettanin 2 katindan fazla kalorili!"},
+ {a:{name:"Churros",portion:"3 adet (100g)",img:"https://images.unsplash.com/photo-1624471749159-23c8e63bd465?w=200&h=200&fit=crop",emoji:"🍩",kcal:350},b:{name:"Donut",portion:"1 adet (60g)",img:"https://images.unsplash.com/photo-1551024601-bec78aea704b?w=200&h=200&fit=crop",emoji:"🍩",kcal:250},fact:"3 churros 1 donuttan daha kalorili — cikolata sosu hesaba dahil degil!"},
+ {a:{name:"Biryani",portion:"1 porsiyon (350g)",img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&h=200&fit=crop",emoji:"🍚",kcal:500},b:{name:"Fried Rice",portion:"1 porsiyon (300g)",img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=200&h=200&fit=crop",emoji:"🍚",kcal:400},fact:"Biryani baharatlari ve ghee (saf yag) ile fried rice'dan daha kalorili!"},
+ {a:{name:"Pho",portion:"1 kase (400g)",img:"https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=200&h=200&fit=crop",emoji:"🍜",kcal:380},b:{name:"Tom Yum",portion:"1 kase (350g)",img:"https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=200&h=200&fit=crop",emoji:"🍜",kcal:250},fact:"Pho'daki pirinc nudillari Tom Yum'dan daha fazla karbonhidrat ve kalori iceriyor!"},
+ {a:{name:"Falafel",portion:"4 adet (120g)",img:"https://images.unsplash.com/photo-1593001874117-c99c800e3eb7?w=200&h=200&fit=crop",emoji:"🧆",kcal:340},b:{name:"Samosa",portion:"2 adet (120g)",img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&h=200&fit=crop",emoji:"🥟",kcal:300},fact:"Falafel nohut bazli olsa da kizartma yagi kaloriyi artiriyor!"},
+ {a:{name:"Currywurst",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1534938665420-4193effeacc4?w=200&h=200&fit=crop",emoji:"🌭",kcal:380},b:{name:"Hot Dog",portion:"1 adet (150g)",img:"https://images.unsplash.com/photo-1612392062126-1cf1a8c65572?w=200&h=200&fit=crop",emoji:"🌭",kcal:300},fact:"Currywurst'un kori sosu ve daha buyuk sosis boyutu kaloriyi yukseltiyor!"},
+ {a:{name:"Pekin Ordegi",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1518492104633-130d0cc84637?w=200&h=200&fit=crop",emoji:"🦆",kcal:400},b:{name:"Tandoori Tavuk",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=200&h=200&fit=crop",emoji:"🍗",kcal:260},fact:"Ordegin yag orani tavuktan cok daha yuksek — kalori farki %50+!"},
+ {a:{name:"Crepe (Nutella)",portion:"1 adet (120g)",img:"https://images.unsplash.com/photo-1519676867240-f03562e64548?w=200&h=200&fit=crop",emoji:"🥞",kcal:350},b:{name:"Crepe (Limon-Seker)",portion:"1 adet (80g)",img:"https://images.unsplash.com/photo-1519676867240-f03562e64548?w=200&h=200&fit=crop",emoji:"🥞",kcal:180},fact:"Nutella'li crepe limon-sekerli versiyonun neredeyse 2 kati kalorili!"},
+ {a:{name:"Mac & Cheese",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?w=200&h=200&fit=crop",emoji:"🧀",kcal:450},b:{name:"Carbonara",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1612874742237-6526221588e3?w=200&h=200&fit=crop",emoji:"🍝",kcal:480},fact:"Carbonaradaki pancetta ve yumurta sosu mac & cheese'den biraz daha kalorili!"},
+ {a:{name:"Ceviche",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=200&h=200&fit=crop",emoji:"🐟",kcal:150},b:{name:"Sashimi",portion:"8 dilim (150g)",img:"https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=200&fit=crop",emoji:"🍣",kcal:180},fact:"Ikisi de cig balik — cok dusuk kalorili ve protein zengini secenekler!"},
+ {a:{name:"Schnitzel",portion:"1 adet (200g)",img:"https://images.unsplash.com/photo-1599921841143-819065a55cc6?w=200&h=200&fit=crop",emoji:"🥩",kcal:450},b:{name:"Chicken Parm",portion:"1 adet (250g)",img:"https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=200&h=200&fit=crop",emoji:"🍗",kcal:520},fact:"Chicken Parm'daki peynir ve domates sosu schnitzelden daha kalorili yapiyor!"},
+ {a:{name:"Pierogi",portion:"5 adet (200g)",img:"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=200&h=200&fit=crop",emoji:"🥟",kcal:350},b:{name:"Tortellini",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=200&h=200&fit=crop",emoji:"🍝",kcal:320},fact:"Pierogiler genellikle tereyagiyla servis edilir — kaloriyi yukselten asil o!"},
+ {a:{name:"Acai Bowl",portion:"1 kase (300g)",img:"https://images.unsplash.com/photo-1590301157890-4810ed352733?w=200&h=200&fit=crop",emoji:"🫐",kcal:420},b:{name:"Granola Bowl",portion:"1 kase (250g)",img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&h=200&fit=crop",emoji:"🥣",kcal:380},fact:"Acai bowl saglikli gorunse de meyve + granola + bal kaloriyi yukseltiyor!"},
+ {a:{name:"Kebab Wrap",portion:"1 adet (300g)",img:"https://images.unsplash.com/photo-1633321702518-7fecdafb94d5?w=200&h=200&fit=crop",emoji:"🌯",kcal:550},b:{name:"Shawarma",portion:"1 adet (300g)",img:"https://images.unsplash.com/photo-1633321702518-7fecdafb94d5?w=200&h=200&fit=crop",emoji:"🌯",kcal:520},fact:"Ikisi de benzer — soslar ve ekmek turu kaloriyi belirliyor!"},
+ {a:{name:"Peynirli Quesadilla",portion:"1 adet (200g)",img:"https://images.unsplash.com/photo-1618040996337-56904b7850b9?w=200&h=200&fit=crop",emoji:"🧀",kcal:450},b:{name:"Fajita",portion:"2 adet (250g)",img:"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200&h=200&fit=crop",emoji:"🌮",kcal:380},fact:"Quesadilladaki eriyen peynir fajitadan daha fazla kalori ekliyor!"},
+ {a:{name:"Banh Mi",portion:"1 adet (250g)",img:"https://images.unsplash.com/photo-1600688640154-9619e002df30?w=200&h=200&fit=crop",emoji:"🥖",kcal:360},b:{name:"Club Sandwich",portion:"1 adet (300g)",img:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=200&h=200&fit=crop",emoji:"🥪",kcal:450},fact:"Club sandwich'in 3 katli ekmegi ve mayonezi banh mi'den daha kalorili yapiyor!"},
+ {a:{name:"Poke Bowl",portion:"1 kase (350g)",img:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop",emoji:"🐟",kcal:450},b:{name:"Buddha Bowl",portion:"1 kase (350g)",img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=200&fit=crop",emoji:"🥗",kcal:380},fact:"Poke bowl'daki pirinc ve soslar buddha bowl'dan daha kalorili!"},
+ {a:{name:"Beef Steak",portion:"200g",img:"https://images.unsplash.com/photo-1546964124-0cce460f38ef?w=200&h=200&fit=crop",emoji:"🥩",kcal:500},b:{name:"Salmon Fillet",portion:"200g",img:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=200&h=200&fit=crop",emoji:"🐟",kcal:350},fact:"Kirmizi et somon baligından %40 daha fazla kalori iceriyor. Balik daha hafif!"},
+ {a:{name:"Margherita Pizza",portion:"1 dilim (150g)",img:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&h=200&fit=crop",emoji:"🍕",kcal:280},b:{name:"Pepperoni Pizza",portion:"1 dilim (150g)",img:"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=200&fit=crop",emoji:"🍕",kcal:330},fact:"Pepperoni dilimindeki yaglar margheritadan 50 kalori daha ekliyor!"},
+ {a:{name:"French Toast",portion:"2 dilim (150g)",img:"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=200&fit=crop",emoji:"🍞",kcal:380},b:{name:"Eggs Benedict",portion:"1 porsiyon (250g)",img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&h=200&fit=crop",emoji:"🍳",kcal:450},fact:"Eggs Benedict'in hollandaise sosu kalori bombasi — 1 porsiyonda 450 kcal!"},
+ {a:{name:"Greek Yogurt",portion:"200g",img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=200&h=200&fit=crop",emoji:"🥛",kcal:130},b:{name:"Smoothie Bowl",portion:"300g",img:"https://images.unsplash.com/photo-1590301157890-4810ed352733?w=200&h=200&fit=crop",emoji:"🫐",kcal:350},fact:"Smoothie bowl saglikli gorunse de meyve + granola + bal ile neredeyse 3 kat!"},
+ {a:{name:"Edamame",portion:"1 porsiyon (150g)",img:"https://images.unsplash.com/photo-1564093497595-593b96d80571?w=200&h=200&fit=crop",emoji:"🫛",kcal:180},b:{name:"Patates Kizartmasi",portion:"1 porsiyon (150g)",img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200&h=200&fit=crop",emoji:"🍟",kcal:400},fact:"Patates kizartmasi edamamenin 2 katindan fazla kalorili — protein ise cok daha az!"},
+ {a:{name:"Miso Corbasi",portion:"1 kase (250ml)",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop",emoji:"🥣",kcal:60},b:{name:"Kremali Mantar Corbasi",portion:"1 kase (250ml)",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop",emoji:"🍲",kcal:220},fact:"Kremali corba miso corbasinin neredeyse 4 kati kalorili — krema her seyi degistirir!"},
+ {a:{name:"Chicken Nuggets",portion:"6 adet (120g)",img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=200&h=200&fit=crop",emoji:"🍗",kcal:300},b:{name:"Chicken Wings",portion:"6 adet (180g)",img:"https://images.unsplash.com/photo-1527477396000-e27163b02d4c?w=200&h=200&fit=crop",emoji:"🍗",kcal:420},fact:"Chicken wings kemikli ama deri ve sos ile nuggets'tan daha kalorili!"},
+ {a:{name:"Caprese Salata",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=200&h=200&fit=crop",emoji:"🍅",kcal:250},b:{name:"Waldorf Salata",portion:"1 porsiyon (200g)",img:"https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=200&h=200&fit=crop",emoji:"🥗",kcal:320},fact:"Waldorf salatadaki mayonez ve ceviz kaloriyi caprese'den yukari tasiyor!"},
+ {a:{name:"Tempura",portion:"5 adet (150g)",img:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=200&h=200&fit=crop",emoji:"🍤",kcal:350},b:{name:"Karides Izgara",portion:"10 adet (150g)",img:"https://images.unsplash.com/photo-1565680018093-ebb6505e46cd?w=200&h=200&fit=crop",emoji:"🍤",kcal:150},fact:"Kizartma hamuru kaloriyi 2 katindan fazla artiriyor — izgara her zaman daha hafif!"},
+ {a:{name:"Cinnamon Roll",portion:"1 adet (120g)",img:"https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=200&h=200&fit=crop",emoji:"🍩",kcal:420},b:{name:"Muffin",portion:"1 adet (100g)",img:"https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=200&h=200&fit=crop",emoji:"🧁",kcal:350},fact:"Cinnamon roll'daki krema sosu ve buyuk boyutu muffin'den daha kalorili yapiyor!"},
+ {a:{name:"Gazpacho",portion:"1 kase (250ml)",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop",emoji:"🍅",kcal:70},b:{name:"Clam Chowder",portion:"1 kase (250ml)",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop",emoji:"🍲",kcal:300},fact:"Gazpacho soguk sebze corbasi — clam chowder'in kremasi kaloriyi 4 katina cikariyor!"},
+ {a:{name:"Burrata",portion:"100g",img:"https://images.unsplash.com/photo-1579523616426-d79ae41cf2e8?w=200&h=200&fit=crop",emoji:"🧀",kcal:300},b:{name:"Feta Peynir",portion:"100g",img:"https://images.unsplash.com/photo-1579523616426-d79ae41cf2e8?w=200&h=200&fit=crop",emoji:"🧀",kcal:260},fact:"Burratanin kremali ici feta peynirinden daha fazla yag ve kalori iceriyor!"},
+ {a:{name:"Fish Taco",portion:"2 adet (200g)",img:"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200&h=200&fit=crop",emoji:"🌮",kcal:350},b:{name:"Beef Taco",portion:"2 adet (200g)",img:"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200&h=200&fit=crop",emoji:"🌮",kcal:420},fact:"Balikli taco kirmizi etli versiyondan %17 daha az kalorili!"},
+ {a:{name:"Matcha Latte",portion:"1 bardak (350ml)",img:"https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=200&h=200&fit=crop",emoji:"🍵",kcal:200},b:{name:"Cappuccino",portion:"1 bardak (250ml)",img:"https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=200&h=200&fit=crop",emoji:"☕",kcal:120},fact:"Matcha latte daha buyuk porsiyon ve sut ile cappuccino'dan kalorili!"}
+];
+
+let currentTab = 'tr';
+let activePairs = [];
+let gamePairs = [];
+let currentQ = 0;
 let score = 0;
-let gameStarted = false;
+
+function selectTab(tab) {
+ currentTab = tab;
+ document.getElementById('tabTR').classList.toggle('active', tab === 'tr');
+ document.getElementById('tabWorld').classList.toggle('active', tab === 'world');
+ document.getElementById('tabInfo').textContent = tab === 'tr'
+  ? '50 Turk yemegi arasinda 20 rastgele karsilastirma'
+  : '50 dunya yemegi arasinda 20 rastgele karsilastirma';
+}
+
+function shuffle(arr) {
+ for (let i = arr.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+ }
+ return arr;
+}
 
 function startGame() {
- gameStarted = true;
- currentPair = 0;
+ activePairs = currentTab === 'tr' ? [...turkishPairs] : [...worldPairs];
+ gamePairs = shuffle(activePairs).slice(0, 20);
+ currentQ = 0;
  score = 0;
  document.getElementById('introScreen').style.display = 'none';
  document.getElementById('progressWrapper').style.display = 'block';
  document.getElementById('finalScreen').classList.remove('active');
  showPair();
- gtag('event', 'kalori_game_start');
+ gtag('event', 'kalori_game_start', {category: currentTab});
+}
+
+function foodVisual(item) {
+ if (item.img) {
+  return '<img class="food-img" src="' + item.img + '" alt="' + item.name + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">' +
+   '<span class="food-emoji" style="display:none">' + item.emoji + '</span>';
+ }
+ return '<span class="food-emoji">' + item.emoji + '</span>';
 }
 
 function showPair() {
  updateProgress();
- const p = pairs[currentPair];
- const container = document.getElementById('questionContainer');
- container.innerHTML = `
-  <div class="kk-question active">
-   <h2 class="question-title">Hangisi daha kalorili? 🤔</h2>
-   <div class="cards-row">
-    <div class="food-card" id="cardA" onclick="guess('a')">
-     <span class="food-emoji">${p.a.emoji}</span>
-     <div class="food-name">${p.a.name}</div>
-     <div class="food-portion">${p.a.portion}</div>
-     <button class="btn-guess">Bu mu? 👆</button>
-     <div class="calorie-reveal" id="kcalA">${p.a.kcal} kcal</div>
-     <div class="calorie-label" id="labelA"></div>
-    </div>
-    <div class="vs-badge">VS</div>
-    <div class="food-card" id="cardB" onclick="guess('b')">
-     <span class="food-emoji">${p.b.emoji}</span>
-     <div class="food-name">${p.b.name}</div>
-     <div class="food-portion">${p.b.portion}</div>
-     <button class="btn-guess">Bu mu? 👆</button>
-     <div class="calorie-reveal" id="kcalB">${p.b.kcal} kcal</div>
-     <div class="calorie-label" id="labelB"></div>
-    </div>
-   </div>
-   <div class="result-banner" id="resultBanner">
-    <div class="result-verdict" id="resultVerdict"></div>
-    <div class="fun-fact" id="funFact"></div>
-    <button class="btn-next" id="btnNext" onclick="nextPair()">Sonraki →</button>
-   </div>
-  </div>`;
+ const p = gamePairs[currentQ];
+ document.getElementById('questionContainer').innerHTML =
+  '<div style="animation:slideUp 0.3s ease">' +
+  '<h2 class="question-title">Hangisi daha kalorili?</h2>' +
+  '<div class="cards-row">' +
+  '<div class="food-card" id="cardA" onclick="guess(\'a\')">' + foodVisual(p.a) +
+  '<div class="food-name">' + p.a.name + '</div><div class="food-portion">' + p.a.portion + '</div>' +
+  '<button class="btn-guess">Bu daha kalorili</button>' +
+  '<div class="calorie-reveal" id="kcalA">' + p.a.kcal + ' kcal</div>' +
+  '<div class="calorie-label" id="labelA"></div></div>' +
+  '<div class="vs-badge">VS</div>' +
+  '<div class="food-card" id="cardB" onclick="guess(\'b\')">' + foodVisual(p.b) +
+  '<div class="food-name">' + p.b.name + '</div><div class="food-portion">' + p.b.portion + '</div>' +
+  '<button class="btn-guess">Bu daha kalorili</button>' +
+  '<div class="calorie-reveal" id="kcalB">' + p.b.kcal + ' kcal</div>' +
+  '<div class="calorie-label" id="labelB"></div></div></div>' +
+  '<div class="result-banner" id="resultBanner">' +
+  '<div class="result-verdict" id="resultVerdict"></div>' +
+  '<div class="fun-fact" id="funFact"></div>' +
+  '<button class="btn-next" id="btnNext" onclick="nextPair()">' + (currentQ === 19 ? 'Sonuclari Gor' : 'Sonraki →') + '</button></div></div>';
 }
 
 function guess(choice) {
- const p = pairs[currentPair];
+ const p = gamePairs[currentQ];
  const actual = p.a.kcal >= p.b.kcal ? 'a' : 'b';
  const correct = choice === actual;
  if (correct) score++;
 
- const cardA = document.getElementById('cardA');
- const cardB = document.getElementById('cardB');
- cardA.classList.add('revealed');
- cardB.classList.add('revealed');
+ const cA = document.getElementById('cardA'), cB = document.getElementById('cardB');
+ cA.classList.add('revealed'); cB.classList.add('revealed');
 
  if (p.a.kcal >= p.b.kcal) {
-  cardA.classList.add('loser');
-  cardB.classList.add('winner');
-  document.getElementById('labelA').textContent = '⬆️ Daha kalorili';
-  document.getElementById('labelB').textContent = '✅ Daha az';
+  cA.classList.add('loser'); cB.classList.add('winner');
+  document.getElementById('labelA').textContent = 'Daha kalorili';
+  document.getElementById('labelB').textContent = 'Daha az';
  } else {
-  cardB.classList.add('loser');
-  cardA.classList.add('winner');
-  document.getElementById('labelB').textContent = '⬆️ Daha kalorili';
-  document.getElementById('labelA').textContent = '✅ Daha az';
+  cB.classList.add('loser'); cA.classList.add('winner');
+  document.getElementById('labelB').textContent = 'Daha kalorili';
+  document.getElementById('labelA').textContent = 'Daha az';
  }
 
- const verdict = document.getElementById('resultVerdict');
- verdict.textContent = correct ? '✅ Doğru bildin!' : '❌ Yanlış tahmin!';
- verdict.className = 'result-verdict ' + (correct ? 'correct' : 'wrong');
-
+ const v = document.getElementById('resultVerdict');
+ v.textContent = correct ? 'Dogru bildin!' : 'Yanlis tahmin!';
+ v.className = 'result-verdict ' + (correct ? 'correct' : 'wrong');
  document.getElementById('funFact').textContent = p.fact;
  document.getElementById('resultBanner').classList.add('show');
-
- if (currentPair === pairs.length - 1) {
-  document.getElementById('btnNext').textContent = 'Sonuçları Gör →';
- }
-
- document.getElementById('scoreText').textContent = score + ' doğru';
- gtag('event', 'kalori_guess', { pair: currentPair + 1, correct: correct, food_a: p.a.name, food_b: p.b.name });
+ document.getElementById('scoreText').textContent = score + ' dogru';
+ gtag('event','kalori_guess',{pair:currentQ+1,correct:correct,food_a:p.a.name,food_b:p.b.name});
 }
 
 function nextPair() {
- currentPair++;
- if (currentPair >= pairs.length) {
-  showFinal();
- } else {
-  showPair();
- }
+ currentQ++;
+ if (currentQ >= 20) showFinal();
+ else showPair();
 }
 
 function updateProgress() {
- const pct = ((currentPair) / pairs.length) * 100;
+ const pct = (currentQ / 20) * 100;
  document.getElementById('progressFill').style.width = pct + '%';
- document.getElementById('progressText').textContent = (currentPair + 1) + ' / ' + pairs.length;
+ document.getElementById('progressText').textContent = (currentQ + 1) + ' / 20';
 }
 
 function showFinal() {
  document.getElementById('questionContainer').innerHTML = '';
  document.getElementById('progressFill').style.width = '100%';
  document.getElementById('progressText').textContent = '20 / 20';
-
  const f = document.getElementById('finalScreen');
  f.classList.add('active');
  document.getElementById('finalScore').textContent = score;
 
  let title, msg;
- if (score >= 15) { title = 'Kalori uzmanısın! 🏆'; msg = 'Tebrikler! Besin değerlerini çok iyi biliyorsun.'; }
- else if (score >= 10) { title = 'Fena değil! 😮'; msg = 'İyi gidiyorsun ama bazı sürprizler var, değil mi?'; }
- else { title = 'Şaşırtıcı, değil mi? 💡'; msg = 'Çoğu insan da böyle şaşırıyor — merak etme!'; }
+ if (score >= 15) { title = 'Kalori uzmanisin!'; msg = 'Tebrikler! Besin degerlerini cok iyi biliyorsun.'; }
+ else if (score >= 10) { title = 'Fena degil!'; msg = 'Iyi gidiyorsun ama bazi surprizler var, degil mi?'; }
+ else { title = 'Sasirtici, degil mi?'; msg = 'Cogu insan da boyle sasiriyor — merak etme!'; }
 
  document.getElementById('finalTitle').textContent = title;
  document.getElementById('finalMsg').textContent = msg;
 
- const shareText = `Kalori Karşılaştırıcı'da ${score}/20 doğru bildim! Sen de dene 👉 uzunyasa.com/pages/araclar/kalori-karsilastirici.html`;
- const shareEncoded = encodeURIComponent(shareText);
-
- document.getElementById('shareWA').href = 'https://wa.me/?text=' + shareEncoded;
- document.getElementById('shareTW').href = 'https://twitter.com/intent/tweet?text=' + shareEncoded;
-
- gtag('event', 'kalori_game_complete', { score: score, total: 20 });
+ const tabLabel = currentTab === 'tr' ? 'Turk Mutfagi' : 'Dunya Mutfagi';
+ const shareText = 'Kalori Karsilastirici (' + tabLabel + ') ' + score + '/20 dogru bildim! Sen de dene: uzunyasa.com/pages/araclar/kalori-karsilastirici.html';
+ const enc = encodeURIComponent(shareText);
+ document.getElementById('shareWA').href = 'https://wa.me/?text=' + enc;
+ document.getElementById('shareTW').href = 'https://twitter.com/intent/tweet?text=' + enc;
+ gtag('event','kalori_game_complete',{score:score,total:20,category:currentTab});
 }
 
 function copyShare() {
- const shareText = `Kalori Karşılaştırıcı'da ${score}/20 doğru bildim! Sen de dene 👉 uzunyasa.com/pages/araclar/kalori-karsilastirici.html`;
- navigator.clipboard.writeText(shareText).then(() => {
-  const btn = document.getElementById('shareCopy');
-  btn.textContent = '✅ Kopyalandı!';
-  setTimeout(() => btn.textContent = '📋 Kopyala', 2000);
+ const tabLabel = currentTab === 'tr' ? 'Turk Mutfagi' : 'Dunya Mutfagi';
+ const t = 'Kalori Karsilastirici (' + tabLabel + ') ' + score + '/20 dogru bildim! Sen de dene: uzunyasa.com/pages/araclar/kalori-karsilastirici.html';
+ navigator.clipboard.writeText(t).then(() => {
+  const b = document.getElementById('shareCopy');
+  b.textContent = 'Kopyalandi!';
+  setTimeout(() => b.textContent = 'Kopyala', 2000);
  });
 }
 
 function restartGame() {
- startGame();
- window.scrollTo({ top: 0, behavior: 'smooth' });
+ document.getElementById('introScreen').style.display = 'block';
+ document.getElementById('progressWrapper').style.display = 'none';
+ document.getElementById('finalScreen').classList.remove('active');
+ document.getElementById('questionContainer').innerHTML = '';
+ window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
 <script src="../../scripts/animations.js"></script>
