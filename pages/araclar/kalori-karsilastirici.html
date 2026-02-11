@@ -309,7 +309,7 @@ function showPair() {
   '<div class="result-banner" id="resultBanner">' +
   '<div class="result-verdict" id="resultVerdict"></div>' +
   '<div class="fun-fact" id="funFact"></div>' +
-  '<button class="btn-next" id="btnNext" onclick="nextPair()">' + (currentQ === 19 ? 'Sonuclari Gor' : 'Sonraki →') + '</button></div></div>';
+  '</div></div>';
 }
 
 function guess(choice) {
@@ -338,6 +338,7 @@ function guess(choice) {
  document.getElementById('resultBanner').classList.add('show');
  document.getElementById('scoreText').textContent = score + ' dogru';
  gtag('event','kalori_guess',{pair:currentQ+1,correct:correct,food_a:p.a.name,food_b:p.b.name});
+ setTimeout(nextPair, 2500);
 }
 
 function nextPair() {
