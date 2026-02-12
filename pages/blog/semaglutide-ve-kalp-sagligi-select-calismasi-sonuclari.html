@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semaglutide ve Kalp Sağlığı: SELECT Çalışması Sonuçları | UzunYaşa Blog</title>
+    <meta name="description" content="SELECT çalışması sonuçları: Semaglutide'nin kalp-damar hastalıkları üzerindeki etkisi ve kilo verme ile kardiyovasküler sağlık arasındaki bağlantı.">
+    <meta property="og:title" content="Semaglutide ve Kalp Sağlığı: SELECT Çalışması Sonuçları">
+    <meta property="og:description" content="SELECT çalışması sonuçları: Semaglutide'nin kalp-damar hastalıkları üzerindeki etkisi ve kilo verme ile kardiyovasküler sağlık arasındaki bağlantı.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&h=600&fit=crop">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-02-12">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #195157;
+            --accent: #E8963E;
+            --text: #1a1a1a;
+            --gray: #6b7280;
+            --bg: #FAF9F7;
+            --white: #FFFFFF;
+            --border: #e5e7eb;
+            --category-color: #8B5CF6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.8; background: var(--bg); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo-img { height: 60px; }
+        .back-link { color: var(--primary); text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+        article { max-width: 750px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+        .post-category { display: inline-block; background: #8B5CF620; color: #8B5CF6; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .post-meta { color: var(--gray); font-size: 0.9rem; display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .featured-image { width: 100%; height: 350px; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; }
+        .featured-image img { width: 100%; height: 100%; object-fit: cover; }
+        .post-content { font-size: 1.1rem; }
+        .post-content h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; color: var(--primary); }
+        .post-content h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+        .post-content p { margin-bottom: 1.25rem; }
+        .post-content ul, .post-content ol { margin: 1rem 0 1.5rem 1.5rem; }
+        .post-content li { margin-bottom: 0.5rem; }
+        .post-content blockquote { border-left: 4px solid var(--accent); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--gray); }
+        .post-content strong { color: var(--primary); }
+        .key-points { background: var(--white); border: 2px solid var(--border); border-radius: 12px; padding: 1.5rem 1.5rem 1.5rem 2rem; margin: 2.5rem 0; }
+        .key-points h4 { color: var(--primary); margin-bottom: 1rem; font-size: 1.1rem; }
+        .key-points ul { margin: 0; }
+        .key-points li { margin-bottom: 0.5rem; }
+        .sources { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .sources h4 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--primary); }
+        .sources ul { list-style: none; margin: 0; padding: 0; }
+        .sources li { font-size: 0.9rem; color: var(--gray); margin-bottom: 0.5rem; }
+        .sources a { color: var(--primary); }
+        .disclaimer { background: #FEF3C7; border: 1px solid #F59E0B; border-radius: 8px; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; color: #92400E; }
+        .share-section { margin-top: 3rem; padding: 2rem; background: var(--white); border-radius: 12px; text-align: center; border: 1px solid var(--border); }
+        .share-buttons { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+        .share-btn { padding: 0.65rem 1.25rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem; color: white; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0A66C2; }
+        .share-btn.whatsapp { background: #25D366; }
+        .cta-section { margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--primary), #2a6b73); border-radius: 12px; text-align: center; color: white; }
+        .cta-section h3 { margin-bottom: 0.5rem; }
+        .cta-section p { opacity: 0.9; margin-bottom: 1rem; }
+        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 0.875rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        footer { background: var(--text); color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
+        footer p { opacity: 0.7; font-size: 0.9rem; }
+        @media (max-width: 640px) { h1 { font-size: 1.65rem; } article { padding: 5.5rem 1rem 2rem; } .featured-image { height: 220px; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
+            <a href="../blog.html" class="back-link">← Blog'a Dön</a>
+        </div>
+    </header>
+
+    <article>
+        <span class="post-category">🧬 Bilimsel Araştırmalar</span>
+        <h1>Semaglutide ve Kalp Sağlığı: SELECT Çalışması Sonuçları</h1>
+        <div class="post-meta">
+            <span>📅 12 Şubat 2026</span>
+            <span>⏱️ 8 dk okuma</span>
+        </div>
+
+        <div class="featured-image">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&h=600&fit=crop" alt="Semaglutide ve Kalp Sağlığı: SELECT Çalışması Sonuçları">
+        </div>
+
+        <div class="post-content">
+            <p># Semaglutide ve Kalp Sağlığı: SELECT Çalışması Sonuçları</p><p>2024 yılında tıp dünyasını heyecanlandıran SELECT çalışması, semaglutide'nin (Wegovy/Ozempic) sadece kilo verme konusunda değil, kalp sağlığı açısından da önemli faydalar sağladığını gösterdi. Bu çalışmanın sonuçları, obezite tedavisinde yeni bir dönüm noktası olarak kabul ediliyor.</p><p><h2>SELECT Çalışması Nedir?</h2></p><p>SELECT (Semaglutide Effects on Cardiovascular Outcomes in People with Overweight or Obesity), 17.604 katılımcı ile gerçekleştirilen randomize kontrollü bir çalışmadır. Çalışma, New England Journal of Medicine'da yayınlandı ve şu özelliklere sahiptir:</p><p><ul><li><strong>Katılımcı profili</strong>: 45 yaş üstü, obez veya fazla kilolu kişiler</li></p>
+<li><strong>Temel özellik</strong>: Diyabet olmayan ancak kardiyovasküler hastalık riski yüksek bireyler</li>
+<li><strong>Süre</strong>: Ortalama 3.3 yıllık takip</li>
+<li><strong>Yöntem</strong>: Çift kör, plasebo kontrollü</li>
+<p></ul></p>
+<h2>Çalışmanın Temel Bulguları</h2></p><p><h3>Kardiyovasküler Olaylar</h3></p><p>Semaglutide kullanan grupta plasebo grubuna göre:</p><p><ul><li><strong>%20 azalma</strong> ana kardiyovasküler olaylarda (MACE)</li>
+<li><strong>Kalp krizi riski</strong> %28 azaldı</li>
+<li><strong>İnme riski</strong> %7 azaldı</li>
+<li><strong>Kardiyovasküler ölüm</strong> %15 azaldı</li>
+<p></ul></p>
+<h3>Kilo Kaybı Sonuçları</h3></p><p><ul><li>Ortalama <strong>%9.4 kilo kaybı</strong> (plaseboda %0.9)</li>
+<li>Katılımcıların <strong>%67'si</strong> %5'ten fazla kilo verdi</li>
+<li><strong>%35'i</strong> %15'ten fazla kilo kaybetti</li>
+<p></ul></p>
+<h2>Semaglutide Nasıl Çalışıyor?</h2></p><p><h3>GLP-1 Reseptör Agonisti</h3></p><p>Semaglutide, doğal hormon GLP-1'i taklit eder:</p><p><ul><li><strong>İnsülin salımını</strong> artırır (sadece kan şekeri yüksekken)</li>
+<li><strong>Glukagon salımını</strong> azaltır</li>
+<li><strong>Mide boşalmasını</strong> yavaşlatır</li>
+<li><strong>Beyin'deki tokluk merkezini</strong> aktive eder</li>
+<p></ul></p>
+<h3>Kardiyovasküler Koruma Mekanizmaları</h3></p><p>1. <strong>Direkt etkiler</strong>:
+<p>   - Kalp kas hücrelerindeki GLP-1 reseptörleri üzerinden</p>
+<p>   - Anti-inflamatuar etkiler</p>
+<p>   - Endotel fonksiyonunu iyileştirme</p><p>2. <strong>İndirekt etkiler</strong>:</p>
+<p>   - Kilo kaybı</p>
+<p>   - Kan basıncı düşüşü</p>
+<p>   - Trigliserit seviyelerinde azalma</p><p><h2>Kilo Kaybının Kalp Sağlığına Etkileri</h2></p><p><h3>Metabolik İyileşmeler</h3></p><p><ul><li><strong>Kan basıncı</strong>: Ortalama 7.6 mmHg sistolik azalma</li></p>
+<li><strong>Trigliseritler</strong>: %19.7 azalma</li>
+<li><strong>HDL kolesterol</strong>: %6.2 artış</li>
+<li><strong>C-reaktif protein</strong>: %38.5 azalma</li>
+<p></ul></p>
+<h3>Risk Faktörlerinde Düzelme</h3></p><p><ul><li><strong>Obstrüktif uyku apnesi</strong> semptomlarında azalma</li>
+<li><strong>Diyabet gelişim riski</strong> %73 azaldı</li>
+<li><strong>Kan şekeri kontrol</strong> parametrelerinde iyileşme</li>
+<p></ul></p>
+<h2>Türkiye'deki Durum ve Uygulanabilirlik</h2></p><p><h3>Erişim ve Maliyet</h3></p><p><ul><li>Türkiye'de <strong>Ozempic</strong> (diyabet endikasyonu) mevcut</li>
+<li><strong>Wegovy</strong> (obezite tedavisi) henüz ruhsatlandırılmadı</li>
+<li>SGK kapsamında kullanım kriterleri var</li>
+<li>Özel ödeme ile temin mümkün</li>
+<p></ul></p>
+<h3>Uygun Hasta Profili</h3></p><p><ul><li><strong>VKİ 30 kg/m² üzeri</strong> obez bireyler</li>
+<li><strong>VKİ 27 kg/m² üzeri</strong> + komorbidite varlığı</li>
+<li><strong>Kardiyovasküler risk faktörleri</strong> bulunan kişiler</li>
+<li><strong>Diyabet olmayan</strong> obez bireyler</li>
+<p></ul></p>
+<h2>Yan Etkiler ve Güvenlik</h2></p><p><h3>Sık Görülen Yan Etkiler</h3></p><p><ul><li><strong>Gastrointestinal</strong>: Bulantı (%58), kusma (%24), diyare (%30)</li>
+<li><strong>Genelde hafif-orta</strong> şiddette</li>
+<li><strong>İlk haftalarda</strong> daha sık görülür</li>
+<li><strong>Doz artırımıyla</strong> azalır</li>
+<p></ul></p>
+<h3>Ciddi Yan Etkiler</h3></p><p><ul><li><strong>Pankreatit</strong> riski (nadir)</li>
+<li><strong>Safra kesesi</strong> problemleri</li>
+<li><strong>Böbrek fonksiyon</strong> bozukluğu</li>
+<li><strong>Tiroid medüller kanser</strong> riski (deneysel)</li>
+<p></ul></p>
+<h2>Pratik Uygulama Önerileri</h2></p><p><h3>Tedavi Başlamadan Önce</h3></p><p>1. <strong>Kapsamlı değerlendirme</strong>:
+<p>   - VKİ hesaplama</p>
+<p>   - Komorbidite tarama</p>
+<p>   - Kardiyovasküler risk değerlendirmesi</p><p>2. <strong>Laboratuvar tetkikleri</strong>:</p>
+<p>   - Açlık kan şekeri</p>
+<p>   - HbA1c</p>
+<p>   - Lipid profili</p>
+<p>   - Böbrek fonksiyon testleri</p><p><h3>Tedavi Süreci</h3></p><p><ul><li><strong>Başlangıç dozu</strong>: 0.25 mg haftalık</li></p>
+<li><strong>Doz artırımı</strong>: 4 hafta arayla</li>
+<li><strong>Hedef doz</strong>: 2.4 mg haftalık</li>
+<li><strong>Düzenli takip</strong>: Aylık kontroller</li>
+<p></ul></p>
+<h3>Yaşam Tarzı Değişiklikleri</h3></p><p><ul><li><strong>Beslenme danışmanlığı</strong> mutlaka alın</li>
+<li><strong>Düzenli egzersiz</strong> programı uygulayın</li>
+<li><strong>Davranış değişikliği</strong> desteği arayın</li>
+<li><strong>Sosyal destek</strong> sistemlerinden faydalanın</li>
+<p></ul></p>
+<h2>Kimler İçin Uygun Değil?</h2></p><p><h3>Kesin Kontrendikasyonlar</h3></p><p><ul><li><strong>Tip 1 diyabet</strong></li>
+<li><strong>Gebelik ve emzirme</strong> dönemi</li>
+<li><strong>Diyabetik ketoasidoz</strong> öyküsü</li>
+<li><strong>Ciddi gastroparezi</strong></li>
+<p></ul></p>
+<h3>Dikkatli Kullanım Gereken Durumlar</h3></p><p><ul><li><strong>Böbrek yetmezliği</strong></li>
+<li><strong>Karaciğer hastalığı</strong></li>
+<li><strong>Pankreatit öyküsü</strong></li>
+<li><strong>Safra kesesi hastalığı</strong></li>
+<p></ul></p>
+<h2>Ekonomik Değerlendirme</h2></p><p><h3>Maliyet-Etkinlik</h3></p><p><ul><li><strong>Yüksek ilaç maliyeti</strong> vs. <strong>uzun vadeli sağlık faydaları</strong></li>
+<li><strong>Kardiyovasküler olayların</strong> önlenmesi</li>
+<li><strong>Diyabet gelişiminin</strong> engellenmesi</li>
+<li><strong>Genel sağlık harcamalarında</strong> azalma potansiyeli</li>
+<p></ul></p>
+<h2>Gelecek Perspektifi</h2></p><p><h3>Devam Eden Araştırmalar</h3></p><p><ul><li><strong>FLOW çalışması</strong>: Böbrek hastalığı üzerine etkiler</li>
+<li><strong>Alzheimer hastalığı</strong> araştırmaları</li>
+<li><strong>Karaciğer yağlanması</strong> çalışmaları</li>
+<li><strong>Kanser riski</strong> değerlendirmeleri</li>
+<p></ul></p>
+<h3>Türkiye'deki Beklentiler</h3></p><p><ul><li><strong>Wegovy ruhsatlandırması</strong> beklentisi</li>
+<li><strong>SGK kapsamına</strong> alınma süreci</li>
+<li><strong>Obezite tedavi merkezleri</strong> gelişimi</li>
+<li><strong>Multidisipliner yaklaşım</strong> yaygınlaşması</li>
+<p></ul></p>
+<h2>Sonuç ve Öneriler</h2></p><p>SELECT çalışması, semaglutide'nin obezite tedavisinde sadece kilo verme değil, kardiyovasküler koruma açısından da önemli faydalar sağladığını kanıtladı. Bu sonuçlar, obezite tedavisine yaklaşımımızı değiştirecek niteliktedir.</p><p><strong>Unutmayın ki</strong>, bu ilaç mucizevi bir çözüm değildir. Başarılı bir tedavi için:</p><p><ul><li><strong>Doktorunuzla detaylı görüşün</strong></li>
+<li><strong>Yaşam tarzı değişikliklerini</strong> ihmal etmeyin</li>
+<li><strong>Düzenli takip</strong> yaptırın</li>
+<li><strong>Yan etkileri</strong> ciddiye alın</li>
+<p></ul></p>
+<p>Obezite ve kardiyovasküler sağlık konularında uzman hekiminizle görüşerek size en uygun tedavi planını belirleyin.</p>
+        </div>
+
+        <div class="key-points">
+            <h4>📌 Önemli Noktalar</h4>
+            <ul><li>SELECT çalışması semaglutide'nin kardiyovasküler olayları %20 azalttığını gösterdi</li>
+<li>Ortalama %9.4 kilo kaybı ile birlikte kalp sağlığında önemli iyileşmeler sağlandı</li>
+<li>Tedavi öncesi mutlaka uzman hekim değerlendirmesi ve düzenli takip gereklidir</li></ul>
+        </div>
+
+        <div class="disclaimer">
+            ⚠️ <strong>Önemli:</strong> Bu içerik sadece bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. Herhangi bir tedaviye başlamadan önce mutlaka doktorunuza danışın.
+        </div>
+
+        <div class="sources">
+            <h4>📚 Kaynaklar</h4>
+            <ul><li><a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2307563" target="_blank" rel="noopener">Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes - NEJM</a></li>
+<li><a href="https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.123.067747" target="_blank" rel="noopener">SELECT Trial Results - American Heart Association</a></li>
+<li><a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(23)02293-6" target="_blank" rel="noopener">GLP-1 Receptor Agonists and Cardiovascular Benefits - Lancet</a></li></ul>
+        </div>
+
+        <div class="share-section">
+            <p><strong>Bu yazıyı paylaşın</strong></p>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=Semaglutide%20ve%20Kalp%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%3A%20SELECT%20%C3%87al%C4%B1%C5%9Fmas%C4%B1%20Sonu%C3%A7lar%C4%B1" class="share-btn twitter" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/" class="share-btn linkedin" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/?text=Semaglutide%20ve%20Kalp%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%3A%20SELECT%20%C3%87al%C4%B1%C5%9Fmas%C4%B1%20Sonu%C3%A7lar%C4%B1" class="share-btn whatsapp" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Kişisel sağlık değerlendirmenizi yapın</h3>
+            <p>2 dakikada size özel sağlık önerileri alın</p>
+            <a href="../test.html" class="cta-btn">Teste Başla →</a>
+        </div>
+    </article>
+
+    <footer><p>© 2025 UzunYaşa. Tüm hakları saklıdır.</p></footer>
+</body>
+</html>
