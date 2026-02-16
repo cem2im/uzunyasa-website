@@ -1,5 +1,24 @@
 [
   {
+    "slug": "semaglutid-ve-kalp-sagligi-select-calismasi-bulgulari",
+    "title": "Semaglutid ve Kalp Sağlığı: SELECT Çalışması Bulguları",
+    "description": "Semaglutid'in kalp hastalıkları üzerindeki etkilerini araştıran SELECT çalışmasının sonuçları ve Türkiye'deki uygulamaları.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-16",
+    "readTime": 8,
+    "tags": [
+      "semaglutid",
+      "kalp-sagligi",
+      "obezite-tedavisi",
+      "select-calismasi",
+      "kardiyovaskuler-koruma"
+    ],
+    "priority": "urgent"
+  },
+  {
     "slug": "semaglutide-ve-kalp-sagligi-select-calismasi-neler-ortaya-ko",
     "title": "Semaglutide ve Kalp Sağlığı: SELECT Çalışması Neler Ortaya Koydu?",
     "description": "SELECT çalışması semaglutide'nin kalp sağlığına etkilerini açığa çıkardı. Diyabet olmayan hastalarda kardiyovasküler risklerde önemli azalmalar tespit edildi.",
