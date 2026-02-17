@@ -1,5 +1,25 @@
 [
   {
+    "slug": "insulin-direnci-belirtiler-tani-ve-tedavi-rehberi-2024",
+    "title": "İnsülin Direnci: Belirtiler, Tanı ve Tedavi Rehberi 2024",
+    "description": "İnsülin direnci nedir, belirtileri nelerdir? Güncel tanı yöntemleri ve etkili tedavi seçenekleri hakkında bilimsel bilgiler.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-17",
+    "readTime": 8,
+    "tags": [
+      "insülin-direnci",
+      "diyabet",
+      "metabolik-sendrom",
+      "beslenme",
+      "egzersiz",
+      "tanı"
+    ],
+    "priority": "high"
+  },
+  {
     "slug": "semaglutid-ve-kalp-sagligi-select-calismasi-bulgulari",
     "title": "Semaglutid ve Kalp Sağlığı: SELECT Çalışması Bulguları",
     "description": "Semaglutid'in kalp hastalıkları üzerindeki etkilerini araştıran SELECT çalışmasının sonuçları ve Türkiye'deki uygulamaları.",
