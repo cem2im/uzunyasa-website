@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<script src="/scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahur & İftar Öğün Planlayıcısı — Ramazan Beslenme Rehberi | UzunYaşa</title>
+<meta name="description" content="Ramazan ayına özel kişiselleştirilmiş sahur ve iftar öğün planı oluşturun. Kalori, makro hesaplama ve Türk mutfağından sağlıklı yemek önerileri.">
+<link rel="canonical" href="https://uzunyasa.com/pages/araclar/sahur-iftar-planlayici.html">
+<meta property="og:title" content="Sahur & İftar Öğün Planlayıcısı — Ramazan Beslenme Rehberi | UzunYaşa">
+<meta property="og:description" content="Kişiselleştirilmiş Ramazan öğün planı: sahur ve iftar için kalori, makro ve Türk yemek önerileri.">
+<meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+<meta property="og:url" content="https://uzunyasa.com/pages/araclar/sahur-iftar-planlayici.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0D7377;--dark:#195157;--accent:#E8963E;
+  --protein:#E8963E;--fat:#dc2626;--carb:#2D9F4F;--water:#3b82f6;
+  --bg:#f8fafa;--card:#fff;
+  --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;
+  --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-900:#111827;
+  --radius:16px;--shadow:0 4px 24px rgba(0,0,0,.08);
+  --ramadan-gold:#E8963E;--ramadan-deep:#1a1a2e;--ramadan-purple:#16213e;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--gray-700);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.playfair{font-family:'Playfair Display',serif}
+
+/* Header */
+.site-header{background:#fff;border-bottom:1px solid var(--gray-200);padding:.875rem 1.5rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.site-header a{text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark)}
+.logo-text span{color:var(--accent)}
+.back-link{font-size:.875rem;color:var(--primary);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.25rem}
+
+/* Main */
+.main-wrap{max-width:800px;margin:0 auto;padding:1rem;width:100%;flex:1}
+
+/* Hero */
+.hero{text-align:center;padding:2.5rem 1rem 2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(13,115,119,.04),rgba(232,150,62,.06));border-radius:var(--radius);z-index:0}
+.hero>*{position:relative;z-index:1}
+.hero-icon{font-size:3.5rem;margin-bottom:.75rem;display:block;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero h1{font-family:'Playfair Display',serif;font-size:2rem;color:var(--dark);margin-bottom:.5rem;line-height:1.2}
+.hero p{color:var(--gray-500);max-width:500px;margin:0 auto;font-size:.95rem}
+
+/* Cards */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:1.25rem;transition:transform .2s}
+.card-header{padding:1.25rem 1.5rem;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:.75rem}
+.card-header .icon{font-size:1.5rem}
+.card-header h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--dark);flex:1}
+.card-header .step{background:var(--primary);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0}
+.card-body{padding:1.25rem 1.5rem}
+
+/* Form elements */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.35rem}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:.8rem;font-weight:600;color:var(--gray-600);text-transform:uppercase;letter-spacing:.3px}
+.form-input{padding:.7rem 1rem;border:2px solid var(--gray-200);border-radius:12px;font-size:.95rem;font-family:inherit;transition:border-color .2s;background:#fff;color:var(--gray-700);width:100%}
+.form-input:focus{outline:none;border-color:var(--primary)}
+select.form-input{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%239ca3af'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+
+/* Checkboxes */
+.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.checkbox-item{display:flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border:2px solid var(--gray-200);border-radius:10px;cursor:pointer;transition:all .2s;font-size:.85rem}
+.checkbox-item:hover{border-color:var(--primary);background:rgba(13,115,119,.03)}
+.checkbox-item.checked{border-color:var(--primary);background:rgba(13,115,119,.06)}
+.checkbox-item input{display:none}
+.checkbox-box{width:18px;height:18px;border:2px solid var(--gray-300);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.checkbox-item.checked .checkbox-box{background:var(--primary);border-color:var(--primary)}
+.checkbox-item.checked .checkbox-box::after{content:'✓';color:#fff;font-size:.7rem;font-weight:700}
+
+/* Goal buttons */
+.goal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.goal-btn{padding:1rem .5rem;border:2px solid var(--gray-200);border-radius:12px;background:#fff;cursor:pointer;text-align:center;transition:all .2s;font-family:inherit}
+.goal-btn:hover{border-color:var(--primary);transform:translateY(-2px)}
+.goal-btn.active{border-color:var(--primary);background:rgba(13,115,119,.06);box-shadow:0 0 0 3px rgba(13,115,119,.1)}
+.goal-btn .emoji{font-size:1.5rem;display:block;margin-bottom:.25rem}
+.goal-btn .label{font-size:.8rem;font-weight:600;color:var(--dark)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 2.5rem;border-radius:99px;border:none;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--dark);transform:translateY(-1px)}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-outline{background:transparent;border:2px solid var(--primary);color:var(--primary)}.btn-outline:hover{background:var(--primary);color:#fff}
+.btn-sm{padding:.6rem 1.25rem;font-size:.85rem}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+.btn-area{text-align:center;padding:1rem 0}
+
+/* Results section */
+#resultsSection{display:none}
+#resultsSection.show{display:block;animation:slideUp .5s ease}
+
+/* Summary banner */
+.summary-banner{background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;position:relative;overflow:hidden}
+.summary-banner::before{content:'☪';position:absolute;right:-10px;top:-10px;font-size:6rem;opacity:.08}
+.summary-banner h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:1rem}
+.summary-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.stat-item{text-align:center}
+.stat-value{font-size:1.5rem;font-weight:800;line-height:1}
+.stat-label{font-size:.7rem;opacity:.8;margin-top:.2rem;text-transform:uppercase;letter-spacing:.5px}
+
+/* Macro bars */
+.macro-bars{display:flex;flex-direction:column;gap:.6rem;margin:1rem 0}
+.macro-bar-row{display:flex;align-items:center;gap:.75rem}
+.macro-bar-label{width:70px;font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:.35rem}
+.macro-bar-track{flex:1;height:10px;background:var(--gray-100);border-radius:99px;overflow:hidden;position:relative}
+.macro-bar-fill{height:100%;border-radius:99px;transition:width .8s ease;position:relative}
+.macro-bar-fill.protein{background:linear-gradient(90deg,#fbbf24,var(--protein))}
+.macro-bar-fill.fat{background:linear-gradient(90deg,#f87171,var(--fat))}
+.macro-bar-fill.carb{background:linear-gradient(90deg,#6ee7b7,var(--carb))}
+.macro-bar-value{width:50px;text-align:right;font-size:.85rem;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* Meal card */
+.meal-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:1.25rem;overflow:hidden}
+.meal-card-header{padding:1.25rem 1.5rem;display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none;transition:background .2s}
+.meal-card-header:hover{background:var(--gray-50)}
+.meal-card-header .meal-icon{font-size:2rem}
+.meal-card-header .meal-info{flex:1}
+.meal-card-header .meal-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark)}
+.meal-card-header .meal-subtitle{font-size:.8rem;color:var(--gray-500)}
+.meal-card-header .meal-cal{text-align:right}
+.meal-card-header .meal-cal-value{font-size:1.3rem;font-weight:800;color:var(--primary)}
+.meal-card-header .meal-cal-unit{font-size:.7rem;color:var(--gray-400)}
+.meal-card-header .expand-icon{font-size:1.2rem;color:var(--gray-400);transition:transform .3s}
+.meal-card.expanded .expand-icon{transform:rotate(180deg)}
+.meal-card-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.meal-card.expanded .meal-card-body{max-height:2000px}
+.meal-card-content{padding:0 1.5rem 1.5rem}
+
+/* Food items */
+.food-list{list-style:none}
+.food-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--gray-100)}
+.food-item:last-child{border-bottom:none}
+.food-item-icon{font-size:1.3rem;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--gray-50);border-radius:10px;flex-shrink:0}
+.food-item-info{flex:1}
+.food-item-name{font-size:.9rem;font-weight:600;color:var(--dark)}
+.food-item-portion{font-size:.75rem;color:var(--gray-400)}
+.food-item-macros{display:flex;gap:.5rem;font-size:.7rem;font-weight:600}
+.food-item-macros .m-p{color:var(--protein)}
+.food-item-macros .m-f{color:var(--fat)}
+.food-item-macros .m-c{color:var(--carb)}
+.food-item-cal{font-size:.85rem;font-weight:700;color:var(--gray-600);min-width:50px;text-align:right}
+
+/* Meal macro summary */
+.meal-macro-summary{background:var(--gray-50);border-radius:12px;padding:1rem;margin-top:.75rem}
+.meal-macro-summary h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-500);margin-bottom:.5rem}
+.mini-macro-bars{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.mini-macro{text-align:center}
+.mini-macro .bar{height:6px;background:var(--gray-200);border-radius:99px;overflow:hidden;margin-bottom:.25rem}
+.mini-macro .bar-fill{height:100%;border-radius:99px}
+.mini-macro .val{font-size:.8rem;font-weight:700}
+.mini-macro .lbl{font-size:.65rem;color:var(--gray-400);text-transform:uppercase}
+
+/* Hydration card */
+.hydration-card{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #93c5fd;border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem}
+.hydration-card h3{color:#1e40af;font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.hydration-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.hydration-item{text-align:center}
+.hydration-item .h-value{font-size:1.8rem;font-weight:800;color:#1e40af}
+.hydration-item .h-label{font-size:.75rem;color:#3b82f6}
+.hydration-schedule{margin-top:1rem;display:flex;flex-direction:column;gap:.4rem}
+.hydration-time{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#1e3a5f;padding:.4rem .75rem;background:rgba(255,255,255,.6);border-radius:8px}
+.hydration-time .ht-icon{font-size:1rem}
+
+/* Tips card */
+.tips-card{background:linear-gradient(135deg,#fefce8,#fef3c7);border:2px solid #fbbf24;border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem}
+.tips-card h3{color:#92400e;font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.tips-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.tips-list li{font-size:.85rem;color:#78350f;display:flex;align-items:flex-start;gap:.5rem;padding:.4rem 0}
+.tips-list li::before{content:'💡';font-size:.85rem;flex-shrink:0}
+
+/* Warning card */
+.warning-card{background:linear-gradient(135deg,#fef2f2,#fee2e2);border:2px solid #f87171;border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;display:none}
+.warning-card.show{display:block;animation:slideUp .4s ease}
+.warning-card h3{color:#991b1b;font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.warning-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.warning-list li{font-size:.85rem;color:#7f1d1d;display:flex;align-items:flex-start;gap:.5rem;padding:.4rem 0}
+.warning-list li .w-icon{font-size:.85rem;flex-shrink:0}
+
+/* Action buttons */
+.action-bar{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0}
+
+/* Footer */
+.site-footer{background:var(--dark);color:rgba(255,255,255,.7);text-align:center;padding:2rem 1.5rem;font-size:.8rem;margin-top:auto}
+.site-footer a{color:var(--accent);text-decoration:none}
+
+/* Animations */
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.slide-up{animation:slideUp .4s ease}
+
+/* Print */
+@media print{
+  .site-header,.site-footer,.action-bar,.btn-area,#inputSection,.no-print{display:none!important}
+  body{background:#fff;font-size:12px}
+  .main-wrap{max-width:100%;padding:0}
+  .card,.meal-card,.summary-banner,.hydration-card,.tips-card,.warning-card{box-shadow:none;break-inside:avoid;border:1px solid #ddd}
+  .meal-card-body{max-height:none!important;overflow:visible!important}
+  .summary-banner{background:var(--primary)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .macro-bar-fill,.bar-fill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .hero h1{font-size:1.6rem}
+  .form-grid{grid-template-columns:1fr}
+  .goal-grid{grid-template-columns:repeat(3,1fr);gap:.5rem}
+  .goal-btn{padding:.75rem .35rem}
+  .goal-btn .emoji{font-size:1.2rem}
+  .goal-btn .label{font-size:.7rem}
+  .checkbox-grid{grid-template-columns:1fr}
+  .summary-stats{grid-template-columns:repeat(2,1fr);gap:.5rem}
+  .hydration-grid{grid-template-columns:1fr}
+  .card-body{padding:1rem}
+  .card-header{padding:1rem}
+  .meal-card-content{padding:0 1rem 1rem}
+  .meal-card-header{padding:1rem}
+  .action-bar{flex-direction:column;align-items:center}
+}
+@media(max-width:380px){
+  .goal-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+ <a href="/index.html">
+  <span class="logo-text">Uzun<span>Yaşa</span></span>
+ </a>
+ <a href="/pages/araclar.html" class="back-link">← Araçlar</a>
+</header>
+
+<div class="main-wrap">
+
+<!-- Hero -->
+<div class="hero">
+ <span class="hero-icon">☪️</span>
+ <h1>Sahur & İftar Öğün Planlayıcısı</h1>
+ <p>Ramazan ayına özel, kişiselleştirilmiş beslenme planınızı oluşturun. Sağlıklı oruç tutmanın anahtarı doğru beslenmedir.</p>
+</div>
+
+<!-- Input Section -->
+<div id="inputSection">
+
+ <!-- Step 1: Personal Info -->
+ <div class="card slide-up">
+  <div class="card-header">
+   <div class="step">1</div>
+   <h2>Kişisel Bilgileriniz</h2>
+   <span class="icon">📋</span>
+  </div>
+  <div class="card-body">
+   <div class="form-grid">
+    <div class="form-group">
+     <label class="form-label">Boy (cm)</label>
+     <input type="number" class="form-input" id="height" placeholder="170" min="100" max="250" value="">
+    </div>
+    <div class="form-group">
+     <label class="form-label">Kilo (kg)</label>
+     <input type="number" class="form-input" id="weight" placeholder="70" min="30" max="300" value="">
+    </div>
+    <div class="form-group">
+     <label class="form-label">Yaş</label>
+     <input type="number" class="form-input" id="age" placeholder="30" min="12" max="100" value="">
+    </div>
+    <div class="form-group">
+     <label class="form-label">Cinsiyet</label>
+     <select class="form-input" id="gender">
+      <option value="">Seçiniz</option>
+      <option value="male">Erkek</option>
+      <option value="female">Kadın</option>
+     </select>
+    </div>
+    <div class="form-group full">
+     <label class="form-label">Aktivite Düzeyi</label>
+     <select class="form-input" id="activity">
+      <option value="">Seçiniz</option>
+      <option value="sedentary">Hareketsiz (masa başı iş)</option>
+      <option value="light">Hafif aktif (haftada 1-3 gün egzersiz)</option>
+      <option value="moderate">Orta aktif (haftada 3-5 gün egzersiz)</option>
+      <option value="active">Aktif (haftada 6-7 gün egzersiz)</option>
+      <option value="very_active">Çok aktif (fiziksel iş + egzersiz)</option>
+     </select>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Step 2: Goal -->
+ <div class="card slide-up" style="animation-delay:.1s">
+  <div class="card-header">
+   <div class="step">2</div>
+   <h2>Hedefiniz</h2>
+   <span class="icon">🎯</span>
+  </div>
+  <div class="card-body">
+   <div class="goal-grid">
+    <button class="goal-btn" data-goal="lose" onclick="selectGoal(this)">
+     <span class="emoji">⬇️</span>
+     <span class="label">Kilo Verme</span>
+    </button>
+    <button class="goal-btn active" data-goal="maintain" onclick="selectGoal(this)">
+     <span class="emoji">⚖️</span>
+     <span class="label">Kilo Koruma</span>
+    </button>
+    <button class="goal-btn" data-goal="gain" onclick="selectGoal(this)">
+     <span class="emoji">⬆️</span>
+     <span class="label">Kilo Alma</span>
+    </button>
+   </div>
+  </div>
+ </div>
+
+ <!-- Step 3: Health Conditions -->
+ <div class="card slide-up" style="animation-delay:.2s">
+  <div class="card-header">
+   <div class="step">3</div>
+   <h2>Sağlık Durumunuz</h2>
+   <span class="icon">🏥</span>
+  </div>
+  <div class="card-body">
+   <p style="font-size:.85rem;color:var(--gray-500);margin-bottom:1rem">Varsa sağlık durumlarınızı işaretleyin (opsiyonel):</p>
+   <div class="checkbox-grid">
+    <label class="checkbox-item" onclick="toggleCheck(this)">
+     <input type="checkbox" value="diabetes">
+     <div class="checkbox-box"></div>
+     <span>🩸 Diyabet</span>
+    </label>
+    <label class="checkbox-item" onclick="toggleCheck(this)">
+     <input type="checkbox" value="hypertension">
+     <div class="checkbox-box"></div>
+     <span>💓 Hipertansiyon</span>
+    </label>
+    <label class="checkbox-item" onclick="toggleCheck(this)">
+     <input type="checkbox" value="kidney">
+     <div class="checkbox-box"></div>
+     <span>🫘 Böbrek Hastalığı</span>
+    </label>
+    <label class="checkbox-item" onclick="toggleCheck(this)">
+     <input type="checkbox" value="heart">
+     <div class="checkbox-box"></div>
+     <span>❤️ Kalp Hastalığı</span>
+    </label>
+    <label class="checkbox-item" onclick="toggleCheck(this)">
+     <input type="checkbox" value="stomach">
+     <div class="checkbox-box"></div>
+     <span>🤢 Mide Rahatsızlığı</span>
+    </label>
+    <label class="checkbox-item" onclick="toggleCheck(this)">
+     <input type="checkbox" value="pregnancy">
+     <div class="checkbox-box"></div>
+     <span>🤰 Hamilelik</span>
+    </label>
+   </div>
+  </div>
+ </div>
+
+ <!-- Calculate Button -->
+ <div class="btn-area">
+  <button class="btn btn-primary" onclick="generatePlan()" style="font-size:1.1rem;padding:1rem 3rem">
+   ☪️ Plan Oluştur
+  </button>
+ </div>
+</div>
+
+<!-- Results Section -->
+<div id="resultsSection">
+
+ <!-- Summary -->
+ <div class="summary-banner slide-up" id="summaryBanner">
+  <h3>☪️ Ramazan Günlük Beslenme Özeti</h3>
+  <div class="summary-stats">
+   <div class="stat-item">
+    <div class="stat-value" id="totalCal">0</div>
+    <div class="stat-label">Kalori</div>
+   </div>
+   <div class="stat-item">
+    <div class="stat-value" id="totalProtein">0g</div>
+    <div class="stat-label">Protein</div>
+   </div>
+   <div class="stat-item">
+    <div class="stat-value" id="totalCarb">0g</div>
+    <div class="stat-label">Karbonhidrat</div>
+   </div>
+   <div class="stat-item">
+    <div class="stat-value" id="totalFat">0g</div>
+    <div class="stat-label">Yağ</div>
+   </div>
+  </div>
+  <div class="macro-bars" style="margin-top:1rem">
+   <div class="macro-bar-row">
+    <div class="macro-bar-label" style="color:#fbbf24">🟠 Protein</div>
+    <div class="macro-bar-track"><div class="macro-bar-fill protein" id="barProtein" style="width:0%"></div></div>
+    <div class="macro-bar-value" id="barProteinVal" style="color:var(--protein)">0%</div>
+   </div>
+   <div class="macro-bar-row">
+    <div class="macro-bar-label" style="color:#f87171">🔴 Yağ</div>
+    <div class="macro-bar-track"><div class="macro-bar-fill fat" id="barFat" style="width:0%"></div></div>
+    <div class="macro-bar-value" id="barFatVal" style="color:var(--fat)">0%</div>
+   </div>
+   <div class="macro-bar-row">
+    <div class="macro-bar-label" style="color:#6ee7b7">🟢 Karb.</div>
+    <div class="macro-bar-track"><div class="macro-bar-fill carb" id="barCarb" style="width:0%"></div></div>
+    <div class="macro-bar-value" id="barCarbVal" style="color:var(--carb)">0%</div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Warning Card -->
+ <div class="warning-card" id="warningCard">
+  <h3>⚠️ Sağlık Uyarıları</h3>
+  <ul class="warning-list" id="warningList"></ul>
+ </div>
+
+ <!-- Sahur Meal Card -->
+ <div class="meal-card expanded" id="sahurCard">
+  <div class="meal-card-header" onclick="toggleMeal('sahurCard')">
+   <div class="meal-icon">🌙</div>
+   <div class="meal-info">
+    <div class="meal-title">Sahur Öğünü</div>
+    <div class="meal-subtitle">İmsak öncesi · Ağır, tok tutucu</div>
+   </div>
+   <div class="meal-cal">
+    <div class="meal-cal-value" id="sahurCal">0</div>
+    <div class="meal-cal-unit">kcal</div>
+   </div>
+   <span class="expand-icon">▼</span>
+  </div>
+  <div class="meal-card-body">
+   <div class="meal-card-content">
+    <ul class="food-list" id="sahurFoods"></ul>
+    <div class="meal-macro-summary">
+     <h4>Sahur Makro Dağılımı</h4>
+     <div class="mini-macro-bars">
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="sahurProteinBar" style="width:0%;background:var(--protein)"></div></div>
+       <div class="val" id="sahurProteinVal" style="color:var(--protein)">0g</div>
+       <div class="lbl">Protein</div>
+      </div>
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="sahurCarbBar" style="width:0%;background:var(--carb)"></div></div>
+       <div class="val" id="sahurCarbVal" style="color:var(--carb)">0g</div>
+       <div class="lbl">Karbonhidrat</div>
+      </div>
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="sahurFatBar" style="width:0%;background:var(--fat)"></div></div>
+       <div class="val" id="sahurFatVal" style="color:var(--fat)">0g</div>
+       <div class="lbl">Yağ</div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Iftar Meal Card -->
+ <div class="meal-card expanded" id="iftarCard">
+  <div class="meal-card-header" onclick="toggleMeal('iftarCard')">
+   <div class="meal-icon">🌅</div>
+   <div class="meal-info">
+    <div class="meal-title">İftar Öğünü</div>
+    <div class="meal-subtitle">Akşam · Dengeli ve besleyici</div>
+   </div>
+   <div class="meal-cal">
+    <div class="meal-cal-value" id="iftarCal">0</div>
+    <div class="meal-cal-unit">kcal</div>
+   </div>
+   <span class="expand-icon">▼</span>
+  </div>
+  <div class="meal-card-body">
+   <div class="meal-card-content">
+    <ul class="food-list" id="iftarFoods"></ul>
+    <div class="meal-macro-summary">
+     <h4>İftar Makro Dağılımı</h4>
+     <div class="mini-macro-bars">
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="iftarProteinBar" style="width:0%;background:var(--protein)"></div></div>
+       <div class="val" id="iftarProteinVal" style="color:var(--protein)">0g</div>
+       <div class="lbl">Protein</div>
+      </div>
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="iftarCarbBar" style="width:0%;background:var(--carb)"></div></div>
+       <div class="val" id="iftarCarbVal" style="color:var(--carb)">0g</div>
+       <div class="lbl">Karbonhidrat</div>
+      </div>
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="iftarFatBar" style="width:0%;background:var(--fat)"></div></div>
+       <div class="val" id="iftarFatVal" style="color:var(--fat)">0g</div>
+       <div class="lbl">Yağ</div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Snack Card (ara öğün between iftar and sahur) -->
+ <div class="meal-card" id="snackCard">
+  <div class="meal-card-header" onclick="toggleMeal('snackCard')">
+   <div class="meal-icon">🫖</div>
+   <div class="meal-info">
+    <div class="meal-title">Ara Öğün / Gece Atıştırması</div>
+    <div class="meal-subtitle">İftar sonrası · Hafif ve besleyici</div>
+   </div>
+   <div class="meal-cal">
+    <div class="meal-cal-value" id="snackCal">0</div>
+    <div class="meal-cal-unit">kcal</div>
+   </div>
+   <span class="expand-icon">▼</span>
+  </div>
+  <div class="meal-card-body">
+   <div class="meal-card-content">
+    <ul class="food-list" id="snackFoods"></ul>
+    <div class="meal-macro-summary">
+     <h4>Ara Öğün Makro Dağılımı</h4>
+     <div class="mini-macro-bars">
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="snackProteinBar" style="width:0%;background:var(--protein)"></div></div>
+       <div class="val" id="snackProteinVal" style="color:var(--protein)">0g</div>
+       <div class="lbl">Protein</div>
+      </div>
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="snackCarbBar" style="width:0%;background:var(--carb)"></div></div>
+       <div class="val" id="snackCarbVal" style="color:var(--carb)">0g</div>
+       <div class="lbl">Karbonhidrat</div>
+      </div>
+      <div class="mini-macro">
+       <div class="bar"><div class="bar-fill" id="snackFatBar" style="width:0%;background:var(--fat)"></div></div>
+       <div class="val" id="snackFatVal" style="color:var(--fat)">0g</div>
+       <div class="lbl">Yağ</div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Hydration -->
+ <div class="hydration-card slide-up" id="hydrationCard">
+  <h3>💧 Su ve Sıvı Tüketimi</h3>
+  <div class="hydration-grid">
+   <div class="hydration-item">
+    <div class="h-value" id="waterTotal">0</div>
+    <div class="h-label">Litre / gün</div>
+   </div>
+   <div class="hydration-item">
+    <div class="h-value" id="waterGlasses">0</div>
+    <div class="h-label">Bardak (200ml)</div>
+   </div>
+  </div>
+  <div class="hydration-schedule">
+   <div class="hydration-time"><span class="ht-icon">🌅</span> <strong>İftar:</strong>&nbsp; 2 bardak su ile oruç açın</div>
+   <div class="hydration-time"><span class="ht-icon">🍽️</span> <strong>Yemek arası:</strong>&nbsp; Her saat 1 bardak su için</div>
+   <div class="hydration-time"><span class="ht-icon">🫖</span> <strong>Gece:</strong>&nbsp; Bitki çayı veya ılık su tercih edin</div>
+   <div class="hydration-time"><span class="ht-icon">🌙</span> <strong>Sahur:</strong>&nbsp; 2 bardak su ile sahuru kapatın</div>
+   <div class="hydration-time"><span class="ht-icon">⚠️</span> <strong>Dikkat:</strong>&nbsp; Kafeinli içeceklerden kaçının — susuzluğu artırır</div>
+  </div>
+ </div>
+
+ <!-- Timing Tips -->
+ <div class="tips-card slide-up" id="tipsCard">
+  <h3>⏰ Zamanlama İpuçları</h3>
+  <ul class="tips-list">
+   <li>İftarı hurma ve su ile açın — kan şekerinizi hızla dengeler.</li>
+   <li>İftar yemeğini 2-3 aşamada yiyin: önce çorba, 15 dk ara, sonra ana yemek.</li>
+   <li>Sahurda ağır yağlı yemeklerden kaçının — tok tutar ama susatır.</li>
+   <li>Sahuru imsak vaktinden 30-45 dakika önce bitirin.</li>
+   <li>İftar sonrası 1.5 saat geçmeden uyumayın — reflü riskini azaltır.</li>
+   <li>Protein ağırlıklı sahur gün boyunca tok hissetmenize yardımcı olur.</li>
+   <li>Lif açısından zengin besinler (yulaf, tam tahıl) uzun süre enerji sağlar.</li>
+   <li>Sahurda tuzlu besinlerden kaçının — gün boyunca susuzluğu artırır.</li>
+  </ul>
+ </div>
+
+ <!-- Action buttons -->
+ <div class="action-bar no-print">
+  <button class="btn btn-accent" onclick="regeneratePlan()">🔄 Yeni Plan Oluştur</button>
+  <button class="btn btn-outline" onclick="window.print()">🖨️ Yazdır</button>
+  <button class="btn btn-outline" onclick="sharePlan()">📤 Paylaş</button>
+  <button class="btn btn-outline btn-sm" onclick="editInputs()">✏️ Bilgileri Düzenle</button>
+ </div>
+
+</div><!-- /resultsSection -->
+
+</div><!-- /main-wrap -->
+
+<footer class="site-footer">
+ <p>© 2025 UzunYaşa — Sağlıklı yaşam rehberiniz</p>
+ <p style="margin-top:.25rem;font-size:.7rem;opacity:.7">Bu araç bilgilendirme amaçlıdır. Sağlık durumunuzla ilgili kararları mutlaka doktorunuzla paylaşın.</p>
+ <p style="margin-top:.5rem"><a href="/pages/gizlilik-politikasi.html">Gizlilik</a> · <a href="/pages/kullanim-sartlari.html">Kullanım Şartları</a> · <a href="/pages/hakkimizda.html">Hakkımızda</a></p>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+// TURKISH FOOD DATABASE — 50+ items with macros
+// Format: { name, icon, category, cal, protein, carb, fat, portion, portionG, meal[] }
+// All values per portionG grams
+// meal: s=sahur, i=iftar, a=snack (ara öğün)
+// ══════════════════════════════════════════════
+const FOODS = [
+  // ── PROTEINS / ET & YUMURTA ──
+  {name:"Haşlanmış Yumurta",icon:"🥚",cat:"protein",cal:155,p:13,c:1.1,f:11,portion:"2 adet",pg:100,meal:["s"]},
+  {name:"Menemen",icon:"🍳",cat:"protein",cal:130,p:8,c:6,f:9,portion:"1 porsiyon (200g)",pg:200,meal:["s"]},
+  {name:"Izgara Tavuk Göğsü",icon:"🍗",cat:"protein",cal:165,p:31,c:0,f:3.6,portion:"150g",pg:150,meal:["i"]},
+  {name:"Izgara Köfte",icon:"🥩",cat:"protein",cal:250,p:17,c:3,f:19,portion:"4 adet (120g)",pg:120,meal:["i"]},
+  {name:"Mercimek Köftesi",icon:"🟤",cat:"protein",cal:165,p:7,c:25,f:4,portion:"4 adet (100g)",pg:100,meal:["i","a"]},
+  {name:"Haşlanmış Tavuk",icon:"🐔",cat:"protein",cal:165,p:31,c:0,f:3.6,portion:"150g",pg:150,meal:["s","i"]},
+  {name:"Balık (Levrek Izgara)",icon:"🐟",cat:"protein",cal:124,p:24,c:0,f:2.6,portion:"150g",pg:150,meal:["i"]},
+  {name:"Kuru Fasulye",icon:"🫘",cat:"protein",cal:120,p:8,c:15,f:3,portion:"1 kase (200g)",pg:200,meal:["i"]},
+  {name:"Nohut Yemeği",icon:"🟡",cat:"protein",cal:135,p:7,c:18,f:4,portion:"1 kase (200g)",pg:200,meal:["i"]},
+  {name:"Etli Bamya",icon:"🥘",cat:"protein",cal:95,p:6,c:8,f:5,portion:"1 kase (200g)",pg:200,meal:["i"]},
+  {name:"Tavuklu Pilav",icon:"🍚",cat:"protein",cal:180,p:12,c:24,f:4,portion:"1 porsiyon (250g)",pg:250,meal:["i"]},
+
+  // ── TAHILlar / KARBONHIDRAT ──
+  {name:"Tam Buğday Ekmeği",icon:"🍞",cat:"carb",cal:247,p:13,c:41,f:3.4,portion:"2 dilim (80g)",pg:80,meal:["s","i"]},
+  {name:"Yulaf Ezmesi",icon:"🥣",cat:"carb",cal:389,p:17,c:66,f:7,portion:"50g (sütle)",pg:50,meal:["s"]},
+  {name:"Bulgur Pilavı",icon:"🌾",cat:"carb",cal:110,p:4,c:19,f:2,portion:"1 porsiyon (150g)",pg:150,meal:["i"]},
+  {name:"Pirinç Pilavı",icon:"🍚",cat:"carb",cal:130,p:2.7,c:28,f:0.3,portion:"1 porsiyon (150g)",pg:150,meal:["i"]},
+  {name:"Ramazan Pidesi",icon:"🫓",cat:"carb",cal:275,p:9,c:50,f:3,portion:"1/4 pide (80g)",pg:80,meal:["i"]},
+  {name:"Simit",icon:"🥯",cat:"carb",cal:310,p:10,c:57,f:5,portion:"1 adet (120g)",pg:120,meal:["s"]},
+  {name:"Gözleme (Peynirli)",icon:"🫓",cat:"carb",cal:220,p:9,c:28,f:8,portion:"1 dilim (120g)",pg:120,meal:["s"]},
+  {name:"Makarna (Tam Buğday)",icon:"🍝",cat:"carb",cal:124,p:5,c:25,f:0.5,portion:"1 porsiyon (180g)",pg:180,meal:["i"]},
+
+  // ── ÇORBALAR ──
+  {name:"Mercimek Çorbası",icon:"🍲",cat:"soup",cal:85,p:5,c:12,f:2,portion:"1 kase (250ml)",pg:250,meal:["i","s"]},
+  {name:"Ezogelin Çorbası",icon:"🍲",cat:"soup",cal:80,p:4,c:13,f:1.5,portion:"1 kase (250ml)",pg:250,meal:["i"]},
+  {name:"Tarhana Çorbası",icon:"🍲",cat:"soup",cal:75,p:3,c:12,f:2,portion:"1 kase (250ml)",pg:250,meal:["i","s"]},
+  {name:"Yayla Çorbası",icon:"🍲",cat:"soup",cal:65,p:3,c:7,f:3,portion:"1 kase (250ml)",pg:250,meal:["i"]},
+  {name:"Kemik Suyu",icon:"🥣",cat:"soup",cal:40,p:5,c:2,f:1.5,portion:"1 kase (250ml)",pg:250,meal:["s","i"]},
+  {name:"İşkembe Çorbası",icon:"🍲",cat:"soup",cal:52,p:7,c:3,f:2,portion:"1 kase (250ml)",pg:250,meal:["s"]},
+
+  // ── SÜT ÜRÜNLERİ ──
+  {name:"Süzme Yoğurt",icon:"🥛",cat:"dairy",cal:66,p:10,c:3.6,f:0.7,portion:"1 kase (150g)",pg:150,meal:["s"]},
+  {name:"Beyaz Peynir",icon:"🧀",cat:"dairy",cal:264,p:17,c:1,f:21,portion:"50g",pg:50,meal:["s"]},
+  {name:"Kaşar Peyniri",icon:"🧀",cat:"dairy",cal:350,p:25,c:1,f:28,portion:"40g",pg:40,meal:["s"]},
+  {name:"Lor Peyniri",icon:"🧀",cat:"dairy",cal:98,p:11,c:3,f:4,portion:"80g",pg:80,meal:["s"]},
+  {name:"Ayran",icon:"🥛",cat:"dairy",cal:40,p:2,c:3,f:2,portion:"1 bardak (200ml)",pg:200,meal:["i"]},
+  {name:"Kefir",icon:"🥛",cat:"dairy",cal:60,p:3.3,c:4,f:3.5,portion:"1 bardak (200ml)",pg:200,meal:["s","a"]},
+  {name:"Cacık",icon:"🥒",cat:"dairy",cal:55,p:2.5,c:3,f:3.5,portion:"1 kase (200g)",pg:200,meal:["i"]},
+
+  // ── SEBZE & SALATA ──
+  {name:"Çoban Salatası",icon:"🥗",cat:"veg",cal:45,p:1,c:4,f:3,portion:"1 porsiyon (200g)",pg:200,meal:["i","s"]},
+  {name:"Zeytinyağlı Fasulye",icon:"🥬",cat:"veg",cal:75,p:2,c:8,f:4,portion:"1 kase (200g)",pg:200,meal:["i"]},
+  {name:"Ispanak Yemeği",icon:"🥬",cat:"veg",cal:70,p:3,c:4,f:5,portion:"1 kase (200g)",pg:200,meal:["i"]},
+  {name:"Patlıcan Musakka",icon:"🍆",cat:"veg",cal:155,p:5,c:10,f:11,portion:"1 porsiyon (200g)",pg:200,meal:["i"]},
+  {name:"Kabak Mücver",icon:"🥒",cat:"veg",cal:140,p:5,c:12,f:8,portion:"3 adet (120g)",pg:120,meal:["s","a"]},
+  {name:"Humus",icon:"🟤",cat:"veg",cal:175,p:8,c:14,f:10,portion:"4 yemek kaşığı (100g)",pg:100,meal:["i","a"]},
+  {name:"Kısır",icon:"🥗",cat:"veg",cal:140,p:4,c:20,f:5,portion:"1 porsiyon (150g)",pg:150,meal:["i"]},
+
+  // ── MEYVELER ──
+  {name:"Hurma",icon:"🌴",cat:"fruit",cal:282,p:2.5,c:75,f:0.4,portion:"3 adet (30g)",pg:30,meal:["i"]},
+  {name:"Muz",icon:"🍌",cat:"fruit",cal:89,p:1.1,c:23,f:0.3,portion:"1 adet (120g)",pg:120,meal:["s","a"]},
+  {name:"Elma",icon:"🍎",cat:"fruit",cal:52,p:0.3,c:14,f:0.2,portion:"1 adet (180g)",pg:180,meal:["a"]},
+  {name:"Portakal",icon:"🍊",cat:"fruit",cal:47,p:0.9,c:12,f:0.1,portion:"1 adet (180g)",pg:180,meal:["a"]},
+  {name:"İncir (Taze)",icon:"🫐",cat:"fruit",cal:74,p:0.8,c:19,f:0.3,portion:"3 adet (120g)",pg:120,meal:["a"]},
+
+  // ── KURUYEMİŞ & ATISTIRMALIK ──
+  {name:"Badem",icon:"🌰",cat:"nut",cal:579,p:21,c:22,f:50,portion:"1 avuç (30g)",pg:30,meal:["s","a"]},
+  {name:"Ceviz",icon:"🥜",cat:"nut",cal:654,p:15,c:14,f:65,portion:"1 avuç (30g)",pg:30,meal:["s","a"]},
+  {name:"Fındık",icon:"🌰",cat:"nut",cal:628,p:15,c:17,f:61,portion:"1 avuç (30g)",pg:30,meal:["s","a"]},
+  {name:"Kuru Kayısı",icon:"🟠",cat:"nut",cal:241,p:3.4,c:63,f:0.5,portion:"5 adet (40g)",pg:40,meal:["s","a"]},
+  {name:"Tahin-Pekmez",icon:"🍯",cat:"nut",cal:290,p:5,c:40,f:13,portion:"2 yemek kaşığı (40g)",pg:40,meal:["s"]},
+
+  // ── TATLILAR (hafif) ──
+  {name:"Güllaç",icon:"🌹",cat:"dessert",cal:125,p:4,c:20,f:3,portion:"1 porsiyon (150g)",pg:150,meal:["i"]},
+  {name:"Sütlaç",icon:"🍮",cat:"dessert",cal:130,p:4,c:22,f:3,portion:"1 kase (150g)",pg:150,meal:["i","a"]},
+  {name:"Muhallebi",icon:"🍮",cat:"dessert",cal:120,p:3,c:20,f:3,portion:"1 kase (150g)",pg:150,meal:["a"]},
+  {name:"Keşkül",icon:"🍮",cat:"dessert",cal:145,p:3,c:23,f:5,portion:"1 kase (150g)",pg:150,meal:["a"]},
+  {name:"Kabak Tatlısı",icon:"🎃",cat:"dessert",cal:120,p:1,c:28,f:0.5,portion:"1 porsiyon (150g)",pg:150,meal:["i"]},
+  {name:"Aşure",icon:"🥣",cat:"dessert",cal:160,p:3,c:30,f:3,portion:"1 kase (200g)",pg:200,meal:["i","a"]},
+
+  // ── İÇECEKLER ──
+  {name:"Composto",icon:"🍹",cat:"drink",cal:50,p:0.2,c:13,f:0,portion:"1 bardak (200ml)",pg:200,meal:["i"]},
+  {name:"Ihlamur",icon:"🍵",cat:"drink",cal:5,p:0,c:1,f:0,portion:"1 fincan (200ml)",pg:200,meal:["a"]},
+  {name:"Bitki Çayı (Adaçayı)",icon:"🍵",cat:"drink",cal:2,p:0,c:0.5,f:0,portion:"1 fincan (200ml)",pg:200,meal:["a","s"]},
+  {name:"Limonata (Az Şekerli)",icon:"🍋",cat:"drink",cal:35,p:0.1,c:9,f:0,portion:"1 bardak (250ml)",pg:250,meal:["i"]},
+];
+
+// ═══ Health condition warnings ═══
+const HEALTH_WARNINGS = {
+  diabetes: [
+    {icon:"🩸",text:"Basit şekerler ve beyaz ekmek yerine tam tahıllı alternatifler tercih edin."},
+    {icon:"📉",text:"Sahurda düşük glisemik indeksli besinler (yulaf, bulgur) seçin."},
+    {icon:"🍯",text:"Hurma tüketimini 1-2 adet ile sınırlandırın."},
+    {icon:"⏰",text:"Kan şekerinizi düzenli ölçün; hipoglisemi belirtilerinde orucu bozun."},
+    {icon:"🥤",text:"Şekerli içeceklerden (komposto, şerbet) kaçının."}
+  ],
+  hypertension: [
+    {icon:"🧂",text:"Tuz tüketiminizi günde 5g altında tutun."},
+    {icon:"🥒",text:"Turşu, salamura ve tuzlu peynirlerden kaçının."},
+    {icon:"🍌",text:"Potasyum açısından zengin besinler (muz, avokado) tercih edin."},
+    {icon:"💊",text:"İlaçlarınızı doktor önerisine göre sahur veya iftarda alın."}
+  ],
+  kidney: [
+    {icon:"🫘",text:"Protein alımını doktorunuzun önerdiği miktarda tutun."},
+    {icon:"🍌",text:"Potasyum ve fosfor alımına dikkat edin."},
+    {icon:"💧",text:"Sıvı alımınızı doktorunuzla belirleyin."},
+    {icon:"🥜",text:"Kuruyemiş ve kuru baklagil tüketimini sınırlayın."}
+  ],
+  heart: [
+    {icon:"🫒",text:"Doymuş yağ yerine zeytinyağı ve sağlıklı yağlar tercih edin."},
+    {icon:"🍟",text:"Kızartma yemeklerinden kaçının; fırın veya ızgara tercih edin."},
+    {icon:"🐟",text:"Haftada 2-3 kez balık tüketmeye çalışın."},
+    {icon:"🥬",text:"Lif açısından zengin besinleri artırın."}
+  ],
+  stomach: [
+    {icon:"🌶️",text:"Acı, ekşi ve baharatlı yemeklerden kaçının."},
+    {icon:"🍽️",text:"İftarda küçük porsiyonlarla başlayın; aşırı yemeyin."},
+    {icon:"☕",text:"Kahve, asitli içecekler ve gazlı içeceklerden uzak durun."},
+    {icon:"🫖",text:"Zencefil veya papatya çayı mide rahatsızlığına iyi gelebilir."},
+    {icon:"⏳",text:"Yemekler arasında en az 2 saat bekleyin."}
+  ],
+  pregnancy: [
+    {icon:"⚠️",text:"Hamilelikte oruç tutmadan önce mutlaka doktorunuza danışın."},
+    {icon:"🥛",text:"Kalsiyum alımına dikkat edin: süt ürünlerini artırın."},
+    {icon:"💊",text:"Folik asit ve demir takviyelerinizi aksatmayın."},
+    {icon:"🥩",text:"Protein ihtiyacınız artmıştır — her öğünde protein kaynağı bulundurun."},
+    {icon:"💧",text:"Dehidratasyon riski yüksektir; bol sıvı tüketin."}
+  ]
+};
+
+// ═══ STATE ═══
+let selectedGoal = 'maintain';
+let currentPlan = null;
+
+// ═══ UI HELPERS ═══
+function selectGoal(btn) {
+  document.querySelectorAll('.goal-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedGoal = btn.dataset.goal;
+}
+
+function toggleCheck(el) {
+  setTimeout(() => {
+    const input = el.querySelector('input');
+    el.classList.toggle('checked', input.checked);
+  }, 0);
+}
+
+function toggleMeal(id) {
+  document.getElementById(id).classList.toggle('expanded');
+}
+
+function editInputs() {
+  document.getElementById('resultsSection').classList.remove('show');
+  document.getElementById('inputSection').style.display = '';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ═══ CALORIE CALCULATION ═══
+function calcBMR(weight, height, age, gender) {
+  // Mifflin-St Jeor
+  if (gender === 'male') {
+    return 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    return 10 * weight + 6.25 * height - 5 * age - 161;
+  }
+}
+
+function calcTDEE(bmr, activity) {
+  const factors = {
+    sedentary: 1.2,
+    light: 1.375,
+    moderate: 1.55,
+    active: 1.725,
+    very_active: 1.9
+  };
+  return bmr * (factors[activity] || 1.2);
+}
+
+function adjustForGoal(tdee, goal) {
+  switch (goal) {
+    case 'lose': return tdee * 0.80;   // 20% deficit
+    case 'gain': return tdee * 1.15;   // 15% surplus
+    default: return tdee;
+  }
+}
+
+function calcMacros(calories, goal, weight) {
+  // Protein: 1.6-2.2g/kg depending on goal
+  let proteinPerKg = goal === 'gain' ? 2.0 : goal === 'lose' ? 2.0 : 1.6;
+  let proteinG = Math.round(proteinPerKg * weight);
+  let proteinCal = proteinG * 4;
+
+  // Fat: 25-30% of calories
+  let fatPct = goal === 'lose' ? 0.25 : 0.28;
+  let fatCal = calories * fatPct;
+  let fatG = Math.round(fatCal / 9);
+
+  // Carbs: remainder
+  let carbCal = calories - proteinCal - fatCal;
+  let carbG = Math.round(carbCal / 4);
+
+  // Clamp
+  if (carbG < 50) {
+    carbG = 50;
+    carbCal = carbG * 4;
+    fatCal = calories - proteinCal - carbCal;
+    fatG = Math.round(fatCal / 9);
+  }
+
+  return { proteinG, carbG, fatG };
+}
+
+// ═══ MEAL PLAN GENERATION ═══
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function pickFoods(mealType, targetCal, targetP, targetC, targetF, conditions) {
+  // Filter foods for this meal type
+  let pool = FOODS.filter(f => f.meal.includes(mealType));
+
+  // Filter out condition-inappropriate foods
+  if (conditions.includes('diabetes')) {
+    pool = pool.filter(f => f.cat !== 'dessert' || f.name === 'Güllaç');
+  }
+  if (conditions.includes('kidney')) {
+    pool = pool.filter(f => f.cat !== 'nut');
+  }
+  if (conditions.includes('stomach')) {
+    pool = pool.filter(f => !['İşkembe Çorbası'].includes(f.name));
+  }
+
+  pool = shuffle(pool);
+
+  const selected = [];
+  let totalCal = 0, totalP = 0, totalC = 0, totalF = 0;
+
+  // Category priorities per meal type
+  let priorities;
+  if (mealType === 's') {
+    priorities = ['protein','dairy','carb','nut','veg','soup','fruit'];
+  } else if (mealType === 'i') {
+    priorities = ['soup','protein','carb','veg','fruit','dairy','dessert','drink'];
+  } else {
+    priorities = ['fruit','nut','dairy','dessert','drink'];
+  }
+
+  // Pick one from each priority category if available
+  const usedNames = new Set();
+  for (const cat of priorities) {
+    if (totalCal >= targetCal * 0.95) break;
+    const candidates = pool.filter(f => {
+      if (usedNames.has(f.name)) return false;
+      // Map categories
+      if (cat === 'protein') return f.cat === 'protein';
+      if (cat === 'dairy') return f.cat === 'dairy';
+      if (cat === 'carb') return f.cat === 'carb';
+      if (cat === 'nut') return f.cat === 'nut';
+      if (cat === 'veg') return f.cat === 'veg';
+      if (cat === 'soup') return f.cat === 'soup';
+      if (cat === 'fruit') return f.cat === 'fruit';
+      if (cat === 'dessert') return f.cat === 'dessert';
+      if (cat === 'drink') return f.cat === 'drink';
+      return false;
+    });
+    if (candidates.length === 0) continue;
+    const pick = candidates[0];
+    const portionMult = Math.max(0.5, Math.min(1.5, targetCal / 1500));
+    const cal = Math.round(pick.cal * (pick.pg / 100) * portionMult);
+    const p = +(pick.p * (pick.pg / 100) * portionMult).toFixed(1);
+    const c = +(pick.c * (pick.pg / 100) * portionMult).toFixed(1);
+    const f = +(pick.f * (pick.pg / 100) * portionMult).toFixed(1);
+
+    selected.push({
+      ...pick,
+      actualCal: cal,
+      actualP: p,
+      actualC: c,
+      actualF: f,
+      actualPortion: pick.portion
+    });
+    totalCal += cal;
+    totalP += p;
+    totalC += c;
+    totalF += f;
+    usedNames.add(pick.name);
+  }
+
+  // If still under target, add more foods
+  const extras = pool.filter(f => !usedNames.has(f.name));
+  for (const pick of extras) {
+    if (totalCal >= targetCal * 0.9) break;
+    if (selected.length >= 8) break;
+    const portionMult = Math.max(0.5, Math.min(1.5, targetCal / 1500));
+    const cal = Math.round(pick.cal * (pick.pg / 100) * portionMult);
+    const p = +(pick.p * (pick.pg / 100) * portionMult).toFixed(1);
+    const c = +(pick.c * (pick.pg / 100) * portionMult).toFixed(1);
+    const f = +(pick.f * (pick.pg / 100) * portionMult).toFixed(1);
+    selected.push({
+      ...pick,
+      actualCal: cal,
+      actualP: p,
+      actualC: c,
+      actualF: f,
+      actualPortion: pick.portion
+    });
+    totalCal += cal;
+    totalP += p;
+    totalC += c;
+    totalF += f;
+    usedNames.add(pick.name);
+  }
+
+  return { items: selected, totalCal: Math.round(totalCal), totalP: Math.round(totalP), totalC: Math.round(totalC), totalF: Math.round(totalF) };
+}
+
+// ═══ MAIN GENERATE ═══
+function generatePlan() {
+  const weight = +document.getElementById('weight').value;
+  const height = +document.getElementById('height').value;
+  const age = +document.getElementById('age').value;
+  const gender = document.getElementById('gender').value;
+  const activity = document.getElementById('activity').value;
+
+  // Validation
+  if (!weight || !height || !age || !gender || !activity) {
+    alert('Lütfen tüm kişisel bilgileri doldurun.');
+    return;
+  }
+  if (weight < 30 || weight > 300 || height < 100 || height > 250 || age < 12 || age > 100) {
+    alert('Lütfen geçerli değerler girin.');
+    return;
+  }
+
+  const conditions = [];
+  document.querySelectorAll('.checkbox-item input:checked').forEach(cb => conditions.push(cb.value));
+
+  // Calculate
+  const bmr = calcBMR(weight, height, age, gender);
+  const tdee = calcTDEE(bmr, activity);
+  const targetCal = Math.round(adjustForGoal(tdee, selectedGoal));
+  const macros = calcMacros(targetCal, selectedGoal, weight);
+
+  // Ramazan adjustment: compress into 2 meals + snack window
+  // Sahur: ~35%, Iftar: ~45%, Snack: ~20%
+  const sahurCal = Math.round(targetCal * 0.35);
+  const iftarCal = Math.round(targetCal * 0.45);
+  const snackCal = Math.round(targetCal * 0.20);
+
+  const sahurP = Math.round(macros.proteinG * 0.35);
+  const sahurC = Math.round(macros.carbG * 0.35);
+  const sahurF = Math.round(macros.fatG * 0.35);
+  const iftarP = Math.round(macros.proteinG * 0.45);
+  const iftarC = Math.round(macros.carbG * 0.45);
+  const iftarF = Math.round(macros.fatG * 0.45);
+  const snackP = Math.round(macros.proteinG * 0.20);
+  const snackC = Math.round(macros.carbG * 0.20);
+  const snackF = Math.round(macros.fatG * 0.20);
+
+  const sahur = pickFoods('s', sahurCal, sahurP, sahurC, sahurF, conditions);
+  const iftar = pickFoods('i', iftarCal, iftarP, iftarC, iftarF, conditions);
+  const snack = pickFoods('a', snackCal, snackP, snackC, snackF, conditions);
+
+  // Water calculation: ~30-35ml per kg
+  const waterLiters = +(weight * 0.033).toFixed(1);
+  const waterGlasses = Math.round(waterLiters * 5); // 200ml glasses
+
+  currentPlan = { targetCal, macros, sahur, iftar, snack, waterLiters, waterGlasses, conditions, weight, height, age, gender, activity };
+
+  renderResults(currentPlan);
+}
+
+function regeneratePlan() {
+  if (!currentPlan) return;
+  // Re-generate with same parameters
+  const { targetCal, macros, conditions, weight } = currentPlan;
+  const sahurCal = Math.round(targetCal * 0.35);
+  const iftarCal = Math.round(targetCal * 0.45);
+  const snackCal = Math.round(targetCal * 0.20);
+
+  const sahur = pickFoods('s', sahurCal, 0, 0, 0, conditions);
+  const iftar = pickFoods('i', iftarCal, 0, 0, 0, conditions);
+  const snack = pickFoods('a', snackCal, 0, 0, 0, conditions);
+
+  const waterLiters = +(weight * 0.033).toFixed(1);
+  const waterGlasses = Math.round(waterLiters * 5);
+
+  currentPlan.sahur = sahur;
+  currentPlan.iftar = iftar;
+  currentPlan.snack = snack;
+
+  renderResults(currentPlan);
+
+  // Scroll to top of results
+  document.getElementById('summaryBanner').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ═══ RENDER ═══
+function renderResults(plan) {
+  const { targetCal, macros, sahur, iftar, snack, waterLiters, waterGlasses, conditions } = plan;
+
+  // Hide input, show results
+  document.getElementById('inputSection').style.display = 'none';
+  const rs = document.getElementById('resultsSection');
+  rs.classList.add('show');
+
+  // Summary
+  document.getElementById('totalCal').textContent = targetCal;
+  document.getElementById('totalProtein').textContent = macros.proteinG + 'g';
+  document.getElementById('totalCarb').textContent = macros.carbG + 'g';
+  document.getElementById('totalFat').textContent = macros.fatG + 'g';
+
+  // Macro % bars
+  const totalMacroCal = macros.proteinG * 4 + macros.carbG * 4 + macros.fatG * 9;
+  const pPct = Math.round((macros.proteinG * 4 / totalMacroCal) * 100);
+  const fPct = Math.round((macros.fatG * 9 / totalMacroCal) * 100);
+  const cPct = 100 - pPct - fPct;
+
+  setTimeout(() => {
+    document.getElementById('barProtein').style.width = pPct + '%';
+    document.getElementById('barProteinVal').textContent = pPct + '%';
+    document.getElementById('barFat').style.width = fPct + '%';
+    document.getElementById('barFatVal').textContent = fPct + '%';
+    document.getElementById('barCarb').style.width = cPct + '%';
+    document.getElementById('barCarbVal').textContent = cPct + '%';
+  }, 100);
+
+  // Render meals
+  renderMeal('sahur', sahur);
+  renderMeal('iftar', iftar);
+  renderMeal('snack', snack);
+
+  // Hydration
+  document.getElementById('waterTotal').textContent = waterLiters;
+  document.getElementById('waterGlasses').textContent = waterGlasses;
+
+  // Warnings
+  const warningCard = document.getElementById('warningCard');
+  const warningList = document.getElementById('warningList');
+  warningList.innerHTML = '';
+  let hasWarnings = false;
+  for (const cond of conditions) {
+    if (HEALTH_WARNINGS[cond]) {
+      hasWarnings = true;
+      for (const w of HEALTH_WARNINGS[cond]) {
+        warningList.innerHTML += `<li><span class="w-icon">${w.icon}</span>${w.text}</li>`;
+      }
+    }
+  }
+  warningCard.classList.toggle('show', hasWarnings);
+
+  // Expand sahur and iftar by default, collapse snack
+  document.getElementById('sahurCard').classList.add('expanded');
+  document.getElementById('iftarCard').classList.add('expanded');
+  document.getElementById('snackCard').classList.remove('expanded');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderMeal(prefix, meal) {
+  const listEl = document.getElementById(prefix + 'Foods');
+  const calEl = document.getElementById(prefix + 'Cal');
+
+  listEl.innerHTML = '';
+  let totalCal = 0, totalP = 0, totalC = 0, totalF = 0;
+
+  for (const item of meal.items) {
+    totalCal += item.actualCal;
+    totalP += item.actualP;
+    totalC += item.actualC;
+    totalF += item.actualF;
+
+    listEl.innerHTML += `
+      <li class="food-item">
+        <div class="food-item-icon">${item.icon}</div>
+        <div class="food-item-info">
+          <div class="food-item-name">${item.name}</div>
+          <div class="food-item-portion">${item.actualPortion}</div>
+          <div class="food-item-macros">
+            <span class="m-p">P: ${item.actualP.toFixed(0)}g</span>
+            <span class="m-c">K: ${item.actualC.toFixed(0)}g</span>
+            <span class="m-f">Y: ${item.actualF.toFixed(0)}g</span>
+          </div>
+        </div>
+        <div class="food-item-cal">${item.actualCal} kcal</div>
+      </li>`;
+  }
+
+  calEl.textContent = Math.round(totalCal);
+
+  // Mini macro bars (scale to max value)
+  const maxMacro = Math.max(totalP, totalC, totalF, 1);
+  const setBar = (id, val) => {
+    setTimeout(() => {
+      document.getElementById(id).style.width = Math.round((val / maxMacro) * 100) + '%';
+    }, 200);
+  };
+
+  setBar(prefix + 'ProteinBar', totalP);
+  setBar(prefix + 'CarbBar', totalC);
+  setBar(prefix + 'FatBar', totalF);
+  document.getElementById(prefix + 'ProteinVal').textContent = Math.round(totalP) + 'g';
+  document.getElementById(prefix + 'CarbVal').textContent = Math.round(totalC) + 'g';
+  document.getElementById(prefix + 'FatVal').textContent = Math.round(totalF) + 'g';
+}
+
+// ═══ SHARE ═══
+function sharePlan() {
+  if (!currentPlan) return;
+  const { targetCal, macros, sahur, iftar } = currentPlan;
+  const sahurItems = sahur.items.map(i => `  • ${i.name}`).join('\n');
+  const iftarItems = iftar.items.map(i => `  • ${i.name}`).join('\n');
+
+  const text = `☪️ Ramazan Öğün Planım
+
+📊 Günlük: ${targetCal} kcal
+🟠 Protein: ${macros.proteinG}g | 🟢 Karb: ${macros.carbG}g | 🔴 Yağ: ${macros.fatG}g
+
+🌙 Sahur:
+${sahurItems}
+
+🌅 İftar:
+${iftarItems}
+
+🔗 Kendi planını oluştur: uzunyasa.com/pages/araclar/sahur-iftar-planlayici.html`;
+
+  if (navigator.share) {
+    navigator.share({ text }).catch(() => {});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = event.target.closest('.btn');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✅ Kopyalandı!';
+      setTimeout(() => btn.innerHTML = orig, 2000);
+    });
+  }
+}
+</script>
+</body>
+</html>
