@@ -7,17 +7,19 @@
   </defs>
   
   <!-- Leaf icon -->
-  <circle cx="68" cy="68" r="14" fill="white"/>
+  <circle cx="68" cy="68" r="14" fill="#E8963E"/>
   <ellipse cx="48" cy="112" rx="22" ry="32" fill="white" transform="rotate(-25 48 112)"/>
   <ellipse cx="88" cy="112" rx="22" ry="32" fill="white" transform="rotate(25 88 112)"/>
   <rect x="66" y="138" width="3" height="22" fill="white"/>
   
   <!-- Arc swoosh -->
-  <path d="M 110 130 Q 350 30 640 65" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 110 130 Q 350 30 640 65" stroke="rgba(255,255,255,0.5)" stroke-width="3" fill="none" stroke-linecap="round"/>
   <!-- Arrow head -->
-  <path d="M 625 70 L 670 38 L 648 80 Z" fill="white"/>
-  <line x1="670" y1="38" x2="695" y2="22" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 625 70 L 670 38 L 648 80 Z" fill="#E8963E"/>
+  <line x1="670" y1="38" x2="695" y2="22" stroke="#E8963E" stroke-width="4" stroke-linecap="round"/>
   
-  <!-- Text -->
-  <text x="120" y="155" font-family="'Playfair Display', Georgia, serif" font-size="96" font-weight="700" fill="white" letter-spacing="-1">UzunYaşa</text>
+  <!-- Text: Uzun -->
+  <text x="120" y="155" font-family="'Playfair Display', Georgia, serif" font-size="96" font-weight="700" fill="white" letter-spacing="-1">Uzun</text>
+  <!-- Text: Yaşa with accent color on Ya -->
+  <text x="430" y="155" font-family="'Playfair Display', Georgia, serif" font-size="96" font-weight="700" fill="#E8963E" letter-spacing="-1">Yaşa</text>
 </svg>
