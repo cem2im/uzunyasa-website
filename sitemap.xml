@@ -1,553 +1,639 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://uzunyasa.com/pages/blog/fda-kopya-glp1-yasaklari.html</loc>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/oral-wegovy-fda-onayi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/araclar/turkiye-obezite-haritasi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/araclar/egzersiz-asistani.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://uzunyasa.com/</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/araclar.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/beslenme.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/beslenme/bana-ne-uygun.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/beslenme/bmi-hesaplayici.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/beslenme/kalori-hesaplayici.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://uzunyasa.com/pages/bilim.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/blog.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/blog/oral-glp1-orforglipron-igneden-hapa.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/akdeniz-diyeti-kalp-sagligi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/bariatrik-cerrahi-rehberi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/bilimsel-yaklasimimiz-neden-onemli.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/blue-zones-dunyanin-en-uzun-yasayan-insanlarinin-9-sirri.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/egzersiz-temelleri-rehber.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/esg-endoskopik-sleeve-rehber.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/esg-vs-sleeve-gastrektomi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/glp1-birakinca-ne-olur.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/glp1-tam-rehber.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/glp1-vs-esg-karsilastirma.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/hiit-vs-kardio-hangisi-daha-etkili.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/index.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/insulin-direnci-belirtiler-tedavi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/kilo-yonetimi-tedavi-secenekleri-karsilastirmasi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/mide-balonu-tedavisi-kime-uygun-sonuclar-nasil.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/ozempic-vs-esg-maliyet.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/saglikli-beslenme-temelleri.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/saglikli-kilo-vermenin-10-altin-kurali.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/turkiye-obezite-rehberi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/uyku-ve-kilo-gizli-baglanti.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://uzunyasa.com/pages/cerez-politikasi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/danisma-kurulu.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/ecem-app.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/editoryal-politika.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/egzersiz.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/egzersiz/esneklik-mobilite.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/egzersiz/grup-egzersizleri.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/egzersiz/hiit-tabata.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/egzersiz/kardiyovaskular.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/egzersiz/kuvvet-antrenman.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://uzunyasa.com/pages/egzersiz.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/gizlilik-politikasi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/hakkimizda.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/hikayeler.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/icerik-haritasi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/istatistikler.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/kullanim-sartlari.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/preview-ai-experts.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/raporum.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/tedavi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/tesekkurler.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/test-duygusal.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/test.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/uyku-stres.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/50-yas-egzersiz.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/akdeniz-diyeti.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/aralikli-oruc.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/evde-egzersiz.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/kalori-acigi.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/kalp-sagligi.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/plato-kirma.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/tip2-diyabet.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/rehberler/uyku-kalitesi.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/stres/is-yasam-dengesi.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <loc>https://uzunyasa.com/pages/blog/akdeniz-diyeti-kalp-sagligi.html</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/stres/kronik-stres.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <loc>https://uzunyasa.com/pages/blog/astrazeneca-elecoglipron-oral-glp1-faz2.html</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/stres/meditasyon-mindfulness.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <loc>https://uzunyasa.com/pages/blog/bariatrik-cerrahi-rehberi.html</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/stres/nefes-teknikleri.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <loc>https://uzunyasa.com/pages/blog/bilimsel-yaklasimimiz-neden-onemli.html</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/tedavi.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <loc>https://uzunyasa.com/pages/blog/blue-zones-dunyanin-en-uzun-yasayan-insanlarinin-9-sirri.html</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/egzersiz-temelleri-rehber.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/esg-endoskopik-sleeve-rehber.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/esg-vs-sleeve-gastrektomi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/fda-kopya-glp1-yasaklari-v2.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/fda-kopya-glp1-yasaklari.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/glp1-birakinca-ne-olur.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/glp1-ilaclari-yan-etkileri-bilmeniz-gerekenler.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/glp1-patent-savaslari-2026-yeni-nesil-ilaclar.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/glp1-tam-rehber.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/glp1-vs-esg-karsilastirma.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/hiit-vs-kardio-hangisi-daha-etkili.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/index.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/inkretin-tedaviler-kalp-sagligi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/insulin-direnci-belirtiler-tani-ve-tedavi-rehberi-2024.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/insulin-direnci-belirtiler-tedavi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/insulin-direnci-belirtileri-tani-ve-tedavi-yontemleri.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/kilo-vermek-icin-gunde-kac-adim-atmali-bilimsel-yanitlar.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/kilo-yonetimi-tedavi-secenekleri-karsilastirmasi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/mide-balonu-tedavisi-kime-uygun-sonuclar-nasil.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/oral-glp1-orforglipron-igneden-hapa.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/oral-wegovy-fda-onayi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/ozempic-vs-esg-maliyet.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/retatrutide-yeni-nesil-obezite-ilacinin-vaatleri.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/saglikli-beslenme-temelleri.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/saglikli-kilo-vermenin-10-altin-kurali.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/sarkopeni-kas-kaybini-onlemek-icin-direnc-egzersizleri.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/semaglutid-ve-kalp-sagligi-select-calismasi-bulgulari.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/semaglutide-ve-kalp-sagligi-select-calismasi-neler-ortaya-ko.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/semaglutide-ve-kalp-sagligi-select-calismasi-sonuclari.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/stres-ve-kortizol-kilo-almaya-neden-olan-gizli-baglanti.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/turkiye-obezite-rehberi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/uyku-ve-kilo-gizli-baglanti.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/who-cochrane-glp1-incelemesi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/ameliyat-oncesi-hazirlik.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/davranissal-terapi.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/endoskopik-prosedurler.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/gastrik-bypass.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/gastrik-sleeve.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/karsilastirma.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/kombinasyon-tedavileri.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/naltrexone-bupropion.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/orlistat.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/uzun-vadeli-takip.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/tedavi/yan-etkiler-riskler.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/tesekkurler.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/test-duygusal.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/test.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/uyku-stres.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/uyku/ruya-ve-uyku-evreleri.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/uyku/sirkadiyen-ritim.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/uyku/uyku-bozukluklari.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/uyku/uyku-hijyeni.html</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/araclar/kac-kilo-vermeliyim.html</loc>
+    <loc>https://uzunyasa.com/pages/beslenme/bana-ne-uygun.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uzunyasa.com/pages/araclar/glp1-uygunluk-testi.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <priority>0.9</priority>
+    <loc>https://uzunyasa.com/pages/beslenme/bmi-hesaplayici.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/beslenme/kalori-hesaplayici.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/egzersiz/esneklik-mobilite.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/egzersiz/grup-egzersizleri.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/egzersiz/hiit-tabata.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/egzersiz/kardiyovaskular.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/egzersiz/kuvvet-antrenman.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/araclar/diyet-asistani.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <priority>0.9</priority>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/araclar/egzersiz-asistani.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/araclar/glp1-uygunluk-testi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/araclar/kac-kilo-vermeliyim.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/araclar/kalori-karsilastirici.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <priority>0.9</priority>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/araclar/makro-ucgeni.html</loc>
-    <lastmod>2026-02-08</lastmod>
-    <priority>0.9</priority>
-  </url>
-<url><loc>https://uzunyasa.com/pages/blog/inkretin-tedaviler-kalp-sagligi.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/glp1-patent-savaslari-2026-yeni-nesil-ilaclar.html</loc>
-    <lastmod>2026-02-10</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
-<url><loc>https://uzunyasa.com/pages/blog/astrazeneca-elecoglipron-oral-glp1-faz2.html</loc><lastmod>2026-02-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url>
-    <loc>https://uzunyasa.com/pages/blog/who-cochrane-glp1-incelemesi.html</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://uzunyasa.com/pages/araclar/turkiye-obezite-haritasi.html</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/stres/is-yasam-dengesi.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/stres/kronik-stres.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/stres/meditasyon-mindfulness.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/stres/nefes-teknikleri.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

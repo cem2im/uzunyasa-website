@@ -1,255 +1,382 @@
 [
   {
-    "slug": "sarkopeni-kas-kaybini-onlemek-icin-direnc-egzersizleri",
-    "title": "Sarkopeni: Kas Kaybını Önlemek İçin Direnç Egzersizleri",
-    "description": "Yaşla birlikte kas kaybı (sarkopeni) nasıl önlenir? Bilimsel araştırmalarla desteklenmiş direnç egzersizi rehberi.",
-    "category": "egzersiz",
-    "categoryName": "Egzersiz",
-    "categoryIcon": "🏃",
-    "categoryColor": "#3B82F6",
-    "date": "2026-02-18",
-    "readTime": 8,
-    "tags": [
-      "sarkopeni",
-      "kas kaybı",
-      "direnç egzersizi",
-      "yaşlanma",
-      "protein",
-      "kas geliştirme"
-    ],
-    "priority": "normal"
+    "slug": "akdeniz-diyeti-kalp-sagligi",
+    "title": "Akdeniz Diyeti ve Kalp Sağlığı",
+    "description": "Akdeniz diyetinin kalp hastalığı riskini nasıl %30 azalttığını öğrenin. Bilimsel kanıtlar ve pratik öneriler.",
+    "category": "Beslenme",
+    "categoryType": "beslenme",
+    "date": "7 Şubat 2026",
+    "readTime": 7,
+    "url": "pages/blog/akdeniz-diyeti-kalp-sagligi.html"
   },
   {
-    "slug": "insulin-direnci-belirtiler-tani-ve-tedavi-rehberi-2024",
-    "title": "İnsülin Direnci: Belirtiler, Tanı ve Tedavi Rehberi 2024",
-    "description": "İnsülin direnci nedir, belirtileri nelerdir? Güncel tanı yöntemleri ve etkili tedavi seçenekleri hakkında bilimsel bilgiler.",
-    "category": "tedavi",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "date": "2026-02-17",
-    "readTime": 8,
-    "tags": [
-      "insülin-direnci",
-      "diyabet",
-      "metabolik-sendrom",
-      "beslenme",
-      "egzersiz",
-      "tanı"
-    ],
-    "priority": "high"
+    "slug": "astrazeneca-elecoglipron-oral-glp1-faz2",
+    "title": "AstraZeneca'nın Oral GLP-1 İlacı Elecoglipron Faz 2'yi Geçti: Obezite Tedavisinde Yeni Bir Oyuncu",
+    "description": "AstraZeneca'nın oral GLP-1 ilacı elecoglipron, VISTA ve SOLSTICE Faz 2 çalışmalarında birincil sonlanım noktalarını karşıladı. 2026'da Faz 3'e geçiyor. Obezite hap yarışında yeni rakip.",
+    "category": "Tedavi",
+    "categoryType": "tedavi",
+    "date": "11 Şubat 2026",
+    "readTime": 10,
+    "url": "pages/blog/astrazeneca-elecoglipron-oral-glp1-faz2.html"
   },
   {
-    "slug": "semaglutid-ve-kalp-sagligi-select-calismasi-bulgulari",
-    "title": "Semaglutid ve Kalp Sağlığı: SELECT Çalışması Bulguları",
-    "description": "Semaglutid'in kalp hastalıkları üzerindeki etkilerini araştıran SELECT çalışmasının sonuçları ve Türkiye'deki uygulamaları.",
-    "category": "tedavi",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "date": "2026-02-16",
-    "readTime": 8,
-    "tags": [
-      "semaglutid",
-      "kalp-sagligi",
-      "obezite-tedavisi",
-      "select-calismasi",
-      "kardiyovaskuler-koruma"
-    ],
-    "priority": "urgent"
+    "slug": "bariatrik-cerrahi-rehberi",
+    "title": "Bariatrik Cerrahi Rehberi: Sleeve, Bypass ve Diğer Yöntemler",
+    "description": "Kilo verme cerrahisi türleri, klinik sonuçlar, riskler ve iyileşme süreci. 12 yıllık takip verileri ve Türkiye'de erişim.",
+    "category": "Bariatrik Cerrahi",
+    "categoryType": "tedavi",
+    "date": "",
+    "readTime": 17,
+    "url": "pages/blog/bariatrik-cerrahi-rehberi.html"
   },
   {
-    "slug": "semaglutide-ve-kalp-sagligi-select-calismasi-neler-ortaya-ko",
-    "title": "Semaglutide ve Kalp Sağlığı: SELECT Çalışması Neler Ortaya Koydu?",
-    "description": "SELECT çalışması semaglutide'nin kalp sağlığına etkilerini açığa çıkardı. Diyabet olmayan hastalarda kardiyovasküler risklerde önemli azalmalar tespit edildi.",
-    "category": "bilim",
-    "categoryName": "Bilimsel Araştırmalar",
-    "categoryIcon": "🧬",
-    "categoryColor": "#8B5CF6",
-    "date": "2026-02-15",
-    "readTime": 9,
-    "tags": [
-      "semaglutide",
-      "kalp-sağlığı",
-      "SELECT-çalışması",
-      "kardiyovasküler",
-      "obezite"
-    ],
-    "priority": "urgent"
-  },
-  {
-    "slug": "retatrutide-yeni-nesil-obezite-ilacinin-vaatleri",
-    "title": "Retatrutide: Yeni Nesil Obezite İlacının Vaatleri",
-    "description": "Üçlü hormon agonisti retatrutide, obezite tedavisinde çığır açabilir mi? Güncel araştırmaları ve potansiyel etkilerini keşfedin.",
-    "category": "tedavi",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "date": "2026-02-14",
-    "readTime": 8,
-    "tags": [
-      "retatrutide",
-      "obezite",
-      "kilo-verme",
-      "hormon-agonisti",
-      "ilaç-tedavisi"
-    ],
-    "priority": "high"
-  },
-  {
-    "slug": "insulin-direnci-belirtileri-tani-ve-tedavi-yontemleri",
-    "title": "İnsülin Direnci: Belirtileri, Tanı ve Tedavi Yöntemleri",
-    "description": "İnsülin direnci nedir, belirtileri nelerdir? Tanı yöntemleri ve doğal tedavi seçenekleri hakkında bilimsel bilgiler.",
-    "category": "tedavi",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "date": "2026-02-13",
-    "readTime": 8,
-    "tags": [
-      "insulin-direnci",
-      "diyabet",
-      "metabolik-sendrom",
-      "kan-sekeri",
-      "tedavi"
-    ],
-    "priority": "high"
-  },
-  {
-    "slug": "semaglutide-ve-kalp-sagligi-select-calismasi-sonuclari",
-    "title": "Semaglutide ve Kalp Sağlığı: SELECT Çalışması Sonuçları",
-    "description": "SELECT çalışması sonuçları: Semaglutide'nin kalp-damar hastalıkları üzerindeki etkisi ve kilo verme ile kardiyovasküler sağlık arasındaki bağlantı.",
-    "category": "bilim",
-    "categoryName": "Bilimsel Araştırmalar",
-    "categoryIcon": "🧬",
-    "categoryColor": "#8B5CF6",
-    "date": "2026-02-12",
-    "readTime": 8,
-    "tags": [
-      "semaglutide",
-      "kalp-sağlığı",
-      "obezite",
-      "kilo-verme",
-      "kardiyovasküler",
-      "select-çalışması"
-    ],
-    "priority": "urgent"
-  },
-  {
-    "slug": "glp1-ilaclari-yan-etkileri-bilmeniz-gerekenler",
-    "title": "GLP-1 İlaçları Yan Etkileri: Bilmeniz Gerekenler",
-    "description": "GLP-1 agonistlerinin yan etkileri, güvenliği ve dikkat edilmesi gereken durumlar hakkında bilimsel bilgiler.",
-    "category": "tedavi",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "date": "2026-02-11",
-    "readTime": 9,
-    "tags": [
-      "glp1",
-      "semaglutid",
-      "yan-etkiler",
-      "diyabet",
-      "obezite"
-    ],
-    "priority": "high"
-  },
-  {
-    "slug": "stres-ve-kortizol-kilo-almaya-neden-olan-gizli-baglanti",
-    "title": "Stres ve Kortizol: Kilo Almaya Neden Olan Gizli Bağlantı",
-    "description": "Stres hormonları nasıl kilo aldırır? Kortizolün metabolizma üzerindeki etkilerini ve stres yönetimi yöntemlerini öğrenin.",
-    "category": "kilo-yonetimi",
-    "categoryName": "Kilo Yönetimi",
-    "categoryIcon": "⚖️",
-    "categoryColor": "#F59E0B",
-    "date": "2026-02-10",
-    "readTime": 8,
-    "tags": [
-      "stres",
-      "kortizol",
-      "kilo-yönetimi",
-      "metabolizma",
-      "hormonlar",
-      "obezite"
-    ],
-    "priority": "normal"
-  },
-  {
-    "slug": "kilo-vermek-icin-gunde-kac-adim-atmali-bilimsel-yanitlar",
-    "title": "Kilo Vermek İçin Günde Kaç Adım Atmalı? Bilimsel Yanıtlar",
-    "description": "Yürüyüş ile kilo verme hakkında bilimsel veriler. Günde kaç adım atmanız gerektiğini ve etkili yürüyüş stratejilerini keşfedin.",
-    "category": "kilo-yonetimi",
-    "categoryName": "Kilo Yönetimi",
-    "categoryIcon": "⚖️",
-    "categoryColor": "#F59E0B",
-    "date": "2026-02-09",
-    "readTime": 8,
-    "tags": [
-      "yürüyüş",
-      "kilo-verme",
-      "adım-sayısı",
-      "egzersiz",
-      "sağlıklı-yaşam",
-      "kalori-yakımı"
-    ],
-    "priority": "normal"
-  },
-  {
-    "slug": "mide-balonu-tedavisi-kime-uygun-sonuclar-nasil",
-    "title": "Mide Balonu Tedavisi: Kime Uygun, Sonuçlar Nasıl?",
-    "description": "Mide balonu tedavisi hakkında bilmeniz gerekenler: hangi hastalara uygun, başarı oranları, riskler ve Türkiye'deki uygulamalar.",
-    "category": "tedavi",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "date": "2026-02-08",
-    "readTime": 12,
-    "tags": [
-      "mide balonu",
-      "obezite tedavisi",
-      "kilo verme",
-      "endoskopi",
-      "bariatrik tedavi"
-    ],
-    "priority": "normal"
+    "slug": "bilimsel-yaklasimimiz-neden-onemli",
+    "title": "Bilimsel Yaklaşımımız: Neden Önemli?",
+    "description": "UzunYaşa'da neden kanıta dayalı, bağımsız ve güncel bilgi sunuyoruz? Bilimsel yaklaşımımızın temellerini açıklıyoruz.",
+    "category": "Hakkımızda",
+    "categoryType": "bilim",
+    "date": "7 Şubat 2026",
+    "readTime": 5,
+    "url": "pages/blog/bilimsel-yaklasimimiz-neden-onemli.html"
   },
   {
     "slug": "blue-zones-dunyanin-en-uzun-yasayan-insanlarinin-9-sirri",
     "title": "Blue Zones: Dünyanın En Uzun Yaşayan İnsanlarının 9 Sırrı",
     "description": "Blue Zones araştırması, 100 yaş üstü insanların yoğun yaşadığı bölgelerdeki uzun yaşam sırlarını ortaya çıkarıyor. İşte bilimsel bulgular.",
-    "category": "yasam-tarzi",
-    "categoryName": "Yaşam Tarzı",
-    "categoryIcon": "😴",
-    "categoryColor": "#06B6D4",
-    "date": "2026-02-07",
+    "category": "Yaşam Tarzı",
+    "categoryType": "yasam-tarzi",
+    "date": "7 Şubat 2026",
     "readTime": 8,
-    "tags": [
-      "uzun-yasam",
-      "blue-zones",
-      "saglikli-yaslanma",
-      "beslenme",
-      "yasam-tarzi",
-      "lonjevite"
-    ],
-    "priority": "normal"
+    "url": "pages/blog/blue-zones-dunyanin-en-uzun-yasayan-insanlarinin-9-sirri.html"
+  },
+  {
+    "slug": "egzersiz-temelleri-rehber",
+    "title": "Egzersiz Temelleri: Kilo Yönetimi İçin Hareket Rehberi",
+    "description": "Kardiyovasküler egzersiz, direnç antrenmanı, kas koruma ve sürdürülebilir hareket alışkanlıkları. Bilimsel kanıtlara dayalı pratik rehber.",
+    "category": "Egzersiz",
+    "categoryType": "egzersiz",
+    "date": "",
+    "readTime": 13,
+    "url": "pages/blog/egzersiz-temelleri-rehber.html"
+  },
+  {
+    "slug": "esg-endoskopik-sleeve-rehber",
+    "title": "Endoskopik Sleeve Gastroplasti (ESG) Kapsamlı Rehberi",
+    "description": "Ameliyatsız mide küçültme: ESG nasıl yapılır, ne kadar kilo verdirir, riskleri neler? 5 yıllık veriler ve Türkiye'de erişim.",
+    "category": "Endoskopik Tedavi",
+    "categoryType": "tedavi",
+    "date": "",
+    "readTime": 16,
+    "url": "pages/blog/esg-endoskopik-sleeve-rehber.html"
+  },
+  {
+    "slug": "esg-vs-sleeve-gastrektomi",
+    "title": "ESG vs Sleeve Gastrektomi: Ameliyatsız mı, Ameliyatlı mı?",
+    "description": "Endoskopik prosedür mü, cerrahi müdahale mi? Mide küçültme seçeneklerini karşılaştırıyoruz: etkinlik, güvenlik, iyileşme süreci.",
+    "category": "Prosedür Karşılaştırma",
+    "categoryType": "bilim",
+    "date": "",
+    "readTime": 15,
+    "url": "pages/blog/esg-vs-sleeve-gastrektomi.html"
+  },
+  {
+    "slug": "fda-kopya-glp1-yasaklari-v2",
+    "title": "FDA Kopya GLP-1 İlaçlarına Savaş Açtı: Compounding Krizi",
+    "description": "FDA, compounding eczanelerinin ürettiği kopya semaglutid ürünlerini yasaklıyor. Hims 49 dolarlık GLP-1 hapını geri çekti. Kopya ilaçların riskleri ve Türkiye'deki durum.",
+    "category": "bilim",
+    "categoryType": "bilim",
+    "date": "9 Şubat 2026",
+    "readTime": 9,
+    "url": "pages/blog/fda-kopya-glp1-yasaklari-v2.html"
+  },
+  {
+    "slug": "fda-kopya-glp1-yasaklari",
+    "title": "FDA Kopya GLP-1 İlaçlarına Savaş Açtı: Compounding Krizi",
+    "description": "FDA, compounding eczanelerinin ürettiği kopya semaglutid ürünlerini yasaklıyor. Hims 49 dolarlık GLP-1 hapını geri çekti. Kopya ilaçların riskleri ve Türkiye'deki durum.",
+    "category": "GLP-1 Haberleri",
+    "categoryType": "tedavi",
+    "date": "9 Şubat 2026",
+    "readTime": 9,
+    "url": "pages/blog/fda-kopya-glp1-yasaklari.html"
+  },
+  {
+    "slug": "glp1-birakinca-ne-olur",
+    "title": "GLP-1 İlaçları Bırakıldığında Ne Oluyor?",
+    "description": "Ozempic, Wegovy veya Mounjaro'yu bırakmayı düşünüyor musunuz? Klinik çalışma verileri, kilo geri alım oranları ve sürdürülebilir stratejiler.",
+    "category": "Önemli Bilgi",
+    "categoryType": "bilim",
+    "date": "",
+    "readTime": 12,
+    "url": "pages/blog/glp1-birakinca-ne-olur.html"
   },
   {
     "slug": "glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler",
     "title": "GLP-1 İlaçları ve Kilo Verme: Bilmeniz Gerekenler",
     "description": "GLP-1 reseptör agonistleri nasıl kilo verdirir? Yan etkileri, maliyeti ve Türkiye'deki durumu hakkında bilimsel bilgiler.",
-    "category": "tedavi",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "date": "2026-02-07",
+    "category": "Tedavi",
+    "categoryType": "tedavi",
+    "date": "7 Şubat 2026",
     "readTime": 12,
-    "tags": [
-      "glp-1",
-      "kilo-verme",
-      "obezite-tedavisi",
-      "semaglutid",
-      "diyabet",
-      "ilaç-tedavisi"
-    ]
+    "url": "pages/blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html"
+  },
+  {
+    "slug": "glp1-ilaclari-yan-etkileri-bilmeniz-gerekenler",
+    "title": "GLP-1 İlaçları Yan Etkileri: Bilmeniz Gerekenler",
+    "description": "GLP-1 agonistlerinin yan etkileri, güvenliği ve dikkat edilmesi gereken durumlar hakkında bilimsel bilgiler.",
+    "category": "Tedavi",
+    "categoryType": "tedavi",
+    "date": "11 Şubat 2026",
+    "readTime": 9,
+    "url": "pages/blog/glp1-ilaclari-yan-etkileri-bilmeniz-gerekenler.html"
+  },
+  {
+    "slug": "glp1-patent-savaslari-2026-yeni-nesil-ilaclar",
+    "title": "GLP-1 Patent Savaşları ve Yeni Nesil İlaçlar: 2026'da Neler Değişiyor?",
+    "description": "2026'da GLP-1 ilaçlarında patent süreleri doluyor, yeni nesil üçlü agonistler ve oral tedaviler geliyor. Semaglutid patent savaşları, retatrutid, orforglipron ve obezite tedavisinin geleceği.",
+    "category": "bilim",
+    "categoryType": "bilim",
+    "date": "10 Subat 2026",
+    "readTime": 12,
+    "url": "pages/blog/glp1-patent-savaslari-2026-yeni-nesil-ilaclar.html"
+  },
+  {
+    "slug": "glp1-tam-rehber",
+    "title": "GLP-1 İlaçları Tam Rehberi: Ozempic, Wegovy, Mounjaro",
+    "description": "Semaglutid ve tirzepatid nasıl çalışır? Ne kadar kilo verdirir? Yan etkileri neler? Tüm klinik veriler ve Türkiye'deki erişim bilgileri.",
+    "category": "GLP-1 İlaçları",
+    "categoryType": "tedavi",
+    "date": "",
+    "readTime": 18,
+    "url": "pages/blog/glp1-tam-rehber.html"
+  },
+  {
+    "slug": "glp1-vs-esg-karsilastirma",
+    "title": "GLP-1 mi, ESG mi? 9 Boyutta Kapsamlı Karşılaştırma",
+    "description": "İlaç tedavisi mi, endoskopik prosedür mü? Etkinlik, kalıcılık, maliyet ve daha fazlası — doğru karar için 9 kritik boyut.",
+    "category": "Karşılaştırma",
+    "categoryType": "bilim",
+    "date": "",
+    "readTime": 14,
+    "url": "pages/blog/glp1-vs-esg-karsilastirma.html"
+  },
+  {
+    "slug": "hiit-vs-kardio-hangisi-daha-etkili",
+    "title": "HIIT vs Kardio: Hangisi Daha Etkili?",
+    "description": "Kilo vermek için HIIT mi yoksa düzenli kardio mu daha etkili? Bilimsel karşılaştırma ve öneriler.",
+    "category": "Egzersiz",
+    "categoryType": "egzersiz",
+    "date": "7 Şubat 2026",
+    "readTime": 6,
+    "url": "pages/blog/hiit-vs-kardio-hangisi-daha-etkili.html"
+  },
+  {
+    "slug": "inkretin-tedaviler-kalp-sagligi",
+    "title": "İnkretin Tedavileri Kalbi Nasıl Koruyor?",
+    "description": "GLP-1 ilaçları sadece kilo verdirmiyor, kalbi de koruyor. 2026 güncel derleme: Kardiyovasküler koruma, kalp yetmezliği ve yeni nesil üçlü agonistler.",
+    "category": "Bilim",
+    "categoryType": "bilim",
+    "date": "8 Şubat 2026",
+    "readTime": 12,
+    "url": "pages/blog/inkretin-tedaviler-kalp-sagligi.html"
+  },
+  {
+    "slug": "insulin-direnci-belirtiler-tani-ve-tedavi-rehberi-2024",
+    "title": "İnsülin Direnci: Belirtiler, Tanı ve Tedavi Rehberi 2024",
+    "description": "İnsülin direnci nedir, belirtileri nelerdir? Güncel tanı yöntemleri ve etkili tedavi seçenekleri hakkında bilimsel bilgiler.",
+    "category": "Tedavi",
+    "categoryType": "tedavi",
+    "date": "17 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/insulin-direnci-belirtiler-tani-ve-tedavi-rehberi-2024.html"
+  },
+  {
+    "slug": "insulin-direnci-belirtiler-tedavi",
+    "title": "İnsülin Direnci: Belirtiler ve Tedavi",
+    "description": "İnsülin direnci nedir, belirtileri nelerdir ve nasıl tedavi edilir? Kilo vermeyi zorlaştıran bu metabolik sorunu anlayın.",
+    "category": "Bilim",
+    "categoryType": "bilim",
+    "date": "7 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/insulin-direnci-belirtiler-tedavi.html"
+  },
+  {
+    "slug": "insulin-direnci-belirtileri-tani-ve-tedavi-yontemleri",
+    "title": "İnsülin Direnci: Belirtileri, Tanı ve Tedavi Yöntemleri",
+    "description": "İnsülin direnci nedir, belirtileri nelerdir? Tanı yöntemleri ve doğal tedavi seçenekleri hakkında bilimsel bilgiler.",
+    "category": "Tedavi",
+    "categoryType": "tedavi",
+    "date": "13 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/insulin-direnci-belirtileri-tani-ve-tedavi-yontemleri.html"
+  },
+  {
+    "slug": "kilo-vermek-icin-gunde-kac-adim-atmali-bilimsel-yanitlar",
+    "title": "Kilo Vermek İçin Günde Kaç Adım Atmalı? Bilimsel Yanıtlar",
+    "description": "Yürüyüş ile kilo verme hakkında bilimsel veriler. Günde kaç adım atmanız gerektiğini ve etkili yürüyüş stratejilerini keşfedin.",
+    "category": "Kilo Yönetimi",
+    "categoryType": "kilo-yonetimi",
+    "date": "9 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/kilo-vermek-icin-gunde-kac-adim-atmali-bilimsel-yanitlar.html"
+  },
+  {
+    "slug": "kilo-yonetimi-tedavi-secenekleri-karsilastirmasi",
+    "title": "Kilo Yönetimi Tedavi Seçenekleri Karşılaştırması",
+    "description": "GLP-1 ilaçları, endoskopik tüp mide, bariatrik cerrahi, diyet ve egzersiz - hangisi size uygun? Tüm seçenekleri karşılaştırıyoruz.",
+    "category": "Tedavi Seçenekleri",
+    "categoryType": "tedavi",
+    "date": "7 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/kilo-yonetimi-tedavi-secenekleri-karsilastirmasi.html"
+  },
+  {
+    "slug": "mide-balonu-tedavisi-kime-uygun-sonuclar-nasil",
+    "title": "Mide Balonu Tedavisi: Kime Uygun, Sonuçlar Nasıl?",
+    "description": "Mide balonu tedavisi hakkında bilmeniz gerekenler: hangi hastalara uygun, başarı oranları, riskler ve Türkiye'deki uygulamalar.",
+    "category": "Tedavi",
+    "categoryType": "tedavi",
+    "date": "8 Şubat 2026",
+    "readTime": 12,
+    "url": "pages/blog/mide-balonu-tedavisi-kime-uygun-sonuclar-nasil.html"
+  },
+  {
+    "slug": "oral-glp1-orforglipron-igneden-hapa",
+    "title": "Oral GLP-1 Devrimi: Orforglipron ile İğneden Hapa Geçiş",
+    "description": "Orforglipron nedir? İlk oral küçük molekül GLP-1 ilacının Faz 3 sonuçları: ATTAIN-1 ve ATTAIN-2 çalışmaları, etkinlik verileri, yan etkiler ve obezite tedavisinin geleceği.",
+    "category": "Oral GLP-1",
+    "categoryType": "tedavi",
+    "date": "",
+    "readTime": 12,
+    "url": "pages/blog/oral-glp1-orforglipron-igneden-hapa.html"
+  },
+  {
+    "slug": "oral-wegovy-fda-onayi",
+    "title": "Oral Wegovy FDA Onayı: İlk GLP-1 Kilo Verme Hapı",
+    "description": "FDA, oral semaglutid (Wegovy hapı) ile obezite tedavisini onayladı. OASIS 4 çalışmasında %13.6 kilo kaybı. İğnesiz GLP-1 çağı başlıyor.",
+    "category": "GLP-1 Haberleri",
+    "categoryType": "tedavi",
+    "date": "",
+    "readTime": 10,
+    "url": "pages/blog/oral-wegovy-fda-onayi.html"
+  },
+  {
+    "slug": "ozempic-vs-esg-maliyet",
+    "title": "Ozempic vs ESG: 5 Yıllık Maliyet Karşılaştırması",
+    "description": "GLP-1 ilaçları mı, endoskopik mide küçültme mi? Türkiye fiyatlarıyla gerçekçi 5 yıllık maliyet hesaplamaları.",
+    "category": "Maliyet Analizi",
+    "categoryType": "bilim",
+    "date": "",
+    "readTime": 12,
+    "url": "pages/blog/ozempic-vs-esg-maliyet.html"
+  },
+  {
+    "slug": "retatrutide-yeni-nesil-obezite-ilacinin-vaatleri",
+    "title": "Retatrutide: Yeni Nesil Obezite İlacının Vaatleri",
+    "description": "Üçlü hormon agonisti retatrutide, obezite tedavisinde çığır açabilir mi? Güncel araştırmaları ve potansiyel etkilerini keşfedin.",
+    "category": "Tedavi",
+    "categoryType": "tedavi",
+    "date": "14 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/retatrutide-yeni-nesil-obezite-ilacinin-vaatleri.html"
+  },
+  {
+    "slug": "saglikli-beslenme-temelleri",
+    "title": "Sağlıklı Beslenme Temelleri: Kilo Yönetimi İçin Bilimsel Rehber",
+    "description": "Kalori açığı, makro besinler, porsiyon kontrolü ve sürdürülebilir beslenme alışkanlıkları. Fad diyetler yerine kanıta dayalı yaklaşım.",
+    "category": "Beslenme",
+    "categoryType": "beslenme",
+    "date": "",
+    "readTime": 14,
+    "url": "pages/blog/saglikli-beslenme-temelleri.html"
+  },
+  {
+    "slug": "saglikli-kilo-vermenin-10-altin-kurali",
+    "title": "Sağlıklı Kilo Vermenin 10 Altın Kuralı",
+    "description": "Bilimsel kanıtlara dayalı, sürdürülebilir kilo kaybı için 10 temel kural. Gerçekçi hedefler, protein, egzersiz ve daha fazlası.",
+    "category": "Rehber",
+    "categoryType": "bilim",
+    "date": "",
+    "readTime": 14,
+    "url": "pages/blog/saglikli-kilo-vermenin-10-altin-kurali.html"
+  },
+  {
+    "slug": "sarkopeni-kas-kaybini-onlemek-icin-direnc-egzersizleri",
+    "title": "Sarkopeni: Kas Kaybını Önlemek İçin Direnç Egzersizleri",
+    "description": "Yaşla birlikte kas kaybı (sarkopeni) nasıl önlenir? Bilimsel araştırmalarla desteklenmiş direnç egzersizi rehberi.",
+    "category": "Egzersiz",
+    "categoryType": "egzersiz",
+    "date": "18 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/sarkopeni-kas-kaybini-onlemek-icin-direnc-egzersizleri.html"
+  },
+  {
+    "slug": "semaglutid-ve-kalp-sagligi-select-calismasi-bulgulari",
+    "title": "Semaglutid ve Kalp Sağlığı: SELECT Çalışması Bulguları",
+    "description": "Semaglutid'in kalp hastalıkları üzerindeki etkilerini araştıran SELECT çalışmasının sonuçları ve Türkiye'deki uygulamaları.",
+    "category": "Tedavi",
+    "categoryType": "tedavi",
+    "date": "16 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/semaglutid-ve-kalp-sagligi-select-calismasi-bulgulari.html"
+  },
+  {
+    "slug": "semaglutide-ve-kalp-sagligi-select-calismasi-neler-ortaya-ko",
+    "title": "Semaglutide ve Kalp Sağlığı: SELECT Çalışması Neler Ortaya Koydu?",
+    "description": "SELECT çalışması semaglutide'nin kalp sağlığına etkilerini açığa çıkardı. Diyabet olmayan hastalarda kardiyovasküler risklerde önemli azalmalar tespit edildi.",
+    "category": "Bilimsel Araştırmalar",
+    "categoryType": "bilim",
+    "date": "15 Şubat 2026",
+    "readTime": 9,
+    "url": "pages/blog/semaglutide-ve-kalp-sagligi-select-calismasi-neler-ortaya-ko.html"
+  },
+  {
+    "slug": "semaglutide-ve-kalp-sagligi-select-calismasi-sonuclari",
+    "title": "Semaglutide ve Kalp Sağlığı: SELECT Çalışması Sonuçları",
+    "description": "SELECT çalışması sonuçları: Semaglutide'nin kalp-damar hastalıkları üzerindeki etkisi ve kilo verme ile kardiyovasküler sağlık arasındaki bağlantı.",
+    "category": "Bilimsel Araştırmalar",
+    "categoryType": "bilim",
+    "date": "12 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/semaglutide-ve-kalp-sagligi-select-calismasi-sonuclari.html"
+  },
+  {
+    "slug": "stres-ve-kortizol-kilo-almaya-neden-olan-gizli-baglanti",
+    "title": "Stres ve Kortizol: Kilo Almaya Neden Olan Gizli Bağlantı",
+    "description": "Stres hormonları nasıl kilo aldırır? Kortizolün metabolizma üzerindeki etkilerini ve stres yönetimi yöntemlerini öğrenin.",
+    "category": "Kilo Yönetimi",
+    "categoryType": "kilo-yonetimi",
+    "date": "10 Şubat 2026",
+    "readTime": 8,
+    "url": "pages/blog/stres-ve-kortizol-kilo-almaya-neden-olan-gizli-baglanti.html"
+  },
+  {
+    "slug": "turkiye-obezite-rehberi",
+    "title": "Türkiye'de Obezite: Rakamlar, Gerçekler ve Çözüm Yolları",
+    "description": "Türkiye Avrupa'nın en yüksek obezite oranına sahip ülkesi. Güncel istatistikler, nedenler, sağlık sonuçları ve kanıta dayalı çözüm yolları.",
+    "category": "Epidemiyoloji",
+    "categoryType": "bilim",
+    "date": "",
+    "readTime": 15,
+    "url": "pages/blog/turkiye-obezite-rehberi.html"
+  },
+  {
+    "slug": "uyku-ve-kilo-gizli-baglanti",
+    "title": "Uyku ve Kilo: Gizli Bağlantı",
+    "description": "Yetersiz uyku neden kilo almanıza neden oluyor? Uyku ve metabolizma arasındaki bilimsel bağlantıyı keşfedin.",
+    "category": "Yaşam Tarzı",
+    "categoryType": "yasam-tarzi",
+    "date": "7 Şubat 2026",
+    "readTime": 6,
+    "url": "pages/blog/uyku-ve-kilo-gizli-baglanti.html"
+  },
+  {
+    "slug": "who-cochrane-glp1-incelemesi",
+    "title": "WHO Cochrane İncelemesi: GLP-1 İlaçları Ne Kadar Etkili?",
+    "description": "WHO'nun yaptırdığı 3 Cochrane derlemesi GLP-1 ilaçlarının etkinlik ve güvenlik verilerini analiz ediyor. Tirzepatide %16, semaglutide %11 kilo kaybı sağlıyor.",
+    "category": "bilim",
+    "categoryType": "bilim",
+    "date": "12 Şubat 2026",
+    "readTime": 12,
+    "url": "pages/blog/who-cochrane-glp1-incelemesi.html"
   }
 ]
