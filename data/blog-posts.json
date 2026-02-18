@@ -1,5 +1,25 @@
 [
   {
+    "slug": "sarkopeni-kas-kaybini-onlemek-icin-direnc-egzersizleri",
+    "title": "Sarkopeni: Kas Kaybını Önlemek İçin Direnç Egzersizleri",
+    "description": "Yaşla birlikte kas kaybı (sarkopeni) nasıl önlenir? Bilimsel araştırmalarla desteklenmiş direnç egzersizi rehberi.",
+    "category": "egzersiz",
+    "categoryName": "Egzersiz",
+    "categoryIcon": "🏃",
+    "categoryColor": "#3B82F6",
+    "date": "2026-02-18",
+    "readTime": 8,
+    "tags": [
+      "sarkopeni",
+      "kas kaybı",
+      "direnç egzersizi",
+      "yaşlanma",
+      "protein",
+      "kas geliştirme"
+    ],
+    "priority": "normal"
+  },
+  {
     "slug": "insulin-direnci-belirtiler-tani-ve-tedavi-rehberi-2024",
     "title": "İnsülin Direnci: Belirtiler, Tanı ve Tedavi Rehberi 2024",
     "description": "İnsülin direnci nedir, belirtileri nelerdir? Güncel tanı yöntemleri ve etkili tedavi seçenekleri hakkında bilimsel bilgiler.",
