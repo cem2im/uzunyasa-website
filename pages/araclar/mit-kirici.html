@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<script src="/scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mit Kırıcı — Sağlık Mitleri Testi | UzunYaşa</title>
+<meta name="description" content="Sağlık hakkında bildiğiniz her şey doğru mu? 30 popüler sağlık mitini test edin, bilimsel gerçekleri öğrenin!">
+<link rel="canonical" href="https://uzunyasa.com/pages/araclar/mit-kirici.html">
+<meta property="og:title" content="Mit Kırıcı — Sağlık Mitleri Testi">
+<meta property="og:description" content="Sağlık hakkında bildiğiniz her şey doğru mu? 30 popüler sağlık mitini test edin!">
+<meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+<meta property="og:url" content="https://uzunyasa.com/pages/araclar/mit-kirici.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0D7377;--dark:#195157;--accent:#E8963E;--green:#10B981;--red:#EF4444;--bg:#f8fafa;--card:#fff;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827;--radius:16px;--shadow:0 4px 24px rgba(0,0,0,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--gray-700);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+.playfair{font-family:'Playfair Display',serif}
+
+.site-header{background:#fff;border-bottom:1px solid var(--gray-200);padding:.875rem 1.5rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.site-header a{text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark)}
+.logo-text span{color:var(--accent)}
+.back-link{font-size:.875rem;color:var(--primary);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.25rem}
+
+.game-wrap{max-width:560px;margin:0 auto;padding:1rem;width:100%;flex:1}
+
+/* Progress */
+.progress-bar{background:var(--gray-200);border-radius:99px;height:8px;margin-bottom:.5rem;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:99px;transition:width .5s ease}
+.progress-text{font-size:.8rem;color:var(--gray-500);text-align:center;margin-bottom:.5rem}
+
+/* Score */
+.score-bar{display:flex;justify-content:center;gap:2rem;margin-bottom:1.25rem;font-size:.9rem;font-weight:700}
+.score-bar .correct{color:var(--green)}
+.score-bar .wrong{color:var(--red)}
+
+/* Card */
+.myth-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;position:relative;transition:transform .3s,opacity .3s}
+.myth-card.slide-left{transform:translateX(-120%);opacity:0}
+.myth-card.slide-right{transform:translateX(120%);opacity:0}
+.myth-card.slide-in{transform:translateX(0);opacity:1}
+
+.category-badge{display:inline-block;padding:.35rem .85rem;border-radius:99px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:1rem}
+.cat-beslenme{background:#ECFDF5;color:#065F46}
+.cat-egzersiz{background:#EFF6FF;color:#1E40AF}
+.cat-kilo{background:#FEF3C7;color:#92400E}
+.cat-saglik{background:#FDF2F8;color:#9D174D}
+.cat-uyku{background:#EDE9FE;color:#5B21B6}
+.cat-ilac{background:#FEE2E2;color:#991B1B}
+
+.myth-body{padding:2rem 1.75rem 1.5rem;text-align:center}
+.myth-icon{font-size:3rem;margin-bottom:1rem;display:block}
+.myth-question{font-size:1.3rem;font-weight:700;color:var(--gray-900);line-height:1.4;margin-bottom:.5rem}
+.myth-hint{font-size:.85rem;color:var(--gray-400);font-style:italic}
+
+/* Buttons */
+.answer-buttons{display:flex;gap:.75rem;padding:0 1.75rem 1.75rem}
+.btn-answer{flex:1;padding:1rem;border:3px solid var(--gray-200);border-radius:12px;background:#fff;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-answer:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.btn-true{color:var(--green)}
+.btn-true:hover,.btn-true.selected{border-color:var(--green);background:#ECFDF5}
+.btn-false{color:var(--red)}
+.btn-false:hover,.btn-false.selected{border-color:var(--red);background:#FEF2F2}
+.btn-answer:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* Explanation */
+.explanation{padding:0 1.75rem 1.75rem;display:none}
+.explanation.show{display:block;animation:fadeUp .4s ease}
+.explanation-box{border-radius:12px;padding:1.25rem 1.5rem}
+.explanation-box.correct{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #A7F3D0}
+.explanation-box.wrong{background:linear-gradient(135deg,#FEF2F2,#FECACA);border:1px solid #FCA5A5}
+.explanation-verdict{font-weight:800;font-size:1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.explanation-verdict.is-true{color:#065F46}
+.explanation-verdict.is-false{color:#991B1B}
+.explanation-text{font-size:.95rem;color:var(--gray-700);line-height:1.7}
+.explanation-source{font-size:.8rem;color:var(--gray-400);margin-top:.75rem;font-style:italic}
+
+.btn-next{display:none;width:100%;padding:.875rem;border:none;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--dark));color:#fff;font-size:1rem;font-weight:700;cursor:pointer;margin-top:1rem;transition:transform .2s}
+.btn-next:hover{transform:translateY(-2px)}
+.btn-next.show{display:block;animation:fadeUp .3s ease}
+
+/* Results */
+.results{display:none;text-align:center;padding:2rem 0}
+.results.show{display:block;animation:fadeUp .5s ease}
+.results-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:2.5rem 2rem;margin-bottom:1.5rem}
+.results-icon{font-size:4rem;margin-bottom:1rem;display:block}
+.results-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.results-score{font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.results-label{font-size:1rem;color:var(--gray-500);margin-bottom:1.5rem}
+.results-bar{display:flex;gap:.5rem;justify-content:center;margin-bottom:1.5rem}
+.results-bar .dot{width:12px;height:12px;border-radius:50%}
+.results-bar .dot.correct{background:var(--green)}
+.results-bar .dot.wrong{background:var(--red)}
+.results-grade{font-size:1.1rem;font-weight:700;color:var(--dark);padding:.75rem 1.5rem;background:var(--gray-100);border-radius:99px;display:inline-block;margin-bottom:1.5rem}
+.results-message{font-size:.95rem;color:var(--gray-500);line-height:1.7;margin-bottom:1.5rem}
+
+.share-buttons{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+.share-btn{padding:.75rem 1.25rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;color:#fff;display:flex;align-items:center;gap:.4rem;transition:transform .2s}
+.share-btn:hover{transform:translateY(-2px)}
+.share-btn.whatsapp{background:#25D366}
+.share-btn.twitter{background:#1DA1F2}
+.share-btn.copy{background:var(--gray-700)}
+
+.btn-restart{display:inline-block;padding:.875rem 2.5rem;border:none;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--dark));color:#fff;font-size:1rem;font-weight:700;cursor:pointer;margin-top:1rem;transition:transform .2s}
+.btn-restart:hover{transform:translateY(-2px)}
+
+/* Start screen */
+.start-screen{text-align:center;padding:2rem 0}
+.start-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:3rem 2rem}
+.start-icon{font-size:4rem;margin-bottom:1rem;display:block}
+.start-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--dark);margin-bottom:.75rem}
+.start-subtitle{font-size:1.05rem;color:var(--gray-500);margin-bottom:2rem;line-height:1.6}
+.start-stats{display:flex;justify-content:center;gap:2rem;margin-bottom:2rem}
+.start-stat{text-align:center}
+.start-stat .num{font-size:1.75rem;font-weight:800;color:var(--primary)}
+.start-stat .label{font-size:.8rem;color:var(--gray-400)}
+.btn-start{padding:1rem 3rem;border:none;border-radius:12px;background:linear-gradient(135deg,var(--accent),#D97706);color:#fff;font-size:1.15rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(232,150,62,.3)}
+.btn-start:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(232,150,62,.4)}
+
+.category-filter{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.5rem}
+.cat-btn{padding:.4rem .85rem;border:2px solid var(--gray-200);border-radius:99px;font-size:.8rem;font-weight:600;cursor:pointer;background:#fff;color:var(--gray-500);transition:all .2s}
+.cat-btn:hover,.cat-btn.active{border-color:var(--primary);color:var(--primary);background:#E0F7F8}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.shake{animation:shake .4s ease}
+
+footer{background:var(--dark);color:#fff;padding:1.5rem;text-align:center;font-size:.85rem;margin-top:auto}
+footer a{color:var(--accent);text-decoration:none}
+
+@media(max-width:480px){
+  .myth-question{font-size:1.15rem}
+  .myth-body{padding:1.5rem 1.25rem 1rem}
+  .answer-buttons{padding:0 1.25rem 1.25rem}
+  .explanation{padding:0 1.25rem 1.25rem}
+  .start-title{font-size:1.75rem}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../../index.html">
+    <span class="logo-text">Uzun<span>Yaşa</span></span>
+  </a>
+  <a href="../araclar.html" class="back-link">← Araçlar</a>
+</header>
+
+<main class="game-wrap">
+  <!-- START SCREEN -->
+  <div class="start-screen" id="startScreen">
+    <div class="start-card">
+      <span class="start-icon">🔬</span>
+      <h1 class="start-title">Mit Kırıcı</h1>
+      <p class="start-subtitle">Sağlık hakkında bildiğiniz her şey doğru mu?<br>Popüler mitleri test edin, bilimsel gerçekleri öğrenin!</p>
+      <div class="start-stats">
+        <div class="start-stat"><div class="num">30</div><div class="label">Sağlık Miti</div></div>
+        <div class="start-stat"><div class="num">6</div><div class="label">Kategori</div></div>
+        <div class="start-stat"><div class="num">~3</div><div class="label">Dakika</div></div>
+      </div>
+      <div class="category-filter" id="categoryFilter">
+        <button class="cat-btn active" data-cat="all">Hepsi</button>
+        <button class="cat-btn" data-cat="beslenme">🥗 Beslenme</button>
+        <button class="cat-btn" data-cat="egzersiz">🏃 Egzersiz</button>
+        <button class="cat-btn" data-cat="kilo">⚖️ Kilo</button>
+        <button class="cat-btn" data-cat="saglik">❤️ Sağlık</button>
+        <button class="cat-btn" data-cat="uyku">😴 Uyku</button>
+        <button class="cat-btn" data-cat="ilac">💊 İlaç</button>
+      </div>
+      <button class="btn-start" onclick="startGame()">Teste Başla →</button>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="gameScreen" style="display:none">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-text" id="progressText">1 / 10</div>
+    <div class="score-bar">
+      <div class="correct">✅ <span id="correctCount">0</span></div>
+      <div class="wrong">❌ <span id="wrongCount">0</span></div>
+    </div>
+
+    <div class="myth-card" id="mythCard">
+      <div class="myth-body">
+        <span class="category-badge" id="mythCategory"></span>
+        <span class="myth-icon" id="mythIcon"></span>
+        <h2 class="myth-question" id="mythQuestion"></h2>
+        <p class="myth-hint">Doğru mu, yanlış mı?</p>
+      </div>
+      <div class="answer-buttons" id="answerBtns">
+        <button class="btn-answer btn-true" onclick="answer(true)">✅ Doğru</button>
+        <button class="btn-answer btn-false" onclick="answer(false)">❌ Yanlış</button>
+      </div>
+      <div class="explanation" id="explanation">
+        <div class="explanation-box" id="explanationBox">
+          <div class="explanation-verdict" id="verdict"></div>
+          <div class="explanation-text" id="explanationText"></div>
+          <div class="explanation-source" id="explanationSource"></div>
+        </div>
+        <button class="btn-next" id="btnNext" onclick="nextMyth()">Sonraki →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="resultsScreen">
+    <div class="results-card">
+      <span class="results-icon" id="resultsIcon"></span>
+      <h2 class="results-title">Sonuçlarınız</h2>
+      <div class="results-score" id="resultsScore"></div>
+      <div class="results-label">doğru cevap</div>
+      <div class="results-bar" id="resultsBar"></div>
+      <div class="results-grade" id="resultsGrade"></div>
+      <p class="results-message" id="resultsMessage"></p>
+      <div class="share-buttons">
+        <a class="share-btn whatsapp" id="shareWA" href="#" target="_blank">📱 WhatsApp</a>
+        <a class="share-btn twitter" id="shareTW" href="#" target="_blank">🐦 Twitter</a>
+        <button class="share-btn copy" onclick="copyResult()">📋 Kopyala</button>
+      </div>
+      <button class="btn-restart" onclick="restart()">🔄 Tekrar Oyna</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 <a href="../../index.html">UzunYaşa</a> · Bilimle daha uzun, daha iyi yaşam</p>
+</footer>
+
+<script>
+const MYTHS = [
+  // BESLENME
+  {
+    myth: "Yumurta kolesterolü artırır ve kalp hastalığına yol açar",
+    answer: false,
+    icon: "🥚",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "Yumurtadaki kolesterol, çoğu insanda kan kolesterolünü önemli ölçüde etkilemez. Karaciğer, diyetle alınan kolesterole göre üretimini ayarlar. Günde 1-3 yumurta çoğu kişi için güvenlidir.",
+    source: "Drouin-Chartier JP, et al. BMJ. 2020;368:m513"
+  },
+  {
+    myth: "Detoks diyetleri vücuttaki toksinleri temizler",
+    answer: false,
+    icon: "🧃",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "Vücudun kendi detoks sistemi (karaciğer, böbrekler) zaten toksinleri temizler. 'Detoks' ürünleri ve diyetlerinin bilimsel kanıtı yoktur. Sağlıklı beslenme yeterlidir.",
+    source: "Klein AV, Kiat H. J Hum Nutr Diet. 2015;28(6):675-686"
+  },
+  {
+    myth: "Akdeniz diyeti kalp hastalığı riskini azaltır",
+    answer: true,
+    icon: "🫒",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "PREDIMED çalışması, Akdeniz diyetinin kalp krizi ve inme riskini %30 azalttığını gösterdi. Zeytinyağı, balık, sebze ve kuruyemişler bu etkinin temelini oluşturur.",
+    source: "Estruch R, et al. N Engl J Med. 2018;378:e34"
+  },
+  {
+    myth: "Gluten herkes için zararlıdır",
+    answer: false,
+    icon: "🍞",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "Gluten yalnızca çölyak hastaları (~%1) ve gluten duyarlılığı olanlar için sorun oluşturur. Sağlıklı bireylerin glutenden kaçınması gereksizdir ve faydalı liflerden mahrum kalmasına yol açabilir.",
+    source: "Lebwohl B, et al. BMJ. 2017;357:j1892"
+  },
+  {
+    myth: "Günde 2 litre su içmek şart",
+    answer: false,
+    icon: "💧",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "Günlük su ihtiyacı kişiye, iklime ve aktivite düzeyine göre değişir. Yiyeceklerden de su alırız. Susuzluk hissi çoğu sağlıklı yetişkin için yeterli bir göstergedir.",
+    source: "Valtin H. Am J Physiol Regul Integr Comp Physiol. 2002;283(5):R993-1004"
+  },
+  // EGZERSIZ
+  {
+    myth: "Kilo vermek için mutlaka spor yapmak gerekir",
+    answer: false,
+    icon: "🏋️",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "Kilo vermenin temel mekanizması kalori açığıdır. Beslenme değişikliği tek başına yeterli olabilir. Ancak egzersiz kas kaybını önler, metabolizmayı hızlandırır ve sağlık için çok önemlidir.",
+    source: "Swift DL, et al. Prog Cardiovasc Dis. 2018;61(2):206-213"
+  },
+  {
+    myth: "Karın egzersizleri göbek eritir",
+    answer: false,
+    icon: "💪",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "Bölgesel yağ yakımı (spot reduction) mümkün değildir. Karın egzersizleri kasları güçlendirir ama üstündeki yağ tabakasını eritmez. Yağ kaybı tüm vücutta eş zamanlı gerçekleşir.",
+    source: "Vispute SS, et al. J Strength Cond Res. 2011;25(9):2559-2564"
+  },
+  {
+    myth: "Günde 10.000 adım sağlık için gerekli",
+    answer: false,
+    icon: "👟",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "10.000 adım hedefi bir Japon pazarlama kampanyasından gelir, bilimsel bir temeli yoktur. Araştırmalar günde 7.000-8.000 adımın ölüm riskini önemli ölçüde azalttığını gösteriyor.",
+    source: "Paluch AE, et al. Lancet Public Health. 2022;7(3):e219-e228"
+  },
+  {
+    myth: "Ağırlık kaldırmak kadınları erkekleştirir",
+    answer: false,
+    icon: "🏋️‍♀️",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "Kadınlarda testosteron seviyesi erkeklerin ~1/10'u kadardır. Ağırlık çalışması kadınları kas dağları yapmaz; kemik yoğunluğunu artırır, metabolizmayı hızlandırır ve vücudu sıkılaştırır.",
+    source: "Westcott WL. Curr Sports Med Rep. 2012;11(4):209-216"
+  },
+  {
+    myth: "Egzersiz öncesi stretching sakatlığı önler",
+    answer: false,
+    icon: "🧘",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "Statik stretching egzersiz öncesi sakatlık riskini azaltmaz, hatta performansı düşürebilir. Dinamik ısınma (hafif koşu, eklem hareketleri) çok daha etkilidir.",
+    source: "Lauersen JB, et al. Br J Sports Med. 2014;48(11):871-877"
+  },
+  // KİLO YÖNETİMİ
+  {
+    myth: "Metabolizma yavaşladığı için kilo alırız",
+    answer: false,
+    icon: "🔥",
+    category: "kilo",
+    categoryLabel: "Kilo Yönetimi",
+    explanation: "Yaşla birlikte metabolizma hızı düşse de, bu düşüş genellikle küçüktür (~%1-2/10 yıl). Kilo alımının asıl nedeni azalan fiziksel aktivite ve artan kalori alımıdır.",
+    source: "Pontzer H, et al. Science. 2021;373(6556):808-812"
+  },
+  {
+    myth: "Akşam yemek yemek kilo aldırır",
+    answer: false,
+    icon: "🌙",
+    category: "kilo",
+    categoryLabel: "Kilo Yönetimi",
+    explanation: "Kilo alma/vermeyi belirleyen toplam günlük kalori alımıdır, saat değil. Ancak gece geç saatlerde yemek uyku kalitesini bozabilir ve bu da dolaylı olarak kilo alımına katkıda bulunabilir.",
+    source: "Kinsey AW, Ormsbee MJ. Nutrients. 2015;7(4):2648-2662"
+  },
+  {
+    myth: "BMI tek başına sağlık riskini gösterir",
+    answer: false,
+    icon: "📏",
+    category: "kilo",
+    categoryLabel: "Kilo Yönetimi",
+    explanation: "BMI kas/yağ oranını ayırt edemez. Bel çevresi, bel/boy oranı ve yağ dağılımı daha önemli göstergelerdir. Sporcu bir kişi BMI'ye göre 'obez' çıkabilir.",
+    source: "Tomiyama AJ, et al. Int J Obes. 2016;40(5):883-886"
+  },
+  {
+    myth: "Hızlı kilo vermek her zaman zararlıdır",
+    answer: false,
+    icon: "⚡",
+    category: "kilo",
+    categoryLabel: "Kilo Yönetimi",
+    explanation: "Tıbbi gözetim altında hızlı kilo verme (çok düşük kalorili diyetler, bariatrik cerrahi) güvenli ve etkili olabilir. Önemli olan yöntemin bilimsel temelli ve denetimli olmasıdır.",
+    source: "Purcell K, et al. Lancet Diabetes Endocrinol. 2014;2(12):954-962"
+  },
+  {
+    myth: "Aralıklı oruç sadece bir diyet modası değil, gerçek faydaları var",
+    answer: true,
+    icon: "⏰",
+    category: "kilo",
+    categoryLabel: "Kilo Yönetimi",
+    explanation: "Aralıklı oruç insülin duyarlılığını artırır, otofojiyi tetikler ve inflamasyonu azaltır. Kilo yönetimi dışında hücresel tamir mekanizmalarını da aktive eder.",
+    source: "de Cabo R, Mattson MP. N Engl J Med. 2019;381(26):2541-2551"
+  },
+  // SAĞLIK
+  {
+    myth: "Soğuk havada dışarı çıkmak nezle yapar",
+    answer: false,
+    icon: "🥶",
+    category: "saglik",
+    categoryLabel: "Sağlık",
+    explanation: "Nezleye virüsler neden olur, soğuk hava değil. Ancak soğukta insanlar kapalı alanlarda daha çok vakit geçirir, bu da virüs bulaşmasını kolaylaştırır.",
+    source: "Eccles R. Rhinology. 2002;40(3):107-114"
+  },
+  {
+    myth: "Antibiyotikler virüslere karşı etkilidir",
+    answer: false,
+    icon: "💊",
+    category: "saglik",
+    categoryLabel: "Sağlık",
+    explanation: "Antibiyotikler yalnızca bakterilere karşı etkilidir. Grip, nezle gibi viral enfeksiyonlarda antibiyotik kullanmak gereksizdir ve antibiyotik direncine yol açar.",
+    source: "WHO. Antibiotic resistance fact sheet. 2023"
+  },
+  {
+    myth: "Günde bir elma doktoru uzak tutar",
+    answer: true,
+    icon: "🍎",
+    category: "saglik",
+    categoryLabel: "Sağlık",
+    explanation: "Tamamen doğru olmasa da, elma ve genel meyve tüketimi kalp hastalığı, diyabet ve bazı kanser risklerini azaltır. Lifli meyve tüketimi bağırsak sağlığını da destekler.",
+    source: "Aune D, et al. Int J Epidemiol. 2017;46(3):1029-1056"
+  },
+  {
+    myth: "Obezite sadece irade eksikliğinden kaynaklanır",
+    answer: false,
+    icon: "🧠",
+    category: "saglik",
+    categoryLabel: "Sağlık",
+    explanation: "Obezite karmaşık bir hastalıktır. Genetik, hormonal, çevresel, psikolojik ve sosyoekonomik faktörlerin hepsi rol oynar. Dünya Sağlık Örgütü obeziteyi kronik bir hastalık olarak tanımlar.",
+    source: "Bray GA, et al. Lancet. 2016;387(10026):1377-1396"
+  },
+  {
+    myth: "Organik gıdalar her zaman daha sağlıklıdır",
+    answer: false,
+    icon: "🌿",
+    category: "saglik",
+    categoryLabel: "Sağlık",
+    explanation: "Organik gıdalar daha az pestisit içerebilir, ancak besin değeri açısından geleneksel gıdalarla arasında tutarlı bir fark bulunmamıştır. Önemli olan meyve-sebze tüketim miktarıdır.",
+    source: "Smith-Spangler C, et al. Ann Intern Med. 2012;157(5):348-366"
+  },
+  // UYKU
+  {
+    myth: "Herkes 8 saat uyumalı",
+    answer: false,
+    icon: "😴",
+    category: "uyku",
+    categoryLabel: "Uyku",
+    explanation: "Optimal uyku süresi kişiden kişiye değişir. Yetişkinler için 7-9 saat önerilir, ancak bazı insanlar 6 saatte dinlenirken bazıları 9 saate ihtiyaç duyar. Genetik faktörler belirleyicidir.",
+    source: "Hirshkowitz M, et al. Sleep Health. 2015;1(1):40-43"
+  },
+  {
+    myth: "Hafta sonu fazla uyuyarak uyku borcunu kapatabilirsiniz",
+    answer: false,
+    icon: "🛌",
+    category: "uyku",
+    categoryLabel: "Uyku",
+    explanation: "Hafta sonu fazla uyumak sirkadiyen ritmi bozar ('sosyal jet lag') ve metabolik sağlığı olumsuz etkiler. Düzenli uyku saatleri çok daha önemlidir.",
+    source: "Depner CM, et al. Curr Biol. 2019;29(6):957-967"
+  },
+  {
+    myth: "Uyku eksikliği kilo almaya neden olur",
+    answer: true,
+    icon: "⚖️",
+    category: "uyku",
+    categoryLabel: "Uyku",
+    explanation: "Uyku eksikliği açlık hormonu grelini artırır, tokluk hormonu leptini azaltır. Ayrıca insülin direncini artırır ve gece atıştırma eğilimini güçlendirir.",
+    source: "Spiegel K, et al. Ann Intern Med. 2004;141(11):846-850"
+  },
+  {
+    myth: "Uyumadan önce telefon kullanmak uykuyu etkilemez",
+    answer: false,
+    icon: "📱",
+    category: "uyku",
+    categoryLabel: "Uyku",
+    explanation: "Ekranlardan yayılan mavi ışık melatonin üretimini baskılar ve uykuya dalma süresini uzatır. Uyumadan 1-2 saat önce ekran kullanımını sınırlamak uyku kalitesini artırır.",
+    source: "Chang AM, et al. Proc Natl Acad Sci. 2015;112(4):1232-1237"
+  },
+  // İLAÇ
+  {
+    myth: "GLP-1 ilaçları (Ozempic vb.) bırakılınca tüm kilo geri alınır",
+    answer: false,
+    icon: "💉",
+    category: "ilac",
+    categoryLabel: "İlaç & Tedavi",
+    explanation: "İlaç bırakıldığında kilo geri alımı yaygındır (~%67), ancak 'tüm kilo' ifadesi yanlıştır. Yaşam tarzı değişiklikleriyle desteklenirse korunan kilo daha fazla olur. Bazı hastalar ilacı uzun vadeli kullanır.",
+    source: "Wilding JPH, et al. Diabetes Obes Metab. 2022;24(8):1553-1564"
+  },
+  {
+    myth: "Bitkisel ilaçlar kimyasal ilaçlardan daha güvenlidir",
+    answer: false,
+    icon: "🌱",
+    category: "ilac",
+    categoryLabel: "İlaç & Tedavi",
+    explanation: "Bitkisel ürünler de kimyasal bileşikler içerir ve yan etkileri olabilir. İlaç etkileşimleri tehlikeli olabilir. 'Doğal' her zaman 'güvenli' demek değildir.",
+    source: "Posadzki P, et al. Int J Clin Pract. 2013;67(3):215-224"
+  },
+  {
+    myth: "Takviye vitaminler herkes için faydalıdır",
+    answer: false,
+    icon: "💊",
+    category: "ilac",
+    categoryLabel: "İlaç & Tedavi",
+    explanation: "Eksikliği olmayan kişilerde multivitamin takviyesinin hastalıkları önlediğine dair güçlü kanıt yoktur. D vitamini ve demir gibi spesifik eksikliklerde ise takviye hayat kurtarabilir.",
+    source: "Jenkins DJA, et al. J Am Coll Cardiol. 2018;71(22):2570-2584"
+  },
+  {
+    myth: "Bariatrik cerrahi 'kolay yol'dur",
+    answer: false,
+    icon: "🏥",
+    category: "ilac",
+    categoryLabel: "İlaç & Tedavi",
+    explanation: "Bariatrik cerrahi ciddi bir tıbbi prosedürdür. Ömür boyu diyet değişikliği, vitamin takviyesi ve takip gerektirir. Ancak morbid obezitede en etkili uzun vadeli tedavi olduğu kanıtlanmıştır.",
+    source: "Sjöström L, et al. N Engl J Med. 2007;357(8):741-752"
+  },
+  {
+    myth: "Semaglutide (Ozempic/Wegovy) kalp sağlığını iyileştirir",
+    answer: true,
+    icon: "❤️",
+    category: "ilac",
+    categoryLabel: "İlaç & Tedavi",
+    explanation: "SELECT çalışması, semaglutide'in kilo vermenin ötesinde kalp krizi, inme ve kardiyovasküler ölüm riskini %20 azalttığını gösterdi. Bu, kilo verme dışı bir doğrudan kardiyoprotektif etkidir.",
+    source: "Lincoff AM, et al. N Engl J Med. 2023;389(24):2221-2232"
+  },
+  {
+    myth: "Mide küçültme ameliyatı mideyi yok eder",
+    answer: false,
+    icon: "🔬",
+    category: "ilac",
+    categoryLabel: "İlaç & Tedavi",
+    explanation: "Sleeve gastrektomide midenin ~%80'i çıkarılsa da kalan kısım tamamen işlevseldir. Mide zamanla hafif genişler. ESG gibi endoskopik yöntemlerde ise mide kesilmez, sadece dikilir.",
+    source: "Felsenreich DM, et al. Obes Surg. 2018;28(9):2505-2510"
+  }
+];
+
+let currentMyths = [];
+let currentIndex = 0;
+let correctAnswers = 0;
+let wrongAnswers = 0;
+let answers = [];
+let selectedCategory = 'all';
+
+// Category filter
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedCategory = btn.dataset.cat;
+  });
+});
+
+function startGame() {
+  // Filter and shuffle myths
+  let pool = selectedCategory === 'all' ? [...MYTHS] : MYTHS.filter(m => m.category === selectedCategory);
+  pool.sort(() => Math.random() - 0.5);
+  currentMyths = pool.slice(0, Math.min(10, pool.length));
+  
+  currentIndex = 0;
+  correctAnswers = 0;
+  wrongAnswers = 0;
+  answers = [];
+  
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('gameScreen').style.display = 'block';
+  document.getElementById('resultsScreen').classList.remove('show');
+  document.getElementById('resultsScreen').style.display = 'none';
+  
+  showMyth();
+}
+
+function showMyth() {
+  const myth = currentMyths[currentIndex];
+  const card = document.getElementById('mythCard');
+  
+  // Update progress
+  document.getElementById('progressFill').style.width = `${((currentIndex) / currentMyths.length) * 100}%`;
+  document.getElementById('progressText').textContent = `${currentIndex + 1} / ${currentMyths.length}`;
+  document.getElementById('correctCount').textContent = correctAnswers;
+  document.getElementById('wrongCount').textContent = wrongAnswers;
+  
+  // Set category
+  const catEl = document.getElementById('mythCategory');
+  catEl.textContent = myth.categoryLabel;
+  catEl.className = `category-badge cat-${myth.category}`;
+  
+  // Set content
+  document.getElementById('mythIcon').textContent = myth.icon;
+  document.getElementById('mythQuestion').textContent = myth.myth;
+  
+  // Reset state
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('btnNext').classList.remove('show');
+  document.querySelectorAll('.btn-answer').forEach(btn => {
+    btn.disabled = false;
+    btn.classList.remove('selected');
+  });
+  
+  // Animate in
+  card.classList.remove('slide-in','slide-left','slide-right');
+  void card.offsetWidth;
+  card.classList.add('slide-in');
+}
+
+function answer(userAnswer) {
+  const myth = currentMyths[currentIndex];
+  const isCorrect = userAnswer === myth.answer;
+  
+  // Disable buttons
+  document.querySelectorAll('.btn-answer').forEach(btn => btn.disabled = true);
+  
+  // Highlight selected
+  if (userAnswer) {
+    document.querySelector('.btn-true').classList.add('selected');
+  } else {
+    document.querySelector('.btn-false').classList.add('selected');
+  }
+  
+  // Update scores
+  if (isCorrect) {
+    correctAnswers++;
+  } else {
+    wrongAnswers++;
+    document.getElementById('mythCard').classList.add('shake');
+    setTimeout(() => document.getElementById('mythCard').classList.remove('shake'), 500);
+  }
+  answers.push(isCorrect);
+  
+  document.getElementById('correctCount').textContent = correctAnswers;
+  document.getElementById('wrongCount').textContent = wrongAnswers;
+  
+  // Show explanation
+  const expBox = document.getElementById('explanationBox');
+  expBox.className = `explanation-box ${isCorrect ? 'correct' : 'wrong'}`;
+  
+  const verdict = document.getElementById('verdict');
+  if (myth.answer) {
+    verdict.innerHTML = `${isCorrect ? '✅' : '❌'} DOĞRU — Bu bir gerçek!`;
+    verdict.className = 'explanation-verdict is-true';
+  } else {
+    verdict.innerHTML = `${isCorrect ? '✅' : '❌'} YANLIŞ — Bu bir mit!`;
+    verdict.className = 'explanation-verdict is-false';
+  }
+  
+  document.getElementById('explanationText').textContent = myth.explanation;
+  document.getElementById('explanationSource').textContent = `📖 ${myth.source}`;
+  
+  document.getElementById('explanation').classList.add('show');
+  document.getElementById('btnNext').classList.add('show');
+  
+  if (currentIndex === currentMyths.length - 1) {
+    document.getElementById('btnNext').textContent = 'Sonuçları Gör →';
+  }
+  
+  // GA event
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'myth_answer', { 
+      myth: myth.myth.substring(0, 40), 
+      correct: isCorrect,
+      category: myth.category 
+    });
+  }
+}
+
+function nextMyth() {
+  currentIndex++;
+  
+  if (currentIndex >= currentMyths.length) {
+    showResults();
+    return;
+  }
+  
+  const card = document.getElementById('mythCard');
+  card.classList.add('slide-left');
+  
+  setTimeout(() => {
+    showMyth();
+  }, 300);
+}
+
+function showResults() {
+  document.getElementById('gameScreen').style.display = 'none';
+  document.getElementById('resultsScreen').style.display = 'block';
+  document.getElementById('resultsScreen').classList.add('show');
+  
+  const total = currentMyths.length;
+  const pct = Math.round((correctAnswers / total) * 100);
+  
+  document.getElementById('resultsScore').textContent = `${correctAnswers}/${total}`;
+  
+  // Dot bar
+  const bar = document.getElementById('resultsBar');
+  bar.innerHTML = answers.map(a => `<div class="dot ${a ? 'correct' : 'wrong'}"></div>`).join('');
+  
+  // Grade & message
+  let grade, icon, message;
+  if (pct >= 90) {
+    grade = '🏆 Sağlık Uzmanı!';
+    icon = '🧬';
+    message = 'Tebrikler! Sağlık bilginiz mükemmel. Mitlere kanmıyorsunuz, bilimsel gerçekleri biliyorsunuz!';
+  } else if (pct >= 70) {
+    grade = '🌟 Bilgili Hasta';
+    icon = '📚';
+    message = 'Çok iyi! Sağlık konusunda bilinçlisiniz. Birkaç yaygın mit sizi şaşırtmış olabilir.';
+  } else if (pct >= 50) {
+    grade = '🎯 Orta Seviye';
+    icon = '🤔';
+    message = 'Fena değil! Bazı yaygın sağlık mitlerine inanıyorsunuz. UzunYaşa blogunda gerçekleri keşfedin!';
+  } else {
+    grade = '📖 Öğrenmeye Devam';
+    icon = '💡';
+    message = 'Sağlık mitleri oldukça yaygın — yalnız değilsiniz! UzunYaşa ile bilimsel gerçekleri öğrenin.';
+  }
+  
+  document.getElementById('resultsIcon').textContent = icon;
+  document.getElementById('resultsGrade').textContent = grade;
+  document.getElementById('resultsMessage').textContent = message;
+  
+  // Share links
+  const shareText = `UzunYaşa Mit Kırıcı'da ${correctAnswers}/${total} doğru cevap verdim! ${grade} Sen de dene:`;
+  const shareUrl = 'https://uzunyasa.com/pages/araclar/mit-kirici.html';
+  
+  document.getElementById('shareWA').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
+  document.getElementById('shareTW').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+  
+  // GA event
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'myth_complete', { score: correctAnswers, total: total, grade: grade });
+  }
+}
+
+function copyResult() {
+  const total = currentMyths.length;
+  const text = `🔬 UzunYaşa Mit Kırıcı: ${correctAnswers}/${total} doğru!\n${document.getElementById('resultsGrade').textContent}\nhttps://uzunyasa.com/pages/araclar/mit-kirici.html`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = '✅ Kopyalandı!';
+    setTimeout(() => btn.textContent = '📋 Kopyala', 2000);
+  });
+}
+
+function restart() {
+  document.getElementById('resultsScreen').classList.remove('show');
+  document.getElementById('resultsScreen').style.display = 'none';
+  document.getElementById('startScreen').style.display = 'block';
+}
+</script>
+</body>
+</html>
