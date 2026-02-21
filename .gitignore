@@ -1,2 +1,9 @@
 instagram-templates/node_modules/
 social-cards/node_modules/
+
+# Reel production intermediate files
+social-cards/backgrounds-*/
+social-cards/composited-*/
+social-cards/slides-*/
+social-cards/*-reel-final.mp4
+social-cards/*-reel-v*.mp4
