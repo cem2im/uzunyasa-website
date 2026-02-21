@@ -159,6 +159,83 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 .food-swap-btn{width:34px;height:34px;border-radius:50%;border:2px solid var(--gray-200);background:#fff;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;margin-left:.5rem}
 .food-swap-btn:hover{border-color:var(--primary);background:rgba(13,115,119,.06);transform:rotate(180deg)}
 .food-swap-btn:active{transform:rotate(360deg);background:rgba(13,115,119,.12)}
+
+/* ══ BOWL BUILDER / MENÜ ══ */
+.menu-builder{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:1.25rem;overflow:hidden}
+.menu-builder-header{padding:1.25rem 1.5rem;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
+.menu-builder-header:hover{background:var(--gray-50)}
+.menu-builder-header h2{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark);flex:1}
+.menu-builder-header .expand-icon{font-size:1.2rem;color:var(--gray-400);transition:transform .3s}
+.menu-builder.open .expand-icon{transform:rotate(180deg)}
+.menu-builder-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.menu-builder.open .menu-builder-body{max-height:5000px}
+.menu-builder-content{padding:1rem 1.5rem}
+
+/* Meal selector tabs */
+.meal-tabs{display:flex;gap:.5rem;margin-bottom:1rem;overflow-x:auto;padding-bottom:.25rem}
+.meal-tab{padding:.6rem 1.25rem;border-radius:99px;border:2px solid var(--gray-200);background:#fff;cursor:pointer;font-size:.85rem;font-weight:600;font-family:inherit;white-space:nowrap;transition:all .2s}
+.meal-tab:hover{border-color:var(--primary)}
+.meal-tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.meal-tab .tab-cal{font-size:.75rem;opacity:.7;margin-left:.25rem}
+
+/* Category pills */
+.cat-pills{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:1rem;-webkit-overflow-scrolling:touch}
+.cat-pill{padding:.45rem .9rem;border-radius:99px;border:1.5px solid var(--gray-200);background:#fff;cursor:pointer;font-size:.75rem;font-weight:600;font-family:inherit;white-space:nowrap;transition:all .2s;color:var(--gray-600)}
+.cat-pill:hover{border-color:var(--primary);color:var(--primary)}
+.cat-pill.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.cat-pill .cat-count{font-size:.65rem;opacity:.6;margin-left:.2rem}
+
+/* Food menu grid */
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;max-height:400px;overflow-y:auto;padding-right:.25rem}
+.menu-food{display:flex;align-items:center;gap:.6rem;padding:.65rem .75rem;border:2px solid var(--gray-100);border-radius:12px;cursor:pointer;transition:all .15s;background:#fff;min-height:60px}
+.menu-food:hover{border-color:var(--primary);background:rgba(13,115,119,.02);transform:translateY(-1px)}
+.menu-food:active{transform:scale(.98)}
+.menu-food.in-meal{border-color:var(--accent);background:rgba(232,150,62,.06)}
+.menu-food.in-meal::after{content:'✓';position:absolute;top:4px;right:8px;font-size:.65rem;color:var(--accent);font-weight:700}
+.menu-food{position:relative}
+.menu-food .mf-icon{font-size:1.5rem;flex-shrink:0}
+.menu-food .mf-info{flex:1;min-width:0}
+.menu-food .mf-name{font-size:.8rem;font-weight:600;color:var(--dark);line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.menu-food .mf-meta{font-size:.65rem;color:var(--gray-400);margin-top:.1rem}
+.menu-food .mf-macros{font-size:.6rem;color:var(--gray-400);margin-top:.1rem;font-weight:500}
+.menu-food .mf-cal{font-size:.8rem;font-weight:700;color:var(--primary);flex-shrink:0;text-align:center;min-width:40px}
+.menu-food .mf-add{width:26px;height:26px;border-radius:50%;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;transition:all .15s;background:#fff}
+.menu-food:hover .mf-add{border-color:var(--primary);color:var(--primary)}
+.menu-food.in-meal .mf-add{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Selected foods basket */
+.basket{background:var(--gray-50);border-radius:12px;padding:1rem;margin-bottom:1rem;min-height:60px}
+.basket-title{font-size:.8rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.5rem;display:flex;align-items:center;justify-content:space-between}
+.basket-items{display:flex;flex-wrap:wrap;gap:.4rem}
+.basket-chip{display:inline-flex;align-items:center;gap:.3rem;padding:.35rem .7rem;background:#fff;border:1.5px solid var(--gray-200);border-radius:20px;font-size:.75rem;font-weight:500;cursor:pointer;transition:all .15s}
+.basket-chip:hover{border-color:#ef4444;background:#fef2f2}
+.basket-chip:hover .chip-x{color:#ef4444}
+.chip-x{font-size:.65rem;color:var(--gray-400);margin-left:.15rem}
+.basket-empty{font-size:.8rem;color:var(--gray-400);font-style:italic}
+
+/* Running total bar */
+.running-total{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;border-radius:10px;padding:.65rem 1rem;margin-bottom:1rem;font-size:.8rem}
+.running-total .rt-cal{font-size:1.1rem;font-weight:800}
+.running-total .rt-macros{display:flex;gap:.75rem;font-size:.7rem}
+.running-total .rt-macros span{opacity:.85}
+
+@media(max-width:600px){
+  .menu-grid{grid-template-columns:1fr}
+  .menu-builder-content{padding:.75rem 1rem}
+}
+/* Builder intro text */
+.builder-intro{font-size:.85rem;color:var(--gray-500);margin-bottom:1rem;padding:.75rem 1rem;background:linear-gradient(135deg,rgba(13,115,119,.04),rgba(232,150,62,.06));border-radius:10px;text-align:center;line-height:1.5}
+
+/* Target progress bar */
+.target-progress{margin-bottom:1rem;background:var(--gray-50);border-radius:12px;padding:.75rem 1rem}
+.target-progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem}
+.target-label{font-size:.8rem;font-weight:600;color:var(--gray-600)}
+.target-current{font-size:.85rem;font-weight:700;color:var(--primary)}
+.target-bar{height:8px;background:var(--gray-200);border-radius:99px;overflow:hidden}
+.target-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--primary),var(--accent));transition:width .4s ease}
+.target-bar-fill.over{background:linear-gradient(90deg,#ef4444,#dc2626)}
+.target-bar-fill.perfect{background:linear-gradient(90deg,#22c55e,#16a34a)}
+
 .food-item.swapping{animation:swapAnim .3s ease}
 @keyframes swapAnim{0%{opacity:1;transform:translateX(0)}50%{opacity:0;transform:translateX(20px)}100%{opacity:1;transform:translateX(0)}}
 
@@ -378,10 +455,15 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
  </div>
 
  <!-- Calculate Button -->
- <div class="btn-area">
+ <div class="btn-area" style="display:flex;flex-direction:column;align-items:center;gap:.75rem">
   <button class="btn btn-primary" onclick="generatePlan()" style="font-size:1.1rem;padding:1rem 3rem">
-   ☪️ Plan Oluştur
+   ☪️ Otomatik Plan Oluştur
   </button>
+  <span style="font-size:.8rem;color:var(--gray-400);font-weight:600">— veya —</span>
+  <button class="btn btn-accent" onclick="buildOwnPlan()" style="font-size:1rem;padding:.85rem 2.5rem">
+   🍽️ Kendi Menünü Seç
+  </button>
+  <p style="font-size:.75rem;color:var(--gray-400);max-width:400px;text-align:center">Otomatik plan size önerilen yemekleri seçer. Kendi menünüzde bowl sipariş eder gibi istediğiniz yemekleri tek tek seçersiniz.</p>
  </div>
 </div>
 
@@ -432,6 +514,73 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
  <div class="warning-card" id="warningCard">
   <h3>⚠️ Sağlık Uyarıları</h3>
   <ul class="warning-list" id="warningList"></ul>
+ </div>
+
+ <!-- ══ BOWL BUILDER / MENÜ ══ -->
+ <div class="menu-builder no-print open" id="menuBuilder">
+  <div class="menu-builder-header" onclick="toggleMenuBuilder()">
+   <span style="font-size:1.5rem">🍽️</span>
+   <h2>Menüden Seç — Kendi Öğününü Oluştur</h2>
+   <span class="expand-icon">▼</span>
+  </div>
+  <div class="menu-builder-body">
+   <div class="menu-builder-content">
+
+    <p class="builder-intro">Aşağıdaki menüden istediğin yemekleri seçerek öğünlerini oluştur — tıpkı bowl sipariş eder gibi! 🥗</p>
+
+    <!-- Meal tabs -->
+    <div class="meal-tabs" id="menuMealTabs">
+     <button class="meal-tab active" onclick="setMenuMeal('sahur')">🌙 Sahur <span class="tab-cal" id="menuSahurCal"></span></button>
+     <button class="meal-tab" onclick="setMenuMeal('iftar')">🌅 İftar <span class="tab-cal" id="menuIftarCal"></span></button>
+     <button class="meal-tab" onclick="setMenuMeal('snack')">🫖 Ara Öğün <span class="tab-cal" id="menuSnackCal"></span></button>
+    </div>
+
+    <!-- Calorie target progress -->
+    <div class="target-progress" id="targetProgress">
+     <div class="target-progress-header">
+      <span class="target-label" id="targetLabel">🎯 Hedef: <b id="targetCalLabel">—</b> kcal</span>
+      <span class="target-current" id="targetCurrent">0 / — kcal</span>
+     </div>
+     <div class="target-bar">
+      <div class="target-bar-fill" id="targetBarFill" style="width:0%"></div>
+     </div>
+    </div>
+
+    <!-- Selected foods basket -->
+    <div class="basket" id="menuBasket">
+     <div class="basket-title">
+      <span>📋 Seçilen Yemekler</span>
+      <span id="basketCount">0 yemek</span>
+     </div>
+     <div class="basket-items" id="basketItems">
+      <span class="basket-empty">Aşağıdan yemek ekleyin...</span>
+     </div>
+    </div>
+
+    <!-- Running total -->
+    <div class="running-total" id="runningTotal">
+     <div><span class="rt-cal" id="rtCal">0</span> kcal</div>
+     <div class="rt-macros">
+      <span>🟠 P: <b id="rtP">0</b>g</span>
+      <span>🟢 K: <b id="rtC">0</b>g</span>
+      <span>🔴 Y: <b id="rtF">0</b>g</span>
+     </div>
+    </div>
+
+    <!-- Category pills -->
+    <div class="cat-pills" id="catPills"></div>
+
+    <!-- Food grid -->
+    <div class="menu-grid" id="menuGrid"></div>
+
+    <div style="text-align:center;margin-top:1rem;display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap">
+     <button class="btn btn-accent btn-sm" onclick="applyMenuSelections()">✅ Planıma Uygula</button>
+     <button class="btn btn-outline btn-sm" onclick="clearMenuSelections()">🗑️ Temizle</button>
+     <button class="btn btn-outline btn-sm" onclick="clearAllMenuSelections()">🗑️ Tümünü Sıfırla</button>
+    </div>
+
+   </div>
+  </div>
  </div>
 
  <!-- Sahur Meal Card -->
@@ -1152,6 +1301,56 @@ function regeneratePlan() {
   document.getElementById('summaryBanner').scrollIntoView({ behavior: 'smooth' });
 }
 
+// ═══ BUILD OWN PLAN (Bowl Builder Mode) ═══
+function buildOwnPlan() {
+  const weight = +document.getElementById('weight').value;
+  const height = +document.getElementById('height').value;
+  const age = +document.getElementById('age').value;
+  const gender = document.getElementById('gender').value;
+  const activity = document.getElementById('activity').value;
+
+  if (!weight || !height || !age || !gender || !activity) {
+    alert('Lütfen tüm kişisel bilgileri doldurun.');
+    return;
+  }
+  if (weight < 30 || weight > 300 || height < 100 || height > 250 || age < 12 || age > 100) {
+    alert('Lütfen geçerli değerler girin.');
+    return;
+  }
+
+  const conditions = [];
+  document.querySelectorAll('.checkbox-item input:checked').forEach(cb => conditions.push(cb.value));
+
+  const bmr = calcBMR(weight, height, age, gender);
+  const tdee = calcTDEE(bmr, activity);
+  const targetCal = Math.round(adjustForGoal(tdee, selectedGoal));
+  const macros = calcMacros(targetCal, selectedGoal, weight);
+
+  // Create empty plan with targets
+  const sahur = { items: [], totalCal: 0, totalP: 0, totalC: 0, totalF: 0 };
+  const iftar = { items: [], totalCal: 0, totalP: 0, totalC: 0, totalF: 0 };
+  const snack = { items: [], totalCal: 0, totalP: 0, totalC: 0, totalF: 0 };
+
+  const waterLiters = +(weight * 0.033).toFixed(1);
+  const waterGlasses = Math.round(waterLiters * 5);
+
+  currentPlan = { targetCal, macros, sahur, iftar, snack, waterLiters, waterGlasses, conditions, weight, height, age, gender, activity };
+
+  // Reset menu selections
+  menuSelections = { sahur: [], iftar: [], snack: [] };
+
+  renderResults(currentPlan);
+
+  // Auto-open builder and scroll to it
+  setTimeout(() => {
+    const builder = document.getElementById('menuBuilder');
+    if (!builder.classList.contains('open')) builder.classList.add('open');
+    initMenuBuilder();
+    renderBasket();
+    builder.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
+}
+
 // ═══ RENDER ═══
 function renderResults(plan) {
   const { targetCal, macros, sahur, iftar, snack, waterLiters, waterGlasses, conditions } = plan;
@@ -1211,6 +1410,15 @@ function renderResults(plan) {
   document.getElementById('iftarCard').classList.add('expanded');
   document.getElementById('snackCard').classList.remove('expanded');
 
+  // Auto-open bowl builder and sync with plan
+  setTimeout(() => {
+    const builder = document.getElementById('menuBuilder');
+    if (!builder.classList.contains('open')) builder.classList.add('open');
+    syncMenuWithPlan();
+    initMenuBuilder();
+    renderBasket();
+  }, 200);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1262,6 +1470,266 @@ function renderMeal(prefix, meal) {
   document.getElementById(prefix + 'ProteinVal').textContent = Math.round(totalP) + 'g';
   document.getElementById(prefix + 'CarbVal').textContent = Math.round(totalC) + 'g';
   document.getElementById(prefix + 'FatVal').textContent = Math.round(totalF) + 'g';
+}
+
+// ═══ BOWL BUILDER / MENÜ ═══
+const CAT_LABELS = {
+  protein:{label:'🥩 Protein',order:1},
+  soup:{label:'🍲 Çorba',order:2},
+  carb:{label:'🍞 Tahıl',order:3},
+  dairy:{label:'🧀 Süt Ürünleri',order:4},
+  veg:{label:'🥗 Sebze',order:5},
+  fruit:{label:'🍎 Meyve',order:6},
+  nut:{label:'🥜 Kuruyemiş',order:7},
+  dessert:{label:'🍮 Tatlı',order:8},
+  drink:{label:'🍵 İçecek',order:9}
+};
+
+let menuMeal = 'sahur'; // current meal tab
+let menuCat = 'all';    // current category filter
+let menuSelections = { sahur: [], iftar: [], snack: [] };
+
+function toggleMenuBuilder() {
+  document.getElementById('menuBuilder').classList.toggle('open');
+  // Initialize on first open
+  if (!document.getElementById('catPills').innerHTML) {
+    initMenuBuilder();
+  }
+}
+
+function initMenuBuilder() {
+  // Build category pills
+  const pillsEl = document.getElementById('catPills');
+  let html = '<button class="cat-pill active" onclick="setMenuCat(\'all\')">Tümü</button>';
+  const mealCode = menuMeal === 'sahur' ? 's' : menuMeal === 'iftar' ? 'i' : 'a';
+  for (const [cat, info] of Object.entries(CAT_LABELS)) {
+    const count = FOODS.filter(f => f.cat === cat && f.meal.includes(mealCode)).length;
+    if (count > 0) {
+      html += `<button class="cat-pill" onclick="setMenuCat('${cat}')">${info.label} <span class="cat-count">(${count})</span></button>`;
+    }
+  }
+  pillsEl.innerHTML = html;
+  renderMenuGrid();
+}
+
+function setMenuMeal(meal) {
+  menuMeal = meal;
+  document.querySelectorAll('.meal-tab').forEach(t => t.classList.remove('active'));
+  event.target.closest('.meal-tab').classList.add('active');
+  menuCat = 'all';
+  initMenuBuilder();
+  renderBasket();
+  updateTargetProgress();
+}
+
+function setMenuCat(cat) {
+  menuCat = cat;
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  event.target.closest('.cat-pill').classList.add('active');
+  renderMenuGrid();
+}
+
+function renderMenuGrid() {
+  const gridEl = document.getElementById('menuGrid');
+  const mealCode = menuMeal === 'sahur' ? 's' : menuMeal === 'iftar' ? 'i' : 'a';
+  const selectedNames = new Set(menuSelections[menuMeal].map(f => f.name));
+
+  let foods = FOODS.filter(f => f.meal.includes(mealCode));
+  if (menuCat !== 'all') foods = foods.filter(f => f.cat === menuCat);
+
+  // Sort by category order
+  foods.sort((a, b) => (CAT_LABELS[a.cat]?.order || 99) - (CAT_LABELS[b.cat]?.order || 99));
+
+  const portionMult = currentPlan ? Math.max(0.5, Math.min(1.5, currentPlan.targetCal / 1500)) : 1;
+
+  gridEl.innerHTML = foods.map((f, i) => {
+    const cal = Math.round(f.cal * (f.pg / 100) * portionMult);
+    const p = Math.round(f.p * (f.pg / 100) * portionMult);
+    const c = Math.round(f.c * (f.pg / 100) * portionMult);
+    const fat = Math.round(f.f * (f.pg / 100) * portionMult);
+    const inMeal = selectedNames.has(f.name);
+    return `<div class="menu-food ${inMeal ? 'in-meal' : ''}" onclick="toggleMenuFood('${f.name.replace(/'/g, "\\'")}')">
+      <div class="mf-icon">${f.icon}</div>
+      <div class="mf-info">
+        <div class="mf-name">${f.name}</div>
+        <div class="mf-meta">${f.portion}</div>
+        <div class="mf-macros">P:${p}g · K:${c}g · Y:${fat}g</div>
+      </div>
+      <div class="mf-cal">${cal}<span style="font-size:.55rem;display:block;opacity:.6">kcal</span></div>
+      <div class="mf-add">${inMeal ? '✓' : '+'}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleMenuFood(foodName) {
+  const sel = menuSelections[menuMeal];
+  const idx = sel.findIndex(f => f.name === foodName);
+
+  if (idx !== -1) {
+    // Remove
+    sel.splice(idx, 1);
+  } else {
+    // Add
+    const food = FOODS.find(f => f.name === foodName);
+    if (!food) return;
+    const portionMult = currentPlan ? Math.max(0.5, Math.min(1.5, currentPlan.targetCal / 1500)) : 1;
+    sel.push({
+      ...food,
+      actualCal: Math.round(food.cal * (food.pg / 100) * portionMult),
+      actualP: +(food.p * (food.pg / 100) * portionMult).toFixed(1),
+      actualC: +(food.c * (food.pg / 100) * portionMult).toFixed(1),
+      actualF: +(food.f * (food.pg / 100) * portionMult).toFixed(1),
+      actualPortion: food.portion
+    });
+  }
+
+  renderMenuGrid();
+  renderBasket();
+}
+
+function renderBasket() {
+  const sel = menuSelections[menuMeal];
+  const itemsEl = document.getElementById('basketItems');
+  const countEl = document.getElementById('basketCount');
+
+  if (sel.length === 0) {
+    itemsEl.innerHTML = '<span class="basket-empty">Aşağıdan yemek ekleyin...</span>';
+    countEl.textContent = '0 yemek';
+  } else {
+    itemsEl.innerHTML = sel.map(f =>
+      `<span class="basket-chip" onclick="toggleMenuFood('${f.name.replace(/'/g, "\\'")}')">${f.icon} ${f.name} <span class="chip-x">✕</span></span>`
+    ).join('');
+    countEl.textContent = sel.length + ' yemek';
+  }
+
+  // Update running total for current meal
+  const totalCal = sel.reduce((s, f) => s + f.actualCal, 0);
+  const totalP = sel.reduce((s, f) => s + f.actualP, 0);
+  const totalC = sel.reduce((s, f) => s + f.actualC, 0);
+  const totalF = sel.reduce((s, f) => s + f.actualF, 0);
+
+  document.getElementById('rtCal').textContent = Math.round(totalCal);
+  document.getElementById('rtP').textContent = Math.round(totalP);
+  document.getElementById('rtC').textContent = Math.round(totalC);
+  document.getElementById('rtF').textContent = Math.round(totalF);
+
+  // Update tab calorie counts
+  for (const m of ['sahur','iftar','snack']) {
+    const mCal = menuSelections[m].reduce((s, f) => s + f.actualCal, 0);
+    const tabEl = document.getElementById(`menu${m.charAt(0).toUpperCase()+m.slice(1)}Cal`);
+    if (tabEl) tabEl.textContent = mCal > 0 ? `(${Math.round(mCal)})` : '';
+  }
+
+  // Update calorie target progress
+  updateTargetProgress();
+}
+
+function updateTargetProgress() {
+  if (!currentPlan) return;
+  const { targetCal } = currentPlan;
+
+  // Calculate target per meal
+  const mealTargets = {
+    sahur: Math.round(targetCal * 0.35),
+    iftar: Math.round(targetCal * 0.45),
+    snack: Math.round(targetCal * 0.20)
+  };
+
+  const target = mealTargets[menuMeal] || 0;
+  const sel = menuSelections[menuMeal];
+  const current = sel.reduce((s, f) => s + f.actualCal, 0);
+  const pct = target > 0 ? Math.min(Math.round((current / target) * 100), 150) : 0;
+
+  // Update target labels
+  const targetCalLabel = document.getElementById('targetCalLabel');
+  const targetCurrentEl = document.getElementById('targetCurrent');
+  const targetBarFill = document.getElementById('targetBarFill');
+  const mealNames = { sahur: '🌙 Sahur', iftar: '🌅 İftar', snack: '🫖 Ara Öğün' };
+
+  if (targetCalLabel) targetCalLabel.textContent = target;
+  const labelEl = document.getElementById('targetLabel');
+  if (labelEl) labelEl.innerHTML = `🎯 ${mealNames[menuMeal] || ''} Hedef: <b>${target}</b> kcal`;
+
+  if (targetCurrentEl) {
+    targetCurrentEl.textContent = `${Math.round(current)} / ${target} kcal`;
+    if (pct >= 85 && pct <= 110) {
+      targetCurrentEl.style.color = '#16a34a'; // green = perfect
+    } else if (pct > 110) {
+      targetCurrentEl.style.color = '#dc2626'; // red = over
+    } else {
+      targetCurrentEl.style.color = 'var(--primary)';
+    }
+  }
+
+  if (targetBarFill) {
+    targetBarFill.style.width = Math.min(pct, 100) + '%';
+    targetBarFill.classList.remove('over', 'perfect');
+    if (pct > 110) targetBarFill.classList.add('over');
+    else if (pct >= 85 && pct <= 110) targetBarFill.classList.add('perfect');
+  }
+
+  // Update meal tab targets
+  for (const m of ['sahur', 'iftar', 'snack']) {
+    const mCal = menuSelections[m].reduce((s, f) => s + f.actualCal, 0);
+    const mTarget = mealTargets[m];
+    const tabEl = document.getElementById(`menu${m.charAt(0).toUpperCase() + m.slice(1)}Cal`);
+    if (tabEl) {
+      if (mCal > 0) {
+        tabEl.textContent = `(${Math.round(mCal)}/${mTarget})`;
+      } else {
+        tabEl.textContent = `(${mTarget})`;
+      }
+    }
+  }
+}
+
+function applyMenuSelections() {
+  if (!currentPlan) { alert('Önce kişisel bilgileri girin ve plan oluşturun.'); return; }
+
+  let applied = 0;
+  // Apply selections to the plan for each meal that has selections
+  for (const mealKey of ['sahur','iftar','snack']) {
+    if (menuSelections[mealKey].length > 0) {
+      currentPlan[mealKey].items = [...menuSelections[mealKey]];
+      renderMeal(mealKey, currentPlan[mealKey]);
+      applied += menuSelections[mealKey].length;
+    }
+  }
+  updateTotals();
+
+  // Expand meal cards so the user sees the result
+  document.getElementById('sahurCard').classList.add('expanded');
+  document.getElementById('iftarCard').classList.add('expanded');
+  if (menuSelections.snack.length > 0) document.getElementById('snackCard').classList.add('expanded');
+
+  // Scroll to first meal card
+  document.getElementById('sahurCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Visual feedback
+  const btn = event.target.closest('.btn');
+  const orig = btn.innerHTML;
+  btn.innerHTML = `✅ ${applied} yemek uygulandı!`;
+  setTimeout(() => btn.innerHTML = orig, 2500);
+}
+
+function clearMenuSelections() {
+  menuSelections[menuMeal] = [];
+  renderMenuGrid();
+  renderBasket();
+}
+
+function clearAllMenuSelections() {
+  menuSelections = { sahur: [], iftar: [], snack: [] };
+  renderMenuGrid();
+  renderBasket();
+}
+
+// Initialize menu with current plan foods when plan is generated
+function syncMenuWithPlan() {
+  if (!currentPlan) return;
+  menuSelections.sahur = [...currentPlan.sahur.items];
+  menuSelections.iftar = [...currentPlan.iftar.items];
+  menuSelections.snack = [...currentPlan.snack.items];
 }
 
 // ═══ SWAP FOOD ═══
