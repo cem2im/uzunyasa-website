@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1920px;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(170deg, #0a1e2e 0%, #0f3444 25%, #195157 50%, #1a5a4a 75%, #0d2b3e 100%);
+  }
+
+  .mountain-bg {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; z-index: 0;
+  }
+  .mountain-bg::before {
+    content: ''; position: absolute; bottom: 0; left: -5%; width: 60%; height: 100%;
+    background: linear-gradient(160deg, transparent 40%, rgba(0,0,0,0.25) 100%);
+    clip-path: polygon(0 100%, 50% 15%, 100% 70%, 100% 100%);
+  }
+  .mountain-bg::after {
+    content: ''; position: absolute; bottom: 0; right: -5%; width: 70%; height: 90%;
+    background: linear-gradient(200deg, transparent 30%, rgba(0,0,0,0.2) 100%);
+    clip-path: polygon(0 60%, 45% 10%, 100% 45%, 100% 100%, 0 100%);
+  }
+
+  .glow {
+    position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);
+    width: 900px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,150,62,0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative; z-index: 10;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 70px;
+  }
+
+  .watermark {
+    position: absolute; top: 50px; right: 70px;
+    font-size: 32px; font-weight: 700; letter-spacing: 1px;
+  }
+  .watermark .uzun { color: #ffffff; }
+  .watermark .yasa { color: #E8963E; }
+
+  .category-tag {
+    font-size: 22px; font-weight: 700; color: #E8963E;
+    text-transform: uppercase; letter-spacing: 5px;
+    margin-bottom: 20px;
+  }
+  .title {
+    font-size: 58px; font-weight: 900; line-height: 1.2;
+    text-align: center; margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+  .title .accent { color: #E8963E; }
+
+  .divider {
+    width: 80px; height: 4px; background: #E8963E;
+    border-radius: 2px; margin-bottom: 60px;
+  }
+
+  .facts-list {
+    display: flex; flex-direction: column;
+    gap: 32px; width: 100%;
+    margin-bottom: 60px;
+  }
+  .fact-item {
+    display: flex; align-items: flex-start; gap: 24px;
+  }
+  .fact-number {
+    flex-shrink: 0; width: 60px; height: 60px; border-radius: 50%;
+    background: rgba(232,150,62,0.2); border: 2px solid rgba(232,150,62,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; font-weight: 900; color: #E8963E;
+  }
+  .fact-text {
+    font-size: 36px; font-weight: 600; line-height: 1.35;
+    padding-top: 6px;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  }
+
+  .source-text {
+    font-size: 22px; color: rgba(255,255,255,0.4);
+    margin-bottom: 40px;
+  }
+
+  .footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 30px 70px;
+    border-top: 2px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand { font-size: 26px; font-weight: 700; color: #14919B; }
+  .footer-tagline { font-size: 18px; color: rgba(255,255,255,0.35); font-style: italic; }
+</style>
+</head>
+<body>
+  <div class="mountain-bg"></div>
+  <div class="glow"></div>
+  <div class="container">
+    <div class="watermark"><span class="uzun">Uzun</span><span class="yasa">Yaşa</span></div>
+
+    <div class="category-tag">GLP-1 TEDAVİSİ</div>
+    <div class="title"><span class="accent">İğnesiz</span> GLP-1:<br>5 Önemli Bilgi</div>
+    <div class="divider"></div>
+
+    <div class="facts-list">
+      <div class="fact-item">
+        <div class="fact-number">1</div>
+        <div class="fact-text">Artık iğne yok — oral GLP-1 onaylandı</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-number">2</div>
+        <div class="fact-text">%15'e kadar kilo kaybı kanıtlandı</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-number">3</div>
+        <div class="fact-text">Günde 1 hap, haftada 1 iğne değil</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-number">4</div>
+        <div class="fact-text">FDA onaylı, OASIS 4 verisi güçlü</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-number">5</div>
+        <div class="fact-text">ABD'de satışa başladı</div>
+      </div>
+    </div>
+
+    <div class="source-text">Kaynak: FDA / AJMC, Şubat 2026</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">uzunyasa.com</div>
+    <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+  </div>
+</body>
+</html>

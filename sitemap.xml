@@ -636,4 +636,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/siddetli-astimda-coklu-hastalik-fenotipleri-ve-ozellikleri.html</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/siddetli-astimda-coklu-hastaliklar-avrupa-kayitlarindan-ders.html</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/diyabetik-bobrek-hastaliginda-kilavuza-dayali-tedavi-ilerlem.html</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uzunyasa.com/pages/blog/aralikli-oructa-yag-kaybi-ve-kas-koruma-bilimsel-inceleme.html</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

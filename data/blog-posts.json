@@ -1,5 +1,25 @@
 [
   {
+    "slug": "aralikli-oructa-yag-kaybi-ve-kas-koruma-bilimsel-inceleme",
+    "title": "Aralıklı Oruçta Yağ Kaybı ve Kas Koruma: Bilimsel İnceleme",
+    "description": "Aralıklı orucun obezitede yağ ve kas dengesini nasıl etkilediğini araştıran bilimsel bulgular. Hyperinsulinemia ve IRF4'ün rolü.",
+    "category": "kilo-yonetimi",
+    "categoryName": "Kilo Yönetimi",
+    "categoryIcon": "⚖️",
+    "categoryColor": "#F59E0B",
+    "date": "2026-02-21",
+    "readTime": 10,
+    "tags": [
+      "aralıklı oruç",
+      "obezite",
+      "insülin",
+      "kas koruma",
+      "yağ kaybı"
+    ],
+    "priority": "normal",
+    "area": "custom"
+  },
+  {
     "slug": "oral-wegovy-fda-onayi-ilk-glp1-hapi",
     "title": "Oral Wegovy FDA Onayı: İlk GLP-1 Kilo Verme Hapı Piyasada!",
     "description": "FDA, oral semaglutid'i (Oral Wegovy) kronik kilo yönetimi için onayladı. OASIS 4 çalışmasında %13.6 kilo kaybı. İğnesiz GLP-1 çağı başlıyor.",
