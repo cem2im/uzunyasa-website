@@ -236,6 +236,52 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 .target-bar-fill.over{background:linear-gradient(90deg,#ef4444,#dc2626)}
 .target-bar-fill.perfect{background:linear-gradient(90deg,#22c55e,#16a34a)}
 
+/* ══ SHOPPING LIST ══ */
+.shopping-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:1.25rem;overflow:hidden}
+.shopping-card-header{padding:1.25rem 1.5rem;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
+.shopping-card-header:hover{background:var(--gray-50)}
+.shopping-card-header h2{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark);flex:1}
+.shopping-card-header .expand-icon{font-size:1.2rem;color:var(--gray-400);transition:transform .3s}
+.shopping-card.expanded .expand-icon{transform:rotate(180deg)}
+.shopping-card-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.shopping-card.expanded .shopping-card-body{max-height:5000px}
+.shopping-card-content{padding:1rem 1.5rem}
+
+.shopping-day-tabs{display:flex;gap:.4rem;margin-bottom:1rem;overflow-x:auto;padding-bottom:.25rem}
+.shopping-day-tab{padding:.5rem 1rem;border-radius:99px;border:2px solid var(--gray-200);background:#fff;cursor:pointer;font-size:.8rem;font-weight:600;font-family:inherit;white-space:nowrap;transition:all .2s}
+.shopping-day-tab:hover{border-color:var(--primary)}
+.shopping-day-tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+.shopping-category{margin-bottom:1rem}
+.shopping-cat-header{display:flex;align-items:center;gap:.5rem;padding:.5rem 0;border-bottom:2px solid var(--gray-100);margin-bottom:.5rem}
+.shopping-cat-header .sc-icon{font-size:1.1rem}
+.shopping-cat-header .sc-name{font-size:.85rem;font-weight:700;color:var(--dark)}
+.shopping-cat-header .sc-count{font-size:.7rem;color:var(--gray-400);margin-left:auto}
+
+.shopping-item{display:flex;align-items:center;gap:.6rem;padding:.5rem .25rem;border-bottom:1px solid var(--gray-50);cursor:pointer;transition:all .15s;border-radius:6px}
+.shopping-item:hover{background:var(--gray-50)}
+.shopping-item.checked{opacity:.5}
+.shopping-item.checked .si-name{text-decoration:line-through}
+.si-check{width:22px;height:22px;border:2px solid var(--gray-300);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;font-size:.65rem}
+.shopping-item.checked .si-check{background:var(--primary);border-color:var(--primary);color:#fff}
+.shopping-item.checked .si-check::after{content:'✓'}
+.si-icon{font-size:1rem;flex-shrink:0}
+.si-name{font-size:.85rem;font-weight:500;color:var(--gray-700);flex:1}
+.si-portion{font-size:.75rem;color:var(--gray-400);flex-shrink:0;text-align:right}
+
+.shopping-summary{background:linear-gradient(135deg,rgba(13,115,119,.06),rgba(232,150,62,.04));border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+.shopping-summary .ss-total{font-weight:700;color:var(--dark)}
+.shopping-summary .ss-checked{color:var(--primary);font-weight:600}
+
+.shopping-actions{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.75rem}
+
+@media print{
+  .shopping-card{break-inside:avoid;box-shadow:none;border:1px solid #ddd}
+  .shopping-card-body{max-height:none!important;overflow:visible!important}
+  .shopping-item.checked{opacity:.4}
+  .shopping-actions,.shopping-day-tabs{display:none!important}
+}
+
 .food-item.swapping{animation:swapAnim .3s ease}
 @keyframes swapAnim{0%{opacity:1;transform:translateX(0)}50%{opacity:0;transform:translateX(20px)}100%{opacity:1;transform:translateX(0)}}
 
@@ -741,6 +787,43 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
    <li>Lif açısından zengin besinler (yulaf, tam tahıl) uzun süre enerji sağlar.</li>
    <li>Sahurda tuzlu besinlerden kaçının — gün boyunca susuzluğu artırır.</li>
   </ul>
+ </div>
+
+ <!-- Shopping List -->
+ <div class="shopping-card" id="shoppingCard">
+  <div class="shopping-card-header" onclick="toggleShopping()">
+   <span style="font-size:1.5rem">🛒</span>
+   <h2>Alışveriş Listesi</h2>
+   <span class="expand-icon">▼</span>
+  </div>
+  <div class="shopping-card-body">
+   <div class="shopping-card-content">
+
+    <!-- Day selector -->
+    <div class="shopping-day-tabs" id="shoppingDayTabs">
+     <button class="shopping-day-tab active" onclick="setShoppingDays(1)">1 Günlük</button>
+     <button class="shopping-day-tab" onclick="setShoppingDays(3)">3 Günlük</button>
+     <button class="shopping-day-tab" onclick="setShoppingDays(7)">Haftalık</button>
+    </div>
+
+    <!-- Summary -->
+    <div class="shopping-summary" id="shoppingSummary">
+     <span class="ss-total" id="shoppingTotal">0 ürün</span>
+     <span class="ss-checked" id="shoppingChecked">0 alındı</span>
+    </div>
+
+    <!-- Items by category -->
+    <div id="shoppingList"></div>
+
+    <!-- Actions -->
+    <div class="shopping-actions no-print">
+     <button class="btn btn-outline btn-sm" onclick="copyShoppingList()">📋 Kopyala</button>
+     <button class="btn btn-outline btn-sm" onclick="shareShoppingList()">📤 Paylaş</button>
+     <button class="btn btn-outline btn-sm" onclick="resetShoppingChecks()">↩️ İşaretleri Sıfırla</button>
+    </div>
+
+   </div>
+  </div>
  </div>
 
  <!-- Action buttons -->
@@ -1417,6 +1500,10 @@ function renderResults(plan) {
     syncMenuWithPlan();
     initMenuBuilder();
     renderBasket();
+    // Render shopping list if open
+    if (document.getElementById('shoppingCard').classList.contains('expanded')) {
+      renderShoppingList();
+    }
   }, 200);
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1705,6 +1792,12 @@ function applyMenuSelections() {
   // Scroll to first meal card
   document.getElementById('sahurCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
+  // Refresh shopping list
+  if (document.getElementById('shoppingCard').classList.contains('expanded')) {
+    shoppingChecked.clear();
+    renderShoppingList();
+  }
+
   // Visual feedback
   const btn = event.target.closest('.btn');
   const orig = btn.innerHTML;
@@ -1896,6 +1989,215 @@ ${iftarItems}
       btn.innerHTML = '✅ Kopyalandı!';
       setTimeout(() => btn.innerHTML = orig, 2000);
     });
+  }
+}
+
+// ═══ SHOPPING LIST ═══
+let shoppingDays = 1;
+let shoppingChecked = new Set();
+
+function toggleShopping() {
+  const card = document.getElementById('shoppingCard');
+  card.classList.toggle('expanded');
+  if (card.classList.contains('expanded')) {
+    renderShoppingList();
+  }
+}
+
+function setShoppingDays(days) {
+  shoppingDays = days;
+  document.querySelectorAll('.shopping-day-tab').forEach(t => t.classList.remove('active'));
+  event.target.closest('.shopping-day-tab').classList.add('active');
+  shoppingChecked.clear();
+  renderShoppingList();
+}
+
+function getShoppingItems() {
+  if (!currentPlan) return [];
+  const { sahur, iftar, snack } = currentPlan;
+
+  // Collect all foods from all meals
+  const foodMap = new Map(); // name → { icon, portion, cat, quantity }
+  const allItems = [...sahur.items, ...iftar.items, ...snack.items];
+
+  for (const item of allItems) {
+    if (foodMap.has(item.name)) {
+      foodMap.get(item.name).quantity += shoppingDays;
+    } else {
+      foodMap.set(item.name, {
+        name: item.name,
+        icon: item.icon,
+        cat: item.cat,
+        portion: item.actualPortion || item.portion,
+        quantity: shoppingDays
+      });
+    }
+  }
+
+  // Also add water
+  if (currentPlan.waterLiters) {
+    const totalWater = +(currentPlan.waterLiters * shoppingDays).toFixed(1);
+    foodMap.set('Su', {
+      name: 'Su',
+      icon: '💧',
+      cat: 'drink',
+      portion: `${totalWater} litre`,
+      quantity: 1
+    });
+  }
+
+  return Array.from(foodMap.values());
+}
+
+function renderShoppingList() {
+  const listEl = document.getElementById('shoppingList');
+  const items = getShoppingItems();
+
+  if (items.length === 0) {
+    listEl.innerHTML = '<p style="text-align:center;color:var(--gray-400);font-size:.85rem;padding:1rem">Önce bir öğün planı oluşturun.</p>';
+    return;
+  }
+
+  // Group by category
+  const catOrder = ['protein','soup','carb','dairy','veg','fruit','nut','dessert','drink'];
+  const catNames = {
+    protein: { icon: '🥩', name: 'Et, Balık & Baklagil' },
+    soup: { icon: '🍲', name: 'Çorba Malzemeleri' },
+    carb: { icon: '🍞', name: 'Tahıl & Ekmek' },
+    dairy: { icon: '🧀', name: 'Süt Ürünleri' },
+    veg: { icon: '🥗', name: 'Sebze & Salata' },
+    fruit: { icon: '🍎', name: 'Meyve' },
+    nut: { icon: '🥜', name: 'Kuruyemiş & Atıştırmalık' },
+    dessert: { icon: '🍮', name: 'Tatlı' },
+    drink: { icon: '🍵', name: 'İçecek' }
+  };
+
+  const groups = {};
+  for (const item of items) {
+    if (!groups[item.cat]) groups[item.cat] = [];
+    groups[item.cat].push(item);
+  }
+
+  let html = '';
+  for (const cat of catOrder) {
+    if (!groups[cat] || groups[cat].length === 0) continue;
+    const info = catNames[cat] || { icon: '📦', name: cat };
+    const catItems = groups[cat];
+
+    html += `<div class="shopping-category">
+      <div class="shopping-cat-header">
+        <span class="sc-icon">${info.icon}</span>
+        <span class="sc-name">${info.name}</span>
+        <span class="sc-count">${catItems.length} ürün</span>
+      </div>`;
+
+    for (const item of catItems) {
+      const key = item.name;
+      const checked = shoppingChecked.has(key);
+      const portionText = item.quantity > 1
+        ? `${item.portion} × ${item.quantity} gün`
+        : item.portion;
+
+      html += `<div class="shopping-item ${checked ? 'checked' : ''}" onclick="toggleShoppingItem('${key.replace(/'/g, "\\'")}')">
+        <div class="si-check"></div>
+        <span class="si-icon">${item.icon}</span>
+        <span class="si-name">${item.name}</span>
+        <span class="si-portion">${portionText}</span>
+      </div>`;
+    }
+
+    html += '</div>';
+  }
+
+  listEl.innerHTML = html;
+  updateShoppingSummary(items);
+}
+
+function toggleShoppingItem(name) {
+  if (shoppingChecked.has(name)) {
+    shoppingChecked.delete(name);
+  } else {
+    shoppingChecked.add(name);
+  }
+  renderShoppingList();
+}
+
+function updateShoppingSummary(items) {
+  const total = items.length;
+  const checked = shoppingChecked.size;
+  document.getElementById('shoppingTotal').textContent = `${total} ürün`;
+  document.getElementById('shoppingChecked').textContent = checked > 0
+    ? `✓ ${checked} / ${total} alındı`
+    : '0 alındı';
+}
+
+function resetShoppingChecks() {
+  shoppingChecked.clear();
+  renderShoppingList();
+}
+
+function buildShoppingText() {
+  const items = getShoppingItems();
+  if (items.length === 0) return '';
+
+  const catNames = {
+    protein: '🥩 Et, Balık & Baklagil',
+    soup: '🍲 Çorba Malzemeleri',
+    carb: '🍞 Tahıl & Ekmek',
+    dairy: '🧀 Süt Ürünleri',
+    veg: '🥗 Sebze & Salata',
+    fruit: '🍎 Meyve',
+    nut: '🥜 Kuruyemiş',
+    dessert: '🍮 Tatlı',
+    drink: '🍵 İçecek'
+  };
+  const catOrder = ['protein','soup','carb','dairy','veg','fruit','nut','dessert','drink'];
+
+  const groups = {};
+  for (const item of items) {
+    if (!groups[item.cat]) groups[item.cat] = [];
+    groups[item.cat].push(item);
+  }
+
+  const dayLabel = shoppingDays === 1 ? '1 günlük' : shoppingDays === 3 ? '3 günlük' : 'haftalık';
+  let text = `🛒 Ramazan Alışveriş Listesi (${dayLabel})\n\n`;
+
+  for (const cat of catOrder) {
+    if (!groups[cat] || groups[cat].length === 0) continue;
+    text += `${catNames[cat] || cat}\n`;
+    for (const item of groups[cat]) {
+      const portionText = item.quantity > 1
+        ? `${item.portion} × ${item.quantity}`
+        : item.portion;
+      text += `  ☐ ${item.name} — ${portionText}\n`;
+    }
+    text += '\n';
+  }
+
+  text += '🔗 uzunyasa.com/pages/araclar/sahur-iftar-planlayici.html';
+  return text;
+}
+
+function copyShoppingList() {
+  const text = buildShoppingText();
+  if (!text) return;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = event.target.closest('.btn');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✅ Kopyalandı!';
+      setTimeout(() => btn.innerHTML = orig, 2000);
+    });
+  }
+}
+
+function shareShoppingList() {
+  const text = buildShoppingText();
+  if (!text) return;
+  if (navigator.share) {
+    navigator.share({ title: 'Ramazan Alışveriş Listesi', text }).catch(() => {});
+  } else {
+    copyShoppingList();
   }
 }
 </script>
