@@ -156,6 +156,11 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 .food-item-macros .m-f{color:var(--fat)}
 .food-item-macros .m-c{color:var(--carb)}
 .food-item-cal{font-size:.85rem;font-weight:700;color:var(--gray-600);min-width:50px;text-align:right}
+.food-swap-btn{width:34px;height:34px;border-radius:50%;border:2px solid var(--gray-200);background:#fff;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;margin-left:.5rem}
+.food-swap-btn:hover{border-color:var(--primary);background:rgba(13,115,119,.06);transform:rotate(180deg)}
+.food-swap-btn:active{transform:rotate(360deg);background:rgba(13,115,119,.12)}
+.food-item.swapping{animation:swapAnim .3s ease}
+@keyframes swapAnim{0%{opacity:1;transform:translateX(0)}50%{opacity:0;transform:translateX(20px)}100%{opacity:1;transform:translateX(0)}}
 
 /* Meal macro summary */
 .meal-macro-summary{background:var(--gray-50);border-radius:12px;padding:1rem;margin-top:.75rem}
@@ -1077,15 +1082,17 @@ function renderMeal(prefix, meal) {
 
   listEl.innerHTML = '';
   let totalCal = 0, totalP = 0, totalC = 0, totalF = 0;
+  let idx = -1;
 
   for (const item of meal.items) {
+    idx++;
     totalCal += item.actualCal;
     totalP += item.actualP;
     totalC += item.actualC;
     totalF += item.actualF;
 
     listEl.innerHTML += `
-      <li class="food-item">
+      <li class="food-item" id="${prefix}-food-${idx}">
         <div class="food-item-icon">${item.icon}</div>
         <div class="food-item-info">
           <div class="food-item-name">${item.name}</div>
@@ -1097,6 +1104,7 @@ function renderMeal(prefix, meal) {
           </div>
         </div>
         <div class="food-item-cal">${item.actualCal} kcal</div>
+        <button class="food-swap-btn no-print" onclick="swapFood('${prefix}',${idx})" title="Değiştir">🔄</button>
       </li>`;
   }
 
@@ -1116,6 +1124,141 @@ function renderMeal(prefix, meal) {
   document.getElementById(prefix + 'ProteinVal').textContent = Math.round(totalP) + 'g';
   document.getElementById(prefix + 'CarbVal').textContent = Math.round(totalC) + 'g';
   document.getElementById(prefix + 'FatVal').textContent = Math.round(totalF) + 'g';
+}
+
+// ═══ SWAP FOOD ═══
+function swapFood(mealType, foodIndex) {
+  if (!currentPlan) return;
+
+  // Get the meal data
+  const mealKey = mealType; // 'sahur', 'iftar', or 'snack'
+  const meal = currentPlan[mealKey];
+  if (!meal || !meal.items[foodIndex]) return;
+
+  const oldFood = meal.items[foodIndex];
+  const mealCode = mealKey === 'sahur' ? 's' : mealKey === 'iftar' ? 'i' : 'a';
+
+  // Get names of all foods currently in this meal (to avoid duplicates)
+  const usedNames = new Set(meal.items.map(i => i.name));
+
+  // Filter conditions
+  const conditions = currentPlan.conditions || [];
+
+  // Find alternatives: same category, suitable for this meal, not already used
+  let candidates = FOODS.filter(f => {
+    if (f.name === oldFood.name) return false;
+    if (usedNames.has(f.name)) return false;
+    if (!f.meal.includes(mealCode)) return false;
+    // Same category preferred, but allow similar categories
+    if (f.cat !== oldFood.cat) return false;
+    // Condition filters
+    if (conditions.includes('diabetes') && f.cat === 'dessert' && f.name !== 'Güllaç') return false;
+    if (conditions.includes('kidney') && f.cat === 'nut') return false;
+    return true;
+  });
+
+  // If no same-category alternative, try nearby categories
+  if (candidates.length === 0) {
+    const similarCats = {
+      'protein': ['dairy','veg'],
+      'dairy': ['protein'],
+      'carb': ['veg'],
+      'soup': ['veg','drink'],
+      'veg': ['soup','carb'],
+      'fruit': ['nut','drink'],
+      'nut': ['fruit','dairy'],
+      'dessert': ['fruit'],
+      'drink': ['fruit']
+    };
+    const fallbackCats = similarCats[oldFood.cat] || [];
+    candidates = FOODS.filter(f => {
+      if (f.name === oldFood.name) return false;
+      if (usedNames.has(f.name)) return false;
+      if (!f.meal.includes(mealCode)) return false;
+      if (!fallbackCats.includes(f.cat)) return false;
+      if (conditions.includes('diabetes') && f.cat === 'dessert') return false;
+      if (conditions.includes('kidney') && f.cat === 'nut') return false;
+      return true;
+    });
+  }
+
+  if (candidates.length === 0) {
+    // No alternatives available — brief visual feedback
+    const el = document.getElementById(`${mealType}-food-${foodIndex}`);
+    if (el) {
+      const btn = el.querySelector('.food-swap-btn');
+      if (btn) { btn.textContent = '❌'; setTimeout(() => btn.textContent = '🔄', 1000); }
+    }
+    return;
+  }
+
+  // Pick random alternative
+  const newFood = candidates[Math.floor(Math.random() * candidates.length)];
+
+  // Calculate macros with same portion multiplier as original plan
+  const portionMult = Math.max(0.5, Math.min(1.5, currentPlan.targetCal / 1500));
+  const newItem = {
+    ...newFood,
+    actualCal: Math.round(newFood.cal * (newFood.pg / 100) * portionMult),
+    actualP: +(newFood.p * (newFood.pg / 100) * portionMult).toFixed(1),
+    actualC: +(newFood.c * (newFood.pg / 100) * portionMult).toFixed(1),
+    actualF: +(newFood.f * (newFood.pg / 100) * portionMult).toFixed(1),
+    actualPortion: newFood.portion
+  };
+
+  // Animate swap
+  const el = document.getElementById(`${mealType}-food-${foodIndex}`);
+  if (el) el.classList.add('swapping');
+
+  // Replace in data
+  meal.items[foodIndex] = newItem;
+
+  // Re-render this meal after animation
+  setTimeout(() => {
+    renderMeal(mealType, meal);
+    // Update totals
+    updateTotals();
+  }, 150);
+}
+
+function updateTotals() {
+  if (!currentPlan) return;
+  const { sahur, iftar, snack, macros } = currentPlan;
+
+  // Recalculate actual totals from current items
+  let totalCal = 0;
+  [sahur, iftar, snack].forEach(meal => {
+    meal.items.forEach(item => { totalCal += item.actualCal; });
+    // Recalculate meal totals
+    meal.totalCal = meal.items.reduce((s, i) => s + i.actualCal, 0);
+    meal.totalP = meal.items.reduce((s, i) => s + i.actualP, 0);
+    meal.totalC = meal.items.reduce((s, i) => s + i.actualC, 0);
+    meal.totalF = meal.items.reduce((s, i) => s + i.actualF, 0);
+  });
+
+  // Update summary banner with actual totals
+  const actualP = Math.round(sahur.totalP + iftar.totalP + snack.totalP);
+  const actualC = Math.round(sahur.totalC + iftar.totalC + snack.totalC);
+  const actualF = Math.round(sahur.totalF + iftar.totalF + snack.totalF);
+  const actualCal = Math.round(sahur.totalCal + iftar.totalCal + snack.totalCal);
+
+  document.getElementById('totalCal').textContent = actualCal;
+  document.getElementById('totalProtein').textContent = actualP + 'g';
+  document.getElementById('totalCarb').textContent = actualC + 'g';
+  document.getElementById('totalFat').textContent = actualF + 'g';
+
+  const totalMacroCal = actualP * 4 + actualC * 4 + actualF * 9;
+  if (totalMacroCal > 0) {
+    const pPct = Math.round((actualP * 4 / totalMacroCal) * 100);
+    const fPct = Math.round((actualF * 9 / totalMacroCal) * 100);
+    const cPct = 100 - pPct - fPct;
+    document.getElementById('barProtein').style.width = pPct + '%';
+    document.getElementById('barProteinVal').textContent = pPct + '%';
+    document.getElementById('barFat').style.width = fPct + '%';
+    document.getElementById('barFatVal').textContent = fPct + '%';
+    document.getElementById('barCarb').style.width = cPct + '%';
+    document.getElementById('barCarbVal').textContent = cPct + '%';
+  }
 }
 
 // ═══ SHARE ═══
