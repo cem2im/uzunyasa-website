@@ -1992,16 +1992,245 @@ ${iftarItems}
   }
 }
 
-// ═══ SHOPPING LIST ═══
+// ═══ SHOPPING LIST — COMPREHENSIVE INGREDIENT DECOMPOSITION ═══
 let shoppingDays = 1;
 let shoppingChecked = new Set();
+
+// Store sections
+const SHOP_CATS = {
+  meat:{icon:'🥩',name:'Kırmızı Et',order:1},
+  poultry:{icon:'🍗',name:'Tavuk & Beyaz Et',order:2},
+  fish:{icon:'🐟',name:'Balık & Deniz Ürünleri',order:3},
+  egg:{icon:'🥚',name:'Yumurta',order:4},
+  dairy:{icon:'🧀',name:'Süt Ürünleri',order:5},
+  veg:{icon:'🥬',name:'Sebze & Yeşillik',order:6},
+  fruit:{icon:'🍎',name:'Meyve',order:7},
+  bread:{icon:'🍞',name:'Ekmek & Fırın',order:8},
+  legume:{icon:'🫘',name:'Baklagil',order:9},
+  grain:{icon:'🌾',name:'Tahıl & Pirinç',order:10},
+  nut:{icon:'🥜',name:'Kuruyemiş & Kuru Meyve',order:11},
+  canned:{icon:'🥫',name:'Konserve & Salça',order:12},
+  oil:{icon:'🫒',name:'Yağ & Sos',order:13},
+  tea:{icon:'🍵',name:'Çay & İçecek',order:14},
+  sweet:{icon:'🍯',name:'Tatlı Malzemeleri',order:15},
+  spice:{icon:'🧂',name:'Baharat & Çeşni (mutfakta kontrol edin)',order:16}
+};
+
+// Recipe ingredient DB — [ingredient, qty, unit, shopCat]
+// qty=0 → pantry staple (spice section)
+const RECIPE_DB = {
+  // ═ PROTEİN / ET & YUMURTA ═
+  "Haşlanmış Yumurta":       [["Yumurta",2,"adet","egg"]],
+  "Menemen":                  [["Yumurta",3,"adet","egg"],["Domates",2,"adet","veg"],["Sivri Biber",2,"adet","veg"],["Soğan",1,"adet","veg"],["Zeytinyağı",0,"","oil"],["Pul Biber",0,"","spice"]],
+  "Sahanda Yumurta":          [["Yumurta",2,"adet","egg"],["Tereyağı",15,"g","dairy"]],
+  "Omlet (Sebzeli)":          [["Yumurta",2,"adet","egg"],["Mantar",50,"g","veg"],["Ispanak",50,"g","veg"],["Süt",30,"ml","dairy"],["Tereyağı",10,"g","dairy"]],
+  "Çılbır":                   [["Yumurta",2,"adet","egg"],["Süzme Yoğurt",150,"g","dairy"],["Sarımsak",1,"diş","veg"],["Tereyağı",15,"g","dairy"],["Pul Biber",0,"","spice"]],
+  "Sucuklu Yumurta":          [["Yumurta",2,"adet","egg"],["Sucuk",60,"g","meat"]],
+  "Izgara Tavuk Göğsü":      [["Tavuk Göğsü",150,"g","poultry"],["Zeytinyağı",0,"","oil"],["Kekik",0,"","spice"]],
+  "Izgara Köfte":             [["Dana Kıyma",150,"g","meat"],["Soğan",1,"adet","veg"],["Maydanoz",1,"demet","veg"],["Ekmek İçi",1,"dilim","bread"],["Kimyon",0,"","spice"],["Karabiber",0,"","spice"]],
+  "Fırında Tavuk But":        [["Tavuk But",1,"adet","poultry"],["Patates",2,"adet","veg"],["Zeytinyağı",0,"","oil"],["Kekik",0,"","spice"]],
+  "Haşlanmış Tavuk":          [["Tavuk Göğsü",150,"g","poultry"]],
+  "Balık (Levrek Izgara)":    [["Levrek Fileto",150,"g","fish"],["Limon",1,"adet","fruit"],["Zeytinyağı",0,"","oil"]],
+  "Somon Izgara":             [["Somon Fileto",150,"g","fish"],["Limon",1,"adet","fruit"],["Zeytinyağı",0,"","oil"]],
+  "Fırında Balık":            [["Balık Fileto",150,"g","fish"],["Domates",1,"adet","veg"],["Biber",1,"adet","veg"],["Soğan",1,"adet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Kuru Fasulye":             [["Kuru Fasulye",100,"g","legume"],["Soğan",1,"adet","veg"],["Domates Salçası",1,"yk","canned"],["Biber Salçası",1,"yk","canned"],["Sıvı Yağ",0,"","oil"]],
+  "Nohut Yemeği":             [["Nohut (Kuru)",100,"g","legume"],["Soğan",1,"adet","veg"],["Domates Salçası",1,"yk","canned"],["Tereyağı",10,"g","dairy"]],
+  "Etli Bamya":               [["Dana Kuşbaşı",80,"g","meat"],["Bamya",200,"g","veg"],["Domates",1,"adet","veg"],["Soğan",1,"adet","veg"],["Limon",1,"adet","fruit"],["Zeytinyağı",0,"","oil"]],
+  "Mercimek Köftesi":         [["Kırmızı Mercimek",100,"g","legume"],["İnce Bulgur",50,"g","grain"],["Soğan",2,"adet","veg"],["Maydanoz",1,"demet","veg"],["Yeşil Soğan",3,"adet","veg"],["Zeytinyağı",0,"","oil"],["Pul Biber",0,"","spice"],["Kimyon",0,"","spice"]],
+  "Tavuklu Pilav":            [["Tavuk Göğsü",100,"g","poultry"],["Pirinç",100,"g","grain"],["Tereyağı",15,"g","dairy"],["Nohut (Konserve)",50,"g","canned"]],
+  "Etli Türlü":               [["Dana Kuşbaşı",80,"g","meat"],["Patates",1,"adet","veg"],["Havuç",1,"adet","veg"],["Kabak",1,"adet","veg"],["Biber",1,"adet","veg"],["Domates",1,"adet","veg"],["Soğan",1,"adet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Dana Kavurma":             [["Dana Et (Kavurmalık)",150,"g","meat"],["Soğan",1,"adet","veg"],["Biber",2,"adet","veg"],["Domates",1,"adet","veg"],["Tereyağı",15,"g","dairy"]],
+  "Tas Kebabı":               [["Dana Kuşbaşı",150,"g","meat"],["Patates",1,"adet","veg"],["Havuç",1,"adet","veg"],["Soğan",1,"adet","veg"],["Domates Salçası",1,"yk","canned"],["Tereyağı",15,"g","dairy"]],
+  "Adana Kebap":              [["Dana Kıyma",150,"g","meat"],["Kuyruk Yağı",20,"g","meat"],["Pul Biber",0,"","spice"]],
+  "Urfa Kebap":               [["Dana Kıyma",150,"g","meat"],["Kuyruk Yağı",20,"g","meat"]],
+  "Tavuk Şiş":                [["Tavuk Göğsü",200,"g","poultry"],["Biber",2,"adet","veg"],["Soğan",1,"adet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Hünkar Beğendi":           [["Dana Kuşbaşı",100,"g","meat"],["Patlıcan",2,"adet","veg"],["Süt",100,"ml","dairy"],["Un",1,"yk","grain"],["Tereyağı",20,"g","dairy"],["Kaşar Rendesi",30,"g","dairy"]],
+  "Etli Bezelye":             [["Dana Kuşbaşı",80,"g","meat"],["Bezelye (Dondurulmuş)",200,"g","veg"],["Patates",1,"adet","veg"],["Soğan",1,"adet","veg"],["Domates Salçası",1,"yk","canned"]],
+  "Etli Kereviz":             [["Dana Kuşbaşı",80,"g","meat"],["Kereviz",2,"adet","veg"],["Havuç",1,"adet","veg"],["Patates",1,"adet","veg"],["Limon",1,"adet","fruit"]],
+  "Çerkez Tavuğu":            [["Tavuk Göğsü",150,"g","poultry"],["Ceviz İçi",50,"g","nut"],["Bayat Ekmek",2,"dilim","bread"],["Sarımsak",2,"diş","veg"],["Pul Biber",0,"","spice"]],
+  "Ton Balıklı Salata":       [["Ton Balığı (Konserve)",1,"kutu","canned"],["Marul",1,"adet","veg"],["Domates",1,"adet","veg"],["Salatalık",1,"adet","veg"],["Mısır (Konserve)",2,"yk","canned"],["Zeytinyağı",0,"","oil"],["Limon",1,"adet","fruit"]],
+  // ═ TAHILlar / KARBONHIDRAT ═
+  "Tam Buğday Ekmeği":        [["Tam Buğday Ekmeği",1,"adet","bread"]],
+  "Yulaf Ezmesi":             [["Yulaf Ezmesi",50,"g","grain"],["Süt",200,"ml","dairy"]],
+  "Yulaf Pankek":             [["Yulaf Ezmesi",50,"g","grain"],["Yumurta",1,"adet","egg"],["Muz",1,"adet","fruit"],["Süt",50,"ml","dairy"]],
+  "Bulgur Pilavı":            [["Bulgur",100,"g","grain"],["Soğan",1,"adet","veg"],["Domates Salçası",1,"yk","canned"],["Tereyağı",10,"g","dairy"]],
+  "Pirinç Pilavı":            [["Pirinç",100,"g","grain"],["Tereyağı",15,"g","dairy"],["Şehriye",15,"g","grain"]],
+  "Ramazan Pidesi":           [["Ramazan Pidesi",1,"adet","bread"]],
+  "Simit":                    [["Simit",1,"adet","bread"]],
+  "Gözleme (Peynirli)":       [["Yufka",2,"yaprak","bread"],["Beyaz Peynir",100,"g","dairy"]],
+  "Gözleme (Ispanaklı)":      [["Yufka",2,"yaprak","bread"],["Ispanak",200,"g","veg"],["Soğan",1,"adet","veg"]],
+  "Makarna (Tam Buğday)":     [["Tam Buğday Makarna",180,"g","grain"],["Domates Sosu",100,"ml","canned"],["Zeytinyağı",0,"","oil"]],
+  "Mantı":                    [["Mantı (Hazır/Ev Yapımı)",200,"g","grain"],["Süzme Yoğurt",100,"g","dairy"],["Sarımsak",1,"diş","veg"],["Tereyağı",15,"g","dairy"],["Pul Biber",0,"","spice"],["Nane (Kuru)",0,"","spice"]],
+  "Çiğ Börek":                [["Yufka",3,"yaprak","bread"],["Dana Kıyma",100,"g","meat"],["Soğan",1,"adet","veg"],["Sıvı Yağ",0,"","oil"]],
+  "Su Böreği":                [["Yufka",4,"yaprak","bread"],["Beyaz Peynir",150,"g","dairy"],["Yumurta",2,"adet","egg"],["Süt",100,"ml","dairy"],["Maydanoz",1,"demet","veg"]],
+  "Patatesli Börek":          [["Yufka",3,"yaprak","bread"],["Patates",2,"adet","veg"],["Soğan",1,"adet","veg"],["Tereyağı",20,"g","dairy"]],
+  "Bazlama":                  [["Bazlama",1,"adet","bread"]],
+  "Lahmacun":                 [["Lahmacun",2,"adet","bread"],["Maydanoz",1,"demet","veg"],["Limon",1,"adet","fruit"]],
+  "Pide (Kıymalı)":           [["Kıymalı Pide",1,"adet","bread"]],
+  "Çiğ Köfteli Dürüm":        [["İnce Bulgur",100,"g","grain"],["Domates Salçası",1,"yk","canned"],["Lavaş",1,"adet","bread"],["Marul",2,"yaprak","veg"],["Limon",1,"adet","fruit"],["İsot",0,"","spice"]],
+  "Lavaş":                    [["Lavaş",1,"paket","bread"]],
+  "Tam Tahıllı Kraker":       [["Tam Tahıllı Kraker",1,"paket","grain"]],
+  "Nohutlu Pirinç Pilavı":    [["Pirinç",80,"g","grain"],["Nohut (Konserve)",100,"g","canned"],["Tereyağı",10,"g","dairy"]],
+  "Karabuğday Pilavı":        [["Karabuğday",100,"g","grain"],["Soğan",1,"adet","veg"],["Tereyağı",10,"g","dairy"]],
+  "Patates Püresi":           [["Patates",2,"adet","veg"],["Süt",50,"ml","dairy"],["Tereyağı",15,"g","dairy"]],
+  "Fırında Patates":          [["Patates",1,"adet","veg"],["Zeytinyağı",0,"","oil"]],
+  // ═ ÇORBALAR ═
+  "Mercimek Çorbası":         [["Kırmızı Mercimek",100,"g","legume"],["Soğan",1,"adet","veg"],["Havuç",1,"adet","veg"],["Patates",1,"adet","veg"],["Un",1,"yk","grain"],["Tereyağı",15,"g","dairy"],["Limon",1,"adet","fruit"]],
+  "Ezogelin Çorbası":         [["Kırmızı Mercimek",80,"g","legume"],["Bulgur",30,"g","grain"],["Pirinç",20,"g","grain"],["Soğan",1,"adet","veg"],["Domates Salçası",1,"yk","canned"],["Nane (Kuru)",0,"","spice"],["Tereyağı",10,"g","dairy"]],
+  "Tarhana Çorbası":          [["Tarhana",50,"g","grain"],["Domates",1,"adet","veg"],["Tereyağı",10,"g","dairy"],["Nane (Kuru)",0,"","spice"]],
+  "Yayla Çorbası":            [["Süzme Yoğurt",200,"g","dairy"],["Pirinç",30,"g","grain"],["Un",1,"yk","grain"],["Yumurta",1,"adet","egg"],["Nane (Kuru)",0,"","spice"],["Tereyağı",10,"g","dairy"]],
+  "Kemik Suyu":               [["Dana Kemik",500,"g","meat"],["Soğan",1,"adet","veg"],["Havuç",1,"adet","veg"],["Defne Yaprağı",0,"","spice"]],
+  "İşkembe Çorbası":          [["İşkembe",200,"g","meat"],["Un",2,"yk","grain"],["Yumurta",1,"adet","egg"],["Limon",1,"adet","fruit"],["Sarımsak",2,"diş","veg"],["Sirke",0,"","oil"]],
+  "Tavuk Suyu Çorbası":       [["Tavuk (Bütün/Parça)",200,"g","poultry"],["Havuç",1,"adet","veg"],["Soğan",1,"adet","veg"],["Şehriye",30,"g","grain"]],
+  "Domates Çorbası":          [["Domates",3,"adet","veg"],["Soğan",1,"adet","veg"],["Un",1,"yk","grain"],["Tereyağı",10,"g","dairy"],["Süt",50,"ml","dairy"]],
+  "Sebze Çorbası":            [["Patates",1,"adet","veg"],["Havuç",1,"adet","veg"],["Kabak",1,"adet","veg"],["Bezelye (Dondurulmuş)",50,"g","veg"],["Soğan",1,"adet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Düğün Çorbası":            [["Dana Kuşbaşı",100,"g","meat"],["Un",2,"yk","grain"],["Yumurta",1,"adet","egg"],["Limon",1,"adet","fruit"],["Tereyağı",15,"g","dairy"]],
+  "Şehriyeli Tavuk Çorbası":  [["Tavuk Göğsü",150,"g","poultry"],["Şehriye",30,"g","grain"],["Havuç",1,"adet","veg"],["Soğan",1,"adet","veg"],["Tereyağı",10,"g","dairy"]],
+  "Mantar Çorbası":           [["Mantar",200,"g","veg"],["Soğan",1,"adet","veg"],["Süt",100,"ml","dairy"],["Un",1,"yk","grain"],["Tereyağı",15,"g","dairy"]],
+  "Toyga Çorbası":            [["Süzme Yoğurt",150,"g","dairy"],["Nohut (Kuru)",30,"g","legume"],["Buğday (Aşurelik)",30,"g","grain"],["Un",1,"yk","grain"],["Yumurta",1,"adet","egg"],["Nane (Kuru)",0,"","spice"]],
+  "Süleymaniye Çorbası":      [["Dana Kuşbaşı",50,"g","meat"],["Nohut (Kuru)",30,"g","legume"],["Havuç",1,"adet","veg"],["Soğan",1,"adet","veg"],["Tereyağı",15,"g","dairy"],["Limon",1,"adet","fruit"]],
+  "Kelle Paça Çorbası":       [["Kelle Paça",300,"g","meat"],["Un",2,"yk","grain"],["Yumurta",1,"adet","egg"],["Limon",1,"adet","fruit"],["Sarımsak",2,"diş","veg"],["Sirke",0,"","oil"]],
+  "Yoğurtlu Buğday Çorbası":  [["Süzme Yoğurt",100,"g","dairy"],["Buğday (Aşurelik)",50,"g","grain"],["Soğan",1,"adet","veg"],["Tereyağı",10,"g","dairy"],["Nane (Kuru)",0,"","spice"]],
+  "Havuç Çorbası":            [["Havuç",3,"adet","veg"],["Soğan",1,"adet","veg"],["Patates",1,"adet","veg"],["Süt",50,"ml","dairy"],["Tereyağı",10,"g","dairy"]],
+  "Brokoli Çorbası":          [["Brokoli",200,"g","veg"],["Soğan",1,"adet","veg"],["Süt",50,"ml","dairy"],["Un",1,"yk","grain"],["Tereyağı",10,"g","dairy"]],
+  "Balkabağı Çorbası":        [["Balkabağı",200,"g","veg"],["Soğan",1,"adet","veg"],["Süt",50,"ml","dairy"],["Tereyağı",10,"g","dairy"],["Zencefil (Toz)",0,"","spice"]],
+  "Paça Çorbası":             [["Paça",300,"g","meat"],["Un",2,"yk","grain"],["Yumurta",1,"adet","egg"],["Limon",1,"adet","fruit"],["Sarımsak",2,"diş","veg"]],
+  "Arabaşı Çorbası":          [["Tavuk (Bütün/Parça)",200,"g","poultry"],["Un",3,"yk","grain"],["Soğan",1,"adet","veg"],["Tereyağı",15,"g","dairy"],["Nane (Kuru)",0,"","spice"]],
+  // ═ SÜT ÜRÜNLERİ ═
+  "Süzme Yoğurt":             [["Süzme Yoğurt",150,"g","dairy"]],
+  "Beyaz Peynir":              [["Beyaz Peynir",50,"g","dairy"]],
+  "Kaşar Peyniri":             [["Kaşar Peyniri",40,"g","dairy"]],
+  "Lor Peyniri":               [["Lor Peyniri",80,"g","dairy"]],
+  "Tulum Peyniri":             [["Tulum Peyniri",40,"g","dairy"]],
+  "Çökelek":                   [["Çökelek",80,"g","dairy"]],
+  "Hellim Peyniri (Izgara)":   [["Hellim Peyniri",60,"g","dairy"]],
+  "Ayran":                     [["Ayran",200,"ml","dairy"]],
+  "Kefir":                     [["Kefir",200,"ml","dairy"]],
+  "Cacık":                     [["Süzme Yoğurt",200,"g","dairy"],["Salatalık",1,"adet","veg"],["Sarımsak",1,"diş","veg"],["Dereotu",1,"demet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Labne":                     [["Labne Peynir",60,"g","dairy"]],
+  "Süt (Yarım Yağlı)":        [["Süt",200,"ml","dairy"]],
+  "Çeçil Peyniri":             [["Çeçil Peyniri",40,"g","dairy"]],
+  "Otlu Peynir":               [["Otlu Peynir",50,"g","dairy"]],
+  "Örgü Peyniri":              [["Örgü Peyniri",40,"g","dairy"]],
+  "Mozzarella":                [["Mozzarella",60,"g","dairy"]],
+  "Yoğurt (Ev Yapımı)":       [["Yoğurt",200,"g","dairy"]],
+  "Quark Peynir":              [["Quark Peynir",100,"g","dairy"]],
+  "Protein Yoğurt":            [["Protein Yoğurt",150,"g","dairy"]],
+  "Peynirli Sandviç":          [["Tam Buğday Ekmeği",2,"dilim","bread"],["Beyaz Peynir",50,"g","dairy"],["Domates",1,"adet","veg"],["Salatalık",1,"adet","veg"]],
+  "Peynirli Poğaça":           [["Peynirli Poğaça",1,"adet","bread"]],
+  // ═ SEBZE & SALATA ═
+  "Çoban Salatası":            [["Domates",2,"adet","veg"],["Salatalık",1,"adet","veg"],["Sivri Biber",2,"adet","veg"],["Soğan",1,"adet","veg"],["Maydanoz",1,"demet","veg"],["Zeytinyağı",0,"","oil"],["Limon",1,"adet","fruit"]],
+  "Yeşil Salata":              [["Marul",1,"adet","veg"],["Salatalık",1,"adet","veg"],["Dereotu",1,"demet","veg"],["Zeytinyağı",0,"","oil"],["Limon",1,"adet","fruit"]],
+  "Roka-Parmezan Salatası":    [["Roka",1,"demet","veg"],["Parmezan",30,"g","dairy"],["Ceviz İçi",20,"g","nut"],["Zeytinyağı",0,"","oil"],["Balsamik Sirke",0,"","oil"]],
+  "Zeytinyağlı Fasulye":       [["Taze Fasulye",300,"g","veg"],["Soğan",1,"adet","veg"],["Domates",2,"adet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Zeytinyağlı Enginar":       [["Enginar",3,"adet","veg"],["Havuç",1,"adet","veg"],["Patates",1,"adet","veg"],["Limon",1,"adet","fruit"],["Dereotu",1,"demet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Zeytinyağlı Yaprak Sarma":  [["Asma Yaprağı",20,"yaprak","canned"],["Pirinç",50,"g","grain"],["Soğan",2,"adet","veg"],["Maydanoz",1,"demet","veg"],["Limon",1,"adet","fruit"],["Zeytinyağı",0,"","oil"]],
+  "Ispanak Yemeği":            [["Ispanak",300,"g","veg"],["Soğan",1,"adet","veg"],["Pirinç",30,"g","grain"],["Zeytinyağı",0,"","oil"]],
+  "Patlıcan Musakka":          [["Patlıcan",2,"adet","veg"],["Dana Kıyma",100,"g","meat"],["Soğan",1,"adet","veg"],["Domates",2,"adet","veg"],["Biber",1,"adet","veg"],["Sıvı Yağ",0,"","oil"]],
+  "İmam Bayıldı":              [["Patlıcan",2,"adet","veg"],["Soğan",2,"adet","veg"],["Domates",2,"adet","veg"],["Sarımsak",3,"diş","veg"],["Maydanoz",1,"demet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Kabak Mücver":              [["Kabak",2,"adet","veg"],["Yumurta",1,"adet","egg"],["Un",3,"yk","grain"],["Dereotu",1,"demet","veg"],["Beyaz Peynir",30,"g","dairy"],["Sıvı Yağ",0,"","oil"]],
+  "Humus":                     [["Nohut (Konserve)",1,"kutu","canned"],["Tahin",2,"yk","nut"],["Limon",1,"adet","fruit"],["Sarımsak",1,"diş","veg"],["Zeytinyağı",0,"","oil"],["Kimyon",0,"","spice"]],
+  "Kısır":                     [["İnce Bulgur",100,"g","grain"],["Domates",1,"adet","veg"],["Salatalık",1,"adet","veg"],["Yeşil Soğan",3,"adet","veg"],["Maydanoz",1,"demet","veg"],["Nar Ekşisi",1,"yk","oil"],["Limon",1,"adet","fruit"],["Zeytinyağı",0,"","oil"]],
+  "Piyaz":                     [["Kuru Fasulye",100,"g","legume"],["Soğan",1,"adet","veg"],["Domates",1,"adet","veg"],["Maydanoz",1,"demet","veg"],["Yumurta",1,"adet","egg"],["Zeytinyağı",0,"","oil"],["Sirke",0,"","oil"]],
+  "Karışık Turşu":             [["Karışık Turşu",1,"kavanoz","canned"]],
+  "Zeytin (Yeşil/Siyah)":     [["Zeytin",100,"g","canned"]],
+  "Karnabahar Graten":         [["Karnabahar",300,"g","veg"],["Süt",100,"ml","dairy"],["Kaşar Rendesi",50,"g","dairy"],["Un",1,"yk","grain"],["Tereyağı",15,"g","dairy"]],
+  "Brokoli Sote":              [["Brokoli",200,"g","veg"],["Sarımsak",2,"diş","veg"],["Zeytinyağı",0,"","oil"]],
+  "Semizotu Yemeği":           [["Semizotu",300,"g","veg"],["Soğan",1,"adet","veg"],["Domates",1,"adet","veg"],["Sarımsak",1,"diş","veg"],["Zeytinyağı",0,"","oil"]],
+  "Biber Dolması":             [["Dolmalık Biber",4,"adet","veg"],["Pirinç",50,"g","grain"],["Soğan",1,"adet","veg"],["Domates",1,"adet","veg"],["Maydanoz",1,"demet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Domates Dolması":           [["Domates (Büyük)",4,"adet","veg"],["Pirinç",50,"g","grain"],["Soğan",1,"adet","veg"],["Maydanoz",1,"demet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Zeytinyağlı Barbunya":      [["Barbunya",200,"g","legume"],["Soğan",1,"adet","veg"],["Domates",1,"adet","veg"],["Havuç",1,"adet","veg"],["Zeytinyağı",0,"","oil"]],
+  "Közlenmiş Biber Salatası":  [["Kırmızı Biber",3,"adet","veg"],["Sarımsak",2,"diş","veg"],["Zeytinyağı",0,"","oil"]],
+  "Gavurdağı Salatası":        [["Domates",2,"adet","veg"],["Salatalık",1,"adet","veg"],["Ceviz İçi",30,"g","nut"],["Nar Ekşisi",1,"yk","oil"],["Zeytinyağı",0,"","oil"]],
+  "Atom Salatası":             [["Marul",1,"adet","veg"],["Havuç",1,"adet","veg"],["Kırmızı Lahana",100,"g","veg"],["Mısır (Konserve)",2,"yk","canned"],["Limon",1,"adet","fruit"],["Zeytinyağı",0,"","oil"]],
+  // ═ MEYVELER ═
+  "Hurma":        [["Hurma",100,"g","fruit"]],
+  "Muz":          [["Muz",1,"adet","fruit"]],
+  "Elma":         [["Elma",1,"adet","fruit"]],
+  "Portakal":     [["Portakal",1,"adet","fruit"]],
+  "İncir (Taze)": [["Taze İncir",3,"adet","fruit"]],
+  "Üzüm":         [["Üzüm",1,"salkım","fruit"]],
+  "Karpuz":        [["Karpuz",1,"dilim","fruit"]],
+  "Çilek":         [["Çilek",250,"g","fruit"]],
+  "Nar":           [["Nar",1,"adet","fruit"]],
+  "Armut":         [["Armut",1,"adet","fruit"]],
+  "Kayısı":        [["Kayısı",3,"adet","fruit"]],
+  "Avokado":       [["Avokado",1,"adet","fruit"]],
+  "Şeftali":       [["Şeftali",1,"adet","fruit"]],
+  "Erik":          [["Erik",3,"adet","fruit"]],
+  "Kiraz":         [["Kiraz",200,"g","fruit"]],
+  "Mandalina":     [["Mandalina",2,"adet","fruit"]],
+  "Greyfurt":      [["Greyfurt",1,"adet","fruit"]],
+  "Kavun":         [["Kavun",1,"dilim","fruit"]],
+  "Meyve Salatası":[["Çilek",100,"g","fruit"],["Muz",1,"adet","fruit"],["Elma",1,"adet","fruit"],["Portakal",1,"adet","fruit"]],
+  "Smoothie (Muzlu)":[["Muz",1,"adet","fruit"],["Süt",200,"ml","dairy"],["Bal",1,"yk","sweet"]],
+  "Kuru Erik":     [["Kuru Erik",100,"g","nut"]],
+  // ═ KURUYEMİŞ ═
+  "Badem":         [["Badem",100,"g","nut"]],
+  "Ceviz":         [["Ceviz İçi",100,"g","nut"]],
+  "Fındık":        [["Fındık",100,"g","nut"]],
+  "Antep Fıstığı": [["Antep Fıstığı",100,"g","nut"]],
+  "Kaju":          [["Kaju",100,"g","nut"]],
+  "Kuru Kayısı":   [["Kuru Kayısı",100,"g","nut"]],
+  "Kuru İncir":    [["Kuru İncir",100,"g","nut"]],
+  "Kuru Üzüm":    [["Kuru Üzüm",100,"g","nut"]],
+  "Tahin-Pekmez":  [["Tahin",1,"kavanoz","nut"],["Pekmez",1,"kavanoz","sweet"]],
+  "Hurma-Fıstık Ezmesi":[["Hurma",100,"g","fruit"],["Fıstık Ezmesi",1,"kavanoz","nut"]],
+  "Ay Çekirdeği":  [["Ay Çekirdeği",100,"g","nut"]],
+  "Chia Tohumu":   [["Chia Tohumu",100,"g","nut"]],
+  "Keten Tohumu":  [["Keten Tohumu",100,"g","nut"]],
+  "Fıstık Ezmesi": [["Fıstık Ezmesi",1,"kavanoz","nut"]],
+  "Karışık Kuruyemiş":[["Karışık Kuruyemiş",200,"g","nut"]],
+  "Pekmez":        [["Pekmez",1,"kavanoz","sweet"]],
+  "Bal":           [["Bal",1,"kavanoz","sweet"]],
+  "Granola":       [["Granola",1,"paket","grain"]],
+  "Enerji Bar":    [["Enerji Bar",1,"paket","nut"]],
+  // ═ TATLILAR ═
+  "Güllaç":        [["Güllaç Yaprağı",1,"paket","sweet"],["Süt",500,"ml","dairy"],["Şeker",100,"g","sweet"],["Gül Suyu",1,"şişe","sweet"],["Antep Fıstığı",30,"g","nut"],["Nar",1,"adet","fruit"]],
+  "Sütlaç":        [["Pirinç",50,"g","grain"],["Süt",500,"ml","dairy"],["Şeker",80,"g","sweet"],["Nişasta",1,"yk","sweet"],["Vanilya",0,"","spice"]],
+  "Muhallebi":     [["Süt",500,"ml","dairy"],["Nişasta",3,"yk","sweet"],["Şeker",60,"g","sweet"],["Vanilya",0,"","spice"]],
+  "Keşkül":        [["Süt",500,"ml","dairy"],["Nişasta",3,"yk","sweet"],["Şeker",60,"g","sweet"],["Hindistancevizi",30,"g","sweet"],["Badem",20,"g","nut"]],
+  "Kabak Tatlısı": [["Balkabağı",500,"g","veg"],["Şeker",200,"g","sweet"],["Ceviz İçi",30,"g","nut"],["Tahin",1,"yk","nut"]],
+  "Aşure":         [["Buğday (Aşurelik)",100,"g","grain"],["Nohut (Kuru)",30,"g","legume"],["Kuru Fasulye",30,"g","legume"],["Kuru Kayısı",30,"g","nut"],["Kuru İncir",30,"g","nut"],["Kuru Üzüm",30,"g","nut"],["Nar",1,"adet","fruit"],["Şeker",100,"g","sweet"],["Gül Suyu",0,"","sweet"]],
+  "Kazandibi":     [["Süt",500,"ml","dairy"],["Nişasta",3,"yk","sweet"],["Şeker",80,"g","sweet"],["Tereyağı",10,"g","dairy"]],
+  "Tavuk Göğsü":   [["Tavuk Göğsü",50,"g","poultry"],["Süt",500,"ml","dairy"],["Nişasta",3,"yk","sweet"],["Şeker",80,"g","sweet"]],
+  "Fırın Sütlaç":  [["Pirinç",50,"g","grain"],["Süt",500,"ml","dairy"],["Şeker",80,"g","sweet"],["Yumurta",1,"adet","egg"],["Vanilya",0,"","spice"]],
+  "Trileçe":       [["Yumurta",4,"adet","egg"],["Süt",500,"ml","dairy"],["Krema",200,"ml","dairy"],["Yoğunlaştırılmış Süt",1,"kutu","dairy"],["Şeker",100,"g","sweet"],["Un",100,"g","grain"]],
+  "Baklava (1 Dilim)":[["Baklava",1,"dilim","sweet"]],
+  "Künefe":        [["Künefe (Hazır)",1,"porsiyon","sweet"],["Antep Fıstığı",10,"g","nut"]],
+  "Lokma":         [["Lokma (Hazır)",5,"adet","sweet"]],
+  "Revani":        [["İrmik",100,"g","grain"],["Yumurta",2,"adet","egg"],["Şeker",150,"g","sweet"],["Yoğurt",100,"g","dairy"],["Limon",1,"adet","fruit"]],
+  "Tulumba":       [["Tulumba (Hazır)",1,"paket","sweet"]],
+  "İrmik Helvası": [["İrmik",100,"g","grain"],["Tereyağı",50,"g","dairy"],["Şeker",100,"g","sweet"],["Süt",200,"ml","dairy"],["Çam Fıstığı",20,"g","nut"]],
+  "Un Helvası":    [["Un",100,"g","grain"],["Tereyağı",60,"g","dairy"],["Şeker",100,"g","sweet"],["Çam Fıstığı",20,"g","nut"]],
+  "Profiterol":    [["Profiterol (Hazır)",1,"paket","sweet"]],
+  "Dondurma (Maraş)":[["Dondurma (Maraş)",2,"top","sweet"]],
+  // ═ İÇECEKLER ═
+  "Composto":      [["Kuru Kayısı",50,"g","nut"],["Kuru Erik",50,"g","nut"],["Şeker",30,"g","sweet"]],
+  "Ihlamur":       [["Ihlamur",1,"paket","tea"]],
+  "Adaçayı":       [["Adaçayı",1,"paket","tea"]],
+  "Papatya Çayı":  [["Papatya Çayı",1,"paket","tea"]],
+  "Nane-Limon":    [["Taze Nane",1,"demet","veg"],["Limon",1,"adet","fruit"]],
+  "Zencefil Çayı": [["Taze Zencefil",1,"parça","veg"],["Limon",1,"adet","fruit"],["Bal",0,"","sweet"]],
+  "Limonata (Az Şekerli)":[["Limon",3,"adet","fruit"],["Şeker",30,"g","sweet"]],
+  "Ramazan Şerbeti":[["Ramazan Şerbeti",1,"şişe","tea"]],
+  "Taze Sıkılmış Portakal Suyu":[["Portakal (Sıkmalık)",3,"adet","fruit"]],
+  "Boza":          [["Boza",1,"şişe","tea"]],
+  "Kuşburnu Çayı": [["Kuşburnu Çayı",1,"paket","tea"]],
+  "Yeşil Çay":     [["Yeşil Çay",1,"paket","tea"]],
+  "Süt (Sıcak Baharatlı)":[["Süt",200,"ml","dairy"],["Tarçın",0,"","spice"],["Zerdeçal",0,"","spice"]],
+  "Taze Havuç Suyu":[["Havuç",3,"adet","veg"]],
+  "Karpuz Suyu":   [["Karpuz",500,"g","fruit"]],
+  "Nar Suyu":      [["Nar (Sıkmalık)",2,"adet","fruit"]],
+  "Kayısı Nektarı":[["Kayısı Nektarı",1,"şişe","tea"]],
+  "Smoothie (Yeşil)":[["Ispanak",50,"g","veg"],["Muz",1,"adet","fruit"],["Elma",1,"adet","fruit"],["Süt",100,"ml","dairy"]],
+  "Sıcak Çikolata (Az Şekerli)":[["Kakao",2,"yk","sweet"],["Süt",200,"ml","dairy"],["Şeker",1,"yk","sweet"]]
+};
 
 function toggleShopping() {
   const card = document.getElementById('shoppingCard');
   card.classList.toggle('expanded');
-  if (card.classList.contains('expanded')) {
-    renderShoppingList();
-  }
+  if (card.classList.contains('expanded')) renderShoppingList();
 }
 
 function setShoppingDays(days) {
@@ -2013,118 +2242,136 @@ function setShoppingDays(days) {
 }
 
 function getShoppingItems() {
-  if (!currentPlan) return [];
+  if (!currentPlan) return { items: [], pantry: [] };
   const { sahur, iftar, snack } = currentPlan;
+  const allFoods = [...sahur.items, ...iftar.items, ...snack.items];
 
-  // Collect all foods from all meals
-  const foodMap = new Map(); // name → { icon, portion, cat, quantity }
-  const allItems = [...sahur.items, ...iftar.items, ...snack.items];
+  // Aggregate ingredients
+  // key = "name|unit|cat" → { name, qty, unit, cat }
+  const map = new Map();
+  const pantrySet = new Set();
 
-  for (const item of allItems) {
-    if (foodMap.has(item.name)) {
-      foodMap.get(item.name).quantity += shoppingDays;
-    } else {
-      foodMap.set(item.name, {
-        name: item.name,
-        icon: item.icon,
-        cat: item.cat,
-        portion: item.actualPortion || item.portion,
-        quantity: shoppingDays
-      });
+  for (const food of allFoods) {
+    const recipe = RECIPE_DB[food.name];
+    if (!recipe) continue; // skip if no mapping (shouldn't happen)
+
+    for (const [iName, iQty, iUnit, iCat] of recipe) {
+      if (iQty === 0) {
+        // Pantry staple
+        pantrySet.add(iName);
+        continue;
+      }
+      const key = `${iName}|${iUnit}|${iCat}`;
+      if (map.has(key)) {
+        map.get(key).qty += iQty * shoppingDays;
+      } else {
+        map.set(key, { name: iName, qty: iQty * shoppingDays, unit: iUnit, cat: iCat });
+      }
     }
   }
 
-  // Also add water
+  // Add water
   if (currentPlan.waterLiters) {
-    const totalWater = +(currentPlan.waterLiters * shoppingDays).toFixed(1);
-    foodMap.set('Su', {
-      name: 'Su',
-      icon: '💧',
-      cat: 'drink',
-      portion: `${totalWater} litre`,
-      quantity: 1
-    });
+    const w = +(currentPlan.waterLiters * shoppingDays).toFixed(1);
+    map.set('Su|L|tea', { name: 'Su', qty: w, unit: 'L', cat: 'tea' });
   }
 
-  return Array.from(foodMap.values());
+  // Convert units for readability
+  const items = Array.from(map.values()).map(item => {
+    let { name, qty, unit } = item;
+    // g → kg
+    if (unit === 'g' && qty >= 1000) { qty = +(qty / 1000).toFixed(1); unit = 'kg'; }
+    else if (unit === 'g' && qty > 0) { qty = Math.round(qty); }
+    // ml → L
+    if (unit === 'ml' && qty >= 1000) { qty = +(qty / 1000).toFixed(1); unit = 'L'; }
+    else if (unit === 'ml' && qty > 0) { qty = Math.round(qty); }
+    // Round others
+    if (typeof qty === 'number' && unit !== 'kg' && unit !== 'L') qty = Math.ceil(qty * 10) / 10;
+    // Clean display
+    if (Number.isInteger(qty)) qty = qty;
+    return { ...item, qty, unit, display: qty > 0 ? `${qty} ${unit}` : '' };
+  });
+
+  return { items, pantry: Array.from(pantrySet).sort() };
 }
 
 function renderShoppingList() {
   const listEl = document.getElementById('shoppingList');
-  const items = getShoppingItems();
+  const { items, pantry } = getShoppingItems();
 
-  if (items.length === 0) {
+  if (items.length === 0 && pantry.length === 0) {
     listEl.innerHTML = '<p style="text-align:center;color:var(--gray-400);font-size:.85rem;padding:1rem">Önce bir öğün planı oluşturun.</p>';
+    updateShoppingSummary(0);
     return;
   }
 
-  // Group by category
-  const catOrder = ['protein','soup','carb','dairy','veg','fruit','nut','dessert','drink'];
-  const catNames = {
-    protein: { icon: '🥩', name: 'Et, Balık & Baklagil' },
-    soup: { icon: '🍲', name: 'Çorba Malzemeleri' },
-    carb: { icon: '🍞', name: 'Tahıl & Ekmek' },
-    dairy: { icon: '🧀', name: 'Süt Ürünleri' },
-    veg: { icon: '🥗', name: 'Sebze & Salata' },
-    fruit: { icon: '🍎', name: 'Meyve' },
-    nut: { icon: '🥜', name: 'Kuruyemiş & Atıştırmalık' },
-    dessert: { icon: '🍮', name: 'Tatlı' },
-    drink: { icon: '🍵', name: 'İçecek' }
-  };
-
+  // Group by shop category
   const groups = {};
   for (const item of items) {
     if (!groups[item.cat]) groups[item.cat] = [];
     groups[item.cat].push(item);
   }
 
+  const catOrder = Object.entries(SHOP_CATS).sort((a,b) => a[1].order - b[1].order);
+
   let html = '';
-  for (const cat of catOrder) {
-    if (!groups[cat] || groups[cat].length === 0) continue;
-    const info = catNames[cat] || { icon: '📦', name: cat };
-    const catItems = groups[cat];
+  let totalCount = 0;
+
+  for (const [catKey, catInfo] of catOrder) {
+    if (!groups[catKey] || groups[catKey].length === 0) continue;
+    if (catKey === 'spice') continue; // pantry staples handled separately
+    const catItems = groups[catKey];
+    totalCount += catItems.length;
 
     html += `<div class="shopping-category">
       <div class="shopping-cat-header">
-        <span class="sc-icon">${info.icon}</span>
-        <span class="sc-name">${info.name}</span>
+        <span class="sc-icon">${catInfo.icon}</span>
+        <span class="sc-name">${catInfo.name}</span>
         <span class="sc-count">${catItems.length} ürün</span>
       </div>`;
 
     for (const item of catItems) {
       const key = item.name;
       const checked = shoppingChecked.has(key);
-      const portionText = item.quantity > 1
-        ? `${item.portion} × ${item.quantity} gün`
-        : item.portion;
-
       html += `<div class="shopping-item ${checked ? 'checked' : ''}" onclick="toggleShoppingItem('${key.replace(/'/g, "\\'")}')">
         <div class="si-check"></div>
-        <span class="si-icon">${item.icon}</span>
         <span class="si-name">${item.name}</span>
-        <span class="si-portion">${portionText}</span>
+        <span class="si-portion">${item.display}</span>
       </div>`;
     }
-
     html += '</div>';
   }
 
+  // Pantry staples section
+  if (pantry.length > 0) {
+    html += `<div class="shopping-category" style="opacity:.7">
+      <div class="shopping-cat-header">
+        <span class="sc-icon">🧂</span>
+        <span class="sc-name">Mutfağınızda Bulunması Gerekenler</span>
+        <span class="sc-count">${pantry.length} ürün</span>
+      </div>`;
+    html += '<div style="display:flex;flex-wrap:wrap;gap:.3rem;padding:.25rem 0">';
+    for (const p of pantry) {
+      const checked = shoppingChecked.has('pantry:'+p);
+      html += `<span class="basket-chip ${checked ? 'checked' : ''}" onclick="toggleShoppingItem('pantry:${p.replace(/'/g, "\\'")}')" style="${checked?'opacity:.4;text-decoration:line-through':''}">
+        ${p} <span class="chip-x">${checked ? '✓' : '?'}</span>
+      </span>`;
+    }
+    html += '</div></div>';
+  }
+
   listEl.innerHTML = html;
-  updateShoppingSummary(items);
+  updateShoppingSummary(totalCount);
 }
 
 function toggleShoppingItem(name) {
-  if (shoppingChecked.has(name)) {
-    shoppingChecked.delete(name);
-  } else {
-    shoppingChecked.add(name);
-  }
+  if (shoppingChecked.has(name)) shoppingChecked.delete(name);
+  else shoppingChecked.add(name);
   renderShoppingList();
 }
 
-function updateShoppingSummary(items) {
-  const total = items.length;
-  const checked = shoppingChecked.size;
+function updateShoppingSummary(total) {
+  const checked = Array.from(shoppingChecked).filter(k => !k.startsWith('pantry:')).length;
   document.getElementById('shoppingTotal').textContent = `${total} ürün`;
   document.getElementById('shoppingChecked').textContent = checked > 0
     ? `✓ ${checked} / ${total} alındı`
@@ -2137,21 +2384,8 @@ function resetShoppingChecks() {
 }
 
 function buildShoppingText() {
-  const items = getShoppingItems();
+  const { items, pantry } = getShoppingItems();
   if (items.length === 0) return '';
-
-  const catNames = {
-    protein: '🥩 Et, Balık & Baklagil',
-    soup: '🍲 Çorba Malzemeleri',
-    carb: '🍞 Tahıl & Ekmek',
-    dairy: '🧀 Süt Ürünleri',
-    veg: '🥗 Sebze & Salata',
-    fruit: '🍎 Meyve',
-    nut: '🥜 Kuruyemiş',
-    dessert: '🍮 Tatlı',
-    drink: '🍵 İçecek'
-  };
-  const catOrder = ['protein','soup','carb','dairy','veg','fruit','nut','dessert','drink'];
 
   const groups = {};
   for (const item of items) {
@@ -2162,16 +2396,19 @@ function buildShoppingText() {
   const dayLabel = shoppingDays === 1 ? '1 günlük' : shoppingDays === 3 ? '3 günlük' : 'haftalık';
   let text = `🛒 Ramazan Alışveriş Listesi (${dayLabel})\n\n`;
 
-  for (const cat of catOrder) {
-    if (!groups[cat] || groups[cat].length === 0) continue;
-    text += `${catNames[cat] || cat}\n`;
-    for (const item of groups[cat]) {
-      const portionText = item.quantity > 1
-        ? `${item.portion} × ${item.quantity}`
-        : item.portion;
-      text += `  ☐ ${item.name} — ${portionText}\n`;
+  const catOrder = Object.entries(SHOP_CATS).sort((a,b) => a[1].order - b[1].order);
+  for (const [catKey, catInfo] of catOrder) {
+    if (!groups[catKey] || groups[catKey].length === 0) continue;
+    if (catKey === 'spice') continue;
+    text += `${catInfo.icon} ${catInfo.name}\n`;
+    for (const item of groups[catKey]) {
+      text += `  ☐ ${item.name}${item.display ? ' — ' + item.display : ''}\n`;
     }
     text += '\n';
+  }
+
+  if (pantry.length > 0) {
+    text += `🧂 Mutfakta Kontrol Edin\n  ${pantry.join(', ')}\n\n`;
   }
 
   text += '🔗 uzunyasa.com/pages/araclar/sahur-iftar-planlayici.html';
