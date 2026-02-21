@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<script src="/scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLP-1 İlaç Karşılaştırma Aracı | UzunYaşa</title>
+<meta name="description" content="GLP-1 ilaçlarını karşılaştırın: Wegovy, Ozempic, Mounjaro, Zepbound, Saxenda ve yeni nesil oral ilaçlar. Etkinlik, dozaj, yan etki ve fiyat karşılaştırması.">
+<link rel="canonical" href="https://uzunyasa.com/pages/araclar/glp1-karsilastirma.html">
+<meta property="og:title" content="GLP-1 İlaç Karşılaştırma Aracı | UzunYaşa">
+<meta property="og:description" content="7 GLP-1 ilacını yan yana karşılaştırın. Hangisi size uygun? İnteraktif karşılaştırma aracı.">
+<meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+<meta property="og:url" content="https://uzunyasa.com/pages/araclar/glp1-karsilastirma.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0D7377;--dark:#195157;--accent:#E8963E;--bg:#f8fafa;--card:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827;--radius:16px;--shadow:0 4px 24px rgba(0,0,0,.08);--green:#10B981;--blue:#3B82F6;--purple:#8B5CF6;--red:#EF4444;--pink:#EC4899;--orange:#F59E0B}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--gray-700);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+
+/* Header */
+.site-header{background:#fff;border-bottom:1px solid var(--gray-200);padding:.875rem 1.5rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.site-header a{text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark)}
+.logo-text span{color:var(--accent)}
+.back-link{font-size:.875rem;color:var(--primary);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:.25rem}
+
+/* Main */
+.main-wrap{max-width:1080px;margin:0 auto;padding:1.5rem 1rem;width:100%;flex:1}
+
+/* Hero */
+.hero-card{background:linear-gradient(135deg,var(--primary),#14919B);border-radius:var(--radius);padding:2.5rem 2rem;color:#fff;text-align:center;margin-bottom:2rem}
+.hero-card h1{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:.75rem}
+.hero-card p{opacity:.9;max-width:600px;margin:0 auto;font-size:1rem}
+
+/* Filters */
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.5rem}
+.filter-btn{padding:.5rem 1.25rem;border-radius:99px;border:2px solid var(--gray-200);background:#fff;color:var(--gray-500);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+.filter-btn:hover{border-color:var(--primary);color:var(--primary)}
+.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+/* Compare bar */
+.compare-bar{background:#fff;border:2px solid var(--primary);border-radius:12px;padding:1rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.compare-bar .label{font-weight:700;color:var(--dark);font-size:.95rem}
+.compare-bar .selected-drugs{display:flex;gap:.5rem;flex-wrap:wrap}
+.compare-bar .drug-tag{background:var(--primary);color:#fff;padding:.35rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:.35rem}
+.compare-bar .drug-tag .remove{cursor:pointer;opacity:.7;font-size:1.1rem}
+.compare-bar .drug-tag .remove:hover{opacity:1}
+.compare-btn{padding:.6rem 1.5rem;border-radius:99px;border:none;background:var(--accent);color:#fff;font-weight:700;cursor:pointer;font-family:inherit;font-size:.9rem;transition:all .2s}
+.compare-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.compare-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+/* Drug cards grid */
+.drugs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-bottom:2rem}
+
+/* Drug card */
+.drug-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;border:2px solid transparent;transition:all .3s;cursor:pointer;position:relative}
+.drug-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.drug-card.selected{border-color:var(--primary);box-shadow:0 0 0 3px rgba(13,115,119,.15)}
+.drug-card.hidden{display:none}
+.card-top{padding:1.25rem 1.25rem .75rem;position:relative}
+.card-status{position:absolute;top:1rem;right:1rem;padding:.25rem .75rem;border-radius:99px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.card-status.approved{background:#D1FAE5;color:#065F46}
+.card-status.pipeline{background:#FEF3C7;color:#92400E}
+.drug-type-badge{display:inline-block;padding:.2rem .65rem;border-radius:99px;font-size:.7rem;font-weight:700;margin-bottom:.5rem}
+.drug-name{font-size:1.25rem;font-weight:800;color:var(--dark);margin-bottom:.15rem}
+.drug-brand{font-size:.85rem;color:var(--gray-500);margin-bottom:.75rem}
+.stats-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:.5rem}
+.stat-pill{background:var(--gray-50);padding:.4rem .75rem;border-radius:8px;font-size:.8rem;display:flex;align-items:center;gap:.35rem}
+.stat-pill .num{font-weight:800;color:var(--dark)}
+.stat-pill .lbl{color:var(--gray-500);font-size:.75rem}
+.card-details{padding:0 1.25rem 1.25rem}
+.detail-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--gray-100);font-size:.85rem}
+.detail-row:last-child{border-bottom:none}
+.detail-row .key{color:var(--gray-500)}
+.detail-row .val{font-weight:600;color:var(--dark);text-align:right;max-width:60%}
+.select-check{position:absolute;top:1rem;left:1rem;width:24px;height:24px;border-radius:50%;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;transition:all .2s;background:#fff}
+.drug-card.selected .select-check{background:var(--primary);border-color:var(--primary);color:#fff}
+
+/* Comparison table */
+.compare-section{display:none;margin-bottom:2rem}
+.compare-section.show{display:block}
+.compare-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.compare-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.compare-table th{background:var(--primary);color:#fff;padding:.85rem 1rem;font-size:.85rem;font-weight:700;text-align:left;position:sticky;top:0}
+.compare-table td{padding:.75rem 1rem;font-size:.85rem;border-bottom:1px solid var(--gray-100);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:rgba(13,115,119,.03)}
+.compare-table .row-label{font-weight:700;color:var(--dark);background:var(--gray-50);min-width:140px}
+.winner{background:rgba(16,185,129,.08) !important;font-weight:700;color:#065F46}
+
+/* Quiz */
+.quiz-section{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;margin-bottom:2rem}
+.quiz-section h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--dark);margin-bottom:.5rem;text-align:center}
+.quiz-section p.subtitle{color:var(--gray-500);text-align:center;margin-bottom:1.5rem}
+.quiz-step{display:none}
+.quiz-step.active{display:block}
+.quiz-q{font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:1rem}
+.quiz-options{display:grid;gap:.75rem}
+.quiz-opt{padding:1rem 1.25rem;border:2px solid var(--gray-200);border-radius:12px;cursor:pointer;transition:all .2s;font-size:.95rem;display:flex;align-items:center;gap:.75rem}
+.quiz-opt:hover{border-color:var(--primary);background:rgba(13,115,119,.03)}
+.quiz-opt.chosen{border-color:var(--primary);background:rgba(13,115,119,.08)}
+.quiz-opt .emoji{font-size:1.5rem}
+.quiz-result{text-align:center;padding:1.5rem}
+.quiz-result h3{font-size:1.3rem;color:var(--dark);margin-bottom:.5rem}
+.quiz-result .rec-drug{font-size:1.5rem;font-weight:900;color:var(--primary);margin:.75rem 0}
+.quiz-result .rec-reason{color:var(--gray-500);max-width:500px;margin:0 auto 1rem}
+.quiz-nav{display:flex;justify-content:center;gap:1rem;margin-top:1.5rem}
+.quiz-nav button{padding:.6rem 1.5rem;border-radius:99px;border:none;font-weight:700;cursor:pointer;font-family:inherit;font-size:.9rem;transition:all .2s}
+.quiz-nav .next-btn{background:var(--primary);color:#fff}
+.quiz-nav .next-btn:hover{background:var(--dark)}
+.quiz-nav .restart-btn{background:var(--gray-100);color:var(--gray-700)}
+
+/* Sources */
+.sources-section{background:#fff;border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem}
+.sources-section h3{font-size:1rem;color:var(--dark);margin-bottom:.75rem}
+.sources-section ul{list-style:none;padding:0}
+.sources-section li{font-size:.8rem;color:var(--gray-500);margin-bottom:.4rem;padding-left:1rem;position:relative}
+.sources-section li::before{content:'•';position:absolute;left:0;color:var(--primary)}
+
+/* Disclaimer */
+.disclaimer{background:#FEF3C7;border:1px solid #F59E0B;border-radius:12px;padding:1.25rem;font-size:.85rem;color:#92400E;margin-bottom:2rem}
+.disclaimer strong{color:#78350F}
+
+/* Footer */
+.site-footer{background:var(--dark);color:rgba(255,255,255,.7);text-align:center;padding:2rem 1.5rem;font-size:.8rem;margin-top:auto}
+.site-footer a{color:var(--accent);text-decoration:none}
+
+/* Color coding for drug types */
+.type-glp1{background:rgba(16,185,129,.15);color:#065F46}
+.type-dual{background:rgba(139,92,246,.15);color:#5B21B6}
+.type-triple{background:rgba(236,72,153,.15);color:#9D174D}
+.type-oral{background:rgba(59,130,246,.15);color:#1E40AF}
+
+@media(max-width:640px){
+ .hero-card h1{font-size:1.5rem}
+ .hero-card{padding:1.75rem 1.25rem}
+ .drugs-grid{grid-template-columns:1fr}
+ .compare-bar{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+ <a href="/index.html">
+  <span class="logo-text">Uzun<span>Yaşa</span></span>
+ </a>
+ <a href="/pages/araclar.html" class="back-link">← Araçlar</a>
+</header>
+
+<div class="main-wrap">
+
+<!-- Hero -->
+<div class="hero-card">
+ <h1>💊 GLP-1 İlaç Karşılaştırma</h1>
+ <p>Onaylı ve geliştirme aşamasındaki GLP-1 ilaçlarını yan yana karşılaştırın. Etkinlik, dozaj, yan etki ve kalp sağlığı verileri.</p>
+</div>
+
+<!-- Filters -->
+<div class="filters">
+ <button class="filter-btn active" data-filter="all" onclick="filterDrugs('all',this)">🔬 Tümü</button>
+ <button class="filter-btn" data-filter="approved" onclick="filterDrugs('approved',this)">✅ Onaylı</button>
+ <button class="filter-btn" data-filter="pipeline" onclick="filterDrugs('pipeline',this)">🧪 Geliştirmede</button>
+ <button class="filter-btn" data-filter="injection" onclick="filterDrugs('injection',this)">💉 Enjeksiyon</button>
+ <button class="filter-btn" data-filter="oral" onclick="filterDrugs('oral',this)">💊 Oral</button>
+</div>
+
+<!-- Compare bar -->
+<div class="compare-bar" id="compareBar">
+ <div>
+  <div class="label">📊 Karşılaştır (2-3 ilaç seçin)</div>
+  <div class="selected-drugs" id="selectedDrugs"></div>
+ </div>
+ <button class="compare-btn" id="compareBtn" disabled onclick="showComparison()">Karşılaştır →</button>
+</div>
+
+<!-- Drug Cards -->
+<div class="drugs-grid" id="drugsGrid"></div>
+
+<!-- Comparison Table -->
+<div class="compare-section" id="compareSection">
+ <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--dark);margin-bottom:1rem;text-align:center">📊 Detaylı Karşılaştırma</h2>
+ <div class="compare-table-wrap">
+  <table class="compare-table" id="compareTable"></table>
+ </div>
+ <div style="text-align:center;margin-top:1rem">
+  <button class="compare-btn" onclick="hideComparison()" style="background:var(--gray-500)">✕ Karşılaştırmayı Kapat</button>
+ </div>
+</div>
+
+<!-- Quiz: Hangisi Bana Uygun? -->
+<div class="quiz-section" id="quizSection">
+ <h2>🎯 Hangisi Bana Uygun?</h2>
+ <p class="subtitle">4 basit soru ile size en uygun GLP-1 ilacını bulun</p>
+
+ <div class="quiz-step active" data-step="1">
+  <div class="quiz-q">1. Enjeksiyon yapmakla ilgili ne düşünüyorsunuz?</div>
+  <div class="quiz-options">
+   <div class="quiz-opt" onclick="quizAnswer(1,'ok')"><span class="emoji">💉</span>Sorun değil, haftada bir yapabilirim</div>
+   <div class="quiz-opt" onclick="quizAnswer(1,'daily-ok')"><span class="emoji">💉</span>Günlük enjeksiyon da olabilir</div>
+   <div class="quiz-opt" onclick="quizAnswer(1,'no')"><span class="emoji">💊</span>Hap tercih ederim, enjeksiyon istemiyorum</div>
+  </div>
+ </div>
+
+ <div class="quiz-step" data-step="2">
+  <div class="quiz-q">2. Birincil hedefiniz nedir?</div>
+  <div class="quiz-options">
+   <div class="quiz-opt" onclick="quizAnswer(2,'max-loss')"><span class="emoji">⚖️</span>Maksimum kilo kaybı</div>
+   <div class="quiz-opt" onclick="quizAnswer(2,'moderate')"><span class="emoji">🎯</span>Orta düzey kilo kaybı + diyabet kontrolü</div>
+   <div class="quiz-opt" onclick="quizAnswer(2,'heart')"><span class="emoji">❤️</span>Kalp sağlığı koruma</div>
+  </div>
+ </div>
+
+ <div class="quiz-step" data-step="3">
+  <div class="quiz-q">3. FDA onaylı, kullanıma hazır bir ilaç mı tercih edersiniz?</div>
+  <div class="quiz-options">
+   <div class="quiz-opt" onclick="quizAnswer(3,'approved')"><span class="emoji">✅</span>Evet, sadece onaylı ilaçlar</div>
+   <div class="quiz-opt" onclick="quizAnswer(3,'open')"><span class="emoji">🧪</span>Klinik çalışma aşamasındakilere de açığım</div>
+  </div>
+ </div>
+
+ <div class="quiz-step" data-step="4">
+  <div class="quiz-q">4. Bütçe tercihiniz?</div>
+  <div class="quiz-options">
+   <div class="quiz-opt" onclick="quizAnswer(4,'budget')"><span class="emoji">💰</span>Uygun fiyat önemli</div>
+   <div class="quiz-opt" onclick="quizAnswer(4,'mid')"><span class="emoji">💳</span>Orta bütçe</div>
+   <div class="quiz-opt" onclick="quizAnswer(4,'premium')"><span class="emoji">💎</span>En iyi sonuç için bütçe sorun değil</div>
+  </div>
+ </div>
+
+ <div class="quiz-step" data-step="result">
+  <div class="quiz-result" id="quizResult"></div>
+ </div>
+</div>
+
+<!-- Sources -->
+<div class="sources-section">
+ <h3>📚 Kaynaklar</h3>
+ <ul>
+  <li>Wilding JPH, et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP 1). NEJM. 2021;384:989-1002.</li>
+  <li>Lincoff AM, et al. Semaglutide and Cardiovascular Outcomes in Obesity (SELECT). NEJM. 2023;389:2221-2232.</li>
+  <li>Jastreboff AM, et al. Tirzepatide Once Weekly for the Treatment of Obesity (SURMOUNT-1). NEJM. 2022;387:205-216.</li>
+  <li>Aronne LJ, et al. Orforglipron in Obesity (ATTAIN-1). Lancet. 2024;403:2685-2698.</li>
+  <li>Jastreboff AM, et al. Retatrutide in Obesity (Phase 2 Trial). NEJM. 2023;389:514-526.</li>
+  <li>FDA Oral Semaglutide Approval for Obesity. FDA.gov. 2025.</li>
+  <li>Pi-Sunyer X, et al. Liraglutide for Weight Management (SCALE). NEJM. 2015;373:11-22.</li>
+ </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+ <strong>⚠️ Tıbbi Uyarı:</strong> Bu araç yalnızca bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. İlaç seçimi mutlaka bir hekim tarafından yapılmalıdır. Kendi kendinize ilaç başlamayın veya değiştirmeyin. Buradaki veriler klinik çalışma ortalamaları olup bireysel sonuçlar farklılık gösterebilir.
+</div>
+
+</div><!-- /main-wrap -->
+
+<footer class="site-footer">
+ <p>© 2026 UzunYaşa — Sağlıklı yaşam rehberiniz</p>
+ <p style="margin-top:.5rem"><a href="/pages/gizlilik-politikasi.html">Gizlilik</a> · <a href="/pages/kullanim-sartlari.html">Kullanım Şartları</a> · <a href="/pages/hakkimizda.html">Hakkımızda</a></p>
+</footer>
+
+<script>
+// ── DRUG DATA ──
+const DRUGS = [
+ {
+  id:'sema24',name:'Semaglutide 2.4mg',brand:'Wegovy',type:'GLP-1',typeClass:'type-glp1',
+  weightLoss:'~15%',dosing:'Haftada 1 enjeksiyon',fdaStatus:'Onaylı',statusClass:'approved',
+  heartBenefit:'SELECT: -%20 MACE',route:'injection',phase:'approved',
+  mechanism:'GLP-1 reseptör agonisti',onset:'4-8 hafta',peakLoss:'68 hafta',
+  commonSE:'Bulantı (%44), diyare (%30), kusma (%24)',seriousSE:'Pankreatit (nadir), safra taşı',
+  contraindications:'MEN2, medüller tiroid kanseri öyküsü',
+  trialName:'STEP 1-4, SELECT',participants:'17,604 (SELECT)',
+  costUS:'~$1,350/ay',costTR:'Henüz SGK kapsamında değil'
+ },
+ {
+  id:'sema1',name:'Semaglutide 1mg',brand:'Ozempic',type:'GLP-1',typeClass:'type-glp1',
+  weightLoss:'~12%',dosing:'Haftada 1 enjeksiyon',fdaStatus:'Onaylı (diyabet)',statusClass:'approved',
+  heartBenefit:'Evet (SUSTAIN-6)',route:'injection',phase:'approved',
+  mechanism:'GLP-1 reseptör agonisti',onset:'4-8 hafta',peakLoss:'52 hafta',
+  commonSE:'Bulantı (%40), diyare (%22), kusma (%15)',seriousSE:'Pankreatit (nadir)',
+  contraindications:'MEN2, medüller tiroid kanseri öyküsü',
+  trialName:'SUSTAIN 1-10',participants:'9,901 (SUSTAIN-6)',
+  costUS:'~$900/ay',costTR:'SGK (diyabet endikasyonu)'
+ },
+ {
+  id:'oral-sema',name:'Oral Semaglutide',brand:'Oral Wegovy (Rybelsus 50mg)',type:'GLP-1 (Oral)',typeClass:'type-oral',
+  weightLoss:'~15%',dosing:'Günlük 1 hap',fdaStatus:'Onaylı (2025)',statusClass:'approved',
+  heartBenefit:'Araştırılıyor',route:'oral',phase:'approved',
+  mechanism:'Oral GLP-1 reseptör agonisti (SNAC teknolojisi)',onset:'4-8 hafta',peakLoss:'68 hafta',
+  commonSE:'Bulantı (%40), diyare (%25), kusma (%20)',seriousSE:'Pankreatit (nadir)',
+  contraindications:'MEN2, medüller tiroid kanseri öyküsü',
+  trialName:'OASIS 1-4',participants:'3,600+ (OASIS)',
+  costUS:'~$1,200/ay',costTR:'Henüz mevcut değil'
+ },
+ {
+  id:'tirze',name:'Tirzepatide',brand:'Mounjaro / Zepbound',type:'GLP-1/GIP',typeClass:'type-dual',
+  weightLoss:'~20-22%',dosing:'Haftada 1 enjeksiyon',fdaStatus:'Onaylı',statusClass:'approved',
+  heartBenefit:'SURPASS-CVOT devam ediyor',route:'injection',phase:'approved',
+  mechanism:'Çift agonist: GLP-1 + GIP reseptörleri',onset:'4-8 hafta',peakLoss:'72 hafta',
+  commonSE:'Bulantı (%31), diyare (%23), kusma (%12)',seriousSE:'Pankreatit (nadir), safra taşı',
+  contraindications:'MEN2, medüller tiroid kanseri öyküsü',
+  trialName:'SURMOUNT 1-4, SURPASS',participants:'2,539 (SURMOUNT-1)',
+  costUS:'~$1,060/ay',costTR:'Henüz Türkiye\'de yok'
+ },
+ {
+  id:'retat',name:'Retatrutide',brand:'TBD (Eli Lilly)',type:'GLP-1/GIP/Glukagon',typeClass:'type-triple',
+  weightLoss:'~24%',dosing:'Haftada 1 enjeksiyon',fdaStatus:'Faz 3',statusClass:'pipeline',
+  heartBenefit:'Araştırılıyor',route:'injection',phase:'pipeline',
+  mechanism:'Üçlü agonist: GLP-1 + GIP + Glukagon reseptörleri',onset:'4-12 hafta',peakLoss:'48 hafta (Faz 2)',
+  commonSE:'Bulantı (%26), diyare (%22), kusma (%13)',seriousSE:'Faz 3 verileri bekleniyor',
+  contraindications:'Faz 3 verileri bekleniyor',
+  trialName:'Faz 2 (NCT05929066)',participants:'338 (Faz 2)',
+  costUS:'Henüz belirsiz',costTR:'Henüz mevcut değil'
+ },
+ {
+  id:'orfor',name:'Orforglipron',brand:'TBD (Eli Lilly)',type:'Oral GLP-1',typeClass:'type-oral',
+  weightLoss:'~14%',dosing:'Günlük 1 hap',fdaStatus:'Faz 3',statusClass:'pipeline',
+  heartBenefit:'Araştırılıyor',route:'oral',phase:'pipeline',
+  mechanism:'Oral küçük molekül GLP-1 agonisti (peptid değil)',onset:'4-8 hafta',peakLoss:'36 hafta (Faz 2)',
+  commonSE:'Bulantı (%40), kusma (%21), diyare (%18)',seriousSE:'Faz 3 verileri bekleniyor',
+  contraindications:'Faz 3 verileri bekleniyor',
+  trialName:'ATTAIN-1, ATTAIN-2',participants:'1,200+ (ATTAIN)',
+  costUS:'Henüz belirsiz',costTR:'Henüz mevcut değil'
+ },
+ {
+  id:'lira',name:'Liraglutide 3mg',brand:'Saxenda',type:'GLP-1',typeClass:'type-glp1',
+  weightLoss:'~8%',dosing:'Günlük 1 enjeksiyon',fdaStatus:'Onaylı',statusClass:'approved',
+  heartBenefit:'Orta (LEADER çalışması)',route:'injection',phase:'approved',
+  mechanism:'GLP-1 reseptör agonisti',onset:'2-4 hafta',peakLoss:'56 hafta',
+  commonSE:'Bulantı (%39), diyare (%21), kabızlık (%19)',seriousSE:'Pankreatit (nadir)',
+  contraindications:'MEN2, medüller tiroid kanseri öyküsü',
+  trialName:'SCALE 1-4, LEADER',participants:'3,731 (SCALE)',
+  costUS:'~$1,400/ay',costTR:'SGK dışı, ~₺3,000-4,000/ay'
+ }
+];
+
+let selectedIds = [];
+let currentFilter = 'all';
+
+// ── RENDER CARDS ──
+function renderCards() {
+ const grid = document.getElementById('drugsGrid');
+ grid.innerHTML = DRUGS.map(d => {
+  const isSelected = selectedIds.includes(d.id);
+  const hidden = shouldHide(d);
+  return `
+   <div class="drug-card ${isSelected ? 'selected' : ''} ${hidden ? 'hidden' : ''}" data-id="${d.id}" onclick="toggleSelect('${d.id}')">
+    <div class="select-check">${isSelected ? '✓' : ''}</div>
+    <div class="card-top">
+     <span class="card-status ${d.statusClass}">${d.fdaStatus}</span>
+     <div class="drug-type-badge ${d.typeClass}">${d.type}</div>
+     <div class="drug-name">${d.name}</div>
+     <div class="drug-brand">${d.brand}</div>
+     <div class="stats-row">
+      <div class="stat-pill"><span class="num">${d.weightLoss}</span><span class="lbl">kilo kaybı</span></div>
+      <div class="stat-pill"><span class="num">${d.dosing.split(' ')[0]}</span><span class="lbl">${d.dosing.split(' ').slice(1).join(' ')}</span></div>
+     </div>
+    </div>
+    <div class="card-details">
+     <div class="detail-row"><span class="key">Mekanizma</span><span class="val">${d.mechanism}</span></div>
+     <div class="detail-row"><span class="key">Kalp Faydası</span><span class="val">${d.heartBenefit}</span></div>
+     <div class="detail-row"><span class="key">Yaygın Yan Etkiler</span><span class="val">${d.commonSE}</span></div>
+     <div class="detail-row"><span class="key">Klinik Çalışma</span><span class="val">${d.trialName}</span></div>
+     <div class="detail-row"><span class="key">Maliyet (ABD)</span><span class="val">${d.costUS}</span></div>
+     <div class="detail-row"><span class="key">Türkiye</span><span class="val">${d.costTR}</span></div>
+    </div>
+   </div>`;
+ }).join('');
+}
+
+function shouldHide(d) {
+ if (currentFilter === 'all') return false;
+ if (currentFilter === 'approved') return d.phase !== 'approved';
+ if (currentFilter === 'pipeline') return d.phase !== 'pipeline';
+ if (currentFilter === 'injection') return d.route !== 'injection';
+ if (currentFilter === 'oral') return d.route !== 'oral';
+ return false;
+}
+
+function filterDrugs(filter, btn) {
+ currentFilter = filter;
+ document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+ btn.classList.add('active');
+ renderCards();
+ gtag('event','filter_drugs',{event_category:'GLP1_Tool',event_label:filter});
+}
+
+function toggleSelect(id) {
+ if (selectedIds.includes(id)) {
+  selectedIds = selectedIds.filter(x => x !== id);
+ } else if (selectedIds.length < 3) {
+  selectedIds.push(id);
+ }
+ updateCompareBar();
+ renderCards();
+ gtag('event','select_drug',{event_category:'GLP1_Tool',event_label:id});
+}
+
+function updateCompareBar() {
+ const container = document.getElementById('selectedDrugs');
+ container.innerHTML = selectedIds.map(id => {
+  const d = DRUGS.find(x => x.id === id);
+  return `<span class="drug-tag">${d.name} <span class="remove" onclick="event.stopPropagation();toggleSelect('${id}')">×</span></span>`;
+ }).join('');
+ document.getElementById('compareBtn').disabled = selectedIds.length < 2;
+}
+
+// ── COMPARISON TABLE ──
+function showComparison() {
+ const drugs = selectedIds.map(id => DRUGS.find(x => x.id === id));
+ const fields = [
+  ['İlaç Adı','name'],['Marka','brand'],['Tip','type'],['Mekanizma','mechanism'],
+  ['Kilo Kaybı','weightLoss'],['Dozaj','dosing'],['FDA Durumu','fdaStatus'],
+  ['Kalp Faydası','heartBenefit'],['Etki Başlangıcı','onset'],['Tepe Kilo Kaybı','peakLoss'],
+  ['Yaygın Yan Etkiler','commonSE'],['Ciddi Yan Etkiler','seriousSE'],
+  ['Kontrendikasyonlar','contraindications'],['Klinik Çalışma','trialName'],
+  ['Katılımcı Sayısı','participants'],['Maliyet (ABD)','costUS'],['Türkiye','costTR']
+ ];
+
+ let html = '<thead><tr><th>Özellik</th>';
+ drugs.forEach(d => html += `<th>${d.name}</th>`);
+ html += '</tr></thead><tbody>';
+
+ fields.forEach(([label, key]) => {
+  html += `<tr><td class="row-label">${label}</td>`;
+  drugs.forEach(d => {
+   let cls = '';
+   if (key === 'weightLoss') {
+    const nums = drugs.map(dd => parseFloat(dd.weightLoss.replace(/[^0-9.]/g,'')));
+    const max = Math.max(...nums);
+    if (parseFloat(d.weightLoss.replace(/[^0-9.]/g,'')) === max) cls = 'winner';
+   }
+   html += `<td class="${cls}">${d[key]}</td>`;
+  });
+  html += '</tr>';
+ });
+ html += '</tbody>';
+ document.getElementById('compareTable').innerHTML = html;
+ document.getElementById('compareSection').classList.add('show');
+ document.getElementById('compareSection').scrollIntoView({behavior:'smooth',block:'start'});
+ gtag('event','compare_drugs',{event_category:'GLP1_Tool',event_label:selectedIds.join('_vs_')});
+}
+
+function hideComparison() {
+ document.getElementById('compareSection').classList.remove('show');
+}
+
+// ── QUIZ ──
+let quizAnswers = {};
+
+function quizAnswer(step, val) {
+ quizAnswers[step] = val;
+ const opts = document.querySelectorAll(`.quiz-step[data-step="${step}"] .quiz-opt`);
+ opts.forEach(o => o.classList.remove('chosen'));
+ event.currentTarget.classList.add('chosen');
+
+ setTimeout(() => {
+  const current = document.querySelector(`.quiz-step[data-step="${step}"]`);
+  current.classList.remove('active');
+  const nextStep = step < 4 ? step + 1 : 'result';
+  const next = document.querySelector(`.quiz-step[data-step="${nextStep}"]`);
+  next.classList.add('active');
+
+  if (nextStep === 'result') showQuizResult();
+ }, 400);
+ gtag('event','quiz_answer',{event_category:'GLP1_Tool',event_label:`q${step}_${val}`});
+}
+
+function showQuizResult() {
+ const a = quizAnswers;
+ let rec, reason;
+
+ // Logic tree
+ if (a[1] === 'no') {
+  // Oral preference
+  if (a[3] === 'approved') {
+   rec = DRUGS.find(d => d.id === 'oral-sema');
+   reason = 'Enjeksiyon istemiyorsunuz ve onaylı bir ilaç tercih ediyorsunuz. Oral Wegovy (semaglutide hapı) 2025\'te FDA onayı aldı ve ~%15 kilo kaybı sağlıyor.';
+  } else {
+   rec = DRUGS.find(d => d.id === 'orfor');
+   reason = 'Oral tercih ve yeni nesil ilaçlara açıksınız. Orforglipron peptid bazlı olmayan ilk oral GLP-1 olarak Faz 3\'te ve ~%14 kilo kaybı gösteriyor.';
+  }
+ } else if (a[2] === 'max-loss') {
+  if (a[3] === 'approved') {
+   if (a[4] === 'premium') {
+    rec = DRUGS.find(d => d.id === 'tirze');
+    reason = 'Maksimum kilo kaybı istiyorsunuz. Tirzepatide (Zepbound), çift agonist mekanizmasıyla ~%20-22 kilo kaybı sağlıyor — onaylı ilaçlar arasında en yüksek.';
+   } else {
+    rec = DRUGS.find(d => d.id === 'sema24');
+    reason = 'Yüksek etkinlikli, onaylı bir ilaç arıyorsunuz. Wegovy (semaglutide 2.4mg), ~%15 kilo kaybı ve kanıtlanmış kalp koruma etkisiyle güçlü bir seçenek.';
+   }
+  } else {
+   rec = DRUGS.find(d => d.id === 'retat');
+   reason = 'Maksimum kilo kaybı için yeni nesil ilaçlara açıksınız. Retatrutide, üçlü agonist mekanizmasıyla Faz 2\'de ~%24 kilo kaybı gösterdi — şu ana kadarki en yüksek oran.';
+  }
+ } else if (a[2] === 'heart') {
+  rec = DRUGS.find(d => d.id === 'sema24');
+  reason = 'Kalp sağlığı önceliğiniz. SELECT çalışmasında semaglutide 2.4mg, MACE olaylarını %20 azalttı — kardiyovasküler korumada en güçlü kanıta sahip GLP-1 ilacı.';
+ } else {
+  // moderate
+  if (a[4] === 'budget') {
+   rec = DRUGS.find(d => d.id === 'sema1');
+   reason = 'Orta düzey kilo kaybı ve diyabet kontrolü istiyorsunuz. Ozempic (semaglutide 1mg) SGK kapsamında olabilir ve ~%12 kilo kaybı sağlıyor.';
+  } else {
+   rec = DRUGS.find(d => d.id === 'sema24');
+   reason = 'Dengeli bir yaklaşım arıyorsunuz. Wegovy (semaglutide 2.4mg), hem iyi düzeyde kilo kaybı hem de kalp koruma etkisiyle kapsamlı bir çözüm sunuyor.';
+  }
+ }
+
+ document.getElementById('quizResult').innerHTML = `
+  <h3>🎯 Size Önerilen İlaç</h3>
+  <div class="rec-drug">${rec.name} (${rec.brand})</div>
+  <div class="rec-reason">${reason}</div>
+  <div style="background:var(--gray-50);border-radius:12px;padding:1rem;text-align:left;max-width:400px;margin:0 auto 1rem">
+   <div class="detail-row"><span class="key">Kilo Kaybı</span><span class="val">${rec.weightLoss}</span></div>
+   <div class="detail-row"><span class="key">Dozaj</span><span class="val">${rec.dosing}</span></div>
+   <div class="detail-row"><span class="key">Durum</span><span class="val">${rec.fdaStatus}</span></div>
+  </div>
+  <p style="font-size:.8rem;color:var(--gray-400)">Bu öneri genel bilgilendirme amaçlıdır. İlaç seçimi mutlaka hekiminizle birlikte yapılmalıdır.</p>
+  <div class="quiz-nav">
+   <button class="restart-btn" onclick="restartQuiz()">🔄 Tekrar Başla</button>
+  </div>
+ `;
+ gtag('event','quiz_result',{event_category:'GLP1_Tool',event_label:rec.id});
+}
+
+function restartQuiz() {
+ quizAnswers = {};
+ document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+ document.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('chosen'));
+ document.querySelector('.quiz-step[data-step="1"]').classList.add('active');
+}
+
+// ── INIT ──
+renderCards();
+updateCompareBar();
+</script>
+</body>
+</html>

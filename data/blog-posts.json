@@ -1,42 +1,14 @@
 [
   {
-    "slug": "semaglutide-kalp-sagligini-koruyor-select-calismasi-sonuclar",
-    "title": "Semaglutide Kalp Sağlığını Koruyor: SELECT Çalışması Sonuçları",
-    "description": "SELECT çalışması semaglutide'nin kalp krizi ve inme riskini %20 azalttığını gösterdi. Diyabet olmayan obez kişilerde kardiyovasküler koruma sağlıyor.",
-    "category": "tedavi",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "date": "2026-02-21",
-    "readTime": 8,
-    "tags": [
-      "semaglutide",
-      "kalp-sağlığı",
-      "obezite-tedavisi",
-      "kardiyovasküler-koruma",
-      "select-çalışması"
-    ],
-    "priority": "urgent"
-  },
-  {
-    "slug": "semaglutide-ve-kalp-sagligi-select-calismasi-neler-ortaya-ci",
-    "title": "Semaglutide ve Kalp Sağlığı: SELECT Çalışması Neler Ortaya Çıkardı?",
-    "description": "SELECT çalışması, semaglutide'nin kalp sağlığına etkilerini ortaya koydu. Obezite ve kardiyovasküler risklere dair önemli bulgular.",
-    "category": "bilim",
-    "categoryName": "Bilimsel Araştırmalar",
-    "categoryIcon": "🧬",
-    "categoryColor": "#8B5CF6",
-    "date": "2026-02-20",
-    "readTime": 8,
-    "tags": [
-      "semaglutide",
-      "kalp-sağlığı",
-      "obezite",
-      "SELECT-çalışması",
-      "kardiyovasküler",
-      "kilo-verme"
-    ],
-    "priority": "urgent"
+    "slug": "glp1-sss-sikca-sorulan-sorular",
+    "title": "GLP-1 İlaçları: Sıkça Sorulan Sorular (SSS)",
+    "description": "GLP-1 ilaçları hakkında en çok sorulan 24 soru ve yanıtları. Ozempic, Wegovy, Mounjaro nasıl çalışır? Yan etkileri neler? Türkiye'de nereden alınır?",
+    "category": "GLP-1 İlaçları",
+    "categoryType": "tedavi",
+    "date": "21 Şubat 2026",
+    "readTime": 15,
+    "url": "pages/blog/glp1-sss-sikca-sorulan-sorular.html",
+    "priority": "high"
   },
   {
     "slug": "tirzepatide-yeni-nesil-kilo-verme-ilacinin-bilimsel-gercekle",
@@ -157,16 +129,6 @@
     "date": "9 Şubat 2026",
     "readTime": 9,
     "url": "pages/blog/fda-kopya-glp1-yasaklari-v2.html"
-  },
-  {
-    "slug": "fda-kopya-glp1-yasaklari",
-    "title": "FDA Kopya GLP-1 İlaçlarına Savaş Açtı: Compounding Krizi",
-    "description": "FDA, compounding eczanelerinin ürettiği kopya semaglutid ürünlerini yasaklıyor. Hims 49 dolarlık GLP-1 hapını geri çekti. Kopya ilaçların riskleri ve Türkiye'deki durum.",
-    "category": "GLP-1 Haberleri",
-    "categoryType": "tedavi",
-    "date": "9 Şubat 2026",
-    "readTime": 9,
-    "url": "pages/blog/fda-kopya-glp1-yasaklari.html"
   },
   {
     "slug": "glp1-birakinca-ne-olur",
@@ -377,26 +339,6 @@
     "date": "18 Şubat 2026",
     "readTime": 8,
     "url": "pages/blog/sarkopeni-kas-kaybini-onlemek-icin-direnc-egzersizleri.html"
-  },
-  {
-    "slug": "semaglutid-ve-kalp-sagligi-select-calismasi-bulgulari",
-    "title": "Semaglutid ve Kalp Sağlığı: SELECT Çalışması Bulguları",
-    "description": "Semaglutid'in kalp hastalıkları üzerindeki etkilerini araştıran SELECT çalışmasının sonuçları ve Türkiye'deki uygulamaları.",
-    "category": "Tedavi",
-    "categoryType": "tedavi",
-    "date": "16 Şubat 2026",
-    "readTime": 8,
-    "url": "pages/blog/semaglutid-ve-kalp-sagligi-select-calismasi-bulgulari.html"
-  },
-  {
-    "slug": "semaglutide-ve-kalp-sagligi-select-calismasi-neler-ortaya-ko",
-    "title": "Semaglutide ve Kalp Sağlığı: SELECT Çalışması Neler Ortaya Koydu?",
-    "description": "SELECT çalışması semaglutide'nin kalp sağlığına etkilerini açığa çıkardı. Diyabet olmayan hastalarda kardiyovasküler risklerde önemli azalmalar tespit edildi.",
-    "category": "Bilimsel Araştırmalar",
-    "categoryType": "bilim",
-    "date": "15 Şubat 2026",
-    "readTime": 9,
-    "url": "pages/blog/semaglutide-ve-kalp-sagligi-select-calismasi-neler-ortaya-ko.html"
   },
   {
     "slug": "semaglutide-ve-kalp-sagligi-select-calismasi-sonuclari",
