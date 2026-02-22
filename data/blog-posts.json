@@ -1,5 +1,30 @@
 [
   {
+    "slug": "yapay-zeka-uzun-omur-yaslanma-bilimi",
+    "title": "Yapay Zeka ve Uzun Ömür: AI Yaşlanma Bilimini Nasıl Dönüştürüyor?",
+    "description": "ClockBase Agent'tan ouabain keşfine, Insilico Medicine'ın 30 dual-purpose projesine kadar: AI nasıl yaşlanma bilimini devrim niteliğinde değiştiriyor? 2025-2026'nın çığır açan araştırmaları.",
+    "category": "bilim",
+    "categoryName": "Bilimsel Araştırmalar",
+    "categoryIcon": "🧬",
+    "categoryColor": "#8B5CF6",
+    "date": "2026-02-22",
+    "readTime": 9,
+    "tags": [
+      "yapay-zeka",
+      "AI",
+      "uzun-yasam",
+      "yaşlanma-bilimi",
+      "clockbase-agent",
+      "ouabain",
+      "insilico-medicine",
+      "aging-clocks",
+      "hucresel-yeniden-programlama",
+      "longevity"
+    ],
+    "priority": "urgent",
+    "area": "custom"
+  },
+  {
     "slug": "aralikli-oructa-yag-kaybi-ve-kas-koruma-bilimsel-inceleme",
     "title": "Aralıklı Oruçta Yağ Kaybı ve Kas Koruma: Bilimsel İnceleme",
     "description": "Aralıklı orucun obezitede yağ ve kas dengesini nasıl etkilediğini araştıran bilimsel bulgular. Hyperinsulinemia ve IRF4'ün rolü.",
