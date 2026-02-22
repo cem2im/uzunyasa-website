@@ -1,5 +1,19 @@
 [
   {
+    "slug": "neden-uzunyasa",
+    "title": "Neden UzunYaşa?",
+    "description": "Bir gastroenterologun \"yeter artık\" dediği an. Türkiye'de güvenilir sağlık bilgisine erişim neden bu kadar zor — ve bunu değiştirmek için ne yapıyoruz.",
+    "category": "hakkimizda",
+    "categoryName": "Hakkımızda",
+    "categoryIcon": "🏠",
+    "categoryColor": "#195157",
+    "date": "2026-02-22",
+    "readTime": "8 dk",
+    "image": "",
+    "imageEmoji": "🧬",
+    "pinned": true
+  },
+  {
     "slug": "yapay-zeka-uzun-omur-yaslanma-bilimi",
     "title": "Yapay Zeka ve Uzun Ömür: AI Yaşlanma Bilimini Nasıl Dönüştürüyor?",
     "description": "ClockBase Agent'tan ouabain keşfine, Insilico Medicine'ın 30 dual-purpose projesine kadar: AI nasıl yaşlanma bilimini devrim niteliğinde değiştiriyor? 2025-2026'nın çığır açan araştırmaları.",
