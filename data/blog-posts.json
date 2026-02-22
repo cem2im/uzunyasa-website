@@ -1,5 +1,25 @@
 [
   {
+    "slug": "diyabetik-bobrek-hastaligi-yeni-tedavi-yontemleri-ve-koruma-",
+    "title": "Diyabetik Böbrek Hastalığı: Yeni Tedavi Yöntemleri ve Koruma Stratejileri",
+    "description": "Diyabetik böbrek hastalığında kanıta dayalı tedavi yaklaşımları, SGLT2 inhibitörleri ve GLP-1 agonistlerinin böbrek koruyucu etkileri.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-22",
+    "readTime": 12,
+    "tags": [
+      "diyabetik-böbrek-hastalığı",
+      "SGLT2-inhibitörleri",
+      "GLP1-agonistleri",
+      "böbrek-koruma",
+      "diyabet-tedavisi"
+    ],
+    "priority": "urgent",
+    "area": "cardiovascular"
+  },
+  {
     "slug": "aralikli-oructa-yag-kaybi-ve-kas-koruma-bilimsel-inceleme",
     "title": "Aralıklı Oruçta Yağ Kaybı ve Kas Koruma: Bilimsel İnceleme",
     "description": "Aralıklı orucun obezitede yağ ve kas dengesini nasıl etkilediğini araştıran bilimsel bulgular. Hyperinsulinemia ve IRF4'ün rolü.",
