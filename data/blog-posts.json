@@ -390,19 +390,6 @@
     "tags": []
   },
   {
-    "slug": "insulin-direnci-belirtiler-tani-ve-tedavi-rehberi-2024",
-    "title": "İnsülin Direnci: Belirtiler, Tanı ve Tedavi Rehberi 2024",
-    "description": "İnsülin direnci nedir, belirtileri nelerdir? Güncel tanı yöntemleri ve etkili tedavi seçenekleri hakkında bilimsel bilgiler.",
-    "category": "tedavi",
-    "date": "2026-02-17",
-    "readTime": 8,
-    "url": "pages/blog/insulin-direnci-belirtiler-tani-ve-tedavi-rehberi-2024.html",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "tags": []
-  },
-  {
     "slug": "insulin-direnci-belirtiler-tedavi",
     "title": "İnsülin Direnci: Belirtiler ve Tedavi",
     "description": "İnsülin direnci nedir, belirtileri nelerdir ve nasıl tedavi edilir? Kilo vermeyi zorlaştıran bu metabolik sorunu anlayın.",
@@ -413,19 +400,6 @@
     "categoryName": "Bilimsel Araştırmalar",
     "categoryIcon": "🧬",
     "categoryColor": "#8B5CF6",
-    "tags": []
-  },
-  {
-    "slug": "insulin-direnci-belirtileri-tani-ve-tedavi-yontemleri",
-    "title": "İnsülin Direnci: Belirtileri, Tanı ve Tedavi Yöntemleri",
-    "description": "İnsülin direnci nedir, belirtileri nelerdir? Tanı yöntemleri ve doğal tedavi seçenekleri hakkında bilimsel bilgiler.",
-    "category": "tedavi",
-    "date": "2026-02-13",
-    "readTime": 8,
-    "url": "pages/blog/insulin-direnci-belirtileri-tani-ve-tedavi-yontemleri.html",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
     "tags": []
   },
   {
@@ -475,19 +449,6 @@
     "date": "2026-02-01",
     "readTime": 12,
     "url": "pages/blog/oral-glp1-orforglipron-igneden-hapa.html",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "tags": []
-  },
-  {
-    "slug": "oral-wegovy-fda-onayi",
-    "title": "Oral Wegovy FDA Onayı: İlk GLP-1 Kilo Verme Hapı",
-    "description": "FDA, oral semaglutid (Wegovy hapı) ile obezite tedavisini onayladı. OASIS 4 çalışmasında %13.6 kilo kaybı. İğnesiz GLP-1 çağı başlıyor.",
-    "category": "tedavi",
-    "date": "2026-02-01",
-    "readTime": 10,
-    "url": "pages/blog/oral-wegovy-fda-onayi.html",
     "categoryName": "Tedavi",
     "categoryIcon": "💊",
     "categoryColor": "#EC4899",
