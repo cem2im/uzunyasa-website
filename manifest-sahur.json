@@ -1,0 +1,25 @@
+{
+  "name": "Sahur & İftar Öğün Planlayıcısı — UzunYaşa",
+  "short_name": "Sahur İftar",
+  "description": "Ramazan ayına özel kişiselleştirilmiş sahur ve iftar öğün planı",
+  "start_url": "/pages/araclar/sahur-iftar-planlayici.html",
+  "display": "standalone",
+  "background_color": "#0f1419",
+  "theme_color": "#0D7377",
+  "orientation": "portrait",
+  "lang": "tr",
+  "categories": ["health", "food", "lifestyle"],
+  "icons": [
+    {
+      "src": "/images/logo-icon-new.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

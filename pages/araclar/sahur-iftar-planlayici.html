@@ -13,6 +13,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0D7377">
+<link rel="manifest" href="/manifest-sahur.json">
 <title>Sahur & İftar Öğün Planlayıcısı — Ramazan Beslenme Rehberi | UzunYaşa</title>
 <meta name="description" content="Ramazan ayına özel kişiselleştirilmiş sahur ve iftar öğün planı oluşturun. Kalori, makro hesaplama ve Türk mutfağından sağlıklı yemek önerileri.">
 <link rel="canonical" href="https://uzunyasa.com/pages/araclar/sahur-iftar-planlayici.html">
@@ -28,7 +30,7 @@
 <style>
 :root{
   --primary:#0D7377;--dark:#195157;--accent:#E8963E;
-  --protein:#E8963E;--fat:#dc2626;--carb:#2D9F4F;--water:#3b82f6;
+  --protein:#E8963E;--fat:#dc2626;--carb:#2D9F4F;--water:#3b82f6;--ramadan-deep:#1a1040;--ramadan-purple:#2d1b69;
   --bg:#f8fafa;--card:#fff;
   --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;
   --gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-900:#111827;
@@ -387,6 +389,98 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 .meal-remaining{font-size:.7rem;color:var(--gray-400);font-weight:600;margin-left:.5rem}
 .meal-remaining.over{color:#dc2626}
 .meal-remaining.good{color:#16a34a}
+
+/* ══ DARK MODE ══ */
+body.dark{--bg:#0f1419;--card:#1a2332;--gray-50:#1e2a3a;--gray-100:#243044;--gray-200:#2d3a4d;--gray-300:#3d4d63;--gray-400:#7a8ba0;--gray-500:#9aa8b8;--gray-600:#b8c4d0;--gray-700:#e2e8f0;--gray-900:#f8fafc;--shadow:0 4px 24px rgba(0,0,0,.3)}
+body.dark .site-header{background:var(--card);border-color:var(--gray-200)}
+body.dark .logo-text{color:#e2e8f0}
+body.dark .form-input{background:var(--gray-50);border-color:var(--gray-200);color:var(--gray-700)}
+body.dark .goal-btn{background:var(--card);border-color:var(--gray-200);color:var(--gray-700)}
+body.dark .checkbox-item{border-color:var(--gray-200);color:var(--gray-700)}
+body.dark .hero::before{background:linear-gradient(135deg,rgba(13,115,119,.08),rgba(232,150,62,.1))}
+body.dark .menu-food{background:var(--card);border-color:var(--gray-200);color:var(--gray-700)}
+body.dark .basket{background:var(--gray-50)}
+body.dark .basket-chip{background:var(--card);border-color:var(--gray-200);color:var(--gray-700)}
+body.dark .meal-card-header:hover{background:var(--gray-50)}
+body.dark .food-item{border-color:var(--gray-200)}
+body.dark .food-item-icon{background:var(--gray-50)}
+body.dark .meal-macro-summary{background:var(--gray-50)}
+body.dark .site-footer{background:#0a0e13}
+body.dark .menu-search input{background:var(--gray-50);border-color:var(--gray-200);color:var(--gray-700)}
+body.dark .cat-pill{background:var(--card);border-color:var(--gray-200);color:var(--gray-600)}
+body.dark .tips-card{background:linear-gradient(135deg,#1a1a0e,#2a2510);border-color:#92400e}
+body.dark .tips-list li{color:#fbbf24}
+body.dark .hydration-card{background:linear-gradient(135deg,#0f1a2e,#1a2540);border-color:#1e40af}
+body.dark .warning-card{background:linear-gradient(135deg,#1f0f0f,#2a1515);border-color:#991b1b}
+body.dark .warning-list li{color:#f87171}
+body.dark .shopping-item:hover{background:var(--gray-50)}
+body.dark .shopping-summary{background:var(--gray-50)}
+body.dark .portion-btn{background:var(--card);border-color:var(--gray-200);color:var(--gray-500)}
+.dark-toggle{background:none;border:2px solid var(--gray-200);border-radius:99px;padding:.4rem .75rem;cursor:pointer;font-size:.85rem;transition:all .2s;font-family:inherit;color:var(--gray-500);display:flex;align-items:center;gap:.3rem}
+.dark-toggle:hover{border-color:var(--primary);color:var(--primary)}
+body.dark .dark-toggle{border-color:var(--gray-300);color:var(--gray-400)}
+.header-actions{display:flex;align-items:center;gap:.5rem}
+
+/* ══ RAMAZAN COUNTER ══ */
+.ramadan-banner{background:linear-gradient(135deg,var(--ramadan-deep),var(--ramadan-purple));color:#fff;border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;position:relative;overflow:hidden}
+.ramadan-banner::before{content:'☪';position:absolute;right:10px;top:-5px;font-size:4rem;opacity:.06}
+.ramadan-banner .rb-left{display:flex;align-items:center;gap:.75rem}
+.ramadan-banner .rb-day{background:rgba(232,150,62,.15);border:2px solid var(--accent);border-radius:12px;padding:.4rem .7rem;text-align:center;min-width:52px}
+.ramadan-banner .rb-day-num{font-size:1.4rem;font-weight:800;color:var(--accent);line-height:1}
+.ramadan-banner .rb-day-label{font-size:.55rem;text-transform:uppercase;letter-spacing:.5px;opacity:.8}
+.ramadan-banner .rb-info{font-size:.8rem;opacity:.9;line-height:1.4}
+.ramadan-banner .rb-info strong{color:var(--accent)}
+.ramadan-banner .rb-times{display:flex;gap:1rem;align-items:center}
+.ramadan-banner .rb-time{text-align:center}
+.ramadan-banner .rb-time-value{font-size:1.2rem;font-weight:800;font-variant-numeric:tabular-nums}
+.ramadan-banner .rb-time-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.5px;opacity:.7}
+@media(max-width:500px){.ramadan-banner{flex-direction:column;text-align:center}.ramadan-banner .rb-left{flex-direction:column}}
+
+/* ══ PRAYER TIMES ══ */
+.city-selector{display:flex;gap:.5rem;align-items:center;margin-bottom:.5rem}
+.city-selector select{flex:1}
+.prayer-display{background:linear-gradient(135deg,var(--ramadan-deep),var(--ramadan-purple));color:#fff;border-radius:12px;padding:1rem;display:flex;justify-content:space-around;text-align:center}
+.prayer-display .pd-item .pd-time{font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums}
+.prayer-display .pd-item .pd-label{font-size:.7rem;text-transform:uppercase;opacity:.7;letter-spacing:.5px}
+.prayer-display .pd-item .pd-countdown{font-size:.75rem;color:var(--accent);font-weight:600;margin-top:.2rem}
+
+/* ══ EXPERT PLANS ══ */
+.expert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.expert-card{padding:1rem;border:2px solid var(--gray-200);border-radius:12px;cursor:pointer;transition:all .2s;background:var(--card);text-align:center}
+.expert-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 12px rgba(13,115,119,.15)}
+.expert-card.active{border-color:var(--primary);background:rgba(13,115,119,.06)}
+.expert-card .ec-icon{font-size:2rem;margin-bottom:.35rem}
+.expert-card .ec-name{font-size:.85rem;font-weight:700;color:var(--dark)}
+body.dark .expert-card .ec-name{color:var(--gray-700)}
+.expert-card .ec-desc{font-size:.7rem;color:var(--gray-500);margin-top:.2rem;line-height:1.3}
+.expert-card .ec-badge{display:inline-block;font-size:.6rem;padding:.15rem .5rem;border-radius:99px;background:var(--primary);color:#fff;margin-top:.35rem;font-weight:600}
+@media(max-width:500px){.expert-grid{grid-template-columns:1fr}}
+
+/* ══ WEEKLY PLAN ══ */
+.week-tabs{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:1rem;-webkit-overflow-scrolling:touch}
+.week-tab{padding:.5rem .8rem;border-radius:10px;border:2px solid var(--gray-200);background:var(--card);cursor:pointer;font-size:.75rem;font-weight:600;font-family:inherit;white-space:nowrap;transition:all .2s;text-align:center;min-width:48px;color:var(--gray-600)}
+.week-tab:hover{border-color:var(--primary)}
+.week-tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.week-tab .wt-day{font-size:.65rem;opacity:.7}
+.week-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.week-nav-btn{background:none;border:2px solid var(--gray-200);border-radius:10px;padding:.4rem .75rem;cursor:pointer;font-size:.85rem;font-family:inherit;color:var(--gray-500);transition:all .2s}
+.week-nav-btn:hover{border-color:var(--primary);color:var(--primary)}
+.week-label{font-size:.85rem;font-weight:700;color:var(--dark)}
+body.dark .week-label{color:var(--gray-700)}
+
+/* ══ GLP-1 BADGE ══ */
+.glp1-info{display:none;background:linear-gradient(135deg,rgba(13,115,119,.06),rgba(232,150,62,.04));border:2px solid var(--primary);border-radius:12px;padding:1rem;margin-top:.75rem;font-size:.8rem;color:var(--gray-600);line-height:1.5}
+.glp1-info.show{display:block;animation:slideUp .3s ease}
+.glp1-info strong{color:var(--primary)}
+body.dark .glp1-info{color:var(--gray-500)}
+
+/* ══ WHATSAPP SHARE ══ */
+.share-grid{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.25rem;border-radius:99px;border:none;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none}
+.share-btn.whatsapp{background:#25D366;color:#fff}.share-btn.whatsapp:hover{filter:brightness(1.1)}
+.share-btn.telegram{background:#0088cc;color:#fff}.share-btn.telegram:hover{filter:brightness(1.1)}
+.share-btn.copy{background:var(--gray-100);color:var(--gray-700);border:2px solid var(--gray-200)}.share-btn.copy:hover{border-color:var(--primary)}
+.share-btn.instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}.share-btn.instagram:hover{filter:brightness(1.1)}
 </style>
 </head>
 <body>
@@ -395,7 +489,10 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
  <a href="/index.html">
   <span class="logo-text">Uzun<span>Yaşa</span></span>
  </a>
- <a href="/pages/araclar.html" class="back-link">← Araçlar</a>
+ <div class="header-actions">
+  <button class="dark-toggle" onclick="toggleDarkMode()" title="Karanlık mod">🌙 <span id="darkModeLabel">Gece</span></button>
+  <a href="/pages/araclar.html" class="back-link">← Araçlar</a>
+ </div>
 </header>
 
 <div class="main-wrap">
@@ -406,6 +503,27 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
  <h1>Sahur & İftar Öğün Planlayıcısı</h1>
  <p>Ramazan ayına özel, kişiselleştirilmiş beslenme planınızı oluşturun. Sağlıklı oruç tutmanın anahtarı doğru beslenmedir.</p>
  <div class="saved-indicator" id="savedIndicator">💾 Son planınız kaydedildi</div>
+</div>
+
+<!-- Ramazan Counter + Prayer Times -->
+<div class="ramadan-banner" id="ramadanBanner">
+ <div class="rb-left">
+  <div class="rb-day">
+   <div class="rb-day-num" id="ramadanDayNum">—</div>
+   <div class="rb-day-label">Gün</div>
+  </div>
+  <div class="rb-info" id="ramadanInfo">Ramazan günü hesaplanıyor...</div>
+ </div>
+ <div class="rb-times" id="rbTimes">
+  <div class="rb-time">
+   <div class="rb-time-value" id="imsakTime">--:--</div>
+   <div class="rb-time-label">🌙 İmsak</div>
+  </div>
+  <div class="rb-time">
+   <div class="rb-time-value" id="iftarTime">--:--</div>
+   <div class="rb-time-label">🌅 İftar</div>
+  </div>
+ </div>
 </div>
 
 <!-- Input Section -->
@@ -438,6 +556,41 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
       <option value="">Seçiniz</option>
       <option value="male">Erkek</option>
       <option value="female">Kadın</option>
+     </select>
+    </div>
+    <div class="form-group full">
+     <label class="form-label">Şehir (İmsak/İftar saatleri için)</label>
+     <select class="form-input" id="citySelect" onchange="onCityChange()">
+      <option value="istanbul">İstanbul</option>
+      <option value="ankara">Ankara</option>
+      <option value="izmir">İzmir</option>
+      <option value="bursa">Bursa</option>
+      <option value="antalya">Antalya</option>
+      <option value="adana">Adana</option>
+      <option value="konya">Konya</option>
+      <option value="gaziantep">Gaziantep</option>
+      <option value="diyarbakir">Diyarbakır</option>
+      <option value="kayseri">Kayseri</option>
+      <option value="eskisehir">Eskişehir</option>
+      <option value="trabzon">Trabzon</option>
+      <option value="samsun">Samsun</option>
+      <option value="erzurum">Erzurum</option>
+      <option value="malatya">Malatya</option>
+      <option value="denizli">Denizli</option>
+      <option value="mersin">Mersin</option>
+      <option value="sanliurfa">Şanlıurfa</option>
+      <option value="van">Van</option>
+      <option value="hatay">Hatay</option>
+      <option value="manisa">Manisa</option>
+      <option value="balikesir">Balıkesir</option>
+      <option value="kahramanmaras">Kahramanmaraş</option>
+      <option value="elazig">Elazığ</option>
+      <option value="sivas">Sivas</option>
+      <option value="mugla">Muğla</option>
+      <option value="tekirdag">Tekirdağ</option>
+      <option value="ordu">Ordu</option>
+      <option value="afyon">Afyonkarahisar</option>
+      <option value="sakarya">Sakarya</option>
      </select>
     </div>
     <div class="form-group full">
@@ -477,6 +630,54 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
      <span class="label">Kilo Alma</span>
     </button>
    </div>
+  </div>
+ </div>
+
+ <!-- Step 2.5: Expert Plans -->
+ <div class="card slide-up" style="animation-delay:.15s">
+  <div class="card-header">
+   <div class="step">⭐</div>
+   <h2>Hazır Plan Seç (Opsiyonel)</h2>
+   <span class="icon">👨‍⚕️</span>
+  </div>
+  <div class="card-body">
+   <p style="font-size:.85rem;color:var(--gray-500);margin-bottom:1rem">Uzman önerisi planlardan birini seç veya kendi planını oluşturmak için bu adımı atla:</p>
+   <div class="expert-grid">
+    <div class="expert-card" onclick="selectExpertPlan('balanced')" id="expert-balanced">
+     <div class="ec-icon">⚖️</div>
+     <div class="ec-name">Dengeli Plan</div>
+     <div class="ec-desc">Klasik Ramazan sofrasına uygun, dengeli beslenme</div>
+     <div class="ec-badge">Önerilen</div>
+    </div>
+    <div class="expert-card" onclick="selectExpertPlan('glp1')" id="expert-glp1">
+     <div class="ec-icon">💊</div>
+     <div class="ec-name">GLP-1 Hasta Planı</div>
+     <div class="ec-desc">Küçük porsiyonlar, yüksek protein, anti-bulantı</div>
+     <div class="ec-badge" style="background:var(--accent)">UzunYaşa</div>
+    </div>
+    <div class="expert-card" onclick="selectExpertPlan('budget')" id="expert-budget">
+     <div class="ec-icon">💰</div>
+     <div class="ec-name">Ekonomik Plan</div>
+     <div class="ec-desc">Uygun fiyatlı malzemelerle sağlıklı Ramazan</div>
+    </div>
+    <div class="expert-card" onclick="selectExpertPlan('athlete')" id="expert-athlete">
+     <div class="ec-icon">🏋️</div>
+     <div class="ec-name">Sporcu Planı</div>
+     <div class="ec-desc">Yüksek protein, kas koruma, performans odaklı</div>
+    </div>
+    <div class="expert-card" onclick="selectExpertPlan('diabetic')" id="expert-diabetic">
+     <div class="ec-icon">🩸</div>
+     <div class="ec-name">Diyabet Dostu</div>
+     <div class="ec-desc">Düşük GI, kan şekeri dostu, dengeli karbonhidrat</div>
+    </div>
+    <div class="expert-card" onclick="selectExpertPlan('postop')" id="expert-postop">
+     <div class="ec-icon">🏥</div>
+     <div class="ec-name">Cerrahi Sonrası</div>
+     <div class="ec-desc">ESG/sleeve sonrası yumuşak gıda, protein öncelikli</div>
+     <div class="ec-badge" style="background:var(--accent)">UzunYaşa</div>
+    </div>
+   </div>
+   <div class="glp1-info" id="glp1Info"></div>
   </div>
  </div>
 
@@ -520,6 +721,16 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
      <div class="checkbox-box"></div>
      <span>🤰 Hamilelik</span>
     </label>
+    <label class="checkbox-item" onclick="toggleCheck(this)">
+     <input type="checkbox" value="glp1">
+     <div class="checkbox-box"></div>
+     <span>💊 GLP-1 İlaç Kullanımı</span>
+    </label>
+    <label class="checkbox-item" onclick="toggleCheck(this)">
+     <input type="checkbox" value="bariatric">
+     <div class="checkbox-box"></div>
+     <span>🏥 Bariatrik/ESG Sonrası</span>
+    </label>
    </div>
   </div>
  </div>
@@ -539,6 +750,14 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 
 <!-- Results Section -->
 <div id="resultsSection">
+
+ <!-- Weekly Plan Tabs -->
+ <div class="week-nav no-print" id="weekNav" style="display:none">
+  <button class="week-nav-btn" onclick="prevWeekDay()">◀</button>
+  <span class="week-label" id="weekLabel">Pazartesi, 24 Şubat</span>
+  <button class="week-nav-btn" onclick="nextWeekDay()">▶</button>
+ </div>
+ <div class="week-tabs no-print" id="weekTabs" style="display:none"></div>
 
  <!-- Summary -->
  <div class="summary-banner slide-up" id="summaryBanner">
@@ -860,11 +1079,26 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
   </div>
  </div>
 
+ <!-- Share & Actions -->
+ <div class="card no-print" style="border:2px solid var(--primary)">
+  <div class="card-header">
+   <span class="icon">📤</span>
+   <h2>Planını Paylaş</h2>
+  </div>
+  <div class="card-body">
+   <div class="share-grid">
+    <button class="share-btn whatsapp" onclick="shareWhatsApp()">💬 WhatsApp</button>
+    <button class="share-btn telegram" onclick="shareTelegram()">✈️ Telegram</button>
+    <button class="share-btn copy" onclick="sharePlan()">📋 Kopyala</button>
+    <button class="share-btn" style="background:var(--gray-100);color:var(--gray-700);border:2px solid var(--gray-200)" onclick="window.print()">🖨️ Yazdır</button>
+   </div>
+  </div>
+ </div>
+
  <!-- Action buttons -->
  <div class="action-bar no-print">
   <button class="btn btn-accent" onclick="regeneratePlan()">🔄 Yeni Plan Oluştur</button>
-  <button class="btn btn-outline" onclick="window.print()">🖨️ Yazdır</button>
-  <button class="btn btn-outline" onclick="sharePlan()">📤 Paylaş</button>
+  <button class="btn btn-outline btn-sm" onclick="generateWeeklyPlan()">📅 Haftalık Plan</button>
   <button class="btn btn-outline btn-sm" onclick="editInputs()">✏️ Bilgileri Düzenle</button>
  </div>
 
@@ -2956,9 +3190,602 @@ function shareShoppingList() {
   }
 }
 
-// ═══ AUTO-LOAD SAVED PLAN ═══
+// ═══ DARK MODE ═══
+function toggleDarkMode() {
+  const isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('uzunyasa_dark', isDark ? '1' : '0');
+  document.getElementById('darkModeLabel').textContent = isDark ? 'Gündüz' : 'Gece';
+}
+function initDarkMode() {
+  const saved = localStorage.getItem('uzunyasa_dark');
+  // Auto dark between 22:00-06:00 if no preference
+  if (saved === null) {
+    const h = new Date().getHours();
+    if (h >= 22 || h < 6) document.body.classList.add('dark');
+  } else if (saved === '1') {
+    document.body.classList.add('dark');
+  }
+  if (document.body.classList.contains('dark')) {
+    document.getElementById('darkModeLabel').textContent = 'Gündüz';
+  }
+}
+
+// ═══ RAMAZAN COUNTER & PRAYER TIMES ═══
+const RAMADAN_START = new Date(2026, 1, 17); // Feb 17, 2026 (1 Ramazan 1447 — evening of Feb 17)
+const RAMADAN_DAYS = 30;
+
+const CITIES = {
+  istanbul:{name:'İstanbul',lat:41.01,lon:28.98},ankara:{name:'Ankara',lat:39.92,lon:32.85},
+  izmir:{name:'İzmir',lat:38.42,lon:27.14},bursa:{name:'Bursa',lat:40.19,lon:29.06},
+  antalya:{name:'Antalya',lat:36.90,lon:30.70},adana:{name:'Adana',lat:37.00,lon:35.32},
+  konya:{name:'Konya',lat:37.87,lon:32.48},gaziantep:{name:'Gaziantep',lat:37.06,lon:37.38},
+  diyarbakir:{name:'Diyarbakır',lat:37.91,lon:40.22},kayseri:{name:'Kayseri',lat:38.73,lon:35.48},
+  eskisehir:{name:'Eskişehir',lat:39.77,lon:30.52},trabzon:{name:'Trabzon',lat:41.00,lon:39.72},
+  samsun:{name:'Samsun',lat:41.29,lon:36.33},erzurum:{name:'Erzurum',lat:39.90,lon:41.27},
+  malatya:{name:'Malatya',lat:38.35,lon:38.31},denizli:{name:'Denizli',lat:37.77,lon:29.09},
+  mersin:{name:'Mersin',lat:36.80,lon:34.63},sanliurfa:{name:'Şanlıurfa',lat:37.16,lon:38.79},
+  van:{name:'Van',lat:38.49,lon:43.38},hatay:{name:'Hatay',lat:36.40,lon:36.35},
+  manisa:{name:'Manisa',lat:38.61,lon:27.43},balikesir:{name:'Balıkesir',lat:39.65,lon:27.88},
+  kahramanmaras:{name:'K.Maraş',lat:37.58,lon:36.93},elazig:{name:'Elazığ',lat:38.67,lon:39.22},
+  sivas:{name:'Sivas',lat:39.75,lon:37.01},mugla:{name:'Muğla',lat:37.21,lon:28.36},
+  tekirdag:{name:'Tekirdağ',lat:41.00,lon:27.52},ordu:{name:'Ordu',lat:40.98,lon:37.88},
+  afyon:{name:'Afyon',lat:38.74,lon:30.54},sakarya:{name:'Sakarya',lat:40.69,lon:30.40}
+};
+
+function calcSunAngle(lat, lon, date, angle) {
+  // Simplified solar calculation for prayer times
+  const rad = Math.PI / 180;
+  const dayOfYear = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 86400000);
+  
+  // Solar declination (simplified)
+  const declination = -23.44 * Math.cos(rad * (360 / 365) * (dayOfYear + 10));
+  
+  // Equation of time (simplified, minutes)
+  const B = rad * (360 / 365) * (dayOfYear - 81);
+  const EoT = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);
+  
+  // Solar noon in UTC hours
+  const solarNoon = 12 - (lon / 15) - (EoT / 60);
+  
+  // Hour angle for given sun altitude
+  const latRad = lat * rad;
+  const declRad = declination * rad;
+  const cosH = (Math.sin(angle * rad) - Math.sin(latRad) * Math.sin(declRad)) / (Math.cos(latRad) * Math.cos(declRad));
+  
+  if (cosH > 1 || cosH < -1) return null; // sun never reaches this angle
+  const H = Math.acos(cosH) / rad / 15; // hours
+  
+  return { rise: solarNoon - H, set: solarNoon + H };
+}
+
+function getPrayerTimes(cityKey, date) {
+  const city = CITIES[cityKey];
+  if (!city) return null;
+  
+  // Turkey timezone offset (+3)
+  const tzOffset = 3;
+  
+  // Fajr (İmsak): sun at -18° (Diyanet method), subtract 5 min for safety
+  const fajr = calcSunAngle(city.lat, city.lon, date, -18);
+  // Sunrise: sun at -0.833° (with refraction)
+  const sunrise = calcSunAngle(city.lat, city.lon, date, -0.833);
+  // Maghrib (İftar): sunset at -0.833°
+  const maghrib = calcSunAngle(city.lat, city.lon, date, -0.833);
+  
+  if (!fajr || !maghrib) return null;
+  
+  const imsakH = fajr.rise + tzOffset;
+  const iftarH = maghrib.set + tzOffset;
+  
+  const formatTime = (h) => {
+    const hours = Math.floor(h);
+    const mins = Math.round((h - hours) * 60);
+    return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}`;
+  };
+  
+  return {
+    imsak: formatTime(imsakH - 0.083), // subtract ~5 min
+    iftar: formatTime(iftarH),
+    imsakH: imsakH - 0.083,
+    iftarH: iftarH
+  };
+}
+
+function getRamadanDay(date) {
+  const diff = Math.floor((date - RAMADAN_START) / 86400000);
+  if (diff < 0) return { day: 0, remaining: Math.abs(diff), status: 'before' };
+  if (diff >= RAMADAN_DAYS) return { day: RAMADAN_DAYS, remaining: 0, status: 'after' };
+  return { day: diff + 1, remaining: RAMADAN_DAYS - diff - 1, status: 'during' };
+}
+
+function updateRamadanBanner() {
+  const now = new Date();
+  // Adjust to Turkey time
+  const turkeyNow = new Date(now.getTime() + (3 - (-(now.getTimezoneOffset() / 60))) * 3600000);
+  const today = new Date(turkeyNow.getFullYear(), turkeyNow.getMonth(), turkeyNow.getDate());
+  
+  const rd = getRamadanDay(today);
+  const dayEl = document.getElementById('ramadanDayNum');
+  const infoEl = document.getElementById('ramadanInfo');
+  
+  if (rd.status === 'before') {
+    dayEl.textContent = rd.remaining;
+    infoEl.innerHTML = `Ramazan'a <strong>${rd.remaining} gün</strong> kaldı`;
+  } else if (rd.status === 'during') {
+    dayEl.textContent = rd.day;
+    infoEl.innerHTML = `Ramazan'ın <strong>${rd.day}. günü</strong> · ${rd.remaining} gün kaldı`;
+  } else {
+    dayEl.textContent = '🎉';
+    infoEl.innerHTML = '<strong>Ramazan Bayramınız mübarek olsun!</strong>';
+  }
+  
+  // Prayer times
+  const cityKey = document.getElementById('citySelect')?.value || 'istanbul';
+  const times = getPrayerTimes(cityKey, today);
+  if (times) {
+    document.getElementById('imsakTime').textContent = times.imsak;
+    document.getElementById('iftarTime').textContent = times.iftar;
+    
+    // Countdown to next event
+    const nowH = turkeyNow.getHours() + turkeyNow.getMinutes() / 60;
+    const imsakEl = document.getElementById('imsakTime');
+    const iftarEl = document.getElementById('iftarTime');
+    
+    if (nowH < times.imsakH) {
+      const minsToImsak = Math.round((times.imsakH - nowH) * 60);
+      if (minsToImsak < 120) imsakEl.style.color = '#fbbf24';
+    }
+    if (nowH < times.iftarH && nowH > times.imsakH) {
+      const minsToIftar = Math.round((times.iftarH - nowH) * 60);
+      const h = Math.floor(minsToIftar / 60);
+      const m = minsToIftar % 60;
+      iftarEl.parentElement.insertAdjacentHTML('beforeend', 
+        `<div class="pd-countdown" id="iftarCountdown">${h > 0 ? h + 's ' : ''}${m}dk kaldı</div>`);
+    }
+  }
+}
+
+function onCityChange() {
+  updateRamadanBanner();
+  // Save city preference
+  localStorage.setItem('uzunyasa_city', document.getElementById('citySelect').value);
+}
+
+// ═══ EXPERT PLANS ═══
+let selectedExpertPlan = null;
+
+const EXPERT_PLANS = {
+  balanced: {
+    name: 'Dengeli Plan',
+    calMod: 1.0,
+    proteinPerKg: 1.2,
+    sahurPriorities: ['protein','dairy','carb','nut','veg','fruit'],
+    iftarPriorities: ['soup','protein','carb','veg','salad','dessert','drink'],
+    snackPriorities: ['fruit','nut','dairy','drink'],
+    excludeCats: [],
+    info: null
+  },
+  glp1: {
+    name: 'GLP-1 Hasta Planı',
+    calMod: 0.75, // lower calories
+    proteinPerKg: 1.5,
+    sahurPriorities: ['protein','dairy','carb','veg'],
+    iftarPriorities: ['soup','protein','veg','carb'],
+    snackPriorities: ['dairy','fruit'],
+    excludeCats: ['dessert'], // no desserts — nausea trigger
+    excludeFoods: ['Sucuklu Yumurta','Adana Kebap','Urfa Kebap','Kızartma','Patates Kızartması','Lahmacun','Künefe','Baklava (1 Dilim)','Tulumba','Lokma'],
+    maxItemsPerMeal: 5,
+    info: '💊 <strong>GLP-1 kullanıcıları için özel:</strong> Küçük porsiyonlar (max 5 yemek/öğün), yüksek protein (1.5g/kg), yağlı & kızartma yok, tatlı yok (bulantı tetikleyici). İlaçınızı iftardan 30 dk önce veya sahurda alın. Midede dolgunluk hissi normaldir — zorlamayın.'
+  },
+  budget: {
+    name: 'Ekonomik Plan',
+    calMod: 1.0,
+    proteinPerKg: 1.2,
+    sahurPriorities: ['protein','dairy','carb','nut'],
+    iftarPriorities: ['soup','protein','carb','veg'],
+    snackPriorities: ['fruit','nut','dairy'],
+    preferFoods: ['Mercimek Çorbası','Kuru Fasulye','Nohut Yemeği','Bulgur Pilavı','Yulaf Ezmesi','Haşlanmış Yumurta','Menemen','Beyaz Peynir','Süzme Yoğurt','Mercimek Köftesi','Ezogelin Çorbası','Pirinç Pilavı','Makarna (Tam Buğday)','Tam Buğday Ekmeği','Elma','Muz','Ayran','Simit'],
+    excludeCats: [],
+    info: '💰 <strong>Ekonomik plan:</strong> Baklagil, yumurta ve mevsim sebzelerine dayalı besleyici ancak bütçe dostu bir Ramazan sofrası.'
+  },
+  athlete: {
+    name: 'Sporcu Planı',
+    calMod: 1.1,
+    proteinPerKg: 1.6,
+    sahurPriorities: ['protein','carb','dairy','nut','fruit'],
+    iftarPriorities: ['soup','protein','protein','carb','veg','dairy'],
+    snackPriorities: ['protein','nut','fruit','dairy'],
+    preferFoods: ['Izgara Tavuk Göğsü','Haşlanmış Tavuk','Ton Balıklı Salata','Yulaf Ezmesi','Haşlanmış Yumurta','Süzme Yoğurt','Badem','Muz','Bulgur Pilavı','Somon Izgara','Tavuk Şiş','Quark Peynir','Protein Yoğurt','Karabuğday Pilavı','Chia Tohumu'],
+    excludeCats: [],
+    info: '🏋️ <strong>Sporcu planı:</strong> Yüksek protein (1.6g/kg), kompleks karbonhidrat, sağlıklı yağlar. İftar sonrası 2 saat bekleyip egzersiz yapın.'
+  },
+  diabetic: {
+    name: 'Diyabet Dostu',
+    calMod: 0.9,
+    proteinPerKg: 1.3,
+    sahurPriorities: ['protein','dairy','veg','carb','nut'],
+    iftarPriorities: ['soup','protein','veg','carb'],
+    snackPriorities: ['nut','dairy','fruit'],
+    excludeCats: ['dessert'],
+    excludeFoods: ['Hurma','Pirinç Pilavı','Ramazan Pidesi','Simit','Patates Kızartması','Composto','Ramazan Şerbeti','Boza','Pekmez','Bal','Patates Püresi','Limonata (Az Şekerli)'],
+    preferFoods: ['Yulaf Ezmesi','Bulgur Pilavı','Tam Buğday Ekmeği','Mercimek Çorbası','Süzme Yoğurt','Haşlanmış Yumurta','Ceviz','Badem','Yeşil Salata','Karabuğday Pilavı'],
+    info: '🩸 <strong>Diyabet dostu:</strong> Düşük glisemik indeksli besinler, tatlı ve şekerli içecek yok. Sahurda yulaf/bulgur tercih edin. Kan şekerinizi düzenli ölçün. Hipoglisemi belirtilerinde orucu bozun.'
+  },
+  postop: {
+    name: 'Cerrahi Sonrası',
+    calMod: 0.6,
+    proteinPerKg: 1.5,
+    sahurPriorities: ['protein','dairy','soup'],
+    iftarPriorities: ['soup','protein','dairy','veg'],
+    snackPriorities: ['dairy','protein'],
+    excludeCats: ['dessert','nut','carb'],
+    excludeFoods: ['Simit','Ramazan Pidesi','Lahmacun','Kızartma','Patates Kızartması'],
+    maxItemsPerMeal: 4,
+    info: '🏥 <strong>Cerrahi sonrası (ESG/Sleeve):</strong> Çok küçük porsiyonlar (max 4 yemek/öğün), sıvı/yumuşak gıda öncelikli, çiğneme çok önemli. Karbonhidrat ve kuruyemiş kısıtlı. Yavaş yiyin — 20-30 dk.'
+  }
+};
+
+function selectExpertPlan(planKey) {
+  document.querySelectorAll('.expert-card').forEach(c => c.classList.remove('active'));
+  const infoEl = document.getElementById('glp1Info');
+  
+  if (selectedExpertPlan === planKey) {
+    selectedExpertPlan = null;
+    infoEl.classList.remove('show');
+    infoEl.innerHTML = '';
+    return;
+  }
+  
+  selectedExpertPlan = planKey;
+  document.getElementById('expert-' + planKey).classList.add('active');
+  
+  const plan = EXPERT_PLANS[planKey];
+  if (plan.info) {
+    infoEl.innerHTML = plan.info;
+    infoEl.classList.add('show');
+  } else {
+    infoEl.classList.remove('show');
+    infoEl.innerHTML = '';
+  }
+  
+  // Auto-check relevant health conditions
+  if (planKey === 'glp1') {
+    const cb = document.querySelector('input[value="glp1"]');
+    if (cb && !cb.checked) { cb.checked = true; cb.closest('.checkbox-item').classList.add('checked'); }
+  }
+  if (planKey === 'diabetic') {
+    const cb = document.querySelector('input[value="diabetes"]');
+    if (cb && !cb.checked) { cb.checked = true; cb.closest('.checkbox-item').classList.add('checked'); }
+  }
+  if (planKey === 'postop') {
+    const cb = document.querySelector('input[value="bariatric"]');
+    if (cb && !cb.checked) { cb.checked = true; cb.closest('.checkbox-item').classList.add('checked'); }
+  }
+}
+
+// ═══ GLP-1 & BARIATRIC HEALTH WARNINGS ═══
+HEALTH_WARNINGS.glp1 = [
+  {icon:"💊",text:"GLP-1 ilacınızı iftardan 30 dk önce veya sahurda alın (doktorunuza danışın)."},
+  {icon:"🤢",text:"Yağlı, kızartma ve tatlı yemeklerden kaçının — bulantıyı tetikler."},
+  {icon:"🥄",text:"Küçük lokmalar halinde, yavaşça yiyin (20-30 dk)."},
+  {icon:"🥩",text:"Her öğünde protein öncelikli yiyin — kas kaybını önler."},
+  {icon:"⚠️",text:"Midede dolgunluk hissinde zorlamayın — orucu bozabilirsiniz."}
+];
+HEALTH_WARNINGS.bariatric = [
+  {icon:"🏥",text:"Ameliyat sonrası oruç tutmadan önce mutlaka cerrahınıza danışın."},
+  {icon:"🥄",text:"Çok küçük porsiyonlar (100-150ml mide kapasitesi) — zorlayarak yemeyin."},
+  {icon:"🥩",text:"Her öğünde önce proteini yiyin, sonra sebze, en son karbonhidrat."},
+  {icon:"💧",text:"Yemek sırasında su içmeyin — yemekten 30 dk önce veya sonra için."},
+  {icon:"💊",text:"Vitamin ve mineral takviyelerinizi aksatmayın (B12, demir, kalsiyum)."},
+  {icon:"🚫",text:"Gazlı içecek, çiğnenmemiş et, sert/kuru gıdalardan kaçının."}
+];
+
+// ═══ ENHANCED PLAN GENERATION WITH EXPERT MODES ═══
+const origGeneratePlan = generatePlan;
+generatePlan = function() {
+  // Override macros if expert plan selected
+  if (selectedExpertPlan && EXPERT_PLANS[selectedExpertPlan]) {
+    const ep = EXPERT_PLANS[selectedExpertPlan];
+    const weight = +document.getElementById('weight').value;
+    const height = +document.getElementById('height').value;
+    const age = +document.getElementById('age').value;
+    const gender = document.getElementById('gender').value;
+    const activity = document.getElementById('activity').value;
+    
+    if (!weight || !height || !age || !gender || !activity) {
+      alert('Lütfen tüm kişisel bilgileri doldurun.');
+      return;
+    }
+    
+    const conditions = [];
+    document.querySelectorAll('.checkbox-item input:checked').forEach(cb => conditions.push(cb.value));
+    
+    const bmr = calcBMR(weight, height, age, gender);
+    const tdee = calcTDEE(bmr, activity);
+    let targetCal = Math.round(adjustForGoal(tdee, selectedGoal) * ep.calMod);
+    
+    const proteinG = Math.round(ep.proteinPerKg * weight);
+    const proteinCal = proteinG * 4;
+    const fatPct = 0.27;
+    const fatG = Math.round((targetCal * fatPct) / 9);
+    const carbG = Math.round((targetCal - proteinCal - fatG * 9) / 4);
+    const macros = { proteinG, carbG: Math.max(carbG, 50), fatG };
+    
+    const sahurCal = Math.round(targetCal * 0.35);
+    const iftarCal = Math.round(targetCal * 0.45);
+    const snackCal = Math.round(targetCal * 0.20);
+    
+    const sahur = pickFoodsExpert('s', sahurCal, conditions, ep);
+    const iftar = pickFoodsExpert('i', iftarCal, conditions, ep);
+    const snack = pickFoodsExpert('a', snackCal, conditions, ep);
+    
+    const waterLiters = +(weight * 0.033).toFixed(1);
+    const waterGlasses = Math.round(waterLiters * 5);
+    
+    currentPlan = { targetCal, macros, sahur, iftar, snack, waterLiters, waterGlasses, conditions, weight, height, age, gender, activity, expertPlan: selectedExpertPlan };
+    renderResults(currentPlan);
+    savePlanToStorage();
+    return;
+  }
+  origGeneratePlan();
+};
+
+function pickFoodsExpert(mealType, targetCal, conditions, ep) {
+  let pool = FOODS.filter(f => f.meal.includes(mealType));
+  
+  // Apply expert plan filters
+  if (ep.excludeCats) pool = pool.filter(f => !ep.excludeCats.includes(f.cat));
+  if (ep.excludeFoods) pool = pool.filter(f => !ep.excludeFoods.includes(f.name));
+  
+  // Apply condition filters
+  if (conditions.includes('diabetes')) pool = pool.filter(f => f.cat !== 'dessert' || f.name === 'Güllaç');
+  if (conditions.includes('kidney')) pool = pool.filter(f => f.cat !== 'nut');
+  if (conditions.includes('stomach')) pool = pool.filter(f => !['İşkembe Çorbası','Kelle Paça Çorbası'].includes(f.name));
+  if (conditions.includes('glp1')) pool = pool.filter(f => f.cat !== 'dessert');
+  if (conditions.includes('bariatric')) pool = pool.filter(f => f.cat !== 'dessert' && f.cat !== 'nut');
+  
+  // Prioritize preferred foods
+  if (ep.preferFoods) {
+    const prefSet = new Set(ep.preferFoods);
+    pool.sort((a, b) => (prefSet.has(b.name) ? 1 : 0) - (prefSet.has(a.name) ? 1 : 0));
+  }
+  
+  pool = shuffle(pool);
+  // Move preferred to front after shuffle
+  if (ep.preferFoods) {
+    const prefSet = new Set(ep.preferFoods);
+    const preferred = pool.filter(f => prefSet.has(f.name));
+    const others = pool.filter(f => !prefSet.has(f.name));
+    pool = [...shuffle(preferred), ...others];
+  }
+  
+  const selected = [];
+  let totalCal = 0;
+  const usedNames = new Set();
+  const maxItems = ep.maxItemsPerMeal || 8;
+  const priorities = mealType === 's' ? ep.sahurPriorities : mealType === 'i' ? ep.iftarPriorities : ep.snackPriorities;
+  
+  for (const cat of priorities) {
+    if (totalCal >= targetCal * 0.95 || selected.length >= maxItems) break;
+    const candidates = pool.filter(f => !usedNames.has(f.name) && f.cat === cat);
+    if (candidates.length === 0) continue;
+    const pick = candidates[0];
+    const portionMult = Math.max(0.5, Math.min(1.5, targetCal / (mealType === 'a' ? 400 : 800)));
+    const cal = Math.round(pick.cal * (pick.pg / 100) * portionMult);
+    selected.push({
+      ...pick,
+      actualCal: cal,
+      actualP: +(pick.p * (pick.pg / 100) * portionMult).toFixed(1),
+      actualC: +(pick.c * (pick.pg / 100) * portionMult).toFixed(1),
+      actualF: +(pick.f * (pick.pg / 100) * portionMult).toFixed(1),
+      actualPortion: pick.portion,
+      portionMult: 1
+    });
+    totalCal += cal;
+    usedNames.add(pick.name);
+  }
+  
+  // Fill remaining
+  const extras = pool.filter(f => !usedNames.has(f.name));
+  for (const pick of extras) {
+    if (totalCal >= targetCal * 0.9 || selected.length >= maxItems) break;
+    const portionMult = Math.max(0.5, Math.min(1.5, targetCal / (mealType === 'a' ? 400 : 800)));
+    const cal = Math.round(pick.cal * (pick.pg / 100) * portionMult);
+    selected.push({
+      ...pick,
+      actualCal: cal,
+      actualP: +(pick.p * (pick.pg / 100) * portionMult).toFixed(1),
+      actualC: +(pick.c * (pick.pg / 100) * portionMult).toFixed(1),
+      actualF: +(pick.f * (pick.pg / 100) * portionMult).toFixed(1),
+      actualPortion: pick.portion,
+      portionMult: 1
+    });
+    totalCal += cal;
+    usedNames.add(pick.name);
+  }
+  
+  return { items: selected, totalCal: Math.round(totalCal), totalP: 0, totalC: 0, totalF: 0 };
+}
+
+// ═══ WEEKLY PLAN ═══
+let weeklyPlans = [];
+let currentWeekDay = 0;
+
+function generateWeeklyPlan() {
+  if (!currentPlan) {
+    alert('Önce bir günlük plan oluşturun.');
+    return;
+  }
+  
+  weeklyPlans = [currentPlan]; // Day 0 = today's plan
+  
+  const { targetCal, macros, conditions, weight, expertPlan } = currentPlan;
+  const ep = expertPlan ? EXPERT_PLANS[expertPlan] : null;
+  
+  // Generate 6 more days
+  for (let d = 1; d < 7; d++) {
+    const sahurCal = Math.round(targetCal * 0.35);
+    const iftarCal = Math.round(targetCal * 0.45);
+    const snackCal = Math.round(targetCal * 0.20);
+    
+    let sahur, iftar, snack;
+    if (ep) {
+      sahur = pickFoodsExpert('s', sahurCal, conditions, ep);
+      iftar = pickFoodsExpert('i', iftarCal, conditions, ep);
+      snack = pickFoodsExpert('a', snackCal, conditions, ep);
+    } else {
+      sahur = pickFoods('s', sahurCal, 0, 0, 0, conditions);
+      iftar = pickFoods('i', iftarCal, 0, 0, 0, conditions);
+      snack = pickFoods('a', snackCal, 0, 0, 0, conditions);
+    }
+    
+    weeklyPlans.push({
+      ...currentPlan,
+      sahur, iftar, snack
+    });
+  }
+  
+  currentWeekDay = 0;
+  renderWeekTabs();
+  showWeekDay(0);
+}
+
+function renderWeekTabs() {
+  const tabsEl = document.getElementById('weekTabs');
+  const navEl = document.getElementById('weekNav');
+  if (!tabsEl || !navEl) return;
+  
+  tabsEl.style.display = 'flex';
+  navEl.style.display = 'flex';
+  
+  const dayNames = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'];
+  const now = new Date();
+  const turkeyNow = new Date(now.getTime() + 3 * 3600000);
+  
+  let html = '';
+  for (let d = 0; d < 7; d++) {
+    const date = new Date(turkeyNow);
+    date.setDate(date.getDate() + d);
+    const dayName = dayNames[date.getDay() === 0 ? 6 : date.getDay() - 1];
+    const dayNum = date.getDate();
+    html += `<button class="week-tab ${d === 0 ? 'active' : ''}" onclick="showWeekDay(${d})">
+      <div>${dayName}</div>
+      <div class="wt-day">${dayNum}</div>
+    </button>`;
+  }
+  tabsEl.innerHTML = html;
+  updateWeekLabel(0);
+}
+
+function showWeekDay(dayIndex) {
+  if (!weeklyPlans[dayIndex]) return;
+  currentWeekDay = dayIndex;
+  
+  const plan = weeklyPlans[dayIndex];
+  currentPlan.sahur = plan.sahur;
+  currentPlan.iftar = plan.iftar;
+  currentPlan.snack = plan.snack;
+  
+  renderMeal('sahur', plan.sahur);
+  renderMeal('iftar', plan.iftar);
+  renderMeal('snack', plan.snack);
+  updateTotals();
+  updateMealRemaining();
+  
+  // Update menu selections
+  syncMenuWithPlan();
+  if (document.getElementById('menuBuilder').classList.contains('open')) {
+    renderMenuGrid();
+    renderBasket();
+  }
+  
+  // Update tabs
+  document.querySelectorAll('.week-tab').forEach((t, i) => t.classList.toggle('active', i === dayIndex));
+  updateWeekLabel(dayIndex);
+  
+  // Update shopping list
+  if (document.getElementById('shoppingCard').classList.contains('expanded')) {
+    shoppingChecked.clear();
+    renderShoppingList();
+  }
+}
+
+function updateWeekLabel(dayIndex) {
+  const now = new Date();
+  const turkeyNow = new Date(now.getTime() + 3 * 3600000);
+  const date = new Date(turkeyNow);
+  date.setDate(date.getDate() + dayIndex);
+  
+  const dayNames = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+  const monthNames = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+  
+  const label = `${dayNames[date.getDay()]}, ${date.getDate()} ${monthNames[date.getMonth()]}`;
+  const el = document.getElementById('weekLabel');
+  if (el) el.textContent = dayIndex === 0 ? `Bugün — ${label}` : label;
+}
+
+function prevWeekDay() { if (currentWeekDay > 0) showWeekDay(currentWeekDay - 1); }
+function nextWeekDay() { if (currentWeekDay < 6) showWeekDay(currentWeekDay + 1); }
+
+// ═══ WHATSAPP & TELEGRAM SHARE ═══
+function buildShareText() {
+  if (!currentPlan) return '';
+  const { targetCal, macros, sahur, iftar } = currentPlan;
+  const sahurItems = sahur.items.map(i => `  • ${i.icon} ${i.name}`).join('\n');
+  const iftarItems = iftar.items.map(i => `  • ${i.icon} ${i.name}`).join('\n');
+  
+  const cityKey = document.getElementById('citySelect')?.value || 'istanbul';
+  const city = CITIES[cityKey];
+  const today = new Date();
+  const times = getPrayerTimes(cityKey, today);
+  const rd = getRamadanDay(today);
+  
+  let text = `☪️ Ramazan Öğün Planım`;
+  if (rd.status === 'during') text += ` (${rd.day}. gün)`;
+  text += `\n\n📊 Günlük: ${targetCal} kcal`;
+  text += `\n🟠 Protein: ${macros.proteinG}g | 🟢 Karb: ${macros.carbG}g | 🔴 Yağ: ${macros.fatG}g`;
+  if (times) text += `\n🌙 İmsak: ${times.imsak} | 🌅 İftar: ${times.iftar} (${city?.name || ''})`;
+  text += `\n\n🌙 Sahur:\n${sahurItems}`;
+  text += `\n\n🌅 İftar:\n${iftarItems}`;
+  if (selectedExpertPlan) {
+    const ep = EXPERT_PLANS[selectedExpertPlan];
+    text += `\n\n👨‍⚕️ Plan: ${ep.name}`;
+  }
+  text += `\n\n🔗 Kendi planını oluştur:\nuzunyasa.com/pages/araclar/sahur-iftar-planlayici.html`;
+  return text;
+}
+
+function shareWhatsApp() {
+  const text = encodeURIComponent(buildShareText());
+  window.open(`https://wa.me/?text=${text}`, '_blank');
+}
+
+function shareTelegram() {
+  const text = encodeURIComponent(buildShareText());
+  window.open(`https://t.me/share/url?url=${encodeURIComponent('https://uzunyasa.com/pages/araclar/sahur-iftar-planlayici.html')}&text=${text}`, '_blank');
+}
+
+// ═══ AUTO-LOAD & INIT ═══
 document.addEventListener('DOMContentLoaded', function() {
+  initDarkMode();
+  
+  // Restore city preference
+  const savedCity = localStorage.getItem('uzunyasa_city');
+  if (savedCity) {
+    const sel = document.getElementById('citySelect');
+    if (sel) sel.value = savedCity;
+  }
+  
+  updateRamadanBanner();
+  // Update countdown every minute
+  setInterval(updateRamadanBanner, 60000);
+  
   loadPlanFromStorage();
+  
+  // Register service worker for PWA/offline
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw-sahur.js').catch(() => {});
+  }
 });
 </script>
 </body>
