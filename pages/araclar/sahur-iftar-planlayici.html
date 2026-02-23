@@ -364,6 +364,29 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 @media(max-width:380px){
   .goal-grid{grid-template-columns:1fr}
 }
+
+/* Search bar */
+.menu-search{position:relative;margin-bottom:.75rem}
+.menu-search input{width:100%;padding:.65rem 1rem .65rem 2.5rem;border:2px solid var(--gray-200);border-radius:99px;font-size:.85rem;font-family:inherit;transition:border-color .2s;background:#fff;color:var(--gray-700)}
+.menu-search input:focus{outline:none;border-color:var(--primary)}
+.menu-search .search-icon{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.4;pointer-events:none}
+.menu-search .search-clear{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);font-size:.85rem;cursor:pointer;opacity:.4;transition:opacity .15s;background:none;border:none;padding:.25rem}
+.menu-search .search-clear:hover{opacity:.8}
+
+/* Portion selector */
+.portion-selector{display:flex;gap:.3rem;align-items:center}
+.portion-btn{width:32px;height:24px;border-radius:6px;border:1.5px solid var(--gray-200);background:#fff;cursor:pointer;font-size:.65rem;font-weight:700;font-family:inherit;transition:all .15s;color:var(--gray-500);display:flex;align-items:center;justify-content:center}
+.portion-btn:hover{border-color:var(--primary);color:var(--primary)}
+.portion-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+/* Saved plan indicator */
+.saved-indicator{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;color:var(--primary);font-weight:600;opacity:0;transition:opacity .3s}
+.saved-indicator.show{opacity:1}
+
+/* Remaining cal badge on meal cards */
+.meal-remaining{font-size:.7rem;color:var(--gray-400);font-weight:600;margin-left:.5rem}
+.meal-remaining.over{color:#dc2626}
+.meal-remaining.good{color:#16a34a}
 </style>
 </head>
 <body>
@@ -382,6 +405,7 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
  <span class="hero-icon">☪️</span>
  <h1>Sahur & İftar Öğün Planlayıcısı</h1>
  <p>Ramazan ayına özel, kişiselleştirilmiş beslenme planınızı oluşturun. Sağlıklı oruç tutmanın anahtarı doğru beslenmedir.</p>
+ <div class="saved-indicator" id="savedIndicator">💾 Son planınız kaydedildi</div>
 </div>
 
 <!-- Input Section -->
@@ -574,6 +598,13 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 
     <p class="builder-intro">Aşağıdaki menüden istediğin yemekleri seçerek öğünlerini oluştur — tıpkı bowl sipariş eder gibi! 🥗</p>
 
+    <!-- Search -->
+    <div class="menu-search">
+     <span class="search-icon">🔍</span>
+     <input type="text" id="menuSearchInput" placeholder="Yemek ara... (örn: mercimek, tavuk, yulaf)" oninput="onMenuSearch()" autocomplete="off">
+     <button class="search-clear" id="searchClearBtn" onclick="clearMenuSearch()" style="display:none">✕</button>
+    </div>
+
     <!-- Meal tabs -->
     <div class="meal-tabs" id="menuMealTabs">
      <button class="meal-tab active" onclick="setMenuMeal('sahur')">🌙 Sahur <span class="tab-cal" id="menuSahurCal"></span></button>
@@ -640,6 +671,7 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
    <div class="meal-cal">
     <div class="meal-cal-value" id="sahurCal">0</div>
     <div class="meal-cal-unit">kcal</div>
+    <span class="meal-remaining" id="sahurRemaining"></span>
    </div>
    <span class="expand-icon">▼</span>
   </div>
@@ -681,6 +713,7 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
    <div class="meal-cal">
     <div class="meal-cal-value" id="iftarCal">0</div>
     <div class="meal-cal-unit">kcal</div>
+    <span class="meal-remaining" id="iftarRemaining"></span>
    </div>
    <span class="expand-icon">▼</span>
   </div>
@@ -722,6 +755,7 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
    <div class="meal-cal">
     <div class="meal-cal-value" id="snackCal">0</div>
     <div class="meal-cal-unit">kcal</div>
+    <span class="meal-remaining" id="snackRemaining"></span>
    </div>
    <span class="expand-icon">▼</span>
   </div>
@@ -839,7 +873,7 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 </div><!-- /main-wrap -->
 
 <footer class="site-footer">
- <p>© 2025 UzunYaşa — Sağlıklı yaşam rehberiniz</p>
+ <p>© 2026 UzunYaşa — Sağlıklı yaşam rehberiniz</p>
  <p style="margin-top:.25rem;font-size:.7rem;opacity:.7">Bu araç bilgilendirme amaçlıdır. Sağlık durumunuzla ilgili kararları mutlaka doktorunuzla paylaşın.</p>
  <p style="margin-top:.5rem"><a href="/pages/gizlilik-politikasi.html">Gizlilik</a> · <a href="/pages/kullanim-sartlari.html">Kullanım Şartları</a> · <a href="/pages/hakkimizda.html">Hakkımızda</a></p>
 </footer>
@@ -1247,6 +1281,110 @@ const HEALTH_WARNINGS = {
 // ═══ STATE ═══
 let selectedGoal = 'maintain';
 let currentPlan = null;
+let menuSearchQuery = '';
+
+// ═══ LOCAL STORAGE ═══
+const LS_KEY = 'uzunyasa_sahur_iftar_v1';
+
+function savePlanToStorage() {
+  if (!currentPlan) return;
+  try {
+    const data = {
+      inputs: {
+        weight: +document.getElementById('weight').value,
+        height: +document.getElementById('height').value,
+        age: +document.getElementById('age').value,
+        gender: document.getElementById('gender').value,
+        activity: document.getElementById('activity').value,
+        goal: selectedGoal,
+        conditions: Array.from(document.querySelectorAll('.checkbox-item input:checked')).map(cb => cb.value)
+      },
+      plan: {
+        targetCal: currentPlan.targetCal,
+        macros: currentPlan.macros,
+        sahurItems: currentPlan.sahur.items.map(serializeFood),
+        iftarItems: currentPlan.iftar.items.map(serializeFood),
+        snackItems: currentPlan.snack.items.map(serializeFood),
+        waterLiters: currentPlan.waterLiters,
+        waterGlasses: currentPlan.waterGlasses,
+      },
+      savedAt: Date.now()
+    };
+    localStorage.setItem(LS_KEY, JSON.stringify(data));
+    showSavedIndicator();
+  } catch(e) { /* quota exceeded or private browsing */ }
+}
+
+function serializeFood(item) {
+  return { name: item.name, actualCal: item.actualCal, actualP: item.actualP, actualC: item.actualC, actualF: item.actualF, actualPortion: item.actualPortion, portionMult: item.portionMult || 1 };
+}
+
+function loadPlanFromStorage() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return false;
+    const data = JSON.parse(raw);
+    // Check freshness (max 7 days)
+    if (Date.now() - data.savedAt > 7 * 24 * 60 * 60 * 1000) {
+      localStorage.removeItem(LS_KEY);
+      return false;
+    }
+    // Restore inputs
+    const inp = data.inputs;
+    document.getElementById('weight').value = inp.weight;
+    document.getElementById('height').value = inp.height;
+    document.getElementById('age').value = inp.age;
+    document.getElementById('gender').value = inp.gender;
+    document.getElementById('activity').value = inp.activity;
+    selectedGoal = inp.goal || 'maintain';
+    document.querySelectorAll('.goal-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.goal === selectedGoal);
+    });
+    // Restore conditions
+    if (inp.conditions) {
+      document.querySelectorAll('.checkbox-item input').forEach(cb => {
+        const checked = inp.conditions.includes(cb.value);
+        cb.checked = checked;
+        cb.closest('.checkbox-item').classList.toggle('checked', checked);
+      });
+    }
+    // Restore plan
+    const p = data.plan;
+    const restoreItems = (serialized) => serialized.map(s => {
+      const orig = FOODS.find(f => f.name === s.name);
+      if (!orig) return s;
+      return { ...orig, actualCal: s.actualCal, actualP: s.actualP, actualC: s.actualC, actualF: s.actualF, actualPortion: s.actualPortion, portionMult: s.portionMult || 1 };
+    });
+    currentPlan = {
+      targetCal: p.targetCal,
+      macros: p.macros,
+      sahur: { items: restoreItems(p.sahurItems), totalCal: 0, totalP: 0, totalC: 0, totalF: 0 },
+      iftar: { items: restoreItems(p.iftarItems), totalCal: 0, totalP: 0, totalC: 0, totalF: 0 },
+      snack: { items: restoreItems(p.snackItems), totalCal: 0, totalP: 0, totalC: 0, totalF: 0 },
+      waterLiters: p.waterLiters,
+      waterGlasses: p.waterGlasses,
+      conditions: inp.conditions || [],
+      weight: inp.weight, height: inp.height, age: inp.age, gender: inp.gender, activity: inp.activity
+    };
+    renderResults(currentPlan);
+    showSavedIndicator('💾 Kaydedilmiş planınız yüklendi');
+    return true;
+  } catch(e) { return false; }
+}
+
+function showSavedIndicator(text) {
+  const el = document.getElementById('savedIndicator');
+  if (el) {
+    if (text) el.textContent = text;
+    else el.textContent = '💾 Plan kaydedildi';
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 3000);
+  }
+}
+
+function clearSavedPlan() {
+  localStorage.removeItem(LS_KEY);
+}
 
 // ═══ UI HELPERS ═══
 function selectGoal(btn) {
@@ -1302,10 +1440,17 @@ function adjustForGoal(tdee, goal) {
 }
 
 function calcMacros(calories, goal, weight) {
-  // Protein: 1.6-2.2g/kg depending on goal
-  let proteinPerKg = goal === 'gain' ? 2.0 : goal === 'lose' ? 2.0 : 1.6;
+  // Protein: 1.2-1.6g/kg (ESPEN 2021) depending on goal
+  // GLP-1/bariatric: 1.2-1.5g/kg to preserve muscle
+  let proteinPerKg = goal === 'gain' ? 1.6 : goal === 'lose' ? 1.5 : 1.2;
   let proteinG = Math.round(proteinPerKg * weight);
   let proteinCal = proteinG * 4;
+
+  // Cap protein at 35% of calories max
+  if (proteinCal > calories * 0.35) {
+    proteinCal = Math.round(calories * 0.35);
+    proteinG = Math.round(proteinCal / 4);
+  }
 
   // Fat: 25-30% of calories
   let fatPct = goal === 'lose' ? 0.25 : 0.28;
@@ -1490,6 +1635,7 @@ function generatePlan() {
   currentPlan = { targetCal, macros, sahur, iftar, snack, waterLiters, waterGlasses, conditions, weight, height, age, gender, activity };
 
   renderResults(currentPlan);
+  savePlanToStorage();
 }
 
 function regeneratePlan() {
@@ -1512,6 +1658,7 @@ function regeneratePlan() {
   currentPlan.snack = snack;
 
   renderResults(currentPlan);
+  savePlanToStorage();
 
   // Scroll to top of results
   document.getElementById('summaryBanner').scrollIntoView({ behavior: 'smooth' });
@@ -1639,6 +1786,9 @@ function renderResults(plan) {
     }
   }, 200);
 
+  // Update remaining indicators
+  setTimeout(() => updateMealRemaining(), 300);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1657,6 +1807,8 @@ function renderMeal(prefix, meal) {
     totalC += item.actualC;
     totalF += item.actualF;
 
+    const pm = item.portionMult || 1;
+    const portionLabel = pm === 0.5 ? '½' : pm === 1 ? '1' : pm === 1.5 ? '1½' : '2';
     listEl.innerHTML += `
       <li class="food-item" id="${prefix}-food-${idx}">
         <div class="food-item-icon">${item.icon}</div>
@@ -1667,6 +1819,12 @@ function renderMeal(prefix, meal) {
             <span class="m-p">P: ${item.actualP.toFixed(0)}g</span>
             <span class="m-c">K: ${item.actualC.toFixed(0)}g</span>
             <span class="m-f">Y: ${item.actualF.toFixed(0)}g</span>
+          </div>
+          <div class="portion-selector no-print" style="margin-top:.3rem">
+            <button class="portion-btn ${pm===0.5?'active':''}" onclick="event.stopPropagation();changePortion('${prefix}',${idx},0.5)" title="Yarım porsiyon">½</button>
+            <button class="portion-btn ${pm===1?'active':''}" onclick="event.stopPropagation();changePortion('${prefix}',${idx},1)" title="Normal porsiyon">1</button>
+            <button class="portion-btn ${pm===1.5?'active':''}" onclick="event.stopPropagation();changePortion('${prefix}',${idx},1.5)" title="1.5 porsiyon">1½</button>
+            <button class="portion-btn ${pm===2?'active':''}" onclick="event.stopPropagation();changePortion('${prefix}',${idx},2)" title="Çift porsiyon">2</button>
           </div>
         </div>
         <div class="food-item-cal">${item.actualCal} kcal</div>
@@ -1749,6 +1907,25 @@ function setMenuCat(cat) {
   renderMenuGrid();
 }
 
+// ═══ SEARCH ═══
+function onMenuSearch() {
+  const input = document.getElementById('menuSearchInput');
+  menuSearchQuery = input.value.trim().toLowerCase();
+  document.getElementById('searchClearBtn').style.display = menuSearchQuery ? '' : 'none';
+  renderMenuGrid();
+}
+function clearMenuSearch() {
+  document.getElementById('menuSearchInput').value = '';
+  menuSearchQuery = '';
+  document.getElementById('searchClearBtn').style.display = 'none';
+  renderMenuGrid();
+}
+
+// Turkish char-insensitive search
+function trNormalize(s) {
+  return s.toLowerCase().replace(/ı/g,'i').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ş/g,'s').replace(/ö/g,'o').replace(/ç/g,'c').replace(/İ/g,'i');
+}
+
 function renderMenuGrid() {
   const gridEl = document.getElementById('menuGrid');
   const mealCode = menuMeal === 'sahur' ? 's' : menuMeal === 'iftar' ? 'i' : 'a';
@@ -1757,10 +1934,26 @@ function renderMenuGrid() {
   let foods = FOODS.filter(f => f.meal.includes(mealCode));
   if (menuCat !== 'all') foods = foods.filter(f => f.cat === menuCat);
 
-  // Sort by category order
-  foods.sort((a, b) => (CAT_LABELS[a.cat]?.order || 99) - (CAT_LABELS[b.cat]?.order || 99));
+  // Apply search filter
+  if (menuSearchQuery) {
+    const q = trNormalize(menuSearchQuery);
+    foods = foods.filter(f => trNormalize(f.name).includes(q) || trNormalize(f.cat).includes(q));
+  }
+
+  // Sort: selected items first, then by category
+  foods.sort((a, b) => {
+    const aIn = selectedNames.has(a.name) ? 0 : 1;
+    const bIn = selectedNames.has(b.name) ? 0 : 1;
+    if (aIn !== bIn) return aIn - bIn;
+    return (CAT_LABELS[a.cat]?.order || 99) - (CAT_LABELS[b.cat]?.order || 99);
+  });
 
   const portionMult = currentPlan ? Math.max(0.5, Math.min(1.5, currentPlan.targetCal / 1500)) : 1;
+
+  if (foods.length === 0) {
+    gridEl.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--gray-400);font-size:.85rem">🔍 Sonuç bulunamadı</div>';
+    return;
+  }
 
   gridEl.innerHTML = foods.map((f, i) => {
     const cal = Math.round(f.cal * (f.pg / 100) * portionMult);
@@ -1931,6 +2124,9 @@ function applyMenuSelections() {
     renderShoppingList();
   }
 
+  updateMealRemaining();
+  savePlanToStorage();
+
   // Visual feedback
   const btn = event.target.closest('.btn');
   const orig = btn.innerHTML;
@@ -2048,8 +2244,9 @@ function swapFood(mealType, foodIndex) {
   // Re-render this meal after animation
   setTimeout(() => {
     renderMeal(mealType, meal);
-    // Update totals
     updateTotals();
+    updateMealRemaining();
+    savePlanToStorage();
   }, 150);
 }
 
@@ -2090,6 +2287,61 @@ function updateTotals() {
     document.getElementById('barFatVal').textContent = fPct + '%';
     document.getElementById('barCarb').style.width = cPct + '%';
     document.getElementById('barCarbVal').textContent = cPct + '%';
+  }
+}
+
+// ═══ PORTION ADJUSTMENT ═══
+function changePortion(mealType, foodIndex, newMult) {
+  if (!currentPlan) return;
+  const meal = currentPlan[mealType];
+  if (!meal || !meal.items[foodIndex]) return;
+
+  const item = meal.items[foodIndex];
+  const orig = FOODS.find(f => f.name === item.name);
+  if (!orig) return;
+
+  const baseMult = currentPlan ? Math.max(0.5, Math.min(1.5, currentPlan.targetCal / 1500)) : 1;
+
+  item.portionMult = newMult;
+  item.actualCal = Math.round(orig.cal * (orig.pg / 100) * baseMult * newMult);
+  item.actualP = +(orig.p * (orig.pg / 100) * baseMult * newMult).toFixed(1);
+  item.actualC = +(orig.c * (orig.pg / 100) * baseMult * newMult).toFixed(1);
+  item.actualF = +(orig.f * (orig.pg / 100) * baseMult * newMult).toFixed(1);
+
+  // Update portion text
+  if (newMult === 0.5) item.actualPortion = '½ ' + orig.portion;
+  else if (newMult === 1) item.actualPortion = orig.portion;
+  else if (newMult === 1.5) item.actualPortion = '1½ × ' + orig.portion;
+  else item.actualPortion = '2 × ' + orig.portion;
+
+  renderMeal(mealType, meal);
+  updateTotals();
+  updateMealRemaining();
+  savePlanToStorage();
+}
+
+function updateMealRemaining() {
+  if (!currentPlan) return;
+  const { targetCal } = currentPlan;
+  const mealTargets = { sahur: 0.35, iftar: 0.45, snack: 0.20 };
+
+  for (const [key, pct] of Object.entries(mealTargets)) {
+    const target = Math.round(targetCal * pct);
+    const actual = currentPlan[key].items.reduce((s, i) => s + i.actualCal, 0);
+    const remaining = target - actual;
+    const el = document.getElementById(key + 'Remaining');
+    if (el) {
+      if (remaining > 50) {
+        el.textContent = `(${Math.round(remaining)} kcal kaldı)`;
+        el.className = 'meal-remaining';
+      } else if (remaining < -50) {
+        el.textContent = `(${Math.abs(Math.round(remaining))} kcal fazla)`;
+        el.className = 'meal-remaining over';
+      } else {
+        el.textContent = '✓ Hedefte';
+        el.className = 'meal-remaining good';
+      }
+    }
   }
 }
 
@@ -2703,6 +2955,11 @@ function shareShoppingList() {
     copyShoppingList();
   }
 }
+
+// ═══ AUTO-LOAD SAVED PLAN ═══
+document.addEventListener('DOMContentLoaded', function() {
+  loadPlanFromStorage();
+});
 </script>
 </body>
 </html>
