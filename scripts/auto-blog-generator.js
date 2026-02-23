@@ -159,16 +159,17 @@ const PRIORITY_TRIGGERS = {
   urgent: [
     'FDA approves', 'EMA approves', 'FDA onayladı',
     'Phase 3 results', 'Phase III results',
-    'breakthrough', 'first-in-class', 'çığır açan',
-    'landmark trial', 'pivotal trial',
-    'first oral', 'novel mechanism'
+    'first-in-class', 'pivotal trial',
+    'first oral', 'novel mechanism',
+    'guideline update', 'Cochrane review'
   ],
   high: [
     'clinical trial results', 'randomized controlled',
     'meta-analysis', 'systematic review',
-    'conference presentation', 'guideline update',
+    'conference presentation',
     'Phase 2 results', 'Phase II results',
-    'large cohort', 'prospective study'
+    'large cohort', 'prospective study',
+    'landmark trial'
   ],
   normal: [
     'Phase 1', 'observational study', 'review article',
@@ -1090,29 +1091,51 @@ const UNSPLASH_IMAGES = {
   'longevity': 'https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?w=1200&h=600&fit=crop'
 };
 
-const BLOG_SYSTEM_PROMPT = `Sen UzunYaşa için Türkçe sağlık blog yazarısın. Prof. Dr. Cem Şimşek'in editörlük yaptığı, Türkiye'nin kanıta dayalı sağlık platformu için yazıyorsun.
+const BLOG_SYSTEM_PROMPT = `Sen UzunYaşa için Türkçe tıbbi blog yazarısın. Prof. Dr. Cem Şimşek'in (Gastroenterolog) editörlük yaptığı, Türkiye'nin kanıta dayalı sağlık platformu için yazıyorsun.
 
 GÖREV:
 - Verilen konuyu ve araştırma bağlamını kullanarak bilimsel, kapsamlı bir blog yazısı yaz
 - GERÇEK kaynaklara dayanan bilgi ver — araştırma bağlamında sana verilen makaleleri ve çalışmaları referans göster
-- Türk okuyucular için anlaşılır ve sıcak bir dil kullan ("akıllı bir arkadaşına anlatan doktor" gibi)
+- Akademik ama erişilebilir bir dil kullan — "akıllı bir hastaya anlatan uzman doktor" tonu
 
-KURALLAR:
+AKADEMİK KALİTE KURALLARI (KRİTİK — ihlal etme):
 1. Her zaman Türkçe yaz
-2. Araştırma bağlamında verilen GERÇEK çalışmaları referans göster
-3. Kaynak verirken DOI veya PubMed linki varsa kullan
+2. En az 5 farklı kaynak referans göster — tek çalışmaya dayanan blog YASAK
+3. Her kaynak için DOI veya PubMed linki kullan
 4. 1500-2500 kelime arası yaz (kapsamlı ama okunabilir)
-5. Anlaşılır dil kullan — tıbbi jargonu Türkçe açıkla
+5. Her tıbbi iddianın yanına kanıt seviyesi etiketi koy (aşağıya bak)
 6. Alt başlıklar (## ve ###), listeler ve kalın metin kullan
 7. "Bu ne anlama geliyor?" / "Pratikte ne yapmalı?" bölümleri ekle
-8. Türkiye bağlamını dahil et (mümkünse Türkiye verileri, SGK durumu, erişim bilgisi)
+8. Türkiye bağlamını dahil et (Türkiye obezite oranı: OECD 2024'e göre ~%32)
 9. "Doktorunuza danışın" uyarısını doğal şekilde ekle
-10. Clickbait/sansasyonel başlıklardan KAÇIN — bilimsel ama ilgi çekici ol
+10. Hayvan çalışması ve in vitro bulgularını AÇIKÇA "insana genellenemez" olarak işaretle
+11. Preprint/henüz hakemli değerlendirilmemiş çalışmaları uyar: "⚠️ Preprint — henüz hakemli değerlendirmeden geçmemiştir"
+12. İlaç/takviye dozları verirken MUTLAKA klinik bağlam ve yan etki uyarısı ekle
 
-KANIT SEVİYELERİ — her kaynakta belirt:
-- 🟢 Güçlü: RCT, meta-analiz, sistematik derleme
-- 🟡 Orta: Gözlemsel çalışma, kohort, vaka-kontrol
-- 🔴 Erken: Hayvan deneyi, in vitro, vaka sunumu, pilot çalışma
+YASAKLI İFADELER (kesinlikle kullanma):
+- "çığır açan", "devrim yaratan", "devrim niteliğinde", "mucize"
+- "bilim dünyasını heyecanlandıran", "şok eden", "inanılmaz"
+- "kesin iyileşme", "garantili sonuç", "%100 etkili"
+- "savaş açtı", "bomba etkisi", "tarihi adım"
+Bunların yerine nesnel ifadeler kullan: "önemli", "dikkat çekici", "umut verici", "anlamlı"
+
+KANIT SEVİYELERİ — her iddiada belirt:
+- 🟢 Güçlü kanıt: Büyük RCT (n>500), meta-analiz, Cochrane derlemesi
+- 🟡 Orta kanıt: Küçük RCT, gözlemsel kohort, vaka-kontrol çalışması
+- 🔴 Erken/Zayıf kanıt: Hayvan deneyi, in vitro, vaka sunumu, pilot çalışma (n<30), preprint
+- Her bulgunun yanına çalışma tipi ve örneklem büyüklüğünü parantez içinde yaz: "(RCT, n=1.961)"
+
+REFERANS STANDARTLARI:
+- En az 5 kaynak, tercihen 8-12 arası
+- Orijinal çalışma > derleme > haber kaynağı
+- Kaynak formatı: "Yazarlar et al. Başlık. Dergi. Yıl;cilt:sayfa." şeklinde
+- Press release veya haber sitesi kullanılıyorsa açıkça "basın bülteni" veya "haber kaynağı" olarak etiketle
+- Aynı konuda landmark çalışmaları atlamak YASAK (örn: GLP-1 yazısında SELECT, STEP, SURMOUNT; DKD yazısında CREDENCE, DAPA-CKD)
+
+FABRİKE VERİ YASAĞI:
+- Kaynak gösterilmeyen yüzde, istatistik veya pasta grafik verisi YAZMA
+- "Araştırmalar gösteriyor ki..." gibi belirsiz atıflar YASAK — hangi araştırma, hangi yıl, kaç kişi?
+- Tahmini veriler kullanıyorsan "tahmini", "yaklaşık" olarak açıkça etiketle
 
 DIŞLA:
 - Ünlü/influencer referansları
@@ -1120,15 +1143,21 @@ DIŞLA:
 - Reklam dili
 - Doğrulanmamış iddialar
 
+MARKDOWN FORMATLAMA (HTML oluşturma için KRİTİK):
+- <p> etiketi içine <h2>, <h3>, <ul>, <ol>, <blockquote> KOYMA
+- Her paragraf ayrı bir blok olsun
+- Liste elemanlarını (- veya *) paragraf içine karıştırma
+- Başlık (## veya ###) öncesinde her zaman boş satır bırak
+
 ÇIKTI FORMATI — SADECE JSON:
 {
-  "title": "Başlık (max 65 karakter, SEO uyumlu, Türkçe)",
-  "description": "Meta açıklama (max 160 karakter, Türkçe)",
+  "title": "Başlık (max 65 karakter, SEO uyumlu, Türkçe, hype yok)",
+  "description": "Meta açıklama (max 160 karakter, Türkçe, nesnel dil)",
   "category": "beslenme|egzersiz|kilo-yonetimi|bilim|tedavi|yasam-tarzi",
   "content": "Markdown formatında kapsamlı içerik",
   "keyPoints": ["Önemli nokta 1", "Önemli nokta 2", "Önemli nokta 3", "Önemli nokta 4"],
   "sources": [
-    {"title": "Kaynak adı (yazarlar, dergi, yıl)", "url": "https://doi.org/... veya PubMed linki"}
+    {"title": "Yazarlar et al. Tam kaynak. Dergi. Yıl;cilt:sayfa.", "url": "https://doi.org/... veya PubMed linki"}
   ],
   "readTime": 10,
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"]
@@ -1204,7 +1233,84 @@ ${researchContext}
     throw new Error('Blog içeriği JSON olarak parse edilemedi');
   }
 
-  return JSON.parse(jsonMatch[0]);
+  const parsed = JSON.parse(jsonMatch[0]);
+
+  // === POST-GENERATION QUALITY VALIDATION ===
+  const warnings = validateBlogQuality(parsed);
+  if (warnings.length > 0) {
+    console.warn('\n⚠️  KALİTE UYARILARI:');
+    for (const w of warnings) console.warn(`   ❗ ${w}`);
+    console.warn('   Blog yine de oluşturulacak, ancak manuel inceleme önerilir.\n');
+  }
+
+  return parsed;
+}
+
+/**
+ * Post-generation quality validation
+ * Checks for common issues found during academic reviews
+ */
+function validateBlogQuality(post) {
+  const warnings = [];
+  const content = post.content || '';
+  const sources = post.sources || [];
+
+  // 1. Minimum reference count
+  if (sources.length < 5) {
+    warnings.push(`Yetersiz kaynak: ${sources.length}/5 minimum. Tek kaynağa dayanan blog güvenilir değil.`);
+  }
+
+  // 2. Check for hype language
+  const hypeWords = [
+    'çığır açan', 'devrim yaratan', 'devrim niteliğinde', 'mucize',
+    'şok eden', 'inanılmaz', 'bomba etkisi', 'tarihi adım',
+    'savaş açtı', 'dünyayı heyecanlandıran'
+  ];
+  const foundHype = hypeWords.filter(hw => content.toLowerCase().includes(hw));
+  if (foundHype.length > 0) {
+    warnings.push(`Hype dil tespit edildi: "${foundHype.join('", "')}". Nesnel ifadelerle değiştirin.`);
+  }
+
+  // 3. Check for evidence level labels
+  const hasEvidenceLabels = content.includes('🟢') || content.includes('🟡') || content.includes('🔴') ||
+    content.toLowerCase().includes('kanıt düzeyi') || content.toLowerCase().includes('kanıt seviyesi');
+  if (!hasEvidenceLabels) {
+    warnings.push('Kanıt seviyesi etiketleri (🟢/🟡/🔴) bulunamadı. Her iddiada kanıt düzeyi belirtilmeli.');
+  }
+
+  // 4. Check for animal study warnings
+  const animalTerms = ['fare model', 'mouse model', 'animal study', 'hayvan deneyi', 'in vitro', 'rat model'];
+  const hasAnimalStudy = animalTerms.some(t => content.toLowerCase().includes(t));
+  const hasAnimalWarning = content.toLowerCase().includes('insana genellenemez') ||
+    content.toLowerCase().includes('insanlarda doğrulanması') ||
+    content.toLowerCase().includes('insanlara aktarılamaz');
+  if (hasAnimalStudy && !hasAnimalWarning) {
+    warnings.push('Hayvan çalışması referansı var ama "insana genellenemez" uyarısı eksik.');
+  }
+
+  // 5. Check for preprint warnings
+  const hasPreprint = content.toLowerCase().includes('preprint') ||
+    content.toLowerCase().includes('biorxiv') || content.toLowerCase().includes('medrxiv');
+  const hasPreprintWarning = content.toLowerCase().includes('hakemli değerlendirme') ||
+    content.toLowerCase().includes('peer review');
+  if (hasPreprint && !hasPreprintWarning) {
+    warnings.push('Preprint kaynak var ama hakemli değerlendirme uyarısı eksik.');
+  }
+
+  // 6. Check for fabricated-looking statistics without source
+  const percentPattern = /%\d+/g;
+  const percentMatches = content.match(percentPattern) || [];
+  if (percentMatches.length > 5 && sources.length < 3) {
+    warnings.push(`${percentMatches.length} yüzde istatistik var ama sadece ${sources.length} kaynak. Fabrike veri riski.`);
+  }
+
+  // 7. Check sources have proper format (not just URLs)
+  const weakSources = sources.filter(s => !s.title || s.title.length < 20);
+  if (weakSources.length > sources.length / 2) {
+    warnings.push('Kaynakların çoğu düzgün formatlanmamış. "Yazarlar et al. Başlık. Dergi. Yıl" formatı gerekli.');
+  }
+
+  return warnings;
 }
 
 // =============================================================================
@@ -1212,19 +1318,64 @@ ${researchContext}
 // =============================================================================
 
 function markdownToHtml(markdown) {
-  return markdown
-    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-    .replace(/^\* (.*$)/gm, '<li>$1</li>')
-    .replace(/^- (.*$)/gm, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+  // Split into blocks by double newline to avoid nesting issues
+  const blocks = markdown.split(/\n{2,}/);
+  const htmlBlocks = [];
+
+  for (const block of blocks) {
+    const trimmed = block.trim();
+    if (!trimmed) continue;
+
+    // Heading h2
+    if (trimmed.startsWith('## ')) {
+      htmlBlocks.push(`<h2>${trimmed.replace(/^## /, '')}</h2>`);
+      continue;
+    }
+    // Heading h3
+    if (trimmed.startsWith('### ')) {
+      htmlBlocks.push(`<h3>${trimmed.replace(/^### /, '')}</h3>`);
+      continue;
+    }
+    // Blockquote
+    if (trimmed.startsWith('> ')) {
+      const quoteText = trimmed.replace(/^> /gm, '').trim();
+      htmlBlocks.push(`<blockquote>${quoteText}</blockquote>`);
+      continue;
+    }
+    // List (unordered: - or *)
+    const listLines = trimmed.split('\n');
+    if (listLines.every(l => /^\s*[-*] /.test(l.trim()) || l.trim() === '')) {
+      const items = listLines
+        .map(l => l.trim())
+        .filter(l => /^[-*] /.test(l))
+        .map(l => `<li>${inlineFormat(l.replace(/^[-*] /, ''))}</li>`)
+        .join('\n');
+      htmlBlocks.push(`<ul>\n${items}\n</ul>`);
+      continue;
+    }
+    // Ordered list (1. 2. etc.)
+    if (listLines.every(l => /^\s*\d+\. /.test(l.trim()) || l.trim() === '')) {
+      const items = listLines
+        .map(l => l.trim())
+        .filter(l => /^\d+\. /.test(l))
+        .map(l => `<li>${inlineFormat(l.replace(/^\d+\. /, ''))}</li>`)
+        .join('\n');
+      htmlBlocks.push(`<ol>\n${items}\n</ol>`);
+      continue;
+    }
+    // Regular paragraph
+    htmlBlocks.push(`<p>${inlineFormat(trimmed.replace(/\n/g, ' '))}</p>`);
+  }
+
+  return htmlBlocks.join('\n\n');
+}
+
+function inlineFormat(text) {
+  return text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>')
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/^(?!<[hupbl])(.+)$/gm, '<p>$1</p>')
-    .replace(/<p><\/p>/g, '')
-    .replace(/<\/ul><ul>/g, '');
+    .replace(/`(.*?)`/g, '<code>$1</code>')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 }
 
 function generateSlug(title) {

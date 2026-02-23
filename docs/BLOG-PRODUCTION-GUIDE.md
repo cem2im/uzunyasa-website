@@ -259,14 +259,33 @@ GÖRSEL KATEGORİ: [beslenme/egzersiz/tedavi/bilim/yasam-tarzi]
 
 | Kural | Açıklama |
 |-------|----------|
-| **Dil** | Türkçe, halkın anlayacağı |
-| **Uzunluk** | 1200-1800 kelime |
+| **Dil** | Türkçe, halkın anlayacağı ama akademik doğruluktan ödün vermeyen |
+| **Uzunluk** | 1500-2500 kelime |
 | **Yapı** | H1 başlık + H2 alt başlıklar + H3 detaylar |
-| **Kaynaklar** | Her iddia için kaynak göster |
-| **Ton** | Sıcak ama güvenilir — "doktor arkadaşınız anlatıyor" |
+| **Kaynaklar** | En az 5 farklı kaynak; tercihen 8-12. Tek kaynağa dayanan blog **YASAK** |
+| **Kaynak formatı** | "Yazarlar et al. Başlık. Dergi. Yıl;cilt:sayfa." + DOI/PubMed linki |
+| **Kanıt düzeyi** | Her iddiada 🟢/🟡/🔴 etiketi + çalışma tipi + örneklem (örn: "RCT, n=1.961") |
+| **Ton** | Akademik ama erişilebilir — "akıllı bir hastaya anlatan uzman doktor" |
 | **Tıbbi tavsiye** | VERME! "Doktorunuza danışın" de |
 | **Clickbait** | YOK! Sansasyonel başlık yok |
-| **Türkiye** | Mümkünse Türkiye verisi/bağlamı ekle |
+| **Hype dil** | YASAK: "çığır açan", "devrim yaratan", "mucize", "şok eden" |
+| **Hayvan çalışması** | Mutlaka "insana doğrudan genellenemez" uyarısı ekle |
+| **Preprint** | "⚠️ Preprint — henüz hakemli değerlendirmeden geçmemiştir" uyarısı ekle |
+| **Fabrike veri** | Kaynak gösterilmeyen istatistik/yüzde YAZMA |
+| **Landmark çalışmalar** | Konuyla ilgili büyük çalışmaları atlamak YASAK (SELECT, STEP, CREDENCE vb.) |
+| **Türkiye verileri** | Obezite: ~%32 (OECD 2024). Tutarlı kullan — bloglar arası farklı rakam YASAK |
+
+### Akademik Kalite Kontrol Listesi (Yayın Öncesi)
+
+Yayınlamadan önce şunları kontrol et:
+- [ ] En az 5 farklı kaynak var mı?
+- [ ] Her iddiada kanıt seviyesi etiketi (🟢/🟡/🔴) var mı?
+- [ ] Hype ifadeler temizlendi mi?
+- [ ] Hayvan çalışmaları uyarılı mı?
+- [ ] Preprint'ler etiketli mi?
+- [ ] Kaynaksız istatistik var mı?
+- [ ] HTML'de bozuk nesting (<p><h2>, <p><ul>) var mı?
+- [ ] Türkiye obezite oranı tutarlı mı (~%32)?
 
 ### Yazı Yapısı Şablonu
 
