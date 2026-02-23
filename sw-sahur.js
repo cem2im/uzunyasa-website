@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sahur-iftar-v1';
+const CACHE_NAME = 'sahur-iftar-v2';
 
 const PRECACHE_URLS = [
   '/pages/araclar/sahur-iftar-planlayici.html',
