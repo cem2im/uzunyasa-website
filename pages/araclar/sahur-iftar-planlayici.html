@@ -344,6 +344,8 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
   .meal-card-body{max-height:none!important;overflow:visible!important}
   .summary-banner{background:var(--primary)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .macro-bar-fill,.bar-fill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .countdown-bar,.water-tracker,.food-modal-overlay{display:none!important}
+  .donut-wrap{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
 /* Responsive */
@@ -362,6 +364,11 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
   .meal-card-content{padding:0 1rem 1rem}
   .meal-card-header{padding:1rem}
   .action-bar{flex-direction:column;align-items:center}
+  .donut-container{width:120px;height:120px}
+  .donut-cal{font-size:1.3rem}
+  .countdown-bar .cb-timer{font-size:1.2rem}
+  .water-glass{width:32px;height:38px}
+  .fm-macro-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:380px){
   .goal-grid{grid-template-columns:1fr}
@@ -390,6 +397,93 @@ select.form-input{cursor:pointer;appearance:none;background-image:url("data:imag
 .meal-remaining.over{color:#dc2626}
 .meal-remaining.good{color:#16a34a}
 
+/* ══ LIVE COUNTDOWN ══ */
+.countdown-bar{display:flex;align-items:center;gap:.6rem;margin-top:.6rem;padding:.6rem .8rem;background:rgba(0,0,0,.2);border-radius:10px;backdrop-filter:blur(4px)}
+.countdown-bar .cb-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;opacity:.8;white-space:nowrap}
+.countdown-bar .cb-timer{font-size:1.4rem;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:1px;flex:1;text-align:center;font-family:'Inter',monospace}
+.countdown-bar .cb-event{font-size:.65rem;text-transform:uppercase;opacity:.7;text-align:right;white-space:nowrap}
+.countdown-bar.urgent{background:rgba(232,150,62,.25);animation:countdownPulse 2s ease-in-out infinite}
+@keyframes countdownPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,150,62,0)}50%{box-shadow:0 0 20px 4px rgba(232,150,62,.3)}}
+.countdown-bar.fasting .cb-timer{color:#7dd3fc}
+.countdown-bar.toiftar .cb-timer{color:var(--accent)}
+
+/* ══ WATER TRACKER ══ */
+.water-tracker{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.15)}
+.water-tracker h4{font-size:.8rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.water-glasses{display:flex;gap:.35rem;flex-wrap:wrap;justify-content:center;margin-bottom:.5rem}
+.water-glass{width:36px;height:42px;border-radius:0 0 8px 8px;border:2px solid rgba(59,130,246,.4);cursor:pointer;position:relative;overflow:hidden;transition:all .2s;background:rgba(59,130,246,.05)}
+.water-glass::after{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:linear-gradient(to top,#3b82f6,#60a5fa);border-radius:0 0 6px 6px;transition:height .4s cubic-bezier(.2,.8,.3,1)}
+.water-glass.filled::after{height:100%}
+.water-glass.filled{border-color:#3b82f6;box-shadow:0 0 8px rgba(59,130,246,.3)}
+.water-glass:hover{transform:scale(1.1);border-color:#60a5fa}
+.water-glass .wg-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:.6rem;font-weight:800;z-index:1;opacity:.5;transition:opacity .2s}
+.water-glass.filled .wg-num{opacity:.9;color:#fff}
+.water-progress{height:6px;background:rgba(59,130,246,.15);border-radius:99px;overflow:hidden;margin-top:.4rem}
+.water-progress-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#60a5fa);border-radius:99px;transition:width .4s ease}
+.water-progress-text{font-size:.7rem;text-align:center;margin-top:.25rem;opacity:.8;font-weight:600}
+
+/* ══ CALORIE DONUT ══ */
+.donut-wrap{display:flex;justify-content:center;margin-bottom:1rem}
+.donut-container{position:relative;width:140px;height:140px}
+.donut-svg{width:100%;height:100%;transform:rotate(-90deg)}
+.donut-track{fill:none;stroke:rgba(255,255,255,.1);stroke-width:10}
+.donut-fill{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.3,1),stroke .3s}
+.donut-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.donut-cal{font-size:1.6rem;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.donut-label{font-size:.6rem;text-transform:uppercase;opacity:.6;margin-top:.1rem;letter-spacing:.5px}
+.donut-target{font-size:.65rem;opacity:.5;margin-top:.15rem}
+
+/* ══ FOOD DETAIL MODAL ══ */
+.food-modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:1000;display:none;align-items:center;justify-content:center;padding:1rem;animation:fadeIn .2s ease}
+.food-modal-overlay.show{display:flex}
+.food-modal{background:var(--card);border-radius:var(--radius);max-width:420px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:modalSlideUp .3s cubic-bezier(.2,.8,.3,1)}
+@keyframes modalSlideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.food-modal-header{display:flex;align-items:center;gap:.75rem;padding:1.25rem 1.5rem;border-bottom:1px solid var(--gray-100)}
+.food-modal-header .fm-icon{font-size:2.5rem}
+.food-modal-header .fm-info{flex:1}
+.food-modal-header .fm-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--dark)}
+body.dark .food-modal-header .fm-name{color:var(--gray-700)}
+.food-modal-header .fm-cat{font-size:.7rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.3px;margin-top:.15rem}
+.food-modal-header .fm-portion{font-size:.8rem;color:var(--primary);font-weight:600;margin-top:.25rem}
+.food-modal-close{background:none;border:none;font-size:1.5rem;cursor:pointer;padding:.25rem;color:var(--gray-400);transition:color .2s;line-height:1}
+.food-modal-close:hover{color:var(--gray-700)}
+.food-modal-body{padding:1.25rem 1.5rem}
+.fm-macro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:1.25rem}
+.fm-macro-item{text-align:center;padding:.6rem .25rem;background:var(--gray-50);border-radius:10px}
+.fm-macro-value{font-size:1.1rem;font-weight:800}
+.fm-macro-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.3px;color:var(--gray-400);margin-top:.1rem}
+.fm-per100{padding:.75rem;background:var(--gray-50);border-radius:10px;margin-bottom:1rem}
+.fm-per100 h5{font-size:.7rem;text-transform:uppercase;color:var(--gray-400);margin-bottom:.5rem;letter-spacing:.3px}
+.fm-per100-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;font-size:.75rem;text-align:center}
+.fm-per100-grid .val{font-weight:700;color:var(--gray-700)}
+.fm-per100-grid .lbl{font-size:.6rem;color:var(--gray-400)}
+.fm-meals{margin-bottom:1rem}
+.fm-meals h5{font-size:.7rem;text-transform:uppercase;color:var(--gray-400);margin-bottom:.4rem;letter-spacing:.3px}
+.fm-meal-tags{display:flex;gap:.35rem;flex-wrap:wrap}
+.fm-meal-tag{padding:.25rem .6rem;border-radius:99px;font-size:.7rem;font-weight:600}
+.fm-meal-tag.sahur{background:rgba(13,115,119,.1);color:var(--primary)}
+.fm-meal-tag.iftar{background:rgba(232,150,62,.1);color:var(--accent)}
+.fm-meal-tag.ara{background:rgba(107,114,128,.1);color:var(--gray-500)}
+.fm-tip{padding:.75rem;background:linear-gradient(135deg,rgba(13,115,119,.06),rgba(232,150,62,.04));border-radius:10px;font-size:.8rem;color:var(--gray-600);line-height:1.5;display:flex;align-items:flex-start;gap:.5rem}
+.fm-tip .tip-icon{font-size:1.1rem;flex-shrink:0}
+
+/* ══ FOOD ITEM CLICK HINT ══ */
+.food-item{cursor:pointer;transition:transform .15s,box-shadow .15s}
+.food-item:hover{transform:translateX(4px);box-shadow:-2px 0 0 0 var(--primary)}
+.food-item:active{transform:scale(.98)}
+
+/* ══ MICRO ANIMATIONS ══ */
+.food-item.adding{animation:foodAdd .4s cubic-bezier(.2,.8,.3,1)}
+@keyframes foodAdd{from{opacity:0;transform:translateY(-10px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.food-item.removing{animation:foodRemove .3s ease forwards}
+@keyframes foodRemove{to{opacity:0;transform:translateX(30px) scale(.95);height:0;padding:0;margin:0;overflow:hidden}}
+.plan-generating .meal-card{animation:cardPulse 1.5s ease infinite}
+@keyframes cardPulse{0%,100%{opacity:1}50%{opacity:.6}}
+.card.reveal{animation:cardReveal .5s cubic-bezier(.2,.8,.3,1) both}
+@keyframes cardReveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.summary-banner.reveal .stat-value{animation:countUp .6s cubic-bezier(.2,.8,.3,1)}
+@keyframes countUp{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+
 /* ══ DARK MODE ══ */
 body.dark{--bg:#0f1419;--card:#1a2332;--gray-50:#1e2a3a;--gray-100:#243044;--gray-200:#2d3a4d;--gray-300:#3d4d63;--gray-400:#7a8ba0;--gray-500:#9aa8b8;--gray-600:#b8c4d0;--gray-700:#e2e8f0;--gray-900:#f8fafc;--shadow:0 4px 24px rgba(0,0,0,.3)}
 body.dark .site-header{background:var(--card);border-color:var(--gray-200)}
@@ -416,6 +510,15 @@ body.dark .warning-list li{color:#f87171}
 body.dark .shopping-item:hover{background:var(--gray-50)}
 body.dark .shopping-summary{background:var(--gray-50)}
 body.dark .portion-btn{background:var(--card);border-color:var(--gray-200);color:var(--gray-500)}
+body.dark .food-modal{background:var(--card)}
+body.dark .food-modal-header{border-color:var(--gray-200)}
+body.dark .fm-macro-item{background:var(--gray-50)}
+body.dark .fm-per100{background:var(--gray-50)}
+body.dark .water-glass{border-color:rgba(59,130,246,.3);background:rgba(59,130,246,.05)}
+body.dark .food-modal-overlay{background:rgba(0,0,0,.7)}
+body.dark .donut-track{stroke:rgba(255,255,255,.08)}
+body.dark .donut-cal{color:var(--gray-700)}
+body.dark .countdown-bar{background:rgba(0,0,0,.3)}
 .dark-toggle{background:none;border:2px solid var(--gray-200);border-radius:99px;padding:.4rem .75rem;cursor:pointer;font-size:.85rem;transition:all .2s;font-family:inherit;color:var(--gray-500);display:flex;align-items:center;gap:.3rem}
 .dark-toggle:hover{border-color:var(--primary);color:var(--primary)}
 body.dark .dark-toggle{border-color:var(--gray-300);color:var(--gray-400)}
@@ -523,6 +626,11 @@ body.dark .glp1-info{color:var(--gray-500)}
    <div class="rb-time-value" id="iftarTime">--:--</div>
    <div class="rb-time-label">🌅 İftar</div>
   </div>
+ </div>
+ <div class="countdown-bar" id="countdownBar" style="display:none">
+  <span class="cb-label" id="cbLabel">İftar'a</span>
+  <span class="cb-timer" id="cbTimer">00:00:00</span>
+  <span class="cb-event" id="cbEvent">kalan süre</span>
  </div>
 </div>
 
@@ -762,6 +870,19 @@ body.dark .glp1-info{color:var(--gray-500)}
  <!-- Summary -->
  <div class="summary-banner slide-up" id="summaryBanner">
   <h3>☪️ Ramazan Günlük Beslenme Özeti</h3>
+  <div class="donut-wrap">
+   <div class="donut-container">
+    <svg class="donut-svg" viewBox="0 0 100 100">
+     <circle class="donut-track" cx="50" cy="50" r="42"/>
+     <circle class="donut-fill" id="donutFill" cx="50" cy="50" r="42" stroke="#2D9F4F" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+    </svg>
+    <div class="donut-center">
+     <div class="donut-cal" id="donutCal">0</div>
+     <div class="donut-label">kcal</div>
+     <div class="donut-target" id="donutTarget"></div>
+    </div>
+   </div>
+  </div>
   <div class="summary-stats">
    <div class="stat-item">
     <div class="stat-value" id="totalCal">0</div>
@@ -1005,20 +1126,26 @@ body.dark .glp1-info{color:var(--gray-500)}
   </div>
  </div>
 
- <!-- Hydration -->
+ <!-- Hydration + Interactive Water Tracker -->
  <div class="hydration-card slide-up" id="hydrationCard">
   <h3>💧 Su ve Sıvı Tüketimi</h3>
   <div class="hydration-grid">
    <div class="hydration-item">
     <div class="h-value" id="waterTotal">0</div>
-    <div class="h-label">Litre / gün</div>
+    <div class="h-label">Litre / gün hedef</div>
    </div>
    <div class="hydration-item">
     <div class="h-value" id="waterGlasses">0</div>
     <div class="h-label">Bardak (200ml)</div>
    </div>
   </div>
-  <div class="hydration-schedule">
+  <div class="water-tracker" id="waterTracker">
+   <h4>🥛 Bardak Takibi <span style="font-weight:400;opacity:.7">(tıkla = içildi)</span></h4>
+   <div class="water-glasses" id="waterGlassesGrid"></div>
+   <div class="water-progress"><div class="water-progress-fill" id="waterProgressFill" style="width:0%"></div></div>
+   <div class="water-progress-text" id="waterProgressText">0 / 0 bardak</div>
+  </div>
+  <div class="hydration-schedule" style="margin-top:.75rem">
    <div class="hydration-time"><span class="ht-icon">🌅</span> <strong>İftar:</strong>&nbsp; 2 bardak su ile oruç açın</div>
    <div class="hydration-time"><span class="ht-icon">🍽️</span> <strong>Yemek arası:</strong>&nbsp; Her saat 1 bardak su için</div>
    <div class="hydration-time"><span class="ht-icon">🫖</span> <strong>Gece:</strong>&nbsp; Bitki çayı veya ılık su tercih edin</div>
@@ -1111,6 +1238,27 @@ body.dark .glp1-info{color:var(--gray-500)}
  <p style="margin-top:.25rem;font-size:.7rem;opacity:.7">Bu araç bilgilendirme amaçlıdır. Sağlık durumunuzla ilgili kararları mutlaka doktorunuzla paylaşın.</p>
  <p style="margin-top:.5rem"><a href="/pages/gizlilik-politikasi.html">Gizlilik</a> · <a href="/pages/kullanim-sartlari.html">Kullanım Şartları</a> · <a href="/pages/hakkimizda.html">Hakkımızda</a></p>
 </footer>
+
+<!-- Food Detail Modal -->
+<div class="food-modal-overlay" id="foodModalOverlay" onclick="closeFoodModal(event)">
+ <div class="food-modal" onclick="event.stopPropagation()">
+  <div class="food-modal-header">
+   <div class="fm-icon" id="fmIcon">🍽️</div>
+   <div class="fm-info">
+    <div class="fm-name" id="fmName">—</div>
+    <div class="fm-cat" id="fmCat">—</div>
+    <div class="fm-portion" id="fmPortion">—</div>
+   </div>
+   <button class="food-modal-close" onclick="closeFoodModal()">&times;</button>
+  </div>
+  <div class="food-modal-body">
+   <div class="fm-macro-grid" id="fmMacroGrid"></div>
+   <div class="fm-per100" id="fmPer100"></div>
+   <div class="fm-meals" id="fmMeals"></div>
+   <div class="fm-tip" id="fmTip" style="display:none"><span class="tip-icon">💡</span><span id="fmTipText"></span></div>
+  </div>
+ </div>
+</div>
 
 <script>
 // ══════════════════════════════════════════════
@@ -1986,6 +2134,11 @@ function renderResults(plan) {
   // Hydration
   document.getElementById('waterTotal').textContent = waterLiters;
   document.getElementById('waterGlasses').textContent = waterGlasses;
+  initWaterTracker(waterGlasses);
+  
+  // Donut chart (initial)
+  const initCal = Math.round(sahur.totalCal + iftar.totalCal + snack.totalCal);
+  updateDonutChart(initCal, targetCal);
 
   // Warnings
   const warningCard = document.getElementById('warningCard');
@@ -2044,7 +2197,7 @@ function renderMeal(prefix, meal) {
     const pm = item.portionMult || 1;
     const portionLabel = pm === 0.5 ? '½' : pm === 1 ? '1' : pm === 1.5 ? '1½' : '2';
     listEl.innerHTML += `
-      <li class="food-item" id="${prefix}-food-${idx}">
+      <li class="food-item adding" id="${prefix}-food-${idx}" onclick="openFoodModal('${item.name.replace(/'/g,"\\'")}')">
         <div class="food-item-icon">${item.icon}</div>
         <div class="food-item-info">
           <div class="food-item-name">${item.name}</div>
@@ -2522,6 +2675,9 @@ function updateTotals() {
     document.getElementById('barCarb').style.width = cPct + '%';
     document.getElementById('barCarbVal').textContent = cPct + '%';
   }
+  
+  // Update donut chart
+  updateDonutChart(actualCal, currentPlan.targetCal || actualCal);
 }
 
 // ═══ PORTION ADJUSTMENT ═══
@@ -3326,30 +3482,227 @@ function updateRamadanBanner() {
     document.getElementById('imsakTime').textContent = times.imsak;
     document.getElementById('iftarTime').textContent = times.iftar;
     
-    // Countdown to next event
-    const nowH = turkeyNow.getHours() + turkeyNow.getMinutes() / 60;
-    const imsakEl = document.getElementById('imsakTime');
-    const iftarEl = document.getElementById('iftarTime');
-    
-    if (nowH < times.imsakH) {
-      const minsToImsak = Math.round((times.imsakH - nowH) * 60);
-      if (minsToImsak < 120) imsakEl.style.color = '#fbbf24';
-    }
-    if (nowH < times.iftarH && nowH > times.imsakH) {
-      const minsToIftar = Math.round((times.iftarH - nowH) * 60);
-      const h = Math.floor(minsToIftar / 60);
-      const m = minsToIftar % 60;
-      iftarEl.parentElement.insertAdjacentHTML('beforeend', 
-        `<div class="pd-countdown" id="iftarCountdown">${h > 0 ? h + 's ' : ''}${m}dk kaldı</div>`);
-    }
+    // Store times for live countdown
+    window._prayerTimes = times;
+    window._turkeyNow = turkeyNow;
   }
 }
 
 function onCityChange() {
   updateRamadanBanner();
+  updateLiveCountdown();
   // Save city preference
   localStorage.setItem('uzunyasa_city', document.getElementById('citySelect').value);
 }
+
+// ═══ LIVE COUNTDOWN TIMER ═══
+function updateLiveCountdown() {
+  const bar = document.getElementById('countdownBar');
+  const timerEl = document.getElementById('cbTimer');
+  const labelEl = document.getElementById('cbLabel');
+  const eventEl = document.getElementById('cbEvent');
+  if (!bar || !window._prayerTimes) return;
+  
+  const now = new Date();
+  const turkeyNow = new Date(now.getTime() + (3 - (-(now.getTimezoneOffset() / 60))) * 3600000);
+  const nowSec = turkeyNow.getHours() * 3600 + turkeyNow.getMinutes() * 60 + turkeyNow.getSeconds();
+  const times = window._prayerTimes;
+  const imsakSec = Math.round(times.imsakH * 3600);
+  const iftarSec = Math.round(times.iftarH * 3600);
+  
+  let remainSec = 0;
+  let label = '';
+  let event = '';
+  let cls = '';
+  
+  if (nowSec < imsakSec) {
+    // Before imsak → countdown to imsak (sahur ending)
+    remainSec = imsakSec - nowSec;
+    label = '🌙 İmsak\'a';
+    event = 'sahur bitiyor';
+    cls = 'fasting';
+  } else if (nowSec < iftarSec) {
+    // Between imsak and iftar → countdown to iftar
+    remainSec = iftarSec - nowSec;
+    label = '🌅 İftar\'a';
+    event = 'oruç açılıyor';
+    cls = 'toiftar';
+  } else {
+    // After iftar → countdown to next day's imsak
+    remainSec = (24 * 3600 - nowSec) + imsakSec;
+    label = '🌙 Sahur\'a';
+    event = 'yarınki imsak';
+    cls = 'fasting';
+  }
+  
+  if (remainSec <= 0) { bar.style.display = 'none'; return; }
+  
+  const h = Math.floor(remainSec / 3600);
+  const m = Math.floor((remainSec % 3600) / 60);
+  const s = remainSec % 60;
+  timerEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  labelEl.textContent = label;
+  eventEl.textContent = event;
+  
+  bar.style.display = 'flex';
+  bar.className = 'countdown-bar ' + cls;
+  // Urgent pulse when <30 min
+  if (remainSec < 1800) bar.classList.add('urgent');
+}
+
+// ═══ WATER TRACKER ═══
+let waterDrunk = 0;
+let waterTarget = 0;
+
+function initWaterTracker(glasses) {
+  waterTarget = glasses;
+  // Load today's water intake
+  const todayKey = new Date().toISOString().slice(0,10);
+  const saved = localStorage.getItem('uzunyasa_water_' + todayKey);
+  waterDrunk = saved ? parseInt(saved) : 0;
+  renderWaterGlasses();
+}
+
+function renderWaterGlasses() {
+  const grid = document.getElementById('waterGlassesGrid');
+  const fill = document.getElementById('waterProgressFill');
+  const text = document.getElementById('waterProgressText');
+  if (!grid) return;
+  
+  grid.innerHTML = '';
+  for (let i = 1; i <= waterTarget; i++) {
+    const glass = document.createElement('div');
+    glass.className = 'water-glass' + (i <= waterDrunk ? ' filled' : '');
+    glass.innerHTML = `<span class="wg-num">${i}</span>`;
+    glass.onclick = () => toggleWaterGlass(i);
+    grid.appendChild(glass);
+  }
+  
+  const pct = waterTarget > 0 ? Math.round((waterDrunk / waterTarget) * 100) : 0;
+  if (fill) fill.style.width = pct + '%';
+  if (text) {
+    const liters = (waterDrunk * 0.2).toFixed(1);
+    text.textContent = `${waterDrunk} / ${waterTarget} bardak (${liters}L)`;
+  }
+}
+
+function toggleWaterGlass(num) {
+  if (num <= waterDrunk) {
+    // Clicking a filled glass unfills from that point
+    waterDrunk = num - 1;
+  } else {
+    // Fill up to this glass
+    waterDrunk = num;
+  }
+  const todayKey = new Date().toISOString().slice(0,10);
+  localStorage.setItem('uzunyasa_water_' + todayKey, waterDrunk);
+  renderWaterGlasses();
+}
+
+// ═══ CALORIE DONUT CHART ═══
+function updateDonutChart(current, target) {
+  const fill = document.getElementById('donutFill');
+  const calEl = document.getElementById('donutCal');
+  const targetEl = document.getElementById('donutTarget');
+  if (!fill) return;
+  
+  const circumference = 2 * Math.PI * 42; // ~263.9
+  const pct = target > 0 ? Math.min(current / target, 1.2) : 0;
+  const offset = circumference * (1 - pct);
+  
+  fill.style.strokeDashoffset = Math.max(offset, 0);
+  
+  // Color: green (on track), orange (80-100%), red (over)
+  if (pct > 1) fill.setAttribute('stroke', '#dc2626');
+  else if (pct > 0.8) fill.setAttribute('stroke', '#E8963E');
+  else fill.setAttribute('stroke', '#2D9F4F');
+  
+  if (calEl) calEl.textContent = Math.round(current);
+  if (targetEl) targetEl.textContent = `/ ${Math.round(target)}`;
+}
+
+// ═══ FOOD DETAIL MODAL ═══
+function openFoodModal(foodName) {
+  const food = FOODS.find(f => f.name === foodName);
+  if (!food) return;
+  
+  document.getElementById('fmIcon').textContent = food.icon;
+  document.getElementById('fmName').textContent = food.name;
+  
+  const catNames = {protein:'Protein / Et & Yumurta',carb:'Karbonhidrat & Tahıl',veg:'Sebze',fruit:'Meyve',dairy:'Süt Ürünü',soup:'Çorba',salad:'Salata',dessert:'Tatlı',nut:'Kuruyemiş',drink:'İçecek'};
+  document.getElementById('fmCat').textContent = catNames[food.cat] || food.cat;
+  document.getElementById('fmPortion').textContent = `📏 ${food.portion} (${food.pg}g)`;
+  
+  // Macros per portion
+  const macroGrid = document.getElementById('fmMacroGrid');
+  const cal = Math.round(food.cal * food.pg / 100);
+  const p = (food.p * food.pg / 100).toFixed(1);
+  const c = (food.c * food.pg / 100).toFixed(1);
+  const f = (food.f * food.pg / 100).toFixed(1);
+  macroGrid.innerHTML = `
+    <div class="fm-macro-item"><div class="fm-macro-value" style="color:var(--accent)">${cal}</div><div class="fm-macro-label">kcal</div></div>
+    <div class="fm-macro-item"><div class="fm-macro-value" style="color:var(--protein)">${p}g</div><div class="fm-macro-label">Protein</div></div>
+    <div class="fm-macro-item"><div class="fm-macro-value" style="color:var(--carb)">${c}g</div><div class="fm-macro-label">Karb.</div></div>
+    <div class="fm-macro-item"><div class="fm-macro-value" style="color:var(--fat)">${f}g</div><div class="fm-macro-label">Yağ</div></div>
+  `;
+  
+  // Per 100g
+  const per100 = document.getElementById('fmPer100');
+  per100.innerHTML = `
+    <h5>100g başına</h5>
+    <div class="fm-per100-grid">
+      <div><div class="val">${food.cal}</div><div class="lbl">kcal</div></div>
+      <div><div class="val">${food.p}g</div><div class="lbl">Protein</div></div>
+      <div><div class="val">${food.c}g</div><div class="lbl">Karb.</div></div>
+      <div><div class="val">${food.f}g</div><div class="lbl">Yağ</div></div>
+    </div>
+  `;
+  
+  // Meal suitability
+  const mealsEl = document.getElementById('fmMeals');
+  const mealLabels = {s:{label:'Sahur',cls:'sahur'},i:{label:'İftar',cls:'iftar'},a:{label:'Ara Öğün',cls:'ara'}};
+  const tags = food.meal.map(m => {
+    const ml = mealLabels[m];
+    return ml ? `<span class="fm-meal-tag ${ml.cls}">${ml.label}</span>` : '';
+  }).join('');
+  mealsEl.innerHTML = `<h5>Uygun Öğünler</h5><div class="fm-meal-tags">${tags}</div>`;
+  
+  // Contextual tip
+  const tipEl = document.getElementById('fmTip');
+  const tipText = document.getElementById('fmTipText');
+  const tips = {
+    protein: 'Protein ağırlıklı besinler sahurda tok kalmaya, iftarda kas korunumuna yardımcı olur.',
+    carb: 'Kompleks karbonhidratlar (tam tahıl, bulgur) uzun süre enerji sağlar. Sahurda tercih edin.',
+    veg: 'Sebzeler lif ve mineral deposudur. Özellikle potasyum ve magnezyum açısından zengin olanları tercih edin.',
+    fruit: 'Meyveler doğal şeker ve vitamin kaynağıdır. İftarda enerji takviyesi, sahurda lif kaynağı olarak harikadır.',
+    dairy: 'Süt ürünleri kalsiyum ve kazein proteini içerir. Sahurda uzun süre tok tutar.',
+    soup: 'Çorbalar iftar açmak için ideal: hem sıvı takviyesi hem de mideyi yavaşça hazırlar.',
+    salad: 'Salatalar düşük kalorili ama yüksek lifli olup iftarda porsiyon kontrolüne yardımcı olur.',
+    dessert: 'Tatlıları iftardan 1-2 saat sonra küçük porsiyonlarda tüketin. Kan şekeri dengesini koruyun.',
+    nut: 'Kuruyemişler sağlıklı yağ ve protein kaynağıdır. 1 avuç (30g) ideal porsiyon.',
+    drink: 'Kafeinsiz içecekleri tercih edin. Kafein susuzluğu artırır. Bitki çayları harika bir alternatif.'
+  };
+  if (tips[food.cat]) {
+    tipText.textContent = tips[food.cat];
+    tipEl.style.display = 'flex';
+  } else {
+    tipEl.style.display = 'none';
+  }
+  
+  document.getElementById('foodModalOverlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFoodModal(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('foodModalOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeFoodModal();
+});
 
 // ═══ EXPERT PLANS ═══
 let selectedExpertPlan = null;
@@ -3777,8 +4130,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   updateRamadanBanner();
-  // Update countdown every minute
+  updateLiveCountdown();
+  // Update banner every minute, live countdown every second
   setInterval(updateRamadanBanner, 60000);
+  setInterval(updateLiveCountdown, 1000);
   
   loadPlanFromStorage();
   
