@@ -1,5 +1,25 @@
 [
   {
+    "slug": "glp1-ilaclari-kanser-riskini-artirir-mi-guncel-bilimsel-veri",
+    "title": "GLP-1 İlaçları Kanser Riskini Artırır mı? Güncel Bilimsel Veriler",
+    "description": "GLP-1 reseptör agonistlerinin kanser riskine etkisi hakkında 2025'in en güncel meta-analiz bulgularını inceleyen kapsamlı değerlendirme.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-23",
+    "readTime": 10,
+    "tags": [
+      "glp-1",
+      "kanser-riski",
+      "diyabet",
+      "obezite",
+      "semaglutid"
+    ],
+    "priority": "high",
+    "area": "glp1"
+  },
+  {
     "slug": "neden-uzunyasa",
     "title": "Neden UzunYaşa?",
     "description": "Bir gastroenterologun \"yeter artık\" dediği an. Türkiye'de güvenilir sağlık bilgisine erişim neden bu kadar zor — ve bunu değiştirmek için ne yapıyoruz.",
