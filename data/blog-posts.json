@@ -1,5 +1,25 @@
 [
   {
+    "slug": "jinekolojik-kanser-tedavisinde-ketojenik-diyet-komparc-calis",
+    "title": "Jinekolojik Kanser Tedavisinde Ketojenik Diyet: KOMPARC Çalışması",
+    "description": "Rahim ağzı ve endometrium kanseri radyoterapi tedavisinde ketojenik diyetin güvenliği ve etkileri araştırıldı. Bilimsel bulgular ve pratik öneriler.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-24",
+    "readTime": 8,
+    "tags": [
+      "ketojenik-diyet",
+      "jinekolojik-kanser",
+      "radyoterapi",
+      "kanser-beslenme",
+      "klinik-arastirma"
+    ],
+    "priority": "high",
+    "area": "nutrition"
+  },
+  {
     "slug": "glp1-ilaclari-kanser-riskini-artirir-mi-guncel-bilimsel-veri",
     "title": "GLP-1 İlaçları Kanser Riskini Artırır mı? Güncel Bilimsel Veriler",
     "description": "GLP-1 reseptör agonistlerinin kanser riskine etkisi hakkında 2025'in en güncel meta-analiz bulgularını inceleyen kapsamlı değerlendirme.",
