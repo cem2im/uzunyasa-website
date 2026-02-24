@@ -1,5 +1,28 @@
 [
   {
+    "slug": "sarkopeni-tedavi-patofizyoloji-ve-guncel-yaklasimlar",
+    "title": "Sarkopeni (Kas Kaybı): Patofizyoloji, Risk Faktörleri ve Güncel Tedavi Yaklaşımları",
+    "description": "Sarkopeni patofizyolojisi, EWGSOP2 tanı kriterleri, myostatin inhibitörleri, SARM'lar ve güncel tedavi stratejileri. Kapsamlı bilimsel derleme.",
+    "category": "bilim",
+    "categoryName": "Bilimsel Araştırmalar",
+    "categoryIcon": "🧬",
+    "categoryColor": "#8B5CF6",
+    "date": "2026-02-24",
+    "readTime": 14,
+    "tags": [
+      "sarkopeni",
+      "kas-kaybi",
+      "patofizyoloji",
+      "myostatin",
+      "EWGSOP2",
+      "direnc-egzersizi",
+      "kreatin",
+      "yasli-sagligi"
+    ],
+    "priority": "high",
+    "area": "custom"
+  },
+  {
     "slug": "jinekolojik-kanser-tedavisinde-ketojenik-diyet-komparc-calis",
     "title": "Jinekolojik Kanser Tedavisinde Ketojenik Diyet: KOMPARC Çalışması",
     "description": "Rahim ağzı ve endometrium kanseri radyoterapi tedavisinde ketojenik diyetin güvenliği ve etkileri araştırıldı. Bilimsel bulgular ve pratik öneriler.",
