@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a1628, #0f2a3d 60%, #122438);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-glow {
+  position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232,150,62,0.1) 0%, transparent 70%);
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center; z-index: 1;
+}
+.tool-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 99px; padding: 16px 32px;
+  font-size: 22px; font-weight: 600; margin-bottom: 50px;
+}
+.tool-badge .badge-icon { font-size: 28px; }
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px; font-weight: 900; line-height: 1.2;
+  max-width: 850px; margin-bottom: 30px;
+}
+.title .accent { color: #E8963E; }
+.subtitle {
+  font-size: 28px; opacity: 0.85; max-width: 700px;
+  line-height: 1.5; margin-bottom: 50px;
+}
+.features {
+  display: flex; gap: 20px; margin-bottom: 50px; flex-wrap: wrap;
+  justify-content: center;
+}
+.feature {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.06); border-radius: 99px;
+  padding: 12px 24px; font-size: 20px; font-weight: 600;
+}
+.feature-icon { font-size: 22px; }
+.url-box {
+  background: rgba(255,255,255,0.1); border: 2px solid rgba(232,150,62,0.4);
+  border-radius: 16px; padding: 24px 48px;
+  font-size: 30px; font-weight: 800; color: #E8963E;
+  letter-spacing: 1px;
+}
+.arrow-down {
+  font-size: 40px; margin-top: 20px; opacity: 0.7;
+  animation: arrowPulse 1.5s infinite;
+}
+@keyframes arrowPulse { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:.7;transform:translateY(6px)} }
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="content">
+  <div class="tool-badge">
+    <span class="badge-icon">☪️</span>
+    <span>Ücretsiz Araç</span>
+  </div>
+  <div class="title">Kişiselleştirilmiş <span class="accent">Sahur & İftar</span> Planını Hemen Oluştur!</div>
+  <div class="subtitle">Boy, kilo ve sağlık durumuna göre otomatik beslenme planı</div>
+  <div class="features">
+    <div class="feature"><span class="feature-icon">🏙️</span> 30 Şehir İmsak/İftar</div>
+    <div class="feature"><span class="feature-icon">💊</span> GLP-1 Hasta Modu</div>
+    <div class="feature"><span class="feature-icon">📅</span> Haftalık Plan</div>
+    <div class="feature"><span class="feature-icon">🌙</span> Gece Modu</div>
+  </div>
+  <div class="url-box">uzunyasa.com/sahur-iftar</div>
+  <div class="arrow-down">⬇️ Linki bio'da bul</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: #0f1a2e; color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center;
+}
+.icon { font-size: 80px; margin-bottom: 40px; }
+.header {
+  font-size: 28px; font-weight: 700; color: #E8963E;
+  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 50px;
+}
+.stat-box {
+  background: rgba(220,38,38,0.1); border: 2px solid rgba(220,38,38,0.3);
+  border-radius: 24px; padding: 50px 60px; margin-bottom: 40px; max-width: 850px;
+}
+.stat-number {
+  font-size: 96px; font-weight: 900; color: #f87171;
+  line-height: 1; margin-bottom: 10px;
+}
+.stat-label {
+  font-size: 32px; font-weight: 600; opacity: 0.8; line-height: 1.4;
+}
+.explanation {
+  font-size: 28px; line-height: 1.6; opacity: 0.7; max-width: 800px;
+}
+.source {
+  margin-top: 30px; font-size: 20px; color: rgba(255,255,255,0.5);
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1);
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="content">
+  <div class="icon">⚠️</div>
+  <div class="header">Sorun</div>
+  <div class="stat-box">
+    <div class="stat-number">%65</div>
+    <div class="stat-label">Ramazan'da günlük protein hedefini tutturamıyor</div>
+  </div>
+  <div class="explanation">
+    Ortalama sahur: çay + ekmek + peynir = sadece ~15g protein.<br>
+    Hedef: <strong style="color:#E8963E">1.2–1.6 g/kg</strong> (ESPEN 2021)
+  </div>
+  <div class="source">Kaynak: Koufakis et al., Nutrients 2022</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

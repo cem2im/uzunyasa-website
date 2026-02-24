@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #0a1628, #1a1040);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  padding: 60px 70px 40px;
+}
+.header {
+  font-size: 28px; font-weight: 700; color: #E8963E;
+  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px;
+  text-align: center;
+}
+.meal {
+  background: rgba(255,255,255,0.04); border-radius: 20px;
+  padding: 28px 30px; margin-bottom: 18px;
+  border-left: 4px solid;
+}
+.meal.sahur { border-color: #7dd3fc; }
+.meal.iftar { border-color: #E8963E; }
+.meal.snack { border-color: #a78bfa; }
+.meal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 12px;
+}
+.meal-name { font-size: 24px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+.meal-protein {
+  background: rgba(232,150,62,0.15); border: 1px solid rgba(232,150,62,0.3);
+  border-radius: 99px; padding: 6px 16px; font-size: 20px; font-weight: 800;
+  color: #E8963E;
+}
+.meal-items { font-size: 24px; line-height: 1.8; opacity: 0.75; }
+.total-bar {
+  background: linear-gradient(135deg, rgba(13,115,119,0.2), rgba(232,150,62,0.2));
+  border: 2px solid rgba(232,150,62,0.3); border-radius: 20px;
+  padding: 30px; text-align: center; margin-top: auto;
+}
+.total-protein {
+  font-size: 64px; font-weight: 900; color: #E8963E; line-height: 1;
+}
+.total-label { font-size: 22px; opacity: 0.6; margin-top: 5px; }
+.total-target { font-size: 18px; opacity: 0.4; margin-top: 8px; }
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1);
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="content">
+  <div class="header">📋 Örnek Bir Gün (70 kg)</div>
+
+  <div class="meal sahur">
+    <div class="meal-header">
+      <div class="meal-name">🌙 Sahur</div>
+      <div class="meal-protein">30g protein</div>
+    </div>
+    <div class="meal-items">
+      🥚 2 yumurta (13g) · 🥛 Yoğurt 200g (10g) · 🧀 Lor peynir 50g (7g)
+    </div>
+  </div>
+
+  <div class="meal iftar">
+    <div class="meal-header">
+      <div class="meal-name">🌅 İftar</div>
+      <div class="meal-protein">42g protein</div>
+    </div>
+    <div class="meal-items">
+      🥣 Mercimek çorbası (8g) · 🍗 Izgara tavuk 150g (31g) · 🥗 Salata (3g)
+    </div>
+  </div>
+
+  <div class="meal snack">
+    <div class="meal-header">
+      <div class="meal-name">🫖 Gece Atıştırması</div>
+      <div class="meal-protein">15g protein</div>
+    </div>
+    <div class="meal-items">
+      🥜 Badem 30g (6g) · 🥛 Süt 250ml (9g)
+    </div>
+  </div>
+
+  <div class="total-bar">
+    <div class="total-protein">87g</div>
+    <div class="total-label">Toplam günlük protein</div>
+    <div class="total-target">Hedef: 84–112g (70kg × 1.2–1.6 g/kg)</div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

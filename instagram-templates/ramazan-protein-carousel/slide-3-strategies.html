@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #0a1628, #0f2030); color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  padding: 70px 70px 40px;
+}
+.header {
+  font-size: 28px; font-weight: 700; color: #E8963E;
+  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px;
+  text-align: center;
+}
+.strategies { display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: center; }
+.strategy {
+  display: flex; align-items: center; gap: 24px;
+  background: rgba(255,255,255,0.05); border-radius: 20px;
+  padding: 28px 32px; border-left: 4px solid #E8963E;
+}
+.strategy-num {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, #E8963E, #d4792e);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 900; flex-shrink: 0;
+}
+.strategy-text {
+  font-size: 28px; font-weight: 600; line-height: 1.4; flex: 1;
+}
+.strategy-detail {
+  font-size: 20px; font-weight: 400; opacity: 0.8; margin-top: 4px;
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1);
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="content">
+  <div class="header">🥚 5 Protein Stratejisi</div>
+  <div class="strategies">
+    <div class="strategy">
+      <div class="strategy-num">1</div>
+      <div>
+        <div class="strategy-text">Sahurda 2 yumurta + yoğurt</div>
+        <div class="strategy-detail">= 25g protein, kazein ile uzun tokluk</div>
+      </div>
+    </div>
+    <div class="strategy">
+      <div class="strategy-num">2</div>
+      <div>
+        <div class="strategy-text">İftarda ızgara protein önceliği</div>
+        <div class="strategy-detail">Tavuk/balık 150g = 30g protein</div>
+      </div>
+    </div>
+    <div class="strategy">
+      <div class="strategy-num">3</div>
+      <div>
+        <div class="strategy-text">Gece atıştırması: kuruyemiş + süt</div>
+        <div class="strategy-detail">1 avuç badem + 1 bardak süt = 15g</div>
+      </div>
+    </div>
+    <div class="strategy">
+      <div class="strategy-num">4</div>
+      <div>
+        <div class="strategy-text">Çorbaya mercimek/nohut ekle</div>
+        <div class="strategy-detail">Bitkisel protein + lif = çift kazanç</div>
+      </div>
+    </div>
+    <div class="strategy">
+      <div class="strategy-num">5</div>
+      <div>
+        <div class="strategy-text">Peyniri lor/tulum ile değiştir</div>
+        <div class="strategy-detail">Lor: 2× protein, ½ yağ (vs beyaz peynir)</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>
