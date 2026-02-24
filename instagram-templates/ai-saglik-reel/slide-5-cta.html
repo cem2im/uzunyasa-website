@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(160deg, #0a1628, #0c1a3d 50%, #0a1628);
+  color: #fff; display: flex; flex-direction: column; overflow: hidden; position: relative;
+}
+.glow-1 {
+  position: absolute; top: 20%; left: 30%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(13,115,119,0.1) 0%, transparent 70%);
+}
+.glow-2 {
+  position: absolute; bottom: 30%; right: 20%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(232,150,62,0.08) 0%, transparent 70%);
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center; z-index: 1;
+}
+.quote-mark { font-size: 100px; color: rgba(13,115,119,0.2); line-height: 1; margin-bottom: 10px; }
+.quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px; font-weight: 700; line-height: 1.4;
+  max-width: 850px; margin-bottom: 20px; font-style: italic;
+}
+.quote .accent { color: #14919B; font-style: normal; }
+.attribution {
+  font-size: 22px; opacity: 0.5; margin-bottom: 60px;
+}
+.divider {
+  width: 80px; height: 3px; background: linear-gradient(90deg, #14919B, #E8963E);
+  border-radius: 99px; margin-bottom: 60px;
+}
+.cta-title {
+  font-size: 32px; font-weight: 800; margin-bottom: 20px;
+}
+.cta-subtitle {
+  font-size: 24px; opacity: 0.7; margin-bottom: 40px; max-width: 650px; line-height: 1.5;
+}
+.url-box {
+  background: rgba(13,115,119,0.1); border: 2px solid rgba(13,115,119,0.3);
+  border-radius: 16px; padding: 24px 48px;
+  font-size: 32px; font-weight: 800; color: #14919B;
+  letter-spacing: 1px;
+}
+.follow {
+  margin-top: 30px; font-size: 20px; color: rgba(255,255,255,0.4);
+  display: flex; align-items: center; gap: 8px;
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="glow-1"></div>
+<div class="glow-2"></div>
+<div class="content">
+  <div class="quote-mark">"</div>
+  <div class="quote">Geleceğin doktoru <span class="accent">ilaç yazmayacak</span>, hastalığı <span class="accent">oluşmadan önleyecek.</span></div>
+  <div class="attribution">— AI destekli önleyici tıbbın vaadi</div>
+  <div class="divider"></div>
+  <div class="cta-title">Sağlığın geleceğini takip et</div>
+  <div class="cta-subtitle">Yapay zeka, longevity bilimi ve kanıta dayalı sağlık içerikleri</div>
+  <div class="url-box">uzunyasa.com</div>
+  <div class="follow">📲 @uzunyasaorg</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

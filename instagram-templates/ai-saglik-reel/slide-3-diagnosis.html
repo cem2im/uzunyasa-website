@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #0a1628, #0f1a2e); color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 70px;
+}
+.num { font-size: 28px; font-weight: 800; color: #14919B; letter-spacing: 3px; margin-bottom: 20px; }
+.icon { font-size: 80px; margin-bottom: 30px; }
+.header { font-size: 36px; font-weight: 800; color: #E8963E; margin-bottom: 40px; text-align: center; }
+.stats { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 850px; margin-bottom: 40px; }
+.stat-row {
+  display: flex; align-items: center; gap: 20px;
+  background: rgba(255,255,255,0.04); border-radius: 16px;
+  padding: 24px 28px; border-left: 4px solid #14919B;
+}
+.stat-icon { font-size: 40px; flex-shrink: 0; }
+.stat-text { font-size: 26px; font-weight: 600; line-height: 1.4; flex: 1; }
+.stat-text strong { color: #14919B; }
+.stat-text .orange { color: #E8963E; }
+.big-stat {
+  background: linear-gradient(135deg, rgba(13,115,119,0.12), rgba(232,150,62,0.08));
+  border: 2px solid rgba(13,115,119,0.25); border-radius: 20px;
+  padding: 30px; text-align: center; margin-bottom: 30px;
+}
+.big-stat-num { font-size: 80px; font-weight: 900; color: #14919B; line-height: 1; }
+.big-stat-label { font-size: 24px; opacity: 0.7; margin-top: 8px; }
+.source { font-size: 18px; color: rgba(255,255,255,0.35); text-align: center; }
+.evidence { display: inline-block; font-size: 16px; padding: 4px 12px; border-radius: 99px; background: rgba(45,159,79,0.15); color: #6ee7b7; font-weight: 700; margin-top: 10px; text-align: center; }
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06);
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="content">
+  <div class="num">02</div>
+  <div class="icon">🔬</div>
+  <div class="header">Erken Tanı: AI Hastalığı Senden Önce Görüyor</div>
+  <div class="big-stat">
+    <div class="big-stat-num">1000+</div>
+    <div class="big-stat-label">FDA onaylı AI tıbbi cihaz (2026)</div>
+  </div>
+  <div class="stats">
+    <div class="stat-row">
+      <div class="stat-icon">🫁</div>
+      <div class="stat-text">Akciğer kanseri: AI taraması ile <strong>erken tanı %20 arttı</strong></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-icon">👁️</div>
+      <div class="stat-text">Diyabetik retinopati: AI <strong>%94 doğrulukla</strong> tanı koyuyor</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-icon">❤️</div>
+      <div class="stat-text">Kardiyak arrest: AI <span class="orange">6 saat önceden</span> tahmin edebiliyor</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-icon">🧬</div>
+      <div class="stat-text">AlphaFold: <strong>200M+ protein</strong> yapısını çözdü → ilaç hedefleri</div>
+    </div>
+  </div>
+  <div class="source">Kaynak: FDA AI/ML Device List 2026, Nature Medicine</div>
+  <div class="evidence">🟢 Güçlü kanıt — FDA onaylı cihazlar</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

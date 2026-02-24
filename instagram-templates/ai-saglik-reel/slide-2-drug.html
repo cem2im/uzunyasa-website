@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: #0a1628; color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center;
+}
+.num { font-size: 28px; font-weight: 800; color: #14919B; letter-spacing: 3px; margin-bottom: 20px; }
+.icon { font-size: 80px; margin-bottom: 30px; }
+.header { font-size: 36px; font-weight: 800; color: #E8963E; margin-bottom: 50px; }
+.comparison {
+  display: flex; align-items: center; gap: 40px;
+  margin-bottom: 50px; width: 100%; justify-content: center;
+}
+.comp-box {
+  background: rgba(255,255,255,0.04); border-radius: 24px;
+  padding: 40px; text-align: center; flex: 1; max-width: 350px;
+  border: 2px solid rgba(255,255,255,0.06);
+}
+.comp-box.old { border-color: rgba(220,38,38,0.2); }
+.comp-box.new { border-color: rgba(13,115,119,0.3); }
+.comp-label { font-size: 18px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 12px; }
+.comp-value { font-size: 72px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
+.comp-box.old .comp-value { color: #f87171; }
+.comp-box.new .comp-value { color: #14919B; }
+.comp-unit { font-size: 20px; opacity: 0.6; }
+.vs { font-size: 36px; font-weight: 900; opacity: 0.3; }
+.detail {
+  font-size: 26px; line-height: 1.7; opacity: 0.75; max-width: 800px;
+}
+.detail strong { color: #14919B; opacity: 1; }
+.source { font-size: 18px; color: rgba(255,255,255,0.35); margin-top: 30px; }
+.evidence { display: inline-block; font-size: 16px; padding: 4px 12px; border-radius: 99px; background: rgba(232,150,62,0.15); color: #E8963E; font-weight: 700; margin-top: 10px; }
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06);
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="content">
+  <div class="num">01</div>
+  <div class="icon">💊</div>
+  <div class="header">İlaç Keşfi: 5 Yıl → 18 Ay</div>
+  <div class="comparison">
+    <div class="comp-box old">
+      <div class="comp-label">Geleneksel</div>
+      <div class="comp-value">5</div>
+      <div class="comp-unit">yıl + $2.6 milyar</div>
+    </div>
+    <div class="vs">→</div>
+    <div class="comp-box new">
+      <div class="comp-label">AI ile</div>
+      <div class="comp-value">18</div>
+      <div class="comp-unit">ay + %50 daha ucuz</div>
+    </div>
+  </div>
+  <div class="detail">
+    Insilico Medicine: AI ile keşfedilen <strong>INS018_055</strong> (IPF ilacı) — hedef belirleme'den kliniğe <strong>18 ayda</strong> ulaştı.<br><br>
+    Sanofi CEO: "AI, Ar-Ge maliyetlerini <strong>%50 azaltacak</strong>"
+  </div>
+  <div class="source">Kaynak: Insilico Medicine 2024, Fortune/Sanofi 2026</div>
+  <div class="evidence">🟡 Faz 2 klinik çalışma aşamasında</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

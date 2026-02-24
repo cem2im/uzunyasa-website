@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: #0a1628; color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  padding: 70px 70px 40px; justify-content: center;
+}
+.num { font-size: 28px; font-weight: 800; color: #14919B; letter-spacing: 3px; margin-bottom: 20px; text-align: center; }
+.icon { font-size: 70px; margin-bottom: 20px; text-align: center; }
+.header { font-size: 34px; font-weight: 800; color: #E8963E; margin-bottom: 40px; text-align: center; }
+.timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 60px; }
+.timeline::before {
+  content: ''; position: absolute; left: 24px; top: 20px; bottom: 20px;
+  width: 3px; background: linear-gradient(180deg, #14919B, #E8963E, #a78bfa);
+  border-radius: 99px;
+}
+.tl-item { position: relative; padding: 20px 0 20px 30px; }
+.tl-dot {
+  position: absolute; left: -48px; top: 24px;
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 3px solid; background: #0a1628;
+}
+.tl-item:nth-child(1) .tl-dot { border-color: #14919B; }
+.tl-item:nth-child(2) .tl-dot { border-color: #14919B; }
+.tl-item:nth-child(3) .tl-dot { border-color: #E8963E; }
+.tl-item:nth-child(4) .tl-dot { border-color: #E8963E; }
+.tl-item:nth-child(5) .tl-dot { border-color: #a78bfa; }
+.tl-year {
+  font-size: 20px; font-weight: 900; text-transform: uppercase;
+  letter-spacing: 2px; margin-bottom: 6px;
+}
+.tl-item:nth-child(1) .tl-year, .tl-item:nth-child(2) .tl-year { color: #14919B; }
+.tl-item:nth-child(3) .tl-year, .tl-item:nth-child(4) .tl-year { color: #E8963E; }
+.tl-item:nth-child(5) .tl-year { color: #a78bfa; }
+.tl-text { font-size: 24px; font-weight: 600; line-height: 1.4; opacity: 0.85; }
+.tl-text strong { color: #fff; opacity: 1; }
+.tl-evidence { font-size: 14px; opacity: 0.4; margin-top: 4px; }
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06);
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="content">
+  <div class="num">03</div>
+  <div class="icon">🚀</div>
+  <div class="header">Gelecek Takvimi: Neler Olacak?</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2026</div>
+      <div class="tl-text">İlk <strong>AI-keşfedilen ilaç</strong> FDA onayına yaklaşıyor</div>
+      <div class="tl-evidence">🟡 Faz 2/3 klinik çalışma</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2027</div>
+      <div class="tl-text">Giyilebilir cihazlar + AI ile <strong>gerçek zamanlı sağlık takibi</strong> yaygınlaşıyor</div>
+      <div class="tl-evidence">🟢 Apple Watch, Oura Ring zaten başladı</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2028</div>
+      <div class="tl-text"><strong>Dijital ikiz</strong> — vücudunuzun sanal kopyasında ilaç testi</div>
+      <div class="tl-evidence">🟡 Akademik araştırma aşamasında</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2030</div>
+      <div class="tl-text"><strong>Kişiselleştirilmiş kanser aşısı</strong> — mRNA + AI ile her hastaya özel</div>
+      <div class="tl-evidence">🟡 BioNTech/Moderna Faz 2</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2035</div>
+      <div class="tl-text"><strong>Yaşlanma hızını %30 yavaşlatacak</strong> ilaç kombinasyonları?</div>
+      <div class="tl-evidence">🔴 Erken araştırma — rapamisin, senolitikler</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>
