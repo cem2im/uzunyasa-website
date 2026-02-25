@@ -1,5 +1,35 @@
 [
   {
+    "slug": "supplement-kanit-rehberi-araç",
+    "title": "Supplement & Gıda Kanıt Rehberi — Paranızı Çöpe mi Atıyorsunuz? 💸",
+    "description": "60+ supplement ve gıdayı bilimsel kanıtla puanladık. Tier S'ten F'e — gerçekten işe yarayan nedir? Her 3 kişiden 1'i gereksiz supplement kullanıyor!",
+    "category": "tools",
+    "categoryName": "Araçlar",
+    "categoryIcon": "🛠️",
+    "categoryColor": "#14919B",
+    "date": "2026-02-25",
+    "readTime": 8,
+    "url": "pages/araclar/supplement-kanit-rehberi.html",
+    "tags": [
+      "supplement",
+      "gıda-kanıtı",
+      "omega-3",
+      "d-vitamini",
+      "kreatin",
+      "zeytinyağı",
+      "kahve",
+      "bilimsel-kanıt",
+      "tier-puanlama",
+      "beslenme-rehberi",
+      "supplement-kanıt",
+      "interaktif-araç"
+    ],
+    "priority": "high",
+    "area": "nutrition",
+    "isInteractive": true,
+    "toolType": "guide"
+  },
+  {
     "slug": "score2-risk-hesaplayici-araç",
     "title": "SCORE2 Kardiyovasküler Risk Hesaplayıcı",
     "description": "ESC 2021 SCORE2 algoritmasıyla 10 yıllık kardiyovasküler olay riskinizi hesaplayın. Türkiye için özelleştirilmiş, bilimsel verilere dayalı ücretsiz risk değerlendirmesi.",
