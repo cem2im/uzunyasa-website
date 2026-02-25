@@ -1,5 +1,25 @@
 [
   {
+    "slug": "semaglutid-ve-pankreatit-riski-vaka-raporlari-isiginda-guven",
+    "title": "Semaglutid ve Pankreatit Riski: Vaka Raporları Işığında Güvenlik",
+    "description": "Semaglutid kullanımı sırasında akut pankreatit riski ve güvenlik önlemleri. Güncel vaka raporları ve araştırma bulgularıyla risk faktörleri.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-25",
+    "readTime": 12,
+    "tags": [
+      "semaglutid",
+      "pankreatit",
+      "glp-1",
+      "yan-etki",
+      "güvenlik"
+    ],
+    "priority": "high",
+    "area": "cancer_obesity"
+  },
+  {
     "slug": "sarkopeni-tedavi-patofizyoloji-ve-guncel-yaklasimlar",
     "title": "Sarkopeni (Kas Kaybı): Patofizyoloji, Risk Faktörleri ve Güncel Tedavi Yaklaşımları",
     "description": "Sarkopeni patofizyolojisi, EWGSOP2 tanı kriterleri, myostatin inhibitörleri, SARM'lar ve güncel tedavi stratejileri. Kapsamlı bilimsel derleme.",
