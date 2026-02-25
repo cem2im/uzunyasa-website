@@ -881,26 +881,48 @@ body{
 const supplementsData = [
   // Tier S
   {
-    id: "omega3",
-    name: "Omega-3 (EPA/DHA)",
-    icon: "🐟",
+    id: "epa-icosapent",
+    name: "Yüksek Doz EPA (İkosapent Etil)",
+    icon: "💊",
     tier: "S",
     stars: 5,
-    category: ["kalp", "beyin"],
-    description: "Kalp, beyin ve inflamasyon için güçlü kanıt",
+    category: ["kalp"],
+    description: "Yüksek trigliseridli hastalarda KV olay azaltmada güçlü kanıt",
     type: "supplement",
-    evidence: "REDUCE-IT ve VITAL gibi büyük RCT'ler",
+    evidence: "REDUCE-IT (2019): 8179 kişi, 5 yıl, KV olaylarda %25 azalma",
     claimVsFact: {
-      claim: "Balık yağı her şeye iyi",
-      fact: "Sadece kalp hastalığı ve inflamasyonda kesin kanıt var"
+      claim: "Omega-3 balık yağı kalbi korur",
+      fact: "REDUCE-IT sadece saf EPA (icosapent ethyl 4g/gün) kullandı — genel balık yağı değil. Reçeteli ilaçtır."
+    },
+    dosage: "4g/gün icosapent ethyl (reçeteli, statin üzerine eklenir)",
+    whoShould: "Statin kullanan, trigliserid ≥150 mg/dL olan KV riski yüksek hastalar",
+    whoShouldNot: "Balık/kabuklu deniz hayvanı alerjisi olanlar, ciddi karaciğer hastalığı",
+    sideEffects: "Periferik ödem, konstipasyon, atriyal fibrilasyon riski hafif artmış",
+    monthlyCost: "Reçeteli ilaç — SGK kapsamında olabilir",
+    uzunyasaVerdict: "Yüksek trigliseridli KV riski yüksek hastalarda kanıtlanmış. Ama bu genel balık yağı kapsülü DEĞİL, reçeteli ilaçtır.",
+    references: ["PMID: 30415628", "PMID: 31422671"]
+  },
+  {
+    id: "omega3-genel",
+    name: "Omega-3 Balık Yağı (EPA+DHA)",
+    icon: "🐟",
+    tier: "B",
+    stars: 3,
+    category: ["kalp", "beyin"],
+    description: "Trigliserid düşürür ama KV olay azaltma kanıtı karışık",
+    type: "supplement",
+    evidence: "VITAL (2018): Genel popülasyonda KV fayda yok. STRENGTH (2020): EPA+DHA kombinasyonu negatif sonuç.",
+    claimVsFact: {
+      claim: "Balık yağı kalp krizini önler",
+      fact: "VITAL ve STRENGTH çalışmaları genel popülasyonda ve yüksek riskli hastalarda KV olay azaltmada başarısız oldu. Alt gruplarda (az balık yiyenler) hafif fayda mümkün."
     },
     dosage: "1-2g/gün (EPA+DHA toplamı)",
-    whoShould: "Kalp hastalığı riski olanlar, az balık yiyenler",
+    whoShould: "Hiç balık yemeyenler, trigliseridi yüksek olanlar (TG düşürme için)",
     whoShouldNot: "Kan sulandırıcı kullananlar dikkatli olmalı",
-    sideEffects: "Nadir: mide bulantısı, balık tadı",
+    sideEffects: "Nadir: mide bulantısı, balık tadı, geğirme",
     monthlyCost: "100-200₺",
-    uzunyasaVerdict: "Kesin kanıt var. Balık yemiyorsanız alın.",
-    references: ["PMID: 30415628", "PMID: 30408430"]
+    uzunyasaVerdict: "Balık yemiyorsanız mantıklı olabilir ama 'kalp krizini önler' iddiası kanıtlanmamış. Trigliserid düşürür, KV koruma belirsiz.",
+    references: ["PMID: 30408430", "PMID: 32865369", "PMID: 33190507"]
   },
   {
     id: "vitamin-d",
@@ -1557,10 +1579,10 @@ function startQuiz() {
   // Create quiz questions from supplement data
   quizData = [
     {
-      question: "Omega-3 (balık yağı) hangi tier seviyesindedir?",
+      question: "Genel omega-3 balık yağı (EPA+DHA) hangi tier seviyesindedir?",
       options: ["Tier S - Güçlü kanıt", "Tier A - İyi kanıt", "Tier B - Orta kanıt", "Tier C - Zayıf kanıt"],
-      correct: 0,
-      explanation: "Omega-3, REDUCE-IT ve VITAL gibi büyük çalışmalarda kalp hastalığı riskini azalttığı kanıtlanmıştır."
+      correct: 2,
+      explanation: "Genel balık yağı Tier B'dir. VITAL ve STRENGTH çalışmaları KV olay azaltmada başarısız oldu. Yüksek doz saf EPA (icosapent ethyl) ise Tier S'tir — ama o reçeteli ilaç, market balık yağı değil."
     },
     {
       question: "Resveratrol (kırmızı şarap antioksidanı) neden Tier C?",
