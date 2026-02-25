@@ -1,5 +1,32 @@
 [
   {
+    "slug": "ramazanda-glp1-kullananlar-icin-oruc-rehberi",
+    "title": "Ramazanda GLP-1 Kullananlar İçin Oruç Rehberi",
+    "description": "GLP-1 ilaçlarıyla Ramazan orucunu güvenle tutmanın bilimsel rehberi. İlaç zamanlaması, hipoglisemi önlemi, protein hedefleri ve pratik öneriler. Semaglutid ve Tirzepatid kullanıcıları için kapsamlı kılavuz.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-25",
+    "readTime": 15,
+    "tags": [
+      "ramazan",
+      "glp-1",
+      "oruç",
+      "semaglutid",
+      "tirzepatid",
+      "diyabet",
+      "obezite",
+      "hipoglisemi",
+      "protein",
+      "dehidrasyon",
+      "ESPEN",
+      "güvenlik"
+    ],
+    "priority": "urgent",
+    "area": "glp1"
+  },
+  {
     "slug": "semaglutid-ve-pankreatit-riski-vaka-raporlari-isiginda-guven",
     "title": "Semaglutid ve Pankreatit Riski: Vaka Raporları Işığında Güvenlik",
     "description": "Semaglutid kullanımı sırasında akut pankreatit riski ve güvenlik önlemleri. Güncel vaka raporları ve araştırma bulgularıyla risk faktörleri.",

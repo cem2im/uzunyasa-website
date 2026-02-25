@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a1628, #0f2a3d 50%, #122438);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-pattern {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(circle at 30% 20%, rgba(20,145,155,0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 80%, rgba(232,150,62,0.08) 0%, transparent 50%);
+}
+.calendar-icon {
+  position: absolute; top: 80px; right: 100px;
+  font-size: 100px; opacity: 0.15; color: #14919B;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center; z-index: 1;
+}
+.feature-number {
+  font-size: 20px; font-weight: 700; color: #E8963E;
+  background: rgba(232,150,62,0.1); border-radius: 50px;
+  padding: 8px 24px; margin-bottom: 40px;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.title {
+  font-size: 72px; font-weight: 900; line-height: 1.1;
+  max-width: 850px; margin-bottom: 40px;
+  color: #fff;
+}
+.title .emoji {
+  color: #14919B;
+}
+.subtitle {
+  font-size: 36px; font-weight: 600; 
+  max-width: 700px; line-height: 1.3;
+  color: #14919B; margin-bottom: 60px;
+}
+.features-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 30px; max-width: 700px; width: 100%;
+}
+.feature-item {
+  background: rgba(20,145,155,0.1);
+  border: 2px solid rgba(20,145,155,0.2);
+  border-radius: 16px; padding: 30px;
+  text-align: center;
+}
+.feature-icon {
+  font-size: 40px; margin-bottom: 15px;
+  color: #E8963E;
+}
+.feature-title {
+  font-size: 20px; font-weight: 700;
+  color: #14919B; margin-bottom: 8px;
+}
+.feature-desc {
+  font-size: 18px; font-weight: 500;
+  color: rgba(255,255,255,0.8); line-height: 1.4;
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="calendar-icon">📅</div>
+<div class="content">
+  <div class="feature-number">Özellik #3</div>
+  <div class="title">7 Günlük Haftalık Plan <span class="emoji">📅</span></div>
+  <div class="subtitle">Kalori & makro takibi</div>
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feature-icon">🍽️</div>
+      <div class="feature-title">Günlük Menüler</div>
+      <div class="feature-desc">Sahur ve iftar için hazır menü önerileri</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">Besin Analizi</div>
+      <div class="feature-desc">Kalori, protein, karbonhidrat takibi</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">⚖️</div>
+      <div class="feature-title">Porsiyon Kontrolü</div>
+      <div class="feature-desc">Doğru miktarlarda beslenme</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-title">Hedef Odaklı</div>
+      <div class="feature-desc">Kişisel hedeflerini destekler</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a1628, #0f2a3d 50%, #122438);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-pattern {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(232,150,62,0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(20,145,155,0.1) 0%, transparent 50%);
+}
+.moon {
+  position: absolute; top: 60px; right: 80px;
+  font-size: 120px; opacity: 0.2; color: #E8963E;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center; z-index: 1;
+}
+.title {
+  font-size: 88px; font-weight: 900; line-height: 1.1;
+  max-width: 920px; margin-bottom: 50px;
+  background: linear-gradient(135deg, #fff 0%, #14919B 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.title .emoji {
+  color: #E8963E; -webkit-text-fill-color: #E8963E;
+}
+.subtitle {
+  font-size: 32px; font-weight: 600; 
+  max-width: 800px; line-height: 1.4;
+  color: #E8963E; margin-bottom: 30px;
+}
+.features {
+  font-size: 28px; font-weight: 500; opacity: 0.9;
+  max-width: 700px; line-height: 1.6;
+}
+.swipe {
+  position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);
+  font-size: 20px; color: rgba(255,255,255,0.6); letter-spacing: 2px;
+  text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+}
+.swipe-arrow { font-size: 26px; animation: bounce 1.5s infinite; }
+@keyframes bounce { 0%,100%{transform:translateX(0)} 50%{transform:translateX(8px)} }
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="moon">🌙</div>
+<div class="content">
+  <div class="title">Ramazanda Akıllı Sahur Planla <span class="emoji">🌙</span></div>
+  <div class="subtitle">197 yemek, 9 kategori, kişiye özel</div>
+  <div class="features">Sahur & iftar planlamanı kolaylaştıran akıllı araç</div>
+</div>
+<div class="swipe">Kaydır <span class="swipe-arrow">→</span></div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

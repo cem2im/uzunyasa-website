@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a1628, #0f2a3d 50%, #122438);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-pattern {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(circle at 50% 50%, rgba(232,150,62,0.15) 0%, transparent 60%),
+                    radial-gradient(circle at 20% 80%, rgba(20,145,155,0.12) 0%, transparent 50%);
+}
+.sparkles {
+  position: absolute; top: 100px; right: 120px;
+  font-size: 80px; opacity: 0.2; color: #E8963E;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center; z-index: 1;
+}
+.cta-badge {
+  font-size: 24px; font-weight: 700; color: #E8963E;
+  background: linear-gradient(135deg, rgba(232,150,62,0.2), rgba(232,150,62,0.1));
+  border: 2px solid #E8963E; border-radius: 50px;
+  padding: 12px 32px; margin-bottom: 50px;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.title {
+  font-size: 84px; font-weight: 900; line-height: 1.1;
+  max-width: 800px; margin-bottom: 50px;
+  background: linear-gradient(135deg, #E8963E 0%, #fff 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.title .emoji {
+  color: #E8963E; -webkit-text-fill-color: #E8963E;
+}
+.url {
+  font-size: 32px; font-weight: 700; 
+  color: #14919B; margin-bottom: 40px;
+  background: rgba(20,145,155,0.15);
+  border-radius: 16px; padding: 20px 40px;
+  border: 2px solid rgba(20,145,155,0.3);
+}
+.description {
+  font-size: 28px; font-weight: 500; 
+  max-width: 700px; line-height: 1.5;
+  color: rgba(255,255,255,0.9); margin-bottom: 60px;
+}
+.social {
+  font-size: 32px; font-weight: 600;
+  color: #E8963E; 
+  background: rgba(232,150,62,0.1);
+  border-radius: 50px; padding: 15px 35px;
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.1); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.5); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="sparkles">✨</div>
+<div class="content">
+  <div class="cta-badge">Ramazana Hazırlan</div>
+  <div class="title">Hemen Dene! <span class="emoji">🔗</span></div>
+  <div class="url">uzunyasa.com/araclar/sahur-iftar</div>
+  <div class="description">Kişiselleştirilmiş sahur & iftar planını dakikalar içinde oluştur</div>
+  <div class="social">@uzunyasaorg</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

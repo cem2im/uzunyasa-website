@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(160deg, #0a1628 0%, #0f1a2e 50%, #0a1628 100%);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-glow {
+  position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(20,145,155,0.08) 0%, transparent 70%);
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px 70px; text-align: center; z-index: 1;
+}
+.evidence-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(76,175,80,0.12); border: 2px solid rgba(76,175,80,0.3);
+  border-radius: 99px; padding: 16px 32px;
+  font-size: 22px; font-weight: 700; color: #4CAF50;
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 60px;
+}
+.stat-highlight {
+  display: flex; flex-direction: column; align-items: center;
+  background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 24px; padding: 50px 60px;
+  margin-bottom: 50px; max-width: 900px; width: 100%;
+}
+.stat-number {
+  font-size: 96px; font-weight: 900; color: #E8963E;
+  line-height: 1; margin-bottom: 16px;
+}
+.stat-label {
+  font-size: 30px; font-weight: 600; color: rgba(255,255,255,0.8);
+  line-height: 1.3;
+}
+.meta-box {
+  background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 36px 50px;
+  max-width: 900px; width: 100%; margin-bottom: 40px;
+}
+.meta-row {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 20px;
+}
+.meta-row:last-child { margin-bottom: 0; }
+.meta-icon { font-size: 28px; flex-shrink: 0; }
+.meta-text {
+  font-size: 28px; font-weight: 600; line-height: 1.3;
+  color: rgba(255,255,255,0.85); text-align: left;
+}
+.meta-text .accent { color: #E8963E; font-weight: 800; }
+.source {
+  font-size: 20px; color: rgba(255,255,255,0.35);
+  margin-top: 10px;
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid rgba(255,255,255,0.08); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="content">
+  <div class="evidence-badge">🟢 Meta-Analiz Verisi</div>
+  
+  <div class="stat-highlight">
+    <div class="stat-number">OR 0.7</div>
+    <div class="stat-label">Risk artışı saptanmadı<br>(95% CI: 0.5–1.2)</div>
+  </div>
+  
+  <div class="meta-box">
+    <div class="meta-row">
+      <span class="meta-icon">📊</span>
+      <span class="meta-text">Klinik çalışmalarda insidans: <span class="accent">&lt;0.3%</span></span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-icon">🔬</span>
+      <span class="meta-text">Plasebo ile anlamlı <span class="accent">fark yok</span></span>
+    </div>
+    <div class="meta-row">
+      <span class="meta-icon">📋</span>
+      <span class="meta-text">SUSTAIN/STEP/SELECT verileri</span>
+    </div>
+  </div>
+  
+  <div class="source">Kaynak: Diabetologia 2024 Meta-analiz · CCJM 2025</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Bilimle daha uzun yaşa.</div>
+</div>
+</body>
+</html>

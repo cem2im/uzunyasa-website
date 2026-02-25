@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(160deg, #0a1628 0%, #0f1a2e 50%, #0a1628 100%);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bokeh { position: absolute; border-radius: 50%; z-index: 0; }
+.b1 { width: 300px; height: 300px; top: 10%; left: -5%; background: radial-gradient(circle, rgba(232,150,62,0.1), transparent 70%); }
+.b2 { width: 400px; height: 400px; bottom: 20%; right: -8%; background: radial-gradient(circle, rgba(232,150,62,0.07), transparent 70%); }
+.b3 { width: 200px; height: 200px; top: 30%; right: 10%; background: radial-gradient(circle, rgba(20,145,155,0.1), transparent 70%); }
+.b4 { width: 350px; height: 350px; bottom: 35%; left: 5%; background: radial-gradient(circle, rgba(20,145,155,0.06), transparent 70%); }
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center; z-index: 1;
+}
+.logo {
+  font-size: 80px; font-weight: 900; margin-bottom: 24px;
+}
+.logo .uzun { color: #fff; }
+.logo .yasa { color: #E8963E; }
+.tagline {
+  font-size: 30px; color: rgba(255,255,255,0.6); margin-bottom: 60px;
+}
+.summary-box {
+  background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 24px; padding: 40px 50px;
+  max-width: 850px; width: 100%; margin-bottom: 50px;
+}
+.summary-text {
+  font-size: 32px; font-weight: 600; line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+}
+.summary-text .accent { color: #E8963E; font-weight: 800; }
+.cta-actions {
+  display: flex; gap: 24px; margin-bottom: 50px;
+}
+.cta-btn {
+  padding: 22px 40px; border-radius: 16px;
+  font-size: 28px; font-weight: 700;
+  background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);
+}
+.cta-btn.primary {
+  background: rgba(232,150,62,0.2); border: 2px solid rgba(232,150,62,0.5);
+  color: #E8963E;
+}
+.url-box {
+  background: rgba(232,150,62,0.1); border: 2px solid rgba(232,150,62,0.35);
+  border-radius: 16px; padding: 24px 48px;
+  font-size: 34px; font-weight: 800; color: #E8963E;
+  letter-spacing: 1px; margin-bottom: 20px;
+}
+.handle {
+  font-size: 24px; color: rgba(255,255,255,0.4);
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid rgba(255,255,255,0.08); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="bokeh b1"></div>
+<div class="bokeh b2"></div>
+<div class="bokeh b3"></div>
+<div class="bokeh b4"></div>
+<div class="content">
+  <div class="logo"><span class="uzun">Uzun</span><span class="yasa">Yaşa</span></div>
+  <div class="tagline">Bilimle Daha Uzun Yaşa</div>
+  
+  <div class="summary-box">
+    <div class="summary-text">
+      GLP-1 ilaçları genel olarak <span class="accent">güvenli</span> —<br>
+      ama bireysel riskinizi<br>
+      doktorunuzla değerlendirin
+    </div>
+  </div>
+  
+  <div class="cta-actions">
+    <div class="cta-btn primary">Kaydet 🔖</div>
+    <div class="cta-btn">Paylaş 📤</div>
+  </div>
+  
+  <div class="url-box">uzunyasa.com</div>
+  <div class="handle">@uzunyasaorg</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Bilimle daha uzun yaşa.</div>
+</div>
+</body>
+</html>

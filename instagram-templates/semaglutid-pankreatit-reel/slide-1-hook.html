@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(160deg, #0a1628 0%, #0f1a2e 50%, #0a1628 100%);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-glow {
+  position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(232,150,62,0.08) 0%, transparent 70%);
+}
+.bg-glow-2 {
+  position: absolute; bottom: 15%; right: -5%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(20,145,155,0.06) 0%, transparent 70%);
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px; text-align: center; z-index: 1;
+}
+.topic-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: rgba(232,150,62,0.12); border: 2px solid rgba(232,150,62,0.3);
+  border-radius: 99px; padding: 18px 36px;
+  font-size: 24px; font-weight: 600; color: #E8963E;
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 60px;
+}
+.emoji-large {
+  font-size: 120px; margin-bottom: 50px;
+  filter: drop-shadow(0 0 30px rgba(232,150,62,0.3));
+}
+.hook-main {
+  font-size: 72px; font-weight: 900; line-height: 1.15;
+  max-width: 900px; margin-bottom: 40px;
+}
+.hook-main .accent { color: #E8963E; }
+.hook-divider {
+  width: 120px; height: 5px; background: #E8963E;
+  border-radius: 3px; margin-bottom: 40px;
+}
+.hook-sub {
+  font-size: 36px; font-weight: 600; line-height: 1.4;
+  color: rgba(255,255,255,0.7); max-width: 750px;
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid rgba(255,255,255,0.08); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="bg-glow-2"></div>
+<div class="content">
+  <div class="topic-badge">⚠️ Yan Etki Analizi</div>
+  <div class="emoji-large">🤔</div>
+  <div class="hook-main">GLP-1 İlaçları<br><span class="accent">Pankreatit</span><br>Yapar mı?</div>
+  <div class="hook-divider"></div>
+  <div class="hook-sub">Bilimsel kanıtları<br>beraber inceleyelim</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Bilimle daha uzun yaşa.</div>
+</div>
+</body>
+</html>

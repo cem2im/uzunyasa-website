@@ -19,51 +19,65 @@ body {
   background-size: 60px 60px;
 }
 .glow {
-  position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(13,115,119,0.15) 0%, transparent 70%);
+  position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(13,115,119,0.12) 0%, transparent 70%);
+}
+.glow-bottom {
+  position: absolute; bottom: 18%; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 400px;
+  background: radial-gradient(circle, rgba(232,150,62,0.06) 0%, transparent 70%);
 }
 .content {
   flex: 1; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 80px; text-align: center; z-index: 1;
+  align-items: center;
+  padding: 120px 80px 60px; text-align: center; z-index: 1;
+  gap: 44px;
 }
 .ai-icon {
-  font-size: 100px; margin-bottom: 40px;
-  filter: drop-shadow(0 0 30px rgba(13,115,119,0.5));
+  font-size: 130px;
+  filter: drop-shadow(0 0 40px rgba(13,115,119,0.5));
 }
 .badge {
   display: inline-block; background: rgba(13,115,119,0.15);
   border: 2px solid rgba(13,115,119,0.4); border-radius: 99px;
-  padding: 14px 36px; font-size: 20px; font-weight: 700;
-  color: #14919B; text-transform: uppercase; letter-spacing: 4px;
-  margin-bottom: 50px;
+  padding: 16px 40px; font-size: 22px; font-weight: 700;
+  color: #14919B; text-transform: uppercase; letter-spacing: 5px;
 }
 .title {
   font-family: 'Playfair Display', serif;
-  font-size: 68px; font-weight: 900; line-height: 1.15;
-  max-width: 900px; margin-bottom: 40px;
+  font-size: 74px; font-weight: 900; line-height: 1.15;
+  max-width: 900px;
 }
 .title .accent { color: #14919B; }
 .title .orange { color: #E8963E; }
 .subtitle {
-  font-size: 28px; font-weight: 500; opacity: 0.8;
-  max-width: 750px; line-height: 1.5;
+  font-size: 30px; font-weight: 500; opacity: 0.75;
+  max-width: 780px; line-height: 1.6;
 }
+.topics {
+  display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+  max-width: 800px;
+}
+.topic-chip {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 16px 28px;
+  font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.7);
+}
+.topic-chip .emoji { margin-right: 6px; }
 .year-badge {
-  margin-top: 40px; display: inline-block;
+  display: inline-block;
   background: linear-gradient(135deg, rgba(232,150,62,0.15), rgba(13,115,119,0.15));
-  border: 1px solid rgba(232,150,62,0.3); border-radius: 12px;
-  padding: 12px 28px; font-size: 22px; font-weight: 800;
-  color: #E8963E; letter-spacing: 2px;
+  border: 1px solid rgba(232,150,62,0.3); border-radius: 14px;
+  padding: 18px 40px; font-size: 28px; font-weight: 800;
+  color: #E8963E; letter-spacing: 3px;
 }
 .swipe {
-  position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%);
-  font-size: 20px; color: rgba(255,255,255,0.5); letter-spacing: 2px;
-  text-transform: uppercase; z-index: 1;
+  font-size: 24px; color: rgba(255,255,255,0.45); letter-spacing: 3px;
+  text-transform: uppercase;
 }
 .footer {
-  padding: 40px 70px; display: flex; align-items: center;
+  padding: 36px 70px; display: flex; align-items: center;
   justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06); z-index: 1;
 }
 .footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
@@ -73,14 +87,21 @@ body {
 <body>
 <div class="grid-bg"></div>
 <div class="glow"></div>
+<div class="glow-bottom"></div>
 <div class="content">
   <div class="ai-icon">🧠</div>
   <div class="badge">Gelecek Burada</div>
   <div class="title">Yapay Zeka <span class="accent">Sağlığımızı</span> Nasıl <span class="orange">Değiştirecek?</span></div>
   <div class="subtitle">İlaç keşfinden erken tanıya, kişiselleştirilmiş tedaviden dijital ikizlere — tıbbın yeni çağı</div>
+  <div class="topics">
+    <div class="topic-chip"><span class="emoji">💊</span> İlaç Keşfi</div>
+    <div class="topic-chip"><span class="emoji">🔬</span> Erken Tanı</div>
+    <div class="topic-chip"><span class="emoji">🧬</span> Dijital İkiz</div>
+    <div class="topic-chip"><span class="emoji">🎯</span> Kişisel Tedavi</div>
+  </div>
   <div class="year-badge">2026 → 2035</div>
+  <div class="swipe">Kaydır →</div>
 </div>
-<div class="swipe">Kaydır →</div>
 <div class="footer">
   <div class="footer-brand">uzunyasa.com</div>
   <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1920px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(160deg, #0a1628 0%, #0f1a2e 50%, #0a1628 100%);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-glow {
+  position: absolute; top: 40%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(232,150,62,0.06) 0%, transparent 70%);
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px 70px; text-align: center; z-index: 1;
+}
+.evidence-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,193,7,0.12); border: 2px solid rgba(255,193,7,0.3);
+  border-radius: 99px; padding: 16px 32px;
+  font-size: 22px; font-weight: 700; color: #FFC107;
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 50px;
+}
+.section-title {
+  font-size: 48px; font-weight: 900; line-height: 1.2;
+  margin-bottom: 50px;
+}
+.section-title .accent { color: #E8963E; }
+.risk-list {
+  display: flex; flex-direction: column; gap: 24px;
+  max-width: 900px; width: 100%;
+}
+.risk-item {
+  display: flex; align-items: center; gap: 24px;
+  background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 32px 36px;
+  text-align: left;
+}
+.risk-icon {
+  font-size: 44px; flex-shrink: 0;
+  width: 70px; height: 70px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.06); border-radius: 16px;
+}
+.risk-text {
+  font-size: 30px; font-weight: 700; line-height: 1.3;
+}
+.risk-text .detail {
+  display: block; font-size: 22px; font-weight: 500;
+  color: rgba(255,255,255,0.55); margin-top: 6px;
+}
+.note {
+  margin-top: 40px; font-size: 24px; font-weight: 600;
+  color: rgba(255,255,255,0.5); max-width: 800px; line-height: 1.4;
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid rgba(255,255,255,0.08); z-index: 1;
+}
+.footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
+.footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="content">
+  <div class="evidence-badge">🟡 Bireysel Risk Faktörleri</div>
+  
+  <div class="section-title">Asıl Risk<br><span class="accent">İlaç Değil</span></div>
+  
+  <div class="risk-list">
+    <div class="risk-item">
+      <div class="risk-icon">🪨</div>
+      <div class="risk-text">Safra taşı öyküsü
+        <span class="detail">En sık neden — %40 pankreatit</span>
+      </div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">🍷</div>
+      <div class="risk-text">Alkol kullanımı
+        <span class="detail">İkinci en sık tetikleyici</span>
+      </div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">📈</div>
+      <div class="risk-text">Hipertrigliseridemi
+        <span class="detail">TG &gt;1000 mg/dL ciddi risk</span>
+      </div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">⚡</div>
+      <div class="risk-text">Hızlı kilo kaybı
+        <span class="detail">Haftada &gt;1.5 kg → safra çamuru</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="note">Bu faktörler GLP-1 kullansanız da kullanmasanız da geçerli</div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Bilimle daha uzun yaşa.</div>
+</div>
+</body>
+</html>

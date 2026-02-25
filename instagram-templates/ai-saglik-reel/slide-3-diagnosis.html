@@ -8,49 +8,67 @@
 body {
   width: 1080px; height: 1920px;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #0a1628, #0f1a2e); color: #fff;
+  background: linear-gradient(180deg, #0a1628, #0f1a2e 50%, #0a1628); color: #fff;
   display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.glow {
+  position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);
+  width: 500px; height: 400px;
+  background: radial-gradient(circle, rgba(13,115,119,0.1) 0%, transparent 70%);
 }
 .content {
   flex: 1; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 70px;
+  align-items: center; justify-content: space-evenly;
+  padding: 60px 60px 40px;
+  z-index: 1;
 }
-.num { font-size: 28px; font-weight: 800; color: #14919B; letter-spacing: 3px; margin-bottom: 20px; }
-.icon { font-size: 80px; margin-bottom: 30px; }
-.header { font-size: 36px; font-weight: 800; color: #E8963E; margin-bottom: 40px; text-align: center; }
-.stats { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 850px; margin-bottom: 40px; }
-.stat-row {
-  display: flex; align-items: center; gap: 20px;
-  background: rgba(255,255,255,0.04); border-radius: 16px;
-  padding: 24px 28px; border-left: 4px solid #14919B;
+.top-section {
+  display: flex; flex-direction: column; align-items: center;
 }
-.stat-icon { font-size: 40px; flex-shrink: 0; }
-.stat-text { font-size: 26px; font-weight: 600; line-height: 1.4; flex: 1; }
-.stat-text strong { color: #14919B; }
-.stat-text .orange { color: #E8963E; }
+.num { font-size: 30px; font-weight: 800; color: #14919B; letter-spacing: 3px; margin-bottom: 20px; }
+.icon { font-size: 90px; margin-bottom: 24px; }
+.header { font-size: 38px; font-weight: 800; color: #E8963E; text-align: center; max-width: 880px; }
 .big-stat {
   background: linear-gradient(135deg, rgba(13,115,119,0.12), rgba(232,150,62,0.08));
-  border: 2px solid rgba(13,115,119,0.25); border-radius: 20px;
-  padding: 30px; text-align: center; margin-bottom: 30px;
+  border: 2px solid rgba(13,115,119,0.25); border-radius: 24px;
+  padding: 44px 60px; text-align: center;
+  width: 100%; max-width: 620px;
 }
-.big-stat-num { font-size: 80px; font-weight: 900; color: #14919B; line-height: 1; }
-.big-stat-label { font-size: 24px; opacity: 0.7; margin-top: 8px; }
-.source { font-size: 18px; color: rgba(255,255,255,0.35); text-align: center; }
-.evidence { display: inline-block; font-size: 16px; padding: 4px 12px; border-radius: 99px; background: rgba(45,159,79,0.15); color: #6ee7b7; font-weight: 700; margin-top: 10px; text-align: center; }
+.big-stat-num { font-size: 100px; font-weight: 900; color: #14919B; line-height: 1; }
+.big-stat-label { font-size: 26px; opacity: 0.7; margin-top: 12px; }
+.stats { display: flex; flex-direction: column; gap: 22px; width: 100%; max-width: 920px; }
+.stat-row {
+  display: flex; align-items: center; gap: 22px;
+  background: rgba(255,255,255,0.04); border-radius: 18px;
+  padding: 30px 32px; border-left: 4px solid #14919B;
+}
+.stat-icon { font-size: 46px; flex-shrink: 0; }
+.stat-text { font-size: 28px; font-weight: 600; line-height: 1.45; flex: 1; }
+.stat-text strong { color: #14919B; }
+.stat-text .orange { color: #E8963E; }
+.bottom-section { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.source { font-size: 20px; color: rgba(255,255,255,0.35); }
+.evidence {
+  display: inline-block; font-size: 20px; padding: 10px 24px; border-radius: 99px;
+  background: rgba(45,159,79,0.15); color: #6ee7b7; font-weight: 700;
+}
 .footer {
-  padding: 40px 70px; display: flex; align-items: center;
-  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06);
+  padding: 36px 70px; display: flex; align-items: center;
+  justify-content: space-between; border-top: 2px solid rgba(255,255,255,0.06); z-index: 1;
 }
 .footer-brand { font-size: 28px; font-weight: 700; color: #14919B; }
 .footer-tagline { font-size: 20px; color: rgba(255,255,255,0.4); font-style: italic; }
 </style>
 </head>
 <body>
+<div class="glow"></div>
 <div class="content">
-  <div class="num">02</div>
-  <div class="icon">🔬</div>
-  <div class="header">Erken Tanı: AI Hastalığı Senden Önce Görüyor</div>
+  <div class="top-section">
+    <div class="num">02</div>
+    <div class="icon">🔬</div>
+    <div class="header">Erken Tanı: AI Hastalığı Senden Önce Görüyor</div>
+  </div>
   <div class="big-stat">
     <div class="big-stat-num">1000+</div>
     <div class="big-stat-label">FDA onaylı AI tıbbi cihaz (2026)</div>
@@ -73,8 +91,10 @@ body {
       <div class="stat-text">AlphaFold: <strong>200M+ protein</strong> yapısını çözdü → ilaç hedefleri</div>
     </div>
   </div>
-  <div class="source">Kaynak: FDA AI/ML Device List 2026, Nature Medicine</div>
-  <div class="evidence">🟢 Güçlü kanıt — FDA onaylı cihazlar</div>
+  <div class="bottom-section">
+    <div class="source">Kaynak: FDA AI/ML Device List 2026, Nature Medicine</div>
+    <div class="evidence">🟢 Güçlü kanıt — FDA onaylı cihazlar</div>
+  </div>
 </div>
 <div class="footer">
   <div class="footer-brand">uzunyasa.com</div>
