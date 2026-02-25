@@ -1137,6 +1137,24 @@ FABRİKE VERİ YASAĞI:
 - "Araştırmalar gösteriyor ki..." gibi belirsiz atıflar YASAK — hangi araştırma, hangi yıl, kaç kişi?
 - Tahmini veriler kullanıyorsan "tahmini", "yaklaşık" olarak açıkça etiketle
 
+PICO KİLİDİ (KRİTİK — en sık yapılan hata):
+- Her çalışma atfında Population, Intervention, Comparison, Outcome doğru yansıtılmalı
+- Bir MÜDAHALENİN sonuçlarını tüm SINIFA genelleme YASAK (örn: icosapent ethyl sonuçlarını "omega-3 balık yağı" olarak yazma)
+- Bir ALT GRUBUN sonucunu genel popülasyona genelleme YASAK
+- SURROGATE endpoint'i (lab değeri değişimi) klinik sonuç (ölüm, MI) olarak sunma YASAK
+- Her büyük iddia için NEGATİF kanıt da dahil et — sadece pozitif çalışma göstermek akademik sahtekarlıktır
+
+SINIF vs MOLEKÜL KURALI:
+- İlaç sınıfı için iddia yapıyorsan → sınıfı temsil eden en az 2 farklı çalışma göster
+- Tek molekülün sonuçlarını sınıfa genelleme YASAK
+- Örnek: "GLP-1 agonistleri" diyorsan → SELECT (semaglutide) + SURMOUNT (tirzepatide) gibi farklı moleküllerden kanıt göster
+- Örnek: REDUCE-IT (sadece icosapent ethyl) → "omega-3 KV koruyor" DEĞİL
+
+ZORUNLU NEGATİF KANIT:
+- Her Tier S/A iddiası için → aynı konudaki en büyük negatif çalışmayı da yaz
+- Format: "Öte yandan [Çalışma] ([yıl], N=[sayı]): [negatif sonuç]"
+- Negatif kanıt yoksa bile "Bu konuda büyük negatif çalışma henüz yayınlanmamıştır" yaz
+
 DIŞLA:
 - Ünlü/influencer referansları
 - Mucize vaatleri, kesin iyileşme iddiaları
@@ -1308,6 +1326,29 @@ function validateBlogQuality(post) {
   const weakSources = sources.filter(s => !s.title || s.title.length < 20);
   if (weakSources.length > sources.length / 2) {
     warnings.push('Kaynakların çoğu düzgün formatlanmamış. "Yazarlar et al. Başlık. Dergi. Yıl" formatı gerekli.');
+  }
+
+  // 8. PICO violation detection — class generalization
+  const classGeneralizations = [
+    { pattern: /omega-3.{0,30}(kalp|kardiyovasküler|KV).{0,30}(azalt|önle|koru)/i, warning: 'Omega-3 sınıf genellemesi olabilir — REDUCE-IT sadece saf EPA için geçerli, genel balık yağı için değil' },
+    { pattern: /GLP-1.{0,30}(ölüm|mortalite).{0,30}(azalt|düşür)/i, warning: 'SELECT trial: All-cause mortality HR 0.81 p=0.08 — anlamlı DEĞİL. KV ölüm iddiası kontrol edilmeli' },
+    { pattern: /araştırmalar gösteriyor|çalışmalar kanıtlıyor/i, warning: 'Belirsiz atıf tespit edildi — "Araştırmalar gösteriyor" yerine spesifik çalışma adı kullanılmalı' },
+    { pattern: /kanıtlanmıştır(?!.*\()/i, warning: '"Kanıtlanmıştır" ifadesi kaynak parantezi olmadan kullanılmış — hangi çalışma?' },
+    { pattern: /(kesinlikle|garantili|%100).{0,20}(etkili|faydalı|güvenli)/i, warning: 'Mutlak ifade tespit edildi — tıpta kesinlik iddiası tehlikelidir' },
+  ];
+  for (const check of classGeneralizations) {
+    if (check.pattern.test(content)) {
+      warnings.push(`⚠️ PICO İHLALİ: ${check.warning}`);
+    }
+  }
+
+  // 9. Check for negative evidence inclusion
+  const hasNegativeEvidence = content.includes('negatif sonuç') || content.includes('fark gösteremedi') ||
+    content.includes('başarısız') || content.includes('anlamlı fark yok') ||
+    content.includes('Öte yandan') || content.includes('karşı kanıt');
+  const hasTierClaims = content.includes('Tier S') || content.includes('güçlü kanıt') || content.includes('Güçlü Kanıt');
+  if (hasTierClaims && !hasNegativeEvidence) {
+    warnings.push('Güçlü kanıt iddiası var ama negatif/karşı kanıt dahil edilmemiş. Dengeli sunum gerekli.');
   }
 
   return warnings;
