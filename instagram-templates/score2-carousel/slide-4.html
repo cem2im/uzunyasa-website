@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a1628, #0f2638 50%, #142843);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-pattern {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(20,145,155,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(40,167,69,0.08) 0%, transparent 40%);
+}
+.success-icon {
+  position: absolute; top: 80px; right: 80px;
+  font-size: 100px; opacity: 0.15;
+  background: linear-gradient(45deg, #28a745, #14919B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px; text-align: center; z-index: 1;
+}
+.title {
+  font-size: 52px; font-weight: 900; line-height: 1.2;
+  margin-bottom: 30px; color: #14919B;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.subtitle {
+  font-size: 24px; font-weight: 600; 
+  color: rgba(255,255,255,0.7); margin-bottom: 80px;
+}
+.strategies {
+  display: flex; flex-direction: column;
+  gap: 45px; max-width: 900px; width: 100%;
+}
+.strategy {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 35px 45px;
+  background: linear-gradient(135deg, rgba(40,167,69,0.15), rgba(20,145,155,0.1));
+  border-radius: 20px;
+  border-left: 6px solid #28a745;
+  box-shadow: 0 8px 24px rgba(40,167,69,0.1);
+  transition: transform 0.3s ease;
+}
+.strategy:hover {
+  transform: translateY(-5px);
+  border-left-color: #14919B;
+}
+.strategy-info {
+  display: flex; align-items: center; gap: 25px;
+}
+.strategy-icon {
+  font-size: 56px;
+  background: linear-gradient(45deg, #28a745, #14919B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(40,167,69,0.3));
+}
+.strategy-label {
+  font-size: 30px; font-weight: 700;
+  color: #fff; text-align: left;
+}
+.strategy-reduction {
+  display: flex; flex-direction: column;
+  align-items: center;
+}
+.reduction-value {
+  font-size: 48px; font-weight: 900;
+  color: #28a745; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.reduction-arrow {
+  font-size: 32px; color: #28a745;
+  animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.motivation {
+  margin-top: 60px; font-size: 26px; font-weight: 700;
+  color: #14919B; text-align: center;
+  background: rgba(20,145,155,0.1);
+  padding: 25px 35px; border-radius: 15px;
+  border: 2px solid rgba(20,145,155,0.3);
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; 
+  border-top: 2px solid rgba(255,255,255,0.1); 
+  z-index: 1;
+}
+.footer-brand { 
+  font-size: 28px; font-weight: 700; color: #14919B; 
+}
+.footer-tagline { 
+  font-size: 20px; color: rgba(255,255,255,0.5); 
+  font-style: italic; 
+}
+</style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="success-icon">✅</div>
+<div class="content">
+  <div class="title">Riskinizi Nasıl</div>
+  <div class="title">Düşürürsünüz?</div>
+  <div class="subtitle">Kanıta dayalı risk azaltma stratejileri</div>
+  
+  <div class="strategies">
+    <div class="strategy">
+      <div class="strategy-info">
+        <div class="strategy-icon">🚭</div>
+        <div class="strategy-label">Sigara Bırakma</div>
+      </div>
+      <div class="strategy-reduction">
+        <div class="reduction-value">%50</div>
+        <div class="reduction-arrow">↓</div>
+      </div>
+    </div>
+    
+    <div class="strategy">
+      <div class="strategy-info">
+        <div class="strategy-icon">🏃</div>
+        <div class="strategy-label">Düzenli Egzersiz</div>
+      </div>
+      <div class="strategy-reduction">
+        <div class="reduction-value">%35</div>
+        <div class="reduction-arrow">↓</div>
+      </div>
+    </div>
+    
+    <div class="strategy">
+      <div class="strategy-info">
+        <div class="strategy-icon">💊</div>
+        <div class="strategy-label">Kolesterol Kontrolü</div>
+      </div>
+      <div class="strategy-reduction">
+        <div class="reduction-value">%30</div>
+        <div class="reduction-arrow">↓</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="motivation">
+    Bu değişiklikler kalp krizi riskinizi<br>dramatik olarak azaltabilir! 💪
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

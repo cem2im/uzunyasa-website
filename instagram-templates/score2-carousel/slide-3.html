@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a1628, #0f2638 50%, #142843);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-pattern {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255,71,87,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(232,150,62,0.06) 0%, transparent 40%);
+}
+.flag {
+  position: absolute; top: 60px; right: 60px;
+  font-size: 80px; opacity: 0.15;
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px; text-align: center; z-index: 1;
+}
+.title {
+  font-size: 56px; font-weight: 900; line-height: 1.2;
+  margin-bottom: 20px; color: #E8963E;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.subtitle {
+  font-size: 24px; font-weight: 600; 
+  color: rgba(255,255,255,0.7); margin-bottom: 80px;
+}
+.stats {
+  display: flex; flex-direction: column;
+  gap: 50px; max-width: 900px; width: 100%;
+}
+.stat {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 35px 45px;
+  background: linear-gradient(135deg, rgba(255,71,87,0.12), rgba(232,150,62,0.08));
+  border-radius: 20px;
+  border-left: 6px solid #E8963E;
+  box-shadow: 0 8px 24px rgba(255,71,87,0.1);
+}
+.stat-info {
+  display: flex; align-items: center; gap: 25px;
+}
+.stat-icon {
+  font-size: 56px;
+  background: linear-gradient(45deg, #ff4757, #E8963E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(255,71,87,0.3));
+}
+.stat-label {
+  font-size: 32px; font-weight: 700;
+  color: #fff;
+}
+.stat-value {
+  font-size: 64px; font-weight: 900;
+  color: #E8963E; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  min-width: 150px; text-align: right;
+}
+.warning-note {
+  margin-top: 60px; font-size: 22px; font-weight: 600;
+  color: #14919B; text-align: center;
+  background: rgba(20,145,155,0.1);
+  padding: 20px 30px; border-radius: 12px;
+  border: 2px solid rgba(20,145,155,0.2);
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; 
+  border-top: 2px solid rgba(255,255,255,0.1); 
+  z-index: 1;
+}
+.footer-brand { 
+  font-size: 28px; font-weight: 700; color: #14919B; 
+}
+.footer-tagline { 
+  font-size: 20px; color: rgba(255,255,255,0.5); 
+  font-style: italic; 
+}
+</style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="flag">🇹🇷</div>
+<div class="content">
+  <div class="title">Türkiye Neden</div>
+  <div class="title">Yüksek Riskli?</div>
+  <div class="subtitle">Kardiyovasküler risk faktörleri yaygınlık oranları</div>
+  
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-info">
+        <div class="stat-icon">🚬</div>
+        <div class="stat-label">Sigara Kullanımı</div>
+      </div>
+      <div class="stat-value">%28</div>
+    </div>
+    
+    <div class="stat">
+      <div class="stat-info">
+        <div class="stat-icon">⚖️</div>
+        <div class="stat-label">Obezite</div>
+      </div>
+      <div class="stat-value">%32</div>
+    </div>
+    
+    <div class="stat">
+      <div class="stat-info">
+        <div class="stat-icon">🩺</div>
+        <div class="stat-label">Hipertansiyon</div>
+      </div>
+      <div class="stat-value">%30+</div>
+    </div>
+  </div>
+  
+  <div class="warning-note">
+    Bu yüksek oranlar SCORE2'de Türkiye'yi<br>yüksek riskli bölge olarak sınıflandırır
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

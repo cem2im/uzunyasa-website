@@ -1,5 +1,34 @@
 [
   {
+    "slug": "score2-risk-hesaplayici-araç",
+    "title": "SCORE2 Kardiyovasküler Risk Hesaplayıcı",
+    "description": "ESC 2021 SCORE2 algoritmasıyla 10 yıllık kardiyovasküler olay riskinizi hesaplayın. Türkiye için özelleştirilmiş, bilimsel verilere dayalı ücretsiz risk değerlendirmesi.",
+    "category": "tools",
+    "categoryName": "Araçlar",
+    "categoryIcon": "🛠️",
+    "categoryColor": "#14919B",
+    "date": "2026-02-25",
+    "readTime": 5,
+    "url": "pages/araclar/score2-risk-hesaplayici.html",
+    "tags": [
+      "SCORE2",
+      "kardiyovasküler-risk",
+      "kalp-krizi-riski",
+      "inme-riski",
+      "ESC-2021",
+      "türkiye",
+      "kolesterol",
+      "tansiyon",
+      "sigara",
+      "hesaplayıcı",
+      "risk-değerlendirmesi"
+    ],
+    "priority": "high",
+    "area": "cardiovascular",
+    "isInteractive": true,
+    "toolType": "calculator"
+  },
+  {
     "slug": "score2-kalp-krizi-risk-hesaplama",
     "title": "SCORE2 ile Kalp Krizi Riskinizi Hesaplayın — Türkiye Neden Yüksek Riskli?",
     "description": "SCORE2 ile 10-yıllık kalp krizi riskinizi hesaplayın. Türkiye neden kardiyovasküler hastalık açısından yüksek riskli bölge? ESC 2021 rehberleri ışığında kapsamlı analiz.",
