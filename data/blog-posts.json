@@ -1,5 +1,33 @@
 [
   {
+    "slug": "score2-kalp-krizi-risk-hesaplama",
+    "title": "SCORE2 ile Kalp Krizi Riskinizi Hesaplayın — Türkiye Neden Yüksek Riskli?",
+    "description": "SCORE2 ile 10-yıllık kalp krizi riskinizi hesaplayın. Türkiye neden kardiyovasküler hastalık açısından yüksek riskli bölge? ESC 2021 rehberleri ışığında kapsamlı analiz.",
+    "category": "bilim",
+    "categoryName": "Bilim",
+    "categoryIcon": "🧬",
+    "categoryColor": "#8B5CF6",
+    "date": "2026-02-25",
+    "readTime": 12,
+    "tags": [
+      "SCORE2",
+      "kalp-krizi",
+      "kardiyovasküler-risk",
+      "ESC-2021",
+      "Türkiye",
+      "obezite",
+      "hipertansiyon",
+      "kolesterol",
+      "sigara",
+      "yaşam-tarzı",
+      "risk-hesaplama",
+      "Akdeniz-diyeti",
+      "egzersiz"
+    ],
+    "priority": "high",
+    "area": "cardiovascular"
+  },
+  {
     "slug": "ramazanda-glp1-kullananlar-icin-oruc-rehberi",
     "title": "Ramazanda GLP-1 Kullananlar İçin Oruç Rehberi",
     "description": "GLP-1 ilaçlarıyla Ramazan orucunu güvenle tutmanın bilimsel rehberi. İlaç zamanlaması, hipoglisemi önlemi, protein hedefleri ve pratik öneriler. Semaglutid ve Tirzepatid kullanıcıları için kapsamlı kılavuz.",
