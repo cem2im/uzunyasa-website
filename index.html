@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+<link rel="alternate" hreflang="tr" href="https://uzunyasa.com/">
+<link rel="alternate" hreflang="x-default" href="https://uzunyasa.com/">
+<meta http-equiv="Content-Language" content="tr">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<script src="/scripts/https-redirect.js"></script>
+<script>if(location.protocol!=='https:'&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1')location.replace('https://'+location.host+location.pathname+location.search+location.hash);</script>
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <!-- Google tag (gtag.js) -->
@@ -26,6 +29,8 @@
  <meta property="og:locale" content="tr_TR">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="preload" href="styles/main.css" as="style">
+ <link rel="preload" href="styles/animations.css" as="style">
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="styles/main.css">
  <link rel="stylesheet" href="styles/animations.css">
@@ -2716,7 +2721,7 @@
  <div class="footer-top">
  <div class="footer-brand">
  <a href="index.html" class="logo" style="margin-bottom: 1rem;">
- <img src="images/logo.svg" alt="UzunYaşa" class="logo-img-large">
+ <img src="images/logo.svg" alt="UzunYaşa" class="logo-img-large" loading="lazy">
  </a>
  <p class="footer-tagline">"Bilimle daha uzun, daha iyi yaşam"</p>
  <p style="font-size:0.85rem;font-style:italic;opacity:0.6;margin-top:0.25rem;">Türkiye uzun yaşasın diye.</p>
