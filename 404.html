@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<link rel="alternate" hreflang="tr" href="https://uzunyasa.com/404.html">
-<link rel="alternate" hreflang="x-default" href="https://uzunyasa.com/404.html">
-<meta http-equiv="Content-Language" content="tr">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <script src="/scripts/https-redirect.js"></script>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
@@ -16,128 +15,697 @@
 </script>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Sayfa Bulunamadı | UzunYaşa</title>
-    <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
- <meta name="robots" content="noindex">
+ <title>404 — Bu Sayfa Oruç Tutuyor 🌙 | UzunYaşa</title>
+ <meta name="description" content="Aradığınız sayfa bulunamadı. UzunYaşa'nın sağlık, beslenme ve bilim içeriklerini keşfedin.">
+ <meta property="og:title" content="404 — Sayfa Bulunamadı | UzunYaşa">
+ <meta property="og:description" content="Bu sayfa kilo verdi, bulunamıyor! UzunYaşa'nın sağlık içeriklerini keşfedin.">
+ <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+ <meta property="og:type" content="website">
+ <meta property="og:locale" content="tr_TR">
+ <meta name="robots" content="noindex, nofollow">
+ <link rel="canonical" href="https://uzunyasa.com/">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="styles/main.css">
- <link rel="stylesheet" href="styles/animations.css">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="/styles/main.css">
+ <link rel="stylesheet" href="/styles/animations.css">
+
+ <!-- JSON-LD BreadcrumbList -->
+ <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Ana Sayfa",
+       "item": "https://uzunyasa.com/"
+     },
+     {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "404 — Sayfa Bulunamadı"
+     }
+   ]
+ }
+ </script>
+
  <style>
- header {
- background: #195157;
- padding: 1rem 2rem;
- text-align: center;
+ /* ===== 404 Page Styles ===== */
+ .page-404 {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
  }
- header a {
- color: #fff;
- text-decoration: none;
- font-family: 'Playfair Display', serif;
- font-size: 1.5rem;
- font-weight: 700;
+
+ /* Header */
+ .header-404 {
+   background: linear-gradient(135deg, #195157 0%, #0D7377 100%);
+   padding: 1rem 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   box-shadow: 0 2px 20px rgba(0,0,0,0.1);
  }
- .container {
- flex: 1;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- padding: 3rem 1.5rem;
- text-align: center;
- max-width: 640px;
- margin: 0 auto;
+
+ .header-404 .logo-link {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   text-decoration: none;
+   color: #fff;
+   font-family: 'Playfair Display', serif;
+   font-size: 1.5rem;
+   font-weight: 700;
  }
- .error-code {
- font-family: 'Playfair Display', serif;
- font-size: 7rem;
- font-weight: 700;
- color: var(--primary);
- line-height: 1;
- opacity: 0.15;
- margin-bottom: -1rem;
+
+ .header-404 .logo-link span {
+   color: var(--accent, #E8963E);
  }
- h1 {
- font-family: 'Playfair Display', serif;
- font-size: 1.75rem;
- font-weight: 700;
- color: var(--text-dark);
- margin-bottom: 0.75rem;
+
+ .header-404 nav a {
+   color: rgba(255,255,255,0.8);
+   text-decoration: none;
+   font-size: 0.9rem;
+   font-weight: 500;
+   margin-left: 1.5rem;
+   transition: color 0.2s;
  }
- .desc {
- color: var(--text-medium);
- font-size: 1.05rem;
- line-height: 1.6;
- margin-bottom: 2rem;
+
+ .header-404 nav a:hover {
+   color: #fff;
  }
- .btn-home {
- display: inline-block;
- background: var(--accent);
- color: #fff;
- padding: 0.85rem 2rem;
- border-radius: 8px;
- text-decoration: none;
- font-weight: 600;
- font-size: 1rem;
- transition: background 0.2s;
- margin-bottom: 2.5rem;
+
+ /* Hero Section */
+ .hero-404 {
+   flex: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 3rem 1.5rem;
+   background: linear-gradient(180deg, var(--bg-cream, #FAFAF8) 0%, #fff 100%);
+   position: relative;
+   overflow: hidden;
  }
- .btn-home:hover { background: var(--accent-hover); }
- .links-title {
- font-size: 0.85rem;
- text-transform: uppercase;
- letter-spacing: 0.05em;
- color: var(--text-light);
- margin-bottom: 1rem;
- font-weight: 600;
+
+ /* Floating decorative elements */
+ .hero-404::before {
+   content: '';
+   position: absolute;
+   top: -80px;
+   right: -80px;
+   width: 300px;
+   height: 300px;
+   background: radial-gradient(circle, rgba(13,115,119,0.06) 0%, transparent 70%);
+   border-radius: 50%;
+   animation: float-slow 8s ease-in-out infinite;
  }
- .links {
- display: flex;
- gap: 1rem;
- flex-wrap: wrap;
- justify-content: center;
+
+ .hero-404::after {
+   content: '';
+   position: absolute;
+   bottom: -60px;
+   left: -60px;
+   width: 250px;
+   height: 250px;
+   background: radial-gradient(circle, rgba(232,150,62,0.06) 0%, transparent 70%);
+   border-radius: 50%;
+   animation: float-slow 8s ease-in-out infinite reverse;
  }
- .links a {
- background: #fff;
- border: 1px solid var(--border);
- padding: 0.65rem 1.25rem;
- border-radius: 8px;
- text-decoration: none;
- color: var(--primary);
- font-weight: 500;
- font-size: 0.95rem;
- transition: border-color 0.2s, box-shadow 0.2s;
+
+ @keyframes float-slow {
+   0%, 100% { transform: translateY(0) scale(1); }
+   50% { transform: translateY(-20px) scale(1.05); }
  }
- .links a:hover {
- border-color: var(--primary);
- box-shadow: 0 2px 8px rgba(13,115,119,0.1);
+
+ .content-404 {
+   max-width: 720px;
+   text-align: center;
+   position: relative;
+   z-index: 1;
  }
- 
+
+ /* Animated 404 number */
+ .error-number {
+   font-family: 'Playfair Display', serif;
+   font-size: 10rem;
+   font-weight: 700;
+   line-height: 1;
+   margin-bottom: -0.5rem;
+   background: linear-gradient(135deg, var(--primary, #0D7377) 0%, var(--primary-light, #14919B) 50%, var(--accent, #E8963E) 100%);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+   opacity: 0;
+   animation: number-appear 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+   position: relative;
+ }
+
+ .error-number::after {
+   content: '🌙';
+   position: absolute;
+   top: 1rem;
+   right: -2rem;
+   font-size: 2.5rem;
+   -webkit-text-fill-color: initial;
+   animation: moon-bob 3s ease-in-out infinite;
+ }
+
+ @keyframes number-appear {
+   from { opacity: 0; transform: translateY(30px) scale(0.9); }
+   to { opacity: 1; transform: translateY(0) scale(1); }
+ }
+
+ @keyframes moon-bob {
+   0%, 100% { transform: translateY(0) rotate(0deg); }
+   50% { transform: translateY(-8px) rotate(10deg); }
+ }
+
+ /* Funny message */
+ .error-title {
+   font-family: 'Playfair Display', serif;
+   font-size: 1.85rem;
+   font-weight: 700;
+   color: var(--text-dark, #1F2937);
+   margin-bottom: 0.75rem;
+   opacity: 0;
+   animation: fade-up 0.6s ease 0.5s forwards;
+ }
+
+ .error-subtitle {
+   color: var(--text-medium, #4B5563);
+   font-size: 1.1rem;
+   line-height: 1.7;
+   margin-bottom: 0.5rem;
+   opacity: 0;
+   animation: fade-up 0.6s ease 0.65s forwards;
+ }
+
+ .error-joke {
+   color: var(--accent, #E8963E);
+   font-weight: 600;
+   font-size: 1rem;
+   margin-bottom: 2rem;
+   opacity: 0;
+   animation: fade-up 0.6s ease 0.8s forwards;
+ }
+
+ @keyframes fade-up {
+   from { opacity: 0; transform: translateY(15px); }
+   to { opacity: 1; transform: translateY(0); }
+ }
+
+ /* Search box */
+ .search-404 {
+   max-width: 460px;
+   margin: 0 auto 2.5rem;
+   position: relative;
+   opacity: 0;
+   animation: fade-up 0.6s ease 0.95s forwards;
+ }
+
+ .search-404 input {
+   width: 100%;
+   padding: 1rem 1.25rem 1rem 3rem;
+   border: 2px solid var(--border, #E5E7EB);
+   border-radius: 12px;
+   font-size: 1rem;
+   font-family: 'Inter', sans-serif;
+   color: var(--text-dark, #1F2937);
+   background: #fff;
+   transition: all 0.3s;
+   outline: none;
+ }
+
+ .search-404 input::placeholder {
+   color: var(--text-muted, #9CA3AF);
+ }
+
+ .search-404 input:focus {
+   border-color: var(--primary, #0D7377);
+   box-shadow: 0 0 0 4px rgba(13,115,119,0.1);
+ }
+
+ .search-404 .search-icon {
+   position: absolute;
+   left: 1rem;
+   top: 50%;
+   transform: translateY(-50%);
+   color: var(--text-muted, #9CA3AF);
+   pointer-events: none;
+ }
+
+ .search-404 button {
+   position: absolute;
+   right: 0.5rem;
+   top: 50%;
+   transform: translateY(-50%);
+   background: var(--primary, #0D7377);
+   color: #fff;
+   border: none;
+   padding: 0.6rem 1.2rem;
+   border-radius: 8px;
+   font-size: 0.9rem;
+   font-weight: 600;
+   font-family: 'Inter', sans-serif;
+   cursor: pointer;
+   transition: all 0.2s;
+ }
+
+ .search-404 button:hover {
+   background: var(--primary-dark, #0A5C5F);
+   transform: translateY(-50%) scale(1.02);
+ }
+
+ /* CTA Buttons */
+ .cta-buttons {
+   display: flex;
+   gap: 1rem;
+   justify-content: center;
+   flex-wrap: wrap;
+   margin-bottom: 3rem;
+   opacity: 0;
+   animation: fade-up 0.6s ease 1.1s forwards;
+ }
+
+ .btn-home-404 {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   background: linear-gradient(135deg, var(--accent, #E8963E) 0%, #F4A855 100%);
+   color: #fff;
+   padding: 0.9rem 2rem;
+   border-radius: 10px;
+   text-decoration: none;
+   font-weight: 600;
+   font-size: 1rem;
+   transition: all 0.3s;
+   position: relative;
+   overflow: hidden;
+   box-shadow: 0 4px 15px rgba(232, 150, 62, 0.3);
+ }
+
+ .btn-home-404::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: -100%;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+   transition: left 0.5s;
+ }
+
+ .btn-home-404:hover::before {
+   left: 100%;
+ }
+
+ .btn-home-404:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 8px 25px rgba(232, 150, 62, 0.4);
+ }
+
+ .btn-blog-404 {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   background: transparent;
+   color: var(--primary, #0D7377);
+   padding: 0.9rem 2rem;
+   border-radius: 10px;
+   text-decoration: none;
+   font-weight: 600;
+   font-size: 1rem;
+   border: 2px solid var(--primary, #0D7377);
+   transition: all 0.3s;
+ }
+
+ .btn-blog-404:hover {
+   background: var(--primary, #0D7377);
+   color: #fff;
+   transform: translateY(-2px);
+   box-shadow: 0 8px 25px rgba(13, 115, 119, 0.2);
+ }
+
+ /* Popular sections */
+ .popular-sections {
+   opacity: 0;
+   animation: fade-up 0.6s ease 1.25s forwards;
+   margin-bottom: 3rem;
+ }
+
+ .section-label {
+   font-size: 0.8rem;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+   color: var(--text-light, #6B7280);
+   font-weight: 600;
+   margin-bottom: 1rem;
+ }
+
+ .popular-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 0.75rem;
+ }
+
+ .popular-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 0.5rem;
+   background: #fff;
+   border: 1px solid var(--border, #E5E7EB);
+   padding: 1.25rem 0.75rem;
+   border-radius: 12px;
+   text-decoration: none;
+   color: var(--text-dark, #1F2937);
+   font-weight: 500;
+   font-size: 0.9rem;
+   transition: all 0.3s;
+ }
+
+ .popular-item:hover {
+   border-color: var(--primary, #0D7377);
+   box-shadow: 0 8px 25px rgba(13, 115, 119, 0.1);
+   transform: translateY(-3px);
+ }
+
+ .popular-item .item-icon {
+   font-size: 1.5rem;
+   width: 48px;
+   height: 48px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: var(--bg-cream, #FAFAF8);
+   border-radius: 12px;
+ }
+
+ /* Recent blog posts */
+ .recent-posts {
+   opacity: 0;
+   animation: fade-up 0.6s ease 1.4s forwards;
+ }
+
+ .posts-grid {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 1rem;
+   margin-top: 1rem;
+ }
+
+ .post-card {
+   background: #fff;
+   border: 1px solid var(--border, #E5E7EB);
+   border-radius: 12px;
+   padding: 1.25rem;
+   text-decoration: none;
+   color: var(--text-dark, #1F2937);
+   text-align: left;
+   transition: all 0.3s;
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+ }
+
+ .post-card:hover {
+   border-color: var(--primary, #0D7377);
+   box-shadow: 0 8px 25px rgba(13, 115, 119, 0.1);
+   transform: translateY(-3px);
+ }
+
+ .post-card .post-category {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.25rem;
+   font-size: 0.75rem;
+   font-weight: 600;
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   padding: 0.25rem 0.6rem;
+   border-radius: 6px;
+   width: fit-content;
+ }
+
+ .post-card .post-title {
+   font-weight: 600;
+   font-size: 0.9rem;
+   line-height: 1.4;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+ }
+
+ .post-card .post-meta {
+   font-size: 0.8rem;
+   color: var(--text-light, #6B7280);
+   margin-top: auto;
+ }
+
+ /* Footer */
+ .footer-404 {
+   background: linear-gradient(135deg, #195157 0%, #0D7377 100%);
+   color: rgba(255,255,255,0.8);
+   padding: 2rem;
+   text-align: center;
+   font-size: 0.9rem;
+ }
+
+ .footer-404 a {
+   color: var(--accent, #E8963E);
+   text-decoration: none;
+ }
+
+ .footer-404 a:hover {
+   text-decoration: underline;
+ }
+
+ .footer-404 .footer-links-row {
+   display: flex;
+   gap: 1.5rem;
+   justify-content: center;
+   flex-wrap: wrap;
+   margin-bottom: 1rem;
+ }
+
+ .footer-404 .footer-links-row a {
+   color: rgba(255,255,255,0.7);
+   font-size: 0.85rem;
+ }
+
+ .footer-404 .footer-disclaimer-text {
+   font-size: 0.8rem;
+   opacity: 0.6;
+   max-width: 600px;
+   margin: 0.75rem auto 0;
+   line-height: 1.5;
+ }
+
+ /* Responsive */
+ @media (max-width: 768px) {
+   .error-number {
+     font-size: 7rem;
+   }
+   .error-number::after {
+     font-size: 1.8rem;
+     right: -1rem;
+     top: 0.5rem;
+   }
+   .error-title {
+     font-size: 1.5rem;
+   }
+   .popular-grid {
+     grid-template-columns: repeat(2, 1fr);
+   }
+   .posts-grid {
+     grid-template-columns: 1fr;
+   }
+   .header-404 nav {
+     display: none;
+   }
+ }
+
  @media (max-width: 480px) {
- .error-code { font-size: 5rem; }
- h1 { font-size: 1.4rem; }
+   .error-number {
+     font-size: 5rem;
+   }
+   .error-number::after {
+     font-size: 1.3rem;
+     right: -0.5rem;
+   }
+   .error-title {
+     font-size: 1.25rem;
+   }
+   .error-subtitle {
+     font-size: 1rem;
+   }
+   .popular-grid {
+     grid-template-columns: repeat(2, 1fr);
+   }
+   .cta-buttons {
+     flex-direction: column;
+     align-items: center;
+   }
+   .btn-home-404, .btn-blog-404 {
+     width: 100%;
+     justify-content: center;
+   }
  }
  </style>
 </head>
-<body>
+<body class="page-404">
  <a href="#main-content" class="skip-link">İçeriğe geç</a>
- <header>
- <a href="/">Uzun<span style="color: var(--accent)">Yaşa</span></a>
+
+ <!-- Header -->
+ <header class="header-404">
+   <a href="/" class="logo-link">Uzun<span>Yaşa</span></a>
+   <nav>
+     <a href="/pages/blog.html">Blog</a>
+     <a href="/pages/rehberler.html">Rehberler</a>
+     <a href="/pages/araclar.html">Araçlar</a>
+     <a href="/pages/tedavi.html">Tedavi</a>
+   </nav>
  </header>
- <divid="main-content" role="main" class="container">
- <div class="error-code">404</div>
- <h1>Sayfa Bulunamadı</h1>
- <p class="desc">Aradığınız sayfa taşınmış, kaldırılmış veya hiç var olmamış olabilir. Ana sayfadan aradığınızı bulabilirsiniz.</p>
- <a href="/" class="btn-home">Ana Sayfaya Dön</a>
- <div class="links-title">Popüler Bölümler</div>
- <div class="links">
- <a href="/pages/blog.html"> Blog</a>
- <a href="/pages/rehberler.html"> Rehberler</a>
- <a href="/pages/araclar.html"> Araçlar</a>
- <a href="/pages/tedavi.html"> Tedavi</a>
- </div>
- </div>
- <footer role="contentinfo">© 2026 UzunYaşa — Bilimle daha uzun, daha iyi yaşam.</footer>
-<script src="scripts/animations.js"></script>
+
+ <!-- Main Content -->
+ <main id="main-content" class="hero-404">
+   <div class="content-404">
+
+     <!-- 404 Number -->
+     <div class="error-number" aria-hidden="true">404</div>
+
+     <!-- Fun Message -->
+     <h1 class="error-title">Bu Sayfa Oruç Tutuyor 🌙</h1>
+     <p class="error-subtitle">
+       Aradığınız sayfa kilo verip bulunamaz hale gelmiş olabilir,
+       ya da bu URL hiç var olmamış olabilir.
+     </p>
+     <p class="error-joke">
+       Merak etmeyin, metabolizması hızlı — yakında döner belki! 😄
+     </p>
+
+     <!-- Search -->
+     <div class="search-404">
+       <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <circle cx="11" cy="11" r="8"></circle>
+         <path d="m21 21-4.35-4.35"></path>
+       </svg>
+       <input type="text" id="search404" placeholder="Ne arıyordunuz? Bir deneyin..." aria-label="Site içinde ara" autocomplete="off">
+       <button type="button" onclick="doSearch()">Ara</button>
+     </div>
+
+     <!-- CTA Buttons -->
+     <div class="cta-buttons">
+       <a href="/" class="btn-home-404">
+         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+         Ana Sayfaya Dön
+       </a>
+       <a href="/pages/blog.html" class="btn-blog-404">
+         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+         Blog'u Keşfet
+       </a>
+     </div>
+
+     <!-- Popular Sections -->
+     <div class="popular-sections">
+       <div class="section-label">Popüler Bölümler</div>
+       <div class="popular-grid">
+         <a href="/pages/blog.html" class="popular-item">
+           <div class="item-icon">📝</div>
+           Blog
+         </a>
+         <a href="/pages/araclar.html" class="popular-item">
+           <div class="item-icon">🧮</div>
+           Araçlar
+         </a>
+         <a href="/pages/rehberler.html" class="popular-item">
+           <div class="item-icon">📚</div>
+           Rehberler
+         </a>
+         <a href="/pages/tedavi.html" class="popular-item">
+           <div class="item-icon">💊</div>
+           Tedavi
+         </a>
+       </div>
+     </div>
+
+     <!-- Recent Blog Posts -->
+     <div class="recent-posts">
+       <div class="section-label">Son Yazılar</div>
+       <div class="posts-grid">
+         <a href="/pages/blog/selenyum-kalp-sagligi-meta-analiz.html" class="post-card">
+           <span class="post-category" style="background: rgba(139,92,246,0.1); color: #8B5CF6;">🧬 Bilim</span>
+           <span class="post-title">Selenyum Suplementasyonu ve Kardiyovasküler Risk: Meta-Analiz Ne Diyor?</span>
+           <span class="post-meta">26 Şubat 2026 · 14 dk okuma</span>
+         </a>
+         <a href="/pages/blog/tip2-diyabet-zaman-kisitli-beslenme-intermittent-fasting.html" class="post-card">
+           <span class="post-category" style="background: rgba(139,92,246,0.1); color: #8B5CF6;">🧬 Bilim</span>
+           <span class="post-title">Tip 2 Diyabet ve Zaman Kısıtlı Beslenme: Ne Diyor Bilim?</span>
+           <span class="post-meta">26 Şubat 2026 · 14 dk okuma</span>
+         </a>
+         <a href="/pages/blog/bariatrik-cerrahi-sonrasi-kilo-alimi-ve-bozuk-yeme-davranisl.html" class="post-card">
+           <span class="post-category" style="background: rgba(236,72,153,0.1); color: #EC4899;">💊 Tedavi</span>
+           <span class="post-title">Bariatrik Cerrahi Sonrası Kilo Alımı ve Bozuk Yeme Davranışları</span>
+           <span class="post-meta">26 Şubat 2026 · 12 dk okuma</span>
+         </a>
+       </div>
+     </div>
+
+   </div>
+ </main>
+
+ <!-- Footer -->
+ <footer class="footer-404">
+   <div class="footer-links-row">
+     <a href="/pages/hakkimizda.html">Hakkımızda</a>
+     <a href="/pages/beslenme.html">Beslenme</a>
+     <a href="/pages/egzersiz.html">Egzersiz</a>
+     <a href="/pages/uyku-stres.html">Zihin & Davranış</a>
+     <a href="/pages/blog.html">Blog</a>
+     <a href="mailto:info@uzunyasa.com">İletişim</a>
+   </div>
+   <p>© 2026 <a href="/">UzunYaşa</a> — Bilimle daha uzun, daha iyi yaşam.</p>
+   <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.5;">
+     Bir <a href="https://tyzd.org" target="_blank" rel="noopener">Tıpta Yapay Zeka Derneği</a> girişimidir.
+   </p>
+   <p class="footer-disclaimer-text">
+     Bu sitedeki bilgiler genel bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez.
+   </p>
+ </footer>
+
+ <!-- Search Script -->
+ <script>
+ function doSearch() {
+   var q = document.getElementById('search404').value.trim();
+   if (q) {
+     window.location.href = '/pages/blog.html?q=' + encodeURIComponent(q);
+   }
+ }
+ document.getElementById('search404').addEventListener('keydown', function(e) {
+   if (e.key === 'Enter') doSearch();
+ });
+
+ // Random fun messages on each visit
+ (function() {
+   var messages = [
+     { title: 'Bu Sayfa Oruç Tutuyor 🌙', joke: 'Merak etmeyin, metabolizması hızlı — yakında döner belki! 😄' },
+     { title: 'Bu Sayfa Kilo Verdi 🏋️', joke: 'O kadar kilo verdi ki bulunamaz hale geldi!' },
+     { title: 'Bu Sayfa Uyuyor 😴', joke: 'Sirkadyen ritmi bozulmuş, uyanınca gelir.' },
+     { title: 'Bu Sayfa Yürüyüşe Çıktı 🚶', joke: '10.000 adımını doldurup dönecek!' },
+     { title: 'Bu Sayfa Detoks Yapıyor 🍵', joke: 'Toksinlerini attıktan sonra geri döner... belki.' }
+   ];
+   var pick = messages[Math.floor(Math.random() * messages.length)];
+   var titleEl = document.querySelector('.error-title');
+   var jokeEl = document.querySelector('.error-joke');
+   if (titleEl) titleEl.textContent = pick.title;
+   if (jokeEl) jokeEl.textContent = pick.joke;
+   document.title = '404 — ' + pick.title + ' | UzunYaşa';
+ })();
+ </script>
+
+ <script src="/scripts/premium-animations.js"></script>
 </body>
 </html>
