@@ -1969,7 +1969,7 @@
  <nav class="nav">
  <ul class="nav-links">
  <li class="nav-dropdown">
- <a href="#" class="nav-link">Keşfet </a>
+ <a href="#kesfet" class="nav-link">Keşfet </a>
  <div class="nav-dropdown-content">
  <a href="pages/beslenme.html" class="nav-dropdown-item">Beslenme</a>
  <a href="pages/egzersiz.html" class="nav-dropdown-item"> Egzersiz</a>
@@ -2307,7 +2307,7 @@
  <li>Video rehberli egzersizler</li>
  <li>İlerleme takibi</li>
  </ul>
- <a href="#" class="ai-expert-btn disabled">
+ <a href="javascript:void(0)" class="ai-expert-btn disabled">
  Yakında
  </a>
  </div>
@@ -2701,12 +2701,12 @@
  </div>
  <div class="cta-divider">veya</div>
  <p style="margin-bottom: 1rem; opacity: 0.9;">Haftalık bültenimize abone olun</p>
- <div class="cta-newsletter" style="flex-direction:column;align-items:center;gap:0.75rem;">
- <a href="mailto:info@uzunyasa.com?subject=Bülten%20Aboneliği&body=Merhaba%2C%20haftalık%20bülteninize%20abone%20olmak%20istiyorum." class="btn" style="background:white;color:#195157;padding:14px 28px;font-weight:600;font-size:1rem;border-radius:10px;text-decoration:none;">
- 📧 info@uzunyasa.com — Bülten İçin Yazın
- </a>
- <p style="opacity:0.6;font-size:0.8rem;margin-top:0.25rem;">Otomatik abonelik sistemi yakında aktif olacak</p>
- </div>
+ <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="cta-newsletter" style="max-width:440px;margin:0 auto;display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
+ <input type="email" name="email" required placeholder="E-posta adresiniz" class="cta-input" style="flex:1;min-width:220px;padding:14px 16px;border:none;border-radius:10px;font-size:1rem;">
+ <input type="hidden" name="_subject" value="Yeni Bülten Abonesi — UzunYaşa">
+ <button type="submit" class="btn" style="background:white;color:#195157;padding:14px 28px;font-weight:600;font-size:1rem;border-radius:10px;cursor:pointer;border:none;">Abone Ol</button>
+ </form>
+ <p style="opacity:0.5;font-size:0.75rem;margin-top:0.75rem;">Spam göndermiyoruz. İstediğiniz zaman abonelikten çıkabilirsiniz.</p>
  </div>
  </section>
 
