@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="x-default" href="https://uzunyasa.com/pages/test-duygusal.html">
 <meta http-equiv="Content-Language" content="tr">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<script src="/scripts/https-redirect.js"></script>
+<script>if(location.protocol!=="https:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1")location.replace("https://"+location.host+location.pathname+location.search+location.hash);</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-QBM7E0EHFP');</script>
 <meta charset="UTF-8">
@@ -22,8 +22,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles/main.css">
-<link rel="stylesheet" href="../styles/animations.css">
+<link rel="preload" href="../styles/main.css" as="style">
+ <link rel="stylesheet" href="../styles/main.css">
+<link rel="preload" href="../styles/animations.css" as="style">
+ <link rel="stylesheet" href="../styles/animations.css">
 <style>
 :root{--primary:#0D7377;--primary-dark:#195157;--accent:#E8963E;--bg:#f8fafa;--card-bg:#fff;--text:#1a2e35;--text-light:#5a7a84}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -253,6 +255,6 @@ function restart(){current=0;answers.fill(-1);document.getElementById('quizArea'
 
 render();
 </script>
-<script src="../scripts/animations.js"></script>
+<script src="../scripts/animations.js" defer></script>
 </body>
 </html>
