@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<script src="/scripts/https-redirect.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Selenyum Suplementasyonu ve Kardiyovasküler Risk: Meta-Analiz Ne Diyor? | UzunYaşa Blog</title>
+    <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+ <meta name="description" content="Selenyum takviyesi gerçekten kalbi korur mu? 7 meta-analiz ve 19.000+ katılımcılı RCT verileri ışığında selenyum suplementasyonu ve kardiyovasküler risk ilişkisinin kapsamlı analizi. SELECT trial, Cochrane review ve güncel kanıtlar.">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../../styles/main.css">
+ <link rel="stylesheet" href="../../styles/animations.css">
+ <style>
+ article { max-width: 700px; margin: 0 auto; padding: 7rem 2rem 4rem; }
+ .post-category { display: inline-block; background: #8B5CF6; color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; }
+ h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; color: var(--text); }
+ .post-meta { color: var(--text-gray); margin-bottom: 2rem; font-size: 0.9rem; }
+ .featured-image { width: 100%; height: 350px; background: linear-gradient(135deg, #1e3a5f 0%, #2d6a4f 50%, #40916c 100%); border-radius: 16px; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+ .content p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+ .content h2 { font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--primary); }
+ .content h3 { font-size: 1.3rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--text); }
+ .content ul, .content ol { margin: 1.5rem 0; padding-left: 1.5rem; }
+ .content li { margin-bottom: 0.75rem; font-size: 1.05rem; }
+ .highlight-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
+ .stat-box { background: var(--primary); color: white; padding: 2rem; border-radius: 16px; text-align: center; margin: 2rem 0; }
+ .stat-box .number { font-size: 3rem; font-weight: 800; }
+ .stat-box .label { opacity: 0.9; }
+ .cta-box { background: linear-gradient(135deg, var(--primary), #2a7d83); color: white; padding: 2rem; border-radius: 16px; text-align: center; margin: 3rem 0; }
+ .cta-btn { display: inline-block; background: white; color: var(--primary); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
+
+ .warning-box { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+ .warning-box h4 { color: #92400e; margin-bottom: 0.5rem; }
+
+ .evidence-box { background: #f8fafc; border-radius: 16px; padding: 2rem; margin: 2rem 0; border: 1px solid #e2e8f0; }
+ .evidence-positive { background: #f0fdf4; border-left: 5px solid #10b981; padding: 1.25rem; border-radius: 0 12px 12px 0; margin: 1rem 0; }
+ .evidence-negative { background: #fef2f2; border-left: 5px solid #ef4444; padding: 1.25rem; border-radius: 0 12px 12px 0; margin: 1rem 0; }
+ .evidence-neutral { background: #eff6ff; border-left: 5px solid #3b82f6; padding: 1.25rem; border-radius: 0 12px 12px 0; margin: 1rem 0; }
+
+ .study-card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+ .study-card h4 { margin: 0 0 0.75rem; font-size: 1.1rem; color: var(--primary); }
+ .study-card .study-detail { font-size: 0.95rem; margin-bottom: 0.5rem; }
+ .study-card .study-detail strong { color: #374151; }
+
+ .key-stat-box { background: linear-gradient(135deg, #f0fdfa, #ecfdf5); border-left: 5px solid #0D7377; border-radius: 0 16px 16px 0; padding: 1.5rem 2rem; margin: 2rem 0; display: flex; align-items: center; gap: 1.25rem; }
+ .key-stat-box .ks-number { font-size: 2.5rem; font-weight: 800; color: #0D7377; line-height: 1; white-space: nowrap; }
+ .key-stat-box .ks-context { font-size: 0.95rem; color: #195157; line-height: 1.5; }
+ .key-stat-box.accent { border-left-color: #E8963E; background: linear-gradient(135deg, #fffbeb, #fef3c7); }
+ .key-stat-box.accent .ks-number { color: #E8963E; }
+ .key-stat-box.red { border-left-color: #ef4444; background: linear-gradient(135deg, #fef2f2, #fee2e2); }
+ .key-stat-box.red .ks-number { color: #ef4444; }
+
+ .u-shape-diagram { background: linear-gradient(135deg, #faf5ff, #ede9fe); border: 2px solid #8b5cf6; border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; }
+ .u-shape-diagram h4 { color: #6d28d9; margin-bottom: 1rem; font-size: 1.2rem; }
+ .u-shape-visual { font-size: 1.5rem; letter-spacing: 0.1em; margin: 1rem 0; }
+ .u-shape-labels { display: flex; justify-content: space-between; font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem; }
+
+ .tier-badge-inline { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; color: white; vertical-align: middle; }
+ .tier-c { background: #ca8a04; }
+
+ .turkey-box { background: linear-gradient(135deg, #fdf2f8, #fce7f3); border-left: 5px solid #ec4899; border-radius: 0 16px 16px 0; padding: 1.5rem 2rem; margin: 2rem 0; }
+ .turkey-box h4 { color: #be185d; margin-bottom: 0.75rem; }
+
+ @media (max-width: 640px) { h1 { font-size: 1.8rem; } article { padding: 6rem 1rem 3rem; } .featured-image { height: 220px; font-size: 3.5rem; } .key-stat-box .ks-number { font-size: 1.8rem; } .key-stat-box { flex-direction: column; text-align: center; } }
+ </style>
+
+    <meta property="og:title" content="Selenyum Suplementasyonu ve Kardiyovasküler Risk: Meta-Analiz Ne Diyor?">
+    <meta property="og:description" content="Selenyum takviyesi gerçekten kalbi korur mu? 7 meta-analiz ve 19.000+ katılımcılı RCT verileri ışığında kapsamlı analiz.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://uzunyasa.com/pages/blog/selenyum-kalp-sagligi-meta-analiz.html">
+    <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
+    <meta property="og:site_name" content="UzunYaşa">
+    <meta property="og:locale" content="tr_TR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Selenyum Suplementasyonu ve Kardiyovasküler Risk: Meta-Analiz Ne Diyor?">
+    <meta name="twitter:description" content="Selenyum takviyesi gerçekten kalbi korur mu? 7 meta-analiz ve 19.000+ katılımcılı RCT verileri ışığında kapsamlı analiz.">
+    <link rel="canonical" href="https://uzunyasa.com/pages/blog/selenyum-kalp-sagligi-meta-analiz.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Selenyum Suplementasyonu ve Kardiyovasküler Risk: Meta-Analiz Ne Diyor?",
+  "description": "Selenyum takviyesi gerçekten kalbi korur mu? 7 meta-analiz ve 19.000+ katılımcılı RCT verileri ışığında selenyum suplementasyonu ve kardiyovasküler risk ilişkisinin kapsamlı analizi.",
+  "author": {
+    "@type": "Organization",
+    "name": "UzunYaşa",
+    "url": "https://uzunyasa.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "UzunYaşa",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://uzunyasa.com/images/logo-icon-new.png"
+    }
+  },
+  "datePublished": "2026-02-26",
+  "dateModified": "2026-02-26",
+  "mainEntityOfPage": "https://uzunyasa.com/pages/blog/selenyum-kalp-sagligi-meta-analiz.html",
+  "image": "https://uzunyasa.com/images/og-default.png",
+  "keywords": ["selenyum", "selenium", "kardiyovasküler risk", "meta-analiz", "SELECT trial", "tip 2 diyabet", "selenosis", "kalp sağlığı", "supplement", "antioksidan"],
+  "articleSection": "Bilim",
+  "wordCount": "2800"
+}
+</script>
+</head>
+<body>
+ <header class="header">
+ <div class="header-inner">
+ <a href="../../index.html"><img src="../../images/logo.svg" alt="UzunYaşa" class="logo-img"></a>
+ <a href="../blog.html" class="back-link">← Blog</a>
+ </div>
+ </header>
+
+ <article>
+ <span class="post-category">🧬 Bilim</span>
+ <h1>Selenyum Suplementasyonu ve Kardiyovasküler Risk: Meta-Analiz Ne Diyor?</h1>
+ <div class="post-meta">26 Şubat 2026 • ⏱ 14 dk okuma</div>
+
+ <div class="featured-image">🔬</div>
+
+ <div class="content">
+
+<div class="key-stat-box red">
+  <div class="ks-number">RR 0.97</div>
+  <div class="ks-context">Cochrane meta-analizi: Selenyum suplementasyonu kardiyovasküler mortaliteyi anlamlı olarak azaltmadı (95% GA: 0.79–1.20). 19.715 katılımcı, 12 RCT.</div>
+</div>
+
+<p>"Selenyum kalbi korur" iddiası, supplement pazarının en yaygın söylemlerinden biri. Ancak bilimsel kanıtlar bu iddianın çok daha karmaşık — ve büyük ölçüde hayal kırıklığı yaratan — bir gerçekliğe işaret ediyor. Bu yazıda, selenyum suplementasyonunun kardiyovasküler risk faktörleri üzerindeki etkisini güncel meta-analiz verilerine dayanarak inceliyoruz.</p>
+
+<p><strong>Sonuç önceden söyleyelim:</strong> Gözlemsel çalışmalar düşük selenyum düzeylerinin kardiyovasküler riskle ilişkili olduğunu gösterse de, randomize kontrollü çalışmalar (RCT'ler) selenyum takviyesinin bu riski azalttığını desteklemiyor. Dahası, yüksek doz selenyum tip 2 diyabet riskini artırabilir ve lipid profilini olumsuz etkileyebilir.</p>
+
+<h2>🧪 Selenyum Nedir ve Neden Önemli?</h2>
+
+<p>Selenyum, insan vücudu için esansiyel bir eser elementtir. Glutatyon peroksidaz ve tioredoksin redüktaz gibi selenoproteinlerin yapısında yer alır. Bu enzimler oksidatif strese karşı koruma sağlar, bağışıklık sistemini düzenler ve tiroid hormon metabolizmasında rol oynar.</p>
+
+<p>Selenyumun kardiyovasküler koruma hipotezi şu mantığa dayanır: oksidatif stres ateroskleroz sürecinde anahtar rol oynar → selenyum antioksidan savunmayı güçlendirir → dolayısıyla kardiyovasküler hastalığı önleyebilir. Mantıklı görünüyor, ama tıpta mekanistik mantık ile klinik gerçeklik her zaman örtüşmez.</p>
+
+<h2>📊 Gözlemsel Çalışmalar: Umut Verici Ama Yanıltıcı</h2>
+
+<div class="study-card">
+<h4>Flores-Mateo et al. Meta-Analiz (2006)</h4>
+<div class="study-detail"><strong>Kaynak:</strong> Am J Clin Nutr 2006;84:762-73 (PMID: 17023702)</div>
+<div class="study-detail"><strong>Kapsam:</strong> 25 gözlemsel çalışma + 6 RCT, 1966-2005 arası</div>
+<div class="study-detail"><strong>Popülasyon:</strong> Genel popülasyon ve KVH riski olan bireyler</div>
+<div class="study-detail"><strong>Sonuç:</strong> Gözlemsel çalışmalarda selenyum konsantrasyonları koroner kalp hastalığı riskiyle ters orantılı bulundu (%50 daha yüksek selenyum → koroner risk ↓). Ancak RCT verileri bu ilişkiyi doğrulamadı.</div>
+<div class="study-detail"><strong>⚠️ Sınırlılık:</strong> Gözlemsel çalışmalardaki ters ilişki, diğer antioksidanlar için de (beta-karoten, E vitamini) gösterilmiş ama RCT'lerle doğrulanamamıştı — aynı hikaye selenyum için de tekrarlandı.</div>
+</div>
+
+<div class="evidence-positive">
+<strong>🟢 Gözlemsel kanıt:</strong> Düşük selenyum düzeyleri kardiyovasküler riskle ilişkili (Flores-Mateo 2006, çoklu kohort çalışmaları).
+</div>
+
+<div class="evidence-negative">
+<strong>🔴 RCT kanıtı:</strong> Aynı meta-analizde selenyum suplementasyonu RCT'lerinde anlamlı kardiyovasküler fayda gösterilemedi.
+</div>
+
+<div class="warning-box">
+<h4>⚠️ Gözlemsel vs. Deneysel Kanıt Tuzağı</h4>
+<p>Tıp tarihinde gözlemsel çalışmaların pozitif gösterip RCT'lerin çökerttüği pek çok örnek var. Beta-karoten akciğer kanserini gözlemsel çalışmalarda "önlüyordu" — ATBC ve CARET RCT'leri ise sigara içenlerde riskin <em>arttığını</em> gösterdi. E vitamini benzer bir yol izledi. Selenyum de bu örüntüye uymaktadır.</p>
+</div>
+
+<h2>🔬 Randomize Kontrollü Çalışmalar: Gerçek Tablo</h2>
+
+<h3>SELECT Trial — En Büyük Negatif Çalışma</h3>
+
+<div class="study-card">
+<h4>Selenium and Vitamin E Cancer Prevention Trial — SELECT (2009/2011)</h4>
+<div class="study-detail"><strong>Kaynak:</strong> Lippman SM, et al. JAMA 2009;301(1):39-51 (PMID: 19066370); Klein EA, et al. JAMA 2011;306(14):1549-56 (PMID: 21990298)</div>
+<div class="study-detail"><strong>Popülasyon (P):</strong> 35.533 sağlıklı erkek, ≥50 yaş (Afro-Amerikan) veya ≥55 yaş (diğerleri)</div>
+<div class="study-detail"><strong>Müdahale (I):</strong> Selenyum 200 µg/gün (L-selenometiyonin) ± E vitamini 400 IU/gün</div>
+<div class="study-detail"><strong>Karşılaştırma (C):</strong> Plasebo</div>
+<div class="study-detail"><strong>Birincil sonlanım (O):</strong> Prostat kanseri insidansı</div>
+<div class="study-detail"><strong>Sonuç:</strong> Selenyum veya E vitamini, tek başına veya kombinasyon halinde, prostat kanserini <strong>önlemedi</strong>. E vitamini grubunda prostat kanseri riski anlamlı olarak arttı (HR 1.17, %99 GA: 1.004–1.36).</div>
+<div class="study-detail"><strong>KV sonuçlar:</strong> Gruplar arasında kardiyovasküler olaylarda anlamlı fark <strong>saptanmadı</strong>.</div>
+<div class="study-detail"><strong>Diyabet sinyali:</strong> İlk raporda selenyum grubunda tip 2 diyabet riskinde istatistiksel olarak anlamlı olmayan artış gözlendi (HR 1.07). Uzun takipte bu sinyal zayıfladı ama tamamen kaybolmadı.</div>
+<div class="study-detail"><strong>⚠️ Kritik nokta:</strong> Katılımcılar ABD'deki iyi beslenmiş popülasyondan geliyordu — zaten yeterli selenyum düzeyine sahip kişilere ek selenyum verildi.</div>
+</div>
+
+<div class="key-stat-box accent">
+  <div class="ks-number">35.533</div>
+  <div class="ks-context">SELECT çalışmasındaki katılımcı sayısı — selenyum araştırma tarihinin en büyük RCT'si. Sonuç: Ne kanser ne kardiyovasküler fayda.</div>
+</div>
+
+<h3>Cochrane Sistematik Derlemesi</h3>
+
+<div class="study-card">
+<h4>Rees et al. Cochrane Review (2013, güncelleme 2021)</h4>
+<div class="study-detail"><strong>Kaynak:</strong> Cochrane Database Syst Rev 2013;(1):CD009671 (PMID: 23440843)</div>
+<div class="study-detail"><strong>Kapsam:</strong> 12 RCT, 19.715 katılımcı</div>
+<div class="study-detail"><strong>Popülasyon (P):</strong> Genel popülasyon ve KVH yüksek riskli bireyler</div>
+<div class="study-detail"><strong>Müdahale (I):</strong> Yalnız selenyum suplementasyonu (çeşitli dozlar)</div>
+<div class="study-detail"><strong>Karşılaştırma (C):</strong> Plasebo veya müdahalesiz</div>
+<div class="study-detail"><strong>Sonuçlar:</strong></div>
+<ul>
+<li>Tüm nedenlere bağlı mortalite: RR 0.97 (95% GA: 0.88–1.08) — <strong>anlamlı değil</strong></li>
+<li>KV mortalite: RR 0.97 (95% GA: 0.79–1.20) — <strong>anlamlı değil</strong></li>
+<li>Fatal olmayan KV olaylar: RR 0.96 (95% GA: 0.89–1.04) — <strong>anlamlı değil</strong></li>
+<li>Tüm KV olaylar (fatal + non-fatal): RR 1.03 (95% GA: 0.95–1.11) — <strong>anlamlı değil</strong></li>
+<li>Tip 2 diyabet: RR 1.06 (95% GA: 0.97–1.15) — <strong>anlamlı değil ama artış yönünde</strong></li>
+</ul>
+<div class="study-detail"><strong>Yan etkiler:</strong> Alopesi (saç dökülmesi) riskinde anlamlı artış (RR 1.28, 95% GA: 1.01–1.62) ve dermatit riskinde artış (RR 1.17)</div>
+<div class="study-detail"><strong>⚠️ Yazarların sonucu:</strong> "Mevcut sınırlı kanıt, selenyum takviyesinin KVH birincil önlenmesinde kullanımını desteklememektedir."</div>
+</div>
+
+<div class="evidence-negative">
+<strong>🔴 Güçlü negatif kanıt:</strong> Cochrane meta-analizi (12 RCT, N=19.715): Selenyum suplementasyonu KVH'yi önlemiyor. Hiçbir KV sonlanım noktasında anlamlı fayda yok. 🟢 Kanıt düzeyi güçlü (çoklu RCT, düşük bias riski).
+</div>
+
+<h3>Jenkins et al. — Antioxidant Karışımlarında Selenyumun Rolü</h3>
+
+<div class="study-card">
+<h4>Jenkins et al. Sistematik Derleme ve Meta-Analiz (2020)</h4>
+<div class="study-detail"><strong>Kaynak:</strong> Am J Clin Nutr 2020;112(6):1642-52 (PMID: 33053149)</div>
+<div class="study-detail"><strong>Kapsam:</strong> 43 RCT, selenyum tek başına ve antioksidan karışımlarında</div>
+<div class="study-detail"><strong>Popülasyon (P):</strong> Çeşitli yetişkin popülasyonları</div>
+<div class="study-detail"><strong>Müdahale (I):</strong> Selenyum tek başına veya antioksidan karışımlarında (±selenyum)</div>
+<div class="study-detail"><strong>Sonuç:</strong> Selenyum <strong>tek başına</strong> KVH veya tüm nedenlere bağlı mortalite üzerinde anlamlı etki göstermedi. Ancak selenyum <em>içeren</em> antioksidan karışımları, selenyum içermeyenlere kıyasla tüm nedenlere bağlı mortalitede azalma ile ilişkili bulundu.</div>
+<div class="study-detail"><strong>⚠️ Kritik yorum:</strong> Bu bulgu, selenyumun <em>tek başına değil</em> diğer antioksidanlarla sinerjistik etki gösterebileceğini düşündürüyor — ama doğrulayıcı çalışma gerektirir.</div>
+</div>
+
+<div class="evidence-neutral">
+<strong>🟡 Orta kanıt:</strong> Jenkins et al. (2020): Selenyum tek başına KV fayda yok; antioksidan karışımlarında potansiyel sinerjistik etki, ama kanıt kesin değil.
+</div>
+
+<h2>💊 Selenyum ve Metabolik Risk Faktörleri</h2>
+
+<h3>Lipid Profili: Beklenmedik Olumsuz Etkiler</h3>
+
+<div class="study-card">
+<h4>Kelishadi et al. Meta-Analiz (2022)</h4>
+<div class="study-detail"><strong>Kaynak:</strong> J Trace Elem Med Biol 2022;74:127046 (PMID: 35963054)</div>
+<div class="study-detail"><strong>Kapsam:</strong> Doz-yanıt meta-analizi, çoklu RCT</div>
+<div class="study-detail"><strong>Popülasyon (P):</strong> Yetişkin bireyler</div>
+<div class="study-detail"><strong>Müdahale (I):</strong> Selenyum suplementasyonu (çeşitli dozlar)</div>
+<div class="study-detail"><strong>Sonuçlar:</strong></div>
+<ul>
+<li>Trigliserid: Anlamlı etki yok (WMD: −0.84 mg/dL, p=0.671)</li>
+<li>LDL-kolesterol: Anlamlı etki yok (WMD: 0.86 mg/dL, p=0.416)</li>
+<li>HDL-kolesterol: Anlamlı etki yok (WMD: 0.3 mg/dL, p=0.535)</li>
+<li>Total kolesterol: Hafif azalma (WMD: −2.11 mg/dL, p=0.037)</li>
+<li><strong>Sistolik kan basıncı: Anlamlı ARTIŞ</strong> (WMD: +2.02 mmHg, p=0.009)</li>
+</ul>
+<div class="study-detail"><strong>Alt grup:</strong> Bazal LDL &lt;130 mg/dL olan grupta selenyum LDL'yi anlamlı şekilde yükseltti (WMD: +2.89 mg/dL, p=0.031)</div>
+<div class="study-detail"><strong>⚠️ Yorum:</strong> Selenyum total kolesterolü çok az düşürürken, sistolik kan basıncını yükseltiyor ve bazı alt gruplarda LDL'yi artırıyor — net KV etkisi nötr-olumsuz.</div>
+</div>
+
+<div class="study-card">
+<h4>Urbano et al. Doz-Yanıt Meta-Analizi (2025)</h4>
+<div class="study-detail"><strong>Kaynak:</strong> Nutr Rev 2026;84(3):551-70 (PMID: 40243093)</div>
+<div class="study-detail"><strong>Kapsam:</strong> 27 RCT, restricted cubic spline regresyon analizi</div>
+<div class="study-detail"><strong>Popülasyon (P):</strong> Sağlıklı bireyler, gebeler ve spesifik sağlık koşulları olanlar</div>
+<div class="study-detail"><strong>Müdahale (I):</strong> Selenyum suplementasyonu (çeşitli formlar ve dozlar)</div>
+<div class="study-detail"><strong>Sonuçlar:</strong></div>
+<ul>
+<li>≥200 µg/gün selenyum: HDL ve LDL kolesterol <strong>düştü</strong>, trigliserid <strong>arttı</strong></li>
+<li>Kan selenyum düzeyi ≥150 µg/L: Trigliserid ve LDL <strong>pozitif korelasyon</strong>, HDL <strong>negatif korelasyon</strong></li>
+<li>İnorganik selenyum, organik selenyuma göre daha güçlü olumsuz ilişki gösterdi</li>
+<li>Düşük bazal selenyum düzeylerinde ise selenyum suplementasyonu lipid profili üzerinde <strong>olumlu</strong> etki gösterdi</li>
+</ul>
+<div class="study-detail"><strong>⚠️ U-şekli doğrulandı:</strong> Düşük dozlarda faydalı, yüksek dozlarda zararlı — "daha fazla daha iyi" değil.</div>
+</div>
+
+<div class="evidence-negative">
+<strong>🔴 Negatif kanıt:</strong> Selenyum suplementasyonu kan basıncını artırıyor (+2 mmHg sistolik), yüksek dozlarda lipid profilini bozuyor. Zaten yeterli selenyum düzeyine sahip kişilerde metabolik zarar potansiyeli var.
+</div>
+
+<h3>Tip 2 Diyabet Riski: Ciddi Bir Uyarı</h3>
+
+<div class="study-card">
+<h4>Vinceti et al. Sistematik Derleme ve Meta-Analiz (2018)</h4>
+<div class="study-detail"><strong>Kaynak:</strong> Eur J Epidemiol 2018;33(9):789-810 (PMID: 29974401)</div>
+<div class="study-detail"><strong>Kapsam:</strong> 50 gözlemsel çalışma + 5 RCT</div>
+<div class="study-detail"><strong>Sonuçlar:</strong></div>
+<ul>
+<li><strong>RCT verileri:</strong> 200 µg/gün selenyum suplementasyonu diyabet riskini %11 artırdı (RR 1.11, 95% GA: 1.01–1.22) — <strong>istatistiksel olarak anlamlı</strong></li>
+<li>Kadınlarda risk artışı erkeklerden daha yüksek</li>
+<li><strong>Gözlemsel veriler:</strong> Serum selenyum 140 µg/L olanlar, &lt;45 µg/L olanlara kıyasla diyabet riski 3.6 kat daha yüksek (RR 3.6, 95% GA: 1.4–9.4)</li>
+<li>Doz-yanıt ilişkisi doğrusal ve tutarlı</li>
+</ul>
+<div class="study-detail"><strong>⚠️ Çıkarım:</strong> Yüksek selenyum maruziyeti, hem deneysel hem de gözlemsel verilere göre, tip 2 diyabet riskini artırabilir.</div>
+</div>
+
+<div class="key-stat-box red">
+  <div class="ks-number">%11↑</div>
+  <div class="ks-context">Selenyum suplementasyonu (200 µg/gün) tip 2 diyabet riskini %11 artırdı (RR 1.11, 95% GA: 1.01–1.22). Bu, selenyumun "zararsız bir takviye" olmadığının kanıtıdır.</div>
+</div>
+
+<h2>⚖️ U-Şekilli İlişki: Altın Nokta Nerede?</h2>
+
+<div class="u-shape-diagram">
+<h4>Selenyum ve Sağlık: U-Şekilli Doz-Yanıt İlişkisi</h4>
+<div class="u-shape-visual">📈 Risk ← &nbsp; &nbsp; ↘ &nbsp; &nbsp; Optimal &nbsp; &nbsp; ↗ &nbsp; &nbsp; → Risk 📈</div>
+<p style="font-size: 0.95rem; margin-top: 1rem;">Düşük selenyum: Keshan hastalığı, bağışıklık bozukluğu | <strong>Optimal: ~60-120 µg/L serum</strong> | Yüksek selenyum: Diyabet riski, selenosis, lipid bozukluğu</p>
+<div class="u-shape-labels">
+<span>⬅ Eksiklik bölgesi</span>
+<span>Yeterlilik ➡</span>
+<span>Toksisite bölgesi ➡</span>
+</div>
+</div>
+
+<p>Hem gözlemsel hem de deneysel veriler, selenyum ile sağlık arasında <strong>U-şekilli (veya J-şekilli) bir ilişki</strong> olduğunu ortaya koymaktadır:</p>
+
+<ul>
+<li><strong>Düşük selenyum (&lt;60 µg/L serum):</strong> Keshan hastalığı (kardiyomiyopati), artmış oksidatif stres, bağışıklık yetersizliği. Bu bölgede selenyum takviyesi gerçekten faydalıdır — ancak bu durum ağırlıklı olarak Çin'in bazı bölgeleri gibi ciddi eksiklik alanlarında geçerlidir.</li>
+<li><strong>Optimal aralık (~60-120 µg/L serum):</strong> Selenoproteinler yeterli düzeyde çalışır. Ek takviye gerekmez.</li>
+<li><strong>Yüksek selenyum (&gt;120-150 µg/L serum):</strong> Diyabet riski artar, lipid profili bozulabilir, selenosis belirtileri (saç/tırnak kırılması, gastrointestinal semptomlar, nörolojik etkiler) başlayabilir.</li>
+</ul>
+
+<p>Wei et al. (2021) hipertansif hastalarda serum selenyum ile tüm nedenlere bağlı ve KV mortalite arasında <strong>U-şekilli ilişki</strong> olduğunu gösterdi: En düşük mortalite orta düzey selenyumda (ikinci çeyreklik) gözlendi; hem çok düşük hem çok yüksek selenyum düzeylerinde mortalite artıyordu (PMID: 34395551).</p>
+
+<h2>🇹🇷 Türkiye'de Selenyum Durumu</h2>
+
+<div class="turkey-box">
+<h4>🇹🇷 Türkiye'ye Özel Değerlendirme</h4>
+<p>Türkiye'nin toprak selenyum düzeyleri <strong>bölgesel farklılık</strong> gösterir. Yapılan çalışmalar, Türkiye'de günlük selenyum alımının yaklaşık <strong>44-51 µg/gün</strong> olduğunu göstermektedir — bu, önerilen günlük alım olan 55 µg/gün'ün altındadır.</p>
+<p>Serum selenyum düzeyleri Ankara'da sağlıklı yetişkinlerde <strong>yaklaşık 70-90 µg/L</strong> aralığında ölçülmüştür. Bu, ciddi eksiklik olmasa da, Kuzey Amerika'daki düzeylerin (&gt;120 µg/L) belirgin altındadır.</p>
+<p><strong>Ne anlama geliyor?</strong> Türkiye, ABD gibi selenyum açısından doymuş bir ülke değil. Ancak bu, otomatik olarak "herkes selenyum takviyesi almalı" anlamına da gelmez. Beslenme kaynaklarından (ceviz, buğday, deniz ürünleri, yumurta) yeterli selenyum almak mümkündür.</p>
+</div>
+
+<h2>📋 Kanıt Özeti: Selenyum ve Kardiyovasküler Sağlık</h2>
+
+<div class="evidence-box">
+
+<div class="evidence-positive">
+<strong>🟢 Gözlemsel kanıt (tutarlı):</strong> Düşük serum selenyum düzeyleri kardiyovasküler hastalık ve mortalite riskiyle ilişkili. Özellikle selenyum eksikliği olan popülasyonlarda (Asya, bazı Avrupa bölgeleri) koruyucu ilişki daha belirgin.
+</div>
+
+<div class="evidence-negative">
+<strong>🔴 RCT kanıtı — tek başına selenyum (güçlü):</strong> Cochrane meta-analizi (12 RCT, N=19.715): Hiçbir KV sonlanım noktasında anlamlı fayda yok. SELECT trial (N=35.533): KV olaylarda fark yok. Selenyum suplementasyonu KVH'yi <strong>önlemiyor</strong>.
+</div>
+
+<div class="evidence-negative">
+<strong>🔴 Metabolik zarar sinyali (orta-güçlü):</strong> Tip 2 diyabet riski %11 artış (Vinceti 2018, meta-analiz). Sistolik kan basıncı +2 mmHg artış (Kelishadi 2022). Yüksek dozda lipid profili bozulması (Urbano 2025).
+</div>
+
+<div class="evidence-neutral">
+<strong>🟡 Antioksidan karışımlar (erken kanıt):</strong> Selenyum içeren antioksidan karışımlarında potansiyel sinerjistik fayda (Jenkins 2020) — ama tek başına selenyum etkisi değil, doğrulanmamış.
+</div>
+
+<p style="margin-top: 1.5rem;"><strong>⚖️ Net değerlendirme:</strong> Selenyum suplementasyonu, kardiyovasküler hastalık birincil önlenmesi için <strong>kanıtla desteklenmemektedir</strong>. Selenyum eksikliği olan bireylerde fizyolojik yerine koyma tedavisi farklı bir konudur — ancak bu, genel popülasyona supplement önerme gerekçesi oluşturmaz.</p>
+
+</div>
+
+<div class="stat-box">
+  <div class="number"><span class="tier-badge-inline tier-c">Tier C</span></div>
+  <div class="label">Selenyumun kardiyovasküler koruma için kanıt düzeyi: Çoğunlukla gözlemsel veriye dayalı, RCT'ler negatif. Sağlıklı bireylerde rutin suplementasyon önerilmez.</div>
+</div>
+
+<h2>🎯 Pratik Öneriler</h2>
+
+<div class="highlight-box">
+<h3>Kime Selenyum Takviyesi Gerekebilir?</h3>
+<ul>
+<li><strong>Belgelenmiş selenyum eksikliği olanlar</strong> (düşük serum düzeyi — hekim değerlendirmesi ile)</li>
+<li><strong>Keshan hastalığı endemik bölge sakinleri</strong> (Çin'in belirli bölgeleri)</li>
+<li><strong>Ciddi malabsorpsiyon sendromları</strong> (kısa barsak, Crohn, bariatrik cerrahi sonrası — mikrobesin takibi kapsamında)</li>
+</ul>
+
+<h3>Kime Gerekmez?</h3>
+<ul>
+<li>Dengeli beslenen sağlıklı bireyler</li>
+<li>"Kalbi korumak" amacıyla takviye almak isteyenler — kanıt bunu desteklemiyor</li>
+<li>Zaten yüksek selenyum düzeyine sahip olanlar (ABD gibi yüksek selenyumlu topraklarda yaşayanlar)</li>
+</ul>
+</div>
+
+<div class="warning-box">
+<h4>⚠️ Selenyum Toksisitesi (Selenosis) Uyarısı</h4>
+<p>Günlük 400 µg üzerinde selenyum alımı toksik olabilir. Belirtiler: saç dökülmesi, tırnak kırılması, gastrointestinal semptomlar, nörolojik etkiler, sarımsak benzeri nefes kokusu. Üst güvenli sınır: <strong>400 µg/gün</strong> (ABD IOM). EFSA 2023'te üst sınırı <strong>255 µg/gün</strong>e düşürdü — Urbano et al. (2025) bu sınırın bile yeterli olmayabileceğini öne sürdü.</p>
+</div>
+
+<h2>📚 Bilimsel Referanslar</h2>
+
+<div class="highlight-box">
+<ol>
+<li><strong>Flores-Mateo G, et al.</strong> Selenium and coronary heart disease: a meta-analysis. Am J Clin Nutr 2006;84:762-73. <a href="https://pubmed.ncbi.nlm.nih.gov/17023702/" target="_blank" rel="noopener">PMID: 17023702</a></li>
+<li><strong>Lippman SM, et al.</strong> Effect of selenium and vitamin E on risk of prostate cancer and other cancers: the SELECT trial. JAMA 2009;301(1):39-51. <a href="https://pubmed.ncbi.nlm.nih.gov/19066370/" target="_blank" rel="noopener">PMID: 19066370</a></li>
+<li><strong>Klein EA, et al.</strong> Vitamin E and the risk of prostate cancer: the SELECT trial (updated results). JAMA 2011;306(14):1549-56. <a href="https://pubmed.ncbi.nlm.nih.gov/21990298/" target="_blank" rel="noopener">PMID: 21990298</a></li>
+<li><strong>Rees K, et al.</strong> Selenium supplementation for the primary prevention of cardiovascular disease (Cochrane Review). Cochrane Database Syst Rev 2013;(1):CD009671. <a href="https://pubmed.ncbi.nlm.nih.gov/23440843/" target="_blank" rel="noopener">PMID: 23440843</a></li>
+<li><strong>Vinceti M, et al.</strong> Selenium exposure and the risk of type 2 diabetes: a systematic review and meta-analysis. Eur J Epidemiol 2018;33(9):789-810. <a href="https://pubmed.ncbi.nlm.nih.gov/29974401/" target="_blank" rel="noopener">PMID: 29974401</a></li>
+<li><strong>Jenkins DJA, et al.</strong> Selenium, antioxidants, cardiovascular disease, and all-cause mortality: a systematic review and meta-analysis of RCTs. Am J Clin Nutr 2020;112(6):1642-52. <a href="https://pubmed.ncbi.nlm.nih.gov/33053149/" target="_blank" rel="noopener">PMID: 33053149</a></li>
+<li><strong>Wei J, et al.</strong> A U-shaped relationship between selenium concentrations and all-cause or cardiovascular mortality in patients with hypertension. Front Cardiovasc Med 2021;8:671618. <a href="https://pubmed.ncbi.nlm.nih.gov/34395551/" target="_blank" rel="noopener">PMID: 34395551</a></li>
+<li><strong>Kelishadi MR, et al.</strong> The effects of selenium supplementation on blood lipids and blood pressure in adults: a meta-analysis of RCTs. J Trace Elem Med Biol 2022;74:127046. <a href="https://pubmed.ncbi.nlm.nih.gov/35963054/" target="_blank" rel="noopener">PMID: 35963054</a></li>
+<li><strong>Urbano T, et al.</strong> Effects of selenium administration on blood lipids: a systematic review and dose-response meta-analysis. Nutr Rev 2026;84(3):551-70. <a href="https://pubmed.ncbi.nlm.nih.gov/40243093/" target="_blank" rel="noopener">PMID: 40243093</a></li>
+</ol>
+</div>
+
+<h2>🔎 Sonuç</h2>
+
+<p>Selenyum, esansiyel bir eser element olarak insan sağlığında önemli bir rol oynar. Ancak <strong>"eksikliği kötü" ile "fazlası iyi" arasında büyük bir uçurum</strong> vardır. Mevcut kanıtlar şunu açıkça göstermektedir:</p>
+
+<ul>
+<li>Selenyum <strong>eksikliğini</strong> gidermek önemlidir — ama bu, besinlerle sağlanabilir</li>
+<li>Selenyum <strong>suplementasyonu</strong> kardiyovasküler hastalığı önleme konusunda <strong>başarısızdır</strong> (Cochrane: 12 RCT, hiçbir KV sonlanımda fayda yok)</li>
+<li>Yüksek doz selenyum <strong>zararlı</strong> olabilir: diyabet riski, kan basıncı artışı, lipid profili bozulması</li>
+<li>U-şekilli doz-yanıt ilişkisi nedeniyle "daha fazla daha iyi" mantığı <strong>tehlikelidir</strong></li>
+</ul>
+
+<p><strong>Bir cümleyle:</strong> Selenyum takviyesi "kalbi korur" iddiası, güncel meta-analiz kanıtlarıyla desteklenmemektedir. Dengeli beslenme ve selenyumdan zengin gıdalar (Brezilya cevizi, deniz ürünleri, yumurta, tam tahıllar) — takviyeye tercih edilmelidir.</p>
+
+<div class="cta-box">
+  <h3>🔬 UzunYaşa Supplement Kanıt Rehberi</h3>
+  <p>Selenyum dahil 60+ supplement ve gıdanın bilimsel kanıt puanlamasını inceleyin.</p>
+  <a href="../araclar/supplement-kanit-rehberi.html" class="cta-btn">Rehberi İncele</a>
+</div>
+
+ </div>
+ </article>
+
+</body>
+</html>
