@@ -528,19 +528,6 @@
     "tags": []
   },
   {
-    "slug": "glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler",
-    "title": "GLP-1 İlaçları ve Kilo Verme: Bilmeniz Gerekenler",
-    "description": "GLP-1 reseptör agonistleri nasıl kilo verdirir? Yan etkileri, maliyeti ve Türkiye'deki durumu hakkında bilimsel bilgiler.",
-    "category": "tedavi",
-    "date": "2026-02-07",
-    "readTime": 12,
-    "url": "pages/blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html",
-    "categoryName": "Tedavi",
-    "categoryIcon": "💊",
-    "categoryColor": "#EC4899",
-    "tags": []
-  },
-  {
     "slug": "glp1-ilaclari-yan-etkileri-bilmeniz-gerekenler",
     "title": "GLP-1 İlaçları Yan Etkileri: Bilmeniz Gerekenler",
     "description": "GLP-1 agonistlerinin yan etkileri, güvenliği ve dikkat edilmesi gereken durumlar hakkında bilimsel bilgiler.",
@@ -572,7 +559,7 @@
     "description": "Semaglutid ve tirzepatid nasıl çalışır? Ne kadar kilo verdirir? Yan etkileri neler? Tüm klinik veriler ve Türkiye'deki erişim bilgileri.",
     "category": "tedavi",
     "date": "2026-02-01",
-    "readTime": 18,
+    "readTime": 22,
     "url": "pages/blog/glp1-tam-rehber.html",
     "categoryName": "Tedavi",
     "categoryIcon": "💊",

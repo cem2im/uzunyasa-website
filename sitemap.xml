@@ -282,12 +282,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://uzunyasa.com/pages/blog/glp1-ilaclari-ve-kilo-verme-bilmeniz-gerekenler.html</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- Redirected to glp1-tam-rehber.html -->
   <url>
     <loc>https://uzunyasa.com/pages/blog/glp1-ilaclari-yan-etkileri-bilmeniz-gerekenler.html</loc>
     <lastmod>2026-02-23</lastmod>
@@ -302,7 +297,7 @@
   </url>
   <url>
     <loc>https://uzunyasa.com/pages/blog/glp1-tam-rehber.html</loc>
-    <lastmod>2026-02-18</lastmod>
+    <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
