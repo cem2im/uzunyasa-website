@@ -2915,62 +2915,8 @@
  revealObserver.observe(el);
  });
 
- // ===== STATS COUNTER ANIMATION =====
- const statValues = document.querySelectorAll('.stat-value');
- const statsObserver = new IntersectionObserver((entries) => {
- entries.forEach(entry => {
- if (entry.isIntersecting) {
- animateStatValue(entry.target);
- statsObserver.unobserve(entry.target);
- }
- });
- }, { threshold: 0.5 });
-
- statValues.forEach(el => statsObserver.observe(el));
-
- function animateStatValue(el) {
- const text = el.textContent.trim();
- // Extract number
- const match = text.match(/([\d,.]+)/);
- if (!match) return; // e.g. "Kanıta Dayalı" — no number
-
- const numStr = match[1];
- const num = parseFloat(numStr.replace(/,/g, ''));
- const prefix = text.substring(0, text.indexOf(numStr));
- const suffix = text.substring(text.indexOf(numStr) + numStr.length);
- const hasComma = numStr.includes(',');
- const isFloat = numStr.includes('.') && !hasComma;
- const duration = 1800;
- const start = performance.now();
-
- el.classList.add('counting');
-
- function easeOutExpo(t) {
- return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
- }
-
- function tick(now) {
- const elapsed = now - start;
- const progress = Math.min(elapsed / duration, 1);
- const eased = easeOutExpo(progress);
- let current = Math.round(eased * num);
-
- if (hasComma) {
- el.textContent = prefix + current.toLocaleString('tr-TR') + suffix;
- } else {
- el.textContent = prefix + current + suffix;
- }
-
- if (progress < 1) {
- requestAnimationFrame(tick);
- } else {
- el.textContent = text; // restore original
- el.classList.remove('counting');
- el.classList.add('counted');
- }
- }
- requestAnimationFrame(tick);
- }
+ // ===== STATS COUNTER — Now handled by odometer-counter.js =====
+ // Old basic counter replaced with premium odometer-style rolling digits.
 
  // ===== STORY VIDEO PLAYBACK =====
  function playStoryVideo(card) {
@@ -3022,6 +2968,7 @@
   }, 2500);
 })();
 </script>
+<script src="scripts/odometer-counter.js"></script>
 <script src="scripts/premium-animations.js"></script>
 </body>
 </html>
