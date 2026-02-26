@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="x-default" href="https://uzunyasa.com/pages/hakkimizda.html">
 <meta http-equiv="Content-Language" content="tr">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<script src="/scripts/https-redirect.js"></script>
+<script>if(location.protocol!=="https:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1")location.replace("https://"+location.host+location.pathname+location.search+location.hash);</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
@@ -22,8 +22,10 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="preload" href="../styles/main.css" as="style">
  <link rel="stylesheet" href="../styles/main.css">
  <link rel="stylesheet" href="../styles/hub-upgrade.css">
+ <link rel="preload" href="../styles/animations.css" as="style">
  <link rel="stylesheet" href="../styles/animations.css">
  <style>
  .content-section.full { max-width: 100%; }
@@ -309,7 +311,7 @@
  </div>
  </div>
  <div class="mission-image" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-light)); border-radius: 20px; padding: 3rem;">
- <img src="../images/icon.png" alt="UzunYaşa" style="max-width: 150px; height: auto;">
+ <img src="../images/icon.png" alt="UzunYaşa" style="max-width: 150px; height: auto;" loading="lazy">
  </div>
  </div>
  </section>
@@ -574,7 +576,7 @@
  <div class="kurul-grid">
  <div class="kurul-card" style="border: 2px solid #0D7377; background: linear-gradient(135deg, #f0fdfa, #ecfdf5);">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/cem-simsek.svg" alt="CŞ" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/cem-simsek.svg" alt="CŞ" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Dr. Cem Şimşek</h4>
      <span style="color:#0D7377;">Kurucu & Kurul Başkanı</span>
@@ -587,7 +589,7 @@
 
  <div class="kurul-card">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/oguz-uyaroglu.svg" alt="OÜ" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/oguz-uyaroglu.svg" alt="OÜ" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Doç. Dr. Oğuz Uyaroğlu</h4>
      <span>Danışman</span>
@@ -600,7 +602,7 @@
 
  <div class="kurul-card">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/mehmet-yilmaz.svg" alt="MY" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/mehmet-yilmaz.svg" alt="MY" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Prof. Dr. Mehmet Yılmaz</h4>
      <span>Danışman</span>
@@ -613,7 +615,7 @@
 
  <div class="kurul-card">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/ugur-unluturk.svg" alt="UÜ" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/ugur-unluturk.svg" alt="UÜ" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Prof. Dr. Uğur Ünlütürk</h4>
      <span>Danışman</span>
@@ -626,7 +628,7 @@
 
  <div class="kurul-card">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/ugur-karakulak.svg" alt="UK" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/ugur-karakulak.svg" alt="UK" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Prof. Dr. Uğur Karakulak</h4>
      <span>Danışman</span>
@@ -639,7 +641,7 @@
 
  <div class="kurul-card">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/gozde-simsek.svg" alt="GŞ" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/gozde-simsek.svg" alt="GŞ" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Dr. Gözde Şimşek</h4>
      <span>Danışman</span>
@@ -652,7 +654,7 @@
 
  <div class="kurul-card">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/asli-alkan.svg" alt="AA" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/asli-alkan.svg" alt="AA" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Dr. Aslı Alkan</h4>
      <span>Danışman</span>
@@ -665,7 +667,7 @@
 
  <div class="kurul-card">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/erdi-ozdemir.svg" alt="EÖ" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/erdi-ozdemir.svg" alt="EÖ" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Dr. Erdi Özdemir</h4>
      <span>Danışman</span>
@@ -678,7 +680,7 @@
 
  <div class="kurul-card">
  <div class="kurul-card-header">
-   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/cem-coteli.svg" alt="CÇ" style="width:100%;height:100%;"></div>
+   <div class="kurul-avatar" style="border-radius: 50%; overflow: hidden; background: none;"><img src="../images/kurul/cem-coteli.svg" alt="CÇ" style="width:100%;height:100%;" loading="lazy"></div>
    <div class="kurul-info">
      <h4>Doç. Dr. Cem Çöteli</h4>
      <span>Danışman</span>
@@ -839,7 +841,7 @@
  <div class="footer-grid">
  <div class="footer-brand">
  <a href="../index.html">
- <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo">
+ <img src="../images/logo-white.svg" alt="UzunYaşa" class="footer-logo" loading="lazy">
  </a>
  <p>Türkiye'nin bağımsız, kanıta dayalı sağlıklı yaşam platformu.</p>
  <p style="font-size:0.85rem;font-style:italic;opacity:0.6;margin-top:0.25rem;">Türkiye uzun yaşasın diye.</p>
@@ -910,6 +912,6 @@
  document.getElementById("hub-nl-success").style.display = "block";
  }
  </script>
-<script src="../scripts/animations.js"></script>
+<script src="../scripts/animations.js" defer></script>
 </body>
 </html>

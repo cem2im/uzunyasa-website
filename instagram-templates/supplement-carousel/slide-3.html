@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #B71C1C, #C62828, #D32F2F);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-pattern {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0,0,0,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(183,28,28,0.6) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(211,47,47,0.4) 0%, transparent 70%);
+}
+.trash-icon {
+  position: absolute;
+  top: 60px; right: 60px;
+  font-size: 120px; opacity: 0.2;
+  animation: shake 2s infinite;
+}
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-5deg); }
+  20% { transform: rotate(5deg); }
+  30% { transform: rotate(-5deg); }
+  40% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px 60px; text-align: center; z-index: 1;
+}
+.tier-badge {
+  display: inline-flex; align-items: center; gap: 20px;
+  background: linear-gradient(135deg, #D32F2F, #F44336);
+  border-radius: 20px; padding: 20px 50px;
+  font-size: 48px; font-weight: 900;
+  margin-bottom: 60px;
+  box-shadow: 0 10px 30px rgba(211,47,47,0.4);
+  border: 3px solid rgba(255,255,255,0.2);
+}
+.tier-letter {
+  font-size: 56px;
+}
+.main-title {
+  font-size: 42px; font-weight: 700;
+  margin-bottom: 80px; line-height: 1.3;
+  color: #FFEBEE;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+.supplements-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 30px; max-width: 800px; width: 100%;
+}
+.supplement-card {
+  background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(183,28,28,0.2));
+  border: 2px solid rgba(244,67,54,0.5);
+  border-radius: 16px; padding: 30px 25px;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  backdrop-filter: blur(10px);
+  position: relative; overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.supplement-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255,0,0,0.1) 10px,
+    rgba(255,0,0,0.1) 20px
+  );
+}
+.supplement-icon {
+  font-size: 48px; margin-bottom: 15px;
+  filter: grayscale(50%); opacity: 0.8;
+  z-index: 1; position: relative;
+}
+.supplement-name {
+  font-size: 26px; font-weight: 700;
+  margin-bottom: 8px; color: #FFCDD2;
+  z-index: 1; position: relative;
+}
+.supplement-warning {
+  font-size: 18px; font-weight: 500;
+  color: #FFB3BA;
+  z-index: 1; position: relative;
+}
+.cross-rating {
+  position: absolute; top: 15px; right: 15px;
+  color: #FF5252; font-size: 24px; font-weight: 900;
+  z-index: 1; animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.warning-banner {
+  background: linear-gradient(135deg, #FF5722, #F44336);
+  padding: 25px; border-radius: 16px;
+  margin-top: 40px; max-width: 600px;
+  font-size: 24px; font-weight: 700;
+  border: 3px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 24px rgba(255,87,34,0.3);
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; 
+  border-top: 2px solid rgba(255,255,255,0.2); 
+  z-index: 1;
+}
+.footer-brand { 
+  font-size: 28px; font-weight: 700; color: #FFCDD2; 
+}
+.footer-tagline { 
+  font-size: 20px; color: rgba(255,255,255,0.7); 
+  font-style: italic; 
+}
+</style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="trash-icon">🗑️</div>
+<div class="content">
+  <div class="tier-badge">
+    <span class="tier-letter">F</span>
+    <span>TIER F — ÇÖPE ATIN 🗑️</span>
+  </div>
+  
+  <div class="main-title">
+    Bu ürünler sadece cüzdanınızı boşaltıyor!<br>
+    Bilimsel kanıt: SIFIR.
+  </div>
+  
+  <div class="supplements-grid">
+    <div class="supplement-card">
+      <div class="cross-rating">✗✗✗</div>
+      <div class="supplement-icon">🌿</div>
+      <div class="supplement-name">Detoks Çayları</div>
+      <div class="supplement-warning">Vücut zaten detoks yapıyor!</div>
+    </div>
+    
+    <div class="supplement-card">
+      <div class="cross-rating">✗✗✗</div>
+      <div class="supplement-icon">🔥</div>
+      <div class="supplement-name">Yağ Yakıcılar</div>
+      <div class="supplement-warning">Mucize yok, kalori açığı var</div>
+    </div>
+    
+    <div class="supplement-card">
+      <div class="cross-rating">✗✗✗</div>
+      <div class="supplement-icon">💧</div>
+      <div class="supplement-name">Alkali Su</div>
+      <div class="supplement-warning">pH'ını mide asidi düzenler</div>
+    </div>
+    
+    <div class="supplement-card">
+      <div class="cross-rating">✗✗✗</div>
+      <div class="supplement-icon">🥈</div>
+      <div class="supplement-name">Kolloidal Gümüş</div>
+      <div class="supplement-warning">Tehlikeli, faydasız</div>
+    </div>
+  </div>
+  
+  <div class="warning-banner">
+    ⚠️ Paranızı yakacağınıza yatırım yapın!
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>

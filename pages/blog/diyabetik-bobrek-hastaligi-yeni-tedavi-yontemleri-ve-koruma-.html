@@ -31,7 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-    <script src="/scripts/https-redirect.js"></script>
+    <script>if(location.protocol!=="https:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1")location.replace("https://"+location.host+location.pathname+location.search+location.hash);</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QBM7E0EHFP');</script>
     <script type="application/ld+json">
@@ -48,8 +48,10 @@
       "mainEntityOfPage": "https://uzunyasa.com/pages/blog/diyabetik-bobrek-hastaligi-yeni-tedavi-yontemleri-ve-koruma-.html"
     }
     </script>
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/animations.css">
+    <link rel="preload" href="../../styles/main.css" as="style">
+ <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="preload" href="../../styles/animations.css" as="style">
+ <link rel="stylesheet" href="../../styles/animations.css">
     <style>
         article { max-width: 800px; margin: 0 auto; padding: 7rem 2rem 4rem; }
         .post-meta-top { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; align-items: center; }
@@ -116,7 +118,7 @@
 <p>DKD, kronik hipergliseminin glomerüler, tübüler ve vasküler yapılarda yol açtığı ilerleyici bir hasardır. Tanı kriterleri:</p>
 
 <ul>
-<li><strong>Albüminüri:</strong> İdrar albümin/kreatinin oranı (UACR) ≥30 mg/g (persistan)</li>
+<li><strong>Albüminüri:</strong> İdrar albümin/<a href="supplement-tier-list-bilimsel-kanit-puanlama.html" style="color:#0D7377; text-decoration:underline; text-decoration-color:rgba(13,115,119,0.3); text-underline-offset:2px;">kreatin</a>in oranı (UACR) ≥30 mg/g (persistan)</li>
 <li><strong>eGFR düşüklüğü:</strong> &lt;60 mL/dk/1.73 m² (en az 3 ay süreyle)</li>
 <li><strong>Veya her ikisi</strong> — diyabetik retinopati varlığı tanıyı destekler</li>
 </ul>
@@ -180,7 +182,7 @@
 
 <h3>3. GLP-1 Reseptör Agonistleri — Böbrek Korumada Yükselen Kanıtlar</h3>
 
-<p>GLP-1 reseptör agonistlerinin (semaglutid, liraglutid, dulaglutid) kardiyovasküler yararları iyi bilinmekle birlikte, böbrek koruyucu etkileri daha yakın zamanda kanıtlanmıştır:</p>
+<p>GLP-1 reseptör agonistlerinin (<a href="glp1-tam-rehber.html" style="color:#0D7377; text-decoration:underline; text-decoration-color:rgba(13,115,119,0.3); text-underline-offset:2px;">semaglutid</a>, liraglutid, dulaglutid) kardiyovasküler yararları iyi bilinmekle birlikte, böbrek koruyucu etkileri daha yakın zamanda kanıtlanmıştır:</p>
 
 <ul>
 <li><strong>FLOW çalışması (semaglutid, 2024) <sup>[10]</sup>:</strong> DKD hastalarında primer böbrek sonlanım noktasında <strong>%24 risk azalması</strong>. İlk kez bir GLP-1 RA'nın primer böbrek sonlanım noktasına göre tasarlanmış bir çalışmada olumlu sonuç verdiği çalışma.</li>
@@ -189,7 +191,7 @@
 </ul>
 
 <div class="info-box">
-<p><strong>💡 Klinik perspektif:</strong> FLOW çalışması GLP-1 RA'ları DKD tedavisinde yeni bir konuma taşımıştır. Ancak SGLT2 inhibitörleri ile doğrudan karşılaştırmalı (head-to-head) bir çalışma henüz yapılmamıştır. KDIGO 2024, GLP-1 RA'ları tip 2 diyabetli KBH hastalarında glisemik kontrol ve kardiyovasküler risk azaltma amacıyla önermektedir <sup>[2]</sup>.</p>
+<p><strong>💡 Klinik perspektif:</strong> FLOW çalışması GLP-1 RA'ları DKD tedavisinde yeni bir konuma taşımıştır. Ancak SGLT2 inhibitörleri ile doğrudan karşılaştırmalı (head-to-head) bir çalışma henüz yapılmamıştır. KDIGO 2024, GLP-1 RA'ları tip 2 diyabetli KBH hastalarında glisemik kontrol ve <a href="score2-kalp-krizi-risk-hesaplama.html" style="color:#0D7377; text-decoration:underline; text-decoration-color:rgba(13,115,119,0.3); text-underline-offset:2px;">kardiyovasküler risk</a> azaltma amacıyla önermektedir <sup>[2]</sup>.</p>
 </div>
 
 <h3>4. Nonsteroidal MRA'lar — Finerenon</h3>
@@ -245,7 +247,7 @@
 <p>DKD alanında aktif olarak araştırılan yaklaşımlar:</p>
 
 <ul>
-<li><strong>Dual GIP/GLP-1 agonistleri:</strong> Tirzepatid'in böbrek sonuçları (devam eden çalışmalar)</li>
+<li><strong>Dual GIP/GLP-1 agonistleri:</strong> <a href="tirzepatide-yeni-nesil-kilo-verme-ilacinin-bilimsel-gercekle.html" style="color:#0D7377; text-decoration:underline; text-decoration-color:rgba(13,115,119,0.3); text-underline-offset:2px;">Tirzepatid</a>'in böbrek sonuçları (devam eden çalışmalar)</li>
 <li><strong>Endotelin reseptör antagonistleri:</strong> Atrasentan'ın proteinüri üzerindeki etkileri (SONAR çalışması sonrası gelişmeler)</li>
 <li><strong>Anti-fibrotik ajanlar:</strong> TGF-β yolağını hedefleyen moleküller</li>
 <li><strong>SGLT1/2 dual inhibitörleri:</strong> Sotagliflozin</li>
@@ -272,6 +274,50 @@
 <p>⚠️ <strong>Önemli:</strong> Bu içerik sağlık profesyonellerini ve halkı bilgilendirme amaçlıdır; tıbbi tavsiye yerine geçmez. Bireysel tedavi kararları için mutlaka nefroloji veya endokrinoloji uzmanınıza danışın.</p>
 </div>
 
+
+
+<!-- İLGİLİ YAZILAR - Auto-generated by internal-links.js -->
+<div class="related-posts-section" style="margin-top:3rem; padding-top:2rem; border-top:2px solid #e5e7eb;">
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:1.5rem;">
+    <div style="width:4px; height:32px; background:linear-gradient(to bottom, #0D7377, #14919B); border-radius:2px;"></div>
+    <h2 style="margin:0; font-family:'Playfair Display', serif; font-size:1.5rem; color:#195157;">İlgili Yazılar</h2>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+
+      <a href="selenyum-kalp-sagligi-meta-analiz.html" class="related-post-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; transition:all 0.2s ease; flex:1; min-width:250px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.75rem;">
+          <span style="font-size:1.2rem;">🧬</span>
+          <span style="font-size:0.75rem; font-weight:600; color:#8B5CF6; text-transform:uppercase; letter-spacing:0.5px;">Bilim</span>
+        </div>
+        <h4 style="font-size:0.95rem; font-weight:600; color:#195157; margin-bottom:0.5rem; line-height:1.4;">Selenyum Suplementasyonu ve Kardiyovasküler Risk: Meta-Analiz Ne Diyor?</h4>
+        <p style="font-size:0.85rem; color:#6B7280; line-height:1.5; margin:0;">Selenyum takviyesi gerçekten kalbi korur mu? 7 meta-analiz ve 19.000+ katılımcılı RCT verileri ışığında selenyum supleme…</p>
+      </a>
+
+      <a href="tip2-diyabet-zaman-kisitli-beslenme-intermittent-fasting.html" class="related-post-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; transition:all 0.2s ease; flex:1; min-width:250px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.75rem;">
+          <span style="font-size:1.2rem;">🧬</span>
+          <span style="font-size:0.75rem; font-weight:600; color:#8B5CF6; text-transform:uppercase; letter-spacing:0.5px;">Bilim</span>
+        </div>
+        <h4 style="font-size:0.95rem; font-weight:600; color:#195157; margin-bottom:0.5rem; line-height:1.4;">Tip 2 Diyabet ve Zaman Kısıtlı Beslenme (Intermittent Fasting): Ne Diyor Bilim?</h4>
+        <p style="font-size:0.85rem; color:#6B7280; line-height:1.5; margin:0;">Zaman kısıtlı beslenme (intermittent fasting) Tip 2 Diyabet yönetiminde etkili mi? 7 RCT ve meta-analiz verisiyle PICO b…</p>
+      </a>
+
+      <a href="score2-kalp-krizi-risk-hesaplama.html" class="related-post-card" style="text-decoration:none; color:inherit; display:block; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; transition:all 0.2s ease; flex:1; min-width:250px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.75rem;">
+          <span style="font-size:1.2rem;">🧬</span>
+          <span style="font-size:0.75rem; font-weight:600; color:#8B5CF6; text-transform:uppercase; letter-spacing:0.5px;">Bilim</span>
+        </div>
+        <h4 style="font-size:0.95rem; font-weight:600; color:#195157; margin-bottom:0.5rem; line-height:1.4;">SCORE2 ile Kalp Krizi Riskinizi Hesaplayın — Türkiye Neden Yüksek Riskli?</h4>
+        <p style="font-size:0.85rem; color:#6B7280; line-height:1.5; margin:0;">SCORE2 ile 10-yıllık kalp krizi riskinizi hesaplayın. Türkiye neden kardiyovasküler hastalık açısından yüksek riskli böl…</p>
+      </a>
+  </div>
+  <style>
+    .related-post-card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); border-color:#14919B !important; }
+    @media(max-width:768px) { .related-post-card { min-width:100% !important; } }
+  </style>
+</div>
+<!-- END İLGİLİ YAZILAR -->
+
 <div class="author-box">
 <div class="author-avatar">UY</div>
 <div class="author-info">
@@ -284,7 +330,7 @@
 <ol style="font-size: 0.9rem; color: #6b7280; line-height: 1.8;">
 <li>Verma S, Katwal S, Akula HR, et al. Guideline-Directed Medical Therapy for Diabetic Kidney Disease. <em>Cureus.</em> 2026. <a href="https://doi.org/10.7759/cureus.101867" target="_blank" rel="noopener">doi:10.7759/cureus.101867</a></li>
 <li>KDIGO 2024 Clinical Practice Guideline for Diabetes Management in Chronic Kidney Disease. <em>Kidney Int.</em> 2024;106(5S):S1-S127.</li>
-<li>McMahon EJ, et al. Altered dietary salt intake for people with chronic kidney disease. <em>Cochrane Database Syst Rev.</em> 2021;6:CD010070.</li>
+<li>McMahon EJ, et al. Altered dietary salt intake for people with chronic kidney disease. <em><a href="who-cochrane-glp1-incelemesi.html" style="color:#0D7377; text-decoration:underline; text-decoration-color:rgba(13,115,119,0.3); text-underline-offset:2px;">Cochrane</a> Database Syst Rev.</em> 2021;6:CD010070.</li>
 <li>Brenner BM, et al. Effects of losartan on renal and cardiovascular outcomes in patients with type 2 diabetes and nephropathy (RENAAL). <em>N Engl J Med.</em> 2001;345:861-869.</li>
 <li>Lewis EJ, et al. Renoprotective effect of irbesartan in patients with nephropathy due to type 2 diabetes (IDNT). <em>N Engl J Med.</em> 2001;345:851-860.</li>
 <li>ONTARGET Investigators. Telmisartan, ramipril, or both in patients at high risk for vascular events. <em>N Engl J Med.</em> 2008;358:1547-1559.</li>
@@ -319,6 +365,6 @@
     <footer style="text-align: center; padding: 2rem; color: var(--text-gray); font-size: 0.85rem; border-top: 1px solid #e5e7eb; margin-top: 4rem;">
     <p>© 2026 UzunYaşa. Tüm hakları saklıdır. • <a href="../../pages/privacy.html" style="color: var(--primary); text-decoration: none;">Gizlilik Politikası</a></p>
     </footer>
-<script src="/scripts/premium-animations.js"></script>
+<script src="/scripts/premium-animations.js" defer></script>
 </body>
 </html>

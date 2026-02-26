@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="x-default" href="https://uzunyasa.com/pages/blog/bilimsel-yaklasimimiz-neden-onemli.html">
 <meta http-equiv="Content-Language" content="tr">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<script src="/scripts/https-redirect.js"></script>
+<script>if(location.protocol!=="https:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1")location.replace("https://"+location.host+location.pathname+location.search+location.hash);</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
 <script>
@@ -19,8 +19,12 @@
  <title>Bilimsel Yaklaşımımız: Neden Önemli? | UzunYaşa Blog</title>
     <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
  <meta name="description" content="UzunYaşa'da neden kanıta dayalı, bağımsız ve güncel bilgi sunuyoruz? Bilimsel yaklaşımımızın temellerini açıklıyoruz.">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="preload" href="../../styles/main.css" as="style">
  <link rel="stylesheet" href="../../styles/main.css">
+ <link rel="preload" href="../../styles/animations.css" as="style">
  <link rel="stylesheet" href="../../styles/animations.css">
  <style>
  article { max-width: 700px; margin: 0 auto; padding: 7rem 2rem 4rem; }
@@ -122,7 +126,7 @@
  <h2>5. Kanıt Hiyerarşisine Saygı</h2>
  <p>Tüm bilimsel kanıtlar eşit değildir. UzunYaşa olarak içeriklerimizde kanıt hiyerarşisini titizlikle gözetiriz. Bu hiyerarşi, en güvenilirden en az güvenilire doğru şöyledir:</p>
  <ul>
- <li><strong>Sistematik derlemeler ve meta-analizler:</strong> Birden fazla çalışmanın sistematik olarak bir araya getirilmesiyle elde edilen en güçlü kanıt türüdür. Cochrane kütüphanesi gibi kaynaklar bu kategoriye girer.</li>
+ <li><strong>Sistematik derlemeler ve meta-analizler:</strong> Birden fazla çalışmanın sistematik olarak bir araya getirilmesiyle elde edilen en güçlü kanıt türüdür. <a href="who-cochrane-glp1-incelemesi.html" style="color:#0D7377; text-decoration:underline; text-decoration-color:rgba(13,115,119,0.3); text-underline-offset:2px;">Cochrane</a> kütüphanesi gibi kaynaklar bu kategoriye girer.</li>
  <li><strong>Randomize kontrollü çalışmalar (RKÇ):</strong> Altın standart olarak kabul edilen, katılımcıların rastgele gruplara atandığı deneysel çalışmalar.</li>
  <li><strong>Kohort çalışmaları:</strong> Büyük grupların uzun süre takip edildiği gözlemsel çalışmalar.</li>
  <li><strong>Vaka-kontrol çalışmaları ve vaka serileri:</strong> Daha sınırlı kanıt sağlayan gözlemsel çalışmalar.</li>
@@ -132,7 +136,7 @@
 
  <h2>6. Şeffaf İletişim ve Belirsizliğin Kabulü</h2>
  <p>Bilimde kesinlik nadirdir. Birçok konuda henüz net bir yanıt bulunmayabilir veya mevcut kanıtlar çelişkili olabilir. UzunYaşa olarak biz, bu belirsizliği okuyucularımızdan gizlemeyiz. "Kanıtlar kesin değil ama mevcut veriler şunu gösteriyor" demekten çekinmeyiz. Bu yaklaşım, güvenilirliğimizin temel taşlarından biridir.</p>
- <p>Örneğin, intermittent fasting (aralıklı oruç) konusunda bazı umut verici veriler olsa da, uzun vadeli güvenilirlik ve etkinlik konusunda henüz yeterli kanıt yoktur. Bunu açıkça belirtiriz ve okuyucularımızı yanıltmamaya özen gösteririz.</p>
+ <p>Örneğin, <a href="tip2-diyabet-zaman-kisitli-beslenme-intermittent-fasting.html" style="color:#0D7377; text-decoration:underline; text-decoration-color:rgba(13,115,119,0.3); text-underline-offset:2px;">intermittent fasting</a> (aralıklı oruç) konusunda bazı umut verici veriler olsa da, uzun vadeli güvenilirlik ve etkinlik konusunda henüz yeterli kanıt yoktur. Bunu açıkça belirtiriz ve okuyucularımızı yanıltmamaya özen gösteririz.</p>
 
  <h2>Türkiye'de Sağlık Bilgisi Sorunları</h2>
  <p>Türkiye'de sağlık bilgisi ekosistemi ciddi sorunlarla karşı karşıyadır. BMJ Global Health dergisinde yayınlanan bir çalışmaya göre, internetteki Türkçe sağlık içeriklerinin %60'ından fazlası eksik, yanıltıcı veya tamamen yanlış bilgi içermektedir 🟡 (Gözlemsel çalışma, sağlık web sitelerinin içerik analizi). Bu sorunun başlıca nedenleri:</p>
@@ -168,7 +172,7 @@
  <p>Her yazımızın sonunda kullandığımız kaynakları listeliyoruz. Bu kaynakların çoğu PubMed üzerinden ücretsiz erişilebilir hakemli dergi makaleleridir. Kaynağa tıklayarak orijinal çalışmaya ulaşabilirsiniz.</p>
 
  <h3>Sponsorlu içerik yayınlıyor musunuz?</h3>
- <p>Hayır. UzunYaşa hiçbir ilaç firması, gıda üreticisi, takviye markası veya klinikten sponsorluk almamaktadır. Tüm içeriklerimiz editoryal bağımsızlık ilkesiyle üretilmektedir. Bu, tavsiyelerimizin tamamen tarafsız olmasının güvencesidir.</p>
+ <p>Hayır. UzunYaşa hiçbir ilaç firması, gıda üreticisi, <a href="supplement-tier-list-bilimsel-kanit-puanlama.html" style="color:#0D7377; text-decoration:underline; text-decoration-color:rgba(13,115,119,0.3); text-underline-offset:2px;">takviye</a> markası veya klinikten sponsorluk almamaktadır. Tüm içeriklerimiz editoryal bağımsızlık ilkesiyle üretilmektedir. Bu, tavsiyelerimizin tamamen tarafsız olmasının güvencesidir.</p>
 
  <h3>İçeriklerinizi kimler yazıyor?</h3>
  <p>İçeriklerimiz, tıp ve sağlık bilimleri alanında eğitimli yazarlarımız tarafından hazırlanır ve gastroenterolog, endokrinolog, diyetisyen, psikiyatrist ve egzersiz fizyologlarından oluşan danışma kurulumuz tarafından bilimsel doğruluk açısından incelenir.</p>
@@ -258,7 +262,7 @@
  </article>
 
  <footer><p style="font-size:0.85rem;font-style:italic;opacity:0.7;margin-bottom:0.5rem;">Türkiye uzun yaşasın diye.</p><p>© 2026 UzunYaşa. <a href="https://tyzd.org" target="_blank" style="color:inherit;text-decoration:underline;">Tıpta Yapay Zeka Derneği</a> girişimidir.</p></footer>
-<script src="../../scripts/animations.js"></script>
-<script src="/scripts/premium-animations.js"></script>
+<script src="../../scripts/animations.js" defer></script>
+<script src="/scripts/premium-animations.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px; height: 1350px;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1B5E20, #2E7D32, #388E3C);
+  color: #fff;
+  display: flex; flex-direction: column; overflow: hidden;
+  position: relative;
+}
+.bg-pattern {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(139,195,74,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(76,175,80,0.08) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(102,187,106,0.06) 0%, transparent 70%);
+}
+.stars {
+  position: absolute;
+  top: 60px; right: 60px;
+  font-size: 120px; opacity: 0.15;
+  transform: rotate(15deg);
+}
+.content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px 60px; text-align: center; z-index: 1;
+}
+.tier-badge {
+  display: inline-flex; align-items: center; gap: 20px;
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+  border-radius: 20px; padding: 20px 50px;
+  font-size: 48px; font-weight: 900;
+  margin-bottom: 60px;
+  box-shadow: 0 10px 30px rgba(76,175,80,0.3);
+}
+.tier-letter {
+  font-size: 56px;
+}
+.main-title {
+  font-size: 42px; font-weight: 700;
+  margin-bottom: 80px; line-height: 1.3;
+  color: #E8F5E8;
+}
+.supplements-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 30px; max-width: 800px; width: 100%;
+}
+.supplement-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border: 2px solid rgba(139,195,74,0.3);
+  border-radius: 16px; padding: 30px 25px;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.supplement-card::before {
+  content: '';
+  position: absolute; top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+  transform: rotate(45deg);
+  transition: transform 0.6s;
+}
+.supplement-card:hover::before {
+  transform: rotate(45deg) translateX(100%);
+}
+.supplement-icon {
+  font-size: 48px; margin-bottom: 15px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.supplement-name {
+  font-size: 26px; font-weight: 700;
+  margin-bottom: 8px; color: #E8F5E8;
+  z-index: 1; position: relative;
+}
+.supplement-benefit {
+  font-size: 18px; font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  z-index: 1; position: relative;
+}
+.star-rating {
+  position: absolute; top: 15px; right: 15px;
+  color: #FFF176; font-size: 20px;
+  z-index: 1;
+}
+.footer {
+  padding: 40px 70px; display: flex; align-items: center;
+  justify-content: space-between; 
+  border-top: 2px solid rgba(255,255,255,0.2); 
+  z-index: 1;
+}
+.footer-brand { 
+  font-size: 28px; font-weight: 700; color: #E8F5E8; 
+}
+.footer-tagline { 
+  font-size: 20px; color: rgba(255,255,255,0.7); 
+  font-style: italic; 
+}
+</style>
+</head>
+<body>
+<div class="bg-pattern"></div>
+<div class="stars">⭐⭐⭐</div>
+<div class="content">
+  <div class="tier-badge">
+    <span class="tier-letter">S</span>
+    <span>TIER S — Kanıtı Kesin ✅</span>
+  </div>
+  
+  <div class="main-title">
+    Bu supplement'ler bilimsel olarak kanıtlanmış!<br>
+    Paranızı hak ediyorlar.
+  </div>
+  
+  <div class="supplements-grid">
+    <div class="supplement-card">
+      <div class="star-rating">★★★★★</div>
+      <div class="supplement-icon">🐟</div>
+      <div class="supplement-name">Omega-3</div>
+      <div class="supplement-benefit">Kalp & Beyin Sağlığı</div>
+    </div>
+    
+    <div class="supplement-card">
+      <div class="star-rating">★★★★★</div>
+      <div class="supplement-icon">☀️</div>
+      <div class="supplement-name">D Vitamini</div>
+      <div class="supplement-benefit">Bağışıklık & Kemik</div>
+    </div>
+    
+    <div class="supplement-card">
+      <div class="star-rating">★★★★★</div>
+      <div class="supplement-icon">💪</div>
+      <div class="supplement-name">Kreatin</div>
+      <div class="supplement-benefit">Kas Performansı</div>
+    </div>
+    
+    <div class="supplement-card">
+      <div class="star-rating">★★★★★</div>
+      <div class="supplement-icon">⚡</div>
+      <div class="supplement-name">Magnezyum</div>
+      <div class="supplement-benefit">Uyku & Kaslar</div>
+    </div>
+    
+    <div class="supplement-card" style="grid-column: 1 / -1; max-width: 380px; justify-self: center;">
+      <div class="star-rating">★★★★★</div>
+      <div class="supplement-icon">🥩</div>
+      <div class="supplement-name">Protein Tozu</div>
+      <div class="supplement-benefit">Kas Gelişimi & Onarımı</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-brand">uzunyasa.com</div>
+  <div class="footer-tagline">Türkiye uzun yaşasın diye.</div>
+</div>
+</body>
+</html>
