@@ -1,5 +1,32 @@
 [
   {
+    "slug": "tip2-diyabet-zaman-kisitli-beslenme-intermittent-fasting",
+    "title": "Tip 2 Diyabet ve Zaman Kısıtlı Beslenme (Intermittent Fasting): Ne Diyor Bilim?",
+    "description": "Zaman kısıtlı beslenme (intermittent fasting) Tip 2 Diyabet yönetiminde etkili mi? 7 RCT ve meta-analiz verisiyle PICO bazlı bilimsel değerlendirme. Ramazan orucu bağlantısı, hipoglisemi riskleri ve pratik öneriler.",
+    "category": "bilim",
+    "categoryName": "Bilim",
+    "categoryIcon": "🧬",
+    "categoryColor": "#8B5CF6",
+    "date": "2026-02-26",
+    "readTime": 14,
+    "url": "pages/blog/tip2-diyabet-zaman-kisitli-beslenme-intermittent-fasting.html",
+    "tags": [
+      "tip-2-diyabet",
+      "intermittent-fasting",
+      "zaman-kisitli-beslenme",
+      "time-restricted-eating",
+      "HbA1c",
+      "glisemik-kontrol",
+      "ramazan-orucu",
+      "kilo-yonetimi",
+      "RCT",
+      "meta-analiz",
+      "hipoglisemi"
+    ],
+    "priority": "high",
+    "area": "diabetes"
+  },
+  {
     "slug": "bariatrik-cerrahi-sonrasi-kilo-alimi-ve-bozuk-yeme-davranisl",
     "title": "Bariatrik Cerrahi Sonrası Kilo Alımı ve Bozuk Yeme Davranışları",
     "description": "Bariatrik cerrahi sonrası neden kilo alınır? Bozuk yeme davranışları nasıl önlenir? Telefon tabanlı CBT'nin etkinliği ve pratik çözümler.",
