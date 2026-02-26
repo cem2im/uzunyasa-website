@@ -14,10 +14,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mit Kırıcı — Sağlık Mitleri Testi | UzunYaşa</title>
-<meta name="description" content="Sağlık hakkında bildiğiniz her şey doğru mu? 30 popüler sağlık mitini test edin, bilimsel gerçekleri öğrenin!">
+<meta name="description" content="Sağlık hakkında bildiğiniz her şey doğru mu? 50 popüler sağlık mitini test edin, bilimsel gerçekleri öğrenin!">
 <link rel="canonical" href="https://uzunyasa.com/pages/araclar/mit-kirici.html">
 <meta property="og:title" content="Mit Kırıcı — Sağlık Mitleri Testi">
-<meta property="og:description" content="Sağlık hakkında bildiğiniz her şey doğru mu? 30 popüler sağlık mitini test edin!">
+<meta property="og:description" content="Sağlık hakkında bildiğiniz her şey doğru mu? 50 popüler sağlık mitini test edin!">
 <meta property="og:image" content="https://uzunyasa.com/images/og-default.png">
 <meta property="og:url" content="https://uzunyasa.com/pages/araclar/mit-kirici.html">
 <meta property="og:type" content="website">
@@ -62,6 +62,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--g
 .cat-saglik{background:#FDF2F8;color:#9D174D}
 .cat-uyku{background:#EDE9FE;color:#5B21B6}
 .cat-ilac{background:#FEE2E2;color:#991B1B}
+.cat-ramazan{background:#FFF7ED;color:#9A3412}
+.cat-supplement{background:#F0FDF4;color:#166534}
 
 .myth-body{padding:2rem 1.75rem 1.5rem;text-align:center}
 .myth-icon{font-size:3rem;margin-bottom:1rem;display:block}
@@ -156,7 +158,7 @@ footer a{color:var(--accent);text-decoration:none}
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Mit Kırıcı — Sağlık Mitleri Testi | UzunYaşa",
-  "description": "Sağlık hakkında bildiğiniz her şey doğru mu? 30 popüler sağlık mitini test edin, bilimsel gerçekleri öğrenin!",
+  "description": "Sağlık hakkında bildiğiniz her şey doğru mu? 50 popüler sağlık mitini test edin, bilimsel gerçekleri öğrenin!",
   "url": "https://uzunyasa.com/pages/araclar/mit-kirici.html",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Web",
@@ -191,9 +193,9 @@ footer a{color:var(--accent);text-decoration:none}
       <h1 class="start-title">Mit Kırıcı</h1>
       <p class="start-subtitle">Sağlık hakkında bildiğiniz her şey doğru mu?<br>Popüler mitleri test edin, bilimsel gerçekleri öğrenin!</p>
       <div class="start-stats">
-        <div class="start-stat"><div class="num">30</div><div class="label">Sağlık Miti</div></div>
-        <div class="start-stat"><div class="num">6</div><div class="label">Kategori</div></div>
-        <div class="start-stat"><div class="num">~3</div><div class="label">Dakika</div></div>
+        <div class="start-stat"><div class="num">50</div><div class="label">Sağlık Miti</div></div>
+        <div class="start-stat"><div class="num">8</div><div class="label">Kategori</div></div>
+        <div class="start-stat"><div class="num">~5</div><div class="label">Dakika</div></div>
       </div>
       <div class="category-filter" id="categoryFilter">
         <button class="cat-btn active" data-cat="all">Hepsi</button>
@@ -203,6 +205,8 @@ footer a{color:var(--accent);text-decoration:none}
         <button class="cat-btn" data-cat="saglik">❤️ Sağlık</button>
         <button class="cat-btn" data-cat="uyku">😴 Uyku</button>
         <button class="cat-btn" data-cat="ilac">💊 İlaç</button>
+        <button class="cat-btn" data-cat="ramazan">🌙 Ramazan</button>
+        <button class="cat-btn" data-cat="supplement">🧪 Takviye</button>
       </div>
       <button class="btn-start" onclick="startGame()">Teste Başla →</button>
     </div>
@@ -540,6 +544,190 @@ const MYTHS = [
     categoryLabel: "İlaç & Tedavi",
     explanation: "Sleeve gastrektomide midenin ~%80'i çıkarılsa da kalan kısım tamamen işlevseldir. Mide zamanla hafif genişler. ESG gibi endoskopik yöntemlerde ise mide kesilmez, sadece dikilir.",
     source: "Felsenreich DM, et al. Obes Surg. 2018;28(9):2505-2510"
+  },
+  // RAMAZAN & ORUÇ
+  {
+    myth: "Oruç tutmak metabolizmayı yavaşlatır",
+    answer: false,
+    icon: "🌙",
+    category: "ramazan",
+    categoryLabel: "Ramazan & Oruç",
+    explanation: "Kısa süreli oruç (12-16 saat) metabolizmayı yavaşlatmaz. 72 saate kadar olan oruçlarda bazal metabolizma hızının düşmediği, hatta norepinefrin artışıyla hafif yükseldiği gösterilmiştir. Metabolizma yavaşlaması ancak haftalarca süren kronik kalori kısıtlamasında ortaya çıkar.",
+    source: "Zauner C, et al. Am J Clin Nutr. 2000;71(6):1511-1515"
+  },
+  {
+    myth: "Sahurda çok yemek gün boyu tok tutar",
+    answer: false,
+    icon: "🍽️",
+    category: "ramazan",
+    categoryLabel: "Ramazan & Oruç",
+    explanation: "Aşırı sahur yemek ani insülin yükselmesine ve ardından reaktif hipoglisemiye neden olarak gün içinde daha şiddetli açlık hissi yaratabilir. Protein, lif ve kompleks karbonhidrat ağırlıklı dengeli bir sahur daha uzun süreli tokluk sağlar.",
+    source: "Maughan RJ, et al. J Sports Sci. 2010;28(S1):S37-S44"
+  },
+  {
+    myth: "Ramazan orucu böbreklere zarar verir",
+    answer: false,
+    icon: "💧",
+    category: "ramazan",
+    categoryLabel: "Ramazan & Oruç",
+    explanation: "Sağlıklı bireylerde Ramazan orucu süresince böbrek fonksiyonlarında klinik olarak anlamlı bozulma gösterilmemiştir. Böbrekler idrarı konsantre ederek sıvı kaybını kompanse eder. Ancak kronik böbrek hastalığı olanlarda bireysel risk değerlendirmesi gereklidir.",
+    source: "Bragazzi NL, et al. Nutrients. 2015;7(5):3139-3170"
+  },
+  {
+    myth: "Ramazan'da spor yapmak tehlikelidir",
+    answer: false,
+    icon: "🏃‍♂️",
+    category: "ramazan",
+    categoryLabel: "Ramazan & Oruç",
+    explanation: "Hafif-orta yoğunlukta egzersiz oruçluyken güvenle yapılabilir. Profesyonel futbolcularda Ramazan'da aerobik performansın korunduğu gösterilmiştir. İftar öncesi son 1-2 saat veya iftar sonrası egzersiz en uygun zamanlama olarak önerilmektedir.",
+    source: "Chaouachi A, et al. Br J Sports Med. 2009;43(7):495-503"
+  },
+  {
+    myth: "Oruç tutmak kan şekerini tehlikeli şekilde düşürür",
+    answer: false,
+    icon: "🩸",
+    category: "ramazan",
+    categoryLabel: "Ramazan & Oruç",
+    explanation: "Sağlıklı bireylerde karaciğer glikojen depoları ve glukoneogenez kan şekerini stabil tutar. EPIDIAR çalışmasında kontrollü oruç tutan tip 2 diyabetlilerde ciddi hipoglisemi oranı düşük bulunmuştur. Ancak tip 1 diyabet veya insülin kullananlar için bireysel risk değerlendirmesi şarttır.",
+    source: "Salti I, et al. Diabetes Care. 2004;27(10):2306-2311"
+  },
+  {
+    myth: "İftarda aşırı yemek orucun sağlık faydasını ortadan kaldırır",
+    answer: true,
+    icon: "🍛",
+    category: "ramazan",
+    categoryLabel: "Ramazan & Oruç",
+    explanation: "İftarda aşırı kalori alımı, orucun sağladığı insülin duyarlılığı artışı ve otofaji aktivasyonu gibi metabolik faydaları azaltabilir. Meta-analizde Ramazan'da kilo alan bireylerin büyük çoğunluğunda iftarda aşırı kalori alımı saptanmıştır.",
+    source: "Sadeghirad B, et al. Nutr J. 2014;13:92"
+  },
+  // TAKVİYE & SUPPLEMENT
+  {
+    myth: "Herkes omega-3 (balık yağı) takviyesi almalıdır",
+    answer: false,
+    icon: "🐟",
+    category: "supplement",
+    categoryLabel: "Takviye",
+    explanation: "VITAL çalışmasında 25,871 sağlıklı yetişkinde günlük 1g omega-3 (EPA+DHA) takviyesi major kardiyovasküler olaylarda anlamlı azalma sağlamamıştır (HR 0.92, p=0.24). Genel popülasyona balık yağı takviyesi önerilmez; haftada 2 porsiyon balık tüketimi tercih edilmelidir.",
+    source: "Manson JE, et al. N Engl J Med. 2019;380(1):23-32 (VITAL)"
+  },
+  {
+    myth: "C vitamini grip ve soğuk algınlığını önler",
+    answer: false,
+    icon: "🍊",
+    category: "supplement",
+    categoryLabel: "Takviye",
+    explanation: "29 çalışmayı kapsayan Cochrane meta-analizinde düzenli C vitamini takviyesinin soğuk algınlığı insidansını genel popülasyonda azaltmadığı gösterilmiştir. Hastalık süresini ortalama %8 kısaltabilir. Maratoncular gibi yoğun fiziksel stres altındakilerde koruyucu etki daha belirgindir.",
+    source: "Hemilä H, Chalker E. Cochrane Database Syst Rev. 2013;(1):CD000980"
+  },
+  {
+    myth: "Probiyotik takviyesi herkesin bağırsak sağlığını iyileştirir",
+    answer: false,
+    icon: "🦠",
+    category: "supplement",
+    categoryLabel: "Takviye",
+    explanation: "Probiyotiklerin etkinliği suş-spesifiktir; her probiyotik aynı etkiyi göstermez. Sağlıklı bireylerde genel probiyotik kullanımının mikrobiyom çeşitliliğini artırdığına dair kanıt zayıftır. Antibiyotik ilişkili ishal gibi spesifik durumlar dışında rutin kullanım önerilmemektedir.",
+    source: "Suez J, et al. Cell. 2018;174(6):1388-1405"
+  },
+  {
+    myth: "Kolajen takviyesi kırışıklıkları belirgin şekilde azaltır",
+    answer: false,
+    icon: "✨",
+    category: "supplement",
+    categoryLabel: "Takviye",
+    explanation: "Oral kolajen peptidlerinin cilt üzerindeki çalışmaları çoğunlukla küçük örneklem, kısa süre ve endüstri sponsorluğuna sahiptir. Kolajen sindirim sisteminde amino asitlere parçalanır; doğrudan cilde taşındığına dair kanıt yetersizdir. Büyük ölçekli bağımsız RCT bulunmamaktadır.",
+    source: "Choi FD, et al. J Drugs Dermatol. 2019;18(1):9-16"
+  },
+  {
+    myth: "D vitamini takviyesi herkesi hastalıklardan korur",
+    answer: false,
+    icon: "☀️",
+    category: "supplement",
+    categoryLabel: "Takviye",
+    explanation: "VITAL çalışmasında 25,871 kişide günlük 2000 IU D vitamini kanser veya kardiyovasküler olay riskini azaltmamıştır. Ciddi eksiklikte (<20 ng/mL) takviye kemik sağlığı için gereklidir, ancak eksikliği olmayanlar için rutin yüksek doz D vitamini fayda sağlamamakta ve toksisite riski taşımaktadır.",
+    source: "Manson JE, et al. N Engl J Med. 2019;380(1):33-44"
+  },
+  // BESLENME (ek)
+  {
+    myth: "Karbonhidratlar kilo aldırır, diyette kesilmelidir",
+    answer: false,
+    icon: "🍚",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "Kilo aldıran karbonhidrat değil, toplam kalori fazlasıdır. Tam tahıllar ve baklagiller gibi kompleks karbonhidratlar lif ve besin değeri açısından zengindir. Meta-analizlerde düşük karbonhidrat diyetlerinin uzun vadede diğer diyetlerden üstün olmadığı gösterilmiştir.",
+    source: "Hall KD, Guo J. Am J Clin Nutr. 2017;106(5):1281-1285"
+  },
+  {
+    myth: "Günde 3-4 fincan filtre kahve kronik hastalık riskini azaltabilir",
+    answer: true,
+    icon: "☕",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "200'den fazla meta-analizi kapsayan şemsiye derlemede, günde 3-4 fincan kahve tüketiminin tip 2 diyabet, Parkinson ve karaciğer hastalığı riskinde azalmayla ilişkili olduğu bulunmuştur. Ancak bireysel kafein duyarlılığı ve hamilelikte tüketim sınırlaması göz önünde bulundurulmalıdır.",
+    source: "Poole R, et al. BMJ. 2017;359:j5024"
+  },
+  {
+    myth: "Süt ürünleri yetişkinler için zararlıdır",
+    answer: false,
+    icon: "🥛",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "21 ülkede 136,384 kişiyi kapsayan PURE çalışmasında günde 2+ porsiyon süt ürünü tüketenlerde kardiyovasküler hastalık ve ölüm riski daha düşük bulunmuştur. Laktoz intoleransı olanlar hariç, özellikle fermente ürünler (yoğurt, kefir) faydalıdır.",
+    source: "Dehghan M, et al. Lancet. 2018;392(10161):2288-2297"
+  },
+  {
+    myth: "Meyve suyu taze meyve kadar sağlıklıdır",
+    answer: false,
+    icon: "🍹",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "Meyve suyu bütün meyvede bulunan lifin büyük kısmını içermez ve sıvı kalori olarak hızlı kan şekeri yükselmesine neden olur. Bütün meyve tüketimi diyabet riskini azaltırken, meyve suyu tüketimi artmış diyabet riskiyle ilişkilendirilmiştir.",
+    source: "Muraki I, et al. BMJ. 2013;347:f5001"
+  },
+  {
+    myth: "Yapay tatlandırıcılar şekerden daha tehlikelidir",
+    answer: false,
+    icon: "🍬",
+    category: "beslenme",
+    categoryLabel: "Beslenme",
+    explanation: "FDA onaylı yapay tatlandırıcılar onaylanmış dozlarda güvenlidir. IARC'ın aspartamı 'muhtemel kanserojen' (Grup 2B) sınıflandırması normal tüketim seviyelerinde risk anlamına gelmez. WHO/JECFA ortak değerlendirmesi mevcut kabul edilebilir günlük alım miktarını güvenli bulmuştur.",
+    source: "WHO/IARC & JECFA Aspartam Değerlendirmesi, 2023"
+  },
+  // EGZERSİZ (ek)
+  {
+    myth: "Çok terlemek çok yağ yaktığınız anlamına gelir",
+    answer: false,
+    icon: "💦",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "Terleme vücudun ısı düzenleme mekanizmasıdır ve yağ yakımıyla doğrudan ilişkili değildir. Saunada çok terlersiniz ama bu yağ yakmaz. Terle kaybedilen ağırlık su kaybıdır ve sıvı alımıyla geri gelir. Yağ yakımı nefes vermeyle (CO₂ olarak) gerçekleşir.",
+    source: "Meerman R, Brown AJ. BMJ. 2014;349:g7257"
+  },
+  {
+    myth: "60 yaş üstünde bile direnç egzersizi ile kas geliştirmek mümkündür",
+    answer: true,
+    icon: "🧓",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "49 çalışmanın meta-analizinde yaşlı yetişkinlerin progresif direnç antrenmanıyla anlamlı kas kütlesi ve güç artışı sağladığı gösterilmiştir. Kas gücü ortalama %25-30 artmıştır. Sarkopeni (yaşa bağlı kas kaybı) yavaşlatılabilir ve kısmen geri döndürülebilir.",
+    source: "Peterson MD, et al. Med Sci Sports Exerc. 2011;43(2):249-258"
+  },
+  {
+    myth: "Yağ yakımı ancak 20 dakika egzersizden sonra başlar",
+    answer: false,
+    icon: "⏱️",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "Yağ oksidasyonu egzersizin ilk dakikasından itibaren gerçekleşir. Süre arttıkça yağın toplam enerji kaynağı içindeki payı yükselir, ancak 'yağ yakmayan' bir eşik yoktur. Düşük-orta yoğunluklu egzersizde yağ yakımı ilk andan itibaren baskın enerji kaynağıdır.",
+    source: "Romijn JA, et al. Am J Physiol. 1993;265(3 Pt 1):E380-E391"
+  },
+  {
+    myth: "Egzersiz sırasında su içmek kramp yapar",
+    answer: false,
+    icon: "🥤",
+    category: "egzersiz",
+    categoryLabel: "Egzersiz",
+    explanation: "Egzersiz sırasında yeterli sıvı alımı performansı korur ve ısı çarpmasını önler. Krampların asıl nedenleri arasında elektrolit dengesizliği, kas yorgunluğu ve dehidratasyon yer alır. Su içmek kramp yapmaz, aksine dehidratasyona bağlı kramp riskini azaltır.",
+    source: "Schwellnus MP, et al. Br J Sports Med. 2011;45(8):650-656"
   }
 ];
 
