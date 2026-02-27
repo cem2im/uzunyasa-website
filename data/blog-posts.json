@@ -1,5 +1,25 @@
 [
   {
+    "slug": "gelisimsel-bozukluk-ve-uyku-aile-ruh-sagligina-etkiler",
+    "title": "Gelişimsel Bozukluk ve Uyku: Aile Ruh Sağlığına Etkiler",
+    "description": "Otizm, DIKB gibi gelişimsel bozukluğu olan çocuklardaki uyku sorunlarının aile psikolojik sağlığına etkilerini araştıran yeni sistematik derleme bulguları.",
+    "category": "bilim",
+    "categoryName": "Bilimsel Araştırmalar",
+    "categoryIcon": "🧬",
+    "categoryColor": "#8B5CF6",
+    "date": "2026-02-27",
+    "readTime": 12,
+    "tags": [
+      "uyku-bozuklugu",
+      "otizm",
+      "dikb",
+      "aile-psikolojisi",
+      "cocuk-sagligi"
+    ],
+    "priority": "high",
+    "area": "sleep_stress"
+  },
+  {
     "slug": "selenyum-kalp-sagligi-meta-analiz",
     "title": "Selenyum Suplementasyonu ve Kardiyovasküler Risk: Meta-Analiz Ne Diyor?",
     "description": "Selenyum takviyesi gerçekten kalbi korur mu? 7 meta-analiz ve 19.000+ katılımcılı RCT verileri ışığında selenyum suplementasyonu ve kardiyovasküler risk ilişkisinin kapsamlı analizi. SELECT trial, Cochrane review ve güncel kanıtlar.",
