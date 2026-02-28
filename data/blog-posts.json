@@ -1,5 +1,36 @@
 [
   {
+    "slug": "karaciger-yaglanmasi-masld-endobariatrik-tedavi",
+    "title": "Karaciğer Yağlanmasında (MASLD) Endobariatrik Tedavi: Cerrahisiz Çözümler",
+    "description": "MASLD (karaciğer yağlanması) tedavisinde endoskopik sleeve gastroplasti (ESG), intragastrik balon ve GLP-1 ilaçlarının rolü. Cerrahisiz seçeneklerin kanıta dayalı değerlendirmesi, sınırlılıkları ve kombinasyon potansiyeli.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-02-28",
+    "readTime": 15,
+    "url": "pages/blog/karaciger-yaglanmasi-masld-endobariatrik-tedavi.html",
+    "tags": [
+      "MASLD",
+      "NAFLD",
+      "karaciğer-yağlanması",
+      "endobariatrik-tedavi",
+      "ESG",
+      "endoskopik-sleeve-gastroplasti",
+      "intragastrik-balon",
+      "GLP-1",
+      "semaglutid",
+      "resmetirom",
+      "MASH",
+      "NASH",
+      "cerrahisiz-kilo-verme",
+      "bariatrik-endoskopi",
+      "kanıta-dayalı"
+    ],
+    "priority": "high",
+    "area": "metabolic"
+  },
+  {
     "slug": "omega-gastrik-bypass-vs-rouxeny-hangisi-daha-etkili",
     "title": "Omega Gastrik Bypass vs Roux-en-Y: Hangisi Daha Etkili?",
     "description": "YOMEGA çalışması sonuçları: Omega gastrik bypass ile Roux-en-Y gastrik bypass karşılaştırması, kilo kaybı etkinliği ve güvenlik profili",
