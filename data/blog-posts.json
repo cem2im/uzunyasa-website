@@ -1,5 +1,26 @@
 [
   {
+    "slug": "saglik-okuryazarligi-olum-riski",
+    "title": "Sağlık Okuryazarlığı ve Ölüm Riski: Bilmediğin Seni Gerçekten Öldürebilir",
+    "description": "Türkiye'de her 2 kişiden 1'inin sağlık okuryazarlığı yetersiz. Düşük sağlık okuryazarlığının ölüm riskini %52 artırdığını gösteren JAMA, BMJ ve meta-analiz verileri.",
+    "category": "public-health",
+    "categoryName": "Halk Sağlığı",
+    "categoryIcon": "📖",
+    "categoryColor": "#dc2626",
+    "date": "2026-03-01",
+    "readTime": "14 dk",
+    "url": "pages/blog/saglik-okuryazarligi-olum-riski.html",
+    "tags": [
+      "sağlık okuryazarlığı",
+      "mortalite",
+      "halk sağlığı",
+      "Türkiye",
+      "WHO"
+    ],
+    "priority": "high",
+    "area": "public-health"
+  },
+  {
     "slug": "toplum-temelli-hipertansiyon-mudahaleleri-tansiyon-kontrolu",
     "title": "Toplum Temelli Hipertansiyon Müdahaleleri: Tansiyon Kontrolünde Yeni Yaklaşımlar",
     "description": "Toplum temelli hipertansiyon müdahaleleri: Eczacı liderliğinde tansiyon yönetimi, dijital sağlık uygulamaları, yaşam tarzı değişiklikleri ve WHO HEARTS paketi. Türkiye verileriyle kanıta dayalı analiz.",
