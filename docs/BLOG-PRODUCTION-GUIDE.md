@@ -811,7 +811,101 @@ Her blog yazısı yayınlanmadan önce:
 
 ---
 
-## 🔄 Hızlı Başlangıç — Yeni Blog 10 Adımda
+## 15. Instagram Caption Oluşturma (Zorunlu)
+
+Her blog yazısı ile birlikte bir Instagram caption da üretilir. Blog'un altına `<!-- INSTAGRAM CAPTION -->` bloğu olarak eklenir ve ayrıca Cem'e gönderilir.
+
+### Caption Formatı
+
+```
+[HOOK — 1 cümle, dikkat çekici soru veya şaşırtıcı veri]
+
+[3-5 bullet point — blog'un öne çıkan bilgileri]
+• Veri 1
+• Veri 2
+• Veri 3
+• Negatif kanıt/uyarı (varsa)
+
+[TAKEAWAY — 1 cümle, pratik sonuç]
+
+🔗 Detaylı bilgi ve kaynaklar → Bio'daki linke tıklayın
+
+#UzunYaşa #SağlıklıYaşam #BilimselKanıt #[KonuHashtag] #[KonuHashtag2]
+```
+
+### Caption Kuralları
+
+1. **İlk satır = Hook** — İnsanlar caption'ı "daha fazla" tıklamadan sadece ilk satırı görür. Bu satır dikkat çekmeli.
+2. **Türkçe** — Tüm caption Türkçe
+3. **Emoji kullan** — Ama abartma, max 5-6 emoji
+4. **Hashtag sayısı** — 8-15 arası (çok az = keşfedilemez, çok fazla = spam)
+5. **Hype yasak** — Blog kuralları caption'da da geçerli. "Mucize", "kesin çözüm" gibi ifadeler YOK.
+6. **Negatif kanıt dahil** — "Ama dikkat: ..." gibi dürüst bir uyarı olmalı
+7. **CTA** — Her caption "Bio'daki link" veya "Kaydet 🔖" ile bitmeli
+8. **Karakter limiti** — Instagram max 2200 karakter, ideal 300-500
+
+### Standart Hashtag Setleri (konuya göre seç)
+
+**Genel (her zaman ekle):**
+```
+#UzunYaşa #SağlıklıYaşam #BilimselKanıt #KanıtaDayalı #Sağlık
+```
+
+**GLP-1 / Kilo:**
+```
+#KiloVerme #Obezite #GLP1 #Semaglutid #Ozempic #DiabetTedavisi
+```
+
+**Beslenme:**
+```
+#Beslenme #SağlıklıBeslenme #Diyet #Protein #AkdenizDiyeti
+```
+
+**Egzersiz:**
+```
+#Egzersiz #Fitness #KasKütlesi #DirençEgzersizi #Antrenman
+```
+
+**Supplement:**
+```
+#Takviye #Supplement #VitaminD #Omega3 #Kreatin
+```
+
+**Kalp / Tansiyon:**
+```
+#KalpSağlığı #Hipertansiyon #Tansiyon #Kardiyovasküler
+```
+
+**Ramazan:**
+```
+#Ramazan #Oruç #Sahur #İftar #RamazandaSağlık
+```
+
+**Karaciğer / GI:**
+```
+#KaraciğerSağlığı #MASLD #Hepatoloji #Gastroenteroloji
+```
+
+### Örnek Caption
+
+```
+Türkiye'de her 3 kişiden 1'inin tansiyonu yüksek — ve çoğu bilmiyor 😱
+
+• 🧂 Günlük tuz tüketimimiz 18g — WHO önerisi sadece 5g
+• 🏃 Haftada 150 dk egzersiz tansiyonu -7 mmHg düşürüyor
+• 🥗 DASH diyeti 30 çalışmada etkili bulundu
+• ⚠️ Ama yaşam tarzı tek başına çoğu hastada yeterli değil — ilaç tedavisi küçümsenmemeli
+
+Küçük adımlar büyük fark yapar: tuzu azalt, hareket et, düzenli ölç 💪
+
+🔗 Detaylı bilgi ve tüm kaynaklar → Bio'daki linke tıklayın
+
+#UzunYaşa #SağlıklıYaşam #BilimselKanıt #Hipertansiyon #Tansiyon #KalpSağlığı #Tuz #DASH #Egzersiz #SağlıklıBeslenme #TansiyonKontrolü
+```
+
+---
+
+## 🔄 Hızlı Başlangıç — Yeni Blog 11 Adımda
 
 ```
 □ 1.  Araştırma tara (PubMed, FDA, STAT News)
@@ -819,11 +913,12 @@ Her blog yazısı yayınlanmadan önce:
 □ 3.  Derin araştırma yap (paper oku, veri topla)
 □ 4.  Blog yaz (1500+ kelime, Türkçe, kaynaklı)
 □ 5.  HTML sayfası oluştur (tam SEO tagları)
-□ 6.  blog-posts.json güncelle
-□ 7.  sitemap.xml güncelle
-□ 8.  git add + commit + push
-□ 9.  Canlıda kontrol et (URL, liste, sitemap)
-□ 10. (Opsiyonel) Reel üret → Instagram'a yükle
+□ 6.  Instagram caption yaz (hook + bullets + CTA + hashtags)
+□ 7.  blog-posts.json güncelle
+□ 8.  sitemap.xml güncelle
+□ 9.  git add + commit + push
+□ 10. Canlıda kontrol et (URL, liste, sitemap)
+□ 11. Caption + reel Cem'e gönder → Instagram'a yükle
 ```
 
 **Toplam süre:** ~30-60 dakika ⚡

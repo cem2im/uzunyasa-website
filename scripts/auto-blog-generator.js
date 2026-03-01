@@ -1178,7 +1178,8 @@ MARKDOWN FORMATLAMA (HTML oluşturma için KRİTİK):
     {"title": "Yazarlar et al. Tam kaynak. Dergi. Yıl;cilt:sayfa.", "url": "https://doi.org/... veya PubMed linki"}
   ],
   "readTime": 10,
-  "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"]
+  "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
+  "instagramCaption": "Instagram caption — aşağıdaki formatta yaz:\n[Hook — 1 dikkat çekici cümle]\n\n• Veri/bulgu 1\n• Veri/bulgu 2\n• Veri/bulgu 3\n• ⚠️ Negatif kanıt/uyarı\n\n[Takeaway — 1 pratik sonuç cümlesi]\n\n🔗 Detaylı bilgi → Bio'daki link\n\n#UzunYaşa #SağlıklıYaşam #BilimselKanıt + konuya uygun 5-10 hashtag"
 }`;
 
 async function generateBlogPost(topic, researchContext = '') {
@@ -1880,12 +1881,22 @@ async function main() {
         }
       }
 
+      // Save Instagram caption if generated
+      if (post.instagramCaption) {
+        const captionPath = path.join(OUTPUT_DIR, `${slug}-caption.txt`);
+        fs.writeFileSync(captionPath, post.instagramCaption);
+        console.log(`📱 Instagram caption kaydedildi: ${captionPath}`);
+      }
+
       console.log(`\n🎉 Blog yazısı hazır!`);
       console.log(`   Başlık: ${post.title}`);
       console.log(`   URL: /pages/blog/${slug}.html`);
       console.log(`   Kategori: ${post.category}`);
       console.log(`   Okuma: ${post.readTime} dk`);
       console.log(`   Kaynaklar: ${post.sources.length}`);
+      if (post.instagramCaption) {
+        console.log(`\n📱 INSTAGRAM CAPTION:\n${'─'.repeat(40)}\n${post.instagramCaption}\n${'─'.repeat(40)}`);
+      }
     } else {
       console.log(`\n🎉 [DRY RUN] Blog hazır ama yazılmadı`);
       console.log(`   Başlık: ${post.title}`);
