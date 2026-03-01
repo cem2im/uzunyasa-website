@@ -1,5 +1,26 @@
 [
   {
+    "slug": "saglik-kitaplari-bilimsel-tavsiye",
+    "title": "Sağlık Okuryazarlığınızı Artıracak 10 Bilimsel Kitap",
+    "description": "Uzun yaşam, beslenme, uyku, egzersiz ve metabolizma konularında kanıta dayalı en iyi 10 kitap. Bilimsel güvenilirlik değerlendirmesi ve temel çıkarımlar.",
+    "category": "book-reviews",
+    "categoryName": "Kitap Tavsiyeleri",
+    "categoryIcon": "📚",
+    "categoryColor": "#7c3aed",
+    "date": "2026-03-01",
+    "readTime": "16 dk",
+    "url": "pages/blog/saglik-kitaplari-bilimsel-tavsiye.html",
+    "tags": [
+      "kitap tavsiyesi",
+      "sağlık okuryazarlığı",
+      "longevity",
+      "beslenme",
+      "uyku"
+    ],
+    "priority": "high",
+    "area": "public-health"
+  },
+  {
     "slug": "saglik-okuryazarligi-olum-riski",
     "title": "Sağlık Okuryazarlığı ve Ölüm Riski: Bilmediğin Seni Gerçekten Öldürebilir",
     "description": "Türkiye'de her 2 kişiden 1'inin sağlık okuryazarlığı yetersiz. Düşük sağlık okuryazarlığının ölüm riskini %52 artırdığını gösteren JAMA, BMJ ve meta-analiz verileri.",
