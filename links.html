@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UzunYaşa — Bağlantılar</title>
+<meta name="description" content="UzunYaşa'nın tüm ücretsiz araçları, rehberleri ve blog yazıları. Kanıta dayalı sağlık bilgisi.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://uzunyasa.com/links.html">
+
+<!-- OG -->
+<meta property="og:title" content="UzunYaşa — Tüm Bağlantılar">
+<meta property="og:description" content="Ücretsiz sağlık araçları, bilimsel rehberler ve GLP-1 kaynakları.">
+<meta property="og:url" content="https://uzunyasa.com/links.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://uzunyasa.com/images/logo-new.png">
+
+<!-- Favicon -->
+<link rel="icon" href="/images/logo-icon-new.png" type="image/png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0a1628;
+  --card: rgba(255,255,255,0.04);
+  --card-hover: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.15);
+  --teal: #14919B;
+  --orange: #E8963E;
+  --text: #e8ecf1;
+  --text-dim: #8899aa;
+  --glow-teal: rgba(20,145,155,0.15);
+  --glow-orange: rgba(232,150,62,0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background effects */
+.bg-blob1 {
+  position: fixed; top: -200px; right: -150px; width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--glow-teal) 0%, transparent 70%);
+  border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0;
+}
+.bg-blob2 {
+  position: fixed; bottom: -200px; left: -150px; width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--glow-orange) 0%, transparent 70%);
+  border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0;
+}
+
+.container {
+  position: relative; z-index: 1;
+  max-width: 480px; margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* Profile header */
+.profile {
+  text-align: center; margin-bottom: 36px;
+}
+.avatar {
+  width: 96px; height: 96px; border-radius: 50%;
+  border: 2.5px solid var(--teal);
+  padding: 3px; margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--teal), var(--orange));
+}
+.avatar img {
+  width: 100%; height: 100%; border-radius: 50%;
+  object-fit: cover; background: var(--bg);
+}
+.profile h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 700; margin-bottom: 4px;
+}
+.profile h1 span { color: var(--orange); }
+.profile .subtitle {
+  font-size: 14px; color: var(--text-dim); font-weight: 500;
+  margin-bottom: 8px;
+}
+.profile .doctor {
+  font-size: 13px; color: var(--teal); font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.profile .tagline {
+  font-size: 14px; color: var(--text-dim); margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* Section headers */
+.section-header {
+  display: flex; align-items: center; gap: 10px;
+  margin: 32px 0 16px; padding: 0 4px;
+}
+.section-header .icon {
+  width: 32px; height: 32px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 700; color: #fff;
+}
+.section-header .icon.teal { background: linear-gradient(135deg, var(--teal), #1ab5c0); }
+.section-header .icon.orange { background: linear-gradient(135deg, var(--orange), #f0a54e); }
+.section-header .icon.blue { background: linear-gradient(135deg, #4a6cf7, #6b8cff); }
+.section-header h2 {
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text-dim);
+}
+
+/* Links */
+.link-list { display: flex; flex-direction: column; gap: 10px; }
+
+.link-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border-radius: 14px;
+  background: var(--card); border: 1px solid var(--border);
+  text-decoration: none; color: var(--text);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.link-card:hover, .link-card:active {
+  background: var(--card-hover); border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.link-card .link-icon {
+  width: 42px; height: 42px; min-width: 42px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.link-card .link-icon.teal { background: rgba(20,145,155,0.12); color: var(--teal); }
+.link-card .link-icon.orange { background: rgba(232,150,62,0.12); color: var(--orange); }
+.link-card .link-icon.blue { background: rgba(74,108,247,0.12); color: #6b8cff; }
+
+.link-card .link-text { flex: 1; }
+.link-card .link-text h3 { font-size: 15px; font-weight: 600; line-height: 1.3; }
+.link-card .link-text p { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+.link-card .arrow {
+  font-size: 16px; color: var(--text-dim); transition: transform 0.2s;
+}
+.link-card:hover .arrow { transform: translateX(3px); }
+
+/* Featured card */
+.featured {
+  padding: 20px; border-radius: 16px; margin-bottom: 12px;
+  background: linear-gradient(135deg, rgba(20,145,155,0.12), rgba(232,150,62,0.08));
+  border: 1px solid rgba(20,145,155,0.2);
+  text-align: center; text-decoration: none; color: var(--text);
+  display: block; transition: all 0.2s;
+}
+.featured:hover { border-color: rgba(20,145,155,0.4); transform: translateY(-1px); }
+.featured .badge {
+  display: inline-block; padding: 4px 12px; border-radius: 20px;
+  background: var(--teal); color: #fff;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.featured h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.featured p { font-size: 13px; color: var(--text-dim); }
+
+/* Social row */
+.socials {
+  display: flex; justify-content: center; gap: 16px;
+  margin-top: 36px;
+}
+.social-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--card); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; color: var(--text-dim);
+  transition: all 0.2s;
+}
+.social-btn:hover { background: var(--card-hover); color: var(--text); }
+.social-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* Footer */
+.footer {
+  text-align: center; margin-top: 40px;
+  font-size: 12px; color: var(--text-dim);
+}
+.footer a { color: var(--teal); text-decoration: none; }
+
+/* Divider */
+.divider {
+  height: 1px; margin: 8px 0;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* Pulse animation for featured */
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(20,145,155,0.2); }
+  50% { border-color: rgba(20,145,155,0.4); }
+}
+.featured { animation: pulse-border 3s ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+<div class="bg-blob1"></div>
+<div class="bg-blob2"></div>
+
+<div class="container">
+
+  <!-- Profile -->
+  <div class="profile">
+    <div class="avatar">
+      <img src="/images/logo-icon-new.png" alt="UzunYaşa Logo">
+    </div>
+    <h1>Uzun<span>Yaşa</span></h1>
+    <div class="subtitle">Kanıta dayalı sağlık & longevity platformu</div>
+    <div class="doctor">Prof. Dr. Cem Şimşek</div>
+    <div class="tagline">🔬 Bilimsel kanıt · 👨‍⚕️ Uzman incelemesi · 🇹🇷 Türkçe</div>
+  </div>
+
+  <!-- Featured -->
+  <a href="/pages/araclar/sahur-iftar-planlayici.html" class="featured">
+    <div class="badge">🌙 Ramazan Özel</div>
+    <h3>Sahur & İftar Planlayıcısı</h3>
+    <p>197 yemek · 30 şehir · Kişisel öğün planı</p>
+  </a>
+
+  <!-- ARAÇLAR -->
+  <div class="section-header">
+    <div class="icon teal">🛠</div>
+    <h2>Ücretsiz Araçlar</h2>
+  </div>
+  <div class="link-list">
+    <a href="/pages/araclar/glp1-uygunluk-testi.html" class="link-card">
+      <div class="link-icon teal">💉</div>
+      <div class="link-text">
+        <h3>GLP-1 Uygunluk Testi</h3>
+        <p>Ozempic/Wegovy sana uygun mu? 2 dk'da öğren</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/glp1-karsilastirma.html" class="link-card">
+      <div class="link-icon teal">⚖️</div>
+      <div class="link-text">
+        <h3>GLP-1 İlaç Karşılaştırma</h3>
+        <p>7 ilacı yan yana karşılaştır</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/score2-risk-hesaplayici.html" class="link-card">
+      <div class="link-icon teal">❤️</div>
+      <div class="link-text">
+        <h3>SCORE2 Kalp Risk Hesaplayıcı</h3>
+        <p>10 yıllık kalp krizi riskini hesapla</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/kac-kilo-vermeliyim.html" class="link-card">
+      <div class="link-icon teal">⚖️</div>
+      <div class="link-text">
+        <h3>Kaç Kilo Vermeliyim?</h3>
+        <p>Bilimsel ideal kilo hesaplayıcı</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/diyet-asistani.html" class="link-card">
+      <div class="link-icon teal">🍽️</div>
+      <div class="link-text">
+        <h3>Diyet Asistanı</h3>
+        <p>7 günlük kişisel yemek planı</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/supplement-kanit-rehberi.html" class="link-card">
+      <div class="link-icon teal">💊</div>
+      <div class="link-text">
+        <h3>Supplement Kanıt Rehberi</h3>
+        <p>60+ takviye bilimsel puanlama</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/kalori-karsilastirici.html" class="link-card">
+      <div class="link-icon teal">🍕</div>
+      <div class="link-text">
+        <h3>Kalori Karşılaştırıcı</h3>
+        <p>Hangisi daha kalorili? Quiz oyna!</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/mit-kirici.html" class="link-card">
+      <div class="link-icon teal">🧠</div>
+      <div class="link-text">
+        <h3>Mit Kırıcı</h3>
+        <p>50 sağlık mitini test et</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/makro-ucgeni.html" class="link-card">
+      <div class="link-icon teal">📊</div>
+      <div class="link-text">
+        <h3>Makro Üçgeni</h3>
+        <p>Besin makro tahmin oyunu</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/egzersiz-asistani.html" class="link-card">
+      <div class="link-icon teal">💪</div>
+      <div class="link-text">
+        <h3>Egzersiz Asistanı</h3>
+        <p>Kişisel antrenman programı</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/araclar/turkiye-obezite-haritasi.html" class="link-card">
+      <div class="link-icon teal">🗺️</div>
+      <div class="link-text">
+        <h3>Türkiye Obezite Haritası</h3>
+        <p>81 il bazlı interaktif veri</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- REHBERLER -->
+  <div class="section-header">
+    <div class="icon orange">📚</div>
+    <h2>Ücretsiz Rehberler</h2>
+  </div>
+  <div class="link-list">
+    <a href="/pages/rehberler/akdeniz-diyeti.html" class="link-card">
+      <div class="link-icon orange">🫒</div>
+      <div class="link-text">
+        <h3>Akdeniz Diyeti Rehberi</h3>
+        <p>4 haftalık plan + menü + alışveriş listesi</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/rehberler/aralikli-oruc.html" class="link-card">
+      <div class="link-icon orange">⏰</div>
+      <div class="link-text">
+        <h3>Aralıklı Oruç Rehberi</h3>
+        <p>16:8 adım adım başlangıç planı</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/rehberler/kalori-acigi.html" class="link-card">
+      <div class="link-icon orange">🔬</div>
+      <div class="link-text">
+        <h3>Kalori Açığı Rehberi</h3>
+        <p>Kilo vermenin tek bilimsel formülü</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/rehberler/kalp-sagligi.html" class="link-card">
+      <div class="link-icon orange">❤️</div>
+      <div class="link-text">
+        <h3>Kalp Sağlığı Rehberi</h3>
+        <p>Hedef değerler ve koruma stratejileri</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/rehberler/tip2-diyabet.html" class="link-card">
+      <div class="link-icon orange">🩺</div>
+      <div class="link-text">
+        <h3>Tip 2 Diyabet Önleme</h3>
+        <p>%58 önlenebilir — yaşam tarzı rehberi</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/rehberler/uyku-kalitesi.html" class="link-card">
+      <div class="link-icon orange">🌙</div>
+      <div class="link-text">
+        <h3>Uyku Kalitesi Rehberi</h3>
+        <p>10 altın kural ve akşam rutini</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/rehberler/evde-egzersiz.html" class="link-card">
+      <div class="link-icon orange">🏠</div>
+      <div class="link-text">
+        <h3>Evde Egzersiz Rehberi</h3>
+        <p>Ekipmansız 4 haftalık program</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/rehberler/50-yas-egzersiz.html" class="link-card">
+      <div class="link-icon orange">🏋️</div>
+      <div class="link-text">
+        <h3>50+ Egzersiz Rehberi</h3>
+        <p>Başlamak için asla geç değil</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/rehberler/plato-kirma.html" class="link-card">
+      <div class="link-icon orange">📈</div>
+      <div class="link-text">
+        <h3>Plato Kırma Rehberi</h3>
+        <p>Tartı durduğunda 7 kanıtlı strateji</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- POPÜLER YAZILAR -->
+  <div class="section-header">
+    <div class="icon blue">📝</div>
+    <h2>Popüler Blog Yazıları</h2>
+  </div>
+  <div class="link-list">
+    <a href="/pages/blog/glp1-tam-rehber.html" class="link-card">
+      <div class="link-icon blue">💊</div>
+      <div class="link-text">
+        <h3>GLP-1 İlaçları Tam Rehberi</h3>
+        <p>Ozempic, Wegovy, Mounjaro — A'dan Z'ye</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/blog/glp1-birakinca-ne-olur.html" class="link-card">
+      <div class="link-icon blue">⚠️</div>
+      <div class="link-text">
+        <h3>GLP-1 Bırakınca Ne Olur?</h3>
+        <p>Kilonun %67'si geri geliyor — stratejiler</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/blog/tirzepatide-yeni-nesil-kilo-verme-ilacinin-bilimsel-gercekle.html" class="link-card">
+      <div class="link-icon blue">🧬</div>
+      <div class="link-text">
+        <h3>Tirzepatide: %20.9 Kilo Kaybı</h3>
+        <p>Yeni nesil çift agonist ilacın bilimsel gerçekleri</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/blog/semaglutide-ve-kalp-sagligi-select-calismasi-sonuclari.html" class="link-card">
+      <div class="link-icon blue">❤️</div>
+      <div class="link-text">
+        <h3>SELECT: GLP-1 Kalbi Koruyor</h3>
+        <p>17.604 hastada %20 KV risk azalması</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/blog/ramazanda-glp1-kullananlar-icin-oruc-rehberi.html" class="link-card">
+      <div class="link-icon blue">🌙</div>
+      <div class="link-text">
+        <h3>Ramazanda GLP-1 Oruç Rehberi</h3>
+        <p>Güvenli oruç tutma stratejileri</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a href="/pages/blog/index.html" class="link-card">
+      <div class="link-icon blue">→</div>
+      <div class="link-text">
+        <h3>Tüm Blog Yazıları</h3>
+        <p>50+ bilimsel makale</p>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <!-- Socials -->
+  <div class="socials">
+    <a href="https://instagram.com/uzunyasaorg" class="social-btn" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://uzunyasa.com" class="social-btn" target="_blank" aria-label="Website">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2026 <a href="https://uzunyasa.com">UzunYaşa</a> · Kanıta dayalı sağlık bilgisi</p>
+    <p style="margin-top: 6px; font-size: 11px;">Bu platform tıbbi tavsiye değildir. Tedavi kararlarınızı doktorunuzla alın.</p>
+  </div>
+
+</div>
+
+<!-- Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QBM7E0EHFP');</script>
+
+</body>
+</html>
