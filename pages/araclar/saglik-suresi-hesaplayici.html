@@ -2369,11 +2369,14 @@
 
             <!-- Scene 1: Dramatic Intro -->
             <div class="scene-intro" id="sceneIntro">
+                <div class="intro-line intro-line-0" id="introLine0" style="font-size: 0.95rem; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; opacity: 0;">
+                    TÜİK 2025 Verilerine Göre
+                </div>
                 <div class="intro-line intro-line-1" id="introLine1">
-                    78 yıl yaşayacaksınız.
+                    Türkiye'de ortalama yaşam süresi <span style="color: #14919B; font-weight: 800;">78 yıl</span>
                 </div>
                 <div class="intro-line intro-line-2" id="introLine2">
-                    Ama sadece 57 yılı sağlıklı.
+                    Ama sağlıklı geçen süre sadece <span style="color: #ef4444; font-weight: 800;">57 yıl</span>
                 </div>
                 <div class="intro-line" id="introLine3">
                     <div class="intro-big-number">
@@ -2381,11 +2384,11 @@
                         <span class="unit">YIL</span>
                     </div>
                     <div class="intro-subtitle">
-                        hayatınız sağlık sorunlarıyla geçebilir
+                        ortalama bir Türk vatandaşının sağlık sorunlarıyla geçirdiği süre
                     </div>
                 </div>
                 <div class="intro-source" id="introSource" style="opacity: 0;">
-                    Kaynak: TÜİK 2025 / WHO HALE
+                    Kaynak: TÜİK 2025 · WHO Sağlıklı Yaşam Beklentisi (HALE)
                 </div>
                 <div class="intro-scroll-cta" id="introScrollCta">
                     <div class="scroll-indicator" onclick="scrollToPersonalize()">
@@ -2970,32 +2973,38 @@
 
         // Staggered text reveal
         function playIntroAnimation() {
+            const line0 = $('#introLine0');
             const line1 = $('#introLine1');
             const line2 = $('#introLine2');
             const line3 = $('#introLine3');
             const source = $('#introSource');
 
-            // Line 1: immediate
+            // Line 0: "TÜİK 2025 Verilerine Göre"
+            setTimeout(() => {
+                if (line0) { line0.style.transition = 'opacity 0.8s ease'; line0.style.opacity = '1'; }
+            }, 300);
+
+            // Line 1: "Türkiye'de ortalama yaşam süresi 78 yıl"
             setTimeout(() => {
                 line1.classList.add('visible');
-            }, 500);
+            }, 1000);
 
-            // Line 2: 1.5s delay
+            // Line 2: "Ama sağlıklı geçen süre sadece 57 yıl"
             setTimeout(() => {
                 line2.classList.add('visible');
-            }, 2000);
+            }, 2500);
 
-            // Line 3: 3.5s delay
+            // Line 3: 20.5 YIL büyük rakam
             setTimeout(() => {
                 line3.classList.add('visible');
                 animateNumber($('#introBigNumber'), 0, 20.5, 1500, 1);
-            }, 3500);
+            }, 4000);
 
             // Source line
             setTimeout(() => {
                 source.style.transition = 'opacity 1s ease';
                 source.style.opacity = '1';
-            }, 5500);
+            }, 6000);
         }
 
         // Animate number from start to end
