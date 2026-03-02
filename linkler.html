@@ -40,7 +40,12 @@
         .page{position:relative;z-index:1;width:100%;max-width:480px;padding:40px 20px 60px;display:flex;flex-direction:column;align-items:center}
 
         /* Profile */
-        .profile{text-align:center;margin-bottom:32px}
+        /* Hero video header */
+        .hero-banner{position:relative;width:100%;height:180px;border-radius:20px;overflow:hidden;margin-bottom:-44px;z-index:0}
+        .hero-banner video{width:100%;height:100%;object-fit:cover}
+        .hero-banner-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 85%)}
+
+        .profile{text-align:center;margin-bottom:32px;position:relative;z-index:1}
         .profile-avatar{width:88px;height:88px;border-radius:50%;border:3px solid var(--teal);padding:3px;margin:0 auto 16px;overflow:hidden;background:#fff}
         .profile-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
         .profile-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;letter-spacing:-0.5px;margin-bottom:2px}
@@ -109,6 +114,14 @@
 <div class="bg-decor"><div class="orb o1"></div><div class="orb o2"></div></div>
 
 <div class="page">
+    <!-- Hero Banner Video -->
+    <div class="hero-banner">
+        <video autoplay muted loop playsinline preload="auto">
+            <source src="/assets/videos/hero-couple-running.mp4" type="video/mp4">
+        </video>
+        <div class="hero-banner-overlay"></div>
+    </div>
+
     <!-- Profile -->
     <div class="profile">
         <div class="profile-avatar">
