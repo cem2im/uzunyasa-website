@@ -72,11 +72,23 @@ Bilgi asimetrisini yıkar. Sağlık okuryazarlığını artırır. İnsanları k
 ### Vaat
 **"Sağlığı bilmek herkesin hakkı."**
 
-### Ton
-- Bir profesör arkadaşınız anlatıyor — bilimsel ama sıcak
-- Korkutmuyor, güçlendiriyor
-- Önce NEDEN'i gösterir, sonra NASIL'ı
-- Hype yok, abartı yok — kanıt var
+### Ton — "Bilgili Arkadaş"
+- Bir doktor arkadaşınız kahvede anlatıyor — samimi, sıcak, yapıcı
+- **Asla korkutmaz, her zaman güçlendirir.** "Hasta olacaksın" değil, "Bunu yapabilirsin"
+- Yanında yürür, yukarıdan bakmaz. "Sana söylüyorum" değil, "Birlikte bakalım"
+- Merak uyandırır, panik değil. "Biliyor muydun?" > "Dikkat! Tehlike!"
+- Umut verir — her veri noktası bir aksiyon fırsatı olarak sunulur
+- Hype yok, abartı yok — ama sıcaklık ve samimiyet her zaman var
+- Emoji doğal kullanılır, ama bazen sessizlik de güçlüdür
+
+### ⚠️ İletişim Kuralları — KRİTİK
+1. **Korkutma yasak.** "20 yıl hasta geçireceksiniz" ❌ → "20 yılı daha sağlıklı geçirmenin yolları var" ✅
+2. **Suçlama yasak.** "Yanlış yapıyorsunuz" ❌ → "Küçük değişiklikler büyük fark yaratır" ✅
+3. **Yukarıdan bakma yasak.** "Bilmeniz gereken..." ❌ → "Birlikte bakalım..." ✅
+4. **Her şok veriye bir umut eşlik etmeli.** Problem göster → hemen çözümü göster
+5. **Yardım eli uzat.** CTA'lar davet niteliğinde: "Hadi birlikte bakalım", "Merak ettin mi?", "Dene, gör"
+6. **Samimi hitap.** "Sen" formu, arkadaşça, bazen espri
+7. **Empowerment > Fear.** İnsanları güçlendirmek, korkutmak değil
 
 ### Marka Değerleri
 1. **Kanıta Dayalı** — Her iddia PubMed referanslı
@@ -118,7 +130,7 @@ Her içerik bu 3 katmandan geçer. Sıralama KRİTİK.
 ### Uygulanması:
 | Katman | İçerik Türü | Örnek |
 |--------|------------|-------|
-| NEDEN | Viral reel, şok istatistik | "20 yılınız hasta geçecek" |
+| NEDEN | Viral reel, merak uyandıran veri | "Hayatına 14 yıl katabilirsin — nasıl mı?" |
 | NE | Blog, infografik, eğitim reeli | "Healthspan nedir?" |
 | NASIL | Araç, protocol, ürün | Healthspan hesaplayıcı, supplement |
 
@@ -213,9 +225,9 @@ ARAÇLAR + CTA (NASIL katmanı)
 ### İçerik Kadansı (Haftalık)
 | Gün | İçerik | Katman | Format |
 |-----|--------|--------|--------|
-| Pazartesi | Viral hook / şok veri | NEDEN | Reel |
+| Pazartesi | Merak uyandıran hook / "biliyor muydun?" | NEDEN | Reel |
 | Salı | Derin blog | NE | Blog + carousel |
-| Çarşamba | Mit yıkma | NEDEN | Reel |
+| Çarşamba | Mit aydınlatma ("aslında bilim ne diyor?") | NEDEN | Reel |
 | Perşembe | Araç tanıtımı | NASIL | Story + post |
 | Cuma | Bilimsel bulgu | NE | Carousel |
 | Cumartesi | Pratik protokol | NASIL | Reel |
@@ -228,7 +240,7 @@ ARAÇLAR + CTA (NASIL katmanı)
 - Hedef: 50.000 aylık organik (12 ay)
 
 ### Reklam Stratejisi
-- %50 bütçe → NEDEN reelleri (awareness, üst huni)
+- %50 bütçe → Merak + değer reelleri (awareness, üst huni)
 - %30 bütçe → Araç tanıtımı (traffic, orta huni)
 - %20 bütçe → Retargeting (dönüşüm, alt huni)
 - "Neden UzunYaşa?" formatı = en iyi performans (kanıtlanmış)
@@ -271,7 +283,7 @@ ARAÇLAR + CTA (NASIL katmanı)
 ## 11. STRATEJİK İLKELER
 
 1. **Her içerik NEDEN ile başlar.** Çözüm sunmadan önce problemi hissettir.
-2. **Kayıp çerçevesi > Kazanç çerçevesi.** "20 yıl kaybedeceksiniz" > "+5 yıl kazanacaksınız"
+2. **Umut + Merak > Korku.** "Biliyor muydun? 5 basit şeyle hayatına 14 yıl katabilirsin" > ~~"20 yıl kaybedeceksiniz"~~
 3. **Araçlar > Makaleler.** İnteraktif araçlar SEO + paylaşım + geri dönüş sağlar.
 4. **Türkiye verisi her yerde.** Global bilim + yerel veri = en güçlü bağlantı.
 5. **Kendi hatamızı da söyleriz.** Şeffaflık = güven. Kanıt değişirse biz de değişiriz.
