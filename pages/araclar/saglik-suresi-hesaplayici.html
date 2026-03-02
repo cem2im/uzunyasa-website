@@ -1,0 +1,3473 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<link rel="alternate" hreflang="tr" href="https://uzunyasa.com/pages/araclar/saglik-suresi-hesaplayici.html">
+<link rel="alternate" hreflang="x-default" href="https://uzunyasa.com/pages/araclar/saglik-suresi-hesaplayici.html">
+<meta http-equiv="Content-Language" content="tr">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<script>if(location.protocol!=="https:"&&location.hostname!=="localhost"&&location.hostname!=="127.0.0.1")location.replace("https://"+location.host+location.pathname+location.search+location.hash);</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QBM7E0EHFP"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-QBM7E0EHFP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sağlık Süresi (Healthspan) Hesaplayıcı | Kaç Yılınız Sağlıklı Geçecek? | UzunYaşa</title>
+<meta name="description" content="Türkiye verilerine dayalı interaktif sağlık süresi hesaplayıcı. Yaşam süreniz ile sağlıklı yaşam süreniz arasındaki farkı öğrenin ve kişiselleştirilmiş önerilerle farkı kapatın.">
+<meta name="keywords" content="healthspan, sağlıklı yaşam süresi, sağlık süresi hesaplayıcı, yaşam beklentisi, Türkiye sağlık, HALE, sağlıklı yıllar, kronik hastalık, yaşlanma">
+<meta property="og:title" content="Sağlık Süresi Hesaplayıcı — Kaç Yılınız Sağlıklı Geçecek?">
+<meta property="og:description" content="Türkiye ortalamasına göre yaşam süreniz vs sağlıklı yaşam süreniz arasındaki farkı öğrenin. 9 bilimsel faktörle kişisel tahmininizi hesaplayın.">
+<meta property="og:image" content="https://uzunyasa.com/images/og-saglik-suresi.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://uzunyasa.com/pages/araclar/saglik-suresi-hesaplayici.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sağlık Süresi Hesaplayıcı — Kaç Yılınız Sağlıklı Geçecek?">
+<meta name="twitter:description" content="Türkiye ortalamasına göre sağlıklı yaşam sürenizi hesaplayın. Bilimsel verilerle kişisel öneriler alın.">
+<link rel="canonical" href="https://uzunyasa.com/pages/araclar/saglik-suresi-hesaplayici.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "MedicalWebPage",
+ "name": "Sağlık Süresi (Healthspan) Hesaplayıcı",
+ "description": "Türkiye verilerine dayalı interaktif sağlık süresi hesaplayıcı. Yaşam süreniz ile sağlıklı yaşam süreniz arasındaki farkı öğrenin.",
+ "url": "https://uzunyasa.com/pages/araclar/saglik-suresi-hesaplayici.html",
+ "inLanguage": "tr",
+ "medicalAudience": {
+  "@type": "MedicalAudience",
+  "audienceType": "Patient"
+ },
+ "author": {
+  "@type": "Organization",
+  "name": "UzunYaşa",
+  "url": "https://uzunyasa.com"
+ },
+ "datePublished": "2026-03-02",
+ "lastReviewed": "2026-03-02",
+ "reviewedBy": {
+  "@type": "Organization",
+  "name": "UzunYaşa Bilim Ekibi"
+ },
+ "about": {
+  "@type": "MedicalCondition",
+  "name": "Sağlıklı Yaşlanma"
+ },
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "TRY"
+ }
+}
+</script>
+
+<style>
+/* ===== RESET & BASE ===== */
+:root {
+ --bg-primary: #0a1628;
+ --bg-secondary: #0f2035;
+ --bg-card: rgba(255,255,255,0.06);
+ --bg-card-hover: rgba(255,255,255,0.1);
+ --teal: #14919B;
+ --teal-light: #45b8c2;
+ --teal-dark: #0e6b73;
+ --orange: #E8963E;
+ --orange-light: #f0b06a;
+ --green: #10b981;
+ --green-dark: #059669;
+ --green-light: #34d399;
+ --yellow: #f59e0b;
+ --red: #ef4444;
+ --red-dark: #dc2626;
+ --red-light: #fca5a5;
+ --white: #ffffff;
+ --gray-50: #f9fafb;
+ --gray-100: #f3f4f6;
+ --gray-200: #e5e7eb;
+ --gray-300: #d1d5db;
+ --gray-400: #9ca3af;
+ --gray-500: #6b7280;
+ --gray-600: #4b5563;
+ --gray-700: #374151;
+ --gray-800: #1f2937;
+ --gray-900: #111827;
+ --border: rgba(255,255,255,0.1);
+ --border-highlight: rgba(20,145,155,0.4);
+ --shadow: 0 20px 40px rgba(0,0,0,0.3);
+ --shadow-sm: 0 4px 12px rgba(0,0,0,0.2);
+ --radius: 16px;
+ --radius-sm: 10px;
+ --radius-xs: 6px;
+ --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+html {
+ scroll-behavior: smooth;
+ -webkit-text-size-adjust: 100%;
+}
+
+body {
+ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+ background: var(--bg-primary);
+ color: var(--white);
+ line-height: 1.7;
+ min-height: 100vh;
+ overflow-x: hidden;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+.bg-pattern {
+ position: fixed;
+ inset: 0;
+ z-index: 0;
+ pointer-events: none;
+ overflow: hidden;
+}
+
+.bg-pattern::before {
+ content: '';
+ position: absolute;
+ width: 600px;
+ height: 600px;
+ background: radial-gradient(circle, rgba(20,145,155,0.08), transparent 70%);
+ top: -100px;
+ right: -100px;
+ animation: floatOrb 20s ease-in-out infinite;
+}
+
+.bg-pattern::after {
+ content: '';
+ position: absolute;
+ width: 500px;
+ height: 500px;
+ background: radial-gradient(circle, rgba(232,150,62,0.06), transparent 70%);
+ bottom: -100px;
+ left: -100px;
+ animation: floatOrb 25s ease-in-out infinite reverse;
+}
+
+@keyframes floatOrb {
+ 0%, 100% { transform: translate(0, 0); }
+ 33% { transform: translate(30px, -30px); }
+ 66% { transform: translate(-20px, 20px); }
+}
+
+/* ===== HEADER ===== */
+.site-header {
+ background: rgba(10, 22, 40, 0.9);
+ backdrop-filter: blur(20px);
+ -webkit-backdrop-filter: blur(20px);
+ border-bottom: 1px solid var(--border);
+ padding: 0.9rem 1.5rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+}
+
+.header-logo {
+ display: flex;
+ align-items: center;
+ gap: 0.6rem;
+ text-decoration: none;
+ color: var(--white);
+}
+
+.header-logo img {
+ height: 34px;
+ width: auto;
+}
+
+.header-logo span {
+ font-weight: 700;
+ font-size: 1.15rem;
+ background: linear-gradient(135deg, var(--teal), var(--teal-light));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.header-nav {
+ display: flex;
+ align-items: center;
+ gap: 1.2rem;
+}
+
+.header-nav a {
+ color: rgba(255,255,255,0.65);
+ text-decoration: none;
+ font-size: 0.85rem;
+ font-weight: 500;
+ transition: color var(--transition);
+}
+
+.header-nav a:hover {
+ color: var(--teal);
+}
+
+/* ===== MEDICAL DISCLAIMER BANNER ===== */
+.disclaimer-banner {
+ background: linear-gradient(90deg, #7c2d12, #92400e);
+ border-bottom: 1px solid rgba(234,88,12,0.4);
+ padding: 0.7rem 1.5rem;
+ text-align: center;
+ font-size: 0.8rem;
+ color: #fed7aa;
+ font-weight: 500;
+ line-height: 1.5;
+ position: relative;
+ z-index: 10;
+}
+
+.disclaimer-banner svg {
+ width: 14px;
+ height: 14px;
+ vertical-align: -2px;
+ margin-right: 4px;
+ fill: currentColor;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-wrapper {
+ background: rgba(0,0,0,0.3);
+ padding: 1rem 1.5rem;
+ border-bottom: 1px solid var(--border);
+ position: relative;
+ z-index: 10;
+}
+
+.progress-container {
+ max-width: 700px;
+ margin: 0 auto;
+}
+
+.progress-steps {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 0;
+ position: relative;
+}
+
+.progress-step {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ position: relative;
+ z-index: 2;
+ flex: 0 0 auto;
+}
+
+.progress-circle {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ background: rgba(255,255,255,0.1);
+ border: 2px solid rgba(255,255,255,0.2);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: 700;
+ font-size: 0.85rem;
+ color: rgba(255,255,255,0.4);
+ transition: all var(--transition);
+}
+
+.progress-step.active .progress-circle {
+ background: var(--teal);
+ border-color: var(--teal-light);
+ color: var(--white);
+ box-shadow: 0 0 20px rgba(20,145,155,0.4);
+}
+
+.progress-step.completed .progress-circle {
+ background: var(--green);
+ border-color: var(--green-light);
+ color: var(--white);
+}
+
+.progress-label {
+ font-size: 0.7rem;
+ color: rgba(255,255,255,0.4);
+ margin-top: 0.4rem;
+ font-weight: 500;
+ white-space: nowrap;
+ transition: color var(--transition);
+}
+
+.progress-step.active .progress-label {
+ color: var(--teal-light);
+}
+
+.progress-step.completed .progress-label {
+ color: var(--green-light);
+}
+
+.progress-line {
+ flex: 1;
+ height: 3px;
+ background: rgba(255,255,255,0.1);
+ margin: 0 0.5rem;
+ margin-bottom: 1.4rem;
+ border-radius: 2px;
+ position: relative;
+ min-width: 60px;
+ max-width: 120px;
+}
+
+.progress-line .fill {
+ position: absolute;
+ left: 0;
+ top: 0;
+ height: 100%;
+ background: linear-gradient(90deg, var(--green), var(--teal));
+ border-radius: 2px;
+ width: 0%;
+ transition: width var(--transition-slow);
+}
+
+.progress-line.active .fill {
+ width: 50%;
+}
+
+.progress-line.completed .fill {
+ width: 100%;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.main-container {
+ max-width: 800px;
+ margin: 0 auto;
+ padding: 2rem 1.5rem 4rem;
+ position: relative;
+ z-index: 5;
+}
+
+/* ===== STEP SECTIONS ===== */
+.step-section {
+ display: none;
+ animation: fadeInUp 0.5s ease-out;
+}
+
+.step-section.active {
+ display: block;
+}
+
+@keyframes fadeInUp {
+ from {
+  opacity: 0;
+  transform: translateY(20px);
+ }
+ to {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+@keyframes fadeIn {
+ from { opacity: 0; }
+ to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+ from {
+  opacity: 0;
+  transform: scale(0.95);
+ }
+ to {
+  opacity: 1;
+  transform: scale(1);
+ }
+}
+
+@keyframes slideInLeft {
+ from {
+  opacity: 0;
+  transform: translateX(-30px);
+ }
+ to {
+  opacity: 1;
+  transform: translateX(0);
+ }
+}
+
+@keyframes countUp {
+ from { opacity: 0; transform: translateY(10px); }
+ to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+ 0%, 100% { transform: scale(1); }
+ 50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+ 0% { background-position: -200% 0; }
+ 100% { background-position: 200% 0; }
+}
+
+/* ===== STEP 1: AWARENESS ===== */
+.hero-badge {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ background: rgba(20,145,155,0.15);
+ border: 1px solid rgba(20,145,155,0.3);
+ border-radius: 50px;
+ padding: 0.5rem 1.2rem;
+ font-size: 0.8rem;
+ font-weight: 600;
+ color: var(--teal-light);
+ margin-bottom: 1.5rem;
+}
+
+.hero-badge svg {
+ width: 16px;
+ height: 16px;
+ fill: currentColor;
+}
+
+.step-hero {
+ text-align: center;
+ margin-bottom: 2.5rem;
+}
+
+.step-hero h1 {
+ font-size: 2.5rem;
+ font-weight: 900;
+ line-height: 1.2;
+ margin-bottom: 1rem;
+ background: linear-gradient(135deg, #ffffff, rgba(255,255,255,0.8));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.step-hero h1 .accent {
+ background: linear-gradient(135deg, var(--teal), var(--teal-light));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.step-hero h1 .accent-orange {
+ background: linear-gradient(135deg, var(--orange), var(--orange-light));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.step-hero p {
+ font-size: 1.1rem;
+ color: rgba(255,255,255,0.7);
+ max-width: 600px;
+ margin: 0 auto;
+ line-height: 1.7;
+}
+
+/* Info cards */
+.info-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 1rem;
+ margin-bottom: 2rem;
+}
+
+.info-card {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius-sm);
+ padding: 1.3rem;
+ text-align: center;
+ transition: all var(--transition);
+}
+
+.info-card:hover {
+ background: var(--bg-card-hover);
+ border-color: var(--border-highlight);
+}
+
+.info-card .ic-icon {
+ font-size: 2rem;
+ margin-bottom: 0.5rem;
+}
+
+.info-card .ic-value {
+ font-size: 1.8rem;
+ font-weight: 800;
+ color: var(--teal-light);
+ line-height: 1.2;
+}
+
+.info-card .ic-label {
+ font-size: 0.78rem;
+ color: rgba(255,255,255,0.5);
+ margin-top: 0.3rem;
+ line-height: 1.4;
+}
+
+/* ===== CARD COMPONENT ===== */
+.card {
+ background: var(--bg-card);
+ backdrop-filter: blur(20px);
+ -webkit-backdrop-filter: blur(20px);
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ padding: 2rem;
+ margin-bottom: 1.5rem;
+ box-shadow: var(--shadow-sm);
+ transition: all var(--transition);
+}
+
+.card:hover {
+ border-color: var(--border-highlight);
+}
+
+.card-lg {
+ padding: 2.5rem;
+}
+
+.card-highlight {
+ border-color: rgba(20,145,155,0.3);
+ background: rgba(20,145,155,0.08);
+}
+
+.card-warning {
+ border-color: rgba(239,68,68,0.3);
+ background: rgba(239,68,68,0.06);
+}
+
+/* ===== FORM ELEMENTS ===== */
+.form-group {
+ margin-bottom: 1.5rem;
+}
+
+.form-label {
+ display: block;
+ font-weight: 600;
+ font-size: 0.95rem;
+ margin-bottom: 0.6rem;
+ color: rgba(255,255,255,0.9);
+}
+
+.form-label .required {
+ color: var(--red);
+ margin-left: 2px;
+}
+
+/* Number input */
+.input-wrapper {
+ position: relative;
+}
+
+.form-input {
+ width: 100%;
+ padding: 0.9rem 1.2rem;
+ background: rgba(255,255,255,0.06);
+ border: 2px solid rgba(255,255,255,0.12);
+ border-radius: var(--radius-sm);
+ color: var(--white);
+ font-family: 'Inter', sans-serif;
+ font-size: 1.1rem;
+ font-weight: 600;
+ outline: none;
+ transition: all var(--transition);
+ -moz-appearance: textfield;
+}
+
+.form-input::-webkit-outer-spin-button,
+.form-input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
+
+.form-input:focus {
+ border-color: var(--teal);
+ background: rgba(20,145,155,0.08);
+ box-shadow: 0 0 0 4px rgba(20,145,155,0.15);
+}
+
+.form-input::placeholder {
+ color: rgba(255,255,255,0.3);
+ font-weight: 400;
+}
+
+/* Radio button group */
+.radio-group {
+ display: flex;
+ flex-direction: column;
+ gap: 0.6rem;
+}
+
+.radio-group.horizontal {
+ flex-direction: row;
+ flex-wrap: wrap;
+ gap: 0.8rem;
+}
+
+.radio-option {
+ position: relative;
+ cursor: pointer;
+}
+
+.radio-option input {
+ position: absolute;
+ opacity: 0;
+ pointer-events: none;
+}
+
+.radio-option .radio-label {
+ display: flex;
+ align-items: center;
+ gap: 0.8rem;
+ padding: 0.85rem 1.2rem;
+ background: rgba(255,255,255,0.04);
+ border: 2px solid rgba(255,255,255,0.1);
+ border-radius: var(--radius-sm);
+ font-size: 0.92rem;
+ font-weight: 500;
+ color: rgba(255,255,255,0.8);
+ transition: all var(--transition);
+ cursor: pointer;
+}
+
+.radio-option .radio-label:hover {
+ background: rgba(255,255,255,0.08);
+ border-color: rgba(255,255,255,0.2);
+}
+
+.radio-option input:checked + .radio-label {
+ background: rgba(20,145,155,0.12);
+ border-color: var(--teal);
+ color: var(--white);
+}
+
+.radio-option .radio-dot {
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ border: 2px solid rgba(255,255,255,0.25);
+ flex-shrink: 0;
+ position: relative;
+ transition: all var(--transition);
+}
+
+.radio-option input:checked + .radio-label .radio-dot {
+ border-color: var(--teal);
+}
+
+.radio-option input:checked + .radio-label .radio-dot::after {
+ content: '';
+ position: absolute;
+ top: 3px;
+ left: 3px;
+ right: 3px;
+ bottom: 3px;
+ background: var(--teal);
+ border-radius: 50%;
+}
+
+.radio-option .radio-text {
+ flex: 1;
+}
+
+.radio-option .radio-impact {
+ font-size: 0.75rem;
+ padding: 0.2rem 0.6rem;
+ border-radius: 50px;
+ font-weight: 600;
+ white-space: nowrap;
+}
+
+.radio-impact.positive {
+ background: rgba(16,185,129,0.15);
+ color: var(--green-light);
+}
+
+.radio-impact.negative {
+ background: rgba(239,68,68,0.15);
+ color: var(--red-light);
+}
+
+.radio-impact.neutral {
+ background: rgba(255,255,255,0.08);
+ color: var(--gray-400);
+}
+
+/* Gender selector */
+.gender-selector {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 1rem;
+}
+
+.gender-option {
+ position: relative;
+ cursor: pointer;
+}
+
+.gender-option input {
+ position: absolute;
+ opacity: 0;
+ pointer-events: none;
+}
+
+.gender-card {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 0.6rem;
+ padding: 1.8rem 1rem;
+ background: rgba(255,255,255,0.04);
+ border: 2px solid rgba(255,255,255,0.1);
+ border-radius: var(--radius);
+ transition: all var(--transition);
+ cursor: pointer;
+}
+
+.gender-card:hover {
+ background: rgba(255,255,255,0.08);
+ border-color: rgba(255,255,255,0.2);
+}
+
+.gender-option input:checked + .gender-card {
+ background: rgba(20,145,155,0.12);
+ border-color: var(--teal);
+ box-shadow: 0 0 20px rgba(20,145,155,0.2);
+}
+
+.gender-icon {
+ font-size: 2.5rem;
+}
+
+.gender-text {
+ font-weight: 600;
+ font-size: 1rem;
+ color: rgba(255,255,255,0.8);
+}
+
+.gender-option input:checked + .gender-card .gender-text {
+ color: var(--white);
+}
+
+/* Checkbox group */
+.checkbox-group {
+ display: flex;
+ flex-direction: column;
+ gap: 0.6rem;
+}
+
+.checkbox-option {
+ position: relative;
+ cursor: pointer;
+}
+
+.checkbox-option input {
+ position: absolute;
+ opacity: 0;
+ pointer-events: none;
+}
+
+.checkbox-label {
+ display: flex;
+ align-items: center;
+ gap: 0.8rem;
+ padding: 0.85rem 1.2rem;
+ background: rgba(255,255,255,0.04);
+ border: 2px solid rgba(255,255,255,0.1);
+ border-radius: var(--radius-sm);
+ font-size: 0.92rem;
+ font-weight: 500;
+ color: rgba(255,255,255,0.8);
+ transition: all var(--transition);
+ cursor: pointer;
+}
+
+.checkbox-label:hover {
+ background: rgba(255,255,255,0.08);
+ border-color: rgba(255,255,255,0.2);
+}
+
+.checkbox-option input:checked + .checkbox-label {
+ background: rgba(20,145,155,0.12);
+ border-color: var(--teal);
+ color: var(--white);
+}
+
+.checkbox-box {
+ width: 20px;
+ height: 20px;
+ border-radius: var(--radius-xs);
+ border: 2px solid rgba(255,255,255,0.25);
+ flex-shrink: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: all var(--transition);
+}
+
+.checkbox-option input:checked + .checkbox-label .checkbox-box {
+ background: var(--teal);
+ border-color: var(--teal);
+}
+
+.checkbox-option input:checked + .checkbox-label .checkbox-box::after {
+ content: '✓';
+ font-size: 0.75rem;
+ color: white;
+ font-weight: 700;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 0.6rem;
+ padding: 1rem 2rem;
+ border: none;
+ border-radius: var(--radius-sm);
+ font-family: 'Inter', sans-serif;
+ font-weight: 700;
+ font-size: 1rem;
+ cursor: pointer;
+ transition: all var(--transition);
+ text-decoration: none;
+ line-height: 1;
+}
+
+.btn:disabled {
+ opacity: 0.4;
+ cursor: not-allowed;
+ transform: none !important;
+}
+
+.btn-primary {
+ background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+ color: var(--white);
+ box-shadow: 0 4px 15px rgba(20,145,155,0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+ transform: translateY(-2px);
+ box-shadow: 0 8px 25px rgba(20,145,155,0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+ transform: translateY(0);
+}
+
+.btn-orange {
+ background: linear-gradient(135deg, var(--orange), #d97706);
+ color: var(--white);
+ box-shadow: 0 4px 15px rgba(232,150,62,0.3);
+}
+
+.btn-orange:hover:not(:disabled) {
+ transform: translateY(-2px);
+ box-shadow: 0 8px 25px rgba(232,150,62,0.4);
+}
+
+.btn-lg {
+ padding: 1.2rem 2.5rem;
+ font-size: 1.1rem;
+ border-radius: var(--radius-sm);
+}
+
+.btn-block {
+ width: 100%;
+}
+
+.btn-outline {
+ background: transparent;
+ color: var(--teal-light);
+ border: 2px solid rgba(20,145,155,0.4);
+}
+
+.btn-outline:hover:not(:disabled) {
+ background: rgba(20,145,155,0.1);
+ border-color: var(--teal);
+}
+
+.btn svg {
+ width: 18px;
+ height: 18px;
+ fill: currentColor;
+}
+
+/* ===== HEALTH BAR VISUALIZATION ===== */
+.health-bar-container {
+ margin: 1.5rem 0;
+}
+
+.health-bar-label {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 0.5rem;
+}
+
+.health-bar-label .hb-title {
+ font-weight: 600;
+ font-size: 0.9rem;
+ color: rgba(255,255,255,0.8);
+}
+
+.health-bar-label .hb-years {
+ font-weight: 700;
+ font-size: 0.85rem;
+ color: var(--teal-light);
+}
+
+.health-bar {
+ height: 40px;
+ background: rgba(255,255,255,0.06);
+ border-radius: 20px;
+ overflow: hidden;
+ display: flex;
+ position: relative;
+ border: 1px solid rgba(255,255,255,0.08);
+}
+
+.health-bar-segment {
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: 700;
+ font-size: 0.75rem;
+ color: white;
+ transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+ min-width: 0;
+ overflow: hidden;
+ white-space: nowrap;
+}
+
+.health-bar-segment.healthy {
+ background: linear-gradient(90deg, var(--green-dark), var(--green));
+}
+
+.health-bar-segment.unhealthy {
+ background: linear-gradient(90deg, var(--red-dark), var(--red));
+}
+
+.health-bar-segment.remaining {
+ background: rgba(255,255,255,0.08);
+}
+
+.health-bar-legend {
+ display: flex;
+ gap: 1.5rem;
+ margin-top: 0.6rem;
+ flex-wrap: wrap;
+}
+
+.legend-item {
+ display: flex;
+ align-items: center;
+ gap: 0.4rem;
+ font-size: 0.78rem;
+ color: rgba(255,255,255,0.6);
+}
+
+.legend-dot {
+ width: 10px;
+ height: 10px;
+ border-radius: 50%;
+ flex-shrink: 0;
+}
+
+.legend-dot.green { background: var(--green); }
+.legend-dot.red { background: var(--red); }
+.legend-dot.gray { background: rgba(255,255,255,0.2); }
+
+/* ===== STEP 1 RESULT CARD ===== */
+.awareness-result {
+ text-align: center;
+ animation: scaleIn 0.5s ease-out;
+}
+
+.awareness-result .big-number {
+ font-size: 4rem;
+ font-weight: 900;
+ line-height: 1;
+ margin: 0.5rem 0;
+ background: linear-gradient(135deg, var(--red), var(--orange));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.awareness-result .big-label {
+ font-size: 1.1rem;
+ color: rgba(255,255,255,0.7);
+ margin-bottom: 1rem;
+}
+
+.awareness-result .warning-text {
+ font-size: 0.95rem;
+ color: var(--red-light);
+ background: rgba(239,68,68,0.1);
+ border: 1px solid rgba(239,68,68,0.2);
+ border-radius: var(--radius-sm);
+ padding: 1rem;
+ line-height: 1.6;
+}
+
+/* ===== STEP 2: QUESTIONNAIRE ===== */
+.live-bar-sticky {
+ position: sticky;
+ top: 56px;
+ z-index: 50;
+ background: rgba(10, 22, 40, 0.95);
+ backdrop-filter: blur(20px);
+ -webkit-backdrop-filter: blur(20px);
+ padding: 1rem 0;
+ margin: 0 -1.5rem;
+ padding-left: 1.5rem;
+ padding-right: 1.5rem;
+ border-bottom: 1px solid var(--border);
+}
+
+.live-bar-inner {
+ max-width: 800px;
+ margin: 0 auto;
+}
+
+.live-bar-title {
+ font-size: 0.78rem;
+ color: rgba(255,255,255,0.5);
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ font-weight: 600;
+ margin-bottom: 0.4rem;
+}
+
+.live-bar-numbers {
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 0.3rem;
+}
+
+.live-bar-numbers span {
+ font-size: 0.8rem;
+ font-weight: 600;
+}
+
+.live-bar-numbers .lb-healthy {
+ color: var(--green-light);
+}
+
+.live-bar-numbers .lb-unhealthy {
+ color: var(--red-light);
+}
+
+.live-bar-numbers .lb-total {
+ color: rgba(255,255,255,0.5);
+}
+
+.live-bar-track {
+ height: 24px;
+ background: rgba(255,255,255,0.06);
+ border-radius: 12px;
+ overflow: hidden;
+ display: flex;
+ border: 1px solid rgba(255,255,255,0.08);
+}
+
+.live-bar-segment {
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 0.65rem;
+ font-weight: 700;
+ color: white;
+ transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+ min-width: 0;
+ overflow: hidden;
+}
+
+.live-bar-segment.healthy {
+ background: linear-gradient(90deg, var(--green-dark), var(--green));
+}
+
+.live-bar-segment.unhealthy {
+ background: linear-gradient(90deg, var(--red-dark), var(--red));
+}
+
+/* Question cards */
+.question-card {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ padding: 1.8rem;
+ margin-bottom: 1.2rem;
+ transition: all var(--transition);
+}
+
+.question-card:hover {
+ border-color: var(--border-highlight);
+}
+
+.question-header {
+ display: flex;
+ align-items: flex-start;
+ gap: 0.8rem;
+ margin-bottom: 1.2rem;
+}
+
+.question-num {
+ width: 32px;
+ height: 32px;
+ border-radius: 50%;
+ background: rgba(20,145,155,0.15);
+ border: 1px solid rgba(20,145,155,0.3);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: 700;
+ font-size: 0.8rem;
+ color: var(--teal-light);
+ flex-shrink: 0;
+}
+
+.question-title-wrap {
+ flex: 1;
+}
+
+.question-title {
+ font-weight: 700;
+ font-size: 1.05rem;
+ color: var(--white);
+ margin-bottom: 0.2rem;
+}
+
+.question-source {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.3rem;
+ font-size: 0.72rem;
+ color: rgba(255,255,255,0.4);
+ cursor: help;
+ position: relative;
+}
+
+.question-source .tooltip {
+ position: absolute;
+ bottom: calc(100% + 8px);
+ left: 50%;
+ transform: translateX(-50%);
+ background: var(--gray-800);
+ border: 1px solid var(--border);
+ border-radius: var(--radius-xs);
+ padding: 0.6rem 0.8rem;
+ font-size: 0.72rem;
+ color: rgba(255,255,255,0.8);
+ white-space: nowrap;
+ opacity: 0;
+ pointer-events: none;
+ transition: opacity var(--transition);
+ z-index: 20;
+ max-width: 280px;
+ white-space: normal;
+ text-align: left;
+ line-height: 1.4;
+}
+
+.question-source:hover .tooltip {
+ opacity: 1;
+ pointer-events: auto;
+}
+
+.question-source svg {
+ width: 12px;
+ height: 12px;
+ fill: currentColor;
+}
+
+/* ===== STEP 3: RESULTS ===== */
+.results-header {
+ text-align: center;
+ margin-bottom: 2rem;
+}
+
+.results-header h2 {
+ font-size: 2rem;
+ font-weight: 800;
+ margin-bottom: 0.5rem;
+}
+
+.results-header p {
+ color: rgba(255,255,255,0.6);
+ font-size: 1rem;
+}
+
+.comparison-grid {
+ display: grid;
+ grid-template-columns: 1fr auto 1fr;
+ gap: 1rem;
+ margin-bottom: 2rem;
+ align-items: center;
+}
+
+.comparison-card {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ padding: 1.5rem;
+ text-align: center;
+}
+
+.comparison-card.user-card {
+ border-color: rgba(20,145,155,0.3);
+ background: rgba(20,145,155,0.08);
+}
+
+.comparison-card .cc-label {
+ font-size: 0.8rem;
+ color: rgba(255,255,255,0.5);
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ font-weight: 600;
+ margin-bottom: 0.8rem;
+}
+
+.comparison-card .cc-healthy {
+ font-size: 2.5rem;
+ font-weight: 900;
+ color: var(--green-light);
+ line-height: 1;
+}
+
+.comparison-card .cc-healthy-label {
+ font-size: 0.75rem;
+ color: var(--green);
+ margin-bottom: 0.5rem;
+}
+
+.comparison-card .cc-unhealthy {
+ font-size: 1.5rem;
+ font-weight: 700;
+ color: var(--red-light);
+}
+
+.comparison-card .cc-unhealthy-label {
+ font-size: 0.75rem;
+ color: var(--red);
+ margin-bottom: 0.5rem;
+}
+
+.comparison-card .cc-total {
+ font-size: 0.85rem;
+ color: rgba(255,255,255,0.5);
+ margin-top: 0.6rem;
+ font-weight: 500;
+}
+
+.comparison-vs {
+ font-size: 1.5rem;
+ font-weight: 800;
+ color: rgba(255,255,255,0.3);
+}
+
+/* Score badge */
+.score-badge {
+ text-align: center;
+ padding: 2rem;
+ margin-bottom: 2rem;
+}
+
+.score-badge .sb-number {
+ font-size: 5rem;
+ font-weight: 900;
+ line-height: 1;
+}
+
+.score-badge .sb-number.good {
+ background: linear-gradient(135deg, var(--green), var(--teal));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.score-badge .sb-number.bad {
+ background: linear-gradient(135deg, var(--red), var(--orange));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+
+.score-badge .sb-label {
+ font-size: 1.2rem;
+ font-weight: 700;
+ margin-top: 0.5rem;
+}
+
+.score-badge .sb-desc {
+ font-size: 0.95rem;
+ color: rgba(255,255,255,0.6);
+ margin-top: 0.3rem;
+}
+
+/* Verdict */
+.verdict-card {
+ border-radius: var(--radius);
+ padding: 1.5rem;
+ text-align: center;
+ margin-bottom: 2rem;
+}
+
+.verdict-card.positive {
+ background: rgba(16,185,129,0.1);
+ border: 2px solid rgba(16,185,129,0.3);
+}
+
+.verdict-card.negative {
+ background: rgba(239,68,68,0.1);
+ border: 2px solid rgba(239,68,68,0.3);
+}
+
+.verdict-card .vc-emoji {
+ font-size: 2.5rem;
+ margin-bottom: 0.5rem;
+}
+
+.verdict-card .vc-text {
+ font-size: 1.2rem;
+ font-weight: 700;
+}
+
+.verdict-card.positive .vc-text {
+ color: var(--green-light);
+}
+
+.verdict-card.negative .vc-text {
+ color: var(--red-light);
+}
+
+.verdict-card .vc-detail {
+ font-size: 0.9rem;
+ color: rgba(255,255,255,0.6);
+ margin-top: 0.3rem;
+}
+
+/* Recommendations */
+.reco-section {
+ margin-bottom: 2rem;
+}
+
+.reco-title {
+ font-size: 1.3rem;
+ font-weight: 800;
+ margin-bottom: 0.3rem;
+ color: var(--white);
+}
+
+.reco-subtitle {
+ font-size: 0.9rem;
+ color: rgba(255,255,255,0.5);
+ margin-bottom: 1.2rem;
+}
+
+.reco-card {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ padding: 1.5rem;
+ margin-bottom: 1rem;
+ display: flex;
+ align-items: flex-start;
+ gap: 1rem;
+ transition: all var(--transition);
+}
+
+.reco-card:hover {
+ border-color: var(--border-highlight);
+ background: var(--bg-card-hover);
+}
+
+.reco-rank {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: 800;
+ font-size: 1.1rem;
+ flex-shrink: 0;
+}
+
+.reco-rank.rank-1 {
+ background: linear-gradient(135deg, #f59e0b, #d97706);
+ color: #451a03;
+}
+
+.reco-rank.rank-2 {
+ background: linear-gradient(135deg, #94a3b8, #64748b);
+ color: var(--white);
+}
+
+.reco-rank.rank-3 {
+ background: linear-gradient(135deg, #a16207, #854d0e);
+ color: #fef3c7;
+}
+
+.reco-content {
+ flex: 1;
+}
+
+.reco-content .rc-name {
+ font-weight: 700;
+ font-size: 1rem;
+ color: var(--white);
+ margin-bottom: 0.3rem;
+}
+
+.reco-content .rc-current {
+ font-size: 0.8rem;
+ color: var(--red-light);
+ margin-bottom: 0.3rem;
+}
+
+.reco-content .rc-advice {
+ font-size: 0.88rem;
+ color: rgba(255,255,255,0.7);
+ line-height: 1.6;
+ margin-bottom: 0.5rem;
+}
+
+.reco-content .rc-gain {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.3rem;
+ font-size: 0.82rem;
+ font-weight: 700;
+ color: var(--green-light);
+ background: rgba(16,185,129,0.1);
+ border: 1px solid rgba(16,185,129,0.2);
+ border-radius: 50px;
+ padding: 0.3rem 0.8rem;
+}
+
+/* ===== REFERENCES ===== */
+.references-section {
+ margin-top: 2rem;
+}
+
+.references-toggle {
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ background: none;
+ border: none;
+ color: rgba(255,255,255,0.5);
+ font-family: 'Inter', sans-serif;
+ font-size: 0.85rem;
+ font-weight: 600;
+ cursor: pointer;
+ padding: 0.5rem 0;
+ transition: color var(--transition);
+}
+
+.references-toggle:hover {
+ color: var(--teal-light);
+}
+
+.references-toggle svg {
+ width: 16px;
+ height: 16px;
+ fill: currentColor;
+ transition: transform var(--transition);
+}
+
+.references-toggle.open svg {
+ transform: rotate(180deg);
+}
+
+.references-list {
+ display: none;
+ margin-top: 0.8rem;
+ padding-left: 1rem;
+}
+
+.references-list.open {
+ display: block;
+}
+
+.references-list li {
+ font-size: 0.78rem;
+ color: rgba(255,255,255,0.5);
+ margin-bottom: 0.5rem;
+ line-height: 1.5;
+}
+
+/* ===== SHARE SECTION ===== */
+.share-section {
+ text-align: center;
+ padding: 2rem 0;
+ margin-top: 1.5rem;
+ border-top: 1px solid var(--border);
+}
+
+.share-section .share-title {
+ font-size: 0.9rem;
+ color: rgba(255,255,255,0.5);
+ margin-bottom: 1rem;
+ font-weight: 500;
+}
+
+.share-buttons {
+ display: flex;
+ justify-content: center;
+ gap: 0.8rem;
+ flex-wrap: wrap;
+}
+
+.share-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ padding: 0.7rem 1.2rem;
+ border-radius: var(--radius-sm);
+ font-family: 'Inter', sans-serif;
+ font-size: 0.85rem;
+ font-weight: 600;
+ border: none;
+ cursor: pointer;
+ transition: all var(--transition);
+ text-decoration: none;
+}
+
+.share-btn:hover {
+ transform: translateY(-2px);
+}
+
+.share-btn.twitter {
+ background: #1d9bf0;
+ color: white;
+}
+
+.share-btn.whatsapp {
+ background: #25d366;
+ color: white;
+}
+
+.share-btn.copy {
+ background: rgba(255,255,255,0.1);
+ color: rgba(255,255,255,0.8);
+ border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+ background: rgba(0,0,0,0.3);
+ border-top: 1px solid var(--border);
+ padding: 2rem 1.5rem;
+ text-align: center;
+}
+
+.footer-disclaimer {
+ font-size: 0.78rem;
+ color: rgba(255,255,255,0.4);
+ line-height: 1.6;
+ max-width: 700px;
+ margin: 0 auto 1rem;
+}
+
+.footer-links {
+ display: flex;
+ justify-content: center;
+ gap: 1.5rem;
+ flex-wrap: wrap;
+}
+
+.footer-links a {
+ color: rgba(255,255,255,0.4);
+ text-decoration: none;
+ font-size: 0.8rem;
+ font-weight: 500;
+ transition: color var(--transition);
+}
+
+.footer-links a:hover {
+ color: var(--teal);
+}
+
+/* ===== UTILITY ===== */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.hidden { display: none !important; }
+
+.divider {
+ height: 1px;
+ background: var(--border);
+ margin: 1.5rem 0;
+}
+
+.small-text {
+ font-size: 0.78rem;
+ color: rgba(255,255,255,0.4);
+ line-height: 1.5;
+}
+
+.highlight-teal {
+ color: var(--teal-light);
+ font-weight: 600;
+}
+
+.highlight-orange {
+ color: var(--orange-light);
+ font-weight: 600;
+}
+
+.highlight-red {
+ color: var(--red-light);
+ font-weight: 600;
+}
+
+.highlight-green {
+ color: var(--green-light);
+ font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+ .step-hero h1 {
+  font-size: 1.8rem;
+ }
+
+ .step-hero p {
+  font-size: 0.95rem;
+ }
+
+ .card {
+  padding: 1.5rem;
+ }
+
+ .card-lg {
+  padding: 1.5rem;
+ }
+
+ .info-grid {
+  grid-template-columns: 1fr;
+ }
+
+ .comparison-grid {
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+ }
+
+ .comparison-vs {
+  display: none;
+ }
+
+ .question-card {
+  padding: 1.3rem;
+ }
+
+ .health-bar {
+  height: 32px;
+ }
+
+ .awareness-result .big-number {
+  font-size: 3rem;
+ }
+
+ .score-badge .sb-number {
+  font-size: 3.5rem;
+ }
+
+ .main-container {
+  padding: 1.5rem 1rem 3rem;
+ }
+
+ .live-bar-sticky {
+  margin: 0 -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+ }
+
+ .progress-label {
+  font-size: 0.6rem;
+ }
+
+ .progress-circle {
+  width: 34px;
+  height: 34px;
+  font-size: 0.75rem;
+ }
+
+ .btn-lg {
+  padding: 1rem 1.8rem;
+  font-size: 1rem;
+ }
+
+ .gender-selector {
+  gap: 0.7rem;
+ }
+
+ .gender-card {
+  padding: 1.3rem 0.8rem;
+ }
+
+ .gender-icon {
+  font-size: 2rem;
+ }
+
+ .results-header h2 {
+  font-size: 1.5rem;
+ }
+
+ .reco-card {
+  flex-direction: column;
+  align-items: stretch;
+ }
+
+ .reco-rank {
+  align-self: flex-start;
+ }
+}
+
+@media (max-width: 380px) {
+ .step-hero h1 {
+  font-size: 1.5rem;
+ }
+
+ .hero-badge {
+  font-size: 0.72rem;
+  padding: 0.4rem 0.9rem;
+ }
+
+ .progress-line {
+  min-width: 30px;
+ }
+}
+</style>
+</head>
+
+<body>
+<div class="bg-pattern"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+ <a href="https://uzunyasa.com" class="header-logo">
+  <img src="/images/uzunyasa-logo-light.svg" alt="UzunYaşa" onerror="this.style.display='none'">
+  <span>UzunYaşa</span>
+ </a>
+ <nav class="header-nav">
+  <a href="/pages/araclar/saglik-suresi-hesaplayici.html">Araçlar</a>
+  <a href="/pages/blog.html">Blog</a>
+  <a href="/">Ana Sayfa</a>
+ </nav>
+</header>
+
+<!-- ===== MEDICAL DISCLAIMER BANNER ===== -->
+<div class="disclaimer-banner">
+ <svg viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 3a1 1 0 011 1v4a1 1 0 01-2 0V6a1 1 0 011-1zm0 8a1 1 0 100 2 1 1 0 000-2z"/></svg>
+ Bu araç eğitim amaçlıdır ve tıbbi tavsiye yerine geçmez. Kişisel sağlık kararlarınız için doktorunuza danışın.
+</div>
+
+<!-- ===== PROGRESS BAR ===== -->
+<div class="progress-wrapper">
+ <div class="progress-container">
+  <div class="progress-steps">
+   <div class="progress-step active" id="prog-step-1">
+    <div class="progress-circle">1</div>
+    <div class="progress-label">Farkında mısınız?</div>
+   </div>
+   <div class="progress-line" id="prog-line-1">
+    <div class="fill"></div>
+   </div>
+   <div class="progress-step" id="prog-step-2">
+    <div class="progress-circle">2</div>
+    <div class="progress-label">Sizin farkınız</div>
+   </div>
+   <div class="progress-line" id="prog-line-2">
+    <div class="fill"></div>
+   </div>
+   <div class="progress-step" id="prog-step-3">
+    <div class="progress-circle">3</div>
+    <div class="progress-label">Farkı kapatın</div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-container">
+
+ <!-- ============================================ -->
+ <!-- STEP 1: FARKINDA MISINIZ? -->
+ <!-- ============================================ -->
+ <section class="step-section active" id="step-1">
+
+  <div class="step-hero">
+   <div class="hero-badge">
+    <svg viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/></svg>
+    Bilimsel Verilerle Hesaplayın
+   </div>
+   <h1>
+    Kaç Yılınız<br>
+    <span class="accent-orange">Sağlıklı</span> Geçecek?
+   </h1>
+   <p>
+    Yaşam süreniz ile sağlıklı yaşam süreniz arasında ciddi bir fark var.
+    Bu araçla farkınızı öğrenin ve <strong>kapatmak için</strong> ne yapabileceğinizi keşfedin.
+   </p>
+  </div>
+
+  <!-- Info Cards -->
+  <div class="info-grid">
+   <div class="info-card">
+    <div class="ic-icon">🇹🇷</div>
+    <div class="ic-value">78.2 yıl</div>
+    <div class="ic-label">Türkiye Ortalama Yaşam Süresi</div>
+   </div>
+   <div class="info-card">
+    <div class="ic-icon">💚</div>
+    <div class="ic-value">57.6 yıl</div>
+    <div class="ic-label">Sağlıklı Yaşam Süresi (HALE)</div>
+   </div>
+   <div class="info-card">
+    <div class="ic-icon">🔴</div>
+    <div class="ic-value">~20 yıl</div>
+    <div class="ic-label">Ortalama "Hasta" Yıllar</div>
+   </div>
+   <div class="info-card">
+    <div class="ic-icon">🎯</div>
+    <div class="ic-value">Kapatılabilir</div>
+    <div class="ic-label">Yaşam tarzı ile farkı azaltın</div>
+   </div>
+  </div>
+
+  <!-- Step 1 Form -->
+  <div class="card card-lg">
+   <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem;">Başlamak İçin</h3>
+   <p style="font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem;">
+    Sadece 2 bilgi yeterli — Türkiye ortalamalarına göre farkınızı görelim.
+   </p>
+
+   <!-- Age -->
+   <div class="form-group">
+    <label class="form-label">
+     Yaşınız <span class="required">*</span>
+    </label>
+    <div class="input-wrapper">
+     <input type="number" id="inp-age" class="form-input" placeholder="Örn: 35" min="18" max="100" inputmode="numeric">
+    </div>
+    <p class="small-text mt-1">18–100 yaş arası</p>
+   </div>
+
+   <!-- Gender -->
+   <div class="form-group">
+    <label class="form-label">
+     Cinsiyetiniz <span class="required">*</span>
+    </label>
+    <div class="gender-selector">
+     <label class="gender-option">
+      <input type="radio" name="gender" value="male">
+      <div class="gender-card">
+       <div class="gender-icon">👨</div>
+       <div class="gender-text">Erkek</div>
+      </div>
+     </label>
+     <label class="gender-option">
+      <input type="radio" name="gender" value="female">
+      <div class="gender-card">
+       <div class="gender-icon">👩</div>
+       <div class="gender-text">Kadın</div>
+      </div>
+     </label>
+    </div>
+   </div>
+
+   <!-- Step 1 Calculate Button -->
+   <button class="btn btn-orange btn-lg btn-block mt-3" id="btn-step1" disabled>
+    <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 11.293a1 1 0 001.414 1.414l2-2A1 1 0 0011.5 10V7z"/></svg>
+    Farkımı Göster
+   </button>
+  </div>
+
+  <!-- Step 1 Result (hidden initially) -->
+  <div class="card card-lg hidden" id="step1-result">
+   <div class="awareness-result">
+    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Türkiye Ortalamasına Göre</p>
+    <div class="big-number" id="s1-gap-number">—</div>
+    <div class="big-label">yılınız sağlık sorunlarıyla geçebilir</div>
+   </div>
+
+   <div class="divider"></div>
+
+   <!-- Visual Bar -->
+   <div class="health-bar-container">
+    <div class="health-bar-label">
+     <span class="hb-title" id="s1-bar-title">Türkiye Ortalaması</span>
+     <span class="hb-years" id="s1-bar-years">—</span>
+    </div>
+    <div class="health-bar" id="s1-health-bar">
+     <div class="health-bar-segment healthy" id="s1-bar-healthy" style="width:0%"></div>
+     <div class="health-bar-segment unhealthy" id="s1-bar-unhealthy" style="width:0%"></div>
+     <div class="health-bar-segment remaining" id="s1-bar-remaining" style="width:100%"></div>
+    </div>
+    <div class="health-bar-legend">
+     <div class="legend-item"><div class="legend-dot green"></div> Sağlıklı yıllar</div>
+     <div class="legend-item"><div class="legend-dot red"></div> Hasta yıllar</div>
+     <div class="legend-item"><div class="legend-dot gray"></div> Yaşanan yıllar</div>
+    </div>
+   </div>
+
+   <div class="divider"></div>
+
+   <div class="awareness-result">
+    <div class="warning-text">
+     ⚠️ Bu, Türkiye ortalamasıdır. <strong>Sizin</strong> yaşam tarzınıza göre bu rakam çok farklı olabilir.
+     <br>Peki <strong>sizin farkınız</strong> ne kadar?
+    </div>
+   </div>
+
+   <button class="btn btn-primary btn-lg btn-block mt-3" id="btn-goto-step2">
+    Kendi Farkımı Öğrenmek İstiyorum →
+   </button>
+  </div>
+
+ </section>
+
+ <!-- ============================================ -->
+ <!-- STEP 2: SİZİN FARKINIZ NE? -->
+ <!-- ============================================ -->
+ <section class="step-section" id="step-2">
+
+  <!-- Sticky Live Bar -->
+  <div class="live-bar-sticky" id="live-bar-sticky">
+   <div class="live-bar-inner">
+    <div class="live-bar-title">📊 Canlı Tahmin — Her cevabınızda güncellenir</div>
+    <div class="live-bar-numbers">
+     <span class="lb-healthy" id="lb-healthy">💚 Sağlıklı: — yıl</span>
+     <span class="lb-unhealthy" id="lb-unhealthy">🔴 Hasta: — yıl</span>
+     <span class="lb-total" id="lb-total">Toplam: — yıl</span>
+    </div>
+    <div class="live-bar-track">
+     <div class="live-bar-segment healthy" id="lb-bar-healthy" style="width:0%"></div>
+     <div class="live-bar-segment unhealthy" id="lb-bar-unhealthy" style="width:0%"></div>
+    </div>
+   </div>
+  </div>
+
+  <div style="height: 1.5rem;"></div>
+
+  <div class="step-hero" style="margin-bottom: 1.5rem;">
+   <h1 style="font-size: 1.8rem;">
+    <span class="accent">Sizin Farkınız</span> Ne?
+   </h1>
+   <p style="font-size: 0.95rem;">
+    9 bilimsel faktöre göre kişisel sağlık sürenizi hesaplayalım.
+    <br>Her cevabınızda üstteki bar <strong>canlı olarak</strong> güncellenir.
+   </p>
+  </div>
+
+  <!-- Q1: Sigara -->
+  <div class="question-card" data-question="smoking">
+   <div class="question-header">
+    <div class="question-num">1</div>
+    <div class="question-title-wrap">
+     <div class="question-title">🚬 Sigara Kullanımı</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">Jha P. et al. (2013). 21st-Century Hazards of Smoking. <em>NEJM</em>, 368(4):341-350. CDC: Smoking & Tobacco Use Statistics.</span>
+     </div>
+    </div>
+   </div>
+   <div class="radio-group">
+    <label class="radio-option">
+     <input type="radio" name="q-smoking" value="never">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Hiç içmedim</span>
+      <span class="radio-impact neutral">0</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-smoking" value="quit">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Bıraktım</span>
+      <span class="radio-impact negative">−3 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-smoking" value="current">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">İçiyorum</span>
+      <span class="radio-impact negative">−10 yıl</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Q2: Egzersiz -->
+  <div class="question-card" data-question="exercise">
+   <div class="question-header">
+    <div class="question-num">2</div>
+    <div class="question-title-wrap">
+     <div class="question-title">🏃 Fiziksel Aktivite</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">Li Y. et al. (2018). Impact of Healthy Lifestyle Factors on Life Expectancies. <em>Circulation</em>, 138(4):345-355. WHO Physical Activity Guidelines 2020.</span>
+     </div>
+    </div>
+   </div>
+   <div class="radio-group">
+    <label class="radio-option">
+     <input type="radio" name="q-exercise" value="none">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Hareketsiz yaşam</span>
+      <span class="radio-impact negative">−4 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-exercise" value="light">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Haftada 1–2 gün</span>
+      <span class="radio-impact positive">+1 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-exercise" value="moderate">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Haftada 3–5 gün</span>
+      <span class="radio-impact positive">+3 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-exercise" value="daily">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Her gün aktif</span>
+      <span class="radio-impact positive">+4 yıl</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Q3: BMI -->
+  <div class="question-card" data-question="bmi">
+   <div class="question-header">
+    <div class="question-num">3</div>
+    <div class="question-title-wrap">
+     <div class="question-title">⚖️ Vücut Kitle İndeksi (BMI)</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">Prospective Studies Collaboration (2009). Body-mass index and cause-specific mortality. <em>The Lancet</em>, 373(9669):1083-1096. (Oxford Çalışması)</span>
+     </div>
+    </div>
+   </div>
+   <div class="radio-group">
+    <label class="radio-option">
+     <input type="radio" name="q-bmi" value="normal">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Normal (BMI 18.5–24.9)</span>
+      <span class="radio-impact neutral">0</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-bmi" value="overweight">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Kilolu (BMI 25–29.9)</span>
+      <span class="radio-impact negative">−1 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-bmi" value="obese">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Obez (BMI 30–34.9)</span>
+      <span class="radio-impact negative">−3 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-bmi" value="morbid">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">İleri Obez (BMI 35+)</span>
+      <span class="radio-impact negative">−6 yıl</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Q4: Beslenme -->
+  <div class="question-card" data-question="diet">
+   <div class="question-header">
+    <div class="question-num">4</div>
+    <div class="question-title-wrap">
+     <div class="question-title">🥗 Beslenme Düzeni</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">Li Y. et al. (2018). Impact of Healthy Lifestyle Factors. <em>Circulation</em>. Sofi F. et al. (2010). Accruing evidence on Mediterranean diet. <em>BMJ</em>, 341:c4229.</span>
+     </div>
+    </div>
+   </div>
+   <div class="radio-group">
+    <label class="radio-option">
+     <input type="radio" name="q-diet" value="poor">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Kötü — Fast food ağırlıklı</span>
+      <span class="radio-impact negative">−3 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-diet" value="average">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Orta — Karışık beslenme</span>
+      <span class="radio-impact neutral">0</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-diet" value="good">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">İyi — Sebze-meyve ağırlıklı</span>
+      <span class="radio-impact positive">+2 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-diet" value="mediterranean">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Akdeniz tarzı beslenme</span>
+      <span class="radio-impact positive">+3 yıl</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Q5: Uyku -->
+  <div class="question-card" data-question="sleep">
+   <div class="question-header">
+    <div class="question-num">5</div>
+    <div class="question-title-wrap">
+     <div class="question-title">😴 Uyku Süresi</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">Cappuccio FP et al. (2010). Sleep duration and all-cause mortality. <em>Sleep</em>, 33(5):585-592. Li Y. et al. (2018). <em>Circulation</em>.</span>
+     </div>
+    </div>
+   </div>
+   <div class="radio-group">
+    <label class="radio-option">
+     <input type="radio" name="q-sleep" value="veryshort">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">5 saatten az</span>
+      <span class="radio-impact negative">−3 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-sleep" value="short">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">5–6 saat</span>
+      <span class="radio-impact negative">−1 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-sleep" value="optimal">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">7–8 saat</span>
+      <span class="radio-impact positive">+1.5 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-sleep" value="long">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">9 saatten fazla</span>
+      <span class="radio-impact negative">−1 yıl</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Q6: Alkol -->
+  <div class="question-card" data-question="alcohol">
+   <div class="question-header">
+    <div class="question-num">6</div>
+    <div class="question-title-wrap">
+     <div class="question-title">🍷 Alkol Tüketimi</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">GBD 2016 Alcohol Collaborators (2018). Alcohol use and burden. <em>The Lancet</em>, 392(10152):1015-1035. WHO Alcohol Fact Sheet 2024.</span>
+     </div>
+    </div>
+   </div>
+   <div class="radio-group">
+    <label class="radio-option">
+     <input type="radio" name="q-alcohol" value="none">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Hiç kullanmıyorum</span>
+      <span class="radio-impact neutral">0</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-alcohol" value="social">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Sosyal / Ilımlı</span>
+      <span class="radio-impact neutral">0</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-alcohol" value="regular">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Düzenli tüketiyorum</span>
+      <span class="radio-impact negative">−1 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-alcohol" value="heavy">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Ağır tüketici</span>
+      <span class="radio-impact negative">−4 yıl</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Q7: Stres -->
+  <div class="question-card" data-question="stress">
+   <div class="question-header">
+    <div class="question-num">7</div>
+    <div class="question-title-wrap">
+     <div class="question-title">🧠 Stres Düzeyi</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">Kivimäki M. et al. (2012). Job strain and coronary heart disease. <em>The Lancet</em> (Whitehall II). Steptoe A. & Kivimäki M. (2013). Stress and CVD. <em>Nature Reviews Cardiology</em>.</span>
+     </div>
+    </div>
+   </div>
+   <div class="radio-group">
+    <label class="radio-option">
+     <input type="radio" name="q-stress" value="high">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Yüksek — Kronik stres</span>
+      <span class="radio-impact negative">−2 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-stress" value="moderate">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Orta düzeyde</span>
+      <span class="radio-impact neutral">0</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-stress" value="low">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Düşük — İyi yönetiyorum</span>
+      <span class="radio-impact positive">+1 yıl</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Q8: Sosyal Bağlantılar -->
+  <div class="question-card" data-question="social">
+   <div class="question-header">
+    <div class="question-num">8</div>
+    <div class="question-title-wrap">
+     <div class="question-title">🤝 Sosyal Bağlantılar</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">Holt-Lunstad J. et al. (2015). Loneliness and Social Isolation as Risk Factors for Mortality. <em>Perspectives on Psychological Science</em>, 10(2):227-237.</span>
+     </div>
+    </div>
+   </div>
+   <div class="radio-group">
+    <label class="radio-option">
+     <input type="radio" name="q-social" value="isolated">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">İzole — Çok az sosyal bağ</span>
+      <span class="radio-impact negative">−3 yıl</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-social" value="some">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Az — Birkaç yakın ilişki</span>
+      <span class="radio-impact neutral">0</span>
+     </div>
+    </label>
+    <label class="radio-option">
+     <input type="radio" name="q-social" value="strong">
+     <div class="radio-label">
+      <span class="radio-dot"></span>
+      <span class="radio-text">Güçlü — Zengin sosyal çevre</span>
+      <span class="radio-impact positive">+2 yıl</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Q9: Kronik Hastalık -->
+  <div class="question-card" data-question="chronic">
+   <div class="question-header">
+    <div class="question-num">9</div>
+    <div class="question-title-wrap">
+     <div class="question-title">🏥 Kronik Hastalıklar</div>
+     <div class="question-source">
+      📎 Kaynak
+      <span class="tooltip">GBD 2019 Diseases and Injuries Collaborators (2020). <em>The Lancet</em>. WHO NCD Country Profiles 2024 — Turkey. TÜİK Ölüm Nedeni İstatistikleri 2024.</span>
+     </div>
+    </div>
+   </div>
+   <div class="checkbox-group">
+    <label class="checkbox-option">
+     <input type="checkbox" name="q-chronic" value="diabetes" class="chronic-check">
+     <div class="checkbox-label">
+      <span class="checkbox-box"></span>
+      <span>Diyabet (Tip 2)</span>
+     </div>
+    </label>
+    <label class="checkbox-option">
+     <input type="checkbox" name="q-chronic" value="hypertension" class="chronic-check">
+     <div class="checkbox-label">
+      <span class="checkbox-box"></span>
+      <span>Hipertansiyon (Yüksek Tansiyon)</span>
+     </div>
+    </label>
+    <label class="checkbox-option">
+     <input type="checkbox" name="q-chronic" value="heart" class="chronic-check">
+     <div class="checkbox-label">
+      <span class="checkbox-box"></span>
+      <span>Kalp Hastalığı</span>
+     </div>
+    </label>
+    <label class="checkbox-option">
+     <input type="checkbox" name="q-chronic" value="none" id="chronic-none" class="chronic-none-check">
+     <div class="checkbox-label">
+      <span class="checkbox-box"></span>
+      <span>Hiçbiri yok ✓</span>
+     </div>
+    </label>
+   </div>
+  </div>
+
+  <!-- Step 2 Submit -->
+  <div class="card card-highlight text-center" style="padding: 1.5rem;">
+   <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">
+    Tüm soruları cevaplamak zorunda değilsiniz — cevapladıklarınız hesaplamaya dahil edilir.
+   </p>
+   <button class="btn btn-primary btn-lg" id="btn-step2" style="min-width: 280px;">
+    <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"/></svg>
+    Sonuçlarımı Gör
+   </button>
+  </div>
+
+ </section>
+
+ <!-- ============================================ -->
+ <!-- STEP 3: FARKI KAPATIN -->
+ <!-- ============================================ -->
+ <section class="step-section" id="step-3">
+
+  <div class="results-header">
+   <h2>🎯 Sonuçlarınız Hazır</h2>
+   <p>İşte kişisel sağlık süresi tahmininiz ve önerilerimiz</p>
+  </div>
+
+  <!-- Comparison -->
+  <div class="comparison-grid" id="results-comparison">
+   <!-- TR Average -->
+   <div class="comparison-card">
+    <div class="cc-label">🇹🇷 Türkiye Ortalaması</div>
+    <div class="cc-healthy" id="r-avg-healthy">—</div>
+    <div class="cc-healthy-label">Sağlıklı yıl</div>
+    <div class="cc-unhealthy" id="r-avg-unhealthy">—</div>
+    <div class="cc-unhealthy-label">Hasta yıl</div>
+    <div class="cc-total" id="r-avg-total">Toplam: — yıl</div>
+   </div>
+
+   <div class="comparison-vs">VS</div>
+
+   <!-- User -->
+   <div class="comparison-card user-card">
+    <div class="cc-label">👤 Sizin Tahmininiz</div>
+    <div class="cc-healthy" id="r-user-healthy">—</div>
+    <div class="cc-healthy-label">Sağlıklı yıl</div>
+    <div class="cc-unhealthy" id="r-user-unhealthy">—</div>
+    <div class="cc-unhealthy-label">Hasta yıl</div>
+    <div class="cc-total" id="r-user-total">Toplam: — yıl</div>
+   </div>
+  </div>
+
+  <!-- Visual Bars Side by Side -->
+  <div class="card" id="results-bars">
+   <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Görsel Karşılaştırma</h3>
+
+   <div class="health-bar-container">
+    <div class="health-bar-label">
+     <span class="hb-title">🇹🇷 Türkiye Ortalaması</span>
+     <span class="hb-years" id="r-bar-avg-years">—</span>
+    </div>
+    <div class="health-bar">
+     <div class="health-bar-segment healthy" id="r-bar-avg-healthy" style="width:0%"></div>
+     <div class="health-bar-segment unhealthy" id="r-bar-avg-unhealthy" style="width:0%"></div>
+    </div>
+   </div>
+
+   <div class="health-bar-container" style="margin-top: 1rem;">
+    <div class="health-bar-label">
+     <span class="hb-title">👤 Sizin Tahmininiz</span>
+     <span class="hb-years" id="r-bar-user-years">—</span>
+    </div>
+    <div class="health-bar">
+     <div class="health-bar-segment healthy" id="r-bar-user-healthy" style="width:0%"></div>
+     <div class="health-bar-segment unhealthy" id="r-bar-user-unhealthy" style="width:0%"></div>
+    </div>
+   </div>
+
+   <div class="health-bar-legend mt-2">
+    <div class="legend-item"><div class="legend-dot green"></div> Sağlıklı yıllar</div>
+    <div class="legend-item"><div class="legend-dot red"></div> Hasta yıllar</div>
+   </div>
+  </div>
+
+  <!-- Score Badge / Verdict -->
+  <div class="score-badge" id="results-score">
+   <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 0.5rem;">Sizin Farkınız</p>
+   <div class="sb-number" id="r-gap-number">—</div>
+   <div class="sb-label" id="r-gap-label">—</div>
+  </div>
+
+  <div class="verdict-card" id="results-verdict">
+   <div class="vc-emoji" id="r-verdict-emoji">—</div>
+   <div class="vc-text" id="r-verdict-text">—</div>
+   <div class="vc-detail" id="r-verdict-detail">—</div>
+  </div>
+
+  <!-- Recommendations -->
+  <div class="reco-section" id="results-recos">
+   <div class="reco-title">🚀 En Etkili 3 Adımınız</div>
+   <div class="reco-subtitle">Bu değişikliklerle farkınızı en çok kapatabilirsiniz</div>
+   <div id="reco-cards"></div>
+  </div>
+
+  <!-- All Factor Breakdown -->
+  <div class="card" id="results-breakdown">
+   <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem;">📊 Faktör Bazlı Analiz</h3>
+   <div id="breakdown-list"></div>
+  </div>
+
+  <!-- References -->
+  <div class="references-section">
+   <button class="references-toggle" id="ref-toggle">
+    <svg viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+    📚 Bilimsel Kaynaklar (9 çalışma)
+   </button>
+   <ol class="references-list" id="ref-list">
+    <li>Jha P. et al. (2013). "21st-Century Hazards of Smoking and Benefits of Cessation in the United States." <em>New England Journal of Medicine</em>, 368(4):341-350.</li>
+    <li>Li Y. et al. (2018). "Impact of Healthy Lifestyle Factors on Life Expectancies in the US Population." <em>Circulation</em>, 138(4):345-355.</li>
+    <li>Prospective Studies Collaboration (2009). "Body-mass index and cause-specific mortality in 900 000 adults." <em>The Lancet</em>, 373(9669):1083-1096.</li>
+    <li>Sofi F. et al. (2010). "Accruing evidence on benefits of adherence to the Mediterranean diet on health." <em>BMJ</em>, 341:c4229.</li>
+    <li>Cappuccio FP et al. (2010). "Sleep duration and all-cause mortality: a systematic review and meta-analysis." <em>Sleep</em>, 33(5):585-592.</li>
+    <li>GBD 2016 Alcohol Collaborators (2018). "Alcohol use and burden for 195 countries, 1990-2016." <em>The Lancet</em>, 392(10152):1015-1035.</li>
+    <li>Kivimäki M. et al. (2012). "Job strain as a risk factor for coronary heart disease." <em>The Lancet</em>, 380(9852):1491-1497. (Whitehall II Study)</li>
+    <li>Holt-Lunstad J. et al. (2015). "Loneliness and Social Isolation as Risk Factors for Mortality." <em>Perspectives on Psychological Science</em>, 10(2):227-237.</li>
+    <li>GBD 2019 Diseases and Injuries Collaborators (2020). "Global burden of 369 diseases and injuries." <em>The Lancet</em>, 396(10258):1204-1222.</li>
+    <li>TÜİK (2025). Hayat Tabloları — Türkiye İstatistik Kurumu. Yaşam beklentisi verileri.</li>
+    <li>WHO (2024). "Healthy Life Expectancy (HALE) at birth — Turkey." Global Health Observatory Data Repository.</li>
+   </ol>
+  </div>
+
+  <!-- Share Section -->
+  <div class="share-section">
+   <div class="share-title">Sonuçlarınızı paylaşın — farkındalık yaratın</div>
+   <div class="share-buttons">
+    <a href="#" class="share-btn twitter" id="share-twitter" target="_blank" rel="noopener">
+     𝕏 Twitter'da Paylaş
+    </a>
+    <a href="#" class="share-btn whatsapp" id="share-whatsapp" target="_blank" rel="noopener">
+     💬 WhatsApp
+    </a>
+    <button class="share-btn copy" id="share-copy">
+     📋 Linki Kopyala
+    </button>
+   </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="card card-highlight text-center" style="margin-top: 1.5rem;">
+   <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Daha fazla bilimsel araç deneyin</p>
+   <p style="font-size: 0.88rem; color: rgba(255,255,255,0.6); margin-bottom: 1.2rem;">
+    Kilo, beslenme, kardiyovasküler risk ve daha fazlası — hepsi ücretsiz.
+   </p>
+   <a href="https://uzunyasa.com" class="btn btn-primary">
+    <svg viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+    uzunyasa.com'u Keşfet
+   </a>
+  </div>
+
+  <!-- Restart -->
+  <div class="text-center mt-4">
+   <button class="btn btn-outline" id="btn-restart">
+    🔄 Yeniden Hesapla
+   </button>
+  </div>
+
+ </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+ <div class="footer-disclaimer">
+  ⚕️ <strong>Önemli Uyarı:</strong> Bu araç genel bilgilendirme ve farkındalık amaçlıdır.
+  Tıbbi teşhis, tedavi veya tavsiye yerine geçmez. Sunulan rakamlar epidemiyolojik
+  ortalamalara dayalı tahminlerdir ve bireysel sonuçlar farklılık gösterebilir.
+  Sağlık kararlarınız için mutlaka bir sağlık profesyoneline danışın.
+ </div>
+ <div class="footer-links">
+  <a href="https://uzunyasa.com">Ana Sayfa</a>
+  <a href="/pages/blog.html">Blog</a>
+  <a href="/pages/hakkimizda.html">Hakkımızda</a>
+  <a href="/pages/gizlilik.html">Gizlilik</a>
+ </div>
+ <p style="margin-top: 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.25);">
+  © 2025 UzunYaşa — Bilimsel verilerle daha uzun, daha sağlıklı yaşam.
+ </p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+ 'use strict';
+
+ // ===============================
+ // CONFIGURATION & DATA
+ // ===============================
+
+ // Turkey baseline data (TÜİK 2025 + WHO HALE)
+ const BASELINE = {
+  male: {
+   lifeExpectancy: 75.4,
+   hale: 55.8,
+   gap: 75.4 - 55.8 // 19.6
+  },
+  female: {
+   lifeExpectancy: 81.0,
+   hale: 59.4,
+   gap: 81.0 - 59.4 // 21.6
+  }
+ };
+
+ // Factor impact data: [lifeImpact, healthImpact]
+ const FACTORS = {
+  smoking: {
+   name: 'Sigara',
+   icon: '🚬',
+   options: {
+    never:   { label: 'Hiç içmedim',  life: 0,  health: 0   },
+    quit:    { label: 'Bıraktım',     life: -3, health: -2  },
+    current: { label: 'İçiyorum',     life: -10, health: -8 }
+   },
+   bestOption: 'never',
+   advice: {
+    current: 'Sigarayı bırakmak, sağlık sürenizi en çok artıracak tek adımdır. Bıraktıktan 1 yıl sonra kalp krizi riskiniz yarıya düşer.',
+    quit: 'Harika bir adım! Bırakmış olmanız büyük fark yaratıyor. Tam iyileşme için düzenli kontrol önemli.',
+    never: 'Tebrikler! Hiç sigara içmemiş olmak sağlık süreniz için en büyük koruyucu faktörlerden.'
+   }
+  },
+  exercise: {
+   name: 'Egzersiz',
+   icon: '🏃',
+   options: {
+    none:     { label: 'Hareketsiz',    life: -4, health: -5 },
+    light:    { label: 'Haftada 1-2',   life: 1,  health: 2  },
+    moderate: { label: 'Haftada 3-5',   life: 3,  health: 4  },
+    daily:    { label: 'Her gün',       life: 4,  health: 5  }
+   },
+   bestOption: 'daily',
+   advice: {
+    none: 'Haftada en az 150 dk orta yoğunlukta egzersiz hedefleyin. Yürüyüş bile büyük fark yaratır!',
+    light: 'İyi bir başlangıç! Haftada 3-5 güne çıkarmak sağlık sürenizi belirgin artırabilir.',
+    moderate: 'Harika! Düzenli egzersiz yapıyorsunuz. Kas güçlendirme eklemeyi düşünün.',
+    daily: 'Mükemmel! Günlük aktivite sağlık süreniz için en güçlü koruyuculardan biri.'
+   }
+  },
+  bmi: {
+   name: 'Kilo',
+   icon: '⚖️',
+   options: {
+    normal:     { label: 'Normal',     life: 0,  health: 0  },
+    overweight: { label: 'Kilolu',     life: -1, health: -2 },
+    obese:      { label: 'Obez',       life: -3, health: -5 },
+    morbid:     { label: 'İleri Obez', life: -6, health: -8 }
+   },
+   bestOption: 'normal',
+   advice: {
+    morbid: 'İleri obezite ciddi sağlık riskleri taşır. Bir endokrinolog veya obezite cerrahı ile görüşmeyi değerlendirin.',
+    obese: '%5-10 kilo kaybı bile kan şekeri, tansiyon ve kolesterolde dramatik iyileşme sağlar.',
+    overweight: 'Hafif kilo fazlası yönetilebilir. Porsiyon kontrolü ve düzenli hareket hedefleyin.',
+    normal: 'İdeal kiloda olmak, kronik hastalık riskinizi önemli ölçüde azaltır.'
+   }
+  },
+  diet: {
+   name: 'Beslenme',
+   icon: '🥗',
+   options: {
+    poor:          { label: 'Kötü — Fast food',    life: -3, health: -4 },
+    average:       { label: 'Orta — Karışık',       life: 0,  health: 0  },
+    good:          { label: 'İyi — Sebze ağırlıklı', life: 2,  health: 3  },
+    mediterranean: { label: 'Akdeniz tarzı',        life: 3,  health: 4  }
+   },
+   bestOption: 'mediterranean',
+   advice: {
+    poor: 'Haftada 2 gün ev yemeği yemekle başlayın. İşlenmiş gıdayı azaltmak tek başına büyük fark yaratır.',
+    average: 'Sebze ve meyve oranını artırın. Haftada 2+ porsiyon balık hedefleyin.',
+    good: 'Çok iyi! Zeytinyağı, kuruyemiş ve baklagil ekleyerek Akdeniz tarzına geçebilirsiniz.',
+    mediterranean: 'Akdeniz diyeti, bilimsel olarak en çok kanıtlanmış beslenme modelidir. Sürdürün!'
+   }
+  },
+  sleep: {
+   name: 'Uyku',
+   icon: '😴',
+   options: {
+    veryshort: { label: '<5 saat',   life: -3,   health: -4 },
+    short:     { label: '5-6 saat',  life: -1,   health: -2 },
+    optimal:   { label: '7-8 saat',  life: 1.5,  health: 2  },
+    long:      { label: '>9 saat',   life: -1,   health: -1 }
+   },
+   bestOption: 'optimal',
+   advice: {
+    veryshort: 'Yetersiz uyku kronik hastalık riskini katlar. Uyku hijyeni rutini oluşturun — karanlık oda, düzenli saat.',
+    short: '1-2 saat daha uyku bile bağışıklık ve metabolizmayı önemli ölçüde iyileştirir.',
+    optimal: 'İdeal uyku süresi! Uyku kalitesini de korumak için düzenli saatlere dikkat edin.',
+    long: 'Aşırı uyku altta yatan sağlık sorunlarının belirtisi olabilir. Doktorunuzla konuşun.'
+   }
+  },
+  alcohol: {
+   name: 'Alkol',
+   icon: '🍷',
+   options: {
+    none:    { label: 'Hiç',      life: 0,  health: 0  },
+    social:  { label: 'Sosyal',   life: 0,  health: 0  },
+    regular: { label: 'Düzenli',  life: -1, health: -2 },
+    heavy:   { label: 'Ağır',     life: -4, health: -5 }
+   },
+   bestOption: 'none',
+   advice: {
+    heavy: 'Ağır alkol tüketimi karaciğer, kalp ve kanser riskini dramatik artırır. Profesyonel destek almayı düşünün.',
+    regular: 'Düzenli tüketimi azaltmak karaciğer ve kalp sağlığınız için önemli bir adımdır.',
+    social: 'Ilımlı tüketim kabul edilebilir düzeyde. Haftalık tüketiminizi takip edin.',
+    none: 'Alkol kullanmamak, özellikle karaciğer ve kanser riski açısından koruyucudur.'
+   }
+  },
+  stress: {
+   name: 'Stres',
+   icon: '🧠',
+   options: {
+    high:     { label: 'Yüksek kronik', life: -2, health: -4 },
+    moderate: { label: 'Orta',          life: 0,  health: 0  },
+    low:      { label: 'Düşük',         life: 1,  health: 2  }
+   },
+   bestOption: 'low',
+   advice: {
+    high: 'Kronik stres kalp hastalığı riskini 2 kat artırır. Meditasyon, nefes egzersizleri veya terapi düşünün.',
+    moderate: 'Stres yönetimi teknikleri (yoga, doğa yürüyüşü, hobi) ile daha da iyileştirebilirsiniz.',
+    low: 'Stresi iyi yönetmek, hem mental hem fiziksel sağlığınız için büyük avantaj.'
+   }
+  },
+  social: {
+   name: 'Sosyal Bağlantılar',
+   icon: '🤝',
+   options: {
+    isolated: { label: 'İzole',  life: -3, health: -4 },
+    some:     { label: 'Az',     life: 0,  health: 0  },
+    strong:   { label: 'Güçlü',  life: 2,  health: 3  }
+   },
+   bestOption: 'strong',
+   advice: {
+    isolated: 'Sosyal izolasyon, günde 15 sigara içmek kadar risklidir (Holt-Lunstad 2015). Topluluk aktiviteleri deneyin.',
+    some: 'İlişkilerinizi güçlendirmek için haftada 1 sosyal aktivite hedefleyin.',
+    strong: 'Güçlü sosyal bağlar uzun yaşamın en güçlü belirleyicilerinden biri. Sürdürün!'
+   }
+  },
+  chronic: {
+   name: 'Kronik Hastalık',
+   icon: '🏥',
+   // Special: checkbox-based, handled differently
+   perDisease: { life: -2, health: -3 },
+   maxImpact: { life: -6, health: -8 },
+   diseases: {
+    diabetes: 'Diyabet',
+    hypertension: 'Hipertansiyon',
+    heart: 'Kalp Hastalığı'
+   },
+   advice: {
+    has: 'Kronik hastalıkların iyi yönetimi (ilaç uyumu, düzenli kontrol) olumsuz etkiyi önemli ölçüde azaltır.',
+    none: 'Kronik hastalığınız olmaması büyük bir avantaj. Düzenli check-up ile bu durumu koruyun.'
+   }
+  }
+ };
+
+ // Factor order for iteration
+ const FACTOR_ORDER = ['smoking', 'exercise', 'bmi', 'diet', 'sleep', 'alcohol', 'stress', 'social', 'chronic'];
+
+ // ===============================
+ // STATE
+ // ===============================
+
+ let state = {
+  currentStep: 1,
+  age: null,
+  gender: null,
+  baselineLife: null,
+  baselineHale: null,
+  baselineGap: null,
+  answers: {},       // { factorKey: selectedValue }
+  userLife: null,
+  userHale: null,
+  userGap: null
+ };
+
+ // ===============================
+ // DOM REFERENCES
+ // ===============================
+
+ const $ = (sel) => document.querySelector(sel);
+ const $$ = (sel) => document.querySelectorAll(sel);
+
+ // ===============================
+ // UTILITY FUNCTIONS
+ // ===============================
+
+ function clamp(val, min, max) {
+  return Math.max(min, Math.min(max, val));
+ }
+
+ function round1(val) {
+  return Math.round(val * 10) / 10;
+ }
+
+ function animateNumber(el, target, suffix, duration) {
+  suffix = suffix || '';
+  duration = duration || 800;
+  const start = parseFloat(el.textContent) || 0;
+  const diff = target - start;
+  const startTime = performance.now();
+
+  function step(now) {
+   const elapsed = now - startTime;
+   const progress = Math.min(elapsed / duration, 1);
+   const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+   const current = start + diff * eased;
+   el.textContent = round1(current) + suffix;
+   if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+ }
+
+ function scrollToElement(el, offset) {
+  offset = offset || 80;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+ }
+
+ // ===============================
+ // STEP 1 LOGIC
+ // ===============================
+
+ function validateStep1() {
+  const age = parseInt($('#inp-age').value);
+  const gender = document.querySelector('input[name="gender"]:checked');
+  const valid = age >= 18 && age <= 100 && gender;
+  $('#btn-step1').disabled = !valid;
+  return valid;
+ }
+
+ function calculateStep1() {
+  const age = parseInt($('#inp-age').value);
+  const gender = document.querySelector('input[name="gender"]:checked').value;
+
+  state.age = age;
+  state.gender = gender;
+
+  const base = BASELINE[gender];
+  state.baselineLife = base.lifeExpectancy;
+  state.baselineHale = base.hale;
+  state.baselineGap = base.gap;
+
+  // Remaining years
+  const remainingLife = Math.max(0, base.lifeExpectancy - age);
+  const remainingHealthy = Math.max(0, base.hale - age);
+  const remainingUnhealthy = Math.max(0, remainingLife - remainingHealthy);
+
+  // Show result
+  $('#step1-result').classList.remove('hidden');
+
+  // Animate gap number
+  const gapEl = $('#s1-gap-number');
+  gapEl.textContent = '0';
+  animateNumber(gapEl, round1(remainingUnhealthy), '', 1000);
+
+  // Bar title
+  const genderLabel = gender === 'male' ? 'Erkek' : 'Kadın';
+  $('#s1-bar-title').textContent = `Türkiye Ortalaması (${genderLabel})`;
+  $('#s1-bar-years').textContent = `${round1(remainingLife)} yıl kaldı`;
+
+  // Animate bars
+  setTimeout(() => {
+   const lifeWidth = 100;
+   const healthyPct = remainingLife > 0 ? (remainingHealthy / remainingLife) * 100 : 0;
+   const unhealthyPct = remainingLife > 0 ? (remainingUnhealthy / remainingLife) * 100 : 0;
+
+   $('#s1-bar-healthy').style.width = healthyPct + '%';
+   $('#s1-bar-unhealthy').style.width = unhealthyPct + '%';
+   $('#s1-bar-remaining').style.width = '0%';
+
+   // Add text labels to bars
+   if (healthyPct > 15) {
+    $('#s1-bar-healthy').textContent = round1(remainingHealthy) + ' yıl';
+   }
+   if (unhealthyPct > 15) {
+    $('#s1-bar-unhealthy').textContent = round1(remainingUnhealthy) + ' yıl';
+   }
+  }, 200);
+
+  // Scroll to result
+  setTimeout(() => {
+   scrollToElement($('#step1-result'), 120);
+  }, 300);
+
+  // Track event
+  if (typeof gtag === 'function') {
+   gtag('event', 'step1_complete', {
+    event_category: 'healthspan_calc',
+    event_label: gender,
+    value: age
+   });
+  }
+ }
+
+ // ===============================
+ // STEP 2 LOGIC: LIVE CALCULATION
+ // ===============================
+
+ function getFactorImpact(factorKey) {
+  if (factorKey === 'chronic') {
+   return getChronicImpact();
+  }
+
+  const answer = state.answers[factorKey];
+  if (!answer) return { life: 0, health: 0 };
+
+  const factor = FACTORS[factorKey];
+  const opt = factor.options[answer];
+  return { life: opt.life, health: opt.health };
+ }
+
+ function getChronicImpact() {
+  const checks = document.querySelectorAll('.chronic-check:checked');
+  const noneChecked = document.querySelector('.chronic-none-check:checked');
+
+  if (noneChecked || checks.length === 0) {
+   return { life: 0, health: 0 };
+  }
+
+  let count = 0;
+  checks.forEach(cb => {
+   if (cb.value !== 'none') count++;
+  });
+
+  const factor = FACTORS.chronic;
+  const lifeImpact = Math.max(factor.maxImpact.life, count * factor.perDisease.life);
+  const healthImpact = Math.max(factor.maxImpact.health, count * factor.perDisease.health);
+
+  return { life: lifeImpact, health: healthImpact };
+ }
+
+ function calculateLive() {
+  if (!state.age || !state.gender) return;
+
+  const base = BASELINE[state.gender];
+  let totalLifeAdj = 0;
+  let totalHealthAdj = 0;
+
+  FACTOR_ORDER.forEach(key => {
+   const impact = getFactorImpact(key);
+   totalLifeAdj += impact.life;
+   totalHealthAdj += impact.health;
+  });
+
+  // Calculate adjusted values
+  const adjustedLife = clamp(base.lifeExpectancy + totalLifeAdj, state.age, 120);
+  const adjustedHale = clamp(base.hale + totalHealthAdj, state.age, adjustedLife);
+  const adjustedGap = adjustedLife - adjustedHale;
+
+  state.userLife = adjustedLife;
+  state.userHale = adjustedHale;
+  state.userGap = adjustedGap;
+
+  // Remaining years from current age
+  const remainLife = Math.max(0, adjustedLife - state.age);
+  const remainHealthy = Math.max(0, adjustedHale - state.age);
+  const remainUnhealthy = Math.max(0, remainLife - remainHealthy);
+
+  // Update live bar
+  $('#lb-healthy').textContent = `💚 Sağlıklı: ${round1(remainHealthy)} yıl`;
+  $('#lb-unhealthy').textContent = `🔴 Hasta: ${round1(remainUnhealthy)} yıl`;
+  $('#lb-total').textContent = `Toplam: ${round1(remainLife)} yıl`;
+
+  // Update bar widths
+  if (remainLife > 0) {
+   const healthyPct = (remainHealthy / remainLife) * 100;
+   const unhealthyPct = (remainUnhealthy / remainLife) * 100;
+   $('#lb-bar-healthy').style.width = healthyPct + '%';
+   $('#lb-bar-unhealthy').style.width = unhealthyPct + '%';
+  }
+ }
+
+ function initLiveBar() {
+  if (!state.age || !state.gender) return;
+
+  const base = BASELINE[state.gender];
+  const remainLife = Math.max(0, base.lifeExpectancy - state.age);
+  const remainHealthy = Math.max(0, base.hale - state.age);
+  const remainUnhealthy = Math.max(0, remainLife - remainHealthy);
+
+  state.userLife = base.lifeExpectancy;
+  state.userHale = base.hale;
+  state.userGap = base.gap;
+
+  $('#lb-healthy').textContent = `💚 Sağlıklı: ${round1(remainHealthy)} yıl`;
+  $('#lb-unhealthy').textContent = `🔴 Hasta: ${round1(remainUnhealthy)} yıl`;
+  $('#lb-total').textContent = `Toplam: ${round1(remainLife)} yıl`;
+
+  if (remainLife > 0) {
+   const healthyPct = (remainHealthy / remainLife) * 100;
+   const unhealthyPct = (remainUnhealthy / remainLife) * 100;
+   $('#lb-bar-healthy').style.width = healthyPct + '%';
+   $('#lb-bar-unhealthy').style.width = unhealthyPct + '%';
+  }
+ }
+
+ // ===============================
+ // STEP 3 LOGIC: RESULTS
+ // ===============================
+
+ function calculateResults() {
+  if (!state.age || !state.gender) return;
+
+  const base = BASELINE[state.gender];
+  const genderLabel = state.gender === 'male' ? 'Erkek' : 'Kadın';
+
+  // Baseline remaining
+  const avgRemainLife = Math.max(0, base.lifeExpectancy - state.age);
+  const avgRemainHealthy = Math.max(0, base.hale - state.age);
+  const avgRemainUnhealthy = Math.max(0, avgRemainLife - avgRemainHealthy);
+
+  // User remaining
+  const userRemainLife = Math.max(0, state.userLife - state.age);
+  const userRemainHealthy = Math.max(0, state.userHale - state.age);
+  const userRemainUnhealthy = Math.max(0, userRemainLife - userRemainHealthy);
+
+  // --- Comparison Cards ---
+  $('#r-avg-healthy').textContent = round1(avgRemainHealthy);
+  $('#r-avg-unhealthy').textContent = round1(avgRemainUnhealthy);
+  $('#r-avg-total').textContent = `Toplam: ${round1(avgRemainLife)} yıl`;
+
+  $('#r-user-healthy').textContent = round1(userRemainHealthy);
+  $('#r-user-unhealthy').textContent = round1(userRemainUnhealthy);
+  $('#r-user-total').textContent = `Toplam: ${round1(userRemainLife)} yıl`;
+
+  // --- Visual Bars ---
+  const maxLife = Math.max(avgRemainLife, userRemainLife, 1);
+
+  // Average bar
+  $('#r-bar-avg-years').textContent = `${round1(avgRemainHealthy)} sağlıklı + ${round1(avgRemainUnhealthy)} hasta`;
+  setTimeout(() => {
+   $('#r-bar-avg-healthy').style.width = ((avgRemainHealthy / maxLife) * 100) + '%';
+   $('#r-bar-avg-unhealthy').style.width = ((avgRemainUnhealthy / maxLife) * 100) + '%';
+  }, 300);
+
+  // User bar
+  $('#r-bar-user-years').textContent = `${round1(userRemainHealthy)} sağlıklı + ${round1(userRemainUnhealthy)} hasta`;
+  setTimeout(() => {
+   $('#r-bar-user-healthy').style.width = ((userRemainHealthy / maxLife) * 100) + '%';
+   $('#r-bar-user-unhealthy').style.width = ((userRemainUnhealthy / maxLife) * 100) + '%';
+  }, 500);
+
+  // --- Score Badge ---
+  const userGapFromAvg = round1(userRemainUnhealthy - avgRemainUnhealthy);
+  const gapNum = $('#r-gap-number');
+  const gapLabel = $('#r-gap-label');
+
+  if (userRemainUnhealthy <= avgRemainUnhealthy) {
+   gapNum.className = 'sb-number good';
+   gapNum.textContent = round1(userRemainUnhealthy) + ' yıl';
+   gapLabel.textContent = 'hasta geçebilecek yılınız (ortalamanın altında!)';
+  } else {
+   gapNum.className = 'sb-number bad';
+   gapNum.textContent = round1(userRemainUnhealthy) + ' yıl';
+   gapLabel.textContent = 'hasta geçebilecek yılınız';
+  }
+
+  // --- Verdict ---
+  const verdictCard = $('#results-verdict');
+  const vEmoji = $('#r-verdict-emoji');
+  const vText = $('#r-verdict-text');
+  const vDetail = $('#r-verdict-detail');
+
+  if (userRemainUnhealthy < avgRemainUnhealthy - 1) {
+   verdictCard.className = 'verdict-card positive';
+   vEmoji.textContent = '🟢';
+   vText.textContent = 'Ortalamanın üstündesiniz!';
+   vDetail.textContent = `Türkiye ortalamasına göre ${round1(avgRemainUnhealthy - userRemainUnhealthy)} yıl daha az hasta geçirebilirsiniz. Tebrikler!`;
+  } else if (userRemainUnhealthy > avgRemainUnhealthy + 1) {
+   verdictCard.className = 'verdict-card negative';
+   vEmoji.textContent = '🔴';
+   vText.textContent = 'Dikkat — Ortalamanın altındasınız';
+   vDetail.textContent = `Türkiye ortalamasına göre ${round1(userRemainUnhealthy - avgRemainUnhealthy)} yıl daha fazla hasta geçirebilirsiniz. Ama bu değiştirilebilir!`;
+  } else {
+   verdictCard.className = 'verdict-card positive';
+   vEmoji.textContent = '🟡';
+   vText.textContent = 'Ortalama civarındasınız';
+   vDetail.textContent = 'Türkiye ortalamasına yakın bir noktadasınız. Küçük değişikliklerle farkınızı kapatabilirsiniz.';
+  }
+
+  // --- Recommendations (Top 3 worst factors) ---
+  generateRecommendations();
+
+  // --- Factor Breakdown ---
+  generateBreakdown();
+
+  // --- Share Links ---
+  setupShareLinks(userRemainHealthy, userRemainUnhealthy);
+
+  // Track event
+  if (typeof gtag === 'function') {
+   gtag('event', 'step3_results', {
+    event_category: 'healthspan_calc',
+    event_label: state.gender,
+    value: Math.round(userRemainUnhealthy)
+   });
+  }
+ }
+
+ function generateRecommendations() {
+  const recoContainer = $('#reco-cards');
+  recoContainer.innerHTML = '';
+
+  // Calculate potential gain for each factor
+  const gains = [];
+
+  FACTOR_ORDER.forEach(key => {
+   if (key === 'chronic') {
+    // Chronic is not easily changeable, but still show
+    const impact = getChronicImpact();
+    if (impact.health < 0) {
+     gains.push({
+      key: key,
+      name: FACTORS[key].name,
+      icon: FACTORS[key].icon,
+      currentHealth: impact.health,
+      currentLife: impact.life,
+      potentialGain: Math.abs(impact.health) * 0.5, // Managing chronic disease can halve impact
+      currentLabel: 'Kronik hastalık mevcut',
+      advice: FACTORS[key].advice.has
+     });
+    }
+    return;
+   }
+
+   const answer = state.answers[key];
+   if (!answer) return;
+
+   const factor = FACTORS[key];
+   const current = factor.options[answer];
+   const best = factor.options[factor.bestOption];
+
+   // Calculate how much they could gain
+   const healthGain = best.health - current.health;
+   const lifeGain = best.life - current.life;
+
+   if (healthGain > 0) {
+    gains.push({
+     key: key,
+     name: factor.name,
+     icon: factor.icon,
+     currentHealth: current.health,
+     currentLife: current.life,
+     potentialGain: healthGain,
+     potentialLifeGain: lifeGain,
+     currentLabel: current.label,
+     bestLabel: best.label,
+     advice: factor.advice[answer]
+    });
+   }
+  });
+
+  // Sort by potential gain (most impactful first)
+  gains.sort((a, b) => b.potentialGain - a.potentialGain);
+
+  // Take top 3
+  const top3 = gains.slice(0, 3);
+
+  if (top3.length === 0) {
+   recoContainer.innerHTML = `
+    <div class="card card-highlight text-center" style="padding: 1.5rem;">
+     <p style="font-size: 2rem; margin-bottom: 0.5rem;">🌟</p>
+     <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.3rem;">Harika! Tüm alanlarda iyi durumdasınız.</p>
+     <p style="font-size: 0.88rem; color: rgba(255,255,255,0.6);">Mevcut yaşam tarzınızı sürdürmek en iyi strateji.</p>
+    </div>`;
+   return;
+  }
+
+  top3.forEach((rec, i) => {
+   const rankClass = 'rank-' + (i + 1);
+   const card = document.createElement('div');
+   card.className = 'reco-card';
+   card.style.animationDelay = (i * 0.15) + 's';
+   card.innerHTML = `
+    <div class="reco-rank ${rankClass}">${i + 1}</div>
+    <div class="reco-content">
+     <div class="rc-name">${rec.icon} ${rec.name}</div>
+     <div class="rc-current">Şu an: ${rec.currentLabel}</div>
+     <div class="rc-advice">${rec.advice}</div>
+     <div class="rc-gain">
+      🎯 Bu adımla sağlıklı yıllarınız ~${round1(rec.potentialGain)} yıl artabilir
+     </div>
+    </div>`;
+   recoContainer.appendChild(card);
+  });
+ }
+
+ function generateBreakdown() {
+  const container = $('#breakdown-list');
+  container.innerHTML = '';
+
+  FACTOR_ORDER.forEach(key => {
+   const factor = FACTORS[key];
+   let impact, label;
+
+   if (key === 'chronic') {
+    impact = getChronicImpact();
+    const checks = document.querySelectorAll('.chronic-check:checked');
+    const noneChecked = document.querySelector('.chronic-none-check:checked');
+    if (noneChecked || checks.length === 0) {
+     label = 'Yok';
+    } else {
+     const names = [];
+     checks.forEach(cb => {
+      if (cb.value !== 'none' && factor.diseases[cb.value]) {
+       names.push(factor.diseases[cb.value]);
+      }
+     });
+     label = names.join(', ');
+    }
+   } else {
+    const answer = state.answers[key];
+    if (!answer) {
+     label = 'Cevaplanmadı';
+     impact = { life: 0, health: 0 };
+    } else {
+     label = factor.options[answer].label;
+     impact = { life: factor.options[answer].life, health: factor.options[answer].health };
+    }
+   }
+
+   const lifeColor = impact.life > 0 ? 'highlight-green' : impact.life < 0 ? 'highlight-red' : '';
+   const healthColor = impact.health > 0 ? 'highlight-green' : impact.health < 0 ? 'highlight-red' : '';
+   const lifeSign = impact.life > 0 ? '+' : '';
+   const healthSign = impact.health > 0 ? '+' : '';
+
+   const row = document.createElement('div');
+   row.style.cssText = 'display:flex; align-items:center; justify-content:space-between; padding:0.6rem 0; border-bottom:1px solid rgba(255,255,255,0.06);';
+   row.innerHTML = `
+    <div style="display:flex; align-items:center; gap:0.5rem; flex:1;">
+     <span style="font-size:1.1rem;">${factor.icon}</span>
+     <div>
+      <div style="font-weight:600; font-size:0.85rem;">${factor.name}</div>
+      <div style="font-size:0.75rem; color:rgba(255,255,255,0.4);">${label}</div>
+     </div>
+    </div>
+    <div style="display:flex; gap:1rem; text-align:right;">
+     <div>
+      <div class="${lifeColor}" style="font-weight:700; font-size:0.85rem;">${lifeSign}${impact.life} yıl</div>
+      <div style="font-size:0.65rem; color:rgba(255,255,255,0.35);">Yaşam</div>
+     </div>
+     <div>
+      <div class="${healthColor}" style="font-weight:700; font-size:0.85rem;">${healthSign}${impact.health} yıl</div>
+      <div style="font-size:0.65rem; color:rgba(255,255,255,0.35);">Sağlık</div>
+     </div>
+    </div>`;
+   container.appendChild(row);
+  });
+ }
+
+ function setupShareLinks(healthy, unhealthy) {
+  const text = `Sağlık süresi hesaplayıcısına göre ${round1(healthy)} yılım sağlıklı, ${round1(unhealthy)} yılım hasta geçebilir. Sen de hesapla:`;
+  const url = 'https://uzunyasa.com/pages/araclar/saglik-suresi-hesaplayici.html';
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`;
+
+  $('#share-twitter').href = twitterUrl;
+  $('#share-whatsapp').href = whatsappUrl;
+
+  $('#share-copy').onclick = function() {
+   navigator.clipboard.writeText(url).then(() => {
+    this.textContent = '✅ Kopyalandı!';
+    setTimeout(() => { this.textContent = '📋 Linki Kopyala'; }, 2000);
+   }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    this.textContent = '✅ Kopyalandı!';
+    setTimeout(() => { this.textContent = '📋 Linki Kopyala'; }, 2000);
+   });
+  };
+ }
+
+ // ===============================
+ // STEP NAVIGATION
+ // ===============================
+
+ function goToStep(stepNum) {
+  // Hide all steps
+  $$('.step-section').forEach(s => s.classList.remove('active'));
+
+  // Show target step
+  $(`#step-${stepNum}`).classList.add('active');
+
+  // Update progress
+  for (let i = 1; i <= 3; i++) {
+   const stepEl = $(`#prog-step-${i}`);
+   stepEl.classList.remove('active', 'completed');
+   if (i < stepNum) stepEl.classList.add('completed');
+   if (i === stepNum) stepEl.classList.add('active');
+  }
+
+  for (let i = 1; i <= 2; i++) {
+   const lineEl = $(`#prog-line-${i}`);
+   lineEl.classList.remove('active', 'completed');
+   if (i < stepNum) lineEl.classList.add('completed');
+   if (i === stepNum) lineEl.classList.add('active');
+  }
+
+  state.currentStep = stepNum;
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Step-specific init
+  if (stepNum === 2) {
+   initLiveBar();
+  }
+
+  if (stepNum === 3) {
+   calculateResults();
+  }
+ }
+
+ // ===============================
+ // EVENT LISTENERS
+ // ===============================
+
+ // Step 1: Age input
+ $('#inp-age').addEventListener('input', validateStep1);
+
+ // Step 1: Gender selection
+ $$('input[name="gender"]').forEach(radio => {
+  radio.addEventListener('change', validateStep1);
+ });
+
+ // Step 1: Calculate button
+ $('#btn-step1').addEventListener('click', function() {
+  if (!validateStep1()) return;
+  calculateStep1();
+ });
+
+ // Step 1 → Step 2
+ $('#btn-goto-step2').addEventListener('click', function() {
+  goToStep(2);
+ });
+
+ // Step 2: Radio answers — live update
+ FACTOR_ORDER.forEach(key => {
+  if (key === 'chronic') return; // handled separately
+
+  const radios = document.querySelectorAll(`input[name="q-${key}"]`);
+  radios.forEach(radio => {
+   radio.addEventListener('change', function() {
+    state.answers[key] = this.value;
+    calculateLive();
+   });
+  });
+ });
+
+ // Step 2: Chronic checkboxes
+ $$('.chronic-check').forEach(cb => {
+  cb.addEventListener('change', function() {
+   if (this.value !== 'none') {
+    // Uncheck "none" when a disease is selected
+    const noneBox = document.querySelector('.chronic-none-check');
+    if (noneBox) noneBox.checked = false;
+   }
+   state.answers.chronic = 'checked';
+   calculateLive();
+  });
+ });
+
+ // "None" checkbox — exclusive behavior
+ const noneCheck = document.querySelector('.chronic-none-check');
+ if (noneCheck) {
+  noneCheck.addEventListener('change', function() {
+   if (this.checked) {
+    // Uncheck all disease checkboxes
+    $$('.chronic-check').forEach(cb => {
+     if (cb.value !== 'none') cb.checked = false;
+    });
+   }
+   state.answers.chronic = 'none';
+   calculateLive();
+  });
+ }
+
+ // Step 2 → Step 3
+ $('#btn-step2').addEventListener('click', function() {
+  // Ensure calculations are up to date
+  calculateLive();
+  goToStep(3);
+ });
+
+ // References toggle
+ $('#ref-toggle').addEventListener('click', function() {
+  this.classList.toggle('open');
+  $('#ref-list').classList.toggle('open');
+ });
+
+ // Restart button
+ $('#btn-restart').addEventListener('click', function() {
+  // Reset state
+  state = {
+   currentStep: 1,
+   age: null,
+   gender: null,
+   baselineLife: null,
+   baselineHale: null,
+   baselineGap: null,
+   answers: {},
+   userLife: null,
+   userHale: null,
+   userGap: null
+  };
+
+  // Reset form
+  $('#inp-age').value = '';
+  $$('input[name="gender"]').forEach(r => r.checked = false);
+  $$('.question-card input[type="radio"]').forEach(r => r.checked = false);
+  $$('.question-card input[type="checkbox"]').forEach(c => c.checked = false);
+
+  // Hide step 1 result
+  $('#step1-result').classList.add('hidden');
+
+  // Reset bars
+  $('#s1-bar-healthy').style.width = '0%';
+  $('#s1-bar-unhealthy').style.width = '0%';
+  $('#s1-bar-remaining').style.width = '100%';
+  $('#s1-bar-healthy').textContent = '';
+  $('#s1-bar-unhealthy').textContent = '';
+
+  // Reset button state
+  $('#btn-step1').disabled = true;
+
+  // Go to step 1
+  goToStep(1);
+ });
+
+ // ===============================
+ // KEYBOARD ACCESSIBILITY
+ // ===============================
+
+ // Allow Enter key to trigger button when focused
+ document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+   const active = document.activeElement;
+   if (active && active.tagName === 'INPUT' && active.type === 'number') {
+    e.preventDefault();
+    if (state.currentStep === 1 && !$('#btn-step1').disabled) {
+     calculateStep1();
+    }
+   }
+  }
+ });
+
+ // ===============================
+ // INITIAL STATE
+ // ===============================
+
+ // Ensure step 1 is visible
+ goToStep(1);
+
+ // Analytics: page view
+ if (typeof gtag === 'function') {
+  gtag('event', 'page_view', {
+   page_title: 'Sağlık Süresi Hesaplayıcı',
+   page_location: window.location.href
+  });
+ }
+
+})();
+</script>
+
+</body>
+</html>
