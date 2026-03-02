@@ -5,63 +5,63 @@ const path = require('path');
 const SLIDES = [
   {
     topLabel: '',
-    bigText: '10 Kitap\nHayatını Değiştirir',
+    bigText: 'Hayatını\nDeğiştirecek\n10 Kitap',
     subText: 'Bilimsel kanıta dayalı sağlık kitapları',
     accent: '#7c3aed',
     bgGrad: 'linear-gradient(180deg, #1a0a2e 0%, #0a1628 100%)',
   },
   {
     topLabel: '#1 · UZUN YAŞAM',
-    bigText: 'Outlive',
-    subText: 'Dr. Peter Attia\n\nLongevity tıbbının kutsal kitabı.\n4 büyük ölüm nedenini önlemenin\nkanıta dayalı stratejileri.',
-    bottomText: '🟢 Güçlü Kanıt · Türkçe çeviri var',
+    bigText: 'Uzun Yaşama\nBilimi ve Sanatı',
+    subText: 'Dr. Peter Attia\n\n4 büyük ölüm nedenini önlemenin\nkanıta dayalı stratejileri.\nLongevity tıbbının kutsal kitabı.',
+    bottomText: '🟢 Güçlü Kanıt · Pegasus Yayınları',
     accent: '#14919B',
     bgGrad: 'linear-gradient(180deg, #051a1c 0%, #0a1628 100%)',
   },
   {
-    topLabel: '#3 · UYKU',
-    bigText: 'Why We\nSleep',
-    subText: 'Prof. Matthew Walker\n\n7 saatten az uyku kronik hastalık\nriskini dramatik artırıyor.\nUyku lüks değil, biyolojik zorunluluk.',
-    bottomText: '🔵 İyi Kanıt · Türkçe çeviri var',
+    topLabel: '#2 · UYKU',
+    bigText: 'Neden\nUyuruz?',
+    subText: 'Prof. Matthew Walker\n\n7 saatten az uyku kronik hastalık\nriskini dramatik artırıyor.\nUyku lüks değil, zorunluluk.',
+    bottomText: '🔵 İyi Kanıt · Domingo Yayınevi',
     accent: '#6366f1',
     bgGrad: 'linear-gradient(180deg, #0a0a2e 0%, #0a1628 100%)',
   },
   {
-    topLabel: '#4 · BESLENME',
-    bigText: 'How Not\nto Die',
-    subText: 'Dr. Michael Greger\n\n15 ölüm nedeni için beslenme bazlı\nkanıtlar. Binlerce PubMed referansı.\n"Daily Dozen" listesi.',
-    bottomText: '🔵 İyi Kanıt · Türkçe çeviri var',
+    topLabel: '#3 · BESLENME',
+    bigText: 'Ölmek ya da\nÖlmemek',
+    subText: 'Dr. Michael Greger\n\n15 ölüm nedeni için beslenme\nkanıtları. Binlerce PubMed referansı.\nGünlük 12 besin grubu listesi.',
+    bottomText: '🔵 İyi Kanıt · Türkçe mevcut',
     accent: '#16a34a',
     bgGrad: 'linear-gradient(180deg, #051a0a 0%, #0a1628 100%)',
   },
   {
-    topLabel: '#6 · METABOLİZMA',
-    bigText: 'Good\nEnergy',
-    subText: 'Dr. Casey Means\n\nKronik hastalıkların kök nedeni:\nmitokondriyal disfonksiyon.\nABD\'de sadece %6,8 optimal\nmetabolik sağlığa sahip.',
-    bottomText: '🔵 İyi Kanıt · İngilizce',
+    topLabel: '#4 · KAN ŞEKERİ',
+    bigText: 'Glikoz\nDevrimi',
+    subText: 'Jessie Inchauspé\n\nYemeğe sebzeyle başla,\nsonra protein, en son karbonhidrat.\nKan şekeri tepkisini %73 azalt.',
+    bottomText: '🟡 Orta Kanıt · Türkçe mevcut',
     accent: '#E8963E',
     bgGrad: 'linear-gradient(180deg, #1a1005 0%, #0a1628 100%)',
   },
   {
-    topLabel: '#8 · EGZERSİZ',
-    bigText: 'Exercised',
+    topLabel: '#5 · EGZERSİZ',
+    bigText: 'Egzersiz\nYapmak',
     subText: 'Prof. Daniel Lieberman\n\nHarvard evrimsel biyoloji.\nEgzersiz mitleri bilimle çürütülüyor.\nGünlük yürüyüş ölüm riskini\n%20-30 azaltıyor.',
-    bottomText: '🟢 Güçlü Kanıt · Türkçe çeviri var',
+    bottomText: '🟢 Güçlü Kanıt · Türkçe mevcut',
     accent: '#ef4444',
     bgGrad: 'linear-gradient(180deg, #1a0505 0%, #0a1628 100%)',
   },
   {
-    topLabel: '#9 · ZİHİNSEL SAĞLIK',
-    bigText: 'The Body\nKeeps the\nScore',
-    subText: 'Dr. Bessel van der Kolk\n\nTravma bedende nasıl kayıtlanıyor?\n30 yıllık araştırma ve fMRI verisi.',
-    bottomText: '🟢 Güçlü Kanıt · Türkçe çeviri var',
+    topLabel: '#6 · ZİHİNSEL SAĞLIK',
+    bigText: 'Beden\nKayıt Tutar',
+    subText: 'Dr. Bessel van der Kolk\n\nTravma bedende nasıl kayıtlanıyor?\n30 yıllık araştırma ve fMRI verisi.\nYoga, EMDR, nefes çalışması.',
+    bottomText: '🟢 Güçlü Kanıt · Feynman Yayınları',
     accent: '#ec4899',
     bgGrad: 'linear-gradient(180deg, #1a0515 0%, #0a1628 100%)',
   },
   {
     topLabel: '',
     bigText: 'Oku.\nAnla.\nUygula.',
-    subText: 'Sağlık bilgisi lüks değil, haktır.',
+    subText: 'Sağlık bilgisi lüks değil, haktır.\nTüm listede 10 kitap + kanıt düzeyleri',
     bottomText: 'uzunyasa.com',
     accent: '#14919B',
     bgGrad: 'linear-gradient(180deg, #051a1c 0%, #0a1628 100%)',
@@ -72,9 +72,9 @@ const SLIDES = [
 function generateSlideHTML(slide, index) {
   const isCTA = slide.isCTA;
   const bigFontSize = !slide.bigText ? '0px' :
-                      slide.bigText.length <= 10 ? '160px' :
-                      slide.bigText.length <= 18 ? '110px' :
-                      slide.bigText.length <= 30 ? '88px' : '72px';
+                      slide.bigText.length <= 15 ? '140px' :
+                      slide.bigText.length <= 25 ? '100px' :
+                      slide.bigText.length <= 40 ? '80px' : '68px';
 
   return `<!DOCTYPE html>
 <html><head><meta charset="UTF-8">
@@ -86,8 +86,8 @@ body { width: 1080px; height: 1920px; font-family: 'Inter', sans-serif; color: #
 .content { position: relative; z-index: 10; width: 100%; height: 100%; padding: 120px 80px 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .top-label { position: absolute; top: 120px; left: 0; right: 0; font-size: 18px; font-weight: 700; letter-spacing: 4px; color: ${slide.accent}; text-align: center; text-transform: uppercase; }
 .accent-line { width: 60px; height: 4px; border-radius: 2px; background: ${slide.accent}; margin-bottom: 40px; }
-.big-text { font-family: 'Playfair Display', serif; font-size: ${bigFontSize}; font-weight: 900; line-height: 1.0; color: #fff; text-shadow: 0 4px 40px rgba(0,0,0,0.5); white-space: pre-line; ${isCTA ? `background: linear-gradient(135deg, #14919B, #E8963E); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;` : ''} }
-.sub-text { font-size: 32px; font-weight: 400; color: rgba(255,255,255,0.75); line-height: 1.5; margin-top: 40px; white-space: pre-line; max-width: 850px; }
+.big-text { font-family: 'Playfair Display', serif; font-size: ${bigFontSize}; font-weight: 900; line-height: 1.05; color: #fff; text-shadow: 0 4px 40px rgba(0,0,0,0.5); white-space: pre-line; ${isCTA ? `background: linear-gradient(135deg, #14919B, #E8963E); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;` : ''} }
+.sub-text { font-size: 30px; font-weight: 400; color: rgba(255,255,255,0.75); line-height: 1.5; margin-top: 40px; white-space: pre-line; max-width: 850px; }
 .bottom-text { position: absolute; bottom: 140px; left: 0; right: 0; font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.4); text-align: center; letter-spacing: 1px; }
 .slide-num { position: absolute; top: 60px; right: 80px; font-size: 16px; font-weight: 600; color: rgba(255,255,255,0.2); }
 .logo-cta { font-size: 28px; font-weight: 700; letter-spacing: 1px; margin-top: 48px; }
