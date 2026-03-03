@@ -52,6 +52,14 @@ const REELS = {
     "Person jogging through green park with bright sunlight, cinematic slow motion feel, hopeful, no text",
     "Person standing up from desk stretching arms above head, warm office light, relief moment, no text",
     "Abstract teal flowing gradient with upward light particles, smooth and uplifting, no text"
+  ],
+  gencim: [
+    "Young diverse people running and laughing in a sunny park at golden hour, energetic lifestyle, vibrant warm tones, cinematic photography, no text no letters",
+    "Dark dramatic scientific data visualization with red glowing numbers 23 floating in space, medical research aesthetic, no text no letters",
+    "Beautiful Mediterranean food and running shoes side by side on wooden surface, healthy lifestyle concept, warm natural lighting, no text no letters",
+    "Harvard university campus with autumn trees golden light, prestigious academic architecture, warm hopeful atmosphere, cinematic, no text no letters",
+    "Multigenerational family exercising together in nature park, grandparents with children, warm sunset golden light, emotional and heartwarming, no text no letters",
+    "Person standing on hilltop at sunrise with arms wide open, green nature, golden light rays, freedom hope and new beginning, inspiring cinematic, no text no letters"
   ]
 };
 

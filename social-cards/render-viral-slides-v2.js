@@ -52,6 +52,14 @@ const REELS = {
     { text: 'Saatte 1 Kez\n2-3 Dakika Kalk', sub: 'Bu kadar basit.\nRisk %30 azalıyor.', accent: '#10b981', label: 'American Heart Association' },
     { text: 'Her Saat Başı\nKalk', sub: 'Bu kadar.', accent: '#14919B', label: 'uzunyasa.com', isCTA: true },
   ],
+  'gencim': [
+    { text: 'Gencim Güzelim\nBana Bir Şey\nOlmaz', sub: '38.481 kişilik çalışma\nbu cümleyi çürüttü.', accent: '#E8963E', label: '' },
+    { text: '23 Yıl Fark', sub: '30 yaşında en sağlıklı vs\nen sağlıksız yaşam tarzı arasında\nerkeklerde 23, kadınlarda 18 yıl', accent: '#ef4444', label: 'Jackowska et al. · PLoS ONE · 2024 · 38.481 Kişi' },
+    { text: 'Sadece\n4 Seçim', sub: 'Sigara içmemek\nDüzenli hareket\nİyi beslenme\nSağlıklı kilo', accent: '#14919B', label: 'PAHALISI YOK · KARMAŞIĞI YOK' },
+    { text: 'Harvard:\n+14 Yıl', sub: '5 alışkanlık sürdüren 50 yaşındakiler\n14 yıl daha uzun yaşıyor', accent: '#10b981', label: 'Li et al. · Circulation · 2018 · 123.219 Kişi' },
+    { text: 'Genetik\n≠ Kader', sub: 'Ailede kalp hastalığı olanlar bile\ngençlikte sağlıklı yaşayınca\nriski sıfırladı', accent: '#10b981', label: 'CARDIA Study · Circulation · 2012' },
+    { text: 'Sağlık Süren\nKaç Yıl?', sub: '2 dakikada öğren.', accent: '#14919B', label: 'uzunyasa.com/test', isCTA: true },
+  ],
 };
 
 function generateSlideHTML(slide, reelAccent, index, total) {
@@ -173,7 +181,10 @@ async function main() {
     executablePath: '/home/clawdbot/.cache/puppeteer/chrome/linux-145.0.7632.77/chrome-linux64/chrome'
   });
 
-  for (const [reelName, slides] of Object.entries(REELS)) {
+  const filterReel = process.argv[2];
+  const entries = filterReel ? [[filterReel, REELS[filterReel]]] : Object.entries(REELS);
+  for (const [reelName, slides] of entries) {
+    if (!slides) { console.log(`❌ Reel "${reelName}" not found`); continue; }
     const outDir = path.join(__dirname, `reel-viral-${reelName}`);
     if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
