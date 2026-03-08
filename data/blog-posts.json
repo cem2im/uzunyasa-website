@@ -1,5 +1,19 @@
 [
   {
+    "id": "diyet-kisitlamasi-uzun-yasam",
+    "title": "Az Yemek Ömrü Uzatıyor mu? Bilimin Moleküler Cevabı",
+    "slug": "diyet-kisitlamasi-uzun-yasam",
+    "excerpt": "Nature Aging'den yeni derleme: Diyet kısıtlaması neden yaşlanmayı yavaşlatıyor? Otofaji, AMPK, mTOR ve 6 moleküler mekanizma Türkçe anlatımla.",
+    "description": "Nature Aging'den yeni derleme: Diyet kısıtlaması neden yaşlanmayı yavaşlatıyor? Otofaji, AMPK, mTOR ve 6 moleküler mekanizma Türkçe anlatımla.",
+    "category": "Uzun Yaşam Bilimi",
+    "date": "2026-03-08",
+    "readTime": "8 dk",
+    "icon": "🥗",
+    "image": "../images/blog/diyet-kisitlamasi.jpg",
+    "url": "pages/blog/diyet-kisitlamasi-uzun-yasam.html",
+    "tags": ["diyet", "longevity", "aralıklı oruç", "otofaji", "kalori kısıtlaması"]
+  },
+  {
     "title": "Ömrünüzün Yarısı Genlerinizde mi? Science Dergisi Cevapladı",
     "slug": "omur-kalitimsal-genetik-yasam-suresi",
     "date": "2026-03-06",
