@@ -1,5 +1,25 @@
 [
   {
+    "slug": "glp1-agonistleri-ve-tirzepatidin-bobrek-sagligina-etkileri",
+    "title": "GLP-1 Agonistleri ve Tirzepatid'in Böbrek Sağlığına Etkileri",
+    "description": "GLP-1 reseptör agonistleri ve tirzepatid'in kronik böbrek hastalığı üzerindeki etkilerini inceleyen kapsamlı bilimsel değerlendirme. Diyabet ve obezitede böbrek koruma kanıtları.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-03-19",
+    "readTime": 12,
+    "tags": [
+      "glp-1",
+      "tirzepatid",
+      "böbrek-hastalığı",
+      "diyabet",
+      "obezite"
+    ],
+    "priority": "high",
+    "area": "glp1"
+  },
+  {
     "id": "diyet-kisitlamasi-uzun-yasam",
     "title": "Az Yemek Ömrü Uzatıyor mu? Bilimin Moleküler Cevabı",
     "slug": "diyet-kisitlamasi-uzun-yasam",
@@ -11,7 +31,13 @@
     "icon": "🥗",
     "image": "../images/blog/diyet-kisitlamasi.jpg",
     "url": "pages/blog/diyet-kisitlamasi-uzun-yasam.html",
-    "tags": ["diyet", "longevity", "aralıklı oruç", "otofaji", "kalori kısıtlaması"]
+    "tags": [
+      "diyet",
+      "longevity",
+      "aralıklı oruç",
+      "otofaji",
+      "kalori kısıtlaması"
+    ]
   },
   {
     "title": "Ömrünüzün Yarısı Genlerinizde mi? Science Dergisi Cevapladı",
