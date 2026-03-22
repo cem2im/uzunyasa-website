@@ -1,5 +1,28 @@
 [
   {
+    "slug": "kahvalti-secimi-kalp-sagliginizi-nasil-etkiliyor-bilimsel-ka",
+    "title": "Kahvaltı Seçimi Kalp Sağlığınızı Nasıl Etkiliyor? Bilimsel Kanıtlar",
+    "description": "Batı tarzı ve Akdeniz tarzı kahvaltının vücudunuzdaki inflamasyon ve kalp sağlığına etkilerini inceleyen yeni araştırma bulguları.",
+    "category": "beslenme",
+    "categoryName": "Beslenme",
+    "categoryIcon": "🥗",
+    "categoryColor": "#10B981",
+    "date": "2026-03-22",
+    "readTime": 12,
+    "tags": [
+      "kahvaltı",
+      "akdeniz-diyeti",
+      "kalp-sağlığı",
+      "obezite",
+      "zeytinyağı",
+      "inflamasyon",
+      "beslenme",
+      "postprandial"
+    ],
+    "priority": "high",
+    "area": "nutrition"
+  },
+  {
     "slug": "yagli-karaciger-hastaliginda-kilo-verme-miktari-ne-kadar-one",
     "title": "Yağlı Karaciğer Hastalığında Kilo Verme Miktarı Ne Kadar Önemli?",
     "description": "MASLD'de kilo kaybının histolojik iyileşmeye etkisi: Yeni araştırma sonuçları ve pratik öneriler.",
