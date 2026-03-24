@@ -1,5 +1,27 @@
 [
   {
+    "slug": "cocukluk-travmasi-ve-obezite-iliskisi-ptsd-semptomlarinin-ka",
+    "title": "Çocukluk Travması ve Obezite İlişkisi: PTSD Semptomlarının Karmaşık Rolü",
+    "description": "Çocukluk çağı travmasının obezite riskini nasıl artırdığı ve PTSD semptomlarının bu ilişkideki karmaşık rolü yeni araştırmalarla açığa çıkıyor.",
+    "category": "bilim",
+    "categoryName": "Bilimsel Araştırmalar",
+    "categoryIcon": "🧬",
+    "categoryColor": "#8B5CF6",
+    "date": "2026-03-24",
+    "readTime": 12,
+    "tags": [
+      "travma",
+      "çocuk-sağlığı",
+      "obezite",
+      "PTSD",
+      "ruh-sağlığı",
+      "beslenme",
+      "çocukluk-istismarı"
+    ],
+    "priority": "high",
+    "area": "mental_health"
+  },
+  {
     "slug": "avokado-ve-inflamasyon-sistematik-inceleme-ne-diyor",
     "title": "Avokado ve İnflamasyon: Sistematik İnceleme Ne Diyor?",
     "description": "14 randomize klinik çalışmanın dahil edildiği sistematik incelemede avokado tüketiminin kronik inflamasyon ve oksidatif stres üzerindeki etkileri araştırıldı.",
