@@ -1,5 +1,28 @@
 [
   {
+    "slug": "glp1-ilaclari-vs-bariatrik-cerrahi-hangisi-daha-etkili",
+    "title": "GLP-1 İlaçları vs Bariatrik Cerrahi: Hangisi Daha Etkili?",
+    "description": "2026 meta-analizi GLP-1 agonistleri ile bariatrik cerrahiyi kıyasladı. Kilo verme, güvenlik ve yaşlılarda kullanım hakkında güncel bilgiler.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-03-25",
+    "readTime": 12,
+    "tags": [
+      "GLP-1",
+      "bariatrik-cerrahi",
+      "obezite-tedavisi",
+      "kilo-verme",
+      "semaglutide",
+      "metabolik-cerrahi",
+      "yaşlı-hastalarda-tedavi",
+      "karşılaştırmalı-etkinlik"
+    ],
+    "priority": "high",
+    "area": "glp1"
+  },
+  {
     "slug": "cocukluk-travmasi-ve-obezite-iliskisi-ptsd-semptomlarinin-ka",
     "title": "Çocukluk Travması ve Obezite İlişkisi: PTSD Semptomlarının Karmaşık Rolü",
     "description": "Çocukluk çağı travmasının obezite riskini nasıl artırdığı ve PTSD semptomlarının bu ilişkideki karmaşık rolü yeni araştırmalarla açığa çıkıyor.",
