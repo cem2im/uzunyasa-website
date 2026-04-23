@@ -1,5 +1,29 @@
 [
   {
+    "slug": "adiponektin-metabolik-hastaliklarda-yeni-umutlar-ve-guncel-b",
+    "title": "Adiponektin: Metabolik Hastalıklarda Yeni Umutlar ve Güncel Bilimsel Kanıtlar",
+    "description": "Adiponektinin metabolik hastalıklardaki rolü, güncel araştırma sonuçları ve pratik uygulamaları. Diabetes, obezite ve karaciğer yağlanmasında adiponektinin önemi.",
+    "category": "bilim",
+    "categoryName": "Bilimsel Araştırmalar",
+    "categoryIcon": "🧬",
+    "categoryColor": "#8B5CF6",
+    "date": "2026-04-23",
+    "readTime": 12,
+    "tags": [
+      "adiponektin",
+      "metabolik-hastaliklar",
+      "diabetes",
+      "obezite",
+      "insülin-direnci",
+      "biyobelirteç",
+      "GLP-1",
+      "yaşam-tarzı",
+      "egzersiz"
+    ],
+    "priority": "high",
+    "area": "glp1"
+  },
+  {
     "slug": "glp1-ilaclari-vs-bariatrik-cerrahi-hangisi-daha-etkili",
     "title": "GLP-1 İlaçları vs Bariatrik Cerrahi: Hangisi Daha Etkili?",
     "description": "2026 meta-analizi GLP-1 agonistleri ile bariatrik cerrahiyi kıyasladı. Kilo verme, güvenlik ve yaşlılarda kullanım hakkında güncel bilgiler.",
