@@ -1,5 +1,28 @@
 [
   {
+    "slug": "uyku-kalitesini-artirmak-kilo-vermeye-yardim-eder-mi",
+    "title": "Uyku Kalitesini Artırmak Kilo Vermeye Yardım Eder mi?",
+    "description": "Bilişsel davranışçı terapi ve uyku hijyeni müdahalelerinin obezite üzerindeki etkilerini inceleyen kapsamlı meta-analiz sonuçları.",
+    "category": "yasam-tarzi",
+    "categoryName": "Yaşam Tarzı",
+    "categoryIcon": "😴",
+    "categoryColor": "#06B6D4",
+    "date": "2026-04-28",
+    "readTime": 8,
+    "tags": [
+      "uyku-kalitesi",
+      "kilo-yonetimi",
+      "cbt-i",
+      "uyku-hijyeni",
+      "obezite",
+      "meta-analiz",
+      "yasam-tarzi",
+      "bilimsel-kanit"
+    ],
+    "priority": "high",
+    "area": "sleep_stress"
+  },
+  {
     "slug": "kilo-artiran-ilaclar-tirzepatidein-etkisini-azaltir-mi",
     "title": "Kilo Artıran İlaçlar Tirzepatide'in Etkisini Azaltır mı?",
     "description": "Yeni SURMOUNT analizi: antidepresan, kortikosteroid gibi kilo artıran ilaçlar kullanırken tirzepatide ne kadar etkili? Bilimsel kanıtlar ve pratik öneriler.",
