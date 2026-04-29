@@ -1,5 +1,28 @@
 [
   {
+    "slug": "glp1-ilaclarinin-yeni-kullanim-alanlari-diyabet-ve-obezite-o",
+    "title": "GLP-1 İlaçlarının Yeni Kullanım Alanları: Diyabet ve Obezite Ötesi",
+    "description": "GLP-1 agonistlerinin Alzheimer, Parkinson, madde bağımlılığı ve karaciğer hastalıkları gibi yeni tedavi alanlarındaki umut verici bulgular.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-04-29",
+    "readTime": 12,
+    "tags": [
+      "GLP-1",
+      "diyabet",
+      "obezite",
+      "alzheimer",
+      "parkinson",
+      "madde-bagimliligi",
+      "yeni-tedaviler",
+      "off-label"
+    ],
+    "priority": "high",
+    "area": "glp1"
+  },
+  {
     "slug": "uyku-kalitesini-artirmak-kilo-vermeye-yardim-eder-mi",
     "title": "Uyku Kalitesini Artırmak Kilo Vermeye Yardım Eder mi?",
     "description": "Bilişsel davranışçı terapi ve uyku hijyeni müdahalelerinin obezite üzerindeki etkilerini inceleyen kapsamlı meta-analiz sonuçları.",
