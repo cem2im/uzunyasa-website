@@ -1,5 +1,28 @@
 [
   {
+    "slug": "diyabetli-hastalarda-hipertansiyon-yonetimi-asyapasifik-uzla",
+    "title": "Diyabetli Hastalarda Hipertansiyon Yönetimi: Asya-Pasifik Uzlaşısı",
+    "description": "Asya-Pasifik Hipertansiyon ve Diyabet derneklerinin diyabetli hastalarda kan basıncı yönetimi için yeni uzlaşı önerileri ve Türkiye'deki uygulaması.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-04-30",
+    "readTime": 12,
+    "tags": [
+      "hipertansiyon",
+      "diyabet",
+      "kardiyovasküler",
+      "ilaç-tedavisi",
+      "kan-basıncı",
+      "ACE-inhibitörü",
+      "ARB",
+      "böbrek-hastalığı"
+    ],
+    "priority": "high",
+    "area": "glp1"
+  },
+  {
     "slug": "glp1-ilaclarinin-yeni-kullanim-alanlari-diyabet-ve-obezite-o",
     "title": "GLP-1 İlaçlarının Yeni Kullanım Alanları: Diyabet ve Obezite Ötesi",
     "description": "GLP-1 agonistlerinin Alzheimer, Parkinson, madde bağımlılığı ve karaciğer hastalıkları gibi yeni tedavi alanlarındaki umut verici bulgular.",
