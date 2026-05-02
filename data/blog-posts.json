@@ -1,5 +1,25 @@
 [
   {
+    "slug": "glp1-agonistleri-kalp-sagligini-uzun-vadede-koruyor-mu",
+    "title": "GLP-1 Agonistleri Kalp Sağlığını Uzun Vadede Koruyor mu?",
+    "description": "Yeni meta-analiz bulgularına göre GLP-1 agonistlerinin yüksek kardiyovasküler riskli hastalarda uzun vadeli güvenliği ve etkinliği araştırıldı.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-05-02",
+    "readTime": 12,
+    "tags": [
+      "glp1-agonistleri",
+      "kardiyovaskuler-saglik",
+      "tip2-diyabet",
+      "obezite",
+      "meta-analiz"
+    ],
+    "priority": "high",
+    "area": "glp1"
+  },
+  {
     "slug": "yasli-istismarinda-hemsire-egitiminin-kritik-rolu-guncel-kan",
     "title": "Yaşlı İstismarında Hemşire Eğitiminin Kritik Rolü: Güncel Kanıtlar",
     "description": "Yaşlı istismarının önlenmesinde hemşire eğitim programlarının etkinliği ve Türkiye'deki uygulamaları hakkında bilimsel veriler.",
