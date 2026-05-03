@@ -1,5 +1,28 @@
 [
   {
+    "slug": "cilt-hastaliklarinda-2026-tedavi-devrimi-yeni-ilaclar-neler-",
+    "title": "Cilt Hastalıklarında 2026 Tedavi Devrimi: Yeni İlaçlar Neler Vadediyor?",
+    "description": "Psoriasis, atopik dermatit ve hidradenitis suppurativa için 2026'da onaylanan yeni tedavi seçenekleri ve bunların Türkiye'ye yansımaları.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-05-03",
+    "readTime": 12,
+    "tags": [
+      "psoriasis",
+      "atopik-dermatit",
+      "hidradenitis-suppurativa",
+      "dermatoloji",
+      "yeni-ilaclar",
+      "TYK2",
+      "IL-23",
+      "GLP-1"
+    ],
+    "priority": "urgent",
+    "area": "glp1"
+  },
+  {
     "slug": "glp1-agonistleri-kalp-sagligini-uzun-vadede-koruyor-mu",
     "title": "GLP-1 Agonistleri Kalp Sağlığını Uzun Vadede Koruyor mu?",
     "description": "Yeni meta-analiz bulgularına göre GLP-1 agonistlerinin yüksek kardiyovasküler riskli hastalarda uzun vadeli güvenliği ve etkinliği araştırıldı.",
