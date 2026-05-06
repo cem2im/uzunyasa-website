@@ -1,5 +1,25 @@
 [
   {
+    "slug": "glp1-ilaclari-mide-bosalma-suresini-nasil-etkiliyor",
+    "title": "GLP-1 İlaçları Mide Boşalma Süresini Nasıl Etkiliyor?",
+    "description": "GLP-1 receptor agonistlerinin mide boşalma süresi üzerine etkilerini inceleyen meta-analiz bulgularını ve günlük yaşamdaki pratik sonuçlarını öğrenin.",
+    "category": "tedavi",
+    "categoryName": "Tedavi",
+    "categoryIcon": "💊",
+    "categoryColor": "#EC4899",
+    "date": "2026-05-06",
+    "readTime": 12,
+    "tags": [
+      "glp-1",
+      "mide-boşalması",
+      "diabetes",
+      "obezite",
+      "yan-etkiler"
+    ],
+    "priority": "high",
+    "area": "glp1"
+  },
+  {
     "slug": "glp1-agonistleri-ve-hidradenitis-suppurativa-yeni-umut-isigi",
     "title": "GLP-1 Agonistleri ve Hidradenitis Suppurativa: Yeni Umut Işığı",
     "description": "GLP-1 agonistlerinin hidradenitis suppurativa hastalarında ağrı azaltma ve yaşam kalitesi iyileştirme potansiyeli. Güncel bilimsel kanıtlar.",
