@@ -1,5 +1,28 @@
 [
   {
+    "slug": "okullarda-obeziteyle-mucadele-escolarisano-calismasi",
+    "title": "Okullarda Obeziteyle Mücadele: ESCOLARISANO Çalışması",
+    "description": "Düşük gelirli çocuklarda obezite ve metabolik hastalıkları önlemek için okul temelli kapsamlı müdahale programı. Beslenme eğitimi ve fiziksel aktivite kombinasyonu.",
+    "category": "kilo-yonetimi",
+    "categoryName": "Kilo Yönetimi",
+    "categoryIcon": "⚖️",
+    "categoryColor": "#F59E0B",
+    "date": "2026-05-07",
+    "readTime": 10,
+    "tags": [
+      "çocuk-sağlığı",
+      "obezite",
+      "okul-sağlığı",
+      "beslenme-eğitimi",
+      "fiziksel-aktivite",
+      "kardiometabolik",
+      "sosyoekonomik-faktörler",
+      "aile-katılımı"
+    ],
+    "priority": "high",
+    "area": "sleep_stress"
+  },
+  {
     "slug": "glp1-ilaclari-mide-bosalma-suresini-nasil-etkiliyor",
     "title": "GLP-1 İlaçları Mide Boşalma Süresini Nasıl Etkiliyor?",
     "description": "GLP-1 receptor agonistlerinin mide boşalma süresi üzerine etkilerini inceleyen meta-analiz bulgularını ve günlük yaşamdaki pratik sonuçlarını öğrenin.",
